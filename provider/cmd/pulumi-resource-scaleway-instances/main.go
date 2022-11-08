@@ -5,8 +5,8 @@ package main
 import (
 	_ "embed"
 
-	"github.com/cloudy-sky-software/pulumi-provider-template/provider/pkg/provider"
-	"github.com/cloudy-sky-software/pulumi-provider-template/provider/pkg/version"
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/provider/pkg/provider"
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/provider/pkg/version"
 )
 
 var providerName = "render"

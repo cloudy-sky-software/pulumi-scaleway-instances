@@ -1,4 +1,4 @@
-module github.com/cloudy-sky-software/pulumi-xyz/provider
+module github.com/cloudy-sky-software/pulumi-scaleway-instances/provider
 
 go 1.18
 
