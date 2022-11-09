@@ -2470,7 +2470,7 @@ paths:
                   description: Additional volumes of the image
                   properties:
                     <extra_volumeKey>:
-                      $ref: "#/components/schemas/scaleway.instance.v1.VolumeTemplate"
+                      $ref: "#/components/schemas/scaleway.instance.v1.Volume"
                   additionalProperties: true
                 organization:
                   type: string
