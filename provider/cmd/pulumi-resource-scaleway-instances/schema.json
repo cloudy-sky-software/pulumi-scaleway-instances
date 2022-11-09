@@ -131,10 +131,9 @@
             ]
         },
         "scaleway-instances:instance:ExtraVolumesProperties": {
-            "description": "Additional volumes of the image",
             "properties": {
                 "\u003cextra_volumeKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeTemplate"
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Volume"
                 }
             },
             "type": "object"
@@ -170,20 +169,6 @@
                 {
                     "name": "Drop",
                     "value": "drop"
-                }
-            ]
-        },
-        "scaleway-instances:instance:PolicyType": {
-            "description": "The policy type of the placement group",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "MaxAvailability",
-                    "value": "max_availability"
-                },
-                {
-                    "name": "LowLatency",
-                    "value": "low_latency"
                 }
             ]
         },
@@ -747,7 +732,6 @@
                 },
                 "policy_type": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1PlacementGroupPolicyType",
-                    "description": "Select the behavior of the placement group, either low_latency (group) or max_availability (spread)",
                     "default": "max_availability"
                 },
                 "project": {
@@ -1370,8 +1354,7 @@
                     "description": "Returns true if the policy is respected, false otherwise"
                 },
                 "policy_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerPlacementGroupPropertiesPolicyType",
-                    "description": "Select the behavior of the placement group, either low_latency (group) or max_availability (spread)",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1PlacementGroupPolicyType",
                     "default": "max_availability"
                 },
                 "project": {
@@ -1391,20 +1374,6 @@
                 }
             },
             "type": "object"
-        },
-        "scaleway-instances:instance:ScalewayInstanceV1ServerPlacementGroupPropertiesPolicyType": {
-            "description": "Select the behavior of the placement group, either low_latency (group) or max_availability (spread)",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "MaxAvailability",
-                    "value": "max_availability"
-                },
-                {
-                    "name": "LowLatency",
-                    "value": "low_latency"
-                }
-            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1ServerPublicIpProperties": {
             "description": "Information about the public IP",
@@ -2153,17 +2122,23 @@
     "resources": {
         "scaleway-instances:instance:": {
             "properties": {
-                "private_network_id": {
-                    "type": "string"
+                "servers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             },
             "type": "object",
             "inputProperties": {
-                "private_network_id": {
+                "placement_group_id": {
                     "type": "string"
                 },
-                "server_id": {
-                    "type": "string"
+                "servers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "zone": {
                     "type": "string",
@@ -2176,23 +2151,19 @@
         "scaleway-instances:instance:get": {
             "inputs": {
                 "properties": {
-                    "server_id": {
-                        "type": "string"
-                    },
                     "zone": {
                         "type": "string",
                         "description": "The zone you want to target"
                     }
                 },
                 "required": [
-                    "server_id",
                     "zone"
                 ]
             },
             "outputs": {
                 "properties": {
                     "items": {
-                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ListPrivateNICsResponse"
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ListSecurityGroupRulesResponse"
                     }
                 },
                 "required": [

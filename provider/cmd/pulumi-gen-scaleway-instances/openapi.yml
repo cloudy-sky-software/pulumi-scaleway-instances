@@ -841,14 +841,7 @@ components:
         policy_mode:
           $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyMode"
         policy_type:
-          type: string
-          description:
-            Select the behavior of the placement group, either low_latency
-            (group) or max_availability (spread)
-          enum:
-            - max_availability
-            - low_latency
-          default: max_availability
+          $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyType"
         policy_respected:
           type: boolean
           description: Returns true if the policy is respected, false otherwise
@@ -1389,14 +1382,7 @@ components:
             policy_mode:
               $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyMode"
             policy_type:
-              type: string
-              description:
-                Select the behavior of the placement group, either low_latency
-                (group) or max_availability (spread)
-              enum:
-                - max_availability
-                - low_latency
-              default: max_availability
+              $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyType"
             policy_respected:
               type: boolean
               description: Returns true if the policy is respected, false otherwise
@@ -3097,12 +3083,7 @@ paths:
                 policy_mode:
                   $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyMode"
                 policy_type:
-                  type: string
-                  description: The policy type of the placement group
-                  enum:
-                    - max_availability
-                    - low_latency
-                  default: max_availability
+                  $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyType"
               x-properties-order:
                 - name
                 - organization
@@ -3266,12 +3247,7 @@ paths:
                 policy_mode:
                   $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyMode"
                 policy_type:
-                  type: string
-                  description: The policy type of the placement group
-                  enum:
-                    - max_availability
-                    - low_latency
-                  default: max_availability
+                  $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyType"
               x-properties-order:
                 - name
                 - tags
