@@ -900,7 +900,7 @@ components:
           description: The private NIC MAC address
         state:
           type: string
-          description: Security group state
+          description: The private NIC state
           enum:
             - available
             - syncing
@@ -1121,67 +1121,7 @@ components:
           type: string
           description: The server host name
         image:
-          type: object
-          description: Provide information on the server image
-          properties:
-            id:
-              type: string
-            name:
-              type: string
-            arch:
-              $ref: "#/components/schemas/scaleway.instance.v1.Arch"
-            creation_date:
-              type: string
-              description: (RFC 3339 format)
-              format: date-time
-              example: "2022-03-22T12:34:56.123456Z"
-            modification_date:
-              type: string
-              description: (RFC 3339 format)
-              format: date-time
-              example: "2022-03-22T12:34:56.123456Z"
-            default_bootscript:
-              $ref: "#/components/schemas/scaleway.instance.v1.Bootscript"
-            extra_volumes:
-              type: object
-              properties:
-                <extra_volumeKey>:
-                  $ref: "#/components/schemas/scaleway.instance.v1.Volume"
-              additionalProperties: true
-            from_server:
-              type: string
-            organization:
-              type: string
-            public:
-              type: boolean
-            root_volume:
-              $ref: "#/components/schemas/scaleway.instance.v1.VolumeSummary"
-            state:
-              $ref: "#/components/schemas/scaleway.instance.v1.Image.State"
-            project:
-              type: string
-            tags:
-              type: array
-              items:
-                type: string
-            zone:
-              type: string
-          x-properties-order:
-            - id
-            - name
-            - arch
-            - creation_date
-            - modification_date
-            - default_bootscript
-            - extra_volumes
-            - from_server
-            - organization
-            - public
-            - root_volume
-            - state
-            - project
-            - tags
-            - zone
+          $ref: "#/components/schemas/scaleway.instance.v1.Image"
         protected:
           type: boolean
           description: The server protection option is activated
@@ -1263,74 +1203,9 @@ components:
             - gateway
             - netmask
         bootscript:
-          type: object
-          description: The server bootscript
-          properties:
-            bootcmdargs:
-              type: string
-              description: The bootscript arguments
-            default:
-              type: boolean
-              description:
-                Dispmay if the bootscript is the default bootscript if
-                no other boot option is configured
-            dtb:
-              type: string
-              description:
-                Provide information regarding a Device Tree Binary (dtb)
-                for use with C1 servers
-            id:
-              type: string
-              description: The bootscript ID
-            initrd:
-              type: string
-              description: The initrd (initial ramdisk) configuration
-            kernel:
-              type: string
-              description: The server kernel version
-            organization:
-              type: string
-              description: The bootscript organization ID
-            project:
-              type: string
-              description: The bootscript project ID
-            public:
-              type: boolean
-              description: Provide information if the bootscript is public
-            title:
-              type: string
-              description: The bootscript title
-            arch:
-              type: string
-              description: The bootscript arch
-              enum:
-                - x86_64
-                - arm
-              default: x86_64
-            zone:
-              type: string
-              description: The zone in which is the bootscript
-          x-properties-order:
-            - bootcmdargs
-            - default
-            - dtb
-            - id
-            - initrd
-            - kernel
-            - organization
-            - project
-            - public
-            - title
-            - arch
-            - zone
+          $ref: "#/components/schemas/scaleway.instance.v1.Bootscript"
         boot_type:
-          type: string
-          description: The server boot type
-          enum:
-            - local
-            - bootscript
-            - rescue
-          default: local
+          $ref: "#/components/schemas/scaleway.instance.v1.BootType"
         volumes:
           type: object
           description: The server volumes
@@ -1365,46 +1240,7 @@ components:
             - arm
           default: x86_64
         placement_group:
-          type: object
-          description: The server placement group
-          properties:
-            id:
-              type: string
-              description: The placement group unique ID
-            name:
-              type: string
-              description: The placement group name
-            organization:
-              type: string
-              description: The placement group organization ID
-            project:
-              type: string
-              description: The placement group project ID
-            tags:
-              type: array
-              description: The placement group tags
-              items:
-                type: string
-            policy_mode:
-              $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyMode"
-            policy_type:
-              $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyType"
-            policy_respected:
-              type: boolean
-              description: Returns true if the policy is respected, false otherwise
-            zone:
-              type: string
-              description: The zone in which is the placement group
-          x-properties-order:
-            - id
-            - name
-            - organization
-            - project
-            - tags
-            - policy_mode
-            - policy_type
-            - policy_respected
-            - zone
+          $ref: "#/components/schemas/scaleway.instance.v1.PlacementGroup"
         private_nics:
           type: array
           description: The server private NICs
@@ -1778,21 +1614,12 @@ components:
           items:
             type: string
         volume_type:
-          $ref: "#/components/schemas/scaleway.instance.v1.VolumeServer.VolumeType"
+          $ref: "#/components/schemas/scaleway.instance.v1.Volume.VolumeType"
         size:
           type: number
           description: The snapshot size (in bytes)
         state:
-          type: string
-          description: The snapshot state
-          enum:
-            - available
-            - snapshotting
-            - error
-            - invalid_data
-            - importing
-            - exporting
-          default: available
+          $ref: "#/components/schemas/scaleway.instance.v1.Snapshot.State"
         base_volume:
           type: object
           description: The volume on which the snapshot is based on
