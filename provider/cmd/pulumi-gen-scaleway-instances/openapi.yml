@@ -899,7 +899,13 @@ components:
           type: string
           description: The private NIC MAC address
         state:
-          $ref: "#/components/schemas/scaleway.instance.v1.Image.State"
+          type: string
+          description: Security group state
+          enum:
+            - available
+            - syncing
+            - syncing_error
+          default: available
       x-properties-order:
         - id
         - server_id
