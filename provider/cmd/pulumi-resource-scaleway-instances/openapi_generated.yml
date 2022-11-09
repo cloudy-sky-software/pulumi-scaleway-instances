@@ -1599,6 +1599,7 @@ components:
         id:
           type: string
           description: The snapshot ID
+          readOnly: true
         name:
           type: string
           description: The snapshot name
@@ -1622,6 +1623,7 @@ components:
           $ref: "#/components/schemas/scaleway.instance.v1.Snapshot.State"
         base_volume:
           type: object
+          readOnly: true
           description: The volume on which the snapshot is based on
           properties:
             id:
@@ -1638,18 +1640,22 @@ components:
           description: The snapshot creation date (RFC 3339 format)
           format: date-time
           example: "2022-03-22T12:34:56.123456Z"
+          readOnly: true
         modification_date:
           type: string
           description: The snapshot modification date (RFC 3339 format)
           format: date-time
           example: "2022-03-22T12:34:56.123456Z"
+          readOnly: true
         zone:
           type: string
           description: The snapshot zone
+          readOnly: true
         error_reason:
           type: string
           description: The reason for the failed snapshot import
           nullable: true
+          readOnly: true
       x-properties-order:
         - id
         - name
@@ -5135,55 +5141,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: Name of the snapshot
-                volume_id:
-                  type: string
-                  description: UUID of the volume
-                  nullable: true
-                tags:
-                  type: array
-                  description: The tags of the snapshot
-                  items:
-                    type: string
-                organization:
-                  type: string
-                  description: Organization ID of the snapshot
-                  deprecated: true
-                  x-one-of: ProjectIdentifier
-                project:
-                  type: string
-                  description: Project ID of the snapshot
-                  x-one-of: ProjectIdentifier
-                volume_type:
-                  $ref: "#/components/schemas/scaleway.instance.v1.VolumeServer.VolumeType"
-                bucket:
-                  type: string
-                  description: Bucket name for snapshot imports
-                  nullable: true
-                key:
-                  type: string
-                  description: Object key for snapshot imports
-                  nullable: true
-                size:
-                  type: number
-                  description:
-                    Imported snapshot size, must be a multiple of 512 (in
-                    bytes)
-                  nullable: true
-              x-properties-order:
-                - name
-                - volume_id
-                - tags
-                - organization
-                - project
-                - volume_type
-                - bucket
-                - key
-                - size
+              $ref: "#/components/schemas/scaleway.instance.v1.Snapshot"
       security:
         - scaleway: []
   /instance/v1/zones/{zone}/snapshots/{snapshot_id}:

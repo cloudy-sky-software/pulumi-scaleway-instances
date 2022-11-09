@@ -112,6 +112,20 @@
                 }
             ]
         },
+        "scaleway-instances:instance:BaseVolumeProperties": {
+            "description": "The volume on which the snapshot is based on",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The volume ID on which the snapshot is based on"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The volume name on which the snapshot is based on"
+                }
+            },
+            "type": "object"
+        },
         "scaleway-instances:instance:BootType": {
             "description": "The boot type to use",
             "type": "string",
@@ -131,7 +145,6 @@
             ]
         },
         "scaleway-instances:instance:ExtraVolumesProperties": {
-            "description": "Additional volumes of the image",
             "properties": {
                 "\u003cextra_volumeKey\u003e": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Volume"
@@ -1942,101 +1955,108 @@
         "scaleway-instances:instance:Image": {
             "properties": {
                 "arch": {
-                    "$ref": "#/types/scaleway-instances:instance:Arch",
-                    "description": "Architecture of the image",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Arch",
                     "default": "x86_64"
                 },
-                "default_bootscript": {
+                "creation_date": {
                     "type": "string",
-                    "description": "Default bootscript of the image"
+                    "description": "(RFC 3339 format)"
+                },
+                "default_bootscript": {
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Bootscript"
                 },
                 "extra_volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:ExtraVolumesProperties",
-                    "description": "Additional volumes of the image"
+                    "$ref": "#/types/scaleway-instances:instance:ExtraVolumesProperties"
+                },
+                "from_server": {
+                    "type": "string"
+                },
+                "modification_date": {
+                    "type": "string",
+                    "description": "(RFC 3339 format)"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Name of the image"
+                    "type": "string"
                 },
                 "organization": {
-                    "type": "string",
-                    "description": "Organization ID of the image"
+                    "type": "string"
                 },
                 "project": {
-                    "type": "string",
-                    "description": "Project ID of the image"
+                    "type": "string"
                 },
                 "public": {
-                    "type": "boolean",
-                    "description": "True to create a public image"
+                    "type": "boolean"
                 },
                 "root_volume": {
-                    "type": "string",
-                    "description": "UUID of the snapshot"
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeSummary"
+                },
+                "state": {
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ImageState",
+                    "default": "available"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "The tags of the image"
+                    }
                 }
             },
             "type": "object",
-            "required": [
-                "root_volume",
-                "arch"
-            ],
             "inputProperties": {
                 "arch": {
-                    "$ref": "#/types/scaleway-instances:instance:Arch",
-                    "description": "Architecture of the image",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Arch",
                     "default": "x86_64"
                 },
-                "default_bootscript": {
+                "creation_date": {
                     "type": "string",
-                    "description": "Default bootscript of the image"
+                    "description": "(RFC 3339 format)"
+                },
+                "default_bootscript": {
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Bootscript"
                 },
                 "extra_volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:ExtraVolumesProperties",
-                    "description": "Additional volumes of the image"
+                    "$ref": "#/types/scaleway-instances:instance:ExtraVolumesProperties"
+                },
+                "from_server": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "modification_date": {
+                    "type": "string",
+                    "description": "(RFC 3339 format)"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "Name of the image"
+                    "type": "string"
                 },
                 "organization": {
-                    "type": "string",
-                    "description": "Organization ID of the image"
+                    "type": "string"
                 },
                 "project": {
-                    "type": "string",
-                    "description": "Project ID of the image"
+                    "type": "string"
                 },
                 "public": {
-                    "type": "boolean",
-                    "description": "True to create a public image"
+                    "type": "boolean"
                 },
                 "root_volume": {
-                    "type": "string",
-                    "description": "UUID of the snapshot"
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeSummary"
+                },
+                "state": {
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ImageState",
+                    "default": "available"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "description": "The tags of the image"
+                    }
                 },
                 "zone": {
                     "type": "string",
                     "description": "The zone you want to target"
                 }
-            },
-            "requiredInputs": [
-                "arch",
-                "root_volume"
-            ]
+            }
         },
         "scaleway-instances:instance:Ip": {
             "properties": {
@@ -2343,28 +2363,27 @@
                     "default": "accept"
                 },
                 "dest_port_from": {
-                    "type": "number",
-                    "description": "The beginning of the range of ports to apply this rule to (inclusive)"
+                    "$ref": "#/types/scaleway-instances:instance:GoogleProtobufUInt32Value"
                 },
                 "dest_port_to": {
-                    "type": "number",
-                    "description": "The end of the range of ports to apply this rule to (inclusive)"
+                    "$ref": "#/types/scaleway-instances:instance:GoogleProtobufUInt32Value"
                 },
                 "direction": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleDirection",
                     "default": "inbound"
                 },
                 "editable": {
-                    "type": "boolean",
-                    "description": "Indicates if this rule is editable (will be ignored)"
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
                 },
                 "ip_range": {
                     "type": "string",
                     "description": "(IP network)"
                 },
                 "position": {
-                    "type": "number",
-                    "description": "The position of this rule in the security group rules list"
+                    "type": "number"
                 },
                 "protocol": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleProtocol",
@@ -2372,60 +2391,49 @@
                 }
             },
             "type": "object",
-            "required": [
-                "protocol",
-                "direction",
-                "action",
-                "ip_range"
-            ],
             "inputProperties": {
                 "action": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleAction",
                     "default": "accept"
                 },
                 "dest_port_from": {
-                    "type": "number",
-                    "description": "The beginning of the range of ports to apply this rule to (inclusive)"
+                    "$ref": "#/types/scaleway-instances:instance:GoogleProtobufUInt32Value"
                 },
                 "dest_port_to": {
-                    "type": "number",
-                    "description": "The end of the range of ports to apply this rule to (inclusive)"
+                    "$ref": "#/types/scaleway-instances:instance:GoogleProtobufUInt32Value"
                 },
                 "direction": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleDirection",
                     "default": "inbound"
                 },
                 "editable": {
-                    "type": "boolean",
-                    "description": "Indicates if this rule is editable (will be ignored)"
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
                 },
                 "ip_range": {
                     "type": "string",
                     "description": "(IP network)"
                 },
                 "position": {
-                    "type": "number",
-                    "description": "The position of this rule in the security group rules list"
+                    "type": "number"
                 },
                 "protocol": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleProtocol",
                     "default": "TCP"
                 },
                 "security_group_id": {
-                    "type": "string",
-                    "description": "UUID of the security group"
+                    "type": "string"
+                },
+                "security_group_rule_id": {
+                    "type": "string"
                 },
                 "zone": {
                     "type": "string",
                     "description": "The zone you want to target"
                 }
-            },
-            "requiredInputs": [
-                "action",
-                "direction",
-                "ip_range",
-                "protocol"
-            ]
+            }
         },
         "scaleway-instances:instance:SecurityGroupRules": {
             "properties": {
@@ -2639,31 +2647,40 @@
         "scaleway-instances:instance:Snapshot": {
             "properties": {
                 "base_volume": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SnapshotBaseVolume"
+                    "$ref": "#/types/scaleway-instances:instance:BaseVolumeProperties",
+                    "description": "The volume on which the snapshot is based on"
                 },
                 "creation_date": {
                     "type": "string",
-                    "description": "(RFC 3339 format)"
+                    "description": "The snapshot creation date (RFC 3339 format)"
+                },
+                "error_reason": {
+                    "type": "string",
+                    "description": "The reason for the failed snapshot import"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot ID"
                 },
                 "modification_date": {
                     "type": "string",
-                    "description": "(RFC 3339 format)"
+                    "description": "The snapshot modification date (RFC 3339 format)"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot name"
                 },
                 "organization": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot organization ID"
                 },
                 "project": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot project ID"
                 },
                 "size": {
                     "type": "number",
-                    "description": "(in bytes)"
+                    "description": "The snapshot size (in bytes)"
                 },
                 "state": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SnapshotState",
@@ -2673,44 +2690,35 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The snapshot tags"
                 },
                 "volume_type": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeVolumeType",
                     "default": "l_ssd"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The snapshot zone"
                 }
             },
             "type": "object",
             "inputProperties": {
-                "base_volume": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SnapshotBaseVolume"
-                },
-                "creation_date": {
-                    "type": "string",
-                    "description": "(RFC 3339 format)"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "modification_date": {
-                    "type": "string",
-                    "description": "(RFC 3339 format)"
-                },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot name"
                 },
                 "organization": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot organization ID"
                 },
                 "project": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot project ID"
                 },
                 "size": {
                     "type": "number",
-                    "description": "(in bytes)"
-                },
-                "snapshot_id": {
-                    "type": "string"
+                    "description": "The snapshot size (in bytes)"
                 },
                 "state": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SnapshotState",
@@ -2720,7 +2728,8 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The snapshot tags"
                 },
                 "volume_type": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeVolumeType",
@@ -2734,48 +2743,36 @@
         },
         "scaleway-instances:instance:Volume": {
             "properties": {
-                "creation_date": {
+                "base_snapshot": {
                     "type": "string",
-                    "description": "The volume's creation date (RFC 3339 format)"
+                    "description": "The ID of the snapshot on which this volume will be based"
                 },
-                "export_uri": {
+                "base_volume": {
                     "type": "string",
-                    "description": "Show the volumes NBD export URI, this field is ignored"
-                },
-                "modification_date": {
-                    "type": "string",
-                    "description": "The volume's modification date (RFC 3339 format)"
+                    "description": "The ID of the volume on which this volume will be based"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The volumes names"
+                    "description": "The volume name"
                 },
                 "organization": {
                     "type": "string",
-                    "description": "The volume's organization ID"
+                    "description": "The volume organization ID"
                 },
                 "project": {
                     "type": "string",
-                    "description": "The volume's project ID"
-                },
-                "server": {
-                    "$ref": "#/types/scaleway-instances:instance:ServerProperties",
-                    "description": "The server attached to the volume"
+                    "description": "The volume project ID"
                 },
                 "size": {
                     "type": "number",
-                    "description": "The volume's disk size, must be a multiple of 512 (in bytes)"
-                },
-                "state": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerState",
-                    "default": "available"
+                    "description": "The volume disk size, must be a multiple of 512 (in bytes)"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The tags of the volume"
+                    "description": "The volume tags"
                 },
                 "volume_type": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerVolumeType",
@@ -2784,52 +2781,36 @@
             },
             "type": "object",
             "inputProperties": {
-                "creation_date": {
+                "base_snapshot": {
                     "type": "string",
-                    "description": "The volume's creation date (RFC 3339 format)"
+                    "description": "The ID of the snapshot on which this volume will be based"
                 },
-                "export_uri": {
+                "base_volume": {
                     "type": "string",
-                    "description": "Show the volumes NBD export URI, this field is ignored"
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The volumes unique ID"
-                },
-                "modification_date": {
-                    "type": "string",
-                    "description": "The volume's modification date (RFC 3339 format)"
+                    "description": "The ID of the volume on which this volume will be based"
                 },
                 "name": {
                     "type": "string",
-                    "description": "The volumes names"
+                    "description": "The volume name"
                 },
                 "organization": {
                     "type": "string",
-                    "description": "The volume's organization ID"
+                    "description": "The volume organization ID"
                 },
                 "project": {
                     "type": "string",
-                    "description": "The volume's project ID"
-                },
-                "server": {
-                    "$ref": "#/types/scaleway-instances:instance:ServerProperties",
-                    "description": "The server attached to the volume"
+                    "description": "The volume project ID"
                 },
                 "size": {
                     "type": "number",
-                    "description": "The volume's disk size, must be a multiple of 512 (in bytes)"
-                },
-                "state": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerState",
-                    "default": "available"
+                    "description": "The volume disk size, must be a multiple of 512 (in bytes)"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The tags of the volume"
+                    "description": "The volume tags"
                 },
                 "volume_type": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerVolumeType",
