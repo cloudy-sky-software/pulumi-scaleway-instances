@@ -204,3 +204,5 @@ require (
 replace github.com/Azure/azure-sdk-for-go/sdk/storage/azblob => github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v0.4.1
 
 replace github.com/cloudy-sky-software/pulumi-provider-framework => ../../pulumi-provider-framework
+
+replace github.com/cloudy-sky-software/pulschema => ../../pulschema

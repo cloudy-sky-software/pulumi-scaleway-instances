@@ -1295,7 +1295,7 @@ components:
       type: object
       properties:
         volume_type:
-          $ref: "#/components/schemas/scaleway.instance.v1.VolumeServer.VolumeType"
+          $ref: "#/components/schemas/scaleway.instance.v1.Volume.VolumeType"
       x-properties-order:
         - volume_type
     scaleway.instance.v1.ServerActionResponse:
