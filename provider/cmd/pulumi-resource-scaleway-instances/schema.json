@@ -130,14 +130,6 @@
                 }
             ]
         },
-        "scaleway-instances:instance:ExtraVolumesProperties": {
-            "properties": {
-                "\u003cextra_volumeKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Volume"
-                }
-            },
-            "type": "object"
-        },
         "scaleway-instances:instance:GoogleProtobufStringValue": {
             "type": "object"
         },
@@ -1136,15 +1128,6 @@
             },
             "type": "object"
         },
-        "scaleway-instances:instance:ScalewayInstanceV1ServerActionVolumesProperties": {
-            "description": "For each volume UUID, the snapshot parameters of the volume.\nThis field should only be specified when performing a backup action.\n",
-            "properties": {
-                "\u003cvolumeKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate"
-                }
-            },
-            "type": "object"
-        },
         "scaleway-instances:instance:ScalewayInstanceV1ServerArch": {
             "description": "The server arch",
             "type": "string",
@@ -1888,15 +1871,6 @@
                     "value": "syncing_error"
                 }
             ]
-        },
-        "scaleway-instances:instance:VolumesProperties": {
-            "description": "The volumes attached to the server",
-            "properties": {
-                "\u003cvolumeKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerTemplate"
-                }
-            },
-            "type": "object"
         }
     },
     "provider": {
@@ -1966,7 +1940,9 @@
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Bootscript"
                 },
                 "extra_volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:ExtraVolumesProperties"
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Volume"
+                    }
                 },
                 "from_server": {
                     "type": "string"
@@ -2017,7 +1993,9 @@
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Bootscript"
                 },
                 "extra_volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:ExtraVolumesProperties"
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Volume"
+                    }
                 },
                 "name": {
                     "type": "string"
@@ -2547,8 +2525,9 @@
                     "description": "The server tags"
                 },
                 "volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:VolumesProperties",
-                    "description": "The volumes attached to the server"
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerTemplate"
+                    }
                 }
             },
             "type": "object",
@@ -2614,8 +2593,9 @@
                     "description": "The server tags"
                 },
                 "volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:VolumesProperties",
-                    "description": "The volumes attached to the server"
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerTemplate"
+                    }
                 },
                 "zone": {
                     "type": "string",
@@ -2639,8 +2619,9 @@
                     "description": "The name of the backup you want to create.\nThis field should only be specified when performing a backup action.\n"
                 },
                 "volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerActionVolumesProperties",
-                    "description": "For each volume UUID, the snapshot parameters of the volume.\nThis field should only be specified when performing a backup action.\n"
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate"
+                    }
                 }
             },
             "type": "object",
@@ -2659,8 +2640,9 @@
                     "description": "The name of the backup you want to create.\nThis field should only be specified when performing a backup action.\n"
                 },
                 "volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerActionVolumesProperties",
-                    "description": "For each volume UUID, the snapshot parameters of the volume.\nThis field should only be specified when performing a backup action.\n"
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate"
+                    }
                 },
                 "zone": {
                     "type": "string",
