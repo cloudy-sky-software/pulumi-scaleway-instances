@@ -262,7 +262,9 @@
                     "type": "number"
                 },
                 "servers_by_types": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1DashboardServersByTypesProperties"
+                    "additionalProperties": {
+                        "type": "number"
+                    }
                 },
                 "servers_count": {
                     "type": "number"
@@ -283,14 +285,6 @@
                     "type": "number"
                 },
                 "volumes_l_ssd_total_size": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "scaleway-instances:instance:ScalewayInstanceV1DashboardServersByTypesProperties": {
-            "properties": {
-                "\u003cservers_by_typeKey\u003e": {
                     "type": "number"
                 }
             },
@@ -382,7 +376,9 @@
         "scaleway-instances:instance:ScalewayInstanceV1GetServerTypesAvailabilityResponse": {
             "properties": {
                 "servers": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1GetServerTypesAvailabilityResponseServersProperties"
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability"
+                    }
                 }
             },
             "type": "object"
@@ -392,14 +388,6 @@
                 "availability": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerTypesAvailability",
                     "default": "available"
-                }
-            },
-            "type": "object"
-        },
-        "scaleway-instances:instance:ScalewayInstanceV1GetServerTypesAvailabilityResponseServersProperties": {
-            "properties": {
-                "\u003cserverKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability"
                 }
             },
             "type": "object"
@@ -434,7 +422,9 @@
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Bootscript"
                 },
                 "extra_volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ImageExtraVolumesProperties"
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Volume"
+                    }
                 },
                 "from_server": {
                     "type": "string"
@@ -473,14 +463,6 @@
                 },
                 "zone": {
                     "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "scaleway-instances:instance:ScalewayInstanceV1ImageExtraVolumesProperties": {
-            "properties": {
-                "\u003cextra_volumeKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Volume"
                 }
             },
             "type": "object"
@@ -643,17 +625,10 @@
         "scaleway-instances:instance:ScalewayInstanceV1ListServersTypesResponse": {
             "properties": {
                 "servers": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ListServersTypesResponseServersProperties",
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerType"
+                    },
                     "description": "List of server types"
-                }
-            },
-            "type": "object"
-        },
-        "scaleway-instances:instance:ScalewayInstanceV1ListServersTypesResponseServersProperties": {
-            "description": "List of server types",
-            "properties": {
-                "\u003cserverKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerType"
                 }
             },
             "type": "object"
@@ -685,17 +660,10 @@
         "scaleway-instances:instance:ScalewayInstanceV1ListVolumesTypesResponse": {
             "properties": {
                 "volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ListVolumesTypesResponseVolumesProperties",
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeType"
+                    },
                     "description": "Map of volume types"
-                }
-            },
-            "type": "object"
-        },
-        "scaleway-instances:instance:ScalewayInstanceV1ListVolumesTypesResponseVolumesProperties": {
-            "description": "Map of volume types",
-            "properties": {
-                "\u003cvolumeKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeType"
                 }
             },
             "type": "object"
@@ -1106,7 +1074,9 @@
                     "description": "The server associated tags"
                 },
                 "volumes": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerVolumesProperties",
+                    "additionalProperties": {
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServer"
+                    },
                     "description": "The server volumes"
                 },
                 "zone": {
@@ -1420,15 +1390,6 @@
             "type": "object"
         },
         "scaleway-instances:instance:ScalewayInstanceV1ServerTypesAvailability": {
-            "type": "object"
-        },
-        "scaleway-instances:instance:ScalewayInstanceV1ServerVolumesProperties": {
-            "description": "The server volumes",
-            "properties": {
-                "\u003cvolumeKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServer"
-                }
-            },
             "type": "object"
         },
         "scaleway-instances:instance:ScalewayInstanceV1SetSecurityGroupRulesRequestRule": {
