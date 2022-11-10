@@ -1321,6 +1321,15 @@ components:
           $ref: "#/components/schemas/scaleway.instance.v1.Volume.VolumeType"
       x-properties-order:
         - volume_type
+    scaleway.instance.v1.ServerAction.VolumesProperties:
+      type: object
+      description: |
+        For each volume UUID, the snapshot parameters of the volume.
+        This field should only be specified when performing a backup action.
+      properties:
+        <volumeKey>:
+          $ref: "#/components/schemas/scaleway.instance.v1.ServerActionRequest.VolumeBackupTemplate"
+      additionalProperties: true
     scaleway.instance.v1.ServerActionResponse:
       type: object
       properties:
@@ -4448,14 +4457,7 @@ paths:
                     This field should only be specified when performing a backup action.
                   nullable: true
                 volumes:
-                  type: object
-                  description: |
-                    For each volume UUID, the snapshot parameters of the volume.
-                    This field should only be specified when performing a backup action.
-                  properties:
-                    <volumeKey>:
-                      $ref: "#/components/schemas/scaleway.instance.v1.ServerActionRequest.VolumeBackupTemplate"
-                  additionalProperties: true
+                  $ref: "#/components/schemas/scaleway.instance.v1.ServerAction.VolumesProperties"
               x-properties-order:
                 - action
                 - name
