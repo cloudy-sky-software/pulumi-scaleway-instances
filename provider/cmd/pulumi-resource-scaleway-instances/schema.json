@@ -1881,10 +1881,10 @@
             ]
         },
         "scaleway-instances:instance:VolumesProperties": {
-            "description": "The volumes attached to the server",
+            "description": "For each volume UUID, the snapshot parameters of the volume.\nThis field should only be specified when performing a backup action.\n",
             "properties": {
                 "\u003cvolumeKey\u003e": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerTemplate"
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate"
                 }
             },
             "type": "object"
@@ -2312,10 +2312,6 @@
                     "type": "boolean",
                     "description": "True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable."
                 },
-                "id": {
-                    "type": "string",
-                    "description": "The ID of the security group (will be ignored)"
-                },
                 "inbound_default_policy": {
                     "$ref": "#/types/scaleway-instances:instance:InboundDefaultPolicy",
                     "description": "The default inbound policy",
@@ -2738,9 +2734,6 @@
                 "size": {
                     "type": "number",
                     "description": "The snapshot size (in bytes)"
-                },
-                "snapshot_id": {
-                    "type": "string"
                 },
                 "state": {
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SnapshotState",
