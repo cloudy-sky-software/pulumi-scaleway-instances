@@ -3835,38 +3835,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                protocol:
-                  $ref: "#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Protocol"
-                direction:
-                  $ref: "#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Direction"
-                action:
-                  $ref: "#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Action"
-                ip_range:
-                  type: string
-                  description: (IP network)
-                  example: 1.2.3.4/32
-                dest_port_from:
-                  $ref: "#/components/schemas/google.protobuf.UInt32Value"
-                dest_port_to:
-                  $ref: "#/components/schemas/google.protobuf.UInt32Value"
-                position:
-                  type: number
-                editable:
-                  type: boolean
-              x-properties-order:
-                - id
-                - protocol
-                - direction
-                - action
-                - ip_range
-                - dest_port_from
-                - dest_port_to
-                - position
-                - editable
+              $ref: "#/components/schemas/scaleway.instance.v1.SecurityGroupRule"
       security:
         - scaleway: []
     delete:
@@ -4974,7 +4943,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: snapshot_id
+          name: id
           required: true
           schema:
             type: string
@@ -5235,11 +5204,11 @@ paths:
               - pl-waw-1
         - in: path
           name: id
-          description: UUID of the volume you want to get
+          description: UUID of the volume you want to update
           required: true
           schema:
             type: string
-            description: UUID of the volume you want to get
+            description: UUID of the volume you want to update
       responses:
         "200":
           description: ""
