@@ -138,6 +138,11 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 			"@types/mocha":       "^5.2.5",
 			"@types/shell-quote": "^1.6.0",
 		},
+		"moduleToPackage": map[string]string{
+			// Snapshot export module conflicts with Node's reserved keyword,
+			// so an override is necessary.
+			"export": "snapshot_export",
+		},
 	})
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
 		"packageName": "pulumi_scaleway-instances",

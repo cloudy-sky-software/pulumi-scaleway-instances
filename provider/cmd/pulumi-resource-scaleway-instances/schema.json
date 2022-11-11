@@ -54,6 +54,9 @@
                 "@types/shell-quote": "^1.6.0",
                 "mocha": "^5.2.0"
             },
+            "moduleToPackage": {
+                "export": "snapshot_export"
+            },
             "packageName": "@cloudyskysoftware/pulumi-scaleway-instances"
         },
         "python": {
@@ -471,9 +474,6 @@
                 "from_server": {
                     "type": "string"
                 },
-                "id": {
-                    "type": "string"
-                },
                 "modification_date": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
@@ -560,10 +560,6 @@
                 "export_uri": {
                     "type": "string",
                     "description": "Show the volume NBD export URI"
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The volume unique ID"
                 },
                 "modification_date": {
                     "type": "string",
@@ -739,9 +735,6 @@
                     "type": "string",
                     "description": "(IPv4 address)"
                 },
-                "id": {
-                    "type": "string"
-                },
                 "organization": {
                     "type": "string"
                 },
@@ -837,10 +830,6 @@
         },
         "scaleway-instances:placement_groups:ScalewayInstanceV1PlacementGroup": {
             "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "The placement group unique ID"
-                },
                 "name": {
                     "type": "string",
                     "description": "The placement group name"
@@ -1286,10 +1275,6 @@
                     "type": "boolean",
                     "description": "True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable."
                 },
-                "id": {
-                    "type": "string",
-                    "description": "The security groups' unique ID"
-                },
                 "inbound_default_policy": {
                     "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1SecurityGroupInboundDefaultPolicy",
                     "description": "The default inbound policy",
@@ -1556,9 +1541,6 @@
                 "from_server": {
                     "type": "string"
                 },
-                "id": {
-                    "type": "string"
-                },
                 "modification_date": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
@@ -1650,10 +1632,6 @@
         },
         "scaleway-instances:servers:ScalewayInstanceV1PlacementGroup": {
             "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "The placement group unique ID"
-                },
                 "name": {
                     "type": "string",
                     "description": "The placement group name"
@@ -2275,10 +2253,6 @@
                     "type": "string",
                     "description": "Show the volume NBD export URI"
                 },
-                "id": {
-                    "type": "string",
-                    "description": "The volume unique ID"
-                },
                 "modification_date": {
                     "type": "string",
                     "description": "The volume modification date (RFC 3339 format)"
@@ -2613,10 +2587,6 @@
                     "type": "string",
                     "description": "The reason for the failed snapshot import"
                 },
-                "id": {
-                    "type": "string",
-                    "description": "The snapshot ID"
-                },
                 "modification_date": {
                     "type": "string",
                     "description": "The snapshot modification date (RFC 3339 format)"
@@ -2831,10 +2801,6 @@
                 "export_uri": {
                     "type": "string",
                     "description": "Show the volume NBD export URI"
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The volume unique ID"
                 },
                 "modification_date": {
                     "type": "string",
@@ -3154,9 +3120,6 @@
                 "from_server": {
                     "type": "string"
                 },
-                "id": {
-                    "type": "string"
-                },
                 "modification_date": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
@@ -3242,9 +3205,6 @@
                     "type": "string",
                     "description": "(IPv4 address)"
                 },
-                "id": {
-                    "type": "string"
-                },
                 "organization": {
                     "type": "string"
                 },
@@ -3295,10 +3255,6 @@
         },
         "scaleway-instances:placement_groups:PlacementGroup": {
             "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "The placement group unique ID"
-                },
                 "name": {
                     "type": "string",
                     "description": "The placement group name"
@@ -3523,10 +3479,6 @@
                 "enable_default_security": {
                     "type": "boolean",
                     "description": "True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The security groups' unique ID"
                 },
                 "inbound_default_policy": {
                     "$ref": "#/types/scaleway-instances:security_groups:InboundDefaultPolicy",
@@ -3831,10 +3783,6 @@
                     "type": "string",
                     "description": "The reason for the failed snapshot import"
                 },
-                "id": {
-                    "type": "string",
-                    "description": "The snapshot ID"
-                },
                 "modification_date": {
                     "type": "string",
                     "description": "The snapshot modification date (RFC 3339 format)"
@@ -3923,10 +3871,6 @@
                 "export_uri": {
                     "type": "string",
                     "description": "Show the volume NBD export URI"
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The volume unique ID"
                 },
                 "modification_date": {
                     "type": "string",

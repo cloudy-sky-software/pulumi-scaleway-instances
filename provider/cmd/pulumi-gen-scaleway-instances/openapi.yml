@@ -575,9 +575,6 @@ components:
     scaleway.instance.v1.Image:
       type: object
       properties:
-        id:
-          type: string
-          readOnly: true
         name:
           type: string
         arch:
@@ -650,9 +647,6 @@ components:
     scaleway.instance.v1.Ip:
       type: object
       properties:
-        id:
-          type: string
-          readOnly: true
         address:
           type: string
           description: (IPv4 address)
@@ -833,10 +827,6 @@ components:
     scaleway.instance.v1.PlacementGroup:
       type: object
       properties:
-        id:
-          type: string
-          description: The placement group unique ID
-          readOnly: true
         name:
           type: string
           description: The placement group name
@@ -931,10 +921,6 @@ components:
     scaleway.instance.v1.SecurityGroup:
       type: object
       properties:
-        id:
-          type: string
-          description: The security groups' unique ID
-          readOnly: true
         name:
           type: string
           description: The security groups name
@@ -1628,10 +1614,6 @@ components:
     scaleway.instance.v1.Snapshot:
       type: object
       properties:
-        id:
-          type: string
-          description: The snapshot ID
-          readOnly: true
         name:
           type: string
           description: The snapshot name
@@ -1813,10 +1795,6 @@ components:
     scaleway.instance.v1.Volume:
       type: object
       properties:
-        id:
-          type: string
-          description: The volume unique ID
-          readOnly: true
         name:
           type: string
           description: The volume name
