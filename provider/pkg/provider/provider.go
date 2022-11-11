@@ -2,7 +2,6 @@ package provider
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 	"os"
 
@@ -47,7 +46,7 @@ func makeProvider(host *provider.HostClient, name, version string, pulumiSchemaB
 }
 
 func (p *scalewayInstancesProvider) GetAuthorizationHeader() string {
-	return fmt.Sprintf("%s %s", authSchemePrefix, p.apiKey)
+	return p.apiKey
 }
 
 func (p *scalewayInstancesProvider) OnInvoke(ctx context.Context, req *pulumirpc.InvokeRequest) (*pulumirpc.InvokeResponse, error) {
