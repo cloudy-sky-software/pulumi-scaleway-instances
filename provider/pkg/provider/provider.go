@@ -49,8 +49,15 @@ func (p *scalewayInstancesProvider) GetAuthorizationHeader() string {
 	return p.apiKey
 }
 
-func (p *scalewayInstancesProvider) OnInvoke(ctx context.Context, req *pulumirpc.InvokeRequest) (*pulumirpc.InvokeResponse, error) {
-	return nil, nil
+func (p *scalewayInstancesProvider) OnPreInvoke(ctx context.Context, req *pulumirpc.InvokeRequest, httpReq *http.Request) error {
+	return nil
+}
+
+func (p *scalewayInstancesProvider) OnPostInvoke(ctx context.Context, req *pulumirpc.InvokeRequest, outputs interface{}) (map[string]interface{}, error) {
+	outputsMap := make(map[string]interface{})
+	outputsMap["items"] = outputs
+
+	return outputsMap, nil
 }
 
 // OnConfigure is called by the provider framework when Pulumi calls Configure on
