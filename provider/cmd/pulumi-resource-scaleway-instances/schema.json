@@ -177,6 +177,7 @@
         "scaleway-instances:availability:ScalewayInstanceV1GetServerTypesAvailabilityResponse": {
             "properties": {
                 "servers": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:availability:ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability"
                     }
@@ -322,6 +323,7 @@
                     "type": "number"
                 },
                 "servers_by_types": {
+                    "type": "object",
                     "additionalProperties": {
                         "type": "number"
                     }
@@ -461,6 +463,7 @@
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Bootscript"
                 },
                 "extra_volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Volume"
                     }
@@ -1545,6 +1548,7 @@
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1Bootscript"
                 },
                 "extra_volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1Volume"
                     }
@@ -1635,6 +1639,7 @@
         "scaleway-instances:servers:ScalewayInstanceV1ListServersTypesResponse": {
             "properties": {
                 "servers": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerType"
                     },
@@ -1893,6 +1898,7 @@
                     "description": "The server associated tags"
                 },
                 "volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1VolumeServer"
                     },
@@ -2807,6 +2813,7 @@
         "scaleway-instances:volumes:ScalewayInstanceV1ListVolumesTypesResponse": {
             "properties": {
                 "volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1VolumeType"
                     },
@@ -3061,6 +3068,7 @@
                     "description": "The name of the backup you want to create.\nThis field should only be specified when performing a backup action.\n"
                 },
                 "volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:action:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate"
                     }
@@ -3082,6 +3090,7 @@
                     "description": "The name of the backup you want to create.\nThis field should only be specified when performing a backup action.\n"
                 },
                 "volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:action:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate"
                     }
@@ -3137,6 +3146,7 @@
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Bootscript"
                 },
                 "extra_volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Volume"
                     }
@@ -3190,6 +3200,7 @@
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Bootscript"
                 },
                 "extra_volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Volume"
                     }
@@ -3722,6 +3733,7 @@
                     "description": "The server tags"
                 },
                 "volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1VolumeServerTemplate"
                     }
@@ -3790,6 +3802,7 @@
                     "description": "The server tags"
                 },
                 "volumes": {
+                    "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1VolumeServerTemplate"
                     }
