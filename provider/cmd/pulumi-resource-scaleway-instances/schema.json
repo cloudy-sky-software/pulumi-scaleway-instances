@@ -69,32 +69,28 @@
     },
     "types": {
         "scaleway-instances:instance:Action": {
-            "description": "The action to perform on the server",
             "type": "string",
             "enum": [
                 {
-                    "name": "Poweron",
-                    "value": "poweron"
+                    "name": "Accept",
+                    "value": "accept"
                 },
                 {
-                    "name": "Backup",
-                    "value": "backup"
+                    "name": "Drop",
+                    "value": "drop"
+                }
+            ]
+        },
+        "scaleway-instances:instance:Arch": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "X8664",
+                    "value": "x86_64"
                 },
                 {
-                    "name": "StopInPlace",
-                    "value": "stop_in_place"
-                },
-                {
-                    "name": "Poweroff",
-                    "value": "poweroff"
-                },
-                {
-                    "name": "Terminate",
-                    "value": "terminate"
-                },
-                {
-                    "name": "Reboot",
-                    "value": "reboot"
+                    "name": "Arm",
+                    "value": "arm"
                 }
             ]
         },
@@ -130,11 +126,41 @@
                 }
             ]
         },
+        "scaleway-instances:instance:Direction": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Inbound",
+                    "value": "inbound"
+                },
+                {
+                    "name": "Outbound",
+                    "value": "outbound"
+                }
+            ]
+        },
         "scaleway-instances:instance:GoogleProtobufStringValue": {
             "type": "object"
         },
         "scaleway-instances:instance:GoogleProtobufUInt32Value": {
             "type": "object"
+        },
+        "scaleway-instances:instance:ImageState": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Available",
+                    "value": "available"
+                },
+                {
+                    "name": "Creating",
+                    "value": "creating"
+                },
+                {
+                    "name": "Error",
+                    "value": "error"
+                }
+            ]
         },
         "scaleway-instances:instance:InboundDefaultPolicy": {
             "description": "The default inbound policy",
@@ -164,11 +190,52 @@
                 }
             ]
         },
-        "scaleway-instances:instance:ScalewayInstanceV1Arch": {
-            "type": "object"
+        "scaleway-instances:instance:PolicyMode": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Optional",
+                    "value": "optional"
+                },
+                {
+                    "name": "Enforced",
+                    "value": "enforced"
+                }
+            ]
         },
-        "scaleway-instances:instance:ScalewayInstanceV1BootType": {
-            "type": "object"
+        "scaleway-instances:instance:PolicyType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "MaxAvailability",
+                    "value": "max_availability"
+                },
+                {
+                    "name": "LowLatency",
+                    "value": "low_latency"
+                }
+            ]
+        },
+        "scaleway-instances:instance:Protocol": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Tcp",
+                    "value": "TCP"
+                },
+                {
+                    "name": "Udp",
+                    "value": "UDP"
+                },
+                {
+                    "name": "Icmp",
+                    "value": "ICMP"
+                },
+                {
+                    "name": "Any",
+                    "value": "ANY"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1Bootscript": {
             "properties": {
@@ -386,11 +453,28 @@
         "scaleway-instances:instance:ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability": {
             "properties": {
                 "availability": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerTypesAvailability",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability",
                     "default": "available"
                 }
             },
             "type": "object"
+        },
+        "scaleway-instances:instance:ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Available",
+                    "value": "available"
+                },
+                {
+                    "name": "Scarce",
+                    "value": "scarce"
+                },
+                {
+                    "name": "Shortage",
+                    "value": "shortage"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1GetSnapshotResponse": {
             "properties": {
@@ -411,7 +495,7 @@
         "scaleway-instances:instance:ScalewayInstanceV1Image": {
             "properties": {
                 "arch": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Arch",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ImageArch",
                     "default": "x86_64"
                 },
                 "creation_date": {
@@ -467,8 +551,35 @@
             },
             "type": "object"
         },
+        "scaleway-instances:instance:ScalewayInstanceV1ImageArch": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "X8664",
+                    "value": "x86_64"
+                },
+                {
+                    "name": "Arm",
+                    "value": "arm"
+                }
+            ]
+        },
         "scaleway-instances:instance:ScalewayInstanceV1ImageState": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Available",
+                    "value": "available"
+                },
+                {
+                    "name": "Creating",
+                    "value": "creating"
+                },
+                {
+                    "name": "Error",
+                    "value": "error"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1Ip": {
             "properties": {
@@ -593,11 +704,40 @@
                 "actions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerAction"
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ListServerActionsResponseActionsItem"
                     }
                 }
             },
             "type": "object"
+        },
+        "scaleway-instances:instance:ScalewayInstanceV1ListServerActionsResponseActionsItem": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Poweron",
+                    "value": "poweron"
+                },
+                {
+                    "name": "Backup",
+                    "value": "backup"
+                },
+                {
+                    "name": "StopInPlace",
+                    "value": "stop_in_place"
+                },
+                {
+                    "name": "Poweroff",
+                    "value": "poweroff"
+                },
+                {
+                    "name": "Terminate",
+                    "value": "terminate"
+                },
+                {
+                    "name": "Reboot",
+                    "value": "reboot"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1ListServerUserDataResponse": {
             "properties": {
@@ -713,10 +853,30 @@
             "type": "object"
         },
         "scaleway-instances:instance:ScalewayInstanceV1PlacementGroupPolicyMode": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Optional",
+                    "value": "optional"
+                },
+                {
+                    "name": "Enforced",
+                    "value": "enforced"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1PlacementGroupPolicyType": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "MaxAvailability",
+                    "value": "max_availability"
+                },
+                {
+                    "name": "LowLatency",
+                    "value": "low_latency"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1PlacementGroupServer": {
             "properties": {
@@ -926,13 +1086,51 @@
             "type": "object"
         },
         "scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleAction": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Accept",
+                    "value": "accept"
+                },
+                {
+                    "name": "Drop",
+                    "value": "drop"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleDirection": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Inbound",
+                    "value": "inbound"
+                },
+                {
+                    "name": "Outbound",
+                    "value": "outbound"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleProtocol": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Tcp",
+                    "value": "TCP"
+                },
+                {
+                    "name": "Udp",
+                    "value": "UDP"
+                },
+                {
+                    "name": "Icmp",
+                    "value": "ICMP"
+                },
+                {
+                    "name": "Any",
+                    "value": "ANY"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1SecurityGroupState": {
             "description": "Security group state",
@@ -957,7 +1155,7 @@
                 "allowed_actions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerAction"
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerAllowedActionsItem"
                     },
                     "description": "Provide as list of allowed actions on the server"
                 },
@@ -967,7 +1165,7 @@
                     "default": "x86_64"
                 },
                 "boot_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1BootType",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerBootType",
                     "default": "local"
                 },
                 "bootscript": {
@@ -1086,17 +1284,60 @@
             },
             "type": "object"
         },
-        "scaleway-instances:instance:ScalewayInstanceV1ServerAction": {
-            "type": "object"
-        },
         "scaleway-instances:instance:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate": {
             "properties": {
                 "volume_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeVolumeType",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType",
                     "default": "l_ssd"
                 }
             },
             "type": "object"
+        },
+        "scaleway-instances:instance:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "LSsd",
+                    "value": "l_ssd"
+                },
+                {
+                    "name": "BSsd",
+                    "value": "b_ssd"
+                },
+                {
+                    "name": "Unified",
+                    "value": "unified"
+                }
+            ]
+        },
+        "scaleway-instances:instance:ScalewayInstanceV1ServerAllowedActionsItem": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Poweron",
+                    "value": "poweron"
+                },
+                {
+                    "name": "Backup",
+                    "value": "backup"
+                },
+                {
+                    "name": "StopInPlace",
+                    "value": "stop_in_place"
+                },
+                {
+                    "name": "Poweroff",
+                    "value": "poweroff"
+                },
+                {
+                    "name": "Terminate",
+                    "value": "terminate"
+                },
+                {
+                    "name": "Reboot",
+                    "value": "reboot"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1ServerArch": {
             "description": "The server arch",
@@ -1109,6 +1350,23 @@
                 {
                     "name": "Arm",
                     "value": "arm"
+                }
+            ]
+        },
+        "scaleway-instances:instance:ScalewayInstanceV1ServerBootType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Local",
+                    "value": "local"
+                },
+                {
+                    "name": "Bootscript",
+                    "value": "bootscript"
+                },
+                {
+                    "name": "Rescue",
+                    "value": "rescue"
                 }
             ]
         },
@@ -1306,12 +1564,29 @@
                 "boot_types": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1BootType"
+                        "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem"
                     },
                     "description": "List of supported boot types"
                 }
             },
             "type": "object"
+        },
+        "scaleway-instances:instance:ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Local",
+                    "value": "local"
+                },
+                {
+                    "name": "Bootscript",
+                    "value": "bootscript"
+                },
+                {
+                    "name": "Rescue",
+                    "value": "rescue"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1ServerTypeNetworkInterface": {
             "properties": {
@@ -1387,9 +1662,6 @@
                     "description": "Minimum volume size in bytes (in bytes)"
                 }
             },
-            "type": "object"
-        },
-        "scaleway-instances:instance:ScalewayInstanceV1ServerTypesAvailability": {
             "type": "object"
         },
         "scaleway-instances:instance:ScalewayInstanceV1SetSecurityGroupRulesRequestRule": {
@@ -1540,7 +1812,7 @@
                     "description": "The snapshot tags"
                 },
                 "volume_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeVolumeType",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SnapshotVolumeType",
                     "default": "l_ssd"
                 },
                 "zone": {
@@ -1565,7 +1837,50 @@
             "type": "object"
         },
         "scaleway-instances:instance:ScalewayInstanceV1SnapshotState": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Available",
+                    "value": "available"
+                },
+                {
+                    "name": "Snapshotting",
+                    "value": "snapshotting"
+                },
+                {
+                    "name": "Error",
+                    "value": "error"
+                },
+                {
+                    "name": "InvalidData",
+                    "value": "invalid_data"
+                },
+                {
+                    "name": "Importing",
+                    "value": "importing"
+                },
+                {
+                    "name": "Exporting",
+                    "value": "exporting"
+                }
+            ]
+        },
+        "scaleway-instances:instance:ScalewayInstanceV1SnapshotVolumeType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "LSsd",
+                    "value": "l_ssd"
+                },
+                {
+                    "name": "BSsd",
+                    "value": "b_ssd"
+                },
+                {
+                    "name": "Unified",
+                    "value": "unified"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1Volume": {
             "properties": {
@@ -1606,7 +1921,7 @@
                     "description": "The volume disk size (in bytes)"
                 },
                 "state": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerState",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeState",
                     "default": "available"
                 },
                 "tags": {
@@ -1617,7 +1932,7 @@
                     "description": "The volume tags"
                 },
                 "volume_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerVolumeType",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeVolumeType",
                     "default": "l_ssd"
                 },
                 "zone": {
@@ -1689,7 +2004,37 @@
             "type": "object"
         },
         "scaleway-instances:instance:ScalewayInstanceV1VolumeServerState": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Available",
+                    "value": "available"
+                },
+                {
+                    "name": "Snapshotting",
+                    "value": "snapshotting"
+                },
+                {
+                    "name": "Error",
+                    "value": "error"
+                },
+                {
+                    "name": "Fetching",
+                    "value": "fetching"
+                },
+                {
+                    "name": "Resizing",
+                    "value": "resizing"
+                },
+                {
+                    "name": "Saving",
+                    "value": "saving"
+                },
+                {
+                    "name": "Hotsyncing",
+                    "value": "hotsyncing"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1VolumeServerTemplate": {
             "properties": {
@@ -1723,14 +2068,70 @@
                     "description": "Disk size of the volume, must be a multiple of 512 (in bytes)"
                 },
                 "volume_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerVolumeType",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerTemplateVolumeType",
                     "default": "l_ssd"
                 }
             },
             "type": "object"
         },
+        "scaleway-instances:instance:ScalewayInstanceV1VolumeServerTemplateVolumeType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "LSsd",
+                    "value": "l_ssd"
+                },
+                {
+                    "name": "BSsd",
+                    "value": "b_ssd"
+                }
+            ]
+        },
         "scaleway-instances:instance:ScalewayInstanceV1VolumeServerVolumeType": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "LSsd",
+                    "value": "l_ssd"
+                },
+                {
+                    "name": "BSsd",
+                    "value": "b_ssd"
+                }
+            ]
+        },
+        "scaleway-instances:instance:ScalewayInstanceV1VolumeState": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Available",
+                    "value": "available"
+                },
+                {
+                    "name": "Snapshotting",
+                    "value": "snapshotting"
+                },
+                {
+                    "name": "Error",
+                    "value": "error"
+                },
+                {
+                    "name": "Fetching",
+                    "value": "fetching"
+                },
+                {
+                    "name": "Resizing",
+                    "value": "resizing"
+                },
+                {
+                    "name": "Saving",
+                    "value": "saving"
+                },
+                {
+                    "name": "Hotsyncing",
+                    "value": "hotsyncing"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1VolumeSummary": {
             "properties": {
@@ -1745,11 +2146,28 @@
                     "description": "(in bytes)"
                 },
                 "volume_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeVolumeType",
+                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeSummaryVolumeType",
                     "default": "l_ssd"
                 }
             },
             "type": "object"
+        },
+        "scaleway-instances:instance:ScalewayInstanceV1VolumeSummaryVolumeType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "LSsd",
+                    "value": "l_ssd"
+                },
+                {
+                    "name": "BSsd",
+                    "value": "b_ssd"
+                },
+                {
+                    "name": "Unified",
+                    "value": "unified"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayInstanceV1VolumeType": {
             "properties": {
@@ -1787,7 +2205,17 @@
             "type": "object"
         },
         "scaleway-instances:instance:ScalewayInstanceV1VolumeVolumeType": {
-            "type": "object"
+            "type": "string",
+            "enum": [
+                {
+                    "name": "LSsd",
+                    "value": "l_ssd"
+                },
+                {
+                    "name": "BSsd",
+                    "value": "b_ssd"
+                }
+            ]
         },
         "scaleway-instances:instance:ScalewayStdFile": {
             "properties": {
@@ -1803,19 +2231,7 @@
             },
             "type": "object"
         },
-        "scaleway-instances:instance:ServerProperties": {
-            "description": "The server attached to the volume",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            },
-            "type": "object"
-        },
-        "scaleway-instances:instance:State": {
+        "scaleway-instances:instance:SecurityGroupState": {
             "description": "Security group state",
             "type": "string",
             "enum": [
@@ -1830,6 +2246,140 @@
                 {
                     "name": "SyncingError",
                     "value": "syncing_error"
+                }
+            ]
+        },
+        "scaleway-instances:instance:ServerActionAction": {
+            "description": "The action to perform on the server",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Poweron",
+                    "value": "poweron"
+                },
+                {
+                    "name": "Backup",
+                    "value": "backup"
+                },
+                {
+                    "name": "StopInPlace",
+                    "value": "stop_in_place"
+                },
+                {
+                    "name": "Poweroff",
+                    "value": "poweroff"
+                },
+                {
+                    "name": "Terminate",
+                    "value": "terminate"
+                },
+                {
+                    "name": "Reboot",
+                    "value": "reboot"
+                }
+            ]
+        },
+        "scaleway-instances:instance:ServerProperties": {
+            "description": "The server attached to the volume",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "scaleway-instances:instance:State": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Available",
+                    "value": "available"
+                },
+                {
+                    "name": "Snapshotting",
+                    "value": "snapshotting"
+                },
+                {
+                    "name": "Error",
+                    "value": "error"
+                },
+                {
+                    "name": "InvalidData",
+                    "value": "invalid_data"
+                },
+                {
+                    "name": "Importing",
+                    "value": "importing"
+                },
+                {
+                    "name": "Exporting",
+                    "value": "exporting"
+                }
+            ]
+        },
+        "scaleway-instances:instance:VolumeState": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Available",
+                    "value": "available"
+                },
+                {
+                    "name": "Snapshotting",
+                    "value": "snapshotting"
+                },
+                {
+                    "name": "Error",
+                    "value": "error"
+                },
+                {
+                    "name": "Fetching",
+                    "value": "fetching"
+                },
+                {
+                    "name": "Resizing",
+                    "value": "resizing"
+                },
+                {
+                    "name": "Saving",
+                    "value": "saving"
+                },
+                {
+                    "name": "Hotsyncing",
+                    "value": "hotsyncing"
+                }
+            ]
+        },
+        "scaleway-instances:instance:VolumeType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "LSsd",
+                    "value": "l_ssd"
+                },
+                {
+                    "name": "BSsd",
+                    "value": "b_ssd"
+                },
+                {
+                    "name": "Unified",
+                    "value": "unified"
+                }
+            ]
+        },
+        "scaleway-instances:instance:VolumeVolumeType": {
+            "type": "string",
+            "enum": [
+                {
+                    "name": "LSsd",
+                    "value": "l_ssd"
+                },
+                {
+                    "name": "BSsd",
+                    "value": "b_ssd"
                 }
             ]
         }
@@ -1890,7 +2440,7 @@
         "scaleway-instances:instance:Image": {
             "properties": {
                 "arch": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Arch",
+                    "$ref": "#/types/scaleway-instances:instance:Arch",
                     "default": "x86_64"
                 },
                 "creation_date": {
@@ -1931,7 +2481,7 @@
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeSummary"
                 },
                 "state": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ImageState",
+                    "$ref": "#/types/scaleway-instances:instance:ImageState",
                     "default": "available"
                 },
                 "tags": {
@@ -1947,7 +2497,7 @@
             "type": "object",
             "inputProperties": {
                 "arch": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1Arch",
+                    "$ref": "#/types/scaleway-instances:instance:Arch",
                     "default": "x86_64"
                 },
                 "default_bootscript": {
@@ -1974,7 +2524,7 @@
                     "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeSummary"
                 },
                 "state": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1ImageState",
+                    "$ref": "#/types/scaleway-instances:instance:ImageState",
                     "default": "available"
                 },
                 "tags": {
@@ -2061,7 +2611,7 @@
                     "description": "The placement group organization ID"
                 },
                 "policy_mode": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1PlacementGroupPolicyMode",
+                    "$ref": "#/types/scaleway-instances:instance:PolicyMode",
                     "default": "optional"
                 },
                 "policy_respected": {
@@ -2069,7 +2619,7 @@
                     "description": "Returns true if the policy is respected, false otherwise"
                 },
                 "policy_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1PlacementGroupPolicyType",
+                    "$ref": "#/types/scaleway-instances:instance:PolicyType",
                     "default": "max_availability"
                 },
                 "project": {
@@ -2099,11 +2649,11 @@
                     "description": "The placement group organization ID"
                 },
                 "policy_mode": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1PlacementGroupPolicyMode",
+                    "$ref": "#/types/scaleway-instances:instance:PolicyMode",
                     "default": "optional"
                 },
                 "policy_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1PlacementGroupPolicyType",
+                    "$ref": "#/types/scaleway-instances:instance:PolicyType",
                     "default": "max_availability"
                 },
                 "project": {
@@ -2230,7 +2780,7 @@
                     "description": "List of servers attached to this security group"
                 },
                 "state": {
-                    "$ref": "#/types/scaleway-instances:instance:State",
+                    "$ref": "#/types/scaleway-instances:instance:SecurityGroupState",
                     "description": "Security group state",
                     "default": "available"
                 },
@@ -2310,7 +2860,7 @@
         "scaleway-instances:instance:SecurityGroupRule": {
             "properties": {
                 "action": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleAction",
+                    "$ref": "#/types/scaleway-instances:instance:Action",
                     "default": "accept"
                 },
                 "dest_port_from": {
@@ -2322,7 +2872,7 @@
                     "description": "The end of the range of ports to apply this rule to (inclusive)"
                 },
                 "direction": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleDirection",
+                    "$ref": "#/types/scaleway-instances:instance:Direction",
                     "default": "inbound"
                 },
                 "editable": {
@@ -2338,7 +2888,7 @@
                     "description": "The position of this rule in the security group rules list"
                 },
                 "protocol": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleProtocol",
+                    "$ref": "#/types/scaleway-instances:instance:Protocol",
                     "default": "TCP"
                 }
             },
@@ -2351,7 +2901,7 @@
             ],
             "inputProperties": {
                 "action": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleAction",
+                    "$ref": "#/types/scaleway-instances:instance:Action",
                     "default": "accept"
                 },
                 "dest_port_from": {
@@ -2363,7 +2913,7 @@
                     "description": "The end of the range of ports to apply this rule to (inclusive)"
                 },
                 "direction": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleDirection",
+                    "$ref": "#/types/scaleway-instances:instance:Direction",
                     "default": "inbound"
                 },
                 "editable": {
@@ -2383,7 +2933,7 @@
                     "description": "The position of this rule in the security group rules list"
                 },
                 "protocol": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SecurityGroupRuleProtocol",
+                    "$ref": "#/types/scaleway-instances:instance:Protocol",
                     "default": "TCP"
                 },
                 "zone": {
@@ -2571,7 +3121,7 @@
         "scaleway-instances:instance:ServerAction": {
             "properties": {
                 "action": {
-                    "$ref": "#/types/scaleway-instances:instance:Action",
+                    "$ref": "#/types/scaleway-instances:instance:ServerActionAction",
                     "description": "The action to perform on the server",
                     "default": "poweron"
                 },
@@ -2588,7 +3138,7 @@
             "type": "object",
             "inputProperties": {
                 "action": {
-                    "$ref": "#/types/scaleway-instances:instance:Action",
+                    "$ref": "#/types/scaleway-instances:instance:ServerActionAction",
                     "description": "The action to perform on the server",
                     "default": "poweron"
                 },
@@ -2650,7 +3200,7 @@
                     "description": "The snapshot size (in bytes)"
                 },
                 "state": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SnapshotState",
+                    "$ref": "#/types/scaleway-instances:instance:State",
                     "default": "available"
                 },
                 "tags": {
@@ -2661,7 +3211,7 @@
                     "description": "The snapshot tags"
                 },
                 "volume_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeVolumeType",
+                    "$ref": "#/types/scaleway-instances:instance:VolumeType",
                     "default": "l_ssd"
                 },
                 "zone": {
@@ -2688,7 +3238,7 @@
                     "description": "The snapshot size (in bytes)"
                 },
                 "state": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1SnapshotState",
+                    "$ref": "#/types/scaleway-instances:instance:State",
                     "default": "available"
                 },
                 "tags": {
@@ -2699,7 +3249,7 @@
                     "description": "The snapshot tags"
                 },
                 "volume_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeVolumeType",
+                    "$ref": "#/types/scaleway-instances:instance:VolumeType",
                     "default": "l_ssd"
                 },
                 "zone": {
@@ -2747,7 +3297,7 @@
                     "description": "The volume disk size (in bytes)"
                 },
                 "state": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerState",
+                    "$ref": "#/types/scaleway-instances:instance:VolumeState",
                     "default": "available"
                 },
                 "tags": {
@@ -2758,7 +3308,7 @@
                     "description": "The volume tags"
                 },
                 "volume_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerVolumeType",
+                    "$ref": "#/types/scaleway-instances:instance:VolumeVolumeType",
                     "default": "l_ssd"
                 },
                 "zone": {
@@ -2785,7 +3335,7 @@
                     "description": "The volume disk size (in bytes)"
                 },
                 "state": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerState",
+                    "$ref": "#/types/scaleway-instances:instance:VolumeState",
                     "default": "available"
                 },
                 "tags": {
@@ -2796,7 +3346,7 @@
                     "description": "The volume tags"
                 },
                 "volume_type": {
-                    "$ref": "#/types/scaleway-instances:instance:ScalewayInstanceV1VolumeServerVolumeType",
+                    "$ref": "#/types/scaleway-instances:instance:VolumeVolumeType",
                     "default": "l_ssd"
                 },
                 "zone": {
