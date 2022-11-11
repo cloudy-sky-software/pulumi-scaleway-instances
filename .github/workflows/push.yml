@@ -1,13 +1,11 @@
 on:
-  workflow_dispatch:
-# Enable the CI triggers when you are ready.
-#   push:
-#     branches:
-#       - main
+  push:
+    branches:
+      - main
 
-#   pull_request:
-#     branches:
-#       - main
+  pull_request:
+    branches:
+      - main
 
 env:
   GOLANG_CI_LINT_VERSION: v1.50.0
