@@ -119,7 +119,7 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 	})
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath": "github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/render",
+		"importBasePath": "github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/scaleway_instances",
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"packageName": "@cloudyskysoftware/pulumi-scaleway-instances",
@@ -145,7 +145,7 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 		},
 	})
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
-		"packageName": "pulumi_scaleway-instances",
+		"packageName": "pulumi_scaleway_instances",
 		"requires": map[string]string{
 			"pulumi": ">=3.0.0,<4.0.0",
 		},
