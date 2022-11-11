@@ -1,3 +1,3 @@
 // A Pulumi package for creating and managing Scaleway Instances resources.
 
-package render
+package scaleway_instances
