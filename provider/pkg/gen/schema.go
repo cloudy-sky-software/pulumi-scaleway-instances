@@ -89,10 +89,11 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 	}
 
 	openAPICtx := &openapigen.OpenAPIContext{
-		Doc:             openapiDoc,
-		Pkg:             &pkg,
-		ResourceCRUDMap: make(map[string]*openapigen.CRUDOperationsMap),
-		ExcludedPaths:   []string{},
+		Doc:                       openapiDoc,
+		Pkg:                       &pkg,
+		ResourceCRUDMap:           make(map[string]*openapigen.CRUDOperationsMap),
+		ExcludedPaths:             []string{},
+		UseParentResourceAsModule: true,
 	}
 
 	if err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces); err != nil {
