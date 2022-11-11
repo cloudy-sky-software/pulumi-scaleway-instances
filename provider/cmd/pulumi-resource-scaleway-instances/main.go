@@ -9,7 +9,7 @@ import (
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/provider/pkg/version"
 )
 
-var providerName = "render"
+var providerName = "scaleway-instances"
 
 //go:embed schema.json
 var pulumiSchema []byte
