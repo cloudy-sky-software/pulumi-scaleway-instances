@@ -57,8 +57,8 @@ export class ServerAction extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["action"] = (args ? args.action : undefined) ?? "poweron";
-            resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["server_id"] = args ? args.server_id : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
         } else {
@@ -80,14 +80,14 @@ export interface ServerActionArgs {
      */
     action?: pulumi.Input<enums.action.Action>;
     /**
-     * UUID of the server
-     */
-    id?: pulumi.Input<string>;
-    /**
      * The name of the backup you want to create.
      * This field should only be specified when performing a backup action.
      */
     name?: pulumi.Input<string>;
+    /**
+     * UUID of the server
+     */
+    server_id?: pulumi.Input<string>;
     volumes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs>}>;
     /**
      * The zone you want to target

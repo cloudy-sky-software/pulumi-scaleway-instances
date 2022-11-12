@@ -22,16 +22,16 @@ namespace Pulumi.ScalewayInstances.User_data
     public sealed class GetServerUserDataArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// UUID of the server
-        /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
-
-        /// <summary>
         /// Key of the user data to get
         /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
+
+        /// <summary>
+        /// UUID of the server
+        /// </summary>
+        [Input("server_id", required: true)]
+        public string Server_id { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target
@@ -48,16 +48,16 @@ namespace Pulumi.ScalewayInstances.User_data
     public sealed class GetServerUserDataInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// UUID of the server
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
         /// Key of the user data to get
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
+
+        /// <summary>
+        /// UUID of the server
+        /// </summary>
+        [Input("server_id", required: true)]
+        public Input<string> Server_id { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target

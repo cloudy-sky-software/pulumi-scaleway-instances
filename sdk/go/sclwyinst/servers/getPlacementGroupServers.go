@@ -22,7 +22,7 @@ func LookupPlacementGroupServers(ctx *pulumi.Context, args *LookupPlacementGroup
 
 type LookupPlacementGroupServersArgs struct {
 	// UUID of the placement group
-	Id string `pulumi:"id"`
+	Placement_group_id string `pulumi:"placement_group_id"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -46,7 +46,7 @@ func LookupPlacementGroupServersOutput(ctx *pulumi.Context, args LookupPlacement
 
 type LookupPlacementGroupServersOutputArgs struct {
 	// UUID of the placement group
-	Id pulumi.StringInput `pulumi:"id"`
+	Placement_group_id pulumi.StringInput `pulumi:"placement_group_id"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }

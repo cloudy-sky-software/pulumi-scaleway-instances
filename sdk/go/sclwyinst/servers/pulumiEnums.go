@@ -1851,8 +1851,9 @@ func (o ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput) ToStringPtrOutputWit
 type ScalewayInstanceV1VolumeVolumeType string
 
 const (
-	ScalewayInstanceV1VolumeVolumeTypeLSsd = ScalewayInstanceV1VolumeVolumeType("l_ssd")
-	ScalewayInstanceV1VolumeVolumeTypeBSsd = ScalewayInstanceV1VolumeVolumeType("b_ssd")
+	ScalewayInstanceV1VolumeVolumeTypeLSsd    = ScalewayInstanceV1VolumeVolumeType("l_ssd")
+	ScalewayInstanceV1VolumeVolumeTypeBSsd    = ScalewayInstanceV1VolumeVolumeType("b_ssd")
+	ScalewayInstanceV1VolumeVolumeTypeUnified = ScalewayInstanceV1VolumeVolumeType("unified")
 )
 
 type ScalewayInstanceV1VolumeVolumeTypeOutput struct{ *pulumi.OutputState }

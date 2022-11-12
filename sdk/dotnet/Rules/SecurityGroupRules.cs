@@ -64,12 +64,6 @@ namespace Pulumi.ScalewayInstances.Rules
 
     public sealed class SecurityGroupRulesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// UUID of the security group to update the rules on
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
         [Input("rules")]
         private InputList<Inputs.ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs>? _rules;
 
@@ -81,6 +75,12 @@ namespace Pulumi.ScalewayInstances.Rules
             get => _rules ?? (_rules = new InputList<Inputs.ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs>());
             set => _rules = value;
         }
+
+        /// <summary>
+        /// UUID of the security group to update the rules on
+        /// </summary>
+        [Input("security_group_id")]
+        public Input<string>? Security_group_id { get; set; }
 
         /// <summary>
         /// The zone you want to target

@@ -57,20 +57,20 @@ func (SecurityGroupRulesState) ElementType() reflect.Type {
 }
 
 type securityGroupRulesArgs struct {
-	// UUID of the security group to update the rules on
-	Id *string `pulumi:"id"`
 	// List of rules to update in the security group
 	Rules []ScalewayInstanceV1SetSecurityGroupRulesRequestRule `pulumi:"rules"`
+	// UUID of the security group to update the rules on
+	Security_group_id *string `pulumi:"security_group_id"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a SecurityGroupRules resource.
 type SecurityGroupRulesArgs struct {
-	// UUID of the security group to update the rules on
-	Id pulumi.StringPtrInput
 	// List of rules to update in the security group
 	Rules ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayInput
+	// UUID of the security group to update the rules on
+	Security_group_id pulumi.StringPtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }

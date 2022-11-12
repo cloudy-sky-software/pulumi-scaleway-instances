@@ -39,20 +39,20 @@ class AwaitableGetServerUserDataResult(GetServerUserDataResult):
             items=self.items)
 
 
-def get_server_user_data(id: Optional[str] = None,
-                         key: Optional[str] = None,
+def get_server_user_data(key: Optional[str] = None,
+                         server_id: Optional[str] = None,
                          zone: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerUserDataResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str id: UUID of the server
     :param str key: Key of the user data to get
+    :param str server_id: UUID of the server
     :param str zone: The zone you want to target
     """
     __args__ = dict()
-    __args__['id'] = id
     __args__['key'] = key
+    __args__['server_id'] = server_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('scaleway-instances:user_data:getServerUserData', __args__, opts=opts, typ=GetServerUserDataResult).value
@@ -62,15 +62,15 @@ def get_server_user_data(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_server_user_data)
-def get_server_user_data_output(id: Optional[pulumi.Input[str]] = None,
-                                key: Optional[pulumi.Input[str]] = None,
+def get_server_user_data_output(key: Optional[pulumi.Input[str]] = None,
+                                server_id: Optional[pulumi.Input[str]] = None,
                                 zone: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerUserDataResult]:
     """
     Use this data source to access information about an existing resource.
 
-    :param str id: UUID of the server
     :param str key: Key of the user data to get
+    :param str server_id: UUID of the server
     :param str zone: The zone you want to target
     """
     ...

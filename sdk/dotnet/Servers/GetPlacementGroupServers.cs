@@ -24,8 +24,8 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// UUID of the placement group
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("placement_group_id", required: true)]
+        public string Placement_group_id { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target
@@ -44,8 +44,8 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// UUID of the placement group
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("placement_group_id", required: true)]
+        public Input<string> Placement_group_id { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target

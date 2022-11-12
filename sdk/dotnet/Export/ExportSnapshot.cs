@@ -77,16 +77,16 @@ namespace Pulumi.ScalewayInstances.Export
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The snapshot ID
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
         /// S3 object key
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// The snapshot ID
+        /// </summary>
+        [Input("snapshot_id")]
+        public Input<string>? Snapshot_id { get; set; }
 
         /// <summary>
         /// The zone you want to target

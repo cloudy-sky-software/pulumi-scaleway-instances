@@ -18,26 +18,26 @@ __all__ = ['ServerActionArgs', 'ServerAction']
 class ServerActionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input['Action']] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs']]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerAction resource.
         :param pulumi.Input['Action'] action: The action to perform on the server
-        :param pulumi.Input[str] id: UUID of the server
         :param pulumi.Input[str] name: The name of the backup you want to create.
                This field should only be specified when performing a backup action.
+        :param pulumi.Input[str] server_id: UUID of the server
         :param pulumi.Input[str] zone: The zone you want to target
         """
         if action is None:
             action = 'poweron'
         if action is not None:
             pulumi.set(__self__, "action", action)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
         if zone is not None:
@@ -57,18 +57,6 @@ class ServerActionArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        UUID of the server
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the backup you want to create.
@@ -79,6 +67,18 @@ class ServerActionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        UUID of the server
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_id", value)
 
     @property
     @pulumi.getter
@@ -108,8 +108,8 @@ class ServerAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input['Action']] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -118,9 +118,9 @@ class ServerAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['Action'] action: The action to perform on the server
-        :param pulumi.Input[str] id: UUID of the server
         :param pulumi.Input[str] name: The name of the backup you want to create.
                This field should only be specified when performing a backup action.
+        :param pulumi.Input[str] server_id: UUID of the server
         :param pulumi.Input[str] zone: The zone you want to target
         """
         ...
@@ -147,8 +147,8 @@ class ServerAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input['Action']] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -163,8 +163,8 @@ class ServerAction(pulumi.CustomResource):
             if action is None:
                 action = 'poweron'
             __props__.__dict__["action"] = action
-            __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
+            __props__.__dict__["server_id"] = server_id
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["zone"] = zone
         super(ServerAction, __self__).__init__(

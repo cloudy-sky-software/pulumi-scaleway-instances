@@ -61,11 +61,11 @@ namespace Pulumi.ScalewayInstances.PrivateNics
 
     public sealed class PrivateNICArgs : global::Pulumi.ResourceArgs
     {
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
         [Input("private_network_id")]
         public Input<string>? Private_network_id { get; set; }
+
+        [Input("server_id")]
+        public Input<string>? Server_id { get; set; }
 
         /// <summary>
         /// The zone you want to target

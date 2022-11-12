@@ -56,16 +56,16 @@ func (PrivateNICState) ElementType() reflect.Type {
 }
 
 type privateNICArgs struct {
-	Id                 *string `pulumi:"id"`
 	Private_network_id *string `pulumi:"private_network_id"`
+	Server_id          *string `pulumi:"server_id"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a PrivateNIC resource.
 type PrivateNICArgs struct {
-	Id                 pulumi.StringPtrInput
 	Private_network_id pulumi.StringPtrInput
+	Server_id          pulumi.StringPtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }

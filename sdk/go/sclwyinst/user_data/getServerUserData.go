@@ -21,10 +21,10 @@ func GetServerUserData(ctx *pulumi.Context, args *GetServerUserDataArgs, opts ..
 }
 
 type GetServerUserDataArgs struct {
-	// UUID of the server
-	Id string `pulumi:"id"`
 	// Key of the user data to get
 	Key string `pulumi:"key"`
+	// UUID of the server
+	Server_id string `pulumi:"server_id"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -47,10 +47,10 @@ func GetServerUserDataOutput(ctx *pulumi.Context, args GetServerUserDataOutputAr
 }
 
 type GetServerUserDataOutputArgs struct {
-	// UUID of the server
-	Id pulumi.StringInput `pulumi:"id"`
 	// Key of the user data to get
 	Key pulumi.StringInput `pulumi:"key"`
+	// UUID of the server
+	Server_id pulumi.StringInput `pulumi:"server_id"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }

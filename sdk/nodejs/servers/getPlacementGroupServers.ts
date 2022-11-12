@@ -14,7 +14,7 @@ export function getPlacementGroupServers(args: GetPlacementGroupServersArgs, opt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("scaleway-instances:servers:getPlacementGroupServers", {
-        "id": args.id,
+        "placement_group_id": args.placement_group_id,
         "zone": args.zone,
     }, opts);
 }
@@ -23,7 +23,7 @@ export interface GetPlacementGroupServersArgs {
     /**
      * UUID of the placement group
      */
-    id: string;
+    placement_group_id: string;
     /**
      * The zone you want to target
      */
@@ -42,7 +42,7 @@ export interface GetPlacementGroupServersOutputArgs {
     /**
      * UUID of the placement group
      */
-    id: pulumi.Input<string>;
+    placement_group_id: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

@@ -52,6 +52,7 @@ namespace Pulumi.ScalewayInstances.Volumes
 
         public static ScalewayInstanceV1VolumeVolumeType LSsd { get; } = new ScalewayInstanceV1VolumeVolumeType("l_ssd");
         public static ScalewayInstanceV1VolumeVolumeType BSsd { get; } = new ScalewayInstanceV1VolumeVolumeType("b_ssd");
+        public static ScalewayInstanceV1VolumeVolumeType Unified { get; } = new ScalewayInstanceV1VolumeVolumeType("unified");
 
         public static bool operator ==(ScalewayInstanceV1VolumeVolumeType left, ScalewayInstanceV1VolumeVolumeType right) => left.Equals(right);
         public static bool operator !=(ScalewayInstanceV1VolumeVolumeType left, ScalewayInstanceV1VolumeVolumeType right) => !left.Equals(right);
@@ -113,6 +114,7 @@ namespace Pulumi.ScalewayInstances.Volumes
 
         public static VolumeType LSsd { get; } = new VolumeType("l_ssd");
         public static VolumeType BSsd { get; } = new VolumeType("b_ssd");
+        public static VolumeType Unified { get; } = new VolumeType("unified");
 
         public static bool operator ==(VolumeType left, VolumeType right) => left.Equals(right);
         public static bool operator !=(VolumeType left, VolumeType right) => !left.Equals(right);

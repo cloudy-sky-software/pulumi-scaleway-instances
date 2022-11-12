@@ -108,8 +108,9 @@ func (o ScalewayInstanceV1VolumeStatePtrOutput) ToStringPtrOutputWithContext(ctx
 type ScalewayInstanceV1VolumeVolumeType string
 
 const (
-	ScalewayInstanceV1VolumeVolumeTypeLSsd = ScalewayInstanceV1VolumeVolumeType("l_ssd")
-	ScalewayInstanceV1VolumeVolumeTypeBSsd = ScalewayInstanceV1VolumeVolumeType("b_ssd")
+	ScalewayInstanceV1VolumeVolumeTypeLSsd    = ScalewayInstanceV1VolumeVolumeType("l_ssd")
+	ScalewayInstanceV1VolumeVolumeTypeBSsd    = ScalewayInstanceV1VolumeVolumeType("b_ssd")
+	ScalewayInstanceV1VolumeVolumeTypeUnified = ScalewayInstanceV1VolumeVolumeType("unified")
 )
 
 type ScalewayInstanceV1VolumeVolumeTypeOutput struct{ *pulumi.OutputState }
@@ -207,42 +208,6 @@ const (
 	StateHotsyncing   = State("hotsyncing")
 )
 
-func (State) ElementType() reflect.Type {
-	return reflect.TypeOf((*State)(nil)).Elem()
-}
-
-func (e State) ToStateOutput() StateOutput {
-	return pulumi.ToOutput(e).(StateOutput)
-}
-
-func (e State) ToStateOutputWithContext(ctx context.Context) StateOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StateOutput)
-}
-
-func (e State) ToStatePtrOutput() StatePtrOutput {
-	return e.ToStatePtrOutputWithContext(context.Background())
-}
-
-func (e State) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
-	return State(e).ToStateOutputWithContext(ctx).ToStatePtrOutputWithContext(ctx)
-}
-
-func (e State) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e State) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e State) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e State) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 type StateOutput struct{ *pulumi.OutputState }
 
 func (StateOutput) ElementType() reflect.Type {
@@ -326,49 +291,12 @@ func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// StateInput is an input type that accepts StateArgs and StateOutput values.
-// You can construct a concrete instance of `StateInput` via:
-//
-//	StateArgs{...}
-type StateInput interface {
-	pulumi.Input
-
-	ToStateOutput() StateOutput
-	ToStateOutputWithContext(context.Context) StateOutput
-}
-
-var statePtrType = reflect.TypeOf((**State)(nil)).Elem()
-
-type StatePtrInput interface {
-	pulumi.Input
-
-	ToStatePtrOutput() StatePtrOutput
-	ToStatePtrOutputWithContext(context.Context) StatePtrOutput
-}
-
-type statePtr string
-
-func StatePtr(v string) StatePtrInput {
-	return (*statePtr)(&v)
-}
-
-func (*statePtr) ElementType() reflect.Type {
-	return statePtrType
-}
-
-func (in *statePtr) ToStatePtrOutput() StatePtrOutput {
-	return pulumi.ToOutput(in).(StatePtrOutput)
-}
-
-func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
-}
-
 type VolumeType string
 
 const (
-	VolumeTypeLSsd = VolumeType("l_ssd")
-	VolumeTypeBSsd = VolumeType("b_ssd")
+	VolumeTypeLSsd    = VolumeType("l_ssd")
+	VolumeTypeBSsd    = VolumeType("b_ssd")
+	VolumeTypeUnified = VolumeType("unified")
 )
 
 func (VolumeType) ElementType() reflect.Type {
@@ -529,8 +457,6 @@ func (in *volumeTypePtr) ToVolumeTypePtrOutputWithContext(ctx context.Context) V
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*StateInput)(nil)).Elem(), State("available"))
-	pulumi.RegisterInputType(reflect.TypeOf((*StatePtrInput)(nil)).Elem(), State("available"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTypeInput)(nil)).Elem(), VolumeType("l_ssd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTypePtrInput)(nil)).Elem(), VolumeType("l_ssd"))
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeStateOutput{})

@@ -44,9 +44,6 @@ func NewVolume(ctx *pulumi.Context,
 		args = &VolumeArgs{}
 	}
 
-	if isZero(args.State) {
-		args.State = State("available")
-	}
 	if isZero(args.Volume_type) {
 		args.Volume_type = VolumeType("l_ssd")
 	}
@@ -90,8 +87,7 @@ type volumeArgs struct {
 	// The volume project ID
 	Project *string `pulumi:"project"`
 	// The volume disk size (in bytes)
-	Size  *float64 `pulumi:"size"`
-	State *State   `pulumi:"state"`
+	Size *float64 `pulumi:"size"`
 	// The volume tags
 	Tags        []string    `pulumi:"tags"`
 	Volume_type *VolumeType `pulumi:"volume_type"`
@@ -108,8 +104,7 @@ type VolumeArgs struct {
 	// The volume project ID
 	Project pulumi.StringPtrInput
 	// The volume disk size (in bytes)
-	Size  pulumi.Float64PtrInput
-	State StatePtrInput
+	Size pulumi.Float64PtrInput
 	// The volume tags
 	Tags        pulumi.StringArrayInput
 	Volume_type VolumeTypePtrInput

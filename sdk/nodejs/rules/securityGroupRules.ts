@@ -50,8 +50,8 @@ export class SecurityGroupRules extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["security_group_id"] = args ? args.security_group_id : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
         } else {
             resourceInputs["rules"] = undefined /*out*/;
@@ -66,13 +66,13 @@ export class SecurityGroupRules extends pulumi.CustomResource {
  */
 export interface SecurityGroupRulesArgs {
     /**
-     * UUID of the security group to update the rules on
-     */
-    id?: pulumi.Input<string>;
-    /**
      * List of rules to update in the security group
      */
     rules?: pulumi.Input<pulumi.Input<inputs.rules.ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs>[]>;
+    /**
+     * UUID of the security group to update the rules on
+     */
+    security_group_id?: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

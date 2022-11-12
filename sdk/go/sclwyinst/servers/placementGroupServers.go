@@ -57,8 +57,8 @@ func (PlacementGroupServersState) ElementType() reflect.Type {
 
 type placementGroupServersArgs struct {
 	// UUID of the placement group
-	Id      *string  `pulumi:"id"`
-	Servers []string `pulumi:"servers"`
+	Placement_group_id *string  `pulumi:"placement_group_id"`
+	Servers            []string `pulumi:"servers"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
@@ -66,8 +66,8 @@ type placementGroupServersArgs struct {
 // The set of arguments for constructing a PlacementGroupServers resource.
 type PlacementGroupServersArgs struct {
 	// UUID of the placement group
-	Id      pulumi.StringPtrInput
-	Servers pulumi.StringArrayInput
+	Placement_group_id pulumi.StringPtrInput
+	Servers            pulumi.StringArrayInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }

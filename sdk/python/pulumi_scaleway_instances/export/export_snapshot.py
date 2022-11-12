@@ -15,22 +15,22 @@ __all__ = ['ExportSnapshotArgs', 'ExportSnapshot']
 class ExportSnapshotArgs:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ExportSnapshot resource.
         :param pulumi.Input[str] bucket: S3 bucket name
-        :param pulumi.Input[str] id: The snapshot ID
         :param pulumi.Input[str] key: S3 object key
+        :param pulumi.Input[str] snapshot_id: The snapshot ID
         :param pulumi.Input[str] zone: The zone you want to target
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
 
@@ -48,18 +48,6 @@ class ExportSnapshotArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The snapshot ID
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
         S3 object key
@@ -69,6 +57,18 @@ class ExportSnapshotArgs:
     @key.setter
     def key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The snapshot ID
+        """
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_id", value)
 
     @property
     @pulumi.getter
@@ -89,8 +89,8 @@ class ExportSnapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -98,8 +98,8 @@ class ExportSnapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: S3 bucket name
-        :param pulumi.Input[str] id: The snapshot ID
         :param pulumi.Input[str] key: S3 object key
+        :param pulumi.Input[str] snapshot_id: The snapshot ID
         :param pulumi.Input[str] zone: The zone you want to target
         """
         ...
@@ -126,8 +126,8 @@ class ExportSnapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -139,8 +139,8 @@ class ExportSnapshot(pulumi.CustomResource):
             __props__ = ExportSnapshotArgs.__new__(ExportSnapshotArgs)
 
             __props__.__dict__["bucket"] = bucket
-            __props__.__dict__["id"] = id
             __props__.__dict__["key"] = key
+            __props__.__dict__["snapshot_id"] = snapshot_id
             __props__.__dict__["zone"] = zone
         super(ExportSnapshot, __self__).__init__(
             'scaleway-instances:export:ExportSnapshot',

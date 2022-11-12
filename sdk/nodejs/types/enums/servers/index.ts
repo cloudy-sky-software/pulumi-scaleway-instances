@@ -173,6 +173,7 @@ export type ScalewayInstanceV1VolumeSummaryVolumeType = (typeof ScalewayInstance
 export const ScalewayInstanceV1VolumeVolumeType = {
     LSsd: "l_ssd",
     BSsd: "b_ssd",
+    Unified: "unified",
 } as const;
 
 export type ScalewayInstanceV1VolumeVolumeType = (typeof ScalewayInstanceV1VolumeVolumeType)[keyof typeof ScalewayInstanceV1VolumeVolumeType];

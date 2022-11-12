@@ -857,8 +857,9 @@ func (in *scalewayInstanceV1VolumeSummaryVolumeTypePtr) ToScalewayInstanceV1Volu
 type ScalewayInstanceV1VolumeVolumeType string
 
 const (
-	ScalewayInstanceV1VolumeVolumeTypeLSsd = ScalewayInstanceV1VolumeVolumeType("l_ssd")
-	ScalewayInstanceV1VolumeVolumeTypeBSsd = ScalewayInstanceV1VolumeVolumeType("b_ssd")
+	ScalewayInstanceV1VolumeVolumeTypeLSsd    = ScalewayInstanceV1VolumeVolumeType("l_ssd")
+	ScalewayInstanceV1VolumeVolumeTypeBSsd    = ScalewayInstanceV1VolumeVolumeType("b_ssd")
+	ScalewayInstanceV1VolumeVolumeTypeUnified = ScalewayInstanceV1VolumeVolumeType("unified")
 )
 
 func (ScalewayInstanceV1VolumeVolumeType) ElementType() reflect.Type {

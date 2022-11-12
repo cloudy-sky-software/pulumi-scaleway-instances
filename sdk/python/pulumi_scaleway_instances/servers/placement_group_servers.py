@@ -14,16 +14,16 @@ __all__ = ['PlacementGroupServersArgs', 'PlacementGroupServers']
 @pulumi.input_type
 class PlacementGroupServersArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
+                 placement_group_id: Optional[pulumi.Input[str]] = None,
                  servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PlacementGroupServers resource.
-        :param pulumi.Input[str] id: UUID of the placement group
+        :param pulumi.Input[str] placement_group_id: UUID of the placement group
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if placement_group_id is not None:
+            pulumi.set(__self__, "placement_group_id", placement_group_id)
         if servers is not None:
             pulumi.set(__self__, "servers", servers)
         if zone is not None:
@@ -31,15 +31,15 @@ class PlacementGroupServersArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    def placement_group_id(self) -> Optional[pulumi.Input[str]]:
         """
         UUID of the placement group
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "placement_group_id")
 
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
+    @placement_group_id.setter
+    def placement_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_group_id", value)
 
     @property
     @pulumi.getter
@@ -68,7 +68,7 @@ class PlacementGroupServers(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[str]] = None,
+                 placement_group_id: Optional[pulumi.Input[str]] = None,
                  servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -76,7 +76,7 @@ class PlacementGroupServers(pulumi.CustomResource):
         Create a PlacementGroupServers resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] id: UUID of the placement group
+        :param pulumi.Input[str] placement_group_id: UUID of the placement group
         :param pulumi.Input[str] zone: The zone you want to target
         """
         ...
@@ -102,7 +102,7 @@ class PlacementGroupServers(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[str]] = None,
+                 placement_group_id: Optional[pulumi.Input[str]] = None,
                  servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -114,7 +114,7 @@ class PlacementGroupServers(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PlacementGroupServersArgs.__new__(PlacementGroupServersArgs)
 
-            __props__.__dict__["id"] = id
+            __props__.__dict__["placement_group_id"] = placement_group_id
             __props__.__dict__["servers"] = servers
             __props__.__dict__["zone"] = zone
         super(PlacementGroupServers, __self__).__init__(

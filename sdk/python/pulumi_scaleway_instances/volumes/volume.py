@@ -20,7 +20,6 @@ class VolumeArgs:
                  organization: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[float]] = None,
-                 state: Optional[pulumi.Input['State']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  volume_type: Optional[pulumi.Input['VolumeType']] = None,
                  zone: Optional[pulumi.Input[str]] = None):
@@ -41,10 +40,6 @@ class VolumeArgs:
             pulumi.set(__self__, "project", project)
         if size is not None:
             pulumi.set(__self__, "size", size)
-        if state is None:
-            state = 'available'
-        if state is not None:
-            pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if volume_type is None:
@@ -104,15 +99,6 @@ class VolumeArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['State']]:
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input['State']]):
-        pulumi.set(self, "state", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The volume tags
@@ -154,7 +140,6 @@ class Volume(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[float]] = None,
-                 state: Optional[pulumi.Input['State']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  volume_type: Optional[pulumi.Input['VolumeType']] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -197,7 +182,6 @@ class Volume(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[float]] = None,
-                 state: Optional[pulumi.Input['State']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  volume_type: Optional[pulumi.Input['VolumeType']] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -214,9 +198,6 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["organization"] = organization
             __props__.__dict__["project"] = project
             __props__.__dict__["size"] = size
-            if state is None:
-                state = 'available'
-            __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             if volume_type is None:
                 volume_type = 'l_ssd'
@@ -226,6 +207,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["export_uri"] = None
             __props__.__dict__["modification_date"] = None
             __props__.__dict__["server"] = None
+            __props__.__dict__["state"] = None
         super(Volume, __self__).__init__(
             'scaleway-instances:volumes:Volume',
             resource_name,

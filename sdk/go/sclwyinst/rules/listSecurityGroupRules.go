@@ -22,7 +22,7 @@ func ListSecurityGroupRules(ctx *pulumi.Context, args *ListSecurityGroupRulesArg
 
 type ListSecurityGroupRulesArgs struct {
 	// UUID of the security group
-	Id string `pulumi:"id"`
+	Security_group_id string `pulumi:"security_group_id"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -46,7 +46,7 @@ func ListSecurityGroupRulesOutput(ctx *pulumi.Context, args ListSecurityGroupRul
 
 type ListSecurityGroupRulesOutputArgs struct {
 	// UUID of the security group
-	Id pulumi.StringInput `pulumi:"id"`
+	Security_group_id pulumi.StringInput `pulumi:"security_group_id"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }

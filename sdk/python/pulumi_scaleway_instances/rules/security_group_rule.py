@@ -22,8 +22,8 @@ class SecurityGroupRuleArgs:
                  dest_port_from: Optional[pulumi.Input[float]] = None,
                  dest_port_to: Optional[pulumi.Input[float]] = None,
                  editable: Optional[pulumi.Input[bool]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[float]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityGroupRule resource.
@@ -31,8 +31,8 @@ class SecurityGroupRuleArgs:
         :param pulumi.Input[float] dest_port_from: The beginning of the range of ports to apply this rule to (inclusive)
         :param pulumi.Input[float] dest_port_to: The end of the range of ports to apply this rule to (inclusive)
         :param pulumi.Input[bool] editable: Indicates if this rule is editable (will be ignored)
-        :param pulumi.Input[str] id: UUID of the security group
         :param pulumi.Input[float] position: The position of this rule in the security group rules list
+        :param pulumi.Input[str] security_group_id: UUID of the security group
         :param pulumi.Input[str] zone: The zone you want to target
         """
         if action is None:
@@ -51,10 +51,10 @@ class SecurityGroupRuleArgs:
             pulumi.set(__self__, "dest_port_to", dest_port_to)
         if editable is not None:
             pulumi.set(__self__, "editable", editable)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if position is not None:
             pulumi.set(__self__, "position", position)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
 
@@ -135,18 +135,6 @@ class SecurityGroupRuleArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        UUID of the security group
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
     def position(self) -> Optional[pulumi.Input[float]]:
         """
         The position of this rule in the security group rules list
@@ -156,6 +144,18 @@ class SecurityGroupRuleArgs:
     @position.setter
     def position(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter
+    def security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        UUID of the security group
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_id", value)
 
     @property
     @pulumi.getter
@@ -180,10 +180,10 @@ class SecurityGroupRule(pulumi.CustomResource):
                  dest_port_to: Optional[pulumi.Input[float]] = None,
                  direction: Optional[pulumi.Input['Direction']] = None,
                  editable: Optional[pulumi.Input[bool]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[float]] = None,
                  protocol: Optional[pulumi.Input['Protocol']] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -193,9 +193,9 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[float] dest_port_from: The beginning of the range of ports to apply this rule to (inclusive)
         :param pulumi.Input[float] dest_port_to: The end of the range of ports to apply this rule to (inclusive)
         :param pulumi.Input[bool] editable: Indicates if this rule is editable (will be ignored)
-        :param pulumi.Input[str] id: UUID of the security group
         :param pulumi.Input[str] ip_range: (IP network)
         :param pulumi.Input[float] position: The position of this rule in the security group rules list
+        :param pulumi.Input[str] security_group_id: UUID of the security group
         :param pulumi.Input[str] zone: The zone you want to target
         """
         ...
@@ -226,10 +226,10 @@ class SecurityGroupRule(pulumi.CustomResource):
                  dest_port_to: Optional[pulumi.Input[float]] = None,
                  direction: Optional[pulumi.Input['Direction']] = None,
                  editable: Optional[pulumi.Input[bool]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[float]] = None,
                  protocol: Optional[pulumi.Input['Protocol']] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -253,7 +253,6 @@ class SecurityGroupRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'direction'")
             __props__.__dict__["direction"] = direction
             __props__.__dict__["editable"] = editable
-            __props__.__dict__["id"] = id
             if ip_range is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_range'")
             __props__.__dict__["ip_range"] = ip_range
@@ -263,6 +262,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["security_group_id"] = security_group_id
             __props__.__dict__["zone"] = zone
         super(SecurityGroupRule, __self__).__init__(
             'scaleway-instances:rules:SecurityGroupRule',

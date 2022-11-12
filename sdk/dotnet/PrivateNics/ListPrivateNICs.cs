@@ -21,8 +21,8 @@ namespace Pulumi.ScalewayInstances.PrivateNics
 
     public sealed class ListPrivateNICsArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("server_id", required: true)]
+        public string Server_id { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target
@@ -38,8 +38,8 @@ namespace Pulumi.ScalewayInstances.PrivateNics
 
     public sealed class ListPrivateNICsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("server_id", required: true)]
+        public Input<string> Server_id { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target

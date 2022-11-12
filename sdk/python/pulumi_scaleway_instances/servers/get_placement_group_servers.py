@@ -39,17 +39,17 @@ class AwaitableGetPlacementGroupServersResult(GetPlacementGroupServersResult):
             items=self.items)
 
 
-def get_placement_group_servers(id: Optional[str] = None,
+def get_placement_group_servers(placement_group_id: Optional[str] = None,
                                 zone: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlacementGroupServersResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str id: UUID of the placement group
+    :param str placement_group_id: UUID of the placement group
     :param str zone: The zone you want to target
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['placement_group_id'] = placement_group_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('scaleway-instances:servers:getPlacementGroupServers', __args__, opts=opts, typ=GetPlacementGroupServersResult).value
@@ -59,13 +59,13 @@ def get_placement_group_servers(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_placement_group_servers)
-def get_placement_group_servers_output(id: Optional[pulumi.Input[str]] = None,
+def get_placement_group_servers_output(placement_group_id: Optional[pulumi.Input[str]] = None,
                                        zone: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupServersResult]:
     """
     Use this data source to access information about an existing resource.
 
-    :param str id: UUID of the placement group
+    :param str placement_group_id: UUID of the placement group
     :param str zone: The zone you want to target
     """
     ...

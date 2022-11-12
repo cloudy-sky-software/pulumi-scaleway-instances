@@ -61,10 +61,10 @@ func (ExportSnapshotState) ElementType() reflect.Type {
 type exportSnapshotArgs struct {
 	// S3 bucket name
 	Bucket *string `pulumi:"bucket"`
-	// The snapshot ID
-	Id *string `pulumi:"id"`
 	// S3 object key
 	Key *string `pulumi:"key"`
+	// The snapshot ID
+	Snapshot_id *string `pulumi:"snapshot_id"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
@@ -73,10 +73,10 @@ type exportSnapshotArgs struct {
 type ExportSnapshotArgs struct {
 	// S3 bucket name
 	Bucket pulumi.StringPtrInput
-	// The snapshot ID
-	Id pulumi.StringPtrInput
 	// S3 object key
 	Key pulumi.StringPtrInput
+	// The snapshot ID
+	Snapshot_id pulumi.StringPtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }

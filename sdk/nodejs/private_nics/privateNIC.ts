@@ -44,8 +44,8 @@ export class PrivateNIC extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["private_network_id"] = args ? args.private_network_id : undefined;
+            resourceInputs["server_id"] = args ? args.server_id : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
         } else {
             resourceInputs["private_network_id"] = undefined /*out*/;
@@ -59,8 +59,8 @@ export class PrivateNIC extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateNIC resource.
  */
 export interface PrivateNICArgs {
-    id?: pulumi.Input<string>;
     private_network_id?: pulumi.Input<string>;
+    server_id?: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

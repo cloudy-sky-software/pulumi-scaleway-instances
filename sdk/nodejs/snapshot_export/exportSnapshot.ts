@@ -52,8 +52,8 @@ export class ExportSnapshot extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["snapshot_id"] = args ? args.snapshot_id : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
         } else {
             resourceInputs["bucket"] = undefined /*out*/;
@@ -73,13 +73,13 @@ export interface ExportSnapshotArgs {
      */
     bucket?: pulumi.Input<string>;
     /**
-     * The snapshot ID
-     */
-    id?: pulumi.Input<string>;
-    /**
      * S3 object key
      */
     key?: pulumi.Input<string>;
+    /**
+     * The snapshot ID
+     */
+    snapshot_id?: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

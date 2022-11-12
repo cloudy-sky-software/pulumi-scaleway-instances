@@ -17,33 +17,21 @@ __all__ = ['SecurityGroupRulesArgs', 'SecurityGroupRules']
 @pulumi.input_type
 class SecurityGroupRulesArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs']]]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityGroupRules resource.
-        :param pulumi.Input[str] id: UUID of the security group to update the rules on
         :param pulumi.Input[Sequence[pulumi.Input['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs']]] rules: List of rules to update in the security group
+        :param pulumi.Input[str] security_group_id: UUID of the security group to update the rules on
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        UUID of the security group to update the rules on
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter
@@ -56,6 +44,18 @@ class SecurityGroupRulesArgs:
     @rules.setter
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs']]]]):
         pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        UUID of the security group to update the rules on
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_group_id", value)
 
     @property
     @pulumi.getter
@@ -75,16 +75,16 @@ class SecurityGroupRules(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs']]]]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Create a SecurityGroupRules resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] id: UUID of the security group to update the rules on
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs']]]] rules: List of rules to update in the security group
+        :param pulumi.Input[str] security_group_id: UUID of the security group to update the rules on
         :param pulumi.Input[str] zone: The zone you want to target
         """
         ...
@@ -110,8 +110,8 @@ class SecurityGroupRules(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs']]]]] = None,
+                 security_group_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -122,8 +122,8 @@ class SecurityGroupRules(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityGroupRulesArgs.__new__(SecurityGroupRulesArgs)
 
-            __props__.__dict__["id"] = id
             __props__.__dict__["rules"] = rules
+            __props__.__dict__["security_group_id"] = security_group_id
             __props__.__dict__["zone"] = zone
         super(SecurityGroupRules, __self__).__init__(
             'scaleway-instances:rules:SecurityGroupRules',

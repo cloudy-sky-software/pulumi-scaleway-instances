@@ -40,7 +40,7 @@ class AwaitableListPrivateNICsResult(ListPrivateNICsResult):
             items=self.items)
 
 
-def list_private_nics(id: Optional[str] = None,
+def list_private_nics(server_id: Optional[str] = None,
                       zone: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateNICsResult:
     """
@@ -49,7 +49,7 @@ def list_private_nics(id: Optional[str] = None,
     :param str zone: The zone you want to target
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['server_id'] = server_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('scaleway-instances:private_nics:listPrivateNICs', __args__, opts=opts, typ=ListPrivateNICsResult).value
@@ -59,7 +59,7 @@ def list_private_nics(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(list_private_nics)
-def list_private_nics_output(id: Optional[pulumi.Input[str]] = None,
+def list_private_nics_output(server_id: Optional[pulumi.Input[str]] = None,
                              zone: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateNICsResult]:
     """

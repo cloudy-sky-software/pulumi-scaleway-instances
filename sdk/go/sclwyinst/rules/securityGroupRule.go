@@ -89,13 +89,13 @@ type securityGroupRuleArgs struct {
 	Direction    Direction `pulumi:"direction"`
 	// Indicates if this rule is editable (will be ignored)
 	Editable *bool `pulumi:"editable"`
-	// UUID of the security group
-	Id *string `pulumi:"id"`
 	// (IP network)
 	Ip_range string `pulumi:"ip_range"`
 	// The position of this rule in the security group rules list
 	Position *float64 `pulumi:"position"`
 	Protocol Protocol `pulumi:"protocol"`
+	// UUID of the security group
+	Security_group_id *string `pulumi:"security_group_id"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
@@ -110,13 +110,13 @@ type SecurityGroupRuleArgs struct {
 	Direction    DirectionInput
 	// Indicates if this rule is editable (will be ignored)
 	Editable pulumi.BoolPtrInput
-	// UUID of the security group
-	Id pulumi.StringPtrInput
 	// (IP network)
 	Ip_range pulumi.StringInput
 	// The position of this rule in the security group rules list
 	Position pulumi.Float64PtrInput
 	Protocol ProtocolInput
+	// UUID of the security group
+	Security_group_id pulumi.StringPtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }

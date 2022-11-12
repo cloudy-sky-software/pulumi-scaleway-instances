@@ -86,10 +86,10 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["dest_port_to"] = args ? args.dest_port_to : undefined;
             resourceInputs["direction"] = (args ? args.direction : undefined) ?? "inbound";
             resourceInputs["editable"] = args ? args.editable : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["ip_range"] = args ? args.ip_range : undefined;
             resourceInputs["position"] = args ? args.position : undefined;
             resourceInputs["protocol"] = (args ? args.protocol : undefined) ?? "TCP";
+            resourceInputs["security_group_id"] = args ? args.security_group_id : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
         } else {
             resourceInputs["action"] = undefined /*out*/;
@@ -125,10 +125,6 @@ export interface SecurityGroupRuleArgs {
      */
     editable?: pulumi.Input<boolean>;
     /**
-     * UUID of the security group
-     */
-    id?: pulumi.Input<string>;
-    /**
      * (IP network)
      */
     ip_range: pulumi.Input<string>;
@@ -137,6 +133,10 @@ export interface SecurityGroupRuleArgs {
      */
     position?: pulumi.Input<number>;
     protocol: pulumi.Input<enums.rules.Protocol>;
+    /**
+     * UUID of the security group
+     */
+    security_group_id?: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

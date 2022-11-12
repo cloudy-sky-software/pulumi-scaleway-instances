@@ -39,17 +39,17 @@ class AwaitableListServerUserDataResult(ListServerUserDataResult):
             items=self.items)
 
 
-def list_server_user_data(id: Optional[str] = None,
+def list_server_user_data(server_id: Optional[str] = None,
                           zone: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServerUserDataResult:
     """
     Use this data source to access information about an existing resource.
 
-    :param str id: UUID of the server
+    :param str server_id: UUID of the server
     :param str zone: The zone you want to target
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['server_id'] = server_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('scaleway-instances:user_data:listServerUserData', __args__, opts=opts, typ=ListServerUserDataResult).value
@@ -59,13 +59,13 @@ def list_server_user_data(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(list_server_user_data)
-def list_server_user_data_output(id: Optional[pulumi.Input[str]] = None,
+def list_server_user_data_output(server_id: Optional[pulumi.Input[str]] = None,
                                  zone: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServerUserDataResult]:
     """
     Use this data source to access information about an existing resource.
 
-    :param str id: UUID of the server
+    :param str server_id: UUID of the server
     :param str zone: The zone you want to target
     """
     ...

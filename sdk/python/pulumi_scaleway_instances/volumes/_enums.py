@@ -25,6 +25,7 @@ class ScalewayInstanceV1VolumeState(str, Enum):
 class ScalewayInstanceV1VolumeVolumeType(str, Enum):
     LSSD = "l_ssd"
     BSSD = "b_ssd"
+    UNIFIED = "unified"
 
 
 class State(str, Enum):
@@ -40,3 +41,4 @@ class State(str, Enum):
 class VolumeType(str, Enum):
     LSSD = "l_ssd"
     BSSD = "b_ssd"
+    UNIFIED = "unified"

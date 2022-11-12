@@ -162,3 +162,4 @@ class ScalewayInstanceV1VolumeSummaryVolumeType(str, Enum):
 class ScalewayInstanceV1VolumeVolumeType(str, Enum):
     LSSD = "l_ssd"
     BSSD = "b_ssd"
+    UNIFIED = "unified"

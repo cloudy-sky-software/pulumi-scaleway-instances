@@ -40,7 +40,7 @@ class AwaitableListServerActionsResult(ListServerActionsResult):
             items=self.items)
 
 
-def list_server_actions(id: Optional[str] = None,
+def list_server_actions(server_id: Optional[str] = None,
                         zone: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServerActionsResult:
     """
@@ -49,7 +49,7 @@ def list_server_actions(id: Optional[str] = None,
     :param str zone: The zone you want to target
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['server_id'] = server_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('scaleway-instances:action:listServerActions', __args__, opts=opts, typ=ListServerActionsResult).value
@@ -59,7 +59,7 @@ def list_server_actions(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(list_server_actions)
-def list_server_actions_output(id: Optional[pulumi.Input[str]] = None,
+def list_server_actions_output(server_id: Optional[pulumi.Input[str]] = None,
                                zone: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServerActionsResult]:
     """

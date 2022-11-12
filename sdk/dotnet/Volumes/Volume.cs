@@ -148,9 +148,6 @@ namespace Pulumi.ScalewayInstances.Volumes
         [Input("size")]
         public Input<double>? Size { get; set; }
 
-        [Input("state")]
-        public Input<Pulumi.ScalewayInstances.Volumes.State>? State { get; set; }
-
         [Input("tags")]
         private InputList<string>? _tags;
 
@@ -174,7 +171,6 @@ namespace Pulumi.ScalewayInstances.Volumes
 
         public VolumeArgs()
         {
-            State = Pulumi.ScalewayInstances.Volumes.State.Available;
             Volume_type = Pulumi.ScalewayInstances.Volumes.VolumeType.LSsd;
         }
         public static new VolumeArgs Empty => new VolumeArgs();

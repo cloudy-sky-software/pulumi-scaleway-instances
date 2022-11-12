@@ -122,12 +122,6 @@ namespace Pulumi.ScalewayInstances.Rules
         public Input<bool>? Editable { get; set; }
 
         /// <summary>
-        /// UUID of the security group
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
         /// (IP network)
         /// </summary>
         [Input("ip_range", required: true)]
@@ -141,6 +135,12 @@ namespace Pulumi.ScalewayInstances.Rules
 
         [Input("protocol", required: true)]
         public Input<Pulumi.ScalewayInstances.Rules.Protocol> Protocol { get; set; } = null!;
+
+        /// <summary>
+        /// UUID of the security group
+        /// </summary>
+        [Input("security_group_id")]
+        public Input<string>? Security_group_id { get; set; }
 
         /// <summary>
         /// The zone you want to target

@@ -21,7 +21,7 @@ func ListServerActions(ctx *pulumi.Context, args *ListServerActionsArgs, opts ..
 }
 
 type ListServerActionsArgs struct {
-	Id string `pulumi:"id"`
+	Server_id string `pulumi:"server_id"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -44,7 +44,7 @@ func ListServerActionsOutput(ctx *pulumi.Context, args ListServerActionsOutputAr
 }
 
 type ListServerActionsOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Server_id pulumi.StringInput `pulumi:"server_id"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }

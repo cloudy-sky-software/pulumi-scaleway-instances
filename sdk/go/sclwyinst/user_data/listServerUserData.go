@@ -22,7 +22,7 @@ func ListServerUserData(ctx *pulumi.Context, args *ListServerUserDataArgs, opts 
 
 type ListServerUserDataArgs struct {
 	// UUID of the server
-	Id string `pulumi:"id"`
+	Server_id string `pulumi:"server_id"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -46,7 +46,7 @@ func ListServerUserDataOutput(ctx *pulumi.Context, args ListServerUserDataOutput
 
 type ListServerUserDataOutputArgs struct {
 	// UUID of the server
-	Id pulumi.StringInput `pulumi:"id"`
+	Server_id pulumi.StringInput `pulumi:"server_id"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }

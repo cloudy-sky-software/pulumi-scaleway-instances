@@ -14,28 +14,19 @@ __all__ = ['PrivateNICArgs', 'PrivateNIC']
 @pulumi.input_type
 class PrivateNICArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
                  private_network_id: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateNIC resource.
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if private_network_id is not None:
             pulumi.set(__self__, "private_network_id", private_network_id)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter
@@ -45,6 +36,15 @@ class PrivateNICArgs:
     @private_network_id.setter
     def private_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_network_id", value)
+
+    @property
+    @pulumi.getter
+    def server_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_id", value)
 
     @property
     @pulumi.getter
@@ -64,8 +64,8 @@ class PrivateNIC(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  private_network_id: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -97,8 +97,8 @@ class PrivateNIC(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  private_network_id: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -109,8 +109,8 @@ class PrivateNIC(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateNICArgs.__new__(PrivateNICArgs)
 
-            __props__.__dict__["id"] = id
             __props__.__dict__["private_network_id"] = private_network_id
+            __props__.__dict__["server_id"] = server_id
             __props__.__dict__["zone"] = zone
         super(PrivateNIC, __self__).__init__(
             'scaleway-instances:private_nics:PrivateNIC',

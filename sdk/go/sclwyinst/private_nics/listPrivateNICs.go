@@ -21,7 +21,7 @@ func ListPrivateNICs(ctx *pulumi.Context, args *ListPrivateNICsArgs, opts ...pul
 }
 
 type ListPrivateNICsArgs struct {
-	Id string `pulumi:"id"`
+	Server_id string `pulumi:"server_id"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -44,7 +44,7 @@ func ListPrivateNICsOutput(ctx *pulumi.Context, args ListPrivateNICsOutputArgs, 
 }
 
 type ListPrivateNICsOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	Server_id pulumi.StringInput `pulumi:"server_id"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }

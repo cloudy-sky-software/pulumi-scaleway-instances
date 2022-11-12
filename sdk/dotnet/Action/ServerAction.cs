@@ -81,17 +81,17 @@ namespace Pulumi.ScalewayInstances.Action
         public Input<Pulumi.ScalewayInstances.Action.Action>? Action { get; set; }
 
         /// <summary>
-        /// UUID of the server
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
-
-        /// <summary>
         /// The name of the backup you want to create.
         /// This field should only be specified when performing a backup action.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// UUID of the server
+        /// </summary>
+        [Input("server_id")]
+        public Input<string>? Server_id { get; set; }
 
         [Input("volumes")]
         private InputMap<Inputs.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs>? _volumes;

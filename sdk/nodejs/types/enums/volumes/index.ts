@@ -17,6 +17,7 @@ export type ScalewayInstanceV1VolumeState = (typeof ScalewayInstanceV1VolumeStat
 export const ScalewayInstanceV1VolumeVolumeType = {
     LSsd: "l_ssd",
     BSsd: "b_ssd",
+    Unified: "unified",
 } as const;
 
 export type ScalewayInstanceV1VolumeVolumeType = (typeof ScalewayInstanceV1VolumeVolumeType)[keyof typeof ScalewayInstanceV1VolumeVolumeType];
@@ -36,6 +37,7 @@ export type State = (typeof State)[keyof typeof State];
 export const VolumeType = {
     LSsd: "l_ssd",
     BSsd: "b_ssd",
+    Unified: "unified",
 } as const;
 
 export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];

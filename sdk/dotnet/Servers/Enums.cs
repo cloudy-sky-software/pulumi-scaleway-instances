@@ -565,6 +565,7 @@ namespace Pulumi.ScalewayInstances.Servers
 
         public static ScalewayInstanceV1VolumeVolumeType LSsd { get; } = new ScalewayInstanceV1VolumeVolumeType("l_ssd");
         public static ScalewayInstanceV1VolumeVolumeType BSsd { get; } = new ScalewayInstanceV1VolumeVolumeType("b_ssd");
+        public static ScalewayInstanceV1VolumeVolumeType Unified { get; } = new ScalewayInstanceV1VolumeVolumeType("unified");
 
         public static bool operator ==(ScalewayInstanceV1VolumeVolumeType left, ScalewayInstanceV1VolumeVolumeType right) => left.Equals(right);
         public static bool operator !=(ScalewayInstanceV1VolumeVolumeType left, ScalewayInstanceV1VolumeVolumeType right) => !left.Equals(right);

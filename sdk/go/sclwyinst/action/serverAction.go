@@ -66,12 +66,12 @@ func (ServerActionState) ElementType() reflect.Type {
 type serverActionArgs struct {
 	// The action to perform on the server
 	Action *Action `pulumi:"action"`
-	// UUID of the server
-	Id *string `pulumi:"id"`
 	// The name of the backup you want to create.
 	// This field should only be specified when performing a backup action.
-	Name    *string                                                              `pulumi:"name"`
-	Volumes map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate `pulumi:"volumes"`
+	Name *string `pulumi:"name"`
+	// UUID of the server
+	Server_id *string                                                              `pulumi:"server_id"`
+	Volumes   map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate `pulumi:"volumes"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
@@ -80,12 +80,12 @@ type serverActionArgs struct {
 type ServerActionArgs struct {
 	// The action to perform on the server
 	Action ActionPtrInput
-	// UUID of the server
-	Id pulumi.StringPtrInput
 	// The name of the backup you want to create.
 	// This field should only be specified when performing a backup action.
-	Name    pulumi.StringPtrInput
-	Volumes ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapInput
+	Name pulumi.StringPtrInput
+	// UUID of the server
+	Server_id pulumi.StringPtrInput
+	Volumes   ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }

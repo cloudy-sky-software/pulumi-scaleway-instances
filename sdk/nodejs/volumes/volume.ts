@@ -66,7 +66,7 @@ export class Volume extends pulumi.CustomResource {
      * The volume disk size (in bytes)
      */
     public readonly size!: pulumi.Output<number | undefined>;
-    public readonly state!: pulumi.Output<enums.volumes.State | undefined>;
+    public /*out*/ readonly state!: pulumi.Output<enums.volumes.State | undefined>;
     /**
      * The volume tags
      */
@@ -92,7 +92,6 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["state"] = (args ? args.state : undefined) ?? "available";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volume_type"] = (args ? args.volume_type : undefined) ?? "l_ssd";
             resourceInputs["zone"] = args ? args.zone : undefined;
@@ -100,6 +99,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["export_uri"] = undefined /*out*/;
             resourceInputs["modification_date"] = undefined /*out*/;
             resourceInputs["server"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["creation_date"] = undefined /*out*/;
             resourceInputs["export_uri"] = undefined /*out*/;
@@ -139,7 +139,6 @@ export interface VolumeArgs {
      * The volume disk size (in bytes)
      */
     size?: pulumi.Input<number>;
-    state?: pulumi.Input<enums.volumes.State>;
     /**
      * The volume tags
      */
