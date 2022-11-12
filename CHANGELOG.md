@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Mark the `state` property in `Volume` resource as an output-only property.
+
 ## 0.0.4
 
 - Restore `id` property in the OpenAPI spec for resources. The schema generator in `pulschema` will exclude it from input properties for a resource.
