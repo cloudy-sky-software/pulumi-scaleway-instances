@@ -20,24 +20,9 @@ import (
 )
 
 const testCreateJSONPayload = `{
-    "autoDeploy": "yes",
-    "branch": "master",
-    "envVars": [{ "key": "PORT", "value": "8080" }],
-    "name": "An Express.js web service",
-    "ownerId": "usr-somefakeownerid",
-    "repo": "https://github.com/render-examples/express-hello-world",
-    "serviceDetails": {
-        "env": "node",
-        "envSpecificDetails": {
-            "buildCommand": "yarn",
-            "startCommand": "node app.js"
-        },
-        "numInstances": 1,
-        "plan": "starter",
-        "pullRequestPreviewsEnabled": "no",
-        "region": "oregon"
-    },
-    "type": "web_service"
+    "name": "testServer",
+	"zone": "fr-par-1",
+	"commercial_type": "GP1-S"
 }
 `
 
@@ -93,7 +78,7 @@ func TestDiff(t *testing.T) {
 	news["name"] = "Test2"
 	newsStruct, _ := plugin.MarshalProperties(resource.NewPropertyMapFromMap(news), state.DefaultMarshalOpts)
 
-	resp, err := p.Diff(ctx, &pulumirpc.DiffRequest{Id: "", Urn: "urn:pulumi:some-stack::some-project::scaleway-instances:services:StaticSite::someResourceName", Olds: oldsStruct, News: newsStruct})
+	resp, err := p.Diff(ctx, &pulumirpc.DiffRequest{Id: "", Urn: "urn:pulumi:some-stack::some-project::scaleway-instances:servers:Server::someResourceName", Olds: oldsStruct, News: newsStruct})
 	assert.Nil(t, err)
 	assert.Equal(t, pulumirpc.DiffResponse_DIFF_SOME, resp.Changes)
 	assert.NotEmpty(t, resp.Diffs)
@@ -114,7 +99,7 @@ func TestCreate(t *testing.T) {
 	inputProperties, _ := plugin.MarshalProperties(resource.NewPropertyMapFromMap(inputs), state.DefaultMarshalOpts)
 
 	_, err := p.Create(ctx, &pulumirpc.CreateRequest{
-		Urn:        "urn:pulumi:dev::scaleway-instances-ts::scaleway-instances:services:WebService::webservice",
+		Urn:        "urn:pulumi:dev::scaleway-instances-ts::scaleway-instances:servers:Server::testServer",
 		Properties: inputProperties,
 	})
 
