@@ -36,7 +36,7 @@
             "rootNamespace": "Pulumi"
         },
         "go": {
-            "importBasePath": "github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/scaleway_instances"
+            "importBasePath": "github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst"
         },
         "nodejs": {
             "dependencies": {
