@@ -20,9 +20,20 @@ import (
 )
 
 const testCreateJSONPayload = `{
-    "name": "testServer",
-	"zone": "fr-par-1",
-	"commercial_type": "GP1-S"
+	"name":"scw-reverent-chatterjee",
+	"dynamic_ip_required":false,
+	"commercial_type":"PLAY2-PICO",
+	"boot_type":"local",
+	"enable_ipv6":true,
+	"image":"1cfcd1d3-82aa-46d5-b9cd-1682edf62f67",
+	"volumes": {
+		"0": {
+			"size":10000000000,
+			"volume_type":"b_ssd"
+		}
+	},
+	"project":"65978379-535c-45a1-87be-92e4e3926db5",
+	"zone": "fr-par-1"
 }
 `
 
