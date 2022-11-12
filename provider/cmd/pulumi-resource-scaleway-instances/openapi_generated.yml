@@ -1826,7 +1826,7 @@ components:
           type: number
           description: The volume disk size (in bytes)
         volume_type:
-          $ref: "#/components/schemas/scaleway.instance.v1.VolumeServer.VolumeType"
+          $ref: "#/components/schemas/scaleway.instance.v1.Volume.VolumeType"
         creation_date:
           type: string
           description: The volume creation date (RFC 3339 format)
@@ -1865,7 +1865,6 @@ components:
             - name
         state:
           $ref: "#/components/schemas/scaleway.instance.v1.VolumeServer.State"
-          readOnly: true
         zone:
           type: string
           description: The zone in which is the volume
@@ -1942,6 +1941,7 @@ components:
         - boot
         - zone
     scaleway.instance.v1.VolumeServer.State:
+      readOnly: true
       type: string
       enum:
         - available
@@ -3058,7 +3058,7 @@ paths:
           description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/placement_groups/{id}/servers:
+  /instance/v1/zones/{zone}/placement_groups/{placement_group_id}/servers:
     get:
       tags:
         - Placement Groups
@@ -3081,7 +3081,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: placement_group_id
           description: UUID of the placement group
           required: true
           schema:
@@ -3118,7 +3118,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: placement_group_id
           description: UUID of the placement group
           required: true
           schema:
@@ -3168,7 +3168,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: placement_group_id
           description: UUID of the placement group
           required: true
           schema:
@@ -3561,7 +3561,7 @@ paths:
           description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/security_groups/{id}/rules:
+  /instance/v1/zones/{zone}/security_groups/{security_group_id}/rules:
     get:
       tags:
         - Security Groups
@@ -3583,7 +3583,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: security_group_id
           description: UUID of the security group
           required: true
           schema:
@@ -3638,7 +3638,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: security_group_id
           description: UUID of the security group
           required: true
           schema:
@@ -3729,7 +3729,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: security_group_id
           description: UUID of the security group to update the rules on
           required: true
           schema:
@@ -4352,7 +4352,7 @@ paths:
           description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/servers/{id}/action:
+  /instance/v1/zones/{zone}/servers/{server_id}/action:
     get:
       tags:
         - Servers
@@ -4375,7 +4375,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: server_id
           required: true
           schema:
             type: string
@@ -4416,7 +4416,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: server_id
           description: UUID of the server
           required: true
           schema:
@@ -4461,7 +4461,7 @@ paths:
                 - volumes
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/servers/{id}/private_nics:
+  /instance/v1/zones/{zone}/servers/{server_id}/private_nics:
     get:
       tags:
         - Private NICs
@@ -4484,7 +4484,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: server_id
           required: true
           schema:
             type: string
@@ -4519,7 +4519,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: server_id
           required: true
           schema:
             type: string
@@ -4620,7 +4620,7 @@ paths:
           description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/servers/{id}/user_data:
+  /instance/v1/zones/{zone}/servers/{server_id}/user_data:
     get:
       tags:
         - User-Data
@@ -4643,7 +4643,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: server_id
           description: UUID of the server
           required: true
           schema:
@@ -4658,7 +4658,7 @@ paths:
                 $ref: "#/components/schemas/scaleway.instance.v1.ListServerUserDataResponse"
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/servers/{id}/user_data/{key}:
+  /instance/v1/zones/{zone}/servers/{server_id}/user_data/{key}:
     get:
       tags:
         - User-Data
@@ -4681,7 +4681,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: server_id
           description: UUID of the server
           required: true
           schema:
@@ -4725,7 +4725,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: server_id
           description: UUID of the server
           required: true
           schema:
@@ -4772,7 +4772,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: server_id
           description: UUID of the server
           required: true
           schema:
@@ -4994,7 +4994,7 @@ paths:
           description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/snapshots/{id}/export:
+  /instance/v1/zones/{zone}/snapshots/{snapshot_id}/export:
     post:
       tags:
         - Snapshots
@@ -5017,7 +5017,7 @@ paths:
               - nl-ams-2
               - pl-waw-1
         - in: path
-          name: id
+          name: snapshot_id
           description: The snapshot ID
           required: true
           schema:

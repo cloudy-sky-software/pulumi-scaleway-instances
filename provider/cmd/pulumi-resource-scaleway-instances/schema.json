@@ -704,6 +704,10 @@
                 {
                     "name": "BSsd",
                     "value": "b_ssd"
+                },
+                {
+                    "name": "Unified",
+                    "value": "unified"
                 }
             ]
         },
@@ -2560,6 +2564,10 @@
                 {
                     "name": "BSsd",
                     "value": "b_ssd"
+                },
+                {
+                    "name": "Unified",
+                    "value": "unified"
                 }
             ]
         },
@@ -2968,6 +2976,10 @@
                 {
                     "name": "BSsd",
                     "value": "b_ssd"
+                },
+                {
+                    "name": "Unified",
+                    "value": "unified"
                 }
             ]
         },
@@ -3026,6 +3038,10 @@
                 {
                     "name": "BSsd",
                     "value": "b_ssd"
+                },
+                {
+                    "name": "Unified",
+                    "value": "unified"
                 }
             ]
         }
@@ -3077,13 +3093,13 @@
                     "description": "The action to perform on the server",
                     "default": "poweron"
                 },
-                "id": {
-                    "type": "string",
-                    "description": "UUID of the server"
-                },
                 "name": {
                     "type": "string",
                     "description": "The name of the backup you want to create.\nThis field should only be specified when performing a backup action.\n"
+                },
+                "server_id": {
+                    "type": "string",
+                    "description": "UUID of the server"
                 },
                 "volumes": {
                     "type": "object",
@@ -3114,13 +3130,13 @@
                     "type": "string",
                     "description": "S3 bucket name"
                 },
-                "id": {
-                    "type": "string",
-                    "description": "The snapshot ID"
-                },
                 "key": {
                     "type": "string",
                     "description": "S3 object key"
+                },
+                "snapshot_id": {
+                    "type": "string",
+                    "description": "The snapshot ID"
                 },
                 "zone": {
                     "type": "string",
@@ -3364,10 +3380,10 @@
             },
             "type": "object",
             "inputProperties": {
-                "id": {
+                "private_network_id": {
                     "type": "string"
                 },
-                "private_network_id": {
+                "server_id": {
                     "type": "string"
                 },
                 "zone": {
@@ -3439,10 +3455,6 @@
                     "type": "boolean",
                     "description": "Indicates if this rule is editable (will be ignored)"
                 },
-                "id": {
-                    "type": "string",
-                    "description": "UUID of the security group"
-                },
                 "ip_range": {
                     "type": "string",
                     "description": "(IP network)"
@@ -3454,6 +3466,10 @@
                 "protocol": {
                     "$ref": "#/types/scaleway-instances:rules:Protocol",
                     "default": "TCP"
+                },
+                "security_group_id": {
+                    "type": "string",
+                    "description": "UUID of the security group"
                 },
                 "zone": {
                     "type": "string",
@@ -3479,16 +3495,16 @@
             },
             "type": "object",
             "inputProperties": {
-                "id": {
-                    "type": "string",
-                    "description": "UUID of the security group to update the rules on"
-                },
                 "rules": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRule"
                     },
                     "description": "List of rules to update in the security group"
+                },
+                "security_group_id": {
+                    "type": "string",
+                    "description": "UUID of the security group to update the rules on"
                 },
                 "zone": {
                     "type": "string",
@@ -3640,7 +3656,7 @@
             },
             "type": "object",
             "inputProperties": {
-                "id": {
+                "placement_group_id": {
                     "type": "string",
                     "description": "UUID of the placement group"
                 },
@@ -3963,10 +3979,6 @@
                     "type": "number",
                     "description": "The volume disk size (in bytes)"
                 },
-                "state": {
-                    "$ref": "#/types/scaleway-instances:volumes:State",
-                    "default": "available"
-                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -3989,7 +4001,7 @@
         "scaleway-instances:action:listServerActions": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "server_id": {
                         "type": "string"
                     },
                     "zone": {
@@ -3998,7 +4010,7 @@
                     }
                 },
                 "required": [
-                    "id",
+                    "server_id",
                     "zone"
                 ]
             },
@@ -4296,7 +4308,7 @@
         "scaleway-instances:private_nics:listPrivateNICs": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "server_id": {
                         "type": "string"
                     },
                     "zone": {
@@ -4305,7 +4317,7 @@
                     }
                 },
                 "required": [
-                    "id",
+                    "server_id",
                     "zone"
                 ]
             },
@@ -4377,7 +4389,7 @@
         "scaleway-instances:rules:listSecurityGroupRules": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "security_group_id": {
                         "type": "string",
                         "description": "UUID of the security group"
                     },
@@ -4387,7 +4399,7 @@
                     }
                 },
                 "required": [
-                    "id",
+                    "security_group_id",
                     "zone"
                 ]
             },
@@ -4456,7 +4468,7 @@
         "scaleway-instances:servers:getPlacementGroupServers": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "placement_group_id": {
                         "type": "string",
                         "description": "UUID of the placement group"
                     },
@@ -4466,7 +4478,7 @@
                     }
                 },
                 "required": [
-                    "id",
+                    "placement_group_id",
                     "zone"
                 ]
             },
@@ -4609,13 +4621,13 @@
         "scaleway-instances:user_data:getServerUserData": {
             "inputs": {
                 "properties": {
-                    "id": {
-                        "type": "string",
-                        "description": "UUID of the server"
-                    },
                     "key": {
                         "type": "string",
                         "description": "Key of the user data to get"
+                    },
+                    "server_id": {
+                        "type": "string",
+                        "description": "UUID of the server"
                     },
                     "zone": {
                         "type": "string",
@@ -4623,8 +4635,8 @@
                     }
                 },
                 "required": [
-                    "id",
                     "key",
+                    "server_id",
                     "zone"
                 ]
             },
@@ -4642,7 +4654,7 @@
         "scaleway-instances:user_data:listServerUserData": {
             "inputs": {
                 "properties": {
-                    "id": {
+                    "server_id": {
                         "type": "string",
                         "description": "UUID of the server"
                     },
@@ -4652,7 +4664,7 @@
                     }
                 },
                 "required": [
-                    "id",
+                    "server_id",
                     "zone"
                 ]
             },
