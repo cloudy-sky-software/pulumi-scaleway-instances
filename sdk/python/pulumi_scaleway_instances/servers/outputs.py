@@ -229,6 +229,7 @@ class ScalewayInstanceV1Image(dict):
                  default_bootscript: Optional['outputs.ScalewayInstanceV1Bootscript'] = None,
                  extra_volumes: Optional[Mapping[str, 'outputs.ScalewayInstanceV1Volume']] = None,
                  from_server: Optional[str] = None,
+                 id: Optional[str] = None,
                  modification_date: Optional[str] = None,
                  name: Optional[str] = None,
                  organization: Optional[str] = None,
@@ -254,6 +255,8 @@ class ScalewayInstanceV1Image(dict):
             pulumi.set(__self__, "extra_volumes", extra_volumes)
         if from_server is not None:
             pulumi.set(__self__, "from_server", from_server)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if modification_date is not None:
             pulumi.set(__self__, "modification_date", modification_date)
         if name is not None:
@@ -302,6 +305,11 @@ class ScalewayInstanceV1Image(dict):
     @pulumi.getter
     def from_server(self) -> Optional[str]:
         return pulumi.get(self, "from_server")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -393,6 +401,7 @@ class ScalewayInstanceV1ListServersTypesResponse(dict):
 @pulumi.output_type
 class ScalewayInstanceV1PlacementGroup(dict):
     def __init__(__self__, *,
+                 id: Optional[str] = None,
                  name: Optional[str] = None,
                  organization: Optional[str] = None,
                  policy_mode: Optional['ScalewayInstanceV1PlacementGroupPolicyMode'] = None,
@@ -409,6 +418,8 @@ class ScalewayInstanceV1PlacementGroup(dict):
         :param Sequence[str] tags: The placement group tags
         :param str zone: The zone in which is the placement group
         """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if organization is not None:
@@ -429,6 +440,11 @@ class ScalewayInstanceV1PlacementGroup(dict):
             pulumi.set(__self__, "tags", tags)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -1507,6 +1523,7 @@ class ScalewayInstanceV1Volume(dict):
     def __init__(__self__, *,
                  creation_date: Optional[str] = None,
                  export_uri: Optional[str] = None,
+                 id: Optional[str] = None,
                  modification_date: Optional[str] = None,
                  name: Optional[str] = None,
                  organization: Optional[str] = None,
@@ -1533,6 +1550,8 @@ class ScalewayInstanceV1Volume(dict):
             pulumi.set(__self__, "creation_date", creation_date)
         if export_uri is not None:
             pulumi.set(__self__, "export_uri", export_uri)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if modification_date is not None:
             pulumi.set(__self__, "modification_date", modification_date)
         if name is not None:
@@ -1573,6 +1592,11 @@ class ScalewayInstanceV1Volume(dict):
         Show the volume NBD export URI
         """
         return pulumi.get(self, "export_uri")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter

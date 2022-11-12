@@ -25,6 +25,7 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
         /// The reason for the failed snapshot import
         /// </summary>
         public readonly string? Error_reason;
+        public readonly string? Id;
         /// <summary>
         /// The snapshot modification date (RFC 3339 format)
         /// </summary>
@@ -64,6 +65,8 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
 
             string? error_reason,
 
+            string? id,
+
             string? modification_date,
 
             string? name,
@@ -85,6 +88,7 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
             Base_volume = base_volume;
             Creation_date = creation_date;
             Error_reason = error_reason;
+            Id = id;
             Modification_date = modification_date;
             Name = name;
             Organization = organization;

@@ -13,6 +13,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
     [OutputType]
     public sealed class ScalewayInstanceV1PlacementGroup
     {
+        public readonly string? Id;
         /// <summary>
         /// The placement group name
         /// </summary>
@@ -42,6 +43,8 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
 
         [OutputConstructor]
         private ScalewayInstanceV1PlacementGroup(
+            string? id,
+
             string? name,
 
             string? organization,
@@ -58,6 +61,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
 
             string? zone)
         {
+            Id = id;
             Name = name;
             Organization = organization;
             Policy_mode = policy_mode;

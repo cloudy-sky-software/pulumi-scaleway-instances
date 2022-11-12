@@ -80,7 +80,8 @@ type ScalewayInstanceV1SecurityGroup struct {
 	// The security groups description
 	Description *string `pulumi:"description"`
 	// True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
-	Enable_default_security *bool `pulumi:"enable_default_security"`
+	Enable_default_security *bool   `pulumi:"enable_default_security"`
+	Id                      *string `pulumi:"id"`
 	// The default inbound policy
 	Inbound_default_policy *ScalewayInstanceV1SecurityGroupInboundDefaultPolicy `pulumi:"inbound_default_policy"`
 	// The security group modification date (RFC 3339 format)
@@ -157,6 +158,10 @@ func (o ScalewayInstanceV1SecurityGroupOutput) Description() pulumi.StringPtrOut
 // True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
 func (o ScalewayInstanceV1SecurityGroupOutput) Enable_default_security() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *bool { return v.Enable_default_security }).(pulumi.BoolPtrOutput)
+}
+
+func (o ScalewayInstanceV1SecurityGroupOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The default inbound policy
@@ -280,6 +285,15 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) Enable_default_security() pulu
 		}
 		return v.Enable_default_security
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ScalewayInstanceV1SecurityGroupPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The default inbound policy

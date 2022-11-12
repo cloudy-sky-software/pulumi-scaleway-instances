@@ -151,6 +151,7 @@ type ScalewayInstanceV1Snapshot struct {
 	Creation_date *string `pulumi:"creation_date"`
 	// The reason for the failed snapshot import
 	Error_reason *string `pulumi:"error_reason"`
+	Id           *string `pulumi:"id"`
 	// The snapshot modification date (RFC 3339 format)
 	Modification_date *string `pulumi:"modification_date"`
 	// The snapshot name
@@ -215,6 +216,10 @@ func (o ScalewayInstanceV1SnapshotOutput) Creation_date() pulumi.StringPtrOutput
 // The reason for the failed snapshot import
 func (o ScalewayInstanceV1SnapshotOutput) Error_reason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *string { return v.Error_reason }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalewayInstanceV1SnapshotOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The snapshot modification date (RFC 3339 format)
@@ -311,6 +316,15 @@ func (o ScalewayInstanceV1SnapshotPtrOutput) Error_reason() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.Error_reason
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScalewayInstanceV1SnapshotPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1Snapshot) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
 	}).(pulumi.StringPtrOutput)
 }
 

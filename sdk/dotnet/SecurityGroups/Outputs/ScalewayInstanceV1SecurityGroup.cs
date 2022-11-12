@@ -25,6 +25,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
         /// True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
         /// </summary>
         public readonly bool? Enable_default_security;
+        public readonly string? Id;
         /// <summary>
         /// The default inbound policy
         /// </summary>
@@ -86,6 +87,8 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
 
             bool? enable_default_security,
 
+            string? id,
+
             Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupInboundDefaultPolicy? inbound_default_policy,
 
             string? modification_date,
@@ -115,6 +118,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
             Creation_date = creation_date;
             Description = description;
             Enable_default_security = enable_default_security;
+            Id = id;
             Inbound_default_policy = inbound_default_policy;
             Modification_date = modification_date;
             Name = name;

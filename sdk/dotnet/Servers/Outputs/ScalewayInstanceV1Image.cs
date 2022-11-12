@@ -21,6 +21,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         public readonly Outputs.ScalewayInstanceV1Bootscript? Default_bootscript;
         public readonly ImmutableDictionary<string, Outputs.ScalewayInstanceV1Volume>? Extra_volumes;
         public readonly string? From_server;
+        public readonly string? Id;
         /// <summary>
         /// (RFC 3339 format)
         /// </summary>
@@ -46,6 +47,8 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             string? from_server,
 
+            string? id,
+
             string? modification_date,
 
             string? name,
@@ -69,6 +72,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
             Default_bootscript = default_bootscript;
             Extra_volumes = extra_volumes;
             From_server = from_server;
+            Id = id;
             Modification_date = modification_date;
             Name = name;
             Organization = organization;

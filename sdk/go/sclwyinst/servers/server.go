@@ -53,9 +53,6 @@ func NewServer(ctx *pulumi.Context,
 	if args.Commercial_type == nil {
 		return nil, errors.New("invalid value for required argument 'Commercial_type'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if isZero(args.Boot_type) {
 		args.Boot_type = BootType("local")
 	}
@@ -105,7 +102,7 @@ type serverArgs struct {
 	// The server image ID
 	Image *string `pulumi:"image"`
 	// The server name
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The server organization ID
 	Organization *string `pulumi:"organization"`
 	// Placement group ID if server must be part of a placement group
@@ -138,7 +135,7 @@ type ServerArgs struct {
 	// The server image ID
 	Image pulumi.StringPtrInput
 	// The server name
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The server organization ID
 	Organization pulumi.StringPtrInput
 	// Placement group ID if server must be part of a placement group

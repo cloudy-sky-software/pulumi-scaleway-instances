@@ -102,9 +102,6 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.commercial_type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'commercial_type'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["boot_type"] = (args ? args.boot_type : undefined) ?? "local";
             resourceInputs["bootscript"] = args ? args.bootscript : undefined;
             resourceInputs["commercial_type"] = args ? args.commercial_type : undefined;
@@ -172,7 +169,7 @@ export interface ServerArgs {
     /**
      * The server name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The server organization ID
      */

@@ -153,6 +153,7 @@ func (o ScalewayInstanceV1GetIpResponseOutput) Ip() ScalewayInstanceV1IpPtrOutpu
 type ScalewayInstanceV1Ip struct {
 	// (IPv4 address)
 	Address      *string                          `pulumi:"address"`
+	Id           *string                          `pulumi:"id"`
 	Organization *string                          `pulumi:"organization"`
 	Project      *string                          `pulumi:"project"`
 	Reverse      *GoogleProtobufStringValue       `pulumi:"reverse"`
@@ -178,6 +179,10 @@ func (o ScalewayInstanceV1IpOutput) ToScalewayInstanceV1IpOutputWithContext(ctx 
 // (IPv4 address)
 func (o ScalewayInstanceV1IpOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Ip) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalewayInstanceV1IpOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Ip) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o ScalewayInstanceV1IpOutput) Organization() pulumi.StringPtrOutput {
@@ -235,6 +240,15 @@ func (o ScalewayInstanceV1IpPtrOutput) Address() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScalewayInstanceV1IpPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1Ip) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
 	}).(pulumi.StringPtrOutput)
 }
 

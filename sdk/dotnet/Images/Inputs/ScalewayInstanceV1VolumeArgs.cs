@@ -24,6 +24,9 @@ namespace Pulumi.ScalewayInstances.Images.Inputs
         [Input("export_uri")]
         public Input<string>? Export_uri { get; set; }
 
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         /// <summary>
         /// The volume modification date (RFC 3339 format)
         /// </summary>

@@ -239,6 +239,7 @@ export namespace images {
         default_bootscript?: outputs.images.ScalewayInstanceV1Bootscript;
         extra_volumes?: {[key: string]: outputs.images.ScalewayInstanceV1Volume};
         from_server?: string;
+        id?: string;
         /**
          * (RFC 3339 format)
          */
@@ -281,6 +282,7 @@ export namespace images {
          * Show the volume NBD export URI
          */
         export_uri?: string;
+        id?: string;
         /**
          * The volume modification date (RFC 3339 format)
          */
@@ -369,6 +371,7 @@ export namespace ips {
          * (IPv4 address)
          */
         address?: string;
+        id?: string;
         organization?: string;
         project?: string;
         reverse?: outputs.ips.GoogleProtobufStringValue;
@@ -413,6 +416,7 @@ export namespace placement_groups {
     }
 
     export interface ScalewayInstanceV1PlacementGroup {
+        id?: string;
         /**
          * The placement group name
          */
@@ -644,6 +648,7 @@ export namespace security_groups {
          * True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
          */
         enable_default_security?: boolean;
+        id?: string;
         /**
          * The default inbound policy
          */
@@ -803,6 +808,7 @@ export namespace servers {
         default_bootscript?: outputs.servers.ScalewayInstanceV1Bootscript;
         extra_volumes?: {[key: string]: outputs.servers.ScalewayInstanceV1Volume};
         from_server?: string;
+        id?: string;
         /**
          * (RFC 3339 format)
          */
@@ -844,6 +850,7 @@ export namespace servers {
     }
 
     export interface ScalewayInstanceV1PlacementGroup {
+        id?: string;
         /**
          * The placement group name
          */
@@ -1258,6 +1265,7 @@ export namespace servers {
          * Show the volume NBD export URI
          */
         export_uri?: string;
+        id?: string;
         /**
          * The volume modification date (RFC 3339 format)
          */
@@ -1458,6 +1466,7 @@ export namespace snapshots {
          * The reason for the failed snapshot import
          */
         error_reason?: string;
+        id?: string;
         /**
          * The snapshot modification date (RFC 3339 format)
          */
@@ -1566,6 +1575,7 @@ export namespace volumes {
          * Show the volume NBD export URI
          */
         export_uri?: string;
+        id?: string;
         /**
          * The volume modification date (RFC 3339 format)
          */

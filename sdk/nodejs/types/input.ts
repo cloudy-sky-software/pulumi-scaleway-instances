@@ -102,6 +102,7 @@ export namespace images {
          * Show the volume NBD export URI
          */
         export_uri?: pulumi.Input<string>;
+        id?: pulumi.Input<string>;
         /**
          * The volume modification date (RFC 3339 format)
          */

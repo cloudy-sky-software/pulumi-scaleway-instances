@@ -52,6 +52,7 @@ class ScalewayInstanceV1ListPlacementGroupsResponse(dict):
 @pulumi.output_type
 class ScalewayInstanceV1PlacementGroup(dict):
     def __init__(__self__, *,
+                 id: Optional[str] = None,
                  name: Optional[str] = None,
                  organization: Optional[str] = None,
                  policy_mode: Optional['ScalewayInstanceV1PlacementGroupPolicyMode'] = None,
@@ -68,6 +69,8 @@ class ScalewayInstanceV1PlacementGroup(dict):
         :param Sequence[str] tags: The placement group tags
         :param str zone: The zone in which is the placement group
         """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if organization is not None:
@@ -88,6 +91,11 @@ class ScalewayInstanceV1PlacementGroup(dict):
             pulumi.set(__self__, "tags", tags)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter

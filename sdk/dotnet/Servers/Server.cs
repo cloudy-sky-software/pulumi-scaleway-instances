@@ -178,8 +178,8 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// The server name
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The server organization ID

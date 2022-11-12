@@ -316,6 +316,7 @@ class ScalewayInstanceV1VolumeArgs:
     def __init__(__self__, *,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  export_uri: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  modification_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
@@ -342,6 +343,8 @@ class ScalewayInstanceV1VolumeArgs:
             pulumi.set(__self__, "creation_date", creation_date)
         if export_uri is not None:
             pulumi.set(__self__, "export_uri", export_uri)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if modification_date is not None:
             pulumi.set(__self__, "modification_date", modification_date)
         if name is not None:
@@ -390,6 +393,15 @@ class ScalewayInstanceV1VolumeArgs:
     @export_uri.setter
     def export_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "export_uri", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter

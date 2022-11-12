@@ -17,6 +17,7 @@ namespace Pulumi.ScalewayInstances.Ips.Outputs
         /// (IPv4 address)
         /// </summary>
         public readonly string? Address;
+        public readonly string? Id;
         public readonly string? Organization;
         public readonly string? Project;
         public readonly Outputs.GoogleProtobufStringValue? Reverse;
@@ -27,6 +28,8 @@ namespace Pulumi.ScalewayInstances.Ips.Outputs
         [OutputConstructor]
         private ScalewayInstanceV1Ip(
             string? address,
+
+            string? id,
 
             string? organization,
 
@@ -41,6 +44,7 @@ namespace Pulumi.ScalewayInstances.Ips.Outputs
             string? zone)
         {
             Address = address;
+            Id = id;
             Organization = organization;
             Project = project;
             Reverse = reverse;

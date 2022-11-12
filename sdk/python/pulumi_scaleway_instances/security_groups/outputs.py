@@ -58,6 +58,7 @@ class ScalewayInstanceV1SecurityGroup(dict):
                  creation_date: Optional[str] = None,
                  description: Optional[str] = None,
                  enable_default_security: Optional[bool] = None,
+                 id: Optional[str] = None,
                  inbound_default_policy: Optional['ScalewayInstanceV1SecurityGroupInboundDefaultPolicy'] = None,
                  modification_date: Optional[str] = None,
                  name: Optional[str] = None,
@@ -95,6 +96,8 @@ class ScalewayInstanceV1SecurityGroup(dict):
             pulumi.set(__self__, "description", description)
         if enable_default_security is not None:
             pulumi.set(__self__, "enable_default_security", enable_default_security)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if inbound_default_policy is None:
             inbound_default_policy = 'accept'
         if inbound_default_policy is not None:
@@ -151,6 +154,11 @@ class ScalewayInstanceV1SecurityGroup(dict):
         True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
         """
         return pulumi.get(self, "enable_default_security")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter

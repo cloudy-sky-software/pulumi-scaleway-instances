@@ -41,6 +41,7 @@ class ScalewayInstanceV1GetIpResponse(dict):
 class ScalewayInstanceV1Ip(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
+                 id: Optional[str] = None,
                  organization: Optional[str] = None,
                  project: Optional[str] = None,
                  reverse: Optional['outputs.GoogleProtobufStringValue'] = None,
@@ -52,6 +53,8 @@ class ScalewayInstanceV1Ip(dict):
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if project is not None:
@@ -72,6 +75,11 @@ class ScalewayInstanceV1Ip(dict):
         (IPv4 address)
         """
         return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter

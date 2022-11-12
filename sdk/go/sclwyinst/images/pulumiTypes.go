@@ -420,6 +420,7 @@ type ScalewayInstanceV1Image struct {
 	Default_bootscript *ScalewayInstanceV1Bootscript       `pulumi:"default_bootscript"`
 	Extra_volumes      map[string]ScalewayInstanceV1Volume `pulumi:"extra_volumes"`
 	From_server        *string                             `pulumi:"from_server"`
+	Id                 *string                             `pulumi:"id"`
 	// (RFC 3339 format)
 	Modification_date *string                          `pulumi:"modification_date"`
 	Name              *string                          `pulumi:"name"`
@@ -486,6 +487,10 @@ func (o ScalewayInstanceV1ImageOutput) Extra_volumes() ScalewayInstanceV1VolumeM
 
 func (o ScalewayInstanceV1ImageOutput) From_server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Image) *string { return v.From_server }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalewayInstanceV1ImageOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Image) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // (RFC 3339 format)
@@ -592,6 +597,15 @@ func (o ScalewayInstanceV1ImagePtrOutput) From_server() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.From_server
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScalewayInstanceV1ImagePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1Image) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -726,6 +740,7 @@ type ScalewayInstanceV1Volume struct {
 	Creation_date *string `pulumi:"creation_date"`
 	// Show the volume NBD export URI
 	Export_uri *string `pulumi:"export_uri"`
+	Id         *string `pulumi:"id"`
 	// The volume modification date (RFC 3339 format)
 	Modification_date *string `pulumi:"modification_date"`
 	// The volume name
@@ -779,6 +794,7 @@ type ScalewayInstanceV1VolumeArgs struct {
 	Creation_date pulumi.StringPtrInput `pulumi:"creation_date"`
 	// Show the volume NBD export URI
 	Export_uri pulumi.StringPtrInput `pulumi:"export_uri"`
+	Id         pulumi.StringPtrInput `pulumi:"id"`
 	// The volume modification date (RFC 3339 format)
 	Modification_date pulumi.StringPtrInput `pulumi:"modification_date"`
 	// The volume name
@@ -872,6 +888,10 @@ func (o ScalewayInstanceV1VolumeOutput) Creation_date() pulumi.StringPtrOutput {
 // Show the volume NBD export URI
 func (o ScalewayInstanceV1VolumeOutput) Export_uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Volume) *string { return v.Export_uri }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalewayInstanceV1VolumeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Volume) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The volume modification date (RFC 3339 format)

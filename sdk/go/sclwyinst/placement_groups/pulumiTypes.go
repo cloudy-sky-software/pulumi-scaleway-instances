@@ -72,6 +72,7 @@ func (o ScalewayInstanceV1ListPlacementGroupsResponseOutput) Placement_groups() 
 }
 
 type ScalewayInstanceV1PlacementGroup struct {
+	Id *string `pulumi:"id"`
 	// The placement group name
 	Name *string `pulumi:"name"`
 	// The placement group organization ID
@@ -117,6 +118,10 @@ func (o ScalewayInstanceV1PlacementGroupOutput) ToScalewayInstanceV1PlacementGro
 
 func (o ScalewayInstanceV1PlacementGroupOutput) ToScalewayInstanceV1PlacementGroupOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PlacementGroupOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The placement group name
@@ -183,6 +188,15 @@ func (o ScalewayInstanceV1PlacementGroupPtrOutput) Elem() ScalewayInstanceV1Plac
 		var ret ScalewayInstanceV1PlacementGroup
 		return ret
 	}).(ScalewayInstanceV1PlacementGroupOutput)
+}
+
+func (o ScalewayInstanceV1PlacementGroupPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1PlacementGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The placement group name

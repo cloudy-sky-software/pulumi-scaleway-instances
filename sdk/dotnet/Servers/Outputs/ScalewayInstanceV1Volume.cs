@@ -21,6 +21,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// Show the volume NBD export URI
         /// </summary>
         public readonly string? Export_uri;
+        public readonly string? Id;
         /// <summary>
         /// The volume modification date (RFC 3339 format)
         /// </summary>
@@ -62,6 +63,8 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             string? export_uri,
 
+            string? id,
+
             string? modification_date,
 
             string? name,
@@ -84,6 +87,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         {
             Creation_date = creation_date;
             Export_uri = export_uri;
+            Id = id;
             Modification_date = modification_date;
             Name = name;
             Organization = organization;

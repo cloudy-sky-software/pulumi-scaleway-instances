@@ -18,12 +18,12 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  commercial_type: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  boot_type: Optional[pulumi.Input['BootType']] = None,
                  bootscript: Optional[pulumi.Input[str]] = None,
                  dynamic_ip_required: Optional[pulumi.Input[bool]] = None,
                  enable_ipv6: Optional[pulumi.Input[bool]] = None,
                  image: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
@@ -35,12 +35,12 @@ class ServerArgs:
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] commercial_type: Define the server commercial type (i.e. GP1-S)
-        :param pulumi.Input[str] name: The server name
         :param pulumi.Input['BootType'] boot_type: The boot type to use
         :param pulumi.Input[str] bootscript: The bootscript ID to use when `boot_type` is set to `bootscript`
         :param pulumi.Input[bool] dynamic_ip_required: Define if a dynamic IP is required for the instance
         :param pulumi.Input[bool] enable_ipv6: True if IPv6 is enabled on the server
         :param pulumi.Input[str] image: The server image ID
+        :param pulumi.Input[str] name: The server name
         :param pulumi.Input[str] organization: The server organization ID
         :param pulumi.Input[str] placement_group: Placement group ID if server must be part of a placement group
         :param pulumi.Input[str] project: The server project ID
@@ -50,7 +50,6 @@ class ServerArgs:
         :param pulumi.Input[str] zone: The zone you want to target
         """
         pulumi.set(__self__, "commercial_type", commercial_type)
-        pulumi.set(__self__, "name", name)
         if boot_type is None:
             boot_type = 'local'
         if boot_type is not None:
@@ -63,6 +62,8 @@ class ServerArgs:
             pulumi.set(__self__, "enable_ipv6", enable_ipv6)
         if image is not None:
             pulumi.set(__self__, "image", image)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if placement_group is not None:
@@ -91,18 +92,6 @@ class ServerArgs:
     @commercial_type.setter
     def commercial_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "commercial_type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The server name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -163,6 +152,18 @@ class ServerArgs:
     @image.setter
     def image(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The server name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -355,8 +356,6 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["dynamic_ip_required"] = dynamic_ip_required
             __props__.__dict__["enable_ipv6"] = enable_ipv6
             __props__.__dict__["image"] = image
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["organization"] = organization
             __props__.__dict__["placement_group"] = placement_group
