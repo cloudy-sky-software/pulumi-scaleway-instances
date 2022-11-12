@@ -45,6 +45,17 @@ func makeProvider(host *provider.HostClient, name, version string, pulumiSchemaB
 	return rp, err
 }
 
+func extractOutput(outputs interface{}) (map[string]interface{}, error) {
+	// All create/read/update endpoints return the object under a top-level object.
+	// For example, if creating a `Server` resource, then the response
+	// is under a `server` property.
+	for _, v := range outputs.(map[string]interface{}) {
+		return v.(map[string]interface{}), nil
+	}
+
+	return nil, errors.New("outputs did not have a top-level object")
+}
+
 func (p *scalewayInstancesProvider) GetAuthorizationHeader() string {
 	return p.apiKey
 }
@@ -99,7 +110,7 @@ func (p *scalewayInstancesProvider) OnPreCreate(ctx context.Context, req *pulumi
 
 // OnPostCreate allocates a new instance of the provided resource and returns its unique ID afterwards.
 func (p *scalewayInstancesProvider) OnPostCreate(ctx context.Context, req *pulumirpc.CreateRequest, outputs interface{}) (map[string]interface{}, error) {
-	return outputs.(map[string]interface{}), nil
+	return extractOutput(outputs)
 }
 
 func (p *scalewayInstancesProvider) OnPreRead(ctx context.Context, req *pulumirpc.ReadRequest, httpReq *http.Request) error {
@@ -107,7 +118,7 @@ func (p *scalewayInstancesProvider) OnPreRead(ctx context.Context, req *pulumirp
 }
 
 func (p *scalewayInstancesProvider) OnPostRead(ctx context.Context, req *pulumirpc.ReadRequest, outputs map[string]interface{}) (map[string]interface{}, error) {
-	return outputs, nil
+	return extractOutput(outputs)
 }
 
 func (p *scalewayInstancesProvider) OnPreUpdate(ctx context.Context, req *pulumirpc.UpdateRequest, httpReq *http.Request) error {
@@ -115,7 +126,7 @@ func (p *scalewayInstancesProvider) OnPreUpdate(ctx context.Context, req *pulumi
 }
 
 func (p *scalewayInstancesProvider) OnPostUpdate(ctx context.Context, req *pulumirpc.UpdateRequest, httpReq http.Request, outputs interface{}) (map[string]interface{}, error) {
-	return outputs.(map[string]interface{}), nil
+	return extractOutput(outputs)
 }
 
 func (p *scalewayInstancesProvider) OnPreDelete(ctx context.Context, req *pulumirpc.DeleteRequest, httpReq *http.Request) error {
