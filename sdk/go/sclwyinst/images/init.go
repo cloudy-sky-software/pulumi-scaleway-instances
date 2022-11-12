@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/scaleway_instances"
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,7 +32,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := scaleway_instances.PkgVersion()
+	version, err := sclwyinst.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
