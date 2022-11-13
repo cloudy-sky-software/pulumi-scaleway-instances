@@ -510,7 +510,12 @@
                     "type": "string"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "name",
+                "project",
+                "root_volume"
+            ]
         },
         "scaleway-instances:images:ScalewayInstanceV1ImageArch": {
             "type": "string",
@@ -611,7 +616,11 @@
                     "description": "The zone in which is the volume"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "name",
+                "project"
+            ]
         },
         "scaleway-instances:images:ScalewayInstanceV1VolumeServerProperties": {
             "description": "The server attached to the volume",
@@ -770,7 +779,10 @@
                     "type": "string"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "project"
+            ]
         },
         "scaleway-instances:ips:ScalewayInstanceV1ListIpsResponse": {
             "properties": {
@@ -882,7 +894,11 @@
                     "description": "The zone in which is the placement group"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "name",
+                "project"
+            ]
         },
         "scaleway-instances:placement_groups:ScalewayInstanceV1PlacementGroupPolicyMode": {
             "type": "string",
@@ -1356,7 +1372,11 @@
                     "description": "The zone in which is the security group"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "name",
+                "project"
+            ]
         },
         "scaleway-instances:security_groups:ScalewayInstanceV1SecurityGroupInboundDefaultPolicy": {
             "description": "The default inbound policy",
@@ -1596,7 +1616,12 @@
                     "type": "string"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "name",
+                "project",
+                "root_volume"
+            ]
         },
         "scaleway-instances:servers:ScalewayInstanceV1ImageArch": {
             "type": "string",
@@ -1693,7 +1718,11 @@
                     "description": "The zone in which is the placement group"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "name",
+                "project"
+            ]
         },
         "scaleway-instances:servers:ScalewayInstanceV1PlacementGroupPolicyMode": {
             "type": "string",
@@ -2325,7 +2354,11 @@
                     "description": "The zone in which is the volume"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "name",
+                "project"
+            ]
         },
         "scaleway-instances:servers:ScalewayInstanceV1VolumeServer": {
             "properties": {
@@ -2884,7 +2917,11 @@
                     "description": "The zone in which is the volume"
                 }
             },
-            "type": "object"
+            "type": "object",
+            "required": [
+                "name",
+                "project"
+            ]
         },
         "scaleway-instances:volumes:ScalewayInstanceV1VolumeServerProperties": {
             "description": "The server attached to the volume",
@@ -3200,6 +3237,11 @@
                 }
             },
             "type": "object",
+            "required": [
+                "name",
+                "root_volume",
+                "project"
+            ],
             "inputProperties": {
                 "arch": {
                     "$ref": "#/types/scaleway-instances:images:Arch",
@@ -3243,7 +3285,11 @@
                     "type": "string",
                     "description": "The zone you want to target"
                 }
-            }
+            },
+            "requiredInputs": [
+                "project",
+                "root_volume"
+            ]
         },
         "scaleway-instances:ips:Ip": {
             "properties": {
@@ -3274,6 +3320,9 @@
                 }
             },
             "type": "object",
+            "required": [
+                "project"
+            ],
             "inputProperties": {
                 "organization": {
                     "type": "string"
@@ -3297,7 +3346,10 @@
                     "type": "string",
                     "description": "The zone you want to target"
                 }
-            }
+            },
+            "requiredInputs": [
+                "project"
+            ]
         },
         "scaleway-instances:placement_groups:PlacementGroup": {
             "properties": {
@@ -3338,6 +3390,10 @@
                 }
             },
             "type": "object",
+            "required": [
+                "name",
+                "project"
+            ],
             "inputProperties": {
                 "name": {
                     "type": "string",
@@ -3370,7 +3426,10 @@
                     "type": "string",
                     "description": "The zone you want to target"
                 }
-            }
+            },
+            "requiredInputs": [
+                "project"
+            ]
         },
         "scaleway-instances:private_nics:PrivateNIC": {
             "properties": {
@@ -3379,6 +3438,9 @@
                 }
             },
             "type": "object",
+            "required": [
+                "private_network_id"
+            ],
             "inputProperties": {
                 "private_network_id": {
                     "type": "string"
@@ -3390,7 +3452,10 @@
                     "type": "string",
                     "description": "The zone you want to target"
                 }
-            }
+            },
+            "requiredInputs": [
+                "private_network_id"
+            ]
         },
         "scaleway-instances:rules:SecurityGroupRule": {
             "properties": {
@@ -3589,6 +3654,10 @@
                 }
             },
             "type": "object",
+            "required": [
+                "name",
+                "project"
+            ],
             "inputProperties": {
                 "description": {
                     "type": "string",
@@ -3643,7 +3712,10 @@
                     "type": "string",
                     "description": "The zone you want to target"
                 }
-            }
+            },
+            "requiredInputs": [
+                "project"
+            ]
         },
         "scaleway-instances:servers:PlacementGroupServers": {
             "properties": {
@@ -3962,6 +4034,10 @@
                 }
             },
             "type": "object",
+            "required": [
+                "name",
+                "project"
+            ],
             "inputProperties": {
                 "name": {
                     "type": "string",
@@ -3994,7 +4070,10 @@
                     "type": "string",
                     "description": "The zone you want to target"
                 }
-            }
+            },
+            "requiredInputs": [
+                "project"
+            ]
         }
     },
     "functions": {

@@ -624,6 +624,10 @@ components:
         zone:
           type: string
           readOnly: true
+      required:
+        - name
+        - root_volume
+        - project
       x-properties-order:
         - id
         - name
@@ -675,6 +679,8 @@ components:
         zone:
           type: string
           readOnly: true
+      required:
+        - project
       x-properties-order:
         - id
         - address
@@ -863,6 +869,9 @@ components:
           type: string
           description: The zone in which is the placement group
           readOnly: true
+      required:
+        - name
+        - project
       x-properties-order:
         - id
         - name
@@ -1015,6 +1024,9 @@ components:
           type: string
           description: The zone in which is the security group
           readOnly: true
+      required:
+        - name
+        - project
       x-properties-order:
         - id
         - name
@@ -1869,6 +1881,9 @@ components:
           type: string
           description: The zone in which is the volume
           readOnly: true
+      required:
+        - name
+        - project
       x-properties-order:
         - id
         - name
@@ -4540,6 +4555,8 @@ paths:
                 private_network_id:
                   type: string
               x-properties-order:
+                - private_network_id
+              required:
                 - private_network_id
       security:
         - scaleway: []
