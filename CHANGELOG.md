@@ -1,3 +1,7 @@
+## 0.0.6
+
+- Update the OpenAPI spec to mark name as required which will translate to an auto-name capable property in Pulumi. 
+
 ## 0.0.5
 
 - Mark the `state` property in `Volume` resource as an output-only property.
