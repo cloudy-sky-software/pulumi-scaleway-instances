@@ -1,6 +1,6 @@
 module github.com/cloudy-sky-software/pulumi-scaleway-instances/provider
 
-go 1.18
+go 1.19
 
 require (
 	github.com/cloudy-sky-software/pulschema v0.0.0-20221113161536-203135e86260
