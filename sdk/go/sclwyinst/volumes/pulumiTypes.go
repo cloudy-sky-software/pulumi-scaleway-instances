@@ -102,11 +102,11 @@ type ScalewayInstanceV1Volume struct {
 	// The volume modification date (RFC 3339 format)
 	Modification_date *string `pulumi:"modification_date"`
 	// The volume name
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The volume organization ID
 	Organization *string `pulumi:"organization"`
 	// The volume project ID
-	Project *string `pulumi:"project"`
+	Project string `pulumi:"project"`
 	// The server attached to the volume
 	Server *ScalewayInstanceV1VolumeServerProperties `pulumi:"server"`
 	// The volume disk size (in bytes)
@@ -170,8 +170,8 @@ func (o ScalewayInstanceV1VolumeOutput) Modification_date() pulumi.StringPtrOutp
 }
 
 // The volume name
-func (o ScalewayInstanceV1VolumeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Volume) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Volume) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The volume organization ID
@@ -180,8 +180,8 @@ func (o ScalewayInstanceV1VolumeOutput) Organization() pulumi.StringPtrOutput {
 }
 
 // The volume project ID
-func (o ScalewayInstanceV1VolumeOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Volume) *string { return v.Project }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1VolumeOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Volume) string { return v.Project }).(pulumi.StringOutput)
 }
 
 // The server attached to the volume
@@ -281,7 +281,7 @@ func (o ScalewayInstanceV1VolumePtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -301,7 +301,7 @@ func (o ScalewayInstanceV1VolumePtrOutput) Project() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Project
+		return &v.Project
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -52,27 +52,27 @@ class ScalewayInstanceV1ListPlacementGroupsResponse(dict):
 @pulumi.output_type
 class ScalewayInstanceV1PlacementGroup(dict):
     def __init__(__self__, *,
+                 name: str,
+                 project: str,
                  id: Optional[str] = None,
-                 name: Optional[str] = None,
                  organization: Optional[str] = None,
                  policy_mode: Optional['ScalewayInstanceV1PlacementGroupPolicyMode'] = None,
                  policy_respected: Optional[bool] = None,
                  policy_type: Optional['ScalewayInstanceV1PlacementGroupPolicyType'] = None,
-                 project: Optional[str] = None,
                  tags: Optional[Sequence[str]] = None,
                  zone: Optional[str] = None):
         """
         :param str name: The placement group name
+        :param str project: The placement group project ID
         :param str organization: The placement group organization ID
         :param bool policy_respected: Returns true if the policy is respected, false otherwise
-        :param str project: The placement group project ID
         :param Sequence[str] tags: The placement group tags
         :param str zone: The zone in which is the placement group
         """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
         if id is not None:
             pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if policy_mode is None:
@@ -85,8 +85,6 @@ class ScalewayInstanceV1PlacementGroup(dict):
             policy_type = 'max_availability'
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone is not None:
@@ -94,16 +92,24 @@ class ScalewayInstanceV1PlacementGroup(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
         The placement group name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def project(self) -> str:
+        """
+        The placement group project ID
+        """
+        return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,14 +136,6 @@ class ScalewayInstanceV1PlacementGroup(dict):
     @pulumi.getter
     def policy_type(self) -> Optional['ScalewayInstanceV1PlacementGroupPolicyType']:
         return pulumi.get(self, "policy_type")
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional[str]:
-        """
-        The placement group project ID
-        """
-        return pulumi.get(self, "project")
 
     @property
     @pulumi.getter

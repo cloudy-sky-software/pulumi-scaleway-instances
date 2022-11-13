@@ -46,11 +46,11 @@ export class Image extends pulumi.CustomResource {
      * (RFC 3339 format)
      */
     public /*out*/ readonly modification_date!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     public readonly organization!: pulumi.Output<string | undefined>;
-    public readonly project!: pulumi.Output<string | undefined>;
+    public readonly project!: pulumi.Output<string>;
     public readonly public!: pulumi.Output<boolean | undefined>;
-    public readonly root_volume!: pulumi.Output<outputs.images.ScalewayInstanceV1VolumeSummary | undefined>;
+    public readonly root_volume!: pulumi.Output<outputs.images.ScalewayInstanceV1VolumeSummary>;
     public readonly state!: pulumi.Output<enums.images.State | undefined>;
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly zone!: pulumi.Output<string | undefined>;
@@ -62,10 +62,16 @@ export class Image extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ImageArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.project === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'project'");
+            }
+            if ((!args || args.root_volume === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'root_volume'");
+            }
             resourceInputs["arch"] = (args ? args.arch : undefined) ?? "x86_64";
             resourceInputs["default_bootscript"] = args ? (args.default_bootscript ? pulumi.output(args.default_bootscript).apply(inputs.images.scalewayInstanceV1BootscriptArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["extra_volumes"] = args ? args.extra_volumes : undefined;
@@ -110,9 +116,9 @@ export interface ImageArgs {
     extra_volumes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.images.ScalewayInstanceV1VolumeArgs>}>;
     name?: pulumi.Input<string>;
     organization?: pulumi.Input<string>;
-    project?: pulumi.Input<string>;
+    project: pulumi.Input<string>;
     public?: pulumi.Input<boolean>;
-    root_volume?: pulumi.Input<inputs.images.ScalewayInstanceV1VolumeSummaryArgs>;
+    root_volume: pulumi.Input<inputs.images.ScalewayInstanceV1VolumeSummaryArgs>;
     state?: pulumi.Input<enums.images.State>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**

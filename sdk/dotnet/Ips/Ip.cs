@@ -22,7 +22,7 @@ namespace Pulumi.ScalewayInstances.Ips
         public Output<string?> Organization { get; private set; } = null!;
 
         [Output("project")]
-        public Output<string?> Project { get; private set; } = null!;
+        public Output<string> Project { get; private set; } = null!;
 
         [Output("reverse")]
         public Output<Outputs.GoogleProtobufStringValue?> Reverse { get; private set; } = null!;
@@ -44,7 +44,7 @@ namespace Pulumi.ScalewayInstances.Ips
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Ip(string name, IpArgs? args = null, CustomResourceOptions? options = null)
+        public Ip(string name, IpArgs args, CustomResourceOptions? options = null)
             : base("scaleway-instances:ips:Ip", name, args ?? new IpArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -85,8 +85,8 @@ namespace Pulumi.ScalewayInstances.Ips
         [Input("organization")]
         public Input<string>? Organization { get; set; }
 
-        [Input("project")]
-        public Input<string>? Project { get; set; }
+        [Input("project", required: true)]
+        public Input<string> Project { get; set; } = null!;
 
         [Input("reverse")]
         public Input<Inputs.GoogleProtobufStringValueArgs>? Reverse { get; set; }

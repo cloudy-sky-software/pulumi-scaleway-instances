@@ -16,8 +16,8 @@ __all__ = ['IpArgs', 'Ip']
 @pulumi.input_type
 class IpArgs:
     def __init__(__self__, *,
+                 project: pulumi.Input[str],
                  organization: Optional[pulumi.Input[str]] = None,
-                 project: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input['GoogleProtobufStringValueArgs']] = None,
                  server: Optional[pulumi.Input['ScalewayInstanceV1ServerSummaryArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -26,10 +26,9 @@ class IpArgs:
         The set of arguments for constructing a Ip resource.
         :param pulumi.Input[str] zone: The zone you want to target
         """
+        pulumi.set(__self__, "project", project)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
         if reverse is not None:
             pulumi.set(__self__, "reverse", reverse)
         if server is not None:
@@ -41,21 +40,21 @@ class IpArgs:
 
     @property
     @pulumi.getter
+    def project(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "project")
+
+    @project.setter
+    def project(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project", value)
+
+    @property
+    @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "organization")
 
     @organization.setter
     def organization(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organization", value)
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "project")
-
-    @project.setter
-    def project(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "project", value)
 
     @property
     @pulumi.getter
@@ -119,7 +118,7 @@ class Ip(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[IpArgs] = None,
+                 args: IpArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a Ip resource with the given unique name, props, and options.
@@ -154,6 +153,8 @@ class Ip(pulumi.CustomResource):
             __props__ = IpArgs.__new__(IpArgs)
 
             __props__.__dict__["organization"] = organization
+            if project is None and not opts.urn:
+                raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["reverse"] = reverse
             __props__.__dict__["server"] = server
@@ -206,7 +207,7 @@ class Ip(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def project(self) -> pulumi.Output[Optional[str]]:
+    def project(self) -> pulumi.Output[str]:
         return pulumi.get(self, "project")
 
     @property

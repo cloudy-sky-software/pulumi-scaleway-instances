@@ -110,7 +110,7 @@ export namespace images {
         /**
          * The volume name
          */
-        name?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
         /**
          * The volume organization ID
          */
@@ -118,7 +118,7 @@ export namespace images {
         /**
          * The volume project ID
          */
-        project?: pulumi.Input<string>;
+        project: pulumi.Input<string>;
         /**
          * The server attached to the volume
          */

@@ -17,7 +17,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
         /// <summary>
         /// The placement group name
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The placement group organization ID
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
         /// <summary>
         /// The placement group project ID
         /// </summary>
-        public readonly string? Project;
+        public readonly string Project;
         /// <summary>
         /// The placement group tags
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
         private ScalewayInstanceV1PlacementGroup(
             string? id,
 
-            string? name,
+            string name,
 
             string? organization,
 
@@ -55,7 +55,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
 
             Pulumi.ScalewayInstances.PlacementGroups.ScalewayInstanceV1PlacementGroupPolicyType? policy_type,
 
-            string? project,
+            string project,
 
             ImmutableArray<string> tags,
 

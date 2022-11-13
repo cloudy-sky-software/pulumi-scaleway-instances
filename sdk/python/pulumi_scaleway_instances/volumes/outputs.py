@@ -77,13 +77,13 @@ class ScalewayInstanceV1ListVolumesTypesResponse(dict):
 @pulumi.output_type
 class ScalewayInstanceV1Volume(dict):
     def __init__(__self__, *,
+                 name: str,
+                 project: str,
                  creation_date: Optional[str] = None,
                  export_uri: Optional[str] = None,
                  id: Optional[str] = None,
                  modification_date: Optional[str] = None,
-                 name: Optional[str] = None,
                  organization: Optional[str] = None,
-                 project: Optional[str] = None,
                  server: Optional['outputs.ScalewayInstanceV1VolumeServerProperties'] = None,
                  size: Optional[float] = None,
                  state: Optional['ScalewayInstanceV1VolumeState'] = None,
@@ -91,17 +91,19 @@ class ScalewayInstanceV1Volume(dict):
                  volume_type: Optional['ScalewayInstanceV1VolumeVolumeType'] = None,
                  zone: Optional[str] = None):
         """
+        :param str name: The volume name
+        :param str project: The volume project ID
         :param str creation_date: The volume creation date (RFC 3339 format)
         :param str export_uri: Show the volume NBD export URI
         :param str modification_date: The volume modification date (RFC 3339 format)
-        :param str name: The volume name
         :param str organization: The volume organization ID
-        :param str project: The volume project ID
         :param 'ScalewayInstanceV1VolumeServerProperties' server: The server attached to the volume
         :param float size: The volume disk size (in bytes)
         :param Sequence[str] tags: The volume tags
         :param str zone: The zone in which is the volume
         """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
         if creation_date is not None:
             pulumi.set(__self__, "creation_date", creation_date)
         if export_uri is not None:
@@ -110,12 +112,8 @@ class ScalewayInstanceV1Volume(dict):
             pulumi.set(__self__, "id", id)
         if modification_date is not None:
             pulumi.set(__self__, "modification_date", modification_date)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
         if server is not None:
             pulumi.set(__self__, "server", server)
         if size is not None:
@@ -132,6 +130,22 @@ class ScalewayInstanceV1Volume(dict):
             pulumi.set(__self__, "volume_type", volume_type)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The volume name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def project(self) -> str:
+        """
+        The volume project ID
+        """
+        return pulumi.get(self, "project")
 
     @property
     @pulumi.getter
@@ -164,27 +178,11 @@ class ScalewayInstanceV1Volume(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The volume name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
     def organization(self) -> Optional[str]:
         """
         The volume organization ID
         """
         return pulumi.get(self, "organization")
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional[str]:
-        """
-        The volume project ID
-        """
-        return pulumi.get(self, "project")
 
     @property
     @pulumi.getter

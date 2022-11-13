@@ -87,7 +87,7 @@ type ScalewayInstanceV1SecurityGroup struct {
 	// The security group modification date (RFC 3339 format)
 	Modification_date *string `pulumi:"modification_date"`
 	// The security groups name
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The security groups organization ID
 	Organization *string `pulumi:"organization"`
 	// True if it is your default security group for this organization ID
@@ -95,7 +95,7 @@ type ScalewayInstanceV1SecurityGroup struct {
 	// The default outbound policy
 	Outbound_default_policy *ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy `pulumi:"outbound_default_policy"`
 	// The security group project ID
-	Project *string `pulumi:"project"`
+	Project string `pulumi:"project"`
 	// True if it is your default security group for this project ID
 	Project_default *bool `pulumi:"project_default"`
 	// List of servers attached to this security group
@@ -177,8 +177,8 @@ func (o ScalewayInstanceV1SecurityGroupOutput) Modification_date() pulumi.String
 }
 
 // The security groups name
-func (o ScalewayInstanceV1SecurityGroupOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1SecurityGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The security groups organization ID
@@ -199,8 +199,8 @@ func (o ScalewayInstanceV1SecurityGroupOutput) Outbound_default_policy() Scalewa
 }
 
 // The security group project ID
-func (o ScalewayInstanceV1SecurityGroupOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *string { return v.Project }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1SecurityGroupOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) string { return v.Project }).(pulumi.StringOutput)
 }
 
 // True if it is your default security group for this project ID
@@ -322,7 +322,7 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) Name() pulumi.StringPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -362,7 +362,7 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) Project() pulumi.StringPtrOutp
 		if v == nil {
 			return nil
 		}
-		return v.Project
+		return &v.Project
 	}).(pulumi.StringPtrOutput)
 }
 

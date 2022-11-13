@@ -7,22 +7,26 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 type PrivateNIC struct {
 	pulumi.CustomResourceState
 
-	Private_network_id pulumi.StringPtrOutput `pulumi:"private_network_id"`
+	Private_network_id pulumi.StringOutput `pulumi:"private_network_id"`
 }
 
 // NewPrivateNIC registers a new resource with the given unique name, arguments, and options.
 func NewPrivateNIC(ctx *pulumi.Context,
 	name string, args *PrivateNICArgs, opts ...pulumi.ResourceOption) (*PrivateNIC, error) {
 	if args == nil {
-		args = &PrivateNICArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Private_network_id == nil {
+		return nil, errors.New("invalid value for required argument 'Private_network_id'")
+	}
 	opts = pkgResourceDefaultOpts(opts)
 	var resource PrivateNIC
 	err := ctx.RegisterResource("scaleway-instances:private_nics:PrivateNIC", name, args, &resource, opts...)
@@ -56,7 +60,7 @@ func (PrivateNICState) ElementType() reflect.Type {
 }
 
 type privateNICArgs struct {
-	Private_network_id *string `pulumi:"private_network_id"`
+	Private_network_id string  `pulumi:"private_network_id"`
 	Server_id          *string `pulumi:"server_id"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
@@ -64,7 +68,7 @@ type privateNICArgs struct {
 
 // The set of arguments for constructing a PrivateNIC resource.
 type PrivateNICArgs struct {
-	Private_network_id pulumi.StringPtrInput
+	Private_network_id pulumi.StringInput
 	Server_id          pulumi.StringPtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
@@ -107,8 +111,8 @@ func (o PrivateNICOutput) ToPrivateNICOutputWithContext(ctx context.Context) Pri
 	return o
 }
 
-func (o PrivateNICOutput) Private_network_id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateNIC) pulumi.StringPtrOutput { return v.Private_network_id }).(pulumi.StringPtrOutput)
+func (o PrivateNICOutput) Private_network_id() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateNIC) pulumi.StringOutput { return v.Private_network_id }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -37,19 +37,19 @@ namespace Pulumi.ScalewayInstances.Images
         public Output<string?> Modification_date { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("organization")]
         public Output<string?> Organization { get; private set; } = null!;
 
         [Output("project")]
-        public Output<string?> Project { get; private set; } = null!;
+        public Output<string> Project { get; private set; } = null!;
 
         [Output("public")]
         public Output<bool?> Public { get; private set; } = null!;
 
         [Output("root_volume")]
-        public Output<Outputs.ScalewayInstanceV1VolumeSummary?> Root_volume { get; private set; } = null!;
+        public Output<Outputs.ScalewayInstanceV1VolumeSummary> Root_volume { get; private set; } = null!;
 
         [Output("state")]
         public Output<Pulumi.ScalewayInstances.Images.State?> State { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.ScalewayInstances.Images
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Image(string name, ImageArgs? args = null, CustomResourceOptions? options = null)
+        public Image(string name, ImageArgs args, CustomResourceOptions? options = null)
             : base("scaleway-instances:images:Image", name, args ?? new ImageArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -126,14 +126,14 @@ namespace Pulumi.ScalewayInstances.Images
         [Input("organization")]
         public Input<string>? Organization { get; set; }
 
-        [Input("project")]
-        public Input<string>? Project { get; set; }
+        [Input("project", required: true)]
+        public Input<string> Project { get; set; } = null!;
 
         [Input("public")]
         public Input<bool>? Public { get; set; }
 
-        [Input("root_volume")]
-        public Input<Inputs.ScalewayInstanceV1VolumeSummaryArgs>? Root_volume { get; set; }
+        [Input("root_volume", required: true)]
+        public Input<Inputs.ScalewayInstanceV1VolumeSummaryArgs> Root_volume { get; set; } = null!;
 
         [Input("state")]
         public Input<Pulumi.ScalewayInstances.Images.State>? State { get; set; }

@@ -16,7 +16,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         /// The placement group name
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The placement group organization ID
@@ -40,7 +40,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         /// The placement group project ID
         /// </summary>
         [Output("project")]
-        public Output<string?> Project { get; private set; } = null!;
+        public Output<string> Project { get; private set; } = null!;
 
         /// <summary>
         /// The placement group tags
@@ -62,7 +62,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PlacementGroup(string name, PlacementGroupArgs? args = null, CustomResourceOptions? options = null)
+        public PlacementGroup(string name, PlacementGroupArgs args, CustomResourceOptions? options = null)
             : base("scaleway-instances:placement_groups:PlacementGroup", name, args ?? new PlacementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -121,8 +121,8 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         /// <summary>
         /// The placement group project ID
         /// </summary>
-        [Input("project")]
-        public Input<string>? Project { get; set; }
+        [Input("project", required: true)]
+        public Input<string> Project { get; set; } = null!;
 
         [Input("tags")]
         private InputList<string>? _tags;

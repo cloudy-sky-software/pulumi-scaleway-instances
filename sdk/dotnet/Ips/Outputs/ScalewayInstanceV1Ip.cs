@@ -19,7 +19,7 @@ namespace Pulumi.ScalewayInstances.Ips.Outputs
         public readonly string? Address;
         public readonly string? Id;
         public readonly string? Organization;
-        public readonly string? Project;
+        public readonly string Project;
         public readonly Outputs.GoogleProtobufStringValue? Reverse;
         public readonly Outputs.ScalewayInstanceV1ServerSummary? Server;
         public readonly ImmutableArray<string> Tags;
@@ -33,7 +33,7 @@ namespace Pulumi.ScalewayInstances.Ips.Outputs
 
             string? organization,
 
-            string? project,
+            string project,
 
             Outputs.GoogleProtobufStringValue? reverse,
 

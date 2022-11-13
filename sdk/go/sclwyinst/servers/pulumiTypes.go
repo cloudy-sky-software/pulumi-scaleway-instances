@@ -334,15 +334,15 @@ type ScalewayInstanceV1Image struct {
 	From_server        *string                             `pulumi:"from_server"`
 	Id                 *string                             `pulumi:"id"`
 	// (RFC 3339 format)
-	Modification_date *string                          `pulumi:"modification_date"`
-	Name              *string                          `pulumi:"name"`
-	Organization      *string                          `pulumi:"organization"`
-	Project           *string                          `pulumi:"project"`
-	Public            *bool                            `pulumi:"public"`
-	Root_volume       *ScalewayInstanceV1VolumeSummary `pulumi:"root_volume"`
-	State             *ScalewayInstanceV1ImageState    `pulumi:"state"`
-	Tags              []string                         `pulumi:"tags"`
-	Zone              *string                          `pulumi:"zone"`
+	Modification_date *string                         `pulumi:"modification_date"`
+	Name              string                          `pulumi:"name"`
+	Organization      *string                         `pulumi:"organization"`
+	Project           string                          `pulumi:"project"`
+	Public            *bool                           `pulumi:"public"`
+	Root_volume       ScalewayInstanceV1VolumeSummary `pulumi:"root_volume"`
+	State             *ScalewayInstanceV1ImageState   `pulumi:"state"`
+	Tags              []string                        `pulumi:"tags"`
+	Zone              *string                         `pulumi:"zone"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1Image
@@ -357,7 +357,7 @@ func (val *ScalewayInstanceV1Image) Defaults() *ScalewayInstanceV1Image {
 	}
 	tmp.Default_bootscript = tmp.Default_bootscript.Defaults()
 
-	tmp.Root_volume = tmp.Root_volume.Defaults()
+	tmp.Root_volume = *tmp.Root_volume.Defaults()
 
 	if isZero(tmp.State) {
 		state_ := ScalewayInstanceV1ImageState("available")
@@ -410,24 +410,24 @@ func (o ScalewayInstanceV1ImageOutput) Modification_date() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ScalewayInstanceV1Image) *string { return v.Modification_date }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1ImageOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Image) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1ImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Image) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o ScalewayInstanceV1ImageOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Image) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1ImageOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Image) *string { return v.Project }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1ImageOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Image) string { return v.Project }).(pulumi.StringOutput)
 }
 
 func (o ScalewayInstanceV1ImageOutput) Public() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Image) *bool { return v.Public }).(pulumi.BoolPtrOutput)
 }
 
-func (o ScalewayInstanceV1ImageOutput) Root_volume() ScalewayInstanceV1VolumeSummaryPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Image) *ScalewayInstanceV1VolumeSummary { return v.Root_volume }).(ScalewayInstanceV1VolumeSummaryPtrOutput)
+func (o ScalewayInstanceV1ImageOutput) Root_volume() ScalewayInstanceV1VolumeSummaryOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Image) ScalewayInstanceV1VolumeSummary { return v.Root_volume }).(ScalewayInstanceV1VolumeSummaryOutput)
 }
 
 func (o ScalewayInstanceV1ImageOutput) State() ScalewayInstanceV1ImageStatePtrOutput {
@@ -536,7 +536,7 @@ func (o ScalewayInstanceV1ImagePtrOutput) Name() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -554,7 +554,7 @@ func (o ScalewayInstanceV1ImagePtrOutput) Project() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Project
+		return &v.Project
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -572,7 +572,7 @@ func (o ScalewayInstanceV1ImagePtrOutput) Root_volume() ScalewayInstanceV1Volume
 		if v == nil {
 			return nil
 		}
-		return v.Root_volume
+		return &v.Root_volume
 	}).(ScalewayInstanceV1VolumeSummaryPtrOutput)
 }
 
@@ -656,7 +656,7 @@ func (o ScalewayInstanceV1ListServersTypesResponseOutput) Servers() ScalewayInst
 type ScalewayInstanceV1PlacementGroup struct {
 	Id *string `pulumi:"id"`
 	// The placement group name
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The placement group organization ID
 	Organization *string                                     `pulumi:"organization"`
 	Policy_mode  *ScalewayInstanceV1PlacementGroupPolicyMode `pulumi:"policy_mode"`
@@ -664,7 +664,7 @@ type ScalewayInstanceV1PlacementGroup struct {
 	Policy_respected *bool                                       `pulumi:"policy_respected"`
 	Policy_type      *ScalewayInstanceV1PlacementGroupPolicyType `pulumi:"policy_type"`
 	// The placement group project ID
-	Project *string `pulumi:"project"`
+	Project string `pulumi:"project"`
 	// The placement group tags
 	Tags []string `pulumi:"tags"`
 	// The zone in which is the placement group
@@ -707,8 +707,8 @@ func (o ScalewayInstanceV1PlacementGroupOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The placement group name
-func (o ScalewayInstanceV1PlacementGroupOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1PlacementGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The placement group organization ID
@@ -734,8 +734,8 @@ func (o ScalewayInstanceV1PlacementGroupOutput) Policy_type() ScalewayInstanceV1
 }
 
 // The placement group project ID
-func (o ScalewayInstanceV1PlacementGroupOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *string { return v.Project }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1PlacementGroupOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) string { return v.Project }).(pulumi.StringOutput)
 }
 
 // The placement group tags
@@ -787,7 +787,7 @@ func (o ScalewayInstanceV1PlacementGroupPtrOutput) Name() pulumi.StringPtrOutput
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -835,7 +835,7 @@ func (o ScalewayInstanceV1PlacementGroupPtrOutput) Project() pulumi.StringPtrOut
 		if v == nil {
 			return nil
 		}
-		return v.Project
+		return &v.Project
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2659,11 +2659,11 @@ type ScalewayInstanceV1Volume struct {
 	// The volume modification date (RFC 3339 format)
 	Modification_date *string `pulumi:"modification_date"`
 	// The volume name
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The volume organization ID
 	Organization *string `pulumi:"organization"`
 	// The volume project ID
-	Project *string `pulumi:"project"`
+	Project string `pulumi:"project"`
 	// The server attached to the volume
 	Server *ScalewayInstanceV1VolumeServerProperties `pulumi:"server"`
 	// The volume disk size (in bytes)
@@ -2727,8 +2727,8 @@ func (o ScalewayInstanceV1VolumeOutput) Modification_date() pulumi.StringPtrOutp
 }
 
 // The volume name
-func (o ScalewayInstanceV1VolumeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Volume) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Volume) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The volume organization ID
@@ -2737,8 +2737,8 @@ func (o ScalewayInstanceV1VolumeOutput) Organization() pulumi.StringPtrOutput {
 }
 
 // The volume project ID
-func (o ScalewayInstanceV1VolumeOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Volume) *string { return v.Project }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1VolumeOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Volume) string { return v.Project }).(pulumi.StringOutput)
 }
 
 // The server attached to the volume

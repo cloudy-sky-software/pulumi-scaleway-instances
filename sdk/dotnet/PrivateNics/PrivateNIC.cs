@@ -13,7 +13,7 @@ namespace Pulumi.ScalewayInstances.PrivateNics
     public partial class PrivateNIC : global::Pulumi.CustomResource
     {
         [Output("private_network_id")]
-        public Output<string?> Private_network_id { get; private set; } = null!;
+        public Output<string> Private_network_id { get; private set; } = null!;
 
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace Pulumi.ScalewayInstances.PrivateNics
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PrivateNIC(string name, PrivateNICArgs? args = null, CustomResourceOptions? options = null)
+        public PrivateNIC(string name, PrivateNICArgs args, CustomResourceOptions? options = null)
             : base("scaleway-instances:private_nics:PrivateNIC", name, args ?? new PrivateNICArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -61,8 +61,8 @@ namespace Pulumi.ScalewayInstances.PrivateNics
 
     public sealed class PrivateNICArgs : global::Pulumi.ResourceArgs
     {
-        [Input("private_network_id")]
-        public Input<string>? Private_network_id { get; set; }
+        [Input("private_network_id", required: true)]
+        public Input<string> Private_network_id { get; set; } = null!;
 
         [Input("server_id")]
         public Input<string>? Server_id { get; set; }

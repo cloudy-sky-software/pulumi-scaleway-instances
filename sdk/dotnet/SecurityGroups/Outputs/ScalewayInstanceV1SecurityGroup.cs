@@ -37,7 +37,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
         /// <summary>
         /// The security groups name
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The security groups organization ID
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
         /// <summary>
         /// The security group project ID
         /// </summary>
-        public readonly string? Project;
+        public readonly string Project;
         /// <summary>
         /// True if it is your default security group for this project ID
         /// </summary>
@@ -93,7 +93,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
 
             string? modification_date,
 
-            string? name,
+            string name,
 
             string? organization,
 
@@ -101,7 +101,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
 
             Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy? outbound_default_policy,
 
-            string? project,
+            string project,
 
             bool? project_default,
 

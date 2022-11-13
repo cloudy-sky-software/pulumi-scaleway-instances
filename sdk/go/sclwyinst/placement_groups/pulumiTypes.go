@@ -74,7 +74,7 @@ func (o ScalewayInstanceV1ListPlacementGroupsResponseOutput) Placement_groups() 
 type ScalewayInstanceV1PlacementGroup struct {
 	Id *string `pulumi:"id"`
 	// The placement group name
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The placement group organization ID
 	Organization *string                                     `pulumi:"organization"`
 	Policy_mode  *ScalewayInstanceV1PlacementGroupPolicyMode `pulumi:"policy_mode"`
@@ -82,7 +82,7 @@ type ScalewayInstanceV1PlacementGroup struct {
 	Policy_respected *bool                                       `pulumi:"policy_respected"`
 	Policy_type      *ScalewayInstanceV1PlacementGroupPolicyType `pulumi:"policy_type"`
 	// The placement group project ID
-	Project *string `pulumi:"project"`
+	Project string `pulumi:"project"`
 	// The placement group tags
 	Tags []string `pulumi:"tags"`
 	// The zone in which is the placement group
@@ -125,8 +125,8 @@ func (o ScalewayInstanceV1PlacementGroupOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The placement group name
-func (o ScalewayInstanceV1PlacementGroupOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1PlacementGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The placement group organization ID
@@ -152,8 +152,8 @@ func (o ScalewayInstanceV1PlacementGroupOutput) Policy_type() ScalewayInstanceV1
 }
 
 // The placement group project ID
-func (o ScalewayInstanceV1PlacementGroupOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *string { return v.Project }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1PlacementGroupOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) string { return v.Project }).(pulumi.StringOutput)
 }
 
 // The placement group tags
@@ -205,7 +205,7 @@ func (o ScalewayInstanceV1PlacementGroupPtrOutput) Name() pulumi.StringPtrOutput
 		if v == nil {
 			return nil
 		}
-		return v.Name
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -253,7 +253,7 @@ func (o ScalewayInstanceV1PlacementGroupPtrOutput) Project() pulumi.StringPtrOut
 		if v == nil {
 			return nil
 		}
-		return v.Project
+		return &v.Project
 	}).(pulumi.StringPtrOutput)
 }
 

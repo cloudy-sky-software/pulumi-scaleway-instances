@@ -14,15 +14,14 @@ __all__ = ['PrivateNICArgs', 'PrivateNIC']
 @pulumi.input_type
 class PrivateNICArgs:
     def __init__(__self__, *,
-                 private_network_id: Optional[pulumi.Input[str]] = None,
+                 private_network_id: pulumi.Input[str],
                  server_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateNIC resource.
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        if private_network_id is not None:
-            pulumi.set(__self__, "private_network_id", private_network_id)
+        pulumi.set(__self__, "private_network_id", private_network_id)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
         if zone is not None:
@@ -30,11 +29,11 @@ class PrivateNICArgs:
 
     @property
     @pulumi.getter
-    def private_network_id(self) -> Optional[pulumi.Input[str]]:
+    def private_network_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "private_network_id")
 
     @private_network_id.setter
-    def private_network_id(self, value: Optional[pulumi.Input[str]]):
+    def private_network_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "private_network_id", value)
 
     @property
@@ -78,7 +77,7 @@ class PrivateNIC(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[PrivateNICArgs] = None,
+                 args: PrivateNICArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a PrivateNIC resource with the given unique name, props, and options.
@@ -109,6 +108,8 @@ class PrivateNIC(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateNICArgs.__new__(PrivateNICArgs)
 
+            if private_network_id is None and not opts.urn:
+                raise TypeError("Missing required property 'private_network_id'")
             __props__.__dict__["private_network_id"] = private_network_id
             __props__.__dict__["server_id"] = server_id
             __props__.__dict__["zone"] = zone
@@ -139,6 +140,6 @@ class PrivateNIC(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def private_network_id(self) -> pulumi.Output[Optional[str]]:
+    def private_network_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "private_network_id")
 

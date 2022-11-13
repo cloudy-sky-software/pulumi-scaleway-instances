@@ -49,7 +49,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The volume name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The volume organization ID
      */
@@ -57,7 +57,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The volume project ID
      */
-    public readonly project!: pulumi.Output<string | undefined>;
+    public readonly project!: pulumi.Output<string>;
     /**
      * The server attached to the volume
      */
@@ -84,10 +84,13 @@ export class Volume extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.project === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'project'");
+            }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["project"] = args ? args.project : undefined;
@@ -134,7 +137,7 @@ export interface VolumeArgs {
     /**
      * The volume project ID
      */
-    project?: pulumi.Input<string>;
+    project: pulumi.Input<string>;
     /**
      * The volume disk size (in bytes)
      */

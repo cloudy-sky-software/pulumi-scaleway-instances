@@ -244,11 +244,11 @@ export namespace images {
          * (RFC 3339 format)
          */
         modification_date?: string;
-        name?: string;
+        name: string;
         organization?: string;
-        project?: string;
+        project: string;
         public?: boolean;
-        root_volume?: outputs.images.ScalewayInstanceV1VolumeSummary;
+        root_volume: outputs.images.ScalewayInstanceV1VolumeSummary;
         state?: enums.images.ScalewayInstanceV1ImageState;
         tags?: string[];
         zone?: string;
@@ -261,7 +261,7 @@ export namespace images {
             ...val,
             arch: (val.arch) ?? "x86_64",
             default_bootscript: (val.default_bootscript ? outputs.images.scalewayInstanceV1BootscriptProvideDefaults(val.default_bootscript) : undefined),
-            root_volume: (val.root_volume ? outputs.images.scalewayInstanceV1VolumeSummaryProvideDefaults(val.root_volume) : undefined),
+            root_volume: outputs.images.scalewayInstanceV1VolumeSummaryProvideDefaults(val.root_volume),
             state: (val.state) ?? "available",
         };
     }
@@ -290,7 +290,7 @@ export namespace images {
         /**
          * The volume name
          */
-        name?: string;
+        name: string;
         /**
          * The volume organization ID
          */
@@ -298,7 +298,7 @@ export namespace images {
         /**
          * The volume project ID
          */
-        project?: string;
+        project: string;
         /**
          * The server attached to the volume
          */
@@ -373,7 +373,7 @@ export namespace ips {
         address?: string;
         id?: string;
         organization?: string;
-        project?: string;
+        project: string;
         reverse?: outputs.ips.GoogleProtobufStringValue;
         server?: outputs.ips.ScalewayInstanceV1ServerSummary;
         tags?: string[];
@@ -420,7 +420,7 @@ export namespace placement_groups {
         /**
          * The placement group name
          */
-        name?: string;
+        name: string;
         /**
          * The placement group organization ID
          */
@@ -434,7 +434,7 @@ export namespace placement_groups {
         /**
          * The placement group project ID
          */
-        project?: string;
+        project: string;
         /**
          * The placement group tags
          */
@@ -660,7 +660,7 @@ export namespace security_groups {
         /**
          * The security groups name
          */
-        name?: string;
+        name: string;
         /**
          * The security groups organization ID
          */
@@ -676,7 +676,7 @@ export namespace security_groups {
         /**
          * The security group project ID
          */
-        project?: string;
+        project: string;
         /**
          * True if it is your default security group for this project ID
          */
@@ -813,11 +813,11 @@ export namespace servers {
          * (RFC 3339 format)
          */
         modification_date?: string;
-        name?: string;
+        name: string;
         organization?: string;
-        project?: string;
+        project: string;
         public?: boolean;
-        root_volume?: outputs.servers.ScalewayInstanceV1VolumeSummary;
+        root_volume: outputs.servers.ScalewayInstanceV1VolumeSummary;
         state?: enums.servers.ScalewayInstanceV1ImageState;
         tags?: string[];
         zone?: string;
@@ -830,7 +830,7 @@ export namespace servers {
             ...val,
             arch: (val.arch) ?? "x86_64",
             default_bootscript: (val.default_bootscript ? outputs.servers.scalewayInstanceV1BootscriptProvideDefaults(val.default_bootscript) : undefined),
-            root_volume: (val.root_volume ? outputs.servers.scalewayInstanceV1VolumeSummaryProvideDefaults(val.root_volume) : undefined),
+            root_volume: outputs.servers.scalewayInstanceV1VolumeSummaryProvideDefaults(val.root_volume),
             state: (val.state) ?? "available",
         };
     }
@@ -854,7 +854,7 @@ export namespace servers {
         /**
          * The placement group name
          */
-        name?: string;
+        name: string;
         /**
          * The placement group organization ID
          */
@@ -868,7 +868,7 @@ export namespace servers {
         /**
          * The placement group project ID
          */
-        project?: string;
+        project: string;
         /**
          * The placement group tags
          */
@@ -1273,7 +1273,7 @@ export namespace servers {
         /**
          * The volume name
          */
-        name?: string;
+        name: string;
         /**
          * The volume organization ID
          */
@@ -1281,7 +1281,7 @@ export namespace servers {
         /**
          * The volume project ID
          */
-        project?: string;
+        project: string;
         /**
          * The server attached to the volume
          */
@@ -1583,7 +1583,7 @@ export namespace volumes {
         /**
          * The volume name
          */
-        name?: string;
+        name: string;
         /**
          * The volume organization ID
          */
@@ -1591,7 +1591,7 @@ export namespace volumes {
         /**
          * The volume project ID
          */
-        project?: string;
+        project: string;
         /**
          * The server attached to the volume
          */

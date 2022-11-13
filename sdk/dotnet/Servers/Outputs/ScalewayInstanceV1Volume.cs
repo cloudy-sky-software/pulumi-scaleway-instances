@@ -29,7 +29,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// The volume name
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// The volume organization ID
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// The volume project ID
         /// </summary>
-        public readonly string? Project;
+        public readonly string Project;
         /// <summary>
         /// The server attached to the volume
         /// </summary>
@@ -67,11 +67,11 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             string? modification_date,
 
-            string? name,
+            string name,
 
             string? organization,
 
-            string? project,
+            string project,
 
             Outputs.ScalewayInstanceV1VolumeServerProperties? server,
 

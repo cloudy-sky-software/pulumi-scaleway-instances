@@ -16,28 +16,27 @@ __all__ = ['VolumeArgs', 'Volume']
 @pulumi.input_type
 class VolumeArgs:
     def __init__(__self__, *,
+                 project: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
-                 project: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  volume_type: Optional[pulumi.Input['VolumeType']] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Volume resource.
+        :param pulumi.Input[str] project: The volume project ID
         :param pulumi.Input[str] name: The volume name
         :param pulumi.Input[str] organization: The volume organization ID
-        :param pulumi.Input[str] project: The volume project ID
         :param pulumi.Input[float] size: The volume disk size (in bytes)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The volume tags
         :param pulumi.Input[str] zone: The zone you want to target
         """
+        pulumi.set(__self__, "project", project)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if tags is not None:
@@ -48,6 +47,18 @@ class VolumeArgs:
             pulumi.set(__self__, "volume_type", volume_type)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def project(self) -> pulumi.Input[str]:
+        """
+        The volume project ID
+        """
+        return pulumi.get(self, "project")
+
+    @project.setter
+    def project(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project", value)
 
     @property
     @pulumi.getter
@@ -72,18 +83,6 @@ class VolumeArgs:
     @organization.setter
     def organization(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organization", value)
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional[pulumi.Input[str]]:
-        """
-        The volume project ID
-        """
-        return pulumi.get(self, "project")
-
-    @project.setter
-    def project(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "project", value)
 
     @property
     @pulumi.getter
@@ -159,7 +158,7 @@ class Volume(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VolumeArgs] = None,
+                 args: VolumeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a Volume resource with the given unique name, props, and options.
@@ -196,6 +195,8 @@ class Volume(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["organization"] = organization
+            if project is None and not opts.urn:
+                raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["size"] = size
             __props__.__dict__["tags"] = tags
@@ -270,7 +271,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         The volume name
         """
@@ -286,7 +287,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def project(self) -> pulumi.Output[Optional[str]]:
+    def project(self) -> pulumi.Output[str]:
         """
         The volume project ID
         """

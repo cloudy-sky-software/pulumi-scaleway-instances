@@ -39,7 +39,7 @@ export class Ip extends pulumi.CustomResource {
      */
     public /*out*/ readonly address!: pulumi.Output<string | undefined>;
     public readonly organization!: pulumi.Output<string | undefined>;
-    public readonly project!: pulumi.Output<string | undefined>;
+    public readonly project!: pulumi.Output<string>;
     public readonly reverse!: pulumi.Output<outputs.ips.GoogleProtobufStringValue | undefined>;
     public readonly server!: pulumi.Output<outputs.ips.ScalewayInstanceV1ServerSummary | undefined>;
     public readonly tags!: pulumi.Output<string[] | undefined>;
@@ -52,10 +52,13 @@ export class Ip extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IpArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: IpArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.project === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'project'");
+            }
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["reverse"] = args ? args.reverse : undefined;
@@ -82,7 +85,7 @@ export class Ip extends pulumi.CustomResource {
  */
 export interface IpArgs {
     organization?: pulumi.Input<string>;
-    project?: pulumi.Input<string>;
+    project: pulumi.Input<string>;
     reverse?: pulumi.Input<inputs.ips.GoogleProtobufStringValueArgs>;
     server?: pulumi.Input<inputs.ips.ScalewayInstanceV1ServerSummaryArgs>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;

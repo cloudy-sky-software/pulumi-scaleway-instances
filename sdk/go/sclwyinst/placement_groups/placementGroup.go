@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,7 +15,7 @@ type PlacementGroup struct {
 	pulumi.CustomResourceState
 
 	// The placement group name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The placement group organization ID
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	Policy_mode  PolicyModePtrOutput    `pulumi:"policy_mode"`
@@ -22,7 +23,7 @@ type PlacementGroup struct {
 	Policy_respected pulumi.BoolPtrOutput `pulumi:"policy_respected"`
 	Policy_type      PolicyTypePtrOutput  `pulumi:"policy_type"`
 	// The placement group project ID
-	Project pulumi.StringPtrOutput `pulumi:"project"`
+	Project pulumi.StringOutput `pulumi:"project"`
 	// The placement group tags
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
 	// The zone in which is the placement group
@@ -33,9 +34,12 @@ type PlacementGroup struct {
 func NewPlacementGroup(ctx *pulumi.Context,
 	name string, args *PlacementGroupArgs, opts ...pulumi.ResourceOption) (*PlacementGroup, error) {
 	if args == nil {
-		args = &PlacementGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Project == nil {
+		return nil, errors.New("invalid value for required argument 'Project'")
+	}
 	if isZero(args.Policy_mode) {
 		args.Policy_mode = PolicyMode("optional")
 	}
@@ -82,7 +86,7 @@ type placementGroupArgs struct {
 	Policy_mode  *PolicyMode `pulumi:"policy_mode"`
 	Policy_type  *PolicyType `pulumi:"policy_type"`
 	// The placement group project ID
-	Project *string `pulumi:"project"`
+	Project string `pulumi:"project"`
 	// The placement group tags
 	Tags []string `pulumi:"tags"`
 	// The zone you want to target
@@ -98,7 +102,7 @@ type PlacementGroupArgs struct {
 	Policy_mode  PolicyModePtrInput
 	Policy_type  PolicyTypePtrInput
 	// The placement group project ID
-	Project pulumi.StringPtrInput
+	Project pulumi.StringInput
 	// The placement group tags
 	Tags pulumi.StringArrayInput
 	// The zone you want to target
@@ -143,8 +147,8 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 }
 
 // The placement group name
-func (o PlacementGroupOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o PlacementGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The placement group organization ID
@@ -166,8 +170,8 @@ func (o PlacementGroupOutput) Policy_type() PolicyTypePtrOutput {
 }
 
 // The placement group project ID
-func (o PlacementGroupOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.Project }).(pulumi.StringPtrOutput)
+func (o PlacementGroupOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
 // The placement group tags

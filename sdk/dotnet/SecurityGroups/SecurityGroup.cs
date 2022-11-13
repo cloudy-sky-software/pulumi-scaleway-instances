@@ -46,7 +46,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// The security groups name
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The security groups organization ID
@@ -70,7 +70,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// The security group project ID
         /// </summary>
         [Output("project")]
-        public Output<string?> Project { get; private set; } = null!;
+        public Output<string> Project { get; private set; } = null!;
 
         /// <summary>
         /// True if it is your default security group for this project ID
@@ -116,7 +116,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SecurityGroup(string name, SecurityGroupArgs? args = null, CustomResourceOptions? options = null)
+        public SecurityGroup(string name, SecurityGroupArgs args, CustomResourceOptions? options = null)
             : base("scaleway-instances:security_groups:SecurityGroup", name, args ?? new SecurityGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -199,8 +199,8 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// The security group project ID
         /// </summary>
-        [Input("project")]
-        public Input<string>? Project { get; set; }
+        [Input("project", required: true)]
+        public Input<string> Project { get; set; } = null!;
 
         /// <summary>
         /// True if it is your default security group for this project ID

@@ -26,11 +26,11 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// (RFC 3339 format)
         /// </summary>
         public readonly string? Modification_date;
-        public readonly string? Name;
+        public readonly string Name;
         public readonly string? Organization;
-        public readonly string? Project;
+        public readonly string Project;
         public readonly bool? Public;
-        public readonly Outputs.ScalewayInstanceV1VolumeSummary? Root_volume;
+        public readonly Outputs.ScalewayInstanceV1VolumeSummary Root_volume;
         public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ImageState? State;
         public readonly ImmutableArray<string> Tags;
         public readonly string? Zone;
@@ -51,15 +51,15 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             string? modification_date,
 
-            string? name,
+            string name,
 
             string? organization,
 
-            string? project,
+            string project,
 
             bool? @public,
 
-            Outputs.ScalewayInstanceV1VolumeSummary? root_volume,
+            Outputs.ScalewayInstanceV1VolumeSummary root_volume,
 
             Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ImageState? state,
 

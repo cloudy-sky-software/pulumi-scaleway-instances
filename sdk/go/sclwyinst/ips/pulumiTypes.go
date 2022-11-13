@@ -155,7 +155,7 @@ type ScalewayInstanceV1Ip struct {
 	Address      *string                          `pulumi:"address"`
 	Id           *string                          `pulumi:"id"`
 	Organization *string                          `pulumi:"organization"`
-	Project      *string                          `pulumi:"project"`
+	Project      string                           `pulumi:"project"`
 	Reverse      *GoogleProtobufStringValue       `pulumi:"reverse"`
 	Server       *ScalewayInstanceV1ServerSummary `pulumi:"server"`
 	Tags         []string                         `pulumi:"tags"`
@@ -189,8 +189,8 @@ func (o ScalewayInstanceV1IpOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Ip) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1IpOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Ip) *string { return v.Project }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1IpOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Ip) string { return v.Project }).(pulumi.StringOutput)
 }
 
 func (o ScalewayInstanceV1IpOutput) Reverse() GoogleProtobufStringValuePtrOutput {
@@ -266,7 +266,7 @@ func (o ScalewayInstanceV1IpPtrOutput) Project() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Project
+		return &v.Project
 	}).(pulumi.StringPtrOutput)
 }
 

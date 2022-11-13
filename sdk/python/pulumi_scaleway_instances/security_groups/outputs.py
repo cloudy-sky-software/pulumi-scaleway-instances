@@ -55,17 +55,17 @@ class ScalewayInstanceV1ListSecurityGroupsResponse(dict):
 @pulumi.output_type
 class ScalewayInstanceV1SecurityGroup(dict):
     def __init__(__self__, *,
+                 name: str,
+                 project: str,
                  creation_date: Optional[str] = None,
                  description: Optional[str] = None,
                  enable_default_security: Optional[bool] = None,
                  id: Optional[str] = None,
                  inbound_default_policy: Optional['ScalewayInstanceV1SecurityGroupInboundDefaultPolicy'] = None,
                  modification_date: Optional[str] = None,
-                 name: Optional[str] = None,
                  organization: Optional[str] = None,
                  organization_default: Optional[bool] = None,
                  outbound_default_policy: Optional['ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy'] = None,
-                 project: Optional[str] = None,
                  project_default: Optional[bool] = None,
                  servers: Optional[Sequence['outputs.ScalewayInstanceV1ServerSummary']] = None,
                  state: Optional['ScalewayInstanceV1SecurityGroupState'] = None,
@@ -73,16 +73,16 @@ class ScalewayInstanceV1SecurityGroup(dict):
                  tags: Optional[Sequence[str]] = None,
                  zone: Optional[str] = None):
         """
+        :param str name: The security groups name
+        :param str project: The security group project ID
         :param str creation_date: The security group creation date (RFC 3339 format)
         :param str description: The security groups description
         :param bool enable_default_security: True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
         :param 'ScalewayInstanceV1SecurityGroupInboundDefaultPolicy' inbound_default_policy: The default inbound policy
         :param str modification_date: The security group modification date (RFC 3339 format)
-        :param str name: The security groups name
         :param str organization: The security groups organization ID
         :param bool organization_default: True if it is your default security group for this organization ID
         :param 'ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy' outbound_default_policy: The default outbound policy
-        :param str project: The security group project ID
         :param bool project_default: True if it is your default security group for this project ID
         :param Sequence['ScalewayInstanceV1ServerSummary'] servers: List of servers attached to this security group
         :param 'ScalewayInstanceV1SecurityGroupState' state: Security group state
@@ -90,6 +90,8 @@ class ScalewayInstanceV1SecurityGroup(dict):
         :param Sequence[str] tags: The security group tags
         :param str zone: The zone in which is the security group
         """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
         if creation_date is not None:
             pulumi.set(__self__, "creation_date", creation_date)
         if description is not None:
@@ -104,8 +106,6 @@ class ScalewayInstanceV1SecurityGroup(dict):
             pulumi.set(__self__, "inbound_default_policy", inbound_default_policy)
         if modification_date is not None:
             pulumi.set(__self__, "modification_date", modification_date)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
         if organization_default is not None:
@@ -114,8 +114,6 @@ class ScalewayInstanceV1SecurityGroup(dict):
             outbound_default_policy = 'accept'
         if outbound_default_policy is not None:
             pulumi.set(__self__, "outbound_default_policy", outbound_default_policy)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
         if project_default is not None:
             pulumi.set(__self__, "project_default", project_default)
         if servers is not None:
@@ -130,6 +128,22 @@ class ScalewayInstanceV1SecurityGroup(dict):
             pulumi.set(__self__, "tags", tags)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The security groups name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def project(self) -> str:
+        """
+        The security group project ID
+        """
+        return pulumi.get(self, "project")
 
     @property
     @pulumi.getter
@@ -178,14 +192,6 @@ class ScalewayInstanceV1SecurityGroup(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The security groups name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
     def organization(self) -> Optional[str]:
         """
         The security groups organization ID
@@ -207,14 +213,6 @@ class ScalewayInstanceV1SecurityGroup(dict):
         The default outbound policy
         """
         return pulumi.get(self, "outbound_default_policy")
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional[str]:
-        """
-        The security group project ID
-        """
-        return pulumi.get(self, "project")
 
     @property
     @pulumi.getter

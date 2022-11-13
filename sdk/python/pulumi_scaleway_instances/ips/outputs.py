@@ -40,10 +40,10 @@ class ScalewayInstanceV1GetIpResponse(dict):
 @pulumi.output_type
 class ScalewayInstanceV1Ip(dict):
     def __init__(__self__, *,
+                 project: str,
                  address: Optional[str] = None,
                  id: Optional[str] = None,
                  organization: Optional[str] = None,
-                 project: Optional[str] = None,
                  reverse: Optional['outputs.GoogleProtobufStringValue'] = None,
                  server: Optional['outputs.ScalewayInstanceV1ServerSummary'] = None,
                  tags: Optional[Sequence[str]] = None,
@@ -51,14 +51,13 @@ class ScalewayInstanceV1Ip(dict):
         """
         :param str address: (IPv4 address)
         """
+        pulumi.set(__self__, "project", project)
         if address is not None:
             pulumi.set(__self__, "address", address)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
         if reverse is not None:
             pulumi.set(__self__, "reverse", reverse)
         if server is not None:
@@ -67,6 +66,11 @@ class ScalewayInstanceV1Ip(dict):
             pulumi.set(__self__, "tags", tags)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def project(self) -> str:
+        return pulumi.get(self, "project")
 
     @property
     @pulumi.getter
@@ -85,11 +89,6 @@ class ScalewayInstanceV1Ip(dict):
     @pulumi.getter
     def organization(self) -> Optional[str]:
         return pulumi.get(self, "organization")
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional[str]:
-        return pulumi.get(self, "project")
 
     @property
     @pulumi.getter

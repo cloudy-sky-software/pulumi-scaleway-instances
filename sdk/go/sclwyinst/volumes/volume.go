@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,11 +21,11 @@ type Volume struct {
 	// The volume modification date (RFC 3339 format)
 	Modification_date pulumi.StringPtrOutput `pulumi:"modification_date"`
 	// The volume name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The volume organization ID
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// The volume project ID
-	Project pulumi.StringPtrOutput `pulumi:"project"`
+	Project pulumi.StringOutput `pulumi:"project"`
 	// The server attached to the volume
 	Server ServerPropertiesPtrOutput `pulumi:"server"`
 	// The volume disk size (in bytes)
@@ -41,9 +42,12 @@ type Volume struct {
 func NewVolume(ctx *pulumi.Context,
 	name string, args *VolumeArgs, opts ...pulumi.ResourceOption) (*Volume, error) {
 	if args == nil {
-		args = &VolumeArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Project == nil {
+		return nil, errors.New("invalid value for required argument 'Project'")
+	}
 	if isZero(args.Volume_type) {
 		args.Volume_type = VolumeType("l_ssd")
 	}
@@ -85,7 +89,7 @@ type volumeArgs struct {
 	// The volume organization ID
 	Organization *string `pulumi:"organization"`
 	// The volume project ID
-	Project *string `pulumi:"project"`
+	Project string `pulumi:"project"`
 	// The volume disk size (in bytes)
 	Size *float64 `pulumi:"size"`
 	// The volume tags
@@ -102,7 +106,7 @@ type VolumeArgs struct {
 	// The volume organization ID
 	Organization pulumi.StringPtrInput
 	// The volume project ID
-	Project pulumi.StringPtrInput
+	Project pulumi.StringInput
 	// The volume disk size (in bytes)
 	Size pulumi.Float64PtrInput
 	// The volume tags
@@ -165,8 +169,8 @@ func (o VolumeOutput) Modification_date() pulumi.StringPtrOutput {
 }
 
 // The volume name
-func (o VolumeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The volume organization ID
@@ -175,8 +179,8 @@ func (o VolumeOutput) Organization() pulumi.StringPtrOutput {
 }
 
 // The volume project ID
-func (o VolumeOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Project }).(pulumi.StringPtrOutput)
+func (o VolumeOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
 // The server attached to the volume

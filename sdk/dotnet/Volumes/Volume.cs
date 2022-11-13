@@ -34,7 +34,7 @@ namespace Pulumi.ScalewayInstances.Volumes
         /// The volume name
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The volume organization ID
@@ -46,7 +46,7 @@ namespace Pulumi.ScalewayInstances.Volumes
         /// The volume project ID
         /// </summary>
         [Output("project")]
-        public Output<string?> Project { get; private set; } = null!;
+        public Output<string> Project { get; private set; } = null!;
 
         /// <summary>
         /// The server attached to the volume
@@ -86,7 +86,7 @@ namespace Pulumi.ScalewayInstances.Volumes
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Volume(string name, VolumeArgs? args = null, CustomResourceOptions? options = null)
+        public Volume(string name, VolumeArgs args, CustomResourceOptions? options = null)
             : base("scaleway-instances:volumes:Volume", name, args ?? new VolumeArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -139,8 +139,8 @@ namespace Pulumi.ScalewayInstances.Volumes
         /// <summary>
         /// The volume project ID
         /// </summary>
-        [Input("project")]
-        public Input<string>? Project { get; set; }
+        [Input("project", required: true)]
+        public Input<string> Project { get; set; } = null!;
 
         /// <summary>
         /// The volume disk size (in bytes)

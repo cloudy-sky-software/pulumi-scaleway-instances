@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,7 +17,7 @@ type Ip struct {
 	// (IPv4 address)
 	Address      pulumi.StringPtrOutput                   `pulumi:"address"`
 	Organization pulumi.StringPtrOutput                   `pulumi:"organization"`
-	Project      pulumi.StringPtrOutput                   `pulumi:"project"`
+	Project      pulumi.StringOutput                      `pulumi:"project"`
 	Reverse      GoogleProtobufStringValuePtrOutput       `pulumi:"reverse"`
 	Server       ScalewayInstanceV1ServerSummaryPtrOutput `pulumi:"server"`
 	Tags         pulumi.StringArrayOutput                 `pulumi:"tags"`
@@ -27,9 +28,12 @@ type Ip struct {
 func NewIp(ctx *pulumi.Context,
 	name string, args *IpArgs, opts ...pulumi.ResourceOption) (*Ip, error) {
 	if args == nil {
-		args = &IpArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Project == nil {
+		return nil, errors.New("invalid value for required argument 'Project'")
+	}
 	opts = pkgResourceDefaultOpts(opts)
 	var resource Ip
 	err := ctx.RegisterResource("scaleway-instances:ips:Ip", name, args, &resource, opts...)
@@ -64,7 +68,7 @@ func (IpState) ElementType() reflect.Type {
 
 type ipArgs struct {
 	Organization *string                          `pulumi:"organization"`
-	Project      *string                          `pulumi:"project"`
+	Project      string                           `pulumi:"project"`
 	Reverse      *GoogleProtobufStringValue       `pulumi:"reverse"`
 	Server       *ScalewayInstanceV1ServerSummary `pulumi:"server"`
 	Tags         []string                         `pulumi:"tags"`
@@ -75,7 +79,7 @@ type ipArgs struct {
 // The set of arguments for constructing a Ip resource.
 type IpArgs struct {
 	Organization pulumi.StringPtrInput
-	Project      pulumi.StringPtrInput
+	Project      pulumi.StringInput
 	Reverse      GoogleProtobufStringValuePtrInput
 	Server       ScalewayInstanceV1ServerSummaryPtrInput
 	Tags         pulumi.StringArrayInput
@@ -129,8 +133,8 @@ func (o IpOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ip) pulumi.StringPtrOutput { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-func (o IpOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Ip) pulumi.StringPtrOutput { return v.Project }).(pulumi.StringPtrOutput)
+func (o IpOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ip) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
 func (o IpOutput) Reverse() GoogleProtobufStringValuePtrOutput {

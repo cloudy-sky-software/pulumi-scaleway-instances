@@ -57,7 +57,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The security groups name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The security groups organization ID
      */
@@ -73,7 +73,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The security group project ID
      */
-    public readonly project!: pulumi.Output<string | undefined>;
+    public readonly project!: pulumi.Output<string>;
     /**
      * True if it is your default security group for this project ID
      */
@@ -106,10 +106,13 @@ export class SecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.project === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'project'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enable_default_security"] = args ? args.enable_default_security : undefined;
             resourceInputs["inbound_default_policy"] = (args ? args.inbound_default_policy : undefined) ?? "accept";
@@ -184,7 +187,7 @@ export interface SecurityGroupArgs {
     /**
      * The security group project ID
      */
-    project?: pulumi.Input<string>;
+    project: pulumi.Input<string>;
     /**
      * True if it is your default security group for this project ID
      */

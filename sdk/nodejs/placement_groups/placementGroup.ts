@@ -37,7 +37,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The placement group name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The placement group organization ID
      */
@@ -51,7 +51,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The placement group project ID
      */
-    public readonly project!: pulumi.Output<string | undefined>;
+    public readonly project!: pulumi.Output<string>;
     /**
      * The placement group tags
      */
@@ -68,10 +68,13 @@ export class PlacementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PlacementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.project === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'project'");
+            }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["policy_mode"] = (args ? args.policy_mode : undefined) ?? "optional";
@@ -112,7 +115,7 @@ export interface PlacementGroupArgs {
     /**
      * The placement group project ID
      */
-    project?: pulumi.Input<string>;
+    project: pulumi.Input<string>;
     /**
      * The placement group tags
      */

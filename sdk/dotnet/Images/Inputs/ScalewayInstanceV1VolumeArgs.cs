@@ -36,8 +36,8 @@ namespace Pulumi.ScalewayInstances.Images.Inputs
         /// <summary>
         /// The volume name
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The volume organization ID
@@ -48,8 +48,8 @@ namespace Pulumi.ScalewayInstances.Images.Inputs
         /// <summary>
         /// The volume project ID
         /// </summary>
-        [Input("project")]
-        public Input<string>? Project { get; set; }
+        [Input("project", required: true)]
+        public Input<string> Project { get; set; } = null!;
 
         /// <summary>
         /// The server attached to the volume

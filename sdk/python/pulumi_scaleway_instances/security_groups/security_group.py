@@ -16,6 +16,7 @@ __all__ = ['SecurityGroupArgs', 'SecurityGroup']
 @pulumi.input_type
 class SecurityGroupArgs:
     def __init__(__self__, *,
+                 project: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  enable_default_security: Optional[pulumi.Input[bool]] = None,
                  inbound_default_policy: Optional[pulumi.Input['InboundDefaultPolicy']] = None,
@@ -23,13 +24,13 @@ class SecurityGroupArgs:
                  organization: Optional[pulumi.Input[str]] = None,
                  organization_default: Optional[pulumi.Input[bool]] = None,
                  outbound_default_policy: Optional[pulumi.Input['OutboundDefaultPolicy']] = None,
-                 project: Optional[pulumi.Input[str]] = None,
                  project_default: Optional[pulumi.Input[bool]] = None,
                  stateful: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityGroup resource.
+        :param pulumi.Input[str] project: The security group project ID
         :param pulumi.Input[str] description: The security groups description
         :param pulumi.Input[bool] enable_default_security: True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
         :param pulumi.Input['InboundDefaultPolicy'] inbound_default_policy: The default inbound policy
@@ -37,12 +38,12 @@ class SecurityGroupArgs:
         :param pulumi.Input[str] organization: The security groups organization ID
         :param pulumi.Input[bool] organization_default: True if it is your default security group for this organization ID
         :param pulumi.Input['OutboundDefaultPolicy'] outbound_default_policy: The default outbound policy
-        :param pulumi.Input[str] project: The security group project ID
         :param pulumi.Input[bool] project_default: True if it is your default security group for this project ID
         :param pulumi.Input[bool] stateful: True if the security group is stateful
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The security group tags
         :param pulumi.Input[str] zone: The zone you want to target
         """
+        pulumi.set(__self__, "project", project)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enable_default_security is not None:
@@ -61,8 +62,6 @@ class SecurityGroupArgs:
             outbound_default_policy = 'accept'
         if outbound_default_policy is not None:
             pulumi.set(__self__, "outbound_default_policy", outbound_default_policy)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
         if project_default is not None:
             pulumi.set(__self__, "project_default", project_default)
         if stateful is not None:
@@ -71,6 +70,18 @@ class SecurityGroupArgs:
             pulumi.set(__self__, "tags", tags)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def project(self) -> pulumi.Input[str]:
+        """
+        The security group project ID
+        """
+        return pulumi.get(self, "project")
+
+    @project.setter
+    def project(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project", value)
 
     @property
     @pulumi.getter
@@ -155,18 +166,6 @@ class SecurityGroupArgs:
     @outbound_default_policy.setter
     def outbound_default_policy(self, value: Optional[pulumi.Input['OutboundDefaultPolicy']]):
         pulumi.set(self, "outbound_default_policy", value)
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional[pulumi.Input[str]]:
-        """
-        The security group project ID
-        """
-        return pulumi.get(self, "project")
-
-    @project.setter
-    def project(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "project", value)
 
     @property
     @pulumi.getter
@@ -256,7 +255,7 @@ class SecurityGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SecurityGroupArgs] = None,
+                 args: SecurityGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a SecurityGroup resource with the given unique name, props, and options.
@@ -307,6 +306,8 @@ class SecurityGroup(pulumi.CustomResource):
             if outbound_default_policy is None:
                 outbound_default_policy = 'accept'
             __props__.__dict__["outbound_default_policy"] = outbound_default_policy
+            if project is None and not opts.urn:
+                raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["project_default"] = project_default
             __props__.__dict__["stateful"] = stateful
@@ -398,7 +399,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         The security groups name
         """
@@ -430,7 +431,7 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def project(self) -> pulumi.Output[Optional[str]]:
+    def project(self) -> pulumi.Output[str]:
         """
         The security group project ID
         """

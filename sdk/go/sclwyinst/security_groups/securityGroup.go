@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ type SecurityGroup struct {
 	// The security group modification date (RFC 3339 format)
 	Modification_date pulumi.StringPtrOutput `pulumi:"modification_date"`
 	// The security groups name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The security groups organization ID
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// True if it is your default security group for this organization ID
@@ -32,7 +33,7 @@ type SecurityGroup struct {
 	// The default outbound policy
 	Outbound_default_policy OutboundDefaultPolicyPtrOutput `pulumi:"outbound_default_policy"`
 	// The security group project ID
-	Project pulumi.StringPtrOutput `pulumi:"project"`
+	Project pulumi.StringOutput `pulumi:"project"`
 	// True if it is your default security group for this project ID
 	Project_default pulumi.BoolPtrOutput `pulumi:"project_default"`
 	// List of servers attached to this security group
@@ -51,9 +52,12 @@ type SecurityGroup struct {
 func NewSecurityGroup(ctx *pulumi.Context,
 	name string, args *SecurityGroupArgs, opts ...pulumi.ResourceOption) (*SecurityGroup, error) {
 	if args == nil {
-		args = &SecurityGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Project == nil {
+		return nil, errors.New("invalid value for required argument 'Project'")
+	}
 	if isZero(args.Inbound_default_policy) {
 		args.Inbound_default_policy = InboundDefaultPolicy("accept")
 	}
@@ -108,7 +112,7 @@ type securityGroupArgs struct {
 	// The default outbound policy
 	Outbound_default_policy *OutboundDefaultPolicy `pulumi:"outbound_default_policy"`
 	// The security group project ID
-	Project *string `pulumi:"project"`
+	Project string `pulumi:"project"`
 	// True if it is your default security group for this project ID
 	Project_default *bool `pulumi:"project_default"`
 	// True if the security group is stateful
@@ -136,7 +140,7 @@ type SecurityGroupArgs struct {
 	// The default outbound policy
 	Outbound_default_policy OutboundDefaultPolicyPtrInput
 	// The security group project ID
-	Project pulumi.StringPtrInput
+	Project pulumi.StringInput
 	// True if it is your default security group for this project ID
 	Project_default pulumi.BoolPtrInput
 	// True if the security group is stateful
@@ -210,8 +214,8 @@ func (o SecurityGroupOutput) Modification_date() pulumi.StringPtrOutput {
 }
 
 // The security groups name
-func (o SecurityGroupOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o SecurityGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The security groups organization ID
@@ -230,8 +234,8 @@ func (o SecurityGroupOutput) Outbound_default_policy() OutboundDefaultPolicyPtrO
 }
 
 // The security group project ID
-func (o SecurityGroupOutput) Project() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.Project }).(pulumi.StringPtrOutput)
+func (o SecurityGroupOutput) Project() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
 // True if it is your default security group for this project ID

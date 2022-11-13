@@ -314,13 +314,13 @@ class ScalewayInstanceV1VolumeSummaryArgs:
 @pulumi.input_type
 class ScalewayInstanceV1VolumeArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 project: pulumi.Input[str],
                  creation_date: Optional[pulumi.Input[str]] = None,
                  export_uri: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  modification_date: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
-                 project: Optional[pulumi.Input[str]] = None,
                  server: Optional[pulumi.Input['ScalewayInstanceV1VolumeServerPropertiesArgs']] = None,
                  size: Optional[pulumi.Input[float]] = None,
                  state: Optional[pulumi.Input['ScalewayInstanceV1VolumeState']] = None,
@@ -328,17 +328,19 @@ class ScalewayInstanceV1VolumeArgs:
                  volume_type: Optional[pulumi.Input['ScalewayInstanceV1VolumeVolumeType']] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] name: The volume name
+        :param pulumi.Input[str] project: The volume project ID
         :param pulumi.Input[str] creation_date: The volume creation date (RFC 3339 format)
         :param pulumi.Input[str] export_uri: Show the volume NBD export URI
         :param pulumi.Input[str] modification_date: The volume modification date (RFC 3339 format)
-        :param pulumi.Input[str] name: The volume name
         :param pulumi.Input[str] organization: The volume organization ID
-        :param pulumi.Input[str] project: The volume project ID
         :param pulumi.Input['ScalewayInstanceV1VolumeServerPropertiesArgs'] server: The server attached to the volume
         :param pulumi.Input[float] size: The volume disk size (in bytes)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The volume tags
         :param pulumi.Input[str] zone: The zone in which is the volume
         """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
         if creation_date is not None:
             pulumi.set(__self__, "creation_date", creation_date)
         if export_uri is not None:
@@ -347,12 +349,8 @@ class ScalewayInstanceV1VolumeArgs:
             pulumi.set(__self__, "id", id)
         if modification_date is not None:
             pulumi.set(__self__, "modification_date", modification_date)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if organization is not None:
             pulumi.set(__self__, "organization", organization)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
         if server is not None:
             pulumi.set(__self__, "server", server)
         if size is not None:
@@ -369,6 +367,30 @@ class ScalewayInstanceV1VolumeArgs:
             pulumi.set(__self__, "volume_type", volume_type)
         if zone is not None:
             pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The volume name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def project(self) -> pulumi.Input[str]:
+        """
+        The volume project ID
+        """
+        return pulumi.get(self, "project")
+
+    @project.setter
+    def project(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project", value)
 
     @property
     @pulumi.getter
@@ -417,18 +439,6 @@ class ScalewayInstanceV1VolumeArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The volume name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
         """
         The volume organization ID
@@ -438,18 +448,6 @@ class ScalewayInstanceV1VolumeArgs:
     @organization.setter
     def organization(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organization", value)
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional[pulumi.Input[str]]:
-        """
-        The volume project ID
-        """
-        return pulumi.get(self, "project")
-
-    @project.setter
-    def project(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "project", value)
 
     @property
     @pulumi.getter
