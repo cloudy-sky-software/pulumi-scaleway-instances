@@ -2,6 +2,8 @@ package provider
 
 import (
 	"context"
+	"encoding/json"
+	"io"
 	"net/http"
 	"os"
 
@@ -12,11 +14,13 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 
 	fwCallback "github.com/cloudy-sky-software/pulumi-provider-framework/callback"
 	fwRest "github.com/cloudy-sky-software/pulumi-provider-framework/rest"
+	"github.com/cloudy-sky-software/pulumi-provider-framework/state"
 )
 
 type scalewayInstancesProvider struct {
@@ -130,6 +134,50 @@ func (p *scalewayInstancesProvider) OnPostUpdate(ctx context.Context, req *pulum
 }
 
 func (p *scalewayInstancesProvider) OnPreDelete(ctx context.Context, req *pulumirpc.DeleteRequest, httpReq *http.Request) error {
+	resourceTypeToken := fwRest.GetResourceTypeToken(req.GetUrn())
+
+	if resourceTypeToken != "scaleway-instances:servers:Server" {
+		return nil
+	}
+
+	serverID := req.GetId()
+
+	inputs, err := plugin.UnmarshalProperties(req.GetProperties(), state.DefaultUnmarshalOpts)
+	if err != nil {
+		return errors.Wrapf(err, "unmarshaling inputs while handling onpredelete for %s (id: %s)", resourceTypeToken, serverID)
+	}
+
+	zone, ok := inputs[resource.PropertyKey("zone")]
+	if !ok {
+		return errors.Errorf("zone input was not found in the inputs for %s (id: %s)", resourceTypeToken, serverID)
+	}
+
+	// If a Server resource is being deleted, we should power it off first.
+	reqBody, _ := json.Marshal(map[string]string{"action": "poweroff"})
+
+	serverActionInputs := resource.NewPropertyMapFromMap(map[string]interface{}{
+		"server_id": serverID,
+		"zone":      zone.StringValue(),
+	})
+	clearCacheHTTPReq, createReqErr := handler.CreatePostRequest(ctx, "/instance/v1/zones/{zone}/servers/{server_id}/action", reqBody, serverActionInputs)
+	if createReqErr != nil {
+		return errors.Wrap(createReqErr, "creating post request to poweroff server")
+	}
+
+	resp, err := handler.GetHTTPClient().Do(clearCacheHTTPReq)
+	if err != nil {
+		return errors.Wrapf(err, "failed to execute server action request to poweroff the server with id %s", serverID)
+	}
+
+	if resp == nil {
+		return nil
+	}
+
+	defer resp.Body.Close()
+
+	respBody, _ := io.ReadAll(resp.Body)
+	logging.V(3).Infof("Response for triggering a deployment: %s (status code: %d)", string(respBody), resp.StatusCode)
+
 	return nil
 }
 
