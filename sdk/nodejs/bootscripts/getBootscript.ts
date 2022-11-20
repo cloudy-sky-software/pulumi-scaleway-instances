@@ -8,11 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getBootscript(args: GetBootscriptArgs, opts?: pulumi.InvokeOptions): Promise<GetBootscriptResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:bootscripts:getBootscript", {
         "id": args.id,
         "zone": args.zone,

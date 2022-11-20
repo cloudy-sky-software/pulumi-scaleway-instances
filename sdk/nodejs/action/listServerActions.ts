@@ -8,11 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function listServerActions(args: ListServerActionsArgs, opts?: pulumi.InvokeOptions): Promise<ListServerActionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:action:listServerActions", {
         "server_id": args.server_id,
         "zone": args.zone,

@@ -8,11 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function listSecurityGroupRules(args: ListSecurityGroupRulesArgs, opts?: pulumi.InvokeOptions): Promise<ListSecurityGroupRulesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:rules:listSecurityGroupRules", {
         "security_group_id": args.security_group_id,
         "zone": args.zone,

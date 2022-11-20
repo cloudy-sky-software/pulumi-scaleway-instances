@@ -8,11 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getServerTypesAvailability(args: GetServerTypesAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypesAvailabilityResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:availability:getServerTypesAvailability", {
         "zone": args.zone,
     }, opts);
