@@ -8,11 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function listImages(args: ListImagesArgs, opts?: pulumi.InvokeOptions): Promise<ListImagesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:images:listImages", {
         "zone": args.zone,
     }, opts);

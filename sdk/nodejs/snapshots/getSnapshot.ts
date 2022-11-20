@@ -8,11 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:snapshots:getSnapshot", {
         "id": args.id,
         "zone": args.zone,

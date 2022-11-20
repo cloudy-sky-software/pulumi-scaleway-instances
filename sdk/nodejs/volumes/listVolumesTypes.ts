@@ -8,11 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function listVolumesTypes(args: ListVolumesTypesArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumesTypesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:volumes:listVolumesTypes", {
         "zone": args.zone,
     }, opts);

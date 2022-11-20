@@ -8,11 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getPlacementGroupServers(args: GetPlacementGroupServersArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupServersResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:servers:getPlacementGroupServers", {
         "placement_group_id": args.placement_group_id,
         "zone": args.zone,

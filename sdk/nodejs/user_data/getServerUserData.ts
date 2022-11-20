@@ -8,11 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getServerUserData(args: GetServerUserDataArgs, opts?: pulumi.InvokeOptions): Promise<GetServerUserDataResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:user_data:getServerUserData", {
         "key": args.key,
         "server_id": args.server_id,
