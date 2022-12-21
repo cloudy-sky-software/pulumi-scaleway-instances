@@ -25,9 +25,8 @@ export interface ListDefaultSecurityGroupRulesArgs {
 export interface ListDefaultSecurityGroupRulesResult {
     readonly items: outputs.rules.ScalewayInstanceV1ListSecurityGroupRulesResponse;
 }
-
 export function listDefaultSecurityGroupRulesOutput(args: ListDefaultSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDefaultSecurityGroupRulesResult> {
-    return pulumi.output(args).apply(a => listDefaultSecurityGroupRules(a, opts))
+    return pulumi.output(args).apply((a: any) => listDefaultSecurityGroupRules(a, opts))
 }
 
 export interface ListDefaultSecurityGroupRulesOutputArgs {

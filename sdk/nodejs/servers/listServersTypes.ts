@@ -25,9 +25,8 @@ export interface ListServersTypesArgs {
 export interface ListServersTypesResult {
     readonly items: outputs.servers.ScalewayInstanceV1ListServersTypesResponse;
 }
-
 export function listServersTypesOutput(args: ListServersTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServersTypesResult> {
-    return pulumi.output(args).apply(a => listServersTypes(a, opts))
+    return pulumi.output(args).apply((a: any) => listServersTypes(a, opts))
 }
 
 export interface ListServersTypesOutputArgs {

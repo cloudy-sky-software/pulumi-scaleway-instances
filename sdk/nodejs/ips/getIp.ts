@@ -30,9 +30,8 @@ export interface GetIpArgs {
 export interface GetIpResult {
     readonly items: outputs.ips.ScalewayInstanceV1GetIpResponse;
 }
-
 export function getIpOutput(args: GetIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpResult> {
-    return pulumi.output(args).apply(a => getIp(a, opts))
+    return pulumi.output(args).apply((a: any) => getIp(a, opts))
 }
 
 export interface GetIpOutputArgs {

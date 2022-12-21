@@ -35,9 +35,8 @@ export interface GetServerUserDataArgs {
 export interface GetServerUserDataResult {
     readonly items: outputs.user_data.ScalewayStdFile;
 }
-
 export function getServerUserDataOutput(args: GetServerUserDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerUserDataResult> {
-    return pulumi.output(args).apply(a => getServerUserData(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerUserData(a, opts))
 }
 
 export interface GetServerUserDataOutputArgs {

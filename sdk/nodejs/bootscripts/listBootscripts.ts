@@ -25,9 +25,8 @@ export interface ListBootscriptsArgs {
 export interface ListBootscriptsResult {
     readonly items: outputs.bootscripts.ScalewayInstanceV1ListBootscriptsResponse;
 }
-
 export function listBootscriptsOutput(args: ListBootscriptsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBootscriptsResult> {
-    return pulumi.output(args).apply(a => listBootscripts(a, opts))
+    return pulumi.output(args).apply((a: any) => listBootscripts(a, opts))
 }
 
 export interface ListBootscriptsOutputArgs {

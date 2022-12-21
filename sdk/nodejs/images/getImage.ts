@@ -30,9 +30,8 @@ export interface GetImageArgs {
 export interface GetImageResult {
     readonly items: outputs.images.ScalewayInstanceV1GetImageResponse;
 }
-
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
-    return pulumi.output(args).apply(a => getImage(a, opts))
+    return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }
 
 export interface GetImageOutputArgs {

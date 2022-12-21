@@ -30,9 +30,8 @@ export interface GetPlacementGroupArgs {
 export interface GetPlacementGroupResult {
     readonly items: outputs.placement_groups.ScalewayInstanceV1GetPlacementGroupResponse;
 }
-
 export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
-    return pulumi.output(args).apply(a => getPlacementGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getPlacementGroup(a, opts))
 }
 
 export interface GetPlacementGroupOutputArgs {

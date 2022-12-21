@@ -27,9 +27,8 @@ export interface ListServerActionsArgs {
 export interface ListServerActionsResult {
     readonly items: outputs.action.ScalewayInstanceV1ListServerActionsResponse;
 }
-
 export function listServerActionsOutput(args: ListServerActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerActionsResult> {
-    return pulumi.output(args).apply(a => listServerActions(a, opts))
+    return pulumi.output(args).apply((a: any) => listServerActions(a, opts))
 }
 
 export interface ListServerActionsOutputArgs {

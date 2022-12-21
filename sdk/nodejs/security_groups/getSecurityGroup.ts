@@ -30,9 +30,8 @@ export interface GetSecurityGroupArgs {
 export interface GetSecurityGroupResult {
     readonly items: outputs.security_groups.ScalewayInstanceV1GetSecurityGroupResponse;
 }
-
 export function getSecurityGroupOutput(args: GetSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupResult> {
-    return pulumi.output(args).apply(a => getSecurityGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityGroup(a, opts))
 }
 
 export interface GetSecurityGroupOutputArgs {

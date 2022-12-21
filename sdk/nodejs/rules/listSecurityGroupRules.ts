@@ -30,9 +30,8 @@ export interface ListSecurityGroupRulesArgs {
 export interface ListSecurityGroupRulesResult {
     readonly items: outputs.rules.ScalewayInstanceV1ListSecurityGroupRulesResponse;
 }
-
 export function listSecurityGroupRulesOutput(args: ListSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecurityGroupRulesResult> {
-    return pulumi.output(args).apply(a => listSecurityGroupRules(a, opts))
+    return pulumi.output(args).apply((a: any) => listSecurityGroupRules(a, opts))
 }
 
 export interface ListSecurityGroupRulesOutputArgs {

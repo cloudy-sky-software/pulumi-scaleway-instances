@@ -25,9 +25,8 @@ export interface GetDashboardArgs {
 export interface GetDashboardResult {
     readonly items: outputs.dashboard.ScalewayInstanceV1GetDashboardResponse;
 }
-
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
-    return pulumi.output(args).apply(a => getDashboard(a, opts))
+    return pulumi.output(args).apply((a: any) => getDashboard(a, opts))
 }
 
 export interface GetDashboardOutputArgs {

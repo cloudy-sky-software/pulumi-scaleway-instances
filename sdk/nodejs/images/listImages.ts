@@ -25,9 +25,8 @@ export interface ListImagesArgs {
 export interface ListImagesResult {
     readonly items: outputs.images.ScalewayInstanceV1ListImagesResponse;
 }
-
 export function listImagesOutput(args: ListImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListImagesResult> {
-    return pulumi.output(args).apply(a => listImages(a, opts))
+    return pulumi.output(args).apply((a: any) => listImages(a, opts))
 }
 
 export interface ListImagesOutputArgs {

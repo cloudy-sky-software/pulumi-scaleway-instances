@@ -27,9 +27,8 @@ export interface GetBootscriptArgs {
 export interface GetBootscriptResult {
     readonly items: outputs.bootscripts.ScalewayInstanceV1GetBootscriptResponse;
 }
-
 export function getBootscriptOutput(args: GetBootscriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBootscriptResult> {
-    return pulumi.output(args).apply(a => getBootscript(a, opts))
+    return pulumi.output(args).apply((a: any) => getBootscript(a, opts))
 }
 
 export interface GetBootscriptOutputArgs {

@@ -29,9 +29,8 @@ export interface GetSecurityGroupRuleArgs {
 export interface GetSecurityGroupRuleResult {
     readonly items: outputs.rules.ScalewayInstanceV1GetSecurityGroupRuleResponse;
 }
-
 export function getSecurityGroupRuleOutput(args: GetSecurityGroupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupRuleResult> {
-    return pulumi.output(args).apply(a => getSecurityGroupRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityGroupRule(a, opts))
 }
 
 export interface GetSecurityGroupRuleOutputArgs {

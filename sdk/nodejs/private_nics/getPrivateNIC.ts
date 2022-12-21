@@ -29,9 +29,8 @@ export interface GetPrivateNICArgs {
 export interface GetPrivateNICResult {
     readonly items: outputs.private_nics.ScalewayInstanceV1GetPrivateNICResponse;
 }
-
 export function getPrivateNICOutput(args: GetPrivateNICOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateNICResult> {
-    return pulumi.output(args).apply(a => getPrivateNIC(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateNIC(a, opts))
 }
 
 export interface GetPrivateNICOutputArgs {

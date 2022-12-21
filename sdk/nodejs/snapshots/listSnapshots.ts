@@ -25,9 +25,8 @@ export interface ListSnapshotsArgs {
 export interface ListSnapshotsResult {
     readonly items: outputs.snapshots.ScalewayInstanceV1ListSnapshotsResponse;
 }
-
 export function listSnapshotsOutput(args: ListSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSnapshotsResult> {
-    return pulumi.output(args).apply(a => listSnapshots(a, opts))
+    return pulumi.output(args).apply((a: any) => listSnapshots(a, opts))
 }
 
 export interface ListSnapshotsOutputArgs {
