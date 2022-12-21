@@ -25,9 +25,8 @@ export interface ListPlacementGroupsArgs {
 export interface ListPlacementGroupsResult {
     readonly items: outputs.placement_groups.ScalewayInstanceV1ListPlacementGroupsResponse;
 }
-
 export function listPlacementGroupsOutput(args: ListPlacementGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPlacementGroupsResult> {
-    return pulumi.output(args).apply(a => listPlacementGroups(a, opts))
+    return pulumi.output(args).apply((a: any) => listPlacementGroups(a, opts))
 }
 
 export interface ListPlacementGroupsOutputArgs {

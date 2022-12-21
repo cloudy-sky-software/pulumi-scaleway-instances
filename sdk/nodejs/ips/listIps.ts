@@ -25,9 +25,8 @@ export interface ListIpsArgs {
 export interface ListIpsResult {
     readonly items: outputs.ips.ScalewayInstanceV1ListIpsResponse;
 }
-
 export function listIpsOutput(args: ListIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIpsResult> {
-    return pulumi.output(args).apply(a => listIps(a, opts))
+    return pulumi.output(args).apply((a: any) => listIps(a, opts))
 }
 
 export interface ListIpsOutputArgs {

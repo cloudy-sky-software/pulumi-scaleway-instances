@@ -30,9 +30,8 @@ export interface GetServerArgs {
 export interface GetServerResult {
     readonly items: outputs.servers.ScalewayInstanceV1GetServerResponse;
 }
-
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
-    return pulumi.output(args).apply(a => getServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }
 
 export interface GetServerOutputArgs {

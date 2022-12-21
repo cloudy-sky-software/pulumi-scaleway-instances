@@ -25,9 +25,8 @@ export interface ListVolumesTypesArgs {
 export interface ListVolumesTypesResult {
     readonly items: outputs.volumes.ScalewayInstanceV1ListVolumesTypesResponse;
 }
-
 export function listVolumesTypesOutput(args: ListVolumesTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumesTypesResult> {
-    return pulumi.output(args).apply(a => listVolumesTypes(a, opts))
+    return pulumi.output(args).apply((a: any) => listVolumesTypes(a, opts))
 }
 
 export interface ListVolumesTypesOutputArgs {

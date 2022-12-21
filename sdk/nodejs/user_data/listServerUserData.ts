@@ -30,9 +30,8 @@ export interface ListServerUserDataArgs {
 export interface ListServerUserDataResult {
     readonly items: outputs.user_data.ScalewayInstanceV1ListServerUserDataResponse;
 }
-
 export function listServerUserDataOutput(args: ListServerUserDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerUserDataResult> {
-    return pulumi.output(args).apply(a => listServerUserData(a, opts))
+    return pulumi.output(args).apply((a: any) => listServerUserData(a, opts))
 }
 
 export interface ListServerUserDataOutputArgs {

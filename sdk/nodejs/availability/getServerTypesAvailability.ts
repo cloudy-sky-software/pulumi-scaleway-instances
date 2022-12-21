@@ -25,9 +25,8 @@ export interface GetServerTypesAvailabilityArgs {
 export interface GetServerTypesAvailabilityResult {
     readonly items: outputs.availability.ScalewayInstanceV1GetServerTypesAvailabilityResponse;
 }
-
 export function getServerTypesAvailabilityOutput(args: GetServerTypesAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypesAvailabilityResult> {
-    return pulumi.output(args).apply(a => getServerTypesAvailability(a, opts))
+    return pulumi.output(args).apply((a: any) => getServerTypesAvailability(a, opts))
 }
 
 export interface GetServerTypesAvailabilityOutputArgs {

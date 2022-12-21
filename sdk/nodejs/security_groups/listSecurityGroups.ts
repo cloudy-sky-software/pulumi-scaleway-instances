@@ -25,9 +25,8 @@ export interface ListSecurityGroupsArgs {
 export interface ListSecurityGroupsResult {
     readonly items: outputs.security_groups.ScalewayInstanceV1ListSecurityGroupsResponse;
 }
-
 export function listSecurityGroupsOutput(args: ListSecurityGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecurityGroupsResult> {
-    return pulumi.output(args).apply(a => listSecurityGroups(a, opts))
+    return pulumi.output(args).apply((a: any) => listSecurityGroups(a, opts))
 }
 
 export interface ListSecurityGroupsOutputArgs {
