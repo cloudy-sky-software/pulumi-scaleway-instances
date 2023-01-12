@@ -407,6 +407,8 @@ github.com/cloudy-sky-software/pulschema v0.0.0-20221224030128-f14e67330970 h1:Z
 github.com/cloudy-sky-software/pulschema v0.0.0-20221224030128-f14e67330970/go.mod h1:DGYr0LU4pXPMHq44aBJkOHEgVvWwila5vZfs5OjuYZ4=
 github.com/cloudy-sky-software/pulschema v0.0.0-20230105005202-85f498fcb1eb h1:+Kf02IsXQ3uXJJKyFkoHCAEoHg0YI+UXVO45Yx8yLvU=
 github.com/cloudy-sky-software/pulschema v0.0.0-20230105005202-85f498fcb1eb/go.mod h1:VBKtdnnAXnxc213opX2EJky6IE+AA6QtvUXrTXPD8YY=
+github.com/cloudy-sky-software/pulschema v0.0.0-20230112041642-d1badacef0c8 h1:PEMB4IbsvGgt5wV48UdH3QUvFD/jXxXAlVDIoK0FZUs=
+github.com/cloudy-sky-software/pulschema v0.0.0-20230112041642-d1badacef0c8/go.mod h1:W+fRyqRXraJ1QzIXP0nwGOQ5fIwg5t8FDIX3iP+m3ug=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20221113162329-64c6907f2ca2 h1:DHEHfgpfAwEiON6QmSOD9HOA8DqBgUeOl2yZIa/06jA=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20221113162329-64c6907f2ca2/go.mod h1:1liCOCS2euSCZ49USZzI4FFi1g3XQ3rTnf4ESu9sChw=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20221120074558-f465d658908f h1:opuqbQgTaaIXsHz0XThYevwHalxoNIW/jgWPLYZujmY=
@@ -1545,6 +1547,8 @@ github.com/pulumi/pulumi/pkg/v3 v3.50.2 h1:WTcfXYsP43KutQpJf7mg3jgfBc183krwjA/Fh
 github.com/pulumi/pulumi/pkg/v3 v3.50.2/go.mod h1:ZLnrnHhhy7hUZwWBA2yGkflHpeIOHlPMwqIeMTArGms=
 github.com/pulumi/pulumi/pkg/v3 v3.51.0 h1:FAgWGex4SIMvu3wCIoANjhI4uEUXk4IgHM/HMVZnZ0M=
 github.com/pulumi/pulumi/pkg/v3 v3.51.0/go.mod h1:bFQ7L/kRgR7NIcVM4ET0Jm7n0k2oCeiEIUQtcEibKLs=
+github.com/pulumi/pulumi/pkg/v3 v3.51.1 h1:332xuPVocexyjPy1a3AZFR3Qlxlc+POOqOaxGmgmXgU=
+github.com/pulumi/pulumi/pkg/v3 v3.51.1/go.mod h1:NhGfARTnE+R7XrSQ6Yo8/kSVgvkHJci6foum8jG542w=
 github.com/pulumi/pulumi/sdk/v3 v3.47.1 h1:PkKlP4RK85u87b0qujM6hS6BJJ2KOo9KCbJGow+TPvg=
 github.com/pulumi/pulumi/sdk/v3 v3.47.1/go.mod h1:n5EPRVFDh+EFwYZ+oaZmEtwgVN1A6NnI82B7ks/bmTU=
 github.com/pulumi/pulumi/sdk/v3 v3.48.0 h1:Uf7Cq7oyzEOT+d+/RSfMldtN4MWWtJhOkOwSZnbr4CE=
@@ -1559,6 +1563,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.50.2 h1:JA0nMC1nw2alLlbcdQ+jV7c2jclpJfPB1cvPp
 github.com/pulumi/pulumi/sdk/v3 v3.50.2/go.mod h1:tqQ4z9ocyM/UI2VQ7ZReWR3w6dF5ffEozoHipOMcDh4=
 github.com/pulumi/pulumi/sdk/v3 v3.51.0 h1:i9xhvte67aNNk9q9M8/KV7An3zWp6Na8huKRznZx1lw=
 github.com/pulumi/pulumi/sdk/v3 v3.51.0/go.mod h1:tqQ4z9ocyM/UI2VQ7ZReWR3w6dF5ffEozoHipOMcDh4=
+github.com/pulumi/pulumi/sdk/v3 v3.51.1 h1:8FoRMrjmz6Y2XUvkgEKB6OG7rjMIBR1/UKkv10m6kuU=
+github.com/pulumi/pulumi/sdk/v3 v3.51.1/go.mod h1:IYcBrkAwKEGRVq7R1ne3XJKB5bcux5eL3M/zqco7d6Y=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
