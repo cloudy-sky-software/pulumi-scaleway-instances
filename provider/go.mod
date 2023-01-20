@@ -4,10 +4,10 @@ go 1.18
 
 require (
 	github.com/cloudy-sky-software/pulschema v0.0.0-20230119004133-9c0a289e0bf2
-	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230119032719-ea7c39305cc9
+	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230120011411-5e311db7fea7
 	github.com/getkin/kin-openapi v0.112.0
 	github.com/pulumi/pulumi/pkg/v3 v3.52.0
-	github.com/pulumi/pulumi/sdk/v3 v3.52.0
+	github.com/pulumi/pulumi/sdk/v3 v3.52.1
 )
 
 require github.com/stretchr/testify v1.8.1
