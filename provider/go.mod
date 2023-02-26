@@ -3,9 +3,9 @@ module github.com/cloudy-sky-software/pulumi-scaleway-instances/provider
 go 1.18
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20230120163136-a51a35a1c5d6
+	github.com/cloudy-sky-software/pulschema v0.0.0-20230226193710-a8813e7583db
 	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230225222909-46fddfe426e5
-	github.com/getkin/kin-openapi v0.112.0
+	github.com/getkin/kin-openapi v0.114.0
 	github.com/pulumi/pulumi/pkg/v3 v3.52.1
 	github.com/pulumi/pulumi/sdk/v3 v3.52.1
 )
@@ -153,6 +153,7 @@ require (
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/opentracing/basictracer-go v1.1.0 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
+	github.com/perimeterx/marshmallow v1.1.4 // indirect
 	github.com/pgavlin/goldmark v1.1.33-0.20200616210433-b5eb04559386 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8 // indirect
