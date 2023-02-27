@@ -86,7 +86,7 @@ func (val *ScalewayInstanceV1PrivateNIC) Defaults() *ScalewayInstanceV1PrivateNI
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1PrivateNICState("available")
 		tmp.State = &state_
 	}

@@ -132,15 +132,15 @@ func (val *ScalewayInstanceV1SecurityGroupRule) Defaults() *ScalewayInstanceV1Se
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Action) {
+	if tmp.Action == nil {
 		action_ := ScalewayInstanceV1SecurityGroupRuleAction("accept")
 		tmp.Action = &action_
 	}
-	if isZero(tmp.Direction) {
+	if tmp.Direction == nil {
 		direction_ := ScalewayInstanceV1SecurityGroupRuleDirection("inbound")
 		tmp.Direction = &direction_
 	}
-	if isZero(tmp.Protocol) {
+	if tmp.Protocol == nil {
 		protocol_ := ScalewayInstanceV1SecurityGroupRuleProtocol("TCP")
 		tmp.Protocol = &protocol_
 	}
@@ -372,15 +372,15 @@ func (val *ScalewayInstanceV1SetSecurityGroupRulesRequestRule) Defaults() *Scale
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Action) {
+	if tmp.Action == nil {
 		action_ := ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction("accept")
 		tmp.Action = &action_
 	}
-	if isZero(tmp.Direction) {
+	if tmp.Direction == nil {
 		direction_ := ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection("inbound")
 		tmp.Direction = &direction_
 	}
-	if isZero(tmp.Protocol) {
+	if tmp.Protocol == nil {
 		protocol_ := ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol("TCP")
 		tmp.Protocol = &protocol_
 	}
@@ -427,13 +427,13 @@ func (val *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs) Defaults() *S
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Action) {
+	if tmp.Action == nil {
 		tmp.Action = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction("accept")
 	}
-	if isZero(tmp.Direction) {
+	if tmp.Direction == nil {
 		tmp.Direction = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection("inbound")
 	}
-	if isZero(tmp.Protocol) {
+	if tmp.Protocol == nil {
 		tmp.Protocol = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol("TCP")
 	}
 	return &tmp

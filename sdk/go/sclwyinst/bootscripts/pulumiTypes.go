@@ -43,7 +43,7 @@ func (val *ScalewayInstanceV1Bootscript) Defaults() *ScalewayInstanceV1Bootscrip
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Arch) {
+	if tmp.Arch == nil {
 		arch_ := ScalewayInstanceV1BootscriptArch("x86_64")
 		tmp.Arch = &arch_
 	}

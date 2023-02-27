@@ -95,11 +95,11 @@ func (val *ScalewayInstanceV1PlacementGroup) Defaults() *ScalewayInstanceV1Place
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Policy_mode) {
+	if tmp.Policy_mode == nil {
 		policy_mode_ := ScalewayInstanceV1PlacementGroupPolicyMode("optional")
 		tmp.Policy_mode = &policy_mode_
 	}
-	if isZero(tmp.Policy_type) {
+	if tmp.Policy_type == nil {
 		policy_type_ := ScalewayInstanceV1PlacementGroupPolicyType("max_availability")
 		tmp.Policy_type = &policy_type_
 	}

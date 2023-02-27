@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,7 +53,7 @@ func NewServer(ctx *pulumi.Context,
 	if args.Commercial_type == nil {
 		return nil, errors.New("invalid value for required argument 'Commercial_type'")
 	}
-	if isZero(args.Boot_type) {
+	if args.Boot_type == nil {
 		args.Boot_type = BootType("local")
 	}
 	opts = pkgResourceDefaultOpts(opts)

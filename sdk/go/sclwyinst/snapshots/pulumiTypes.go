@@ -176,11 +176,11 @@ func (val *ScalewayInstanceV1Snapshot) Defaults() *ScalewayInstanceV1Snapshot {
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1SnapshotState("available")
 		tmp.State = &state_
 	}
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		volume_type_ := ScalewayInstanceV1SnapshotVolumeType("l_ssd")
 		tmp.Volume_type = &volume_type_
 	}

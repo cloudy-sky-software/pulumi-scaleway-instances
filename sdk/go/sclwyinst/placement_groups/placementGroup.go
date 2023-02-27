@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,10 +40,10 @@ func NewPlacementGroup(ctx *pulumi.Context,
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
-	if isZero(args.Policy_mode) {
+	if args.Policy_mode == nil {
 		args.Policy_mode = PolicyMode("optional")
 	}
-	if isZero(args.Policy_type) {
+	if args.Policy_type == nil {
 		args.Policy_type = PolicyType("max_availability")
 	}
 	opts = pkgResourceDefaultOpts(opts)

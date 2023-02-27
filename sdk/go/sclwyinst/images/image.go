@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,14 +45,14 @@ func NewImage(ctx *pulumi.Context,
 	if args.Root_volume == nil {
 		return nil, errors.New("invalid value for required argument 'Root_volume'")
 	}
-	if isZero(args.Arch) {
+	if args.Arch == nil {
 		args.Arch = Arch("x86_64")
 	}
 	if args.Default_bootscript != nil {
 		args.Default_bootscript = args.Default_bootscript.ToScalewayInstanceV1BootscriptPtrOutput().ApplyT(func(v *ScalewayInstanceV1Bootscript) *ScalewayInstanceV1Bootscript { return v.Defaults() }).(ScalewayInstanceV1BootscriptPtrOutput)
 	}
 	args.Root_volume = args.Root_volume.ToScalewayInstanceV1VolumeSummaryOutput().ApplyT(func(v ScalewayInstanceV1VolumeSummary) ScalewayInstanceV1VolumeSummary { return *v.Defaults() }).(ScalewayInstanceV1VolumeSummaryOutput)
-	if isZero(args.State) {
+	if args.State == nil {
 		args.State = State("available")
 	}
 	opts = pkgResourceDefaultOpts(opts)
