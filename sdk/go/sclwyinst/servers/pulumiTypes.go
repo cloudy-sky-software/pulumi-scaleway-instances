@@ -43,7 +43,7 @@ func (val *ScalewayInstanceV1Bootscript) Defaults() *ScalewayInstanceV1Bootscrip
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Arch) {
+	if tmp.Arch == nil {
 		arch_ := ScalewayInstanceV1BootscriptArch("x86_64")
 		tmp.Arch = &arch_
 	}
@@ -351,7 +351,7 @@ func (val *ScalewayInstanceV1Image) Defaults() *ScalewayInstanceV1Image {
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Arch) {
+	if tmp.Arch == nil {
 		arch_ := ScalewayInstanceV1ImageArch("x86_64")
 		tmp.Arch = &arch_
 	}
@@ -359,7 +359,7 @@ func (val *ScalewayInstanceV1Image) Defaults() *ScalewayInstanceV1Image {
 
 	tmp.Root_volume = *tmp.Root_volume.Defaults()
 
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1ImageState("available")
 		tmp.State = &state_
 	}
@@ -677,11 +677,11 @@ func (val *ScalewayInstanceV1PlacementGroup) Defaults() *ScalewayInstanceV1Place
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Policy_mode) {
+	if tmp.Policy_mode == nil {
 		policy_mode_ := ScalewayInstanceV1PlacementGroupPolicyMode("optional")
 		tmp.Policy_mode = &policy_mode_
 	}
-	if isZero(tmp.Policy_type) {
+	if tmp.Policy_type == nil {
 		policy_type_ := ScalewayInstanceV1PlacementGroupPolicyType("max_availability")
 		tmp.Policy_type = &policy_type_
 	}
@@ -930,7 +930,7 @@ func (val *ScalewayInstanceV1PrivateNIC) Defaults() *ScalewayInstanceV1PrivateNI
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1PrivateNICState("available")
 		tmp.State = &state_
 	}
@@ -1059,11 +1059,11 @@ func (val *ScalewayInstanceV1Server) Defaults() *ScalewayInstanceV1Server {
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Arch) {
+	if tmp.Arch == nil {
 		arch_ := ScalewayInstanceV1ServerArch("x86_64")
 		tmp.Arch = &arch_
 	}
-	if isZero(tmp.Boot_type) {
+	if tmp.Boot_type == nil {
 		boot_type_ := ScalewayInstanceV1ServerBootType("local")
 		tmp.Boot_type = &boot_type_
 	}
@@ -1073,7 +1073,7 @@ func (val *ScalewayInstanceV1Server) Defaults() *ScalewayInstanceV1Server {
 
 	tmp.Placement_group = tmp.Placement_group.Defaults()
 
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1ServerState("running")
 		tmp.State = &state_
 	}
@@ -2080,7 +2080,7 @@ func (val *ScalewayInstanceV1ServerType) Defaults() *ScalewayInstanceV1ServerTyp
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Arch) {
+	if tmp.Arch == nil {
 		arch_ := ScalewayInstanceV1ServerTypeArch("x86_64")
 		tmp.Arch = &arch_
 	}
@@ -2682,11 +2682,11 @@ func (val *ScalewayInstanceV1Volume) Defaults() *ScalewayInstanceV1Volume {
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1VolumeState("available")
 		tmp.State = &state_
 	}
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		volume_type_ := ScalewayInstanceV1VolumeVolumeType("l_ssd")
 		tmp.Volume_type = &volume_type_
 	}
@@ -2814,11 +2814,11 @@ func (val *ScalewayInstanceV1VolumeServer) Defaults() *ScalewayInstanceV1VolumeS
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1VolumeServerState("available")
 		tmp.State = &state_
 	}
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		volume_type_ := ScalewayInstanceV1VolumeServerVolumeType("l_ssd")
 		tmp.Volume_type = &volume_type_
 	}
@@ -3009,11 +3009,11 @@ func (val *ScalewayInstanceV1VolumeServerTemplate) Defaults() *ScalewayInstanceV
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Boot) {
+	if tmp.Boot == nil {
 		boot_ := false
 		tmp.Boot = &boot_
 	}
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		volume_type_ := ScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd")
 		tmp.Volume_type = &volume_type_
 	}
@@ -3055,10 +3055,10 @@ func (val *ScalewayInstanceV1VolumeServerTemplateArgs) Defaults() *ScalewayInsta
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Boot) {
+	if tmp.Boot == nil {
 		tmp.Boot = pulumi.BoolPtr(false)
 	}
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		tmp.Volume_type = ScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd")
 	}
 	return &tmp
@@ -3189,7 +3189,7 @@ func (val *ScalewayInstanceV1VolumeSummary) Defaults() *ScalewayInstanceV1Volume
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		volume_type_ := ScalewayInstanceV1VolumeSummaryVolumeType("l_ssd")
 		tmp.Volume_type = &volume_type_
 	}

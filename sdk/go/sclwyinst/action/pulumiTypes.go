@@ -44,7 +44,7 @@ func (val *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate) Defaults()
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		volume_type_ := ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
 		tmp.Volume_type = &volume_type_
 	}
@@ -72,7 +72,7 @@ func (val *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs) Defaul
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		tmp.Volume_type = ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
 	}
 	return &tmp

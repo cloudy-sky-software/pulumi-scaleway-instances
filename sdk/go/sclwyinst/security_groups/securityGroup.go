@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,10 +58,10 @@ func NewSecurityGroup(ctx *pulumi.Context,
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
-	if isZero(args.Inbound_default_policy) {
+	if args.Inbound_default_policy == nil {
 		args.Inbound_default_policy = InboundDefaultPolicy("accept")
 	}
-	if isZero(args.Outbound_default_policy) {
+	if args.Outbound_default_policy == nil {
 		args.Outbound_default_policy = OutboundDefaultPolicy("accept")
 	}
 	opts = pkgResourceDefaultOpts(opts)

@@ -44,7 +44,7 @@ func (val *ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability) Def
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Availability) {
+	if tmp.Availability == nil {
 		availability_ := ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability("available")
 		tmp.Availability = &availability_
 	}

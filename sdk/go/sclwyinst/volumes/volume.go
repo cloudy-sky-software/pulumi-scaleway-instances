@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,7 +48,7 @@ func NewVolume(ctx *pulumi.Context,
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
-	if isZero(args.Volume_type) {
+	if args.Volume_type == nil {
 		args.Volume_type = VolumeType("l_ssd")
 	}
 	opts = pkgResourceDefaultOpts(opts)

@@ -116,15 +116,15 @@ func (val *ScalewayInstanceV1SecurityGroup) Defaults() *ScalewayInstanceV1Securi
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Inbound_default_policy) {
+	if tmp.Inbound_default_policy == nil {
 		inbound_default_policy_ := ScalewayInstanceV1SecurityGroupInboundDefaultPolicy("accept")
 		tmp.Inbound_default_policy = &inbound_default_policy_
 	}
-	if isZero(tmp.Outbound_default_policy) {
+	if tmp.Outbound_default_policy == nil {
 		outbound_default_policy_ := ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy("accept")
 		tmp.Outbound_default_policy = &outbound_default_policy_
 	}
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1SecurityGroupState("available")
 		tmp.State = &state_
 	}

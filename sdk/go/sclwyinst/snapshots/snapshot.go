@@ -44,10 +44,10 @@ func NewSnapshot(ctx *pulumi.Context,
 		args = &SnapshotArgs{}
 	}
 
-	if isZero(args.State) {
+	if args.State == nil {
 		args.State = State("available")
 	}
-	if isZero(args.Volume_type) {
+	if args.Volume_type == nil {
 		args.Volume_type = VolumeType("l_ssd")
 	}
 	opts = pkgResourceDefaultOpts(opts)

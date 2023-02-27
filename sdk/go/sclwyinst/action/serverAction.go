@@ -28,7 +28,7 @@ func NewServerAction(ctx *pulumi.Context,
 		args = &ServerActionArgs{}
 	}
 
-	if isZero(args.Action) {
+	if args.Action == nil {
 		args.Action = Action("poweron")
 	}
 	opts = pkgResourceDefaultOpts(opts)

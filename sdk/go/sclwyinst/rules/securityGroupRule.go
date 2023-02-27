@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,13 +39,13 @@ func NewSecurityGroupRule(ctx *pulumi.Context,
 	if args.Ip_range == nil {
 		return nil, errors.New("invalid value for required argument 'Ip_range'")
 	}
-	if isZero(args.Action) {
+	if args.Action == nil {
 		args.Action = Action("accept")
 	}
-	if isZero(args.Direction) {
+	if args.Direction == nil {
 		args.Direction = Direction("inbound")
 	}
-	if isZero(args.Protocol) {
+	if args.Protocol == nil {
 		args.Protocol = Protocol("TCP")
 	}
 	opts = pkgResourceDefaultOpts(opts)

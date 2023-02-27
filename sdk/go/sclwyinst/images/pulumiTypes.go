@@ -43,7 +43,7 @@ func (val *ScalewayInstanceV1Bootscript) Defaults() *ScalewayInstanceV1Bootscrip
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Arch) {
+	if tmp.Arch == nil {
 		arch_ := ScalewayInstanceV1BootscriptArch("x86_64")
 		tmp.Arch = &arch_
 	}
@@ -94,7 +94,7 @@ func (val *ScalewayInstanceV1BootscriptArgs) Defaults() *ScalewayInstanceV1Boots
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Arch) {
+	if tmp.Arch == nil {
 		tmp.Arch = ScalewayInstanceV1BootscriptArch("x86_64")
 	}
 	return &tmp
@@ -439,7 +439,7 @@ func (val *ScalewayInstanceV1Image) Defaults() *ScalewayInstanceV1Image {
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Arch) {
+	if tmp.Arch == nil {
 		arch_ := ScalewayInstanceV1ImageArch("x86_64")
 		tmp.Arch = &arch_
 	}
@@ -447,7 +447,7 @@ func (val *ScalewayInstanceV1Image) Defaults() *ScalewayInstanceV1Image {
 
 	tmp.Root_volume = *tmp.Root_volume.Defaults()
 
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1ImageState("available")
 		tmp.State = &state_
 	}
@@ -767,11 +767,11 @@ func (val *ScalewayInstanceV1Volume) Defaults() *ScalewayInstanceV1Volume {
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		state_ := ScalewayInstanceV1VolumeState("available")
 		tmp.State = &state_
 	}
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		volume_type_ := ScalewayInstanceV1VolumeVolumeType("l_ssd")
 		tmp.Volume_type = &volume_type_
 	}
@@ -821,10 +821,10 @@ func (val *ScalewayInstanceV1VolumeArgs) Defaults() *ScalewayInstanceV1VolumeArg
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.State) {
+	if tmp.State == nil {
 		tmp.State = ScalewayInstanceV1VolumeState("available")
 	}
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		tmp.Volume_type = ScalewayInstanceV1VolumeVolumeType("l_ssd")
 	}
 	return &tmp
@@ -1127,7 +1127,7 @@ func (val *ScalewayInstanceV1VolumeSummary) Defaults() *ScalewayInstanceV1Volume
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		volume_type_ := ScalewayInstanceV1VolumeSummaryVolumeType("l_ssd")
 		tmp.Volume_type = &volume_type_
 	}
@@ -1159,7 +1159,7 @@ func (val *ScalewayInstanceV1VolumeSummaryArgs) Defaults() *ScalewayInstanceV1Vo
 		return nil
 	}
 	tmp := *val
-	if isZero(tmp.Volume_type) {
+	if tmp.Volume_type == nil {
 		tmp.Volume_type = ScalewayInstanceV1VolumeSummaryVolumeType("l_ssd")
 	}
 	return &tmp
