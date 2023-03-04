@@ -3,7 +3,7 @@ module github.com/cloudy-sky-software/pulumi-scaleway-instances/provider
 go 1.18
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20230303015835-03bd5f6ddd0d
+	github.com/cloudy-sky-software/pulschema v0.0.0-20230304055411-2fd98f208d66
 	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230228013810-34d9356bbe70
 	github.com/getkin/kin-openapi v0.114.0
 	github.com/pulumi/pulumi/pkg/v3 v3.56.0
@@ -89,7 +89,7 @@ require (
 	github.com/gofrs/uuid v4.3.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
-	github.com/golang/glog v1.0.0 // indirect
+	github.com/golang/glog v1.1.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
