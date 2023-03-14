@@ -462,6 +462,8 @@ github.com/cloudy-sky-software/pulschema v0.0.0-20230309052312-be969ef2cd14 h1:e
 github.com/cloudy-sky-software/pulschema v0.0.0-20230309052312-be969ef2cd14/go.mod h1:W3kGBgsoNg/MSSnNTis+a7IkWBZKHDPJkoXvBqNEU5U=
 github.com/cloudy-sky-software/pulschema v0.0.0-20230309190939-3f9ee529c075 h1:F/qhaZnGLySHIWKXVzzhOahPV0cpRpEkrn/IP51/+Bg=
 github.com/cloudy-sky-software/pulschema v0.0.0-20230309190939-3f9ee529c075/go.mod h1:3/sFgjoKosD/SCYa8WdDGXciWlL/+ELMdG/x/Y6olnI=
+github.com/cloudy-sky-software/pulschema v0.0.0-20230313230654-e76d841876e7 h1:CX7flybe4WhomWWJGDw8AgC2KWzcagEpB667zVfAU1c=
+github.com/cloudy-sky-software/pulschema v0.0.0-20230313230654-e76d841876e7/go.mod h1:zMOd1acRZ98gzOoHplXhShaDfKx1B2PK53P3Id0M4H4=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20221113162329-64c6907f2ca2 h1:DHEHfgpfAwEiON6QmSOD9HOA8DqBgUeOl2yZIa/06jA=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20221113162329-64c6907f2ca2/go.mod h1:1liCOCS2euSCZ49USZzI4FFi1g3XQ3rTnf4ESu9sChw=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20221120074558-f465d658908f h1:opuqbQgTaaIXsHz0XThYevwHalxoNIW/jgWPLYZujmY=
@@ -524,6 +526,8 @@ github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230309205556-2
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230309205556-2d763698af84/go.mod h1:jF/KpaaKHak10f4dRJxtNujujXM5TGCikPT3i4x+H5g=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230313230632-bb9fc94a5330 h1:6YGVl+9H8W2t3+UuBX2wS3JGjLcpOqKMmLJv37y8GBE=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230313230632-bb9fc94a5330/go.mod h1:SewsEAKFR4vhw4WaxepLgwvekUwZg3tpMhJDtMjIoWM=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230314010911-8049dd16a9d2 h1:haltniCpAMzupr3/VDwo57TJnbg9HKw4Rpe+jsI5sd8=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230314010911-8049dd16a9d2/go.mod h1:CWKPNUr+FC0IkbbIXT8VTpYgGhMTjwNTInX/PfQDse0=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
 github.com/cncf/udpa/go v0.0.0-20200629203442-efcf912fb354/go.mod h1:WmhPx2Nbnhtbo57+VJT5O0JRkEi1Wbu0z5j0R8u5Hbk=
 github.com/cncf/udpa/go v0.0.0-20201120205902-5459f2c99403/go.mod h1:WmhPx2Nbnhtbo57+VJT5O0JRkEi1Wbu0z5j0R8u5Hbk=
