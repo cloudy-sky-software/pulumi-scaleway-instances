@@ -7,7 +7,7 @@
 ## Package SDKs
 
 - Node.js: https://www.npmjs.com/package/@cloudyskysoftware/pulumi-scaleway-instances
-- Python: https://pypi.org/project/pulumi-scaleway-instances/
+- Python: https://pypi.org/project/pulumi_scaleway_instances/
 - .NET: https://www.nuget.org/packages/Pulumi.ScalewayInstances
 - Go: `import github.com/cloudyskysoftware/pulumi-scaleway-instances/sdk/go/render`
 
