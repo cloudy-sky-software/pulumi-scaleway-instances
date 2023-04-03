@@ -1,6 +1,10 @@
+## 0.0.7
+
+- Prepare for public release.
+
 ## 0.0.6
 
-- Update the OpenAPI spec to mark name as required which will translate to an auto-name capable property in Pulumi. 
+- Update the OpenAPI spec to mark name as required which will translate to an auto-name capable property in Pulumi.
 
 ## 0.0.5
 
