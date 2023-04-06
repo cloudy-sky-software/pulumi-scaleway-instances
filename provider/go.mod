@@ -3,7 +3,7 @@ module github.com/cloudy-sky-software/pulumi-scaleway-instances/provider
 go 1.18
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20230403230407-05afc083d979
+	github.com/cloudy-sky-software/pulschema v0.0.0-20230406170921-d7a8d1f51555
 	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230406170937-843d7152b5df
 	github.com/getkin/kin-openapi v0.115.0
 	github.com/pulumi/pulumi/pkg/v3 v3.61.1
