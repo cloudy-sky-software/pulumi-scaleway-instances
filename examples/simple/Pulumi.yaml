@@ -1,3 +1,3 @@
-name: simple
+name: scaleway-instances-ts
+description: A minimal TypeScript Pulumi program for Scaleway Instances
 runtime: nodejs
-description: A simple render example
