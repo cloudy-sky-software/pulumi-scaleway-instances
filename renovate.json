@@ -1,13 +1,26 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "ignoreDeps": ["github.com/mattn/go-ieproxy"],
+  "ignorePaths": ["sdk/**", "examples/**"],
+  "hostRules": [
+    {
+      "matchHost": "https://github.com/cloudy-sky-software/pulumi-provider-framework",
+      "encrypted": {
+        "token": "wcFMA/xDdHCJBTolAQ//ebHIU/GUnWEDJCpPUEDVrFvn8STrHegIUJ635sLfrEyWGt/m4tm+fQUVAN8sypp1r1S/SA8wyv5HaO7cax2Q90F08d2W5lyFp/qqjZO3XQCgKLlKyl4VxEDNVY3V05fYP8ebAygDUx8HXNnjpDkCdAqoTZyJyH2DcVK1//aU/x0hZ92uwj11gaLYdPtS9u//ZPCWdCPbbmcPtrqe/SIXCQW02dJ+nCHaskMeHkgh4g5fNaLv/7p283HnxdJTIqwP9/dZrzeHYZYUbAHtqfLQqv39ES+uw7A3LlstjfkeTPiRSIpLbLGz3O93ELJIJUo6HaJrFhm2D6xq3QQjEpF30ktl66n7Iw/WMbgpJ/0xlnziZA5zQE6MQWqR7Bkz1em2nzFQKRwy0gaoDLn2+R4XEUL4XCdZTW6iVum1nNfUqmlvJObht6XQOan16znokP+aBa6GiJdbFWGNcCfIGcUvOqhZPlVKVde/4ZMvSZxz3+znmK03kTzPm0A2x4IeDtvG8/Jr2Xghoxy/QJrFWasUu6Xv39XDeDOXme/xVAgVpVyYehl/D/0ipTlDGN3qTK5Lsccut0YGDZ73AUJUZk8vgGaQx/DQJLnTfjpT8uL1+Mhn7V5GO2Bo3lpeShq5fdmVwf0VzTbAmhW564Wi7uxgFL2pyrg5EjLbWmJF1ZzDaC/SmwH9lLgjD/c1Z0IWVWMsgDXV1H5FPP9ilIbzSFLzMVwot9ZzlqQWjBZaME4jdrARBN4eBzA1plzejRf/qLKicteG6b/9yDnFcqd8qEJujpoL9Y4q9cs/hIBhWAzANqZ1LwNl7XhV86ve6jBy53UmxfhwvpCVanYRGUbRrN+udvvoPkXomsYtLErIJ3fCOR4fnZlcMUOcm6TataWN"
+      },
+      "hostType": "go"
+    },
+    {
+      "matchHost": "https://api.github.com/repos/cloudy-sky-software/pulumi-provider-framework",
+      "encrypted": {
+        "token": "wcFMA/xDdHCJBTolAQ//ebHIU/GUnWEDJCpPUEDVrFvn8STrHegIUJ635sLfrEyWGt/m4tm+fQUVAN8sypp1r1S/SA8wyv5HaO7cax2Q90F08d2W5lyFp/qqjZO3XQCgKLlKyl4VxEDNVY3V05fYP8ebAygDUx8HXNnjpDkCdAqoTZyJyH2DcVK1//aU/x0hZ92uwj11gaLYdPtS9u//ZPCWdCPbbmcPtrqe/SIXCQW02dJ+nCHaskMeHkgh4g5fNaLv/7p283HnxdJTIqwP9/dZrzeHYZYUbAHtqfLQqv39ES+uw7A3LlstjfkeTPiRSIpLbLGz3O93ELJIJUo6HaJrFhm2D6xq3QQjEpF30ktl66n7Iw/WMbgpJ/0xlnziZA5zQE6MQWqR7Bkz1em2nzFQKRwy0gaoDLn2+R4XEUL4XCdZTW6iVum1nNfUqmlvJObht6XQOan16znokP+aBa6GiJdbFWGNcCfIGcUvOqhZPlVKVde/4ZMvSZxz3+znmK03kTzPm0A2x4IeDtvG8/Jr2Xghoxy/QJrFWasUu6Xv39XDeDOXme/xVAgVpVyYehl/D/0ipTlDGN3qTK5Lsccut0YGDZ73AUJUZk8vgGaQx/DQJLnTfjpT8uL1+Mhn7V5GO2Bo3lpeShq5fdmVwf0VzTbAmhW564Wi7uxgFL2pyrg5EjLbWmJF1ZzDaC/SmwH9lLgjD/c1Z0IWVWMsgDXV1H5FPP9ilIbzSFLzMVwot9ZzlqQWjBZaME4jdrARBN4eBzA1plzejRf/qLKicteG6b/9yDnFcqd8qEJujpoL9Y4q9cs/hIBhWAzANqZ1LwNl7XhV86ve6jBy53UmxfhwvpCVanYRGUbRrN+udvvoPkXomsYtLErIJ3fCOR4fnZlcMUOcm6TataWN"
+      },
+      "hostType": "github"
+    }
   ],
-  "ignoreDeps": [
-    "github.com/mattn/go-ieproxy"
-  ],
-  "ignorePaths": [
-    "sdk/**",
-    "examples/**"
-  ]
+  "customEnvVariables": {
+    "GOPRIVATE": "github.com/cloudy-sky-software/pulumi-provider-framework"
+  },
+  "postUpdateOptions": ["gomodTidy"]
 }
