@@ -177,6 +177,72 @@
                 }
             ]
         },
+        "scaleway-instances:action:ScalewayInstanceV1Task": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the task"
+                },
+                "href_from": {
+                    "type": "string"
+                },
+                "href_result": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the task"
+                },
+                "progress": {
+                    "type": "number",
+                    "description": "The progress of the task in percent"
+                },
+                "started_at": {
+                    "type": "string",
+                    "description": "The task start date (RFC 3339 format)"
+                },
+                "status": {
+                    "$ref": "#/types/scaleway-instances:action:ScalewayInstanceV1TaskStatus",
+                    "description": "The task status",
+                    "default": "pending"
+                },
+                "terminated_at": {
+                    "type": "string",
+                    "description": "The task end date (RFC 3339 format)"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The zone in which is the task"
+                }
+            },
+            "type": "object"
+        },
+        "scaleway-instances:action:ScalewayInstanceV1TaskStatus": {
+            "description": "The task status",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Pending",
+                    "value": "pending"
+                },
+                {
+                    "name": "Started",
+                    "value": "started"
+                },
+                {
+                    "name": "Success",
+                    "value": "success"
+                },
+                {
+                    "name": "Failure",
+                    "value": "failure"
+                },
+                {
+                    "name": "Retry",
+                    "value": "retry"
+                }
+            ]
+        },
         "scaleway-instances:availability:ScalewayInstanceV1GetServerTypesAvailabilityResponse": {
             "properties": {
                 "servers": {
@@ -362,6 +428,72 @@
                 }
             },
             "type": "object"
+        },
+        "scaleway-instances:export:ScalewayInstanceV1Task": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the task"
+                },
+                "href_from": {
+                    "type": "string"
+                },
+                "href_result": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the task"
+                },
+                "progress": {
+                    "type": "number",
+                    "description": "The progress of the task in percent"
+                },
+                "started_at": {
+                    "type": "string",
+                    "description": "The task start date (RFC 3339 format)"
+                },
+                "status": {
+                    "$ref": "#/types/scaleway-instances:export:ScalewayInstanceV1TaskStatus",
+                    "description": "The task status",
+                    "default": "pending"
+                },
+                "terminated_at": {
+                    "type": "string",
+                    "description": "The task end date (RFC 3339 format)"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The zone in which is the task"
+                }
+            },
+            "type": "object"
+        },
+        "scaleway-instances:export:ScalewayInstanceV1TaskStatus": {
+            "description": "The task status",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Pending",
+                    "value": "pending"
+                },
+                {
+                    "name": "Started",
+                    "value": "started"
+                },
+                {
+                    "name": "Success",
+                    "value": "success"
+                },
+                {
+                    "name": "Failure",
+                    "value": "failure"
+                },
+                {
+                    "name": "Retry",
+                    "value": "retry"
+                }
+            ]
         },
         "scaleway-instances:images:Arch": {
             "type": "string",
@@ -3116,6 +3248,9 @@
                     "type": "string",
                     "description": "The name of the backup you want to create.\nThis field should only be specified when performing a backup action.\n"
                 },
+                "task": {
+                    "$ref": "#/types/scaleway-instances:action:ScalewayInstanceV1Task"
+                },
                 "volumes": {
                     "type": "object",
                     "additionalProperties": {
@@ -3159,6 +3294,9 @@
                 "key": {
                     "type": "string",
                     "description": "S3 object key"
+                },
+                "task": {
+                    "$ref": "#/types/scaleway-instances:export:ScalewayInstanceV1Task"
                 }
             },
             "type": "object",
@@ -3238,9 +3376,8 @@
             },
             "type": "object",
             "required": [
-                "name",
-                "root_volume",
-                "project"
+                "project",
+                "root_volume"
             ],
             "inputProperties": {
                 "arch": {
@@ -3391,7 +3528,6 @@
             },
             "type": "object",
             "required": [
-                "name",
                 "project"
             ],
             "inputProperties": {
@@ -3494,10 +3630,10 @@
             },
             "type": "object",
             "required": [
-                "protocol",
-                "direction",
                 "action",
-                "ip_range"
+                "direction",
+                "ip_range",
+                "protocol"
             ],
             "inputProperties": {
                 "action": {
@@ -3655,7 +3791,6 @@
             },
             "type": "object",
             "required": [
-                "name",
                 "project"
             ],
             "inputProperties": {
@@ -3811,7 +3946,6 @@
             },
             "type": "object",
             "required": [
-                "name",
                 "commercial_type"
             ],
             "inputProperties": {
@@ -4035,7 +4169,6 @@
             },
             "type": "object",
             "required": [
-                "name",
                 "project"
             ],
             "inputProperties": {
