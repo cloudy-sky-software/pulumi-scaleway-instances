@@ -46,7 +46,7 @@ export class Image extends pulumi.CustomResource {
      * (RFC 3339 format)
      */
     public /*out*/ readonly modification_date!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     public readonly organization!: pulumi.Output<string | undefined>;
     public readonly project!: pulumi.Output<string>;
     public readonly public!: pulumi.Output<boolean | undefined>;

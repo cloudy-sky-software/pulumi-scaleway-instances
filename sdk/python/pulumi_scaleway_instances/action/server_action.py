@@ -167,6 +167,7 @@ class ServerAction(pulumi.CustomResource):
             __props__.__dict__["server_id"] = server_id
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["zone"] = zone
+            __props__.__dict__["task"] = None
         super(ServerAction, __self__).__init__(
             'scaleway-instances:action:ServerAction',
             resource_name,
@@ -191,6 +192,7 @@ class ServerAction(pulumi.CustomResource):
 
         __props__.__dict__["action"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["task"] = None
         __props__.__dict__["volumes"] = None
         return ServerAction(resource_name, opts=opts, __props__=__props__)
 
@@ -210,6 +212,11 @@ class ServerAction(pulumi.CustomResource):
         This field should only be specified when performing a backup action.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def task(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1Task']]:
+        return pulumi.get(self, "task")
 
     @property
     @pulumi.getter

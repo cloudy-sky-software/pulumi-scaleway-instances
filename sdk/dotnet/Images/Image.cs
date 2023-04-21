@@ -37,7 +37,7 @@ namespace Pulumi.ScalewayInstances.Images
         public Output<string?> Modification_date { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         [Output("organization")]
         public Output<string?> Organization { get; private set; } = null!;

@@ -11,6 +11,7 @@ import * as private_nics from "./private_nics";
 import * as rules from "./rules";
 import * as security_groups from "./security_groups";
 import * as servers from "./servers";
+import * as snapshot_export from "./snapshot_export";
 import * as snapshots from "./snapshots";
 import * as volumes from "./volumes";
 
@@ -24,6 +25,7 @@ export {
     rules,
     security_groups,
     servers,
+    snapshot_export,
     snapshots,
     volumes,
 };

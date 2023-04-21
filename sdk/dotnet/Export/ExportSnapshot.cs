@@ -24,6 +24,9 @@ namespace Pulumi.ScalewayInstances.Export
         [Output("key")]
         public Output<string?> Key { get; private set; } = null!;
 
+        [Output("task")]
+        public Output<Outputs.ScalewayInstanceV1Task?> Task { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ExportSnapshot resource with the given unique name, arguments, and options.

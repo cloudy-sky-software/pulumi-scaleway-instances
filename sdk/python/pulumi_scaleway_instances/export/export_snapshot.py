@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = ['ExportSnapshotArgs', 'ExportSnapshot']
 
@@ -142,6 +144,7 @@ class ExportSnapshot(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["snapshot_id"] = snapshot_id
             __props__.__dict__["zone"] = zone
+            __props__.__dict__["task"] = None
         super(ExportSnapshot, __self__).__init__(
             'scaleway-instances:export:ExportSnapshot',
             resource_name,
@@ -166,6 +169,7 @@ class ExportSnapshot(pulumi.CustomResource):
 
         __props__.__dict__["bucket"] = None
         __props__.__dict__["key"] = None
+        __props__.__dict__["task"] = None
         return ExportSnapshot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -183,4 +187,9 @@ class ExportSnapshot(pulumi.CustomResource):
         S3 object key
         """
         return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def task(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1Task']]:
+        return pulumi.get(self, "task")
 

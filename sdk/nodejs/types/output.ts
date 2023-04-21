@@ -26,6 +26,48 @@ export namespace action {
         };
     }
 
+    export interface ScalewayInstanceV1Task {
+        /**
+         * The description of the task
+         */
+        description?: string;
+        href_from?: string;
+        href_result?: string;
+        /**
+         * The unique ID of the task
+         */
+        id?: string;
+        /**
+         * The progress of the task in percent
+         */
+        progress?: number;
+        /**
+         * The task start date (RFC 3339 format)
+         */
+        started_at?: string;
+        /**
+         * The task status
+         */
+        status?: enums.action.ScalewayInstanceV1TaskStatus;
+        /**
+         * The task end date (RFC 3339 format)
+         */
+        terminated_at?: string;
+        /**
+         * The zone in which is the task
+         */
+        zone?: string;
+    }
+    /**
+     * scalewayInstanceV1TaskProvideDefaults sets the appropriate defaults for ScalewayInstanceV1Task
+     */
+    export function scalewayInstanceV1TaskProvideDefaults(val: ScalewayInstanceV1Task): ScalewayInstanceV1Task {
+        return {
+            ...val,
+            status: (val.status) ?? "pending",
+        };
+    }
+
 }
 
 export namespace availability {
@@ -1413,6 +1455,51 @@ export namespace servers {
         return {
             ...val,
             volume_type: (val.volume_type) ?? "l_ssd",
+        };
+    }
+
+}
+
+export namespace snapshot_export {
+    export interface ScalewayInstanceV1Task {
+        /**
+         * The description of the task
+         */
+        description?: string;
+        href_from?: string;
+        href_result?: string;
+        /**
+         * The unique ID of the task
+         */
+        id?: string;
+        /**
+         * The progress of the task in percent
+         */
+        progress?: number;
+        /**
+         * The task start date (RFC 3339 format)
+         */
+        started_at?: string;
+        /**
+         * The task status
+         */
+        status?: enums.snapshot_export.ScalewayInstanceV1TaskStatus;
+        /**
+         * The task end date (RFC 3339 format)
+         */
+        terminated_at?: string;
+        /**
+         * The zone in which is the task
+         */
+        zone?: string;
+    }
+    /**
+     * scalewayInstanceV1TaskProvideDefaults sets the appropriate defaults for ScalewayInstanceV1Task
+     */
+    export function scalewayInstanceV1TaskProvideDefaults(val: ScalewayInstanceV1Task): ScalewayInstanceV1Task {
+        return {
+            ...val,
+            status: (val.status) ?? "pending",
         };
     }
 

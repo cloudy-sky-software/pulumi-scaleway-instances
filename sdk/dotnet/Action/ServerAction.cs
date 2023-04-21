@@ -25,6 +25,9 @@ namespace Pulumi.ScalewayInstances.Action
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("task")]
+        public Output<Outputs.ScalewayInstanceV1Task?> Task { get; private set; } = null!;
+
         [Output("volumes")]
         public Output<ImmutableDictionary<string, Outputs.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate>?> Volumes { get; private set; } = null!;
 

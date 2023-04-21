@@ -18,6 +18,7 @@ type ServerAction struct {
 	// The name of the backup you want to create.
 	// This field should only be specified when performing a backup action.
 	Name    pulumi.StringPtrOutput                                             `pulumi:"name"`
+	Task    ScalewayInstanceV1TaskPtrOutput                                    `pulumi:"task"`
 	Volumes ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput `pulumi:"volumes"`
 }
 
@@ -136,6 +137,10 @@ func (o ServerActionOutput) Action() ActionPtrOutput {
 // This field should only be specified when performing a backup action.
 func (o ServerActionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerAction) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerActionOutput) Task() ScalewayInstanceV1TaskPtrOutput {
+	return o.ApplyT(func(v *ServerAction) ScalewayInstanceV1TaskPtrOutput { return v.Task }).(ScalewayInstanceV1TaskPtrOutput)
 }
 
 func (o ServerActionOutput) Volumes() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput {

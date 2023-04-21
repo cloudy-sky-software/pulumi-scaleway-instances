@@ -8,6 +8,7 @@ __all__ = [
     'Action',
     'ScalewayInstanceV1ListServerActionsResponseActionsItem',
     'ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType',
+    'ScalewayInstanceV1TaskStatus',
 ]
 
 
@@ -36,3 +37,14 @@ class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType(str, E
     LSSD = "l_ssd"
     BSSD = "b_ssd"
     UNIFIED = "unified"
+
+
+class ScalewayInstanceV1TaskStatus(str, Enum):
+    """
+    The task status
+    """
+    PENDING = "pending"
+    STARTED = "started"
+    SUCCESS = "success"
+    FAILURE = "failure"
+    RETRY = "retry"

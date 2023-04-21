@@ -15,7 +15,7 @@ type PlacementGroup struct {
 	pulumi.CustomResourceState
 
 	// The placement group name
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The placement group organization ID
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	Policy_mode  PolicyModePtrOutput    `pulumi:"policy_mode"`
@@ -147,8 +147,8 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 }
 
 // The placement group name
-func (o PlacementGroupOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o PlacementGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The placement group organization ID
