@@ -76,6 +76,7 @@
         "types/enums/rules/index.ts",
         "types/enums/security_groups/index.ts",
         "types/enums/servers/index.ts",
+        "types/enums/snapshot_export/index.ts",
         "types/enums/snapshots/index.ts",
         "types/enums/volumes/index.ts",
         "types/index.ts",

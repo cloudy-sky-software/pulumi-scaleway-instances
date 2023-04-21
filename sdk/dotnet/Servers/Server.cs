@@ -52,7 +52,7 @@ namespace Pulumi.ScalewayInstances.Servers
         /// The server name
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The server organization ID

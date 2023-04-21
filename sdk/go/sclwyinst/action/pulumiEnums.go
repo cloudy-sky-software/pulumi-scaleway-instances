@@ -458,6 +458,100 @@ func (in *scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
 }
 
+// The task status
+type ScalewayInstanceV1TaskStatus string
+
+const (
+	ScalewayInstanceV1TaskStatusPending = ScalewayInstanceV1TaskStatus("pending")
+	ScalewayInstanceV1TaskStatusStarted = ScalewayInstanceV1TaskStatus("started")
+	ScalewayInstanceV1TaskStatusSuccess = ScalewayInstanceV1TaskStatus("success")
+	ScalewayInstanceV1TaskStatusFailure = ScalewayInstanceV1TaskStatus("failure")
+	ScalewayInstanceV1TaskStatusRetry   = ScalewayInstanceV1TaskStatus("retry")
+)
+
+type ScalewayInstanceV1TaskStatusOutput struct{ *pulumi.OutputState }
+
+func (ScalewayInstanceV1TaskStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalewayInstanceV1TaskStatus)(nil)).Elem()
+}
+
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusOutput() ScalewayInstanceV1TaskStatusOutput {
+	return o
+}
+
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusOutput {
+	return o
+}
+
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOutput() ScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ToScalewayInstanceV1TaskStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1TaskStatus) *ScalewayInstanceV1TaskStatus {
+		return &v
+	}).(ScalewayInstanceV1TaskStatusPtrOutput)
+}
+
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1TaskStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1TaskStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScalewayInstanceV1TaskStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalewayInstanceV1TaskStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalewayInstanceV1TaskStatus)(nil)).Elem()
+}
+
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutput() ScalewayInstanceV1TaskStatusPtrOutput {
+	return o
+}
+
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
+	return o
+}
+
+func (o ScalewayInstanceV1TaskStatusPtrOutput) Elem() ScalewayInstanceV1TaskStatusOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1TaskStatus) ScalewayInstanceV1TaskStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ScalewayInstanceV1TaskStatus
+		return ret
+	}).(ScalewayInstanceV1TaskStatusOutput)
+}
+
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScalewayInstanceV1TaskStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionInput)(nil)).Elem(), Action("poweron"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionPtrInput)(nil)).Elem(), Action("poweron"))
@@ -470,4 +564,6 @@ func init() {
 	pulumi.RegisterOutputType(ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(ScalewayInstanceV1TaskStatusOutput{})
+	pulumi.RegisterOutputType(ScalewayInstanceV1TaskStatusPtrOutput{})
 }

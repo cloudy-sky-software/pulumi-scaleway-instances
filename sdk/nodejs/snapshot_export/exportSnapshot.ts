@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export class ExportSnapshot extends pulumi.CustomResource {
@@ -39,6 +42,7 @@ export class ExportSnapshot extends pulumi.CustomResource {
      * S3 object key
      */
     public readonly key!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly task!: pulumi.Output<outputs.snapshot_export.ScalewayInstanceV1Task | undefined>;
 
     /**
      * Create a ExportSnapshot resource with the given unique name, arguments, and options.
@@ -55,9 +59,11 @@ export class ExportSnapshot extends pulumi.CustomResource {
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["snapshot_id"] = args ? args.snapshot_id : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["task"] = undefined /*out*/;
         } else {
             resourceInputs["bucket"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;
+            resourceInputs["task"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ExportSnapshot.__pulumiType, name, resourceInputs, opts);

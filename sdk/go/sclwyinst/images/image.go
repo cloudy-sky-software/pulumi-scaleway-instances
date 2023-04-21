@@ -22,7 +22,7 @@ type Image struct {
 	From_server        pulumi.StringPtrOutput                `pulumi:"from_server"`
 	// (RFC 3339 format)
 	Modification_date pulumi.StringPtrOutput                `pulumi:"modification_date"`
-	Name              pulumi.StringOutput                   `pulumi:"name"`
+	Name              pulumi.StringPtrOutput                `pulumi:"name"`
 	Organization      pulumi.StringPtrOutput                `pulumi:"organization"`
 	Project           pulumi.StringOutput                   `pulumi:"project"`
 	Public            pulumi.BoolPtrOutput                  `pulumi:"public"`
@@ -181,8 +181,8 @@ func (o ImageOutput) Modification_date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.Modification_date }).(pulumi.StringPtrOutput)
 }
 
-func (o ImageOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o ImageOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o ImageOutput) Organization() pulumi.StringPtrOutput {

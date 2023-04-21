@@ -34,3 +34,16 @@ export const ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType
 } as const;
 
 export type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType = (typeof ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)[keyof typeof ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType];
+
+export const ScalewayInstanceV1TaskStatus = {
+    Pending: "pending",
+    Started: "started",
+    Success: "success",
+    Failure: "failure",
+    Retry: "retry",
+} as const;
+
+/**
+ * The task status
+ */
+export type ScalewayInstanceV1TaskStatus = (typeof ScalewayInstanceV1TaskStatus)[keyof typeof ScalewayInstanceV1TaskStatus];

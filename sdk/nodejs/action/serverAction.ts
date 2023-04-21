@@ -43,6 +43,7 @@ export class ServerAction extends pulumi.CustomResource {
      * This field should only be specified when performing a backup action.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly task!: pulumi.Output<outputs.action.ScalewayInstanceV1Task | undefined>;
     public readonly volumes!: pulumi.Output<{[key: string]: outputs.action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate} | undefined>;
 
     /**
@@ -61,9 +62,11 @@ export class ServerAction extends pulumi.CustomResource {
             resourceInputs["server_id"] = args ? args.server_id : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["task"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["task"] = undefined /*out*/;
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

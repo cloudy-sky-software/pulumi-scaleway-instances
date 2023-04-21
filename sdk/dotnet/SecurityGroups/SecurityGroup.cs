@@ -46,7 +46,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// The security groups name
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The security groups organization ID

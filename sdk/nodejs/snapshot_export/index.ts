@@ -11,6 +11,9 @@ export const ExportSnapshot: typeof import("./exportSnapshot").ExportSnapshot = 
 utilities.lazyLoad(exports, ["ExportSnapshot"], () => require("./exportSnapshot"));
 
 
+// Export enums:
+export * from "../types/enums/snapshot_export";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

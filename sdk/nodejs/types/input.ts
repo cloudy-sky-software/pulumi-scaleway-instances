@@ -21,6 +21,7 @@ export namespace action {
             volume_type: (val.volume_type) ?? "l_ssd",
         };
     }
+
 }
 
 export namespace availability {
@@ -295,6 +296,9 @@ export namespace servers {
         };
     }
 
+}
+
+export namespace snapshot_export {
 }
 
 export namespace snapshots {

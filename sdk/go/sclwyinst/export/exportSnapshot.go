@@ -16,7 +16,8 @@ type ExportSnapshot struct {
 	// S3 bucket name
 	Bucket pulumi.StringPtrOutput `pulumi:"bucket"`
 	// S3 object key
-	Key pulumi.StringPtrOutput `pulumi:"key"`
+	Key  pulumi.StringPtrOutput          `pulumi:"key"`
+	Task ScalewayInstanceV1TaskPtrOutput `pulumi:"task"`
 }
 
 // NewExportSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -126,6 +127,10 @@ func (o ExportSnapshotOutput) Bucket() pulumi.StringPtrOutput {
 // S3 object key
 func (o ExportSnapshotOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportSnapshot) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o ExportSnapshotOutput) Task() ScalewayInstanceV1TaskPtrOutput {
+	return o.ApplyT(func(v *ExportSnapshot) ScalewayInstanceV1TaskPtrOutput { return v.Task }).(ScalewayInstanceV1TaskPtrOutput)
 }
 
 func init() {

@@ -16,7 +16,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         /// The placement group name
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The placement group organization ID

@@ -102,4 +102,38 @@ namespace Pulumi.ScalewayInstances.Action
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The task status
+    /// </summary>
+    [EnumType]
+    public readonly struct ScalewayInstanceV1TaskStatus : IEquatable<ScalewayInstanceV1TaskStatus>
+    {
+        private readonly string _value;
+
+        private ScalewayInstanceV1TaskStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScalewayInstanceV1TaskStatus Pending { get; } = new ScalewayInstanceV1TaskStatus("pending");
+        public static ScalewayInstanceV1TaskStatus Started { get; } = new ScalewayInstanceV1TaskStatus("started");
+        public static ScalewayInstanceV1TaskStatus Success { get; } = new ScalewayInstanceV1TaskStatus("success");
+        public static ScalewayInstanceV1TaskStatus Failure { get; } = new ScalewayInstanceV1TaskStatus("failure");
+        public static ScalewayInstanceV1TaskStatus Retry { get; } = new ScalewayInstanceV1TaskStatus("retry");
+
+        public static bool operator ==(ScalewayInstanceV1TaskStatus left, ScalewayInstanceV1TaskStatus right) => left.Equals(right);
+        public static bool operator !=(ScalewayInstanceV1TaskStatus left, ScalewayInstanceV1TaskStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ScalewayInstanceV1TaskStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScalewayInstanceV1TaskStatus other && Equals(other);
+        public bool Equals(ScalewayInstanceV1TaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }
