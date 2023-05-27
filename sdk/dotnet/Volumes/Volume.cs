@@ -34,7 +34,7 @@ namespace Pulumi.ScalewayInstances.Volumes
         /// The volume name
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// The volume organization ID

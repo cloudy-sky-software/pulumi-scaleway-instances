@@ -61,7 +61,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The server name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The server organization ID
      */

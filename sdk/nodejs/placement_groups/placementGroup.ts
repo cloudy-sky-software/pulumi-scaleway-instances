@@ -37,7 +37,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The placement group name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The placement group organization ID
      */

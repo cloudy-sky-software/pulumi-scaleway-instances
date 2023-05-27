@@ -57,7 +57,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The security groups name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The security groups organization ID
      */
