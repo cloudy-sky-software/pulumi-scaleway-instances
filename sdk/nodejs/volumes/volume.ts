@@ -49,7 +49,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The volume name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The volume organization ID
      */

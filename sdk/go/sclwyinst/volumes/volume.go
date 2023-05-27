@@ -21,7 +21,7 @@ type Volume struct {
 	// The volume modification date (RFC 3339 format)
 	Modification_date pulumi.StringPtrOutput `pulumi:"modification_date"`
 	// The volume name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The volume organization ID
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// The volume project ID
@@ -169,8 +169,8 @@ func (o VolumeOutput) Modification_date() pulumi.StringPtrOutput {
 }
 
 // The volume name
-func (o VolumeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The volume organization ID

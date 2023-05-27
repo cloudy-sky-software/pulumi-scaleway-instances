@@ -27,7 +27,7 @@ type Server struct {
 	// The server image ID
 	Image pulumi.StringPtrOutput `pulumi:"image"`
 	// The server name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The server organization ID
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// Placement group ID if server must be part of a placement group
@@ -221,8 +221,8 @@ func (o ServerOutput) Image() pulumi.StringPtrOutput {
 }
 
 // The server name
-func (o ServerOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o ServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The server organization ID

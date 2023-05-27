@@ -25,7 +25,7 @@ type SecurityGroup struct {
 	// The security group modification date (RFC 3339 format)
 	Modification_date pulumi.StringPtrOutput `pulumi:"modification_date"`
 	// The security groups name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The security groups organization ID
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// True if it is your default security group for this organization ID
@@ -214,8 +214,8 @@ func (o SecurityGroupOutput) Modification_date() pulumi.StringPtrOutput {
 }
 
 // The security groups name
-func (o SecurityGroupOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o SecurityGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The security groups organization ID
