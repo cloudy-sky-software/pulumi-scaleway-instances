@@ -3,11 +3,11 @@ module github.com/cloudy-sky-software/pulumi-scaleway-instances/provider
 go 1.18
 
 require (
-	github.com/cloudy-sky-software/pulschema v0.0.0-20230421043110-472798fe0608
+	github.com/cloudy-sky-software/pulschema v0.0.0-20230504011825-f78c36f3f03a
 	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230424232431-2c33dc88a2eb
 	github.com/getkin/kin-openapi v0.116.0
-	github.com/pulumi/pulumi/pkg/v3 v3.64.0
-	github.com/pulumi/pulumi/sdk/v3 v3.64.0
+	github.com/pulumi/pulumi/pkg/v3 v3.66.0
+	github.com/pulumi/pulumi/sdk/v3 v3.66.0
 )
 
 require github.com/stretchr/testify v1.8.2
@@ -186,7 +186,7 @@ require (
 	gocloud.dev v0.27.0 // indirect
 	gocloud.dev/secrets/hashivault v0.27.0 // indirect
 	golang.org/x/crypto v0.3.0 // indirect
-	golang.org/x/mod v0.8.0 // indirect
+	golang.org/x/mod v0.10.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/oauth2 v0.4.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
