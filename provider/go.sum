@@ -396,8 +396,8 @@ github.com/cloudflare/circl v1.3.3 h1:fE/Qz0QdIGqeWfnwq0RE0R7MI51s0M2E4Ga9kq5AEM
 github.com/cloudflare/circl v1.3.3/go.mod h1:5XYMA4rFBvNIrhs50XuiBJ15vF2pZn4nnUKZrLbUZFA=
 github.com/cloudy-sky-software/pulschema v0.0.0-20230601215737-c766d0d29479 h1:QOeUyazOfJIzlqW26aYQltBcO4PuOR8DFh+8ElMGEds=
 github.com/cloudy-sky-software/pulschema v0.0.0-20230601215737-c766d0d29479/go.mod h1:7d4L0mO+GOlJttcbt0g7vrHesOlp624BHbJDwL6g/q8=
-github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230527191541-ea4a5c35edd4 h1:SY4TlvfrXK+5wDyQxyNWJAWqHJ+1jy7zAVNUsmTAYuA=
-github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230527191541-ea4a5c35edd4/go.mod h1:7otaox1cn2SYzs3qMyuu5hk3UG9iz70cK91GxUj8t/o=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230602010115-9869223e96a8 h1:64LCbnFL4gSIdSNPKf4nOwHQ1hvITWFTR+Nrx0yBqYQ=
+github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20230602010115-9869223e96a8/go.mod h1:nTmjNWmTtc3NElFgWVMYKOcKN02K1eB7OaXxqNs9D9I=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
 github.com/cncf/udpa/go v0.0.0-20200629203442-efcf912fb354/go.mod h1:WmhPx2Nbnhtbo57+VJT5O0JRkEi1Wbu0z5j0R8u5Hbk=
 github.com/cncf/udpa/go v0.0.0-20201120205902-5459f2c99403/go.mod h1:WmhPx2Nbnhtbo57+VJT5O0JRkEi1Wbu0z5j0R8u5Hbk=
@@ -1614,8 +1614,8 @@ github.com/stretchr/testify v1.7.2/go.mod h1:R6va5+xMeoiuVRoj+gSkQ7d3FALtqAAGI1F
 github.com/stretchr/testify v1.7.5/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
-github.com/stretchr/testify v1.8.2 h1:+h33VjcLVPDHtOdpUCuF+7gSuG3yGIftsP1YvFihtJ8=
-github.com/stretchr/testify v1.8.2/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
+github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcUk=
+github.com/stretchr/testify v1.8.4/go.mod h1:sz/lmYIOXD/1dqDmKjjqLyZ2RngseejIcXlSw2iwfAo=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
 github.com/syndtr/gocapability v0.0.0-20170704070218-db04d3cc01c8/go.mod h1:hkRG7XYTFWNJGYcbNJQlaLq0fg1yr4J4t/NcTQtrfww=
 github.com/syndtr/gocapability v0.0.0-20180916011248-d98352740cb2/go.mod h1:hkRG7XYTFWNJGYcbNJQlaLq0fg1yr4J4t/NcTQtrfww=
