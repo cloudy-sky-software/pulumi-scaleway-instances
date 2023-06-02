@@ -23,7 +23,9 @@ func NewProvider(ctx *pulumi.Context,
 	}
 
 	if args.ApiKey == nil {
-		args.ApiKey = pulumi.StringPtr(getEnvOrDefault("", nil, "SCALEWAY_INSTANCES_APIKEY").(string))
+		if d := getEnvOrDefault(nil, nil, "SCALEWAY_INSTANCES_APIKEY"); d != nil {
+			args.ApiKey = pulumi.StringPtr(d.(string))
+		}
 	}
 	if args.ApiKey != nil {
 		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
