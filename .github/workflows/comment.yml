@@ -2,4 +2,10 @@ on: issue_comment
 
 jobs:
   call-workflow:
+    if: github.event.issue.pull_request
     uses: cloudy-sky-software/pulumi-provider-workflows/.github/workflows/pr_comment.yml@main
+    with:
+      comment-action: ${{ github.event.action }}
+      comment-body: ${{ github.event.comment.body }}
+      state: ${{ github.event.issue.state }}
+      pull-request-json: ${{ toJson(github.event.issue.pull_request) }}
