@@ -7,5 +7,6 @@ jobs:
     with:
       comment-action: ${{ github.event.action }}
       comment-body: ${{ github.event.comment.body }}
+      pr-number: ${{ github.event.issue.number }}
       state: ${{ github.event.issue.state }}
-      pull-request-json: ${{ toJson(github.event.issue.pull_request) }}
+    secrets: inherit
