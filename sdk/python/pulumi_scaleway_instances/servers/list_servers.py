@@ -53,7 +53,7 @@ def list_servers(zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:servers:listServers', __args__, opts=opts, typ=ListServersResult).value
 
     return AwaitableListServersResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(list_servers)

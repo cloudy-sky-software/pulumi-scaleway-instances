@@ -52,7 +52,7 @@ def list_ips(zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:ips:listIps', __args__, opts=opts, typ=ListIpsResult).value
 
     return AwaitableListIpsResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(list_ips)

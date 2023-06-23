@@ -55,7 +55,7 @@ def get_ip(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:ips:getIp', __args__, opts=opts, typ=GetIpResult).value
 
     return AwaitableGetIpResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(get_ip)

@@ -56,7 +56,7 @@ def get_volume(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:volumes:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(get_volume)

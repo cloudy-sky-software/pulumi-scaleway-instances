@@ -53,7 +53,7 @@ def list_images(zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:images:listImages', __args__, opts=opts, typ=ListImagesResult).value
 
     return AwaitableListImagesResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(list_images)

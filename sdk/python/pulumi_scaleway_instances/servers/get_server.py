@@ -56,7 +56,7 @@ def get_server(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:servers:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(get_server)

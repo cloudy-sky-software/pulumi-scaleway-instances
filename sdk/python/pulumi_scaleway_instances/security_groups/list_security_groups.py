@@ -53,7 +53,7 @@ def list_security_groups(zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:security_groups:listSecurityGroups', __args__, opts=opts, typ=ListSecurityGroupsResult).value
 
     return AwaitableListSecurityGroupsResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(list_security_groups)

@@ -57,7 +57,7 @@ def get_private_nic(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:private_nics:getPrivateNIC', __args__, opts=opts, typ=GetPrivateNICResult).value
 
     return AwaitableGetPrivateNICResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(get_private_nic)
