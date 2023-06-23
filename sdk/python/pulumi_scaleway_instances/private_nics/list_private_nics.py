@@ -55,7 +55,7 @@ def list_private_nics(server_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:private_nics:listPrivateNICs', __args__, opts=opts, typ=ListPrivateNICsResult).value
 
     return AwaitableListPrivateNICsResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(list_private_nics)

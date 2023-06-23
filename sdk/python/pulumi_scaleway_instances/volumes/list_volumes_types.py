@@ -52,7 +52,7 @@ def list_volumes_types(zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:volumes:listVolumesTypes', __args__, opts=opts, typ=ListVolumesTypesResult).value
 
     return AwaitableListVolumesTypesResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(list_volumes_types)

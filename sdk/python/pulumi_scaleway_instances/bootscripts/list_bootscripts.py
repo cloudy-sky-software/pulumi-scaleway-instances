@@ -53,7 +53,7 @@ def list_bootscripts(zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:bootscripts:listBootscripts', __args__, opts=opts, typ=ListBootscriptsResult).value
 
     return AwaitableListBootscriptsResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(list_bootscripts)

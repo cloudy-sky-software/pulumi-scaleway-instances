@@ -57,7 +57,7 @@ def get_security_group_rule(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:rules:getSecurityGroupRule', __args__, opts=opts, typ=GetSecurityGroupRuleResult).value
 
     return AwaitableGetSecurityGroupRuleResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(get_security_group_rule)

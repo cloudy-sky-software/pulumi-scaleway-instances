@@ -53,7 +53,7 @@ def list_snapshots(zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:snapshots:listSnapshots', __args__, opts=opts, typ=ListSnapshotsResult).value
 
     return AwaitableListSnapshotsResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(list_snapshots)

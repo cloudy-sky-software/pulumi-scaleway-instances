@@ -55,7 +55,7 @@ def list_server_user_data(server_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:user_data:listServerUserData', __args__, opts=opts, typ=ListServerUserDataResult).value
 
     return AwaitableListServerUserDataResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(list_server_user_data)

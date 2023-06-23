@@ -55,7 +55,7 @@ def get_placement_group_servers(placement_group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('scaleway-instances:servers:getPlacementGroupServers', __args__, opts=opts, typ=GetPlacementGroupServersResult).value
 
     return AwaitableGetPlacementGroupServersResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(get_placement_group_servers)
