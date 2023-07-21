@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,7 +65,7 @@ func NewSecurityGroup(ctx *pulumi.Context,
 	if args.Outbound_default_policy == nil {
 		args.Outbound_default_policy = OutboundDefaultPolicy("accept")
 	}
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroup
 	err := ctx.RegisterResource("scaleway-instances:security_groups:SecurityGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,14 +24,14 @@ func NewProvider(ctx *pulumi.Context,
 	}
 
 	if args.ApiKey == nil {
-		if d := getEnvOrDefault(nil, nil, "SCALEWAY_INSTANCES_APIKEY"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "SCALEWAY_INSTANCES_APIKEY"); d != nil {
 			args.ApiKey = pulumi.StringPtr(d.(string))
 		}
 	}
 	if args.ApiKey != nil {
 		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
 	}
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:scaleway-instances", name, args, &resource, opts...)
 	if err != nil {

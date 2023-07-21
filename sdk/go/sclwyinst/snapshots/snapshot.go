@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,7 +51,7 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.Volume_type == nil {
 		args.Volume_type = VolumeType("l_ssd")
 	}
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
 	err := ctx.RegisterResource("scaleway-instances:snapshots:Snapshot", name, args, &resource, opts...)
 	if err != nil {

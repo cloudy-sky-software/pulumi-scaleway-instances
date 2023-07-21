@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +28,7 @@ func NewExportSnapshot(ctx *pulumi.Context,
 		args = &ExportSnapshotArgs{}
 	}
 
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExportSnapshot
 	err := ctx.RegisterResource("scaleway-instances:export:ExportSnapshot", name, args, &resource, opts...)
 	if err != nil {

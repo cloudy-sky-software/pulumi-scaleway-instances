@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetServerTypesAvailability(ctx *pulumi.Context, args *GetServerTypesAvailabilityArgs, opts ...pulumi.InvokeOption) (*GetServerTypesAvailabilityResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServerTypesAvailabilityResult
 	err := ctx.Invoke("scaleway-instances:availability:getServerTypesAvailability", args, &rv, opts...)
 	if err != nil {

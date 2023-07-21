@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupSecurityGroupRule(ctx *pulumi.Context, args *LookupSecurityGroupRuleArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupRuleResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityGroupRuleResult
 	err := ctx.Invoke("scaleway-instances:rules:getSecurityGroupRule", args, &rv, opts...)
 	if err != nil {

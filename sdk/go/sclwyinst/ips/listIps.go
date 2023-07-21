@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func ListIps(ctx *pulumi.Context, args *ListIpsArgs, opts ...pulumi.InvokeOption) (*ListIpsResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv ListIpsResult
 	err := ctx.Invoke("scaleway-instances:ips:listIps", args, &rv, opts...)
 	if err != nil {

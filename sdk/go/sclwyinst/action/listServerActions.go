@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func ListServerActions(ctx *pulumi.Context, args *ListServerActionsArgs, opts ...pulumi.InvokeOption) (*ListServerActionsResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv ListServerActionsResult
 	err := ctx.Invoke("scaleway-instances:action:listServerActions", args, &rv, opts...)
 	if err != nil {

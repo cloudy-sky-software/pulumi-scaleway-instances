@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ func NewPlacementGroupServers(ctx *pulumi.Context,
 		args = &PlacementGroupServersArgs{}
 	}
 
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlacementGroupServers
 	err := ctx.RegisterResource("scaleway-instances:servers:PlacementGroupServers", name, args, &resource, opts...)
 	if err != nil {
