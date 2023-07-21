@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func ListPlacementGroups(ctx *pulumi.Context, args *ListPlacementGroupsArgs, opts ...pulumi.InvokeOption) (*ListPlacementGroupsResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv ListPlacementGroupsResult
 	err := ctx.Invoke("scaleway-instances:placement_groups:listPlacementGroups", args, &rv, opts...)
 	if err != nil {

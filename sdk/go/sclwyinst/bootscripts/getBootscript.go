@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetBootscript(ctx *pulumi.Context, args *GetBootscriptArgs, opts ...pulumi.InvokeOption) (*GetBootscriptResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBootscriptResult
 	err := ctx.Invoke("scaleway-instances:bootscripts:getBootscript", args, &rv, opts...)
 	if err != nil {

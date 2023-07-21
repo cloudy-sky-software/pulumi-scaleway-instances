@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func ListSnapshots(ctx *pulumi.Context, args *ListSnapshotsArgs, opts ...pulumi.InvokeOption) (*ListSnapshotsResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv ListSnapshotsResult
 	err := ctx.Invoke("scaleway-instances:snapshots:listSnapshots", args, &rv, opts...)
 	if err != nil {

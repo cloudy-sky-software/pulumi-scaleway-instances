@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,7 +52,7 @@ func NewVolume(ctx *pulumi.Context,
 	if args.Volume_type == nil {
 		args.Volume_type = VolumeType("l_ssd")
 	}
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Volume
 	err := ctx.RegisterResource("scaleway-instances:volumes:Volume", name, args, &resource, opts...)
 	if err != nil {

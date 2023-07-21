@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func ListPrivateNICs(ctx *pulumi.Context, args *ListPrivateNICsArgs, opts ...pulumi.InvokeOption) (*ListPrivateNICsResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv ListPrivateNICsResult
 	err := ctx.Invoke("scaleway-instances:private_nics:listPrivateNICs", args, &rv, opts...)
 	if err != nil {

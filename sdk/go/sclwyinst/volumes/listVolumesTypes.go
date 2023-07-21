@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func ListVolumesTypes(ctx *pulumi.Context, args *ListVolumesTypesArgs, opts ...pulumi.InvokeOption) (*ListVolumesTypesResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv ListVolumesTypesResult
 	err := ctx.Invoke("scaleway-instances:volumes:listVolumesTypes", args, &rv, opts...)
 	if err != nil {

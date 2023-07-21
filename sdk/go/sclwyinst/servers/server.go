@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,7 +57,7 @@ func NewServer(ctx *pulumi.Context,
 	if args.Boot_type == nil {
 		args.Boot_type = BootType("local")
 	}
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Server
 	err := ctx.RegisterResource("scaleway-instances:servers:Server", name, args, &resource, opts...)
 	if err != nil {

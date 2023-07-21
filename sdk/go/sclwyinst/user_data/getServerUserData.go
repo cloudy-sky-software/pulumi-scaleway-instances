@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetServerUserData(ctx *pulumi.Context, args *GetServerUserDataArgs, opts ...pulumi.InvokeOption) (*GetServerUserDataResult, error) {
-	opts = pkgInvokeDefaultOpts(opts)
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServerUserDataResult
 	err := ctx.Invoke("scaleway-instances:user_data:getServerUserData", args, &rv, opts...)
 	if err != nil {

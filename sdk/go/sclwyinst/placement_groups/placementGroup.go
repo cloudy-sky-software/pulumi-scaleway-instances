@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,7 +47,7 @@ func NewPlacementGroup(ctx *pulumi.Context,
 	if args.Policy_type == nil {
 		args.Policy_type = PolicyType("max_availability")
 	}
-	opts = pkgResourceDefaultOpts(opts)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlacementGroup
 	err := ctx.RegisterResource("scaleway-instances:placement_groups:PlacementGroup", name, args, &resource, opts...)
 	if err != nil {
