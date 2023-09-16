@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PlacementGroupServers struct {
@@ -96,6 +97,12 @@ func (i *PlacementGroupServers) ToPlacementGroupServersOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupServersOutput)
 }
 
+func (i *PlacementGroupServers) ToOutput(ctx context.Context) pulumix.Output[*PlacementGroupServers] {
+	return pulumix.Output[*PlacementGroupServers]{
+		OutputState: i.ToPlacementGroupServersOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlacementGroupServersOutput struct{ *pulumi.OutputState }
 
 func (PlacementGroupServersOutput) ElementType() reflect.Type {
@@ -108,6 +115,12 @@ func (o PlacementGroupServersOutput) ToPlacementGroupServersOutput() PlacementGr
 
 func (o PlacementGroupServersOutput) ToPlacementGroupServersOutputWithContext(ctx context.Context) PlacementGroupServersOutput {
 	return o
+}
+
+func (o PlacementGroupServersOutput) ToOutput(ctx context.Context) pulumix.Output[*PlacementGroupServers] {
+	return pulumix.Output[*PlacementGroupServers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlacementGroupServersOutput) Servers() pulumi.StringArrayOutput {

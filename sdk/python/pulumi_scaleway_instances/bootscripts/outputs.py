@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,32 +46,63 @@ class ScalewayInstanceV1Bootscript(dict):
         :param str title: The bootscript title
         :param str zone: The zone in which is the bootscript
         """
+        ScalewayInstanceV1Bootscript._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arch=arch,
+            bootcmdargs=bootcmdargs,
+            default=default,
+            dtb=dtb,
+            id=id,
+            initrd=initrd,
+            kernel=kernel,
+            organization=organization,
+            project=project,
+            public=public,
+            title=title,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arch: Optional['ScalewayInstanceV1BootscriptArch'] = None,
+             bootcmdargs: Optional[str] = None,
+             default: Optional[bool] = None,
+             dtb: Optional[str] = None,
+             id: Optional[str] = None,
+             initrd: Optional[str] = None,
+             kernel: Optional[str] = None,
+             organization: Optional[str] = None,
+             project: Optional[str] = None,
+             public: Optional[bool] = None,
+             title: Optional[str] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arch is None:
             arch = 'x86_64'
         if arch is not None:
-            pulumi.set(__self__, "arch", arch)
+            _setter("arch", arch)
         if bootcmdargs is not None:
-            pulumi.set(__self__, "bootcmdargs", bootcmdargs)
+            _setter("bootcmdargs", bootcmdargs)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if dtb is not None:
-            pulumi.set(__self__, "dtb", dtb)
+            _setter("dtb", dtb)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if initrd is not None:
-            pulumi.set(__self__, "initrd", initrd)
+            _setter("initrd", initrd)
         if kernel is not None:
-            pulumi.set(__self__, "kernel", kernel)
+            _setter("kernel", kernel)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if project is not None:
-            pulumi.set(__self__, "project", project)
+            _setter("project", project)
         if public is not None:
-            pulumi.set(__self__, "public", public)
+            _setter("public", public)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -174,8 +205,17 @@ class ScalewayInstanceV1Bootscript(dict):
 class ScalewayInstanceV1GetBootscriptResponse(dict):
     def __init__(__self__, *,
                  bootscript: Optional['outputs.ScalewayInstanceV1Bootscript'] = None):
+        ScalewayInstanceV1GetBootscriptResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bootscript=bootscript,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bootscript: Optional['outputs.ScalewayInstanceV1Bootscript'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bootscript is not None:
-            pulumi.set(__self__, "bootscript", bootscript)
+            _setter("bootscript", bootscript)
 
     @property
     @pulumi.getter
@@ -190,8 +230,17 @@ class ScalewayInstanceV1ListBootscriptsResponse(dict):
         """
         :param Sequence['ScalewayInstanceV1Bootscript'] bootscripts: List of bootscripts
         """
+        ScalewayInstanceV1ListBootscriptsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bootscripts=bootscripts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bootscripts: Optional[Sequence['outputs.ScalewayInstanceV1Bootscript']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bootscripts is not None:
-            pulumi.set(__self__, "bootscripts", bootscripts)
+            _setter("bootscripts", bootscripts)
 
     @property
     @pulumi.getter

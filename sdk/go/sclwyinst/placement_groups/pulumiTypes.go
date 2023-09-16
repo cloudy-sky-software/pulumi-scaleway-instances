@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -42,6 +43,12 @@ func (o ScalewayInstanceV1GetPlacementGroupResponseOutput) ToScalewayInstanceV1G
 	return o
 }
 
+func (o ScalewayInstanceV1GetPlacementGroupResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetPlacementGroupResponse] {
+	return pulumix.Output[ScalewayInstanceV1GetPlacementGroupResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1GetPlacementGroupResponseOutput) Placement_group() ScalewayInstanceV1PlacementGroupPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetPlacementGroupResponse) *ScalewayInstanceV1PlacementGroup {
 		return v.Placement_group
@@ -65,6 +72,12 @@ func (o ScalewayInstanceV1ListPlacementGroupsResponseOutput) ToScalewayInstanceV
 
 func (o ScalewayInstanceV1ListPlacementGroupsResponseOutput) ToScalewayInstanceV1ListPlacementGroupsResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1ListPlacementGroupsResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ListPlacementGroupsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListPlacementGroupsResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListPlacementGroupsResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of placement groups
@@ -121,6 +134,12 @@ func (o ScalewayInstanceV1PlacementGroupOutput) ToScalewayInstanceV1PlacementGro
 
 func (o ScalewayInstanceV1PlacementGroupOutput) ToScalewayInstanceV1PlacementGroupOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PlacementGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PlacementGroup] {
+	return pulumix.Output[ScalewayInstanceV1PlacementGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupOutput) Id() pulumi.StringPtrOutput {
@@ -181,6 +200,12 @@ func (o ScalewayInstanceV1PlacementGroupPtrOutput) ToScalewayInstanceV1Placement
 
 func (o ScalewayInstanceV1PlacementGroupPtrOutput) ToScalewayInstanceV1PlacementGroupPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PlacementGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1PlacementGroup] {
+	return pulumix.Output[*ScalewayInstanceV1PlacementGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupPtrOutput) Elem() ScalewayInstanceV1PlacementGroupOutput {
@@ -292,6 +317,12 @@ func (o ScalewayInstanceV1PlacementGroupArrayOutput) ToScalewayInstanceV1Placeme
 
 func (o ScalewayInstanceV1PlacementGroupArrayOutput) ToScalewayInstanceV1PlacementGroupArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupArrayOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PlacementGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1PlacementGroup] {
+	return pulumix.Output[[]ScalewayInstanceV1PlacementGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1PlacementGroupOutput {

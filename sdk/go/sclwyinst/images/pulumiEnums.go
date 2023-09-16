@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Arch string
@@ -77,6 +78,12 @@ func (o ArchOutput) ToArchPtrOutputWithContext(ctx context.Context) ArchPtrOutpu
 	}).(ArchPtrOutput)
 }
 
+func (o ArchOutput) ToOutput(ctx context.Context) pulumix.Output[Arch] {
+	return pulumix.Output[Arch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ArchOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o ArchPtrOutput) ToArchPtrOutput() ArchPtrOutput {
 
 func (o ArchPtrOutput) ToArchPtrOutputWithContext(ctx context.Context) ArchPtrOutput {
 	return o
+}
+
+func (o ArchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Arch] {
+	return pulumix.Output[*Arch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ArchPtrOutput) Elem() ArchOutput {
@@ -172,6 +185,12 @@ func (in *archPtr) ToArchPtrOutput() ArchPtrOutput {
 
 func (in *archPtr) ToArchPtrOutputWithContext(ctx context.Context) ArchPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ArchPtrOutput)
+}
+
+func (in *archPtr) ToOutput(ctx context.Context) pulumix.Output[*Arch] {
+	return pulumix.Output[*Arch]{
+		OutputState: in.ToArchPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The bootscript arch
@@ -242,6 +261,12 @@ func (o ScalewayInstanceV1BootscriptArchOutput) ToScalewayInstanceV1BootscriptAr
 	}).(ScalewayInstanceV1BootscriptArchPtrOutput)
 }
 
+func (o ScalewayInstanceV1BootscriptArchOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1BootscriptArch] {
+	return pulumix.Output[ScalewayInstanceV1BootscriptArch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1BootscriptArchOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o ScalewayInstanceV1BootscriptArchPtrOutput) ToScalewayInstanceV1Bootscrip
 
 func (o ScalewayInstanceV1BootscriptArchPtrOutput) ToScalewayInstanceV1BootscriptArchPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1BootscriptArchPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1BootscriptArchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1BootscriptArch] {
+	return pulumix.Output[*ScalewayInstanceV1BootscriptArch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1BootscriptArchPtrOutput) Elem() ScalewayInstanceV1BootscriptArchOutput {
@@ -339,6 +370,12 @@ func (in *scalewayInstanceV1BootscriptArchPtr) ToScalewayInstanceV1BootscriptArc
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1BootscriptArchPtrOutput)
 }
 
+func (in *scalewayInstanceV1BootscriptArchPtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1BootscriptArch] {
+	return pulumix.Output[*ScalewayInstanceV1BootscriptArch]{
+		OutputState: in.ToScalewayInstanceV1BootscriptArchPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalewayInstanceV1ImageArch string
 
 const (
@@ -368,6 +405,12 @@ func (o ScalewayInstanceV1ImageArchOutput) ToScalewayInstanceV1ImageArchPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1ImageArch) *ScalewayInstanceV1ImageArch {
 		return &v
 	}).(ScalewayInstanceV1ImageArchPtrOutput)
+}
+
+func (o ScalewayInstanceV1ImageArchOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ImageArch] {
+	return pulumix.Output[ScalewayInstanceV1ImageArch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ImageArchOutput) ToStringOutput() pulumi.StringOutput {
@@ -403,6 +446,12 @@ func (o ScalewayInstanceV1ImageArchPtrOutput) ToScalewayInstanceV1ImageArchPtrOu
 
 func (o ScalewayInstanceV1ImageArchPtrOutput) ToScalewayInstanceV1ImageArchPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ImageArchPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ImageArchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ImageArch] {
+	return pulumix.Output[*ScalewayInstanceV1ImageArch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ImageArchPtrOutput) Elem() ScalewayInstanceV1ImageArchOutput {
@@ -461,6 +510,12 @@ func (o ScalewayInstanceV1ImageStateOutput) ToScalewayInstanceV1ImageStatePtrOut
 	}).(ScalewayInstanceV1ImageStatePtrOutput)
 }
 
+func (o ScalewayInstanceV1ImageStateOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ImageState] {
+	return pulumix.Output[ScalewayInstanceV1ImageState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1ImageStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -494,6 +549,12 @@ func (o ScalewayInstanceV1ImageStatePtrOutput) ToScalewayInstanceV1ImageStatePtr
 
 func (o ScalewayInstanceV1ImageStatePtrOutput) ToScalewayInstanceV1ImageStatePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ImageStatePtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ImageStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ImageState] {
+	return pulumix.Output[*ScalewayInstanceV1ImageState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ImageStatePtrOutput) Elem() ScalewayInstanceV1ImageStateOutput {
@@ -592,6 +653,12 @@ func (o ScalewayInstanceV1VolumeStateOutput) ToScalewayInstanceV1VolumeStatePtrO
 	}).(ScalewayInstanceV1VolumeStatePtrOutput)
 }
 
+func (o ScalewayInstanceV1VolumeStateOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1VolumeState] {
+	return pulumix.Output[ScalewayInstanceV1VolumeState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1VolumeStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -625,6 +692,12 @@ func (o ScalewayInstanceV1VolumeStatePtrOutput) ToScalewayInstanceV1VolumeStateP
 
 func (o ScalewayInstanceV1VolumeStatePtrOutput) ToScalewayInstanceV1VolumeStatePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeStatePtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1VolumeStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1VolumeState] {
+	return pulumix.Output[*ScalewayInstanceV1VolumeState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1VolumeStatePtrOutput) Elem() ScalewayInstanceV1VolumeStateOutput {
@@ -687,6 +760,12 @@ func (in *scalewayInstanceV1VolumeStatePtr) ToScalewayInstanceV1VolumeStatePtrOu
 
 func (in *scalewayInstanceV1VolumeStatePtr) ToScalewayInstanceV1VolumeStatePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1VolumeStatePtrOutput)
+}
+
+func (in *scalewayInstanceV1VolumeStatePtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1VolumeState] {
+	return pulumix.Output[*ScalewayInstanceV1VolumeState]{
+		OutputState: in.ToScalewayInstanceV1VolumeStatePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ScalewayInstanceV1VolumeSummaryVolumeType string
@@ -757,6 +836,12 @@ func (o ScalewayInstanceV1VolumeSummaryVolumeTypeOutput) ToScalewayInstanceV1Vol
 	}).(ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput)
 }
 
+func (o ScalewayInstanceV1VolumeSummaryVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1VolumeSummaryVolumeType] {
+	return pulumix.Output[ScalewayInstanceV1VolumeSummaryVolumeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1VolumeSummaryVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -790,6 +875,12 @@ func (o ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput) ToScalewayInstanceV1
 
 func (o ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput) ToScalewayInstanceV1VolumeSummaryVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1VolumeSummaryVolumeType] {
+	return pulumix.Output[*ScalewayInstanceV1VolumeSummaryVolumeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput) Elem() ScalewayInstanceV1VolumeSummaryVolumeTypeOutput {
@@ -852,6 +943,12 @@ func (in *scalewayInstanceV1VolumeSummaryVolumeTypePtr) ToScalewayInstanceV1Volu
 
 func (in *scalewayInstanceV1VolumeSummaryVolumeTypePtr) ToScalewayInstanceV1VolumeSummaryVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput)
+}
+
+func (in *scalewayInstanceV1VolumeSummaryVolumeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1VolumeSummaryVolumeType] {
+	return pulumix.Output[*ScalewayInstanceV1VolumeSummaryVolumeType]{
+		OutputState: in.ToScalewayInstanceV1VolumeSummaryVolumeTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ScalewayInstanceV1VolumeVolumeType string
@@ -922,6 +1019,12 @@ func (o ScalewayInstanceV1VolumeVolumeTypeOutput) ToScalewayInstanceV1VolumeVolu
 	}).(ScalewayInstanceV1VolumeVolumeTypePtrOutput)
 }
 
+func (o ScalewayInstanceV1VolumeVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1VolumeVolumeType] {
+	return pulumix.Output[ScalewayInstanceV1VolumeVolumeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1VolumeVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -955,6 +1058,12 @@ func (o ScalewayInstanceV1VolumeVolumeTypePtrOutput) ToScalewayInstanceV1VolumeV
 
 func (o ScalewayInstanceV1VolumeVolumeTypePtrOutput) ToScalewayInstanceV1VolumeVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeVolumeTypePtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1VolumeVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1VolumeVolumeType] {
+	return pulumix.Output[*ScalewayInstanceV1VolumeVolumeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1VolumeVolumeTypePtrOutput) Elem() ScalewayInstanceV1VolumeVolumeTypeOutput {
@@ -1017,6 +1126,12 @@ func (in *scalewayInstanceV1VolumeVolumeTypePtr) ToScalewayInstanceV1VolumeVolum
 
 func (in *scalewayInstanceV1VolumeVolumeTypePtr) ToScalewayInstanceV1VolumeVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeVolumeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1VolumeVolumeTypePtrOutput)
+}
+
+func (in *scalewayInstanceV1VolumeVolumeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1VolumeVolumeType] {
+	return pulumix.Output[*ScalewayInstanceV1VolumeVolumeType]{
+		OutputState: in.ToScalewayInstanceV1VolumeVolumeTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type State string
@@ -1087,6 +1202,12 @@ func (o StateOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOu
 	}).(StatePtrOutput)
 }
 
+func (o StateOutput) ToOutput(ctx context.Context) pulumix.Output[State] {
+	return pulumix.Output[State]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1120,6 +1241,12 @@ func (o StatePtrOutput) ToStatePtrOutput() StatePtrOutput {
 
 func (o StatePtrOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
 	return o
+}
+
+func (o StatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*State] {
+	return pulumix.Output[*State]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StatePtrOutput) Elem() StateOutput {
@@ -1182,6 +1309,12 @@ func (in *statePtr) ToStatePtrOutput() StatePtrOutput {
 
 func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
+}
+
+func (in *statePtr) ToOutput(ctx context.Context) pulumix.Output[*State] {
+	return pulumix.Output[*State]{
+		OutputState: in.ToStatePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

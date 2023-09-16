@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -43,33 +43,64 @@ class SecurityGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The security group tags
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        pulumi.set(__self__, "project", project)
+        SecurityGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project=project,
+            description=description,
+            enable_default_security=enable_default_security,
+            inbound_default_policy=inbound_default_policy,
+            name=name,
+            organization=organization,
+            organization_default=organization_default,
+            outbound_default_policy=outbound_default_policy,
+            project_default=project_default,
+            stateful=stateful,
+            tags=tags,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             enable_default_security: Optional[pulumi.Input[bool]] = None,
+             inbound_default_policy: Optional[pulumi.Input['InboundDefaultPolicy']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             organization_default: Optional[pulumi.Input[bool]] = None,
+             outbound_default_policy: Optional[pulumi.Input['OutboundDefaultPolicy']] = None,
+             project_default: Optional[pulumi.Input[bool]] = None,
+             stateful: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("project", project)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_default_security is not None:
-            pulumi.set(__self__, "enable_default_security", enable_default_security)
+            _setter("enable_default_security", enable_default_security)
         if inbound_default_policy is None:
             inbound_default_policy = 'accept'
         if inbound_default_policy is not None:
-            pulumi.set(__self__, "inbound_default_policy", inbound_default_policy)
+            _setter("inbound_default_policy", inbound_default_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if organization_default is not None:
-            pulumi.set(__self__, "organization_default", organization_default)
+            _setter("organization_default", organization_default)
         if outbound_default_policy is None:
             outbound_default_policy = 'accept'
         if outbound_default_policy is not None:
-            pulumi.set(__self__, "outbound_default_policy", outbound_default_policy)
+            _setter("outbound_default_policy", outbound_default_policy)
         if project_default is not None:
-            pulumi.set(__self__, "project_default", project_default)
+            _setter("project_default", project_default)
         if stateful is not None:
-            pulumi.set(__self__, "stateful", stateful)
+            _setter("stateful", stateful)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -269,6 +300,10 @@ class SecurityGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

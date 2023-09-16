@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -49,37 +49,74 @@ class ServerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The server tags
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        pulumi.set(__self__, "commercial_type", commercial_type)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commercial_type=commercial_type,
+            boot_type=boot_type,
+            bootscript=bootscript,
+            dynamic_ip_required=dynamic_ip_required,
+            enable_ipv6=enable_ipv6,
+            image=image,
+            name=name,
+            organization=organization,
+            placement_group=placement_group,
+            project=project,
+            public_ip=public_ip,
+            security_group=security_group,
+            tags=tags,
+            volumes=volumes,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commercial_type: pulumi.Input[str],
+             boot_type: Optional[pulumi.Input['BootType']] = None,
+             bootscript: Optional[pulumi.Input[str]] = None,
+             dynamic_ip_required: Optional[pulumi.Input[bool]] = None,
+             enable_ipv6: Optional[pulumi.Input[bool]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             placement_group: Optional[pulumi.Input[str]] = None,
+             project: Optional[pulumi.Input[str]] = None,
+             public_ip: Optional[pulumi.Input[str]] = None,
+             security_group: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input['ScalewayInstanceV1VolumeServerTemplateArgs']]]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("commercial_type", commercial_type)
         if boot_type is None:
             boot_type = 'local'
         if boot_type is not None:
-            pulumi.set(__self__, "boot_type", boot_type)
+            _setter("boot_type", boot_type)
         if bootscript is not None:
-            pulumi.set(__self__, "bootscript", bootscript)
+            _setter("bootscript", bootscript)
         if dynamic_ip_required is not None:
-            pulumi.set(__self__, "dynamic_ip_required", dynamic_ip_required)
+            _setter("dynamic_ip_required", dynamic_ip_required)
         if enable_ipv6 is not None:
-            pulumi.set(__self__, "enable_ipv6", enable_ipv6)
+            _setter("enable_ipv6", enable_ipv6)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if placement_group is not None:
-            pulumi.set(__self__, "placement_group", placement_group)
+            _setter("placement_group", placement_group)
         if project is not None:
-            pulumi.set(__self__, "project", project)
+            _setter("project", project)
         if public_ip is not None:
-            pulumi.set(__self__, "public_ip", public_ip)
+            _setter("public_ip", public_ip)
         if security_group is not None:
-            pulumi.set(__self__, "security_group", security_group)
+            _setter("security_group", security_group)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+            _setter("volumes", volumes)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -317,6 +354,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

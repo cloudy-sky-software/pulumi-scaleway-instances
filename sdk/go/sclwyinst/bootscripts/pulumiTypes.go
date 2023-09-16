@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -65,6 +66,12 @@ func (o ScalewayInstanceV1BootscriptOutput) ToScalewayInstanceV1BootscriptOutput
 
 func (o ScalewayInstanceV1BootscriptOutput) ToScalewayInstanceV1BootscriptOutputWithContext(ctx context.Context) ScalewayInstanceV1BootscriptOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1BootscriptOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Bootscript] {
+	return pulumix.Output[ScalewayInstanceV1Bootscript]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The bootscript arch
@@ -139,6 +146,12 @@ func (o ScalewayInstanceV1BootscriptPtrOutput) ToScalewayInstanceV1BootscriptPtr
 
 func (o ScalewayInstanceV1BootscriptPtrOutput) ToScalewayInstanceV1BootscriptPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1BootscriptPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1BootscriptPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Bootscript] {
+	return pulumix.Output[*ScalewayInstanceV1Bootscript]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1BootscriptPtrOutput) Elem() ScalewayInstanceV1BootscriptOutput {
@@ -285,6 +298,12 @@ func (o ScalewayInstanceV1BootscriptArrayOutput) ToScalewayInstanceV1BootscriptA
 	return o
 }
 
+func (o ScalewayInstanceV1BootscriptArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1Bootscript] {
+	return pulumix.Output[[]ScalewayInstanceV1Bootscript]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1BootscriptArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1BootscriptOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalewayInstanceV1Bootscript {
 		return vs[0].([]ScalewayInstanceV1Bootscript)[vs[1].(int)]
@@ -320,6 +339,12 @@ func (o ScalewayInstanceV1GetBootscriptResponseOutput) ToScalewayInstanceV1GetBo
 	return o
 }
 
+func (o ScalewayInstanceV1GetBootscriptResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetBootscriptResponse] {
+	return pulumix.Output[ScalewayInstanceV1GetBootscriptResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1GetBootscriptResponseOutput) Bootscript() ScalewayInstanceV1BootscriptPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetBootscriptResponse) *ScalewayInstanceV1Bootscript { return v.Bootscript }).(ScalewayInstanceV1BootscriptPtrOutput)
 }
@@ -341,6 +366,12 @@ func (o ScalewayInstanceV1ListBootscriptsResponseOutput) ToScalewayInstanceV1Lis
 
 func (o ScalewayInstanceV1ListBootscriptsResponseOutput) ToScalewayInstanceV1ListBootscriptsResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1ListBootscriptsResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ListBootscriptsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListBootscriptsResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListBootscriptsResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of bootscripts

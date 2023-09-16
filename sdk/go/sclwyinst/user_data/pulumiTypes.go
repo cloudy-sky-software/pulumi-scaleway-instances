@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -29,6 +30,12 @@ func (o ScalewayInstanceV1ListServerUserDataResponseOutput) ToScalewayInstanceV1
 
 func (o ScalewayInstanceV1ListServerUserDataResponseOutput) ToScalewayInstanceV1ListServerUserDataResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1ListServerUserDataResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ListServerUserDataResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListServerUserDataResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListServerUserDataResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ListServerUserDataResponseOutput) User_data() pulumi.StringArrayOutput {
@@ -53,6 +60,12 @@ func (o ScalewayStdFileOutput) ToScalewayStdFileOutput() ScalewayStdFileOutput {
 
 func (o ScalewayStdFileOutput) ToScalewayStdFileOutputWithContext(ctx context.Context) ScalewayStdFileOutput {
 	return o
+}
+
+func (o ScalewayStdFileOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayStdFile] {
+	return pulumix.Output[ScalewayStdFile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayStdFileOutput) Content() pulumi.StringPtrOutput {

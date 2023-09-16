@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -39,32 +39,59 @@ class ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs:
         :param pulumi.Input['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol'] protocol: Protocol family this rule applies to
         :param pulumi.Input[str] zone: Zone of the rule. This field is ignored
         """
+        ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            dest_port_from=dest_port_from,
+            dest_port_to=dest_port_to,
+            direction=direction,
+            editable=editable,
+            id=id,
+            ip_range=ip_range,
+            position=position,
+            protocol=protocol,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction']] = None,
+             dest_port_from: Optional[pulumi.Input[float]] = None,
+             dest_port_to: Optional[pulumi.Input[float]] = None,
+             direction: Optional[pulumi.Input['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection']] = None,
+             editable: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_range: Optional[pulumi.Input[str]] = None,
+             position: Optional[pulumi.Input[float]] = None,
+             protocol: Optional[pulumi.Input['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol']] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is None:
             action = 'accept'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if dest_port_from is not None:
-            pulumi.set(__self__, "dest_port_from", dest_port_from)
+            _setter("dest_port_from", dest_port_from)
         if dest_port_to is not None:
-            pulumi.set(__self__, "dest_port_to", dest_port_to)
+            _setter("dest_port_to", dest_port_to)
         if direction is None:
             direction = 'inbound'
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if editable is not None:
-            pulumi.set(__self__, "editable", editable)
+            _setter("editable", editable)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_range is not None:
-            pulumi.set(__self__, "ip_range", ip_range)
+            _setter("ip_range", ip_range)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if protocol is None:
             protocol = 'TCP'
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter

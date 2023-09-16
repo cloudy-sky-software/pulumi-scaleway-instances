@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ServerAction struct {
@@ -115,6 +116,12 @@ func (i *ServerAction) ToServerActionOutputWithContext(ctx context.Context) Serv
 	return pulumi.ToOutputWithContext(ctx, i).(ServerActionOutput)
 }
 
+func (i *ServerAction) ToOutput(ctx context.Context) pulumix.Output[*ServerAction] {
+	return pulumix.Output[*ServerAction]{
+		OutputState: i.ToServerActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerActionOutput struct{ *pulumi.OutputState }
 
 func (ServerActionOutput) ElementType() reflect.Type {
@@ -127,6 +134,12 @@ func (o ServerActionOutput) ToServerActionOutput() ServerActionOutput {
 
 func (o ServerActionOutput) ToServerActionOutputWithContext(ctx context.Context) ServerActionOutput {
 	return o
+}
+
+func (o ServerActionOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerAction] {
+	return pulumix.Output[*ServerAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action to perform on the server

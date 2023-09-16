@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetBootscript(ctx *pulumi.Context, args *GetBootscriptArgs, opts ...pulumi.InvokeOption) (*GetBootscriptResult, error) {
@@ -77,6 +78,12 @@ func (o GetBootscriptResultOutput) ToGetBootscriptResultOutput() GetBootscriptRe
 
 func (o GetBootscriptResultOutput) ToGetBootscriptResultOutputWithContext(ctx context.Context) GetBootscriptResultOutput {
 	return o
+}
+
+func (o GetBootscriptResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBootscriptResult] {
+	return pulumix.Output[GetBootscriptResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBootscriptResultOutput) Items() ScalewayInstanceV1GetBootscriptResponseOutput {

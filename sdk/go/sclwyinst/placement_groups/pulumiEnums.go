@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PolicyMode string
@@ -77,6 +78,12 @@ func (o PolicyModeOutput) ToPolicyModePtrOutputWithContext(ctx context.Context) 
 	}).(PolicyModePtrOutput)
 }
 
+func (o PolicyModeOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyMode] {
+	return pulumix.Output[PolicyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o PolicyModePtrOutput) ToPolicyModePtrOutput() PolicyModePtrOutput {
 
 func (o PolicyModePtrOutput) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
 	return o
+}
+
+func (o PolicyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyMode] {
+	return pulumix.Output[*PolicyMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyModePtrOutput) Elem() PolicyModeOutput {
@@ -172,6 +185,12 @@ func (in *policyModePtr) ToPolicyModePtrOutput() PolicyModePtrOutput {
 
 func (in *policyModePtr) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyModePtrOutput)
+}
+
+func (in *policyModePtr) ToOutput(ctx context.Context) pulumix.Output[*PolicyMode] {
+	return pulumix.Output[*PolicyMode]{
+		OutputState: in.ToPolicyModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type PolicyType string
@@ -241,6 +260,12 @@ func (o PolicyTypeOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) 
 	}).(PolicyTypePtrOutput)
 }
 
+func (o PolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyType] {
+	return pulumix.Output[PolicyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -274,6 +299,12 @@ func (o PolicyTypePtrOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
 
 func (o PolicyTypePtrOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
 	return o
+}
+
+func (o PolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyType] {
+	return pulumix.Output[*PolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTypePtrOutput) Elem() PolicyTypeOutput {
@@ -338,6 +369,12 @@ func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyTypePtrOutput)
 }
 
+func (in *policyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PolicyType] {
+	return pulumix.Output[*PolicyType]{
+		OutputState: in.ToPolicyTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalewayInstanceV1PlacementGroupPolicyMode string
 
 const (
@@ -367,6 +404,12 @@ func (o ScalewayInstanceV1PlacementGroupPolicyModeOutput) ToScalewayInstanceV1Pl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1PlacementGroupPolicyMode) *ScalewayInstanceV1PlacementGroupPolicyMode {
 		return &v
 	}).(ScalewayInstanceV1PlacementGroupPolicyModePtrOutput)
+}
+
+func (o ScalewayInstanceV1PlacementGroupPolicyModeOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PlacementGroupPolicyMode] {
+	return pulumix.Output[ScalewayInstanceV1PlacementGroupPolicyMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupPolicyModeOutput) ToStringOutput() pulumi.StringOutput {
@@ -402,6 +445,12 @@ func (o ScalewayInstanceV1PlacementGroupPolicyModePtrOutput) ToScalewayInstanceV
 
 func (o ScalewayInstanceV1PlacementGroupPolicyModePtrOutput) ToScalewayInstanceV1PlacementGroupPolicyModePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupPolicyModePtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PlacementGroupPolicyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1PlacementGroupPolicyMode] {
+	return pulumix.Output[*ScalewayInstanceV1PlacementGroupPolicyMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupPolicyModePtrOutput) Elem() ScalewayInstanceV1PlacementGroupPolicyModeOutput {
@@ -459,6 +508,12 @@ func (o ScalewayInstanceV1PlacementGroupPolicyTypeOutput) ToScalewayInstanceV1Pl
 	}).(ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput)
 }
 
+func (o ScalewayInstanceV1PlacementGroupPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PlacementGroupPolicyType] {
+	return pulumix.Output[ScalewayInstanceV1PlacementGroupPolicyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1PlacementGroupPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -492,6 +547,12 @@ func (o ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput) ToScalewayInstanceV
 
 func (o ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput) ToScalewayInstanceV1PlacementGroupPolicyTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1PlacementGroupPolicyType] {
+	return pulumix.Output[*ScalewayInstanceV1PlacementGroupPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput) Elem() ScalewayInstanceV1PlacementGroupPolicyTypeOutput {

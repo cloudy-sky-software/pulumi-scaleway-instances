@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -21,8 +21,17 @@ __all__ = [
 class ScalewayInstanceV1GetPlacementGroupResponse(dict):
     def __init__(__self__, *,
                  placement_group: Optional['outputs.ScalewayInstanceV1PlacementGroup'] = None):
+        ScalewayInstanceV1GetPlacementGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            placement_group=placement_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             placement_group: Optional['outputs.ScalewayInstanceV1PlacementGroup'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if placement_group is not None:
-            pulumi.set(__self__, "placement_group", placement_group)
+            _setter("placement_group", placement_group)
 
     @property
     @pulumi.getter
@@ -37,8 +46,17 @@ class ScalewayInstanceV1ListPlacementGroupsResponse(dict):
         """
         :param Sequence['ScalewayInstanceV1PlacementGroup'] placement_groups: List of placement groups
         """
+        ScalewayInstanceV1ListPlacementGroupsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            placement_groups=placement_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             placement_groups: Optional[Sequence['outputs.ScalewayInstanceV1PlacementGroup']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if placement_groups is not None:
-            pulumi.set(__self__, "placement_groups", placement_groups)
+            _setter("placement_groups", placement_groups)
 
     @property
     @pulumi.getter
@@ -69,26 +87,51 @@ class ScalewayInstanceV1PlacementGroup(dict):
         :param Sequence[str] tags: The placement group tags
         :param str zone: The zone in which is the placement group
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "project", project)
+        ScalewayInstanceV1PlacementGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            project=project,
+            id=id,
+            organization=organization,
+            policy_mode=policy_mode,
+            policy_respected=policy_respected,
+            policy_type=policy_type,
+            tags=tags,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             project: str,
+             id: Optional[str] = None,
+             organization: Optional[str] = None,
+             policy_mode: Optional['ScalewayInstanceV1PlacementGroupPolicyMode'] = None,
+             policy_respected: Optional[bool] = None,
+             policy_type: Optional['ScalewayInstanceV1PlacementGroupPolicyType'] = None,
+             tags: Optional[Sequence[str]] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("project", project)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if policy_mode is None:
             policy_mode = 'optional'
         if policy_mode is not None:
-            pulumi.set(__self__, "policy_mode", policy_mode)
+            _setter("policy_mode", policy_mode)
         if policy_respected is not None:
-            pulumi.set(__self__, "policy_respected", policy_respected)
+            _setter("policy_respected", policy_respected)
         if policy_type is None:
             policy_type = 'max_availability'
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter

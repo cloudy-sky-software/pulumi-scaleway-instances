@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability string
@@ -40,6 +41,12 @@ func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability) *ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability {
 		return &v
 	}).(ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityPtrOutput)
+}
+
+func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability] {
+	return pulumix.Output[ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityOutput) ToStringOutput() pulumi.StringOutput {
@@ -75,6 +82,12 @@ func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabi
 
 func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityPtrOutput) ToScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability] {
+	return pulumix.Output[*ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityPtrOutput) Elem() ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityOutput {

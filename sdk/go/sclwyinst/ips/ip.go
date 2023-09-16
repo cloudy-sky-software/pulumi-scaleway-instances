@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Ip struct {
@@ -111,6 +112,12 @@ func (i *Ip) ToIpOutputWithContext(ctx context.Context) IpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpOutput)
 }
 
+func (i *Ip) ToOutput(ctx context.Context) pulumix.Output[*Ip] {
+	return pulumix.Output[*Ip]{
+		OutputState: i.ToIpOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IpOutput struct{ *pulumi.OutputState }
 
 func (IpOutput) ElementType() reflect.Type {
@@ -123,6 +130,12 @@ func (o IpOutput) ToIpOutput() IpOutput {
 
 func (o IpOutput) ToIpOutputWithContext(ctx context.Context) IpOutput {
 	return o
+}
+
+func (o IpOutput) ToOutput(ctx context.Context) pulumix.Output[*Ip] {
+	return pulumix.Output[*Ip]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (IPv4 address)

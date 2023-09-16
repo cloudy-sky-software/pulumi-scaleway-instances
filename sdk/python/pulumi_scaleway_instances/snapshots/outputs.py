@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,10 +32,21 @@ class BaseVolumeProperties(dict):
         :param str id: The volume ID on which the snapshot is based on
         :param str name: The volume name on which the snapshot is based on
         """
+        BaseVolumeProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -58,8 +69,17 @@ class BaseVolumeProperties(dict):
 class ScalewayInstanceV1GetSnapshotResponse(dict):
     def __init__(__self__, *,
                  snapshot: Optional['outputs.ScalewayInstanceV1Snapshot'] = None):
+        ScalewayInstanceV1GetSnapshotResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            snapshot=snapshot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             snapshot: Optional['outputs.ScalewayInstanceV1Snapshot'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
+            _setter("snapshot", snapshot)
 
     @property
     @pulumi.getter
@@ -74,8 +94,17 @@ class ScalewayInstanceV1ListSnapshotsResponse(dict):
         """
         :param Sequence['ScalewayInstanceV1Snapshot'] snapshots: List of snapshots
         """
+        ScalewayInstanceV1ListSnapshotsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            snapshots=snapshots,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             snapshots: Optional[Sequence['outputs.ScalewayInstanceV1Snapshot']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if snapshots is not None:
-            pulumi.set(__self__, "snapshots", snapshots)
+            _setter("snapshots", snapshots)
 
     @property
     @pulumi.getter
@@ -114,36 +143,69 @@ class ScalewayInstanceV1Snapshot(dict):
         :param Sequence[str] tags: The snapshot tags
         :param str zone: The snapshot zone
         """
+        ScalewayInstanceV1Snapshot._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_volume=base_volume,
+            creation_date=creation_date,
+            error_reason=error_reason,
+            id=id,
+            modification_date=modification_date,
+            name=name,
+            organization=organization,
+            project=project,
+            size=size,
+            state=state,
+            tags=tags,
+            volume_type=volume_type,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_volume: Optional['outputs.ScalewayInstanceV1SnapshotBaseVolumeProperties'] = None,
+             creation_date: Optional[str] = None,
+             error_reason: Optional[str] = None,
+             id: Optional[str] = None,
+             modification_date: Optional[str] = None,
+             name: Optional[str] = None,
+             organization: Optional[str] = None,
+             project: Optional[str] = None,
+             size: Optional[float] = None,
+             state: Optional['ScalewayInstanceV1SnapshotState'] = None,
+             tags: Optional[Sequence[str]] = None,
+             volume_type: Optional['ScalewayInstanceV1SnapshotVolumeType'] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_volume is not None:
-            pulumi.set(__self__, "base_volume", base_volume)
+            _setter("base_volume", base_volume)
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if error_reason is not None:
-            pulumi.set(__self__, "error_reason", error_reason)
+            _setter("error_reason", error_reason)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if modification_date is not None:
-            pulumi.set(__self__, "modification_date", modification_date)
+            _setter("modification_date", modification_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if project is not None:
-            pulumi.set(__self__, "project", project)
+            _setter("project", project)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if state is None:
             state = 'available'
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -254,10 +316,21 @@ class ScalewayInstanceV1SnapshotBaseVolumeProperties(dict):
         :param str id: The volume ID on which the snapshot is based on
         :param str name: The volume name on which the snapshot is based on
         """
+        ScalewayInstanceV1SnapshotBaseVolumeProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter

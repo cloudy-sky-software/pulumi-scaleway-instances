@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -42,6 +43,12 @@ func (o ScalewayInstanceV1GetPrivateNICResponseOutput) ToScalewayInstanceV1GetPr
 	return o
 }
 
+func (o ScalewayInstanceV1GetPrivateNICResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetPrivateNICResponse] {
+	return pulumix.Output[ScalewayInstanceV1GetPrivateNICResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1GetPrivateNICResponseOutput) Private_nic() ScalewayInstanceV1PrivateNICPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetPrivateNICResponse) *ScalewayInstanceV1PrivateNIC { return v.Private_nic }).(ScalewayInstanceV1PrivateNICPtrOutput)
 }
@@ -62,6 +69,12 @@ func (o ScalewayInstanceV1ListPrivateNICsResponseOutput) ToScalewayInstanceV1Lis
 
 func (o ScalewayInstanceV1ListPrivateNICsResponseOutput) ToScalewayInstanceV1ListPrivateNICsResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1ListPrivateNICsResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ListPrivateNICsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListPrivateNICsResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListPrivateNICsResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ListPrivateNICsResponseOutput) Private_nics() ScalewayInstanceV1PrivateNICArrayOutput {
@@ -110,6 +123,12 @@ func (o ScalewayInstanceV1PrivateNICOutput) ToScalewayInstanceV1PrivateNICOutput
 	return o
 }
 
+func (o ScalewayInstanceV1PrivateNICOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PrivateNIC] {
+	return pulumix.Output[ScalewayInstanceV1PrivateNIC]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The private NIC unique ID
 func (o ScalewayInstanceV1PrivateNICOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1PrivateNIC) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -147,6 +166,12 @@ func (o ScalewayInstanceV1PrivateNICPtrOutput) ToScalewayInstanceV1PrivateNICPtr
 
 func (o ScalewayInstanceV1PrivateNICPtrOutput) ToScalewayInstanceV1PrivateNICPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1PrivateNICPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PrivateNICPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1PrivateNIC] {
+	return pulumix.Output[*ScalewayInstanceV1PrivateNIC]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PrivateNICPtrOutput) Elem() ScalewayInstanceV1PrivateNICOutput {
@@ -221,6 +246,12 @@ func (o ScalewayInstanceV1PrivateNICArrayOutput) ToScalewayInstanceV1PrivateNICA
 
 func (o ScalewayInstanceV1PrivateNICArrayOutput) ToScalewayInstanceV1PrivateNICArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1PrivateNICArrayOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PrivateNICArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1PrivateNIC] {
+	return pulumix.Output[[]ScalewayInstanceV1PrivateNIC]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PrivateNICArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1PrivateNICOutput {

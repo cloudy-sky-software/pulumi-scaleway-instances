@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -18,10 +18,19 @@ __all__ = [
 class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs:
     def __init__(__self__, *,
                  volume_type: Optional[pulumi.Input['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']] = None):
+        ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             volume_type: Optional[pulumi.Input['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter

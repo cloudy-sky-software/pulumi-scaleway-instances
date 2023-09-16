@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -20,8 +20,17 @@ __all__ = [
 class ScalewayInstanceV1GetServerTypesAvailabilityResponse(dict):
     def __init__(__self__, *,
                  servers: Optional[Mapping[str, 'outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability']] = None):
+        ScalewayInstanceV1GetServerTypesAvailabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            servers=servers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             servers: Optional[Mapping[str, 'outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if servers is not None:
-            pulumi.set(__self__, "servers", servers)
+            _setter("servers", servers)
 
     @property
     @pulumi.getter
@@ -33,10 +42,19 @@ class ScalewayInstanceV1GetServerTypesAvailabilityResponse(dict):
 class ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability(dict):
     def __init__(__self__, *,
                  availability: Optional['ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability'] = None):
+        ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability=availability,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability: Optional['ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if availability is None:
             availability = 'available'
         if availability is not None:
-            pulumi.set(__self__, "availability", availability)
+            _setter("availability", availability)
 
     @property
     @pulumi.getter

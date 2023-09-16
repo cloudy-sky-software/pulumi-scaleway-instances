@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -65,6 +66,12 @@ func (o ScalewayInstanceV1BootscriptOutput) ToScalewayInstanceV1BootscriptOutput
 
 func (o ScalewayInstanceV1BootscriptOutput) ToScalewayInstanceV1BootscriptOutputWithContext(ctx context.Context) ScalewayInstanceV1BootscriptOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1BootscriptOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Bootscript] {
+	return pulumix.Output[ScalewayInstanceV1Bootscript]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The bootscript arch
@@ -139,6 +146,12 @@ func (o ScalewayInstanceV1BootscriptPtrOutput) ToScalewayInstanceV1BootscriptPtr
 
 func (o ScalewayInstanceV1BootscriptPtrOutput) ToScalewayInstanceV1BootscriptPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1BootscriptPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1BootscriptPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Bootscript] {
+	return pulumix.Output[*ScalewayInstanceV1Bootscript]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1BootscriptPtrOutput) Elem() ScalewayInstanceV1BootscriptOutput {
@@ -289,6 +302,12 @@ func (o ScalewayInstanceV1GetPlacementGroupServersResponseOutput) ToScalewayInst
 	return o
 }
 
+func (o ScalewayInstanceV1GetPlacementGroupServersResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetPlacementGroupServersResponse] {
+	return pulumix.Output[ScalewayInstanceV1GetPlacementGroupServersResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1GetPlacementGroupServersResponseOutput) Servers() ScalewayInstanceV1PlacementGroupServerArrayOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetPlacementGroupServersResponse) []ScalewayInstanceV1PlacementGroupServer {
 		return v.Servers
@@ -322,6 +341,12 @@ func (o ScalewayInstanceV1GetServerResponseOutput) ToScalewayInstanceV1GetServer
 
 func (o ScalewayInstanceV1GetServerResponseOutput) ToScalewayInstanceV1GetServerResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1GetServerResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1GetServerResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetServerResponse] {
+	return pulumix.Output[ScalewayInstanceV1GetServerResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1GetServerResponseOutput) Server() ScalewayInstanceV1ServerPtrOutput {
@@ -381,6 +406,12 @@ func (o ScalewayInstanceV1ImageOutput) ToScalewayInstanceV1ImageOutput() Scalewa
 
 func (o ScalewayInstanceV1ImageOutput) ToScalewayInstanceV1ImageOutputWithContext(ctx context.Context) ScalewayInstanceV1ImageOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ImageOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Image] {
+	return pulumix.Output[ScalewayInstanceV1Image]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ImageOutput) Arch() ScalewayInstanceV1ImageArchPtrOutput {
@@ -457,6 +488,12 @@ func (o ScalewayInstanceV1ImagePtrOutput) ToScalewayInstanceV1ImagePtrOutput() S
 
 func (o ScalewayInstanceV1ImagePtrOutput) ToScalewayInstanceV1ImagePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ImagePtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ImagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Image] {
+	return pulumix.Output[*ScalewayInstanceV1Image]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ImagePtrOutput) Elem() ScalewayInstanceV1ImageOutput {
@@ -625,6 +662,12 @@ func (o ScalewayInstanceV1ListServersResponseOutput) ToScalewayInstanceV1ListSer
 	return o
 }
 
+func (o ScalewayInstanceV1ListServersResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListServersResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListServersResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 // List of servers
 func (o ScalewayInstanceV1ListServersResponseOutput) Servers() ScalewayInstanceV1ServerArrayOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ListServersResponse) []ScalewayInstanceV1Server { return v.Servers }).(ScalewayInstanceV1ServerArrayOutput)
@@ -647,6 +690,12 @@ func (o ScalewayInstanceV1ListServersTypesResponseOutput) ToScalewayInstanceV1Li
 
 func (o ScalewayInstanceV1ListServersTypesResponseOutput) ToScalewayInstanceV1ListServersTypesResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1ListServersTypesResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ListServersTypesResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListServersTypesResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListServersTypesResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of server types
@@ -703,6 +752,12 @@ func (o ScalewayInstanceV1PlacementGroupOutput) ToScalewayInstanceV1PlacementGro
 
 func (o ScalewayInstanceV1PlacementGroupOutput) ToScalewayInstanceV1PlacementGroupOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PlacementGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PlacementGroup] {
+	return pulumix.Output[ScalewayInstanceV1PlacementGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupOutput) Id() pulumi.StringPtrOutput {
@@ -763,6 +818,12 @@ func (o ScalewayInstanceV1PlacementGroupPtrOutput) ToScalewayInstanceV1Placement
 
 func (o ScalewayInstanceV1PlacementGroupPtrOutput) ToScalewayInstanceV1PlacementGroupPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PlacementGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1PlacementGroup] {
+	return pulumix.Output[*ScalewayInstanceV1PlacementGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupPtrOutput) Elem() ScalewayInstanceV1PlacementGroupOutput {
@@ -882,6 +943,12 @@ func (o ScalewayInstanceV1PlacementGroupServerOutput) ToScalewayInstanceV1Placem
 	return o
 }
 
+func (o ScalewayInstanceV1PlacementGroupServerOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PlacementGroupServer] {
+	return pulumix.Output[ScalewayInstanceV1PlacementGroupServer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1PlacementGroupServerOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroupServer) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -906,6 +973,12 @@ func (o ScalewayInstanceV1PlacementGroupServerArrayOutput) ToScalewayInstanceV1P
 
 func (o ScalewayInstanceV1PlacementGroupServerArrayOutput) ToScalewayInstanceV1PlacementGroupServerArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupServerArrayOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PlacementGroupServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1PlacementGroupServer] {
+	return pulumix.Output[[]ScalewayInstanceV1PlacementGroupServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupServerArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1PlacementGroupServerOutput {
@@ -954,6 +1027,12 @@ func (o ScalewayInstanceV1PrivateNICOutput) ToScalewayInstanceV1PrivateNICOutput
 	return o
 }
 
+func (o ScalewayInstanceV1PrivateNICOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PrivateNIC] {
+	return pulumix.Output[ScalewayInstanceV1PrivateNIC]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The private NIC unique ID
 func (o ScalewayInstanceV1PrivateNICOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1PrivateNIC) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -991,6 +1070,12 @@ func (o ScalewayInstanceV1PrivateNICArrayOutput) ToScalewayInstanceV1PrivateNICA
 
 func (o ScalewayInstanceV1PrivateNICArrayOutput) ToScalewayInstanceV1PrivateNICArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1PrivateNICArrayOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1PrivateNICArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1PrivateNIC] {
+	return pulumix.Output[[]ScalewayInstanceV1PrivateNIC]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1PrivateNICArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1PrivateNICOutput {
@@ -1095,6 +1180,12 @@ func (o ScalewayInstanceV1ServerOutput) ToScalewayInstanceV1ServerOutput() Scale
 
 func (o ScalewayInstanceV1ServerOutput) ToScalewayInstanceV1ServerOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Server] {
+	return pulumix.Output[ScalewayInstanceV1Server]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Provide as list of allowed actions on the server
@@ -1254,6 +1345,12 @@ func (o ScalewayInstanceV1ServerPtrOutput) ToScalewayInstanceV1ServerPtrOutput()
 
 func (o ScalewayInstanceV1ServerPtrOutput) ToScalewayInstanceV1ServerPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Server] {
+	return pulumix.Output[*ScalewayInstanceV1Server]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerPtrOutput) Elem() ScalewayInstanceV1ServerOutput {
@@ -1566,6 +1663,12 @@ func (o ScalewayInstanceV1ServerArrayOutput) ToScalewayInstanceV1ServerArrayOutp
 	return o
 }
 
+func (o ScalewayInstanceV1ServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1Server] {
+	return pulumix.Output[[]ScalewayInstanceV1Server]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1ServerArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1ServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalewayInstanceV1Server {
 		return vs[0].([]ScalewayInstanceV1Server)[vs[1].(int)]
@@ -1597,6 +1700,12 @@ func (o ScalewayInstanceV1ServerIpv6PropertiesOutput) ToScalewayInstanceV1Server
 	return o
 }
 
+func (o ScalewayInstanceV1ServerIpv6PropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerIpv6Properties] {
+	return pulumix.Output[ScalewayInstanceV1ServerIpv6Properties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The server IPv6 IP-Address (IPv6 address)
 func (o ScalewayInstanceV1ServerIpv6PropertiesOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerIpv6Properties) *string { return v.Address }).(pulumi.StringPtrOutput)
@@ -1624,6 +1733,12 @@ func (o ScalewayInstanceV1ServerIpv6PropertiesPtrOutput) ToScalewayInstanceV1Ser
 
 func (o ScalewayInstanceV1ServerIpv6PropertiesPtrOutput) ToScalewayInstanceV1ServerIpv6PropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerIpv6PropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerIpv6PropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerIpv6Properties] {
+	return pulumix.Output[*ScalewayInstanceV1ServerIpv6Properties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerIpv6PropertiesPtrOutput) Elem() ScalewayInstanceV1ServerIpv6PropertiesOutput {
@@ -1690,6 +1805,12 @@ func (o ScalewayInstanceV1ServerLocationPropertiesOutput) ToScalewayInstanceV1Se
 	return o
 }
 
+func (o ScalewayInstanceV1ServerLocationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerLocationProperties] {
+	return pulumix.Output[ScalewayInstanceV1ServerLocationProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1ServerLocationPropertiesOutput) Cluster_id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerLocationProperties) *string { return v.Cluster_id }).(pulumi.StringPtrOutput)
 }
@@ -1722,6 +1843,12 @@ func (o ScalewayInstanceV1ServerLocationPropertiesPtrOutput) ToScalewayInstanceV
 
 func (o ScalewayInstanceV1ServerLocationPropertiesPtrOutput) ToScalewayInstanceV1ServerLocationPropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerLocationPropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerLocationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerLocationProperties] {
+	return pulumix.Output[*ScalewayInstanceV1ServerLocationProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerLocationPropertiesPtrOutput) Elem() ScalewayInstanceV1ServerLocationPropertiesOutput {
@@ -1796,6 +1923,12 @@ func (o ScalewayInstanceV1ServerMaintenanceOutput) ToScalewayInstanceV1ServerMai
 	return o
 }
 
+func (o ScalewayInstanceV1ServerMaintenanceOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerMaintenance] {
+	return pulumix.Output[ScalewayInstanceV1ServerMaintenance]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ScalewayInstanceV1ServerMaintenanceArrayOutput struct{ *pulumi.OutputState }
 
 func (ScalewayInstanceV1ServerMaintenanceArrayOutput) ElementType() reflect.Type {
@@ -1808,6 +1941,12 @@ func (o ScalewayInstanceV1ServerMaintenanceArrayOutput) ToScalewayInstanceV1Serv
 
 func (o ScalewayInstanceV1ServerMaintenanceArrayOutput) ToScalewayInstanceV1ServerMaintenanceArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerMaintenanceArrayOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerMaintenanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1ServerMaintenance] {
+	return pulumix.Output[[]ScalewayInstanceV1ServerMaintenance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerMaintenanceArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1ServerMaintenanceOutput {
@@ -1841,6 +1980,12 @@ func (o ScalewayInstanceV1ServerPublicIpPropertiesOutput) ToScalewayInstanceV1Se
 	return o
 }
 
+func (o ScalewayInstanceV1ServerPublicIpPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerPublicIpProperties] {
+	return pulumix.Output[ScalewayInstanceV1ServerPublicIpProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The server public IPv4 IP-Address (IPv4 address)
 func (o ScalewayInstanceV1ServerPublicIpPropertiesOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerPublicIpProperties) *string { return v.Address }).(pulumi.StringPtrOutput)
@@ -1868,6 +2013,12 @@ func (o ScalewayInstanceV1ServerPublicIpPropertiesPtrOutput) ToScalewayInstanceV
 
 func (o ScalewayInstanceV1ServerPublicIpPropertiesPtrOutput) ToScalewayInstanceV1ServerPublicIpPropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerPublicIpPropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerPublicIpPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerPublicIpProperties] {
+	return pulumix.Output[*ScalewayInstanceV1ServerPublicIpProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerPublicIpPropertiesPtrOutput) Elem() ScalewayInstanceV1ServerPublicIpPropertiesOutput {
@@ -1931,6 +2082,12 @@ func (o ScalewayInstanceV1ServerSecurityGroupPropertiesOutput) ToScalewayInstanc
 	return o
 }
 
+func (o ScalewayInstanceV1ServerSecurityGroupPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerSecurityGroupProperties] {
+	return pulumix.Output[ScalewayInstanceV1ServerSecurityGroupProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1ServerSecurityGroupPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerSecurityGroupProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1951,6 +2108,12 @@ func (o ScalewayInstanceV1ServerSecurityGroupPropertiesPtrOutput) ToScalewayInst
 
 func (o ScalewayInstanceV1ServerSecurityGroupPropertiesPtrOutput) ToScalewayInstanceV1ServerSecurityGroupPropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerSecurityGroupPropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerSecurityGroupPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerSecurityGroupProperties] {
+	return pulumix.Output[*ScalewayInstanceV1ServerSecurityGroupProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerSecurityGroupPropertiesPtrOutput) Elem() ScalewayInstanceV1ServerSecurityGroupPropertiesOutput {
@@ -2000,6 +2163,12 @@ func (o ScalewayInstanceV1ServerSummaryOutput) ToScalewayInstanceV1ServerSummary
 	return o
 }
 
+func (o ScalewayInstanceV1ServerSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerSummary] {
+	return pulumix.Output[ScalewayInstanceV1ServerSummary]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1ServerSummaryOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerSummary) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2020,6 +2189,12 @@ func (o ScalewayInstanceV1ServerSummaryPtrOutput) ToScalewayInstanceV1ServerSumm
 
 func (o ScalewayInstanceV1ServerSummaryPtrOutput) ToScalewayInstanceV1ServerSummaryPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerSummaryPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerSummaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerSummary] {
+	return pulumix.Output[*ScalewayInstanceV1ServerSummary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerSummaryPtrOutput) Elem() ScalewayInstanceV1ServerSummaryOutput {
@@ -2104,6 +2279,12 @@ func (o ScalewayInstanceV1ServerTypeOutput) ToScalewayInstanceV1ServerTypeOutput
 	return o
 }
 
+func (o ScalewayInstanceV1ServerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerType] {
+	return pulumix.Output[ScalewayInstanceV1ServerType]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Alternative instance name if any
 func (o ScalewayInstanceV1ServerTypeOutput) Alt_names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerType) []string { return v.Alt_names }).(pulumi.StringArrayOutput)
@@ -2184,6 +2365,12 @@ func (o ScalewayInstanceV1ServerTypeMapOutput) ToScalewayInstanceV1ServerTypeMap
 	return o
 }
 
+func (o ScalewayInstanceV1ServerTypeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1ServerType] {
+	return pulumix.Output[map[string]ScalewayInstanceV1ServerType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1ServerTypeMapOutput) MapIndex(k pulumi.StringInput) ScalewayInstanceV1ServerTypeOutput {
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScalewayInstanceV1ServerType {
 		return vs[0].(map[string]ScalewayInstanceV1ServerType)[vs[1].(string)]
@@ -2213,6 +2400,12 @@ func (o ScalewayInstanceV1ServerTypeCapabilitiesPropertiesOutput) ToScalewayInst
 	return o
 }
 
+func (o ScalewayInstanceV1ServerTypeCapabilitiesPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerTypeCapabilitiesProperties] {
+	return pulumix.Output[ScalewayInstanceV1ServerTypeCapabilitiesProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // True if server supports block storage
 func (o ScalewayInstanceV1ServerTypeCapabilitiesPropertiesOutput) Block_storage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerTypeCapabilitiesProperties) *bool { return v.Block_storage }).(pulumi.BoolPtrOutput)
@@ -2237,6 +2430,12 @@ func (o ScalewayInstanceV1ServerTypeCapabilitiesPropertiesPtrOutput) ToScalewayI
 
 func (o ScalewayInstanceV1ServerTypeCapabilitiesPropertiesPtrOutput) ToScalewayInstanceV1ServerTypeCapabilitiesPropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerTypeCapabilitiesPropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerTypeCapabilitiesPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerTypeCapabilitiesProperties] {
+	return pulumix.Output[*ScalewayInstanceV1ServerTypeCapabilitiesProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerTypeCapabilitiesPropertiesPtrOutput) Elem() ScalewayInstanceV1ServerTypeCapabilitiesPropertiesOutput {
@@ -2290,6 +2489,12 @@ func (o ScalewayInstanceV1ServerTypeNetworkInterfaceOutput) ToScalewayInstanceV1
 	return o
 }
 
+func (o ScalewayInstanceV1ServerTypeNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerTypeNetworkInterface] {
+	return pulumix.Output[ScalewayInstanceV1ServerTypeNetworkInterface]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Maximum internal bandwidth in bits per seconds
 func (o ScalewayInstanceV1ServerTypeNetworkInterfaceOutput) Internal_bandwidth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerTypeNetworkInterface) *float64 { return v.Internal_bandwidth }).(pulumi.Float64PtrOutput)
@@ -2312,6 +2517,12 @@ func (o ScalewayInstanceV1ServerTypeNetworkInterfaceArrayOutput) ToScalewayInsta
 
 func (o ScalewayInstanceV1ServerTypeNetworkInterfaceArrayOutput) ToScalewayInstanceV1ServerTypeNetworkInterfaceArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerTypeNetworkInterfaceArrayOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerTypeNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1ServerTypeNetworkInterface] {
+	return pulumix.Output[[]ScalewayInstanceV1ServerTypeNetworkInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerTypeNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1ServerTypeNetworkInterfaceOutput {
@@ -2345,6 +2556,12 @@ func (o ScalewayInstanceV1ServerTypeNetworkPropertiesOutput) ToScalewayInstanceV
 
 func (o ScalewayInstanceV1ServerTypeNetworkPropertiesOutput) ToScalewayInstanceV1ServerTypeNetworkPropertiesOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerTypeNetworkPropertiesOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerTypeNetworkPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerTypeNetworkProperties] {
+	return pulumix.Output[ScalewayInstanceV1ServerTypeNetworkProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of available network interfaces
@@ -2381,6 +2598,12 @@ func (o ScalewayInstanceV1ServerTypeNetworkPropertiesPtrOutput) ToScalewayInstan
 
 func (o ScalewayInstanceV1ServerTypeNetworkPropertiesPtrOutput) ToScalewayInstanceV1ServerTypeNetworkPropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerTypeNetworkPropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerTypeNetworkPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerTypeNetworkProperties] {
+	return pulumix.Output[*ScalewayInstanceV1ServerTypeNetworkProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerTypeNetworkPropertiesPtrOutput) Elem() ScalewayInstanceV1ServerTypeNetworkPropertiesOutput {
@@ -2454,6 +2677,12 @@ func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesOutput) ToScale
 	return o
 }
 
+func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerTypePerVolumeConstraintProperties] {
+	return pulumix.Output[ScalewayInstanceV1ServerTypePerVolumeConstraintProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Local SSD volumes
 func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesOutput) L_ssd() ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerTypePerVolumeConstraintProperties) *ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties {
@@ -2473,6 +2702,12 @@ func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesPtrOutput) ToSc
 
 func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesPtrOutput) ToScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerTypePerVolumeConstraintProperties] {
+	return pulumix.Output[*ScalewayInstanceV1ServerTypePerVolumeConstraintProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesPtrOutput) Elem() ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesOutput {
@@ -2518,6 +2753,12 @@ func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesO
 	return o
 }
 
+func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties] {
+	return pulumix.Output[ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Maximum volume size in bytes (in bytes)
 func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesOutput) Max_size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties) *float64 {
@@ -2544,6 +2785,12 @@ func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesP
 
 func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesPtrOutput) ToScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties] {
+	return pulumix.Output[*ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesPtrOutput) Elem() ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdPropertiesOutput {
@@ -2599,6 +2846,12 @@ func (o ScalewayInstanceV1ServerTypeVolumesConstraintPropertiesOutput) ToScalewa
 	return o
 }
 
+func (o ScalewayInstanceV1ServerTypeVolumesConstraintPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerTypeVolumesConstraintProperties] {
+	return pulumix.Output[ScalewayInstanceV1ServerTypeVolumesConstraintProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Maximum volume size in bytes (in bytes)
 func (o ScalewayInstanceV1ServerTypeVolumesConstraintPropertiesOutput) Max_size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerTypeVolumesConstraintProperties) *float64 { return v.Max_size }).(pulumi.Float64PtrOutput)
@@ -2621,6 +2874,12 @@ func (o ScalewayInstanceV1ServerTypeVolumesConstraintPropertiesPtrOutput) ToScal
 
 func (o ScalewayInstanceV1ServerTypeVolumesConstraintPropertiesPtrOutput) ToScalewayInstanceV1ServerTypeVolumesConstraintPropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerTypeVolumesConstraintPropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerTypeVolumesConstraintPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerTypeVolumesConstraintProperties] {
+	return pulumix.Output[*ScalewayInstanceV1ServerTypeVolumesConstraintProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerTypeVolumesConstraintPropertiesPtrOutput) Elem() ScalewayInstanceV1ServerTypeVolumesConstraintPropertiesOutput {
@@ -2710,6 +2969,12 @@ func (o ScalewayInstanceV1VolumeOutput) ToScalewayInstanceV1VolumeOutputWithCont
 	return o
 }
 
+func (o ScalewayInstanceV1VolumeOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Volume] {
+	return pulumix.Output[ScalewayInstanceV1Volume]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The volume creation date (RFC 3339 format)
 func (o ScalewayInstanceV1VolumeOutput) Creation_date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Volume) *string { return v.Creation_date }).(pulumi.StringPtrOutput)
@@ -2786,6 +3051,12 @@ func (o ScalewayInstanceV1VolumeMapOutput) ToScalewayInstanceV1VolumeMapOutputWi
 	return o
 }
 
+func (o ScalewayInstanceV1VolumeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1Volume] {
+	return pulumix.Output[map[string]ScalewayInstanceV1Volume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1VolumeMapOutput) MapIndex(k pulumi.StringInput) ScalewayInstanceV1VolumeOutput {
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScalewayInstanceV1Volume {
 		return vs[0].(map[string]ScalewayInstanceV1Volume)[vs[1].(string)]
@@ -2840,6 +3111,12 @@ func (o ScalewayInstanceV1VolumeServerOutput) ToScalewayInstanceV1VolumeServerOu
 
 func (o ScalewayInstanceV1VolumeServerOutput) ToScalewayInstanceV1VolumeServerOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeServerOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1VolumeServerOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1VolumeServer] {
+	return pulumix.Output[ScalewayInstanceV1VolumeServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1VolumeServerOutput) Boot() pulumi.BoolPtrOutput {
@@ -2911,6 +3188,12 @@ func (o ScalewayInstanceV1VolumeServerMapOutput) ToScalewayInstanceV1VolumeServe
 	return o
 }
 
+func (o ScalewayInstanceV1VolumeServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1VolumeServer] {
+	return pulumix.Output[map[string]ScalewayInstanceV1VolumeServer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1VolumeServerMapOutput) MapIndex(k pulumi.StringInput) ScalewayInstanceV1VolumeServerOutput {
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScalewayInstanceV1VolumeServer {
 		return vs[0].(map[string]ScalewayInstanceV1VolumeServer)[vs[1].(string)]
@@ -2938,6 +3221,12 @@ func (o ScalewayInstanceV1VolumeServerPropertiesOutput) ToScalewayInstanceV1Volu
 	return o
 }
 
+func (o ScalewayInstanceV1VolumeServerPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1VolumeServerProperties] {
+	return pulumix.Output[ScalewayInstanceV1VolumeServerProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1VolumeServerPropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1VolumeServerProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -2958,6 +3247,12 @@ func (o ScalewayInstanceV1VolumeServerPropertiesPtrOutput) ToScalewayInstanceV1V
 
 func (o ScalewayInstanceV1VolumeServerPropertiesPtrOutput) ToScalewayInstanceV1VolumeServerPropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeServerPropertiesPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1VolumeServerPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1VolumeServerProperties] {
+	return pulumix.Output[*ScalewayInstanceV1VolumeServerProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1VolumeServerPropertiesPtrOutput) Elem() ScalewayInstanceV1VolumeServerPropertiesOutput {
@@ -3078,6 +3373,12 @@ func (i ScalewayInstanceV1VolumeServerTemplateArgs) ToScalewayInstanceV1VolumeSe
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1VolumeServerTemplateOutput)
 }
 
+func (i ScalewayInstanceV1VolumeServerTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1VolumeServerTemplate] {
+	return pulumix.Output[ScalewayInstanceV1VolumeServerTemplate]{
+		OutputState: i.ToScalewayInstanceV1VolumeServerTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScalewayInstanceV1VolumeServerTemplateMapInput is an input type that accepts ScalewayInstanceV1VolumeServerTemplateMap and ScalewayInstanceV1VolumeServerTemplateMapOutput values.
 // You can construct a concrete instance of `ScalewayInstanceV1VolumeServerTemplateMapInput` via:
 //
@@ -3103,6 +3404,12 @@ func (i ScalewayInstanceV1VolumeServerTemplateMap) ToScalewayInstanceV1VolumeSer
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1VolumeServerTemplateMapOutput)
 }
 
+func (i ScalewayInstanceV1VolumeServerTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1VolumeServerTemplate] {
+	return pulumix.Output[map[string]ScalewayInstanceV1VolumeServerTemplate]{
+		OutputState: i.ToScalewayInstanceV1VolumeServerTemplateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalewayInstanceV1VolumeServerTemplateOutput struct{ *pulumi.OutputState }
 
 func (ScalewayInstanceV1VolumeServerTemplateOutput) ElementType() reflect.Type {
@@ -3115,6 +3422,12 @@ func (o ScalewayInstanceV1VolumeServerTemplateOutput) ToScalewayInstanceV1Volume
 
 func (o ScalewayInstanceV1VolumeServerTemplateOutput) ToScalewayInstanceV1VolumeServerTemplateOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeServerTemplateOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1VolumeServerTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1VolumeServerTemplate] {
+	return pulumix.Output[ScalewayInstanceV1VolumeServerTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the snapshot on which this volume will be based
@@ -3172,6 +3485,12 @@ func (o ScalewayInstanceV1VolumeServerTemplateMapOutput) ToScalewayInstanceV1Vol
 	return o
 }
 
+func (o ScalewayInstanceV1VolumeServerTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1VolumeServerTemplate] {
+	return pulumix.Output[map[string]ScalewayInstanceV1VolumeServerTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1VolumeServerTemplateMapOutput) MapIndex(k pulumi.StringInput) ScalewayInstanceV1VolumeServerTemplateOutput {
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScalewayInstanceV1VolumeServerTemplate {
 		return vs[0].(map[string]ScalewayInstanceV1VolumeServerTemplate)[vs[1].(string)]
@@ -3213,6 +3532,12 @@ func (o ScalewayInstanceV1VolumeSummaryOutput) ToScalewayInstanceV1VolumeSummary
 	return o
 }
 
+func (o ScalewayInstanceV1VolumeSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1VolumeSummary] {
+	return pulumix.Output[ScalewayInstanceV1VolumeSummary]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1VolumeSummaryOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1VolumeSummary) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -3244,6 +3569,12 @@ func (o ScalewayInstanceV1VolumeSummaryPtrOutput) ToScalewayInstanceV1VolumeSumm
 
 func (o ScalewayInstanceV1VolumeSummaryPtrOutput) ToScalewayInstanceV1VolumeSummaryPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeSummaryPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1VolumeSummaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1VolumeSummary] {
+	return pulumix.Output[*ScalewayInstanceV1VolumeSummary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1VolumeSummaryPtrOutput) Elem() ScalewayInstanceV1VolumeSummaryOutput {
