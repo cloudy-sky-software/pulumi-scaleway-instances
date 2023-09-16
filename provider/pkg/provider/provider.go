@@ -60,11 +60,11 @@ func (p *scalewayInstancesProvider) GetAuthorizationHeader() string {
 	return p.apiKey
 }
 
-func (p *scalewayInstancesProvider) OnPreInvoke(ctx context.Context, req *pulumirpc.InvokeRequest, httpReq *http.Request) error {
+func (p *scalewayInstancesProvider) OnPreInvoke(_ context.Context, _ *pulumirpc.InvokeRequest, _ *http.Request) error {
 	return nil
 }
 
-func (p *scalewayInstancesProvider) OnPostInvoke(ctx context.Context, req *pulumirpc.InvokeRequest, outputs interface{}) (map[string]interface{}, error) {
+func (p *scalewayInstancesProvider) OnPostInvoke(_ context.Context, _ *pulumirpc.InvokeRequest, outputs interface{}) (map[string]interface{}, error) {
 	outputsMap := make(map[string]interface{})
 	outputsMap["items"] = outputs
 
@@ -100,39 +100,39 @@ func (p *scalewayInstancesProvider) OnConfigure(_ context.Context, req *pulumirp
 }
 
 // OnDiff checks what impacts a hypothetical update will have on the resource's properties.
-func (p *scalewayInstancesProvider) OnDiff(ctx context.Context, req *pulumirpc.DiffRequest, resourceTypeToken string, diff *resource.ObjectDiff, jsonReq *openapi3.MediaType) (*pulumirpc.DiffResponse, error) {
+func (p *scalewayInstancesProvider) OnDiff(_ context.Context, _ *pulumirpc.DiffRequest, _ string, _ *resource.ObjectDiff, _ *openapi3.MediaType) (*pulumirpc.DiffResponse, error) {
 	return nil, nil
 }
 
-func (p *scalewayInstancesProvider) OnPreCreate(ctx context.Context, req *pulumirpc.CreateRequest, httpReq *http.Request) error {
+func (p *scalewayInstancesProvider) OnPreCreate(_ context.Context, _ *pulumirpc.CreateRequest, _ *http.Request) error {
 	return nil
 }
 
 // OnPostCreate allocates a new instance of the provided resource and returns its unique ID afterwards.
-func (p *scalewayInstancesProvider) OnPostCreate(ctx context.Context, req *pulumirpc.CreateRequest, outputs interface{}) (map[string]interface{}, error) {
+func (p *scalewayInstancesProvider) OnPostCreate(_ context.Context, _ *pulumirpc.CreateRequest, outputs interface{}) (map[string]interface{}, error) {
 	return extractOutput(outputs)
 }
 
-func (p *scalewayInstancesProvider) OnPreRead(ctx context.Context, req *pulumirpc.ReadRequest, httpReq *http.Request) error {
+func (p *scalewayInstancesProvider) OnPreRead(_ context.Context, _ *pulumirpc.ReadRequest, _ *http.Request) error {
 	return nil
 }
 
-func (p *scalewayInstancesProvider) OnPostRead(ctx context.Context, req *pulumirpc.ReadRequest, outputs map[string]interface{}) (map[string]interface{}, error) {
+func (p *scalewayInstancesProvider) OnPostRead(_ context.Context, _ *pulumirpc.ReadRequest, outputs map[string]interface{}) (map[string]interface{}, error) {
 	return extractOutput(outputs)
 }
 
-func (p *scalewayInstancesProvider) OnPreUpdate(ctx context.Context, req *pulumirpc.UpdateRequest, httpReq *http.Request) error {
+func (p *scalewayInstancesProvider) OnPreUpdate(_ context.Context, _ *pulumirpc.UpdateRequest, _ *http.Request) error {
 	return nil
 }
 
-func (p *scalewayInstancesProvider) OnPostUpdate(ctx context.Context, req *pulumirpc.UpdateRequest, httpReq http.Request, outputs interface{}) (map[string]interface{}, error) {
+func (p *scalewayInstancesProvider) OnPostUpdate(_ context.Context, _ *pulumirpc.UpdateRequest, _ http.Request, outputs interface{}) (map[string]interface{}, error) {
 	return extractOutput(outputs)
 }
 
-func (p *scalewayInstancesProvider) OnPreDelete(ctx context.Context, req *pulumirpc.DeleteRequest, httpReq *http.Request) error {
+func (p *scalewayInstancesProvider) OnPreDelete(_ context.Context, _ *pulumirpc.DeleteRequest, _ *http.Request) error {
 	return nil
 }
 
-func (p *scalewayInstancesProvider) OnPostDelete(ctx context.Context, req *pulumirpc.DeleteRequest) error {
+func (p *scalewayInstancesProvider) OnPostDelete(_ context.Context, _ *pulumirpc.DeleteRequest) error {
 	return nil
 }
