@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -34,26 +34,49 @@ class ScalewayInstanceV1VolumeServerTemplateArgs:
         :param pulumi.Input[str] project: Project ID of the volume
         :param pulumi.Input[float] size: Disk size of the volume, must be a multiple of 512 (in bytes)
         """
+        ScalewayInstanceV1VolumeServerTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_snapshot=base_snapshot,
+            boot=boot,
+            id=id,
+            name=name,
+            organization=organization,
+            project=project,
+            size=size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_snapshot: Optional[pulumi.Input[str]] = None,
+             boot: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             project: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[float]] = None,
+             volume_type: Optional[pulumi.Input['ScalewayInstanceV1VolumeServerTemplateVolumeType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if base_snapshot is not None:
-            pulumi.set(__self__, "base_snapshot", base_snapshot)
+            _setter("base_snapshot", base_snapshot)
         if boot is None:
             boot = False
         if boot is not None:
-            pulumi.set(__self__, "boot", boot)
+            _setter("boot", boot)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if project is not None:
-            pulumi.set(__self__, "project", project)
+            _setter("project", project)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter

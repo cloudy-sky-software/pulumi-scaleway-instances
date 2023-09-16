@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The default inbound policy
@@ -78,6 +79,12 @@ func (o InboundDefaultPolicyOutput) ToInboundDefaultPolicyPtrOutputWithContext(c
 	}).(InboundDefaultPolicyPtrOutput)
 }
 
+func (o InboundDefaultPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[InboundDefaultPolicy] {
+	return pulumix.Output[InboundDefaultPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InboundDefaultPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o InboundDefaultPolicyPtrOutput) ToInboundDefaultPolicyPtrOutput() Inbound
 
 func (o InboundDefaultPolicyPtrOutput) ToInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) InboundDefaultPolicyPtrOutput {
 	return o
+}
+
+func (o InboundDefaultPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InboundDefaultPolicy] {
+	return pulumix.Output[*InboundDefaultPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InboundDefaultPolicyPtrOutput) Elem() InboundDefaultPolicyOutput {
@@ -173,6 +186,12 @@ func (in *inboundDefaultPolicyPtr) ToInboundDefaultPolicyPtrOutput() InboundDefa
 
 func (in *inboundDefaultPolicyPtr) ToInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) InboundDefaultPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InboundDefaultPolicyPtrOutput)
+}
+
+func (in *inboundDefaultPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*InboundDefaultPolicy] {
+	return pulumix.Output[*InboundDefaultPolicy]{
+		OutputState: in.ToInboundDefaultPolicyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The default outbound policy
@@ -243,6 +262,12 @@ func (o OutboundDefaultPolicyOutput) ToOutboundDefaultPolicyPtrOutputWithContext
 	}).(OutboundDefaultPolicyPtrOutput)
 }
 
+func (o OutboundDefaultPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[OutboundDefaultPolicy] {
+	return pulumix.Output[OutboundDefaultPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OutboundDefaultPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o OutboundDefaultPolicyPtrOutput) ToOutboundDefaultPolicyPtrOutput() Outbo
 
 func (o OutboundDefaultPolicyPtrOutput) ToOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) OutboundDefaultPolicyPtrOutput {
 	return o
+}
+
+func (o OutboundDefaultPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutboundDefaultPolicy] {
+	return pulumix.Output[*OutboundDefaultPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutboundDefaultPolicyPtrOutput) Elem() OutboundDefaultPolicyOutput {
@@ -340,6 +371,12 @@ func (in *outboundDefaultPolicyPtr) ToOutboundDefaultPolicyPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(OutboundDefaultPolicyPtrOutput)
 }
 
+func (in *outboundDefaultPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*OutboundDefaultPolicy] {
+	return pulumix.Output[*OutboundDefaultPolicy]{
+		OutputState: in.ToOutboundDefaultPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The default inbound policy
 type ScalewayInstanceV1SecurityGroupInboundDefaultPolicy string
 
@@ -370,6 +407,12 @@ func (o ScalewayInstanceV1SecurityGroupInboundDefaultPolicyOutput) ToScalewayIns
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1SecurityGroupInboundDefaultPolicy) *ScalewayInstanceV1SecurityGroupInboundDefaultPolicy {
 		return &v
 	}).(ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput)
+}
+
+func (o ScalewayInstanceV1SecurityGroupInboundDefaultPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupInboundDefaultPolicy] {
+	return pulumix.Output[ScalewayInstanceV1SecurityGroupInboundDefaultPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupInboundDefaultPolicyOutput) ToStringOutput() pulumi.StringOutput {
@@ -405,6 +448,12 @@ func (o ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput) ToScaleway
 
 func (o ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput) ToScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupInboundDefaultPolicy] {
+	return pulumix.Output[*ScalewayInstanceV1SecurityGroupInboundDefaultPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput) Elem() ScalewayInstanceV1SecurityGroupInboundDefaultPolicyOutput {
@@ -463,6 +512,12 @@ func (o ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyOutput) ToScalewayIn
 	}).(ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput)
 }
 
+func (o ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy] {
+	return pulumix.Output[ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -496,6 +551,12 @@ func (o ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput) ToScalewa
 
 func (o ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput) ToScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy] {
+	return pulumix.Output[*ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput) Elem() ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyOutput {
@@ -555,6 +616,12 @@ func (o ScalewayInstanceV1SecurityGroupStateOutput) ToScalewayInstanceV1Security
 	}).(ScalewayInstanceV1SecurityGroupStatePtrOutput)
 }
 
+func (o ScalewayInstanceV1SecurityGroupStateOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupState] {
+	return pulumix.Output[ScalewayInstanceV1SecurityGroupState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1SecurityGroupStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -588,6 +655,12 @@ func (o ScalewayInstanceV1SecurityGroupStatePtrOutput) ToScalewayInstanceV1Secur
 
 func (o ScalewayInstanceV1SecurityGroupStatePtrOutput) ToScalewayInstanceV1SecurityGroupStatePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupStatePtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupState] {
+	return pulumix.Output[*ScalewayInstanceV1SecurityGroupState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupStatePtrOutput) Elem() ScalewayInstanceV1SecurityGroupStateOutput {
@@ -647,6 +720,12 @@ func (o StateOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOu
 	}).(StatePtrOutput)
 }
 
+func (o StateOutput) ToOutput(ctx context.Context) pulumix.Output[State] {
+	return pulumix.Output[State]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -680,6 +759,12 @@ func (o StatePtrOutput) ToStatePtrOutput() StatePtrOutput {
 
 func (o StatePtrOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
 	return o
+}
+
+func (o StatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*State] {
+	return pulumix.Output[*State]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StatePtrOutput) Elem() StateOutput {

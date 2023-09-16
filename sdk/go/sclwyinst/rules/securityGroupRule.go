@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type SecurityGroupRule struct {
@@ -145,6 +146,12 @@ func (i *SecurityGroupRule) ToSecurityGroupRuleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupRuleOutput)
 }
 
+func (i *SecurityGroupRule) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupRule] {
+	return pulumix.Output[*SecurityGroupRule]{
+		OutputState: i.ToSecurityGroupRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupRuleOutput) ElementType() reflect.Type {
@@ -157,6 +164,12 @@ func (o SecurityGroupRuleOutput) ToSecurityGroupRuleOutput() SecurityGroupRuleOu
 
 func (o SecurityGroupRuleOutput) ToSecurityGroupRuleOutputWithContext(ctx context.Context) SecurityGroupRuleOutput {
 	return o
+}
+
+func (o SecurityGroupRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupRule] {
+	return pulumix.Output[*SecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityGroupRuleOutput) Action() ActionOutput {

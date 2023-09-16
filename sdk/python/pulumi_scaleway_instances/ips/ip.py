@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,17 +26,36 @@ class IpArgs:
         The set of arguments for constructing a Ip resource.
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        pulumi.set(__self__, "project", project)
+        IpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project=project,
+            organization=organization,
+            reverse=reverse,
+            server=server,
+            tags=tags,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project: pulumi.Input[str],
+             organization: Optional[pulumi.Input[str]] = None,
+             reverse: Optional[pulumi.Input['GoogleProtobufStringValueArgs']] = None,
+             server: Optional[pulumi.Input['ScalewayInstanceV1ServerSummaryArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("project", project)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if reverse is not None:
-            pulumi.set(__self__, "reverse", reverse)
+            _setter("reverse", reverse)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -132,6 +151,10 @@ class Ip(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -156,7 +179,17 @@ class Ip(pulumi.CustomResource):
             if project is None and not opts.urn:
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
+            if not isinstance(reverse, GoogleProtobufStringValueArgs):
+                reverse = reverse or {}
+                def _setter(key, value):
+                    reverse[key] = value
+                GoogleProtobufStringValueArgs._configure(_setter, **reverse)
             __props__.__dict__["reverse"] = reverse
+            if not isinstance(server, ScalewayInstanceV1ServerSummaryArgs):
+                server = server or {}
+                def _setter(key, value):
+                    server[key] = value
+                ScalewayInstanceV1ServerSummaryArgs._configure(_setter, **server)
             __props__.__dict__["server"] = server
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone"] = zone

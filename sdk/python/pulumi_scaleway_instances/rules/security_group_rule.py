@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -15,10 +15,10 @@ __all__ = ['SecurityGroupRuleArgs', 'SecurityGroupRule']
 @pulumi.input_type
 class SecurityGroupRuleArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['Action'],
-                 direction: pulumi.Input['Direction'],
+                 action: Optional[pulumi.Input['Action']] = None,
+                 direction: Optional[pulumi.Input['Direction']] = None,
                  ip_range: pulumi.Input[str],
-                 protocol: pulumi.Input['Protocol'],
+                 protocol: Optional[pulumi.Input['Protocol']] = None,
                  dest_port_from: Optional[pulumi.Input[float]] = None,
                  dest_port_to: Optional[pulumi.Input[float]] = None,
                  editable: Optional[pulumi.Input[bool]] = None,
@@ -35,28 +35,55 @@ class SecurityGroupRuleArgs:
         :param pulumi.Input[str] security_group_id: UUID of the security group
         :param pulumi.Input[str] zone: The zone you want to target
         """
+        SecurityGroupRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            direction=direction,
+            ip_range=ip_range,
+            protocol=protocol,
+            dest_port_from=dest_port_from,
+            dest_port_to=dest_port_to,
+            editable=editable,
+            position=position,
+            security_group_id=security_group_id,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['Action']] = None,
+             direction: Optional[pulumi.Input['Direction']] = None,
+             ip_range: pulumi.Input[str],
+             protocol: Optional[pulumi.Input['Protocol']] = None,
+             dest_port_from: Optional[pulumi.Input[float]] = None,
+             dest_port_to: Optional[pulumi.Input[float]] = None,
+             editable: Optional[pulumi.Input[bool]] = None,
+             position: Optional[pulumi.Input[float]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is None:
             action = 'accept'
-        pulumi.set(__self__, "action", action)
+        _setter("action", action)
         if direction is None:
             direction = 'inbound'
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "ip_range", ip_range)
+        _setter("direction", direction)
+        _setter("ip_range", ip_range)
         if protocol is None:
             protocol = 'TCP'
-        pulumi.set(__self__, "protocol", protocol)
+        _setter("protocol", protocol)
         if dest_port_from is not None:
-            pulumi.set(__self__, "dest_port_from", dest_port_from)
+            _setter("dest_port_from", dest_port_from)
         if dest_port_to is not None:
-            pulumi.set(__self__, "dest_port_to", dest_port_to)
+            _setter("dest_port_to", dest_port_to)
         if editable is not None:
-            pulumi.set(__self__, "editable", editable)
+            _setter("editable", editable)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
+            _setter("security_group_id", security_group_id)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -216,6 +243,10 @@ class SecurityGroupRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityGroupRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

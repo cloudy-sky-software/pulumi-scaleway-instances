@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ExportSnapshot struct {
@@ -106,6 +107,12 @@ func (i *ExportSnapshot) ToExportSnapshotOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ExportSnapshotOutput)
 }
 
+func (i *ExportSnapshot) ToOutput(ctx context.Context) pulumix.Output[*ExportSnapshot] {
+	return pulumix.Output[*ExportSnapshot]{
+		OutputState: i.ToExportSnapshotOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExportSnapshotOutput struct{ *pulumi.OutputState }
 
 func (ExportSnapshotOutput) ElementType() reflect.Type {
@@ -118,6 +125,12 @@ func (o ExportSnapshotOutput) ToExportSnapshotOutput() ExportSnapshotOutput {
 
 func (o ExportSnapshotOutput) ToExportSnapshotOutputWithContext(ctx context.Context) ExportSnapshotOutput {
 	return o
+}
+
+func (o ExportSnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[*ExportSnapshot] {
+	return pulumix.Output[*ExportSnapshot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // S3 bucket name

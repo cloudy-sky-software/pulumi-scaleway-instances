@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func ListPrivateNICs(ctx *pulumi.Context, args *ListPrivateNICsArgs, opts ...pulumi.InvokeOption) (*ListPrivateNICsResult, error) {
@@ -66,6 +67,12 @@ func (o ListPrivateNICsResultOutput) ToListPrivateNICsResultOutput() ListPrivate
 
 func (o ListPrivateNICsResultOutput) ToListPrivateNICsResultOutputWithContext(ctx context.Context) ListPrivateNICsResultOutput {
 	return o
+}
+
+func (o ListPrivateNICsResultOutput) ToOutput(ctx context.Context) pulumix.Output[ListPrivateNICsResult] {
+	return pulumix.Output[ListPrivateNICsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListPrivateNICsResultOutput) Items() ScalewayInstanceV1ListPrivateNICsResponseOutput {

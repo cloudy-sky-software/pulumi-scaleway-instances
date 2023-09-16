@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Server struct {
@@ -177,6 +178,12 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
+func (i *Server) ToOutput(ctx context.Context) pulumix.Output[*Server] {
+	return pulumix.Output[*Server]{
+		OutputState: i.ToServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
@@ -189,6 +196,12 @@ func (o ServerOutput) ToServerOutput() ServerOutput {
 
 func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return o
+}
+
+func (o ServerOutput) ToOutput(ctx context.Context) pulumix.Output[*Server] {
+	return pulumix.Output[*Server]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The boot type to use

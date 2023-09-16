@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -20,8 +20,17 @@ __all__ = [
 class ScalewayInstanceV1ListServerActionsResponse(dict):
     def __init__(__self__, *,
                  actions: Optional[Sequence['ScalewayInstanceV1ListServerActionsResponseActionsItem']] = None):
+        ScalewayInstanceV1ListServerActionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[Sequence['ScalewayInstanceV1ListServerActionsResponseActionsItem']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
 
     @property
     @pulumi.getter
@@ -33,10 +42,19 @@ class ScalewayInstanceV1ListServerActionsResponse(dict):
 class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate(dict):
     def __init__(__self__, *,
                  volume_type: Optional['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType'] = None):
+        ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             volume_type: Optional['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter
@@ -65,26 +83,51 @@ class ScalewayInstanceV1Task(dict):
         :param str terminated_at: The task end date (RFC 3339 format)
         :param str zone: The zone in which is the task
         """
+        ScalewayInstanceV1Task._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            href_from=href_from,
+            href_result=href_result,
+            id=id,
+            progress=progress,
+            started_at=started_at,
+            status=status,
+            terminated_at=terminated_at,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             href_from: Optional[str] = None,
+             href_result: Optional[str] = None,
+             id: Optional[str] = None,
+             progress: Optional[float] = None,
+             started_at: Optional[str] = None,
+             status: Optional['ScalewayInstanceV1TaskStatus'] = None,
+             terminated_at: Optional[str] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if href_from is not None:
-            pulumi.set(__self__, "href_from", href_from)
+            _setter("href_from", href_from)
         if href_result is not None:
-            pulumi.set(__self__, "href_result", href_result)
+            _setter("href_result", href_result)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if progress is not None:
-            pulumi.set(__self__, "progress", progress)
+            _setter("progress", progress)
         if started_at is not None:
-            pulumi.set(__self__, "started_at", started_at)
+            _setter("started_at", started_at)
         if status is None:
             status = 'pending'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if terminated_at is not None:
-            pulumi.set(__self__, "terminated_at", terminated_at)
+            _setter("terminated_at", terminated_at)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter

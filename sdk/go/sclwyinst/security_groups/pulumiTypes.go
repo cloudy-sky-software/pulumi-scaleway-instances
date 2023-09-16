@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -42,6 +43,12 @@ func (o ScalewayInstanceV1GetSecurityGroupResponseOutput) ToScalewayInstanceV1Ge
 	return o
 }
 
+func (o ScalewayInstanceV1GetSecurityGroupResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetSecurityGroupResponse] {
+	return pulumix.Output[ScalewayInstanceV1GetSecurityGroupResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1GetSecurityGroupResponseOutput) Security_group() ScalewayInstanceV1SecurityGroupPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetSecurityGroupResponse) *ScalewayInstanceV1SecurityGroup {
 		return v.Security_group
@@ -65,6 +72,12 @@ func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) ToScalewayInstanceV1
 
 func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) ToScalewayInstanceV1ListSecurityGroupsResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1ListSecurityGroupsResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListSecurityGroupsResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListSecurityGroupsResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) Security_groups() ScalewayInstanceV1SecurityGroupArrayOutput {
@@ -146,6 +159,12 @@ func (o ScalewayInstanceV1SecurityGroupOutput) ToScalewayInstanceV1SecurityGroup
 
 func (o ScalewayInstanceV1SecurityGroupOutput) ToScalewayInstanceV1SecurityGroupOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroup] {
+	return pulumix.Output[ScalewayInstanceV1SecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The security group creation date (RFC 3339 format)
@@ -248,6 +267,12 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) ToScalewayInstanceV1SecurityGr
 
 func (o ScalewayInstanceV1SecurityGroupPtrOutput) ToScalewayInstanceV1SecurityGroupPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroup] {
+	return pulumix.Output[*ScalewayInstanceV1SecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupPtrOutput) Elem() ScalewayInstanceV1SecurityGroupOutput {
@@ -443,6 +468,12 @@ func (o ScalewayInstanceV1SecurityGroupArrayOutput) ToScalewayInstanceV1Security
 	return o
 }
 
+func (o ScalewayInstanceV1SecurityGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1SecurityGroup] {
+	return pulumix.Output[[]ScalewayInstanceV1SecurityGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1SecurityGroupArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1SecurityGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalewayInstanceV1SecurityGroup {
 		return vs[0].([]ScalewayInstanceV1SecurityGroup)[vs[1].(int)]
@@ -468,6 +499,12 @@ func (o ScalewayInstanceV1ServerSummaryOutput) ToScalewayInstanceV1ServerSummary
 	return o
 }
 
+func (o ScalewayInstanceV1ServerSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerSummary] {
+	return pulumix.Output[ScalewayInstanceV1ServerSummary]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1ServerSummaryOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerSummary) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -488,6 +525,12 @@ func (o ScalewayInstanceV1ServerSummaryArrayOutput) ToScalewayInstanceV1ServerSu
 
 func (o ScalewayInstanceV1ServerSummaryArrayOutput) ToScalewayInstanceV1ServerSummaryArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerSummaryArrayOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerSummaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1ServerSummary] {
+	return pulumix.Output[[]ScalewayInstanceV1ServerSummary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerSummaryArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1ServerSummaryOutput {

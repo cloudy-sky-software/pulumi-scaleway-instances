@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,6 +44,12 @@ func (o ScalewayInstanceV1DashboardOutput) ToScalewayInstanceV1DashboardOutput()
 
 func (o ScalewayInstanceV1DashboardOutput) ToScalewayInstanceV1DashboardOutputWithContext(ctx context.Context) ScalewayInstanceV1DashboardOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1DashboardOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Dashboard] {
+	return pulumix.Output[ScalewayInstanceV1Dashboard]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1DashboardOutput) Images_count() pulumi.Float64PtrOutput {
@@ -117,6 +124,12 @@ func (o ScalewayInstanceV1DashboardPtrOutput) ToScalewayInstanceV1DashboardPtrOu
 
 func (o ScalewayInstanceV1DashboardPtrOutput) ToScalewayInstanceV1DashboardPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1DashboardPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1DashboardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Dashboard] {
+	return pulumix.Output[*ScalewayInstanceV1Dashboard]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1DashboardPtrOutput) Elem() ScalewayInstanceV1DashboardOutput {
@@ -280,6 +293,12 @@ func (o ScalewayInstanceV1GetDashboardResponseOutput) ToScalewayInstanceV1GetDas
 
 func (o ScalewayInstanceV1GetDashboardResponseOutput) ToScalewayInstanceV1GetDashboardResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1GetDashboardResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1GetDashboardResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetDashboardResponse] {
+	return pulumix.Output[ScalewayInstanceV1GetDashboardResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1GetDashboardResponseOutput) Dashboard() ScalewayInstanceV1DashboardPtrOutput {

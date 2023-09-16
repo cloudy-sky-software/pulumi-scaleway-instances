@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupResult, error) {
@@ -79,6 +80,12 @@ func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutput() Loo
 
 func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutputWithContext(ctx context.Context) LookupSecurityGroupResultOutput {
 	return o
+}
+
+func (o LookupSecurityGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecurityGroupResult] {
+	return pulumix.Output[LookupSecurityGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSecurityGroupResultOutput) Items() ScalewayInstanceV1GetSecurityGroupResponseOutput {

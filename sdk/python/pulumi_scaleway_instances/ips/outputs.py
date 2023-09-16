@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -22,14 +22,28 @@ __all__ = [
 class GoogleProtobufStringValue(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class ScalewayInstanceV1GetIpResponse(dict):
     def __init__(__self__, *,
                  ip: Optional['outputs.ScalewayInstanceV1Ip'] = None):
+        ScalewayInstanceV1GetIpResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional['outputs.ScalewayInstanceV1Ip'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -51,21 +65,44 @@ class ScalewayInstanceV1Ip(dict):
         """
         :param str address: (IPv4 address)
         """
-        pulumi.set(__self__, "project", project)
+        ScalewayInstanceV1Ip._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project=project,
+            address=address,
+            id=id,
+            organization=organization,
+            reverse=reverse,
+            server=server,
+            tags=tags,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project: str,
+             address: Optional[str] = None,
+             id: Optional[str] = None,
+             organization: Optional[str] = None,
+             reverse: Optional['outputs.GoogleProtobufStringValue'] = None,
+             server: Optional['outputs.ScalewayInstanceV1ServerSummary'] = None,
+             tags: Optional[Sequence[str]] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("project", project)
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if reverse is not None:
-            pulumi.set(__self__, "reverse", reverse)
+            _setter("reverse", reverse)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -118,8 +155,17 @@ class ScalewayInstanceV1ListIpsResponse(dict):
         """
         :param Sequence['ScalewayInstanceV1Ip'] ips: List of ips
         """
+        ScalewayInstanceV1ListIpsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ips=ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ips: Optional[Sequence['outputs.ScalewayInstanceV1Ip']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ips is not None:
-            pulumi.set(__self__, "ips", ips)
+            _setter("ips", ips)
 
     @property
     @pulumi.getter
@@ -135,10 +181,21 @@ class ScalewayInstanceV1ServerSummary(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
+        ScalewayInstanceV1ServerSummary._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter

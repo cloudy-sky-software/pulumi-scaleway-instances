@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,23 +30,44 @@ class PlacementGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The placement group tags
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        pulumi.set(__self__, "project", project)
+        PlacementGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project=project,
+            name=name,
+            organization=organization,
+            policy_mode=policy_mode,
+            policy_type=policy_type,
+            tags=tags,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             policy_mode: Optional[pulumi.Input['PolicyMode']] = None,
+             policy_type: Optional[pulumi.Input['PolicyType']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("project", project)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if policy_mode is None:
             policy_mode = 'optional'
         if policy_mode is not None:
-            pulumi.set(__self__, "policy_mode", policy_mode)
+            _setter("policy_mode", policy_mode)
         if policy_type is None:
             policy_type = 'max_availability'
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -168,6 +189,10 @@ class PlacementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PlacementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

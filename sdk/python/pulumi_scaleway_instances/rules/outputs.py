@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,14 +23,28 @@ __all__ = [
 class GoogleProtobufUInt32Value(dict):
     def __init__(__self__):
         pass
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        pass
 
 
 @pulumi.output_type
 class ScalewayInstanceV1GetSecurityGroupRuleResponse(dict):
     def __init__(__self__, *,
                  rule: Optional['outputs.ScalewayInstanceV1SecurityGroupRule'] = None):
+        ScalewayInstanceV1GetSecurityGroupRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule=rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule: Optional['outputs.ScalewayInstanceV1SecurityGroupRule'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rule is not None:
-            pulumi.set(__self__, "rule", rule)
+            _setter("rule", rule)
 
     @property
     @pulumi.getter
@@ -45,8 +59,17 @@ class ScalewayInstanceV1ListSecurityGroupRulesResponse(dict):
         """
         :param Sequence['ScalewayInstanceV1SecurityGroupRule'] rules: List of security rules
         """
+        ScalewayInstanceV1ListSecurityGroupRulesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rules: Optional[Sequence['outputs.ScalewayInstanceV1SecurityGroupRule']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -73,32 +96,59 @@ class ScalewayInstanceV1SecurityGroupRule(dict):
         """
         :param str ip_range: (IP network)
         """
+        ScalewayInstanceV1SecurityGroupRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            dest_port_from=dest_port_from,
+            dest_port_to=dest_port_to,
+            direction=direction,
+            editable=editable,
+            id=id,
+            ip_range=ip_range,
+            position=position,
+            protocol=protocol,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional['ScalewayInstanceV1SecurityGroupRuleAction'] = None,
+             dest_port_from: Optional['outputs.GoogleProtobufUInt32Value'] = None,
+             dest_port_to: Optional['outputs.GoogleProtobufUInt32Value'] = None,
+             direction: Optional['ScalewayInstanceV1SecurityGroupRuleDirection'] = None,
+             editable: Optional[bool] = None,
+             id: Optional[str] = None,
+             ip_range: Optional[str] = None,
+             position: Optional[float] = None,
+             protocol: Optional['ScalewayInstanceV1SecurityGroupRuleProtocol'] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is None:
             action = 'accept'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if dest_port_from is not None:
-            pulumi.set(__self__, "dest_port_from", dest_port_from)
+            _setter("dest_port_from", dest_port_from)
         if dest_port_to is not None:
-            pulumi.set(__self__, "dest_port_to", dest_port_to)
+            _setter("dest_port_to", dest_port_to)
         if direction is None:
             direction = 'inbound'
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if editable is not None:
-            pulumi.set(__self__, "editable", editable)
+            _setter("editable", editable)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_range is not None:
-            pulumi.set(__self__, "ip_range", ip_range)
+            _setter("ip_range", ip_range)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if protocol is None:
             protocol = 'TCP'
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -179,32 +229,59 @@ class ScalewayInstanceV1SetSecurityGroupRulesRequestRule(dict):
         :param 'ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol' protocol: Protocol family this rule applies to
         :param str zone: Zone of the rule. This field is ignored
         """
+        ScalewayInstanceV1SetSecurityGroupRulesRequestRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            dest_port_from=dest_port_from,
+            dest_port_to=dest_port_to,
+            direction=direction,
+            editable=editable,
+            id=id,
+            ip_range=ip_range,
+            position=position,
+            protocol=protocol,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction'] = None,
+             dest_port_from: Optional[float] = None,
+             dest_port_to: Optional[float] = None,
+             direction: Optional['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection'] = None,
+             editable: Optional[bool] = None,
+             id: Optional[str] = None,
+             ip_range: Optional[str] = None,
+             position: Optional[float] = None,
+             protocol: Optional['ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol'] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is None:
             action = 'accept'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if dest_port_from is not None:
-            pulumi.set(__self__, "dest_port_from", dest_port_from)
+            _setter("dest_port_from", dest_port_from)
         if dest_port_to is not None:
-            pulumi.set(__self__, "dest_port_to", dest_port_to)
+            _setter("dest_port_to", dest_port_to)
         if direction is None:
             direction = 'inbound'
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if editable is not None:
-            pulumi.set(__self__, "editable", editable)
+            _setter("editable", editable)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_range is not None:
-            pulumi.set(__self__, "ip_range", ip_range)
+            _setter("ip_range", ip_range)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if protocol is None:
             protocol = 'TCP'
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter

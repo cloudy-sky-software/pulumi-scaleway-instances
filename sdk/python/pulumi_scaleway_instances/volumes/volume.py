@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,21 +32,42 @@ class VolumeArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The volume tags
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        pulumi.set(__self__, "project", project)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project=project,
+            name=name,
+            organization=organization,
+            size=size,
+            tags=tags,
+            volume_type=volume_type,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             volume_type: Optional[pulumi.Input['VolumeType']] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("project", project)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -172,6 +193,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

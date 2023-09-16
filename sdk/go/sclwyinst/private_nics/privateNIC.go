@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PrivateNIC struct {
@@ -98,6 +99,12 @@ func (i *PrivateNIC) ToPrivateNICOutputWithContext(ctx context.Context) PrivateN
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateNICOutput)
 }
 
+func (i *PrivateNIC) ToOutput(ctx context.Context) pulumix.Output[*PrivateNIC] {
+	return pulumix.Output[*PrivateNIC]{
+		OutputState: i.ToPrivateNICOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PrivateNICOutput struct{ *pulumi.OutputState }
 
 func (PrivateNICOutput) ElementType() reflect.Type {
@@ -110,6 +117,12 @@ func (o PrivateNICOutput) ToPrivateNICOutput() PrivateNICOutput {
 
 func (o PrivateNICOutput) ToPrivateNICOutputWithContext(ctx context.Context) PrivateNICOutput {
 	return o
+}
+
+func (o PrivateNICOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateNIC] {
+	return pulumix.Output[*PrivateNIC]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrivateNICOutput) Private_network_id() pulumi.StringOutput {

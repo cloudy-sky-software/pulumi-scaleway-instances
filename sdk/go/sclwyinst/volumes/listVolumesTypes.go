@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func ListVolumesTypes(ctx *pulumi.Context, args *ListVolumesTypesArgs, opts ...pulumi.InvokeOption) (*ListVolumesTypesResult, error) {
@@ -64,6 +65,12 @@ func (o ListVolumesTypesResultOutput) ToListVolumesTypesResultOutput() ListVolum
 
 func (o ListVolumesTypesResultOutput) ToListVolumesTypesResultOutputWithContext(ctx context.Context) ListVolumesTypesResultOutput {
 	return o
+}
+
+func (o ListVolumesTypesResultOutput) ToOutput(ctx context.Context) pulumix.Output[ListVolumesTypesResult] {
+	return pulumix.Output[ListVolumesTypesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListVolumesTypesResultOutput) Items() ScalewayInstanceV1ListVolumesTypesResponseOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetServerTypesAvailability(ctx *pulumi.Context, args *GetServerTypesAvailabilityArgs, opts ...pulumi.InvokeOption) (*GetServerTypesAvailabilityResult, error) {
@@ -64,6 +65,12 @@ func (o GetServerTypesAvailabilityResultOutput) ToGetServerTypesAvailabilityResu
 
 func (o GetServerTypesAvailabilityResultOutput) ToGetServerTypesAvailabilityResultOutputWithContext(ctx context.Context) GetServerTypesAvailabilityResultOutput {
 	return o
+}
+
+func (o GetServerTypesAvailabilityResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerTypesAvailabilityResult] {
+	return pulumix.Output[GetServerTypesAvailabilityResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServerTypesAvailabilityResultOutput) Items() ScalewayInstanceV1GetServerTypesAvailabilityResponseOutput {

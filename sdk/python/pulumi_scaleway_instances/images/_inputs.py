@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -46,32 +46,63 @@ class ScalewayInstanceV1BootscriptArgs:
         :param pulumi.Input[str] title: The bootscript title
         :param pulumi.Input[str] zone: The zone in which is the bootscript
         """
+        ScalewayInstanceV1BootscriptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arch=arch,
+            bootcmdargs=bootcmdargs,
+            default=default,
+            dtb=dtb,
+            id=id,
+            initrd=initrd,
+            kernel=kernel,
+            organization=organization,
+            project=project,
+            public=public,
+            title=title,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arch: Optional[pulumi.Input['ScalewayInstanceV1BootscriptArch']] = None,
+             bootcmdargs: Optional[pulumi.Input[str]] = None,
+             default: Optional[pulumi.Input[bool]] = None,
+             dtb: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             initrd: Optional[pulumi.Input[str]] = None,
+             kernel: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             project: Optional[pulumi.Input[str]] = None,
+             public: Optional[pulumi.Input[bool]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if arch is None:
             arch = 'x86_64'
         if arch is not None:
-            pulumi.set(__self__, "arch", arch)
+            _setter("arch", arch)
         if bootcmdargs is not None:
-            pulumi.set(__self__, "bootcmdargs", bootcmdargs)
+            _setter("bootcmdargs", bootcmdargs)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if dtb is not None:
-            pulumi.set(__self__, "dtb", dtb)
+            _setter("dtb", dtb)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if initrd is not None:
-            pulumi.set(__self__, "initrd", initrd)
+            _setter("initrd", initrd)
         if kernel is not None:
-            pulumi.set(__self__, "kernel", kernel)
+            _setter("kernel", kernel)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if project is not None:
-            pulumi.set(__self__, "project", project)
+            _setter("project", project)
         if public is not None:
-            pulumi.set(__self__, "public", public)
+            _setter("public", public)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter
@@ -226,10 +257,21 @@ class ScalewayInstanceV1VolumeServerPropertiesArgs:
         """
         The server attached to the volume
         """
+        ScalewayInstanceV1VolumeServerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -260,16 +302,31 @@ class ScalewayInstanceV1VolumeSummaryArgs:
         """
         :param pulumi.Input[float] size: (in bytes)
         """
+        ScalewayInstanceV1VolumeSummaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            size=size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[float]] = None,
+             volume_type: Optional[pulumi.Input['ScalewayInstanceV1VolumeSummaryVolumeType']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter
@@ -339,34 +396,67 @@ class ScalewayInstanceV1VolumeArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The volume tags
         :param pulumi.Input[str] zone: The zone in which is the volume
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "project", project)
+        ScalewayInstanceV1VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            project=project,
+            creation_date=creation_date,
+            export_uri=export_uri,
+            id=id,
+            modification_date=modification_date,
+            organization=organization,
+            server=server,
+            size=size,
+            state=state,
+            tags=tags,
+            volume_type=volume_type,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             project: pulumi.Input[str],
+             creation_date: Optional[pulumi.Input[str]] = None,
+             export_uri: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             modification_date: Optional[pulumi.Input[str]] = None,
+             organization: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input['ScalewayInstanceV1VolumeServerPropertiesArgs']] = None,
+             size: Optional[pulumi.Input[float]] = None,
+             state: Optional[pulumi.Input['ScalewayInstanceV1VolumeState']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             volume_type: Optional[pulumi.Input['ScalewayInstanceV1VolumeVolumeType']] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("project", project)
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if export_uri is not None:
-            pulumi.set(__self__, "export_uri", export_uri)
+            _setter("export_uri", export_uri)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if modification_date is not None:
-            pulumi.set(__self__, "modification_date", modification_date)
+            _setter("modification_date", modification_date)
         if organization is not None:
-            pulumi.set(__self__, "organization", organization)
+            _setter("organization", organization)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if state is None:
             state = 'available'
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter

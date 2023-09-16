@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -29,6 +30,12 @@ func (o ScalewayInstanceV1ListServerActionsResponseOutput) ToScalewayInstanceV1L
 
 func (o ScalewayInstanceV1ListServerActionsResponseOutput) ToScalewayInstanceV1ListServerActionsResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1ListServerActionsResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ListServerActionsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListServerActionsResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListServerActionsResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ListServerActionsResponseOutput) Actions() ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput {
@@ -92,6 +99,12 @@ func (i ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs) ToScalewa
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput)
 }
 
+func (i ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate] {
+	return pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate]{
+		OutputState: i.ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapInput is an input type that accepts ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMap and ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput values.
 // You can construct a concrete instance of `ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapInput` via:
 //
@@ -117,6 +130,12 @@ func (i ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMap) ToScaleway
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput)
 }
 
+func (i ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate] {
+	return pulumix.Output[map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate]{
+		OutputState: i.ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput struct{ *pulumi.OutputState }
 
 func (ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) ElementType() reflect.Type {
@@ -129,6 +148,12 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) ToScale
 
 func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate] {
+	return pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) Volume_type() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
@@ -149,6 +174,12 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput) ToSc
 
 func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate] {
+	return pulumix.Output[map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput) MapIndex(k pulumi.StringInput) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput {
@@ -201,6 +232,12 @@ func (o ScalewayInstanceV1TaskOutput) ToScalewayInstanceV1TaskOutput() ScalewayI
 
 func (o ScalewayInstanceV1TaskOutput) ToScalewayInstanceV1TaskOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1TaskOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Task] {
+	return pulumix.Output[ScalewayInstanceV1Task]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the task
@@ -258,6 +295,12 @@ func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutput() Sca
 
 func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1TaskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Task] {
+	return pulumix.Output[*ScalewayInstanceV1Task]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1TaskPtrOutput) Elem() ScalewayInstanceV1TaskOutput {

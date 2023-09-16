@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetDashboard(ctx *pulumi.Context, args *GetDashboardArgs, opts ...pulumi.InvokeOption) (*GetDashboardResult, error) {
@@ -64,6 +65,12 @@ func (o GetDashboardResultOutput) ToGetDashboardResultOutput() GetDashboardResul
 
 func (o GetDashboardResultOutput) ToGetDashboardResultOutputWithContext(ctx context.Context) GetDashboardResultOutput {
 	return o
+}
+
+func (o GetDashboardResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDashboardResult] {
+	return pulumix.Output[GetDashboardResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDashboardResultOutput) Items() ScalewayInstanceV1GetDashboardResponseOutput {

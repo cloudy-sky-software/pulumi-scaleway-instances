@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Action string
@@ -77,6 +78,12 @@ func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPt
 	}).(ActionPtrOutput)
 }
 
+func (o ActionOutput) ToOutput(ctx context.Context) pulumix.Output[Action] {
+	return pulumix.Output[Action]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o ActionPtrOutput) ToActionPtrOutput() ActionPtrOutput {
 
 func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
 	return o
+}
+
+func (o ActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Action] {
+	return pulumix.Output[*Action]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActionPtrOutput) Elem() ActionOutput {
@@ -172,6 +185,12 @@ func (in *actionPtr) ToActionPtrOutput() ActionPtrOutput {
 
 func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
+}
+
+func (in *actionPtr) ToOutput(ctx context.Context) pulumix.Output[*Action] {
+	return pulumix.Output[*Action]{
+		OutputState: in.ToActionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type Direction string
@@ -241,6 +260,12 @@ func (o DirectionOutput) ToDirectionPtrOutputWithContext(ctx context.Context) Di
 	}).(DirectionPtrOutput)
 }
 
+func (o DirectionOutput) ToOutput(ctx context.Context) pulumix.Output[Direction] {
+	return pulumix.Output[Direction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -274,6 +299,12 @@ func (o DirectionPtrOutput) ToDirectionPtrOutput() DirectionPtrOutput {
 
 func (o DirectionPtrOutput) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
 	return o
+}
+
+func (o DirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Direction] {
+	return pulumix.Output[*Direction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectionPtrOutput) Elem() DirectionOutput {
@@ -336,6 +367,12 @@ func (in *directionPtr) ToDirectionPtrOutput() DirectionPtrOutput {
 
 func (in *directionPtr) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DirectionPtrOutput)
+}
+
+func (in *directionPtr) ToOutput(ctx context.Context) pulumix.Output[*Direction] {
+	return pulumix.Output[*Direction]{
+		OutputState: in.ToDirectionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type Protocol string
@@ -407,6 +444,12 @@ func (o ProtocolOutput) ToProtocolPtrOutputWithContext(ctx context.Context) Prot
 	}).(ProtocolPtrOutput)
 }
 
+func (o ProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[Protocol] {
+	return pulumix.Output[Protocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -440,6 +483,12 @@ func (o ProtocolPtrOutput) ToProtocolPtrOutput() ProtocolPtrOutput {
 
 func (o ProtocolPtrOutput) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
 	return o
+}
+
+func (o ProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Protocol] {
+	return pulumix.Output[*Protocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProtocolPtrOutput) Elem() ProtocolOutput {
@@ -504,6 +553,12 @@ func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) Proto
 	return pulumi.ToOutputWithContext(ctx, in).(ProtocolPtrOutput)
 }
 
+func (in *protocolPtr) ToOutput(ctx context.Context) pulumix.Output[*Protocol] {
+	return pulumix.Output[*Protocol]{
+		OutputState: in.ToProtocolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalewayInstanceV1SecurityGroupRuleAction string
 
 const (
@@ -533,6 +588,12 @@ func (o ScalewayInstanceV1SecurityGroupRuleActionOutput) ToScalewayInstanceV1Sec
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1SecurityGroupRuleAction) *ScalewayInstanceV1SecurityGroupRuleAction {
 		return &v
 	}).(ScalewayInstanceV1SecurityGroupRuleActionPtrOutput)
+}
+
+func (o ScalewayInstanceV1SecurityGroupRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupRuleAction] {
+	return pulumix.Output[ScalewayInstanceV1SecurityGroupRuleAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupRuleActionOutput) ToStringOutput() pulumi.StringOutput {
@@ -568,6 +629,12 @@ func (o ScalewayInstanceV1SecurityGroupRuleActionPtrOutput) ToScalewayInstanceV1
 
 func (o ScalewayInstanceV1SecurityGroupRuleActionPtrOutput) ToScalewayInstanceV1SecurityGroupRuleActionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupRuleActionPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupRuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleAction] {
+	return pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupRuleActionPtrOutput) Elem() ScalewayInstanceV1SecurityGroupRuleActionOutput {
@@ -625,6 +692,12 @@ func (o ScalewayInstanceV1SecurityGroupRuleDirectionOutput) ToScalewayInstanceV1
 	}).(ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput)
 }
 
+func (o ScalewayInstanceV1SecurityGroupRuleDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupRuleDirection] {
+	return pulumix.Output[ScalewayInstanceV1SecurityGroupRuleDirection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1SecurityGroupRuleDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -658,6 +731,12 @@ func (o ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput) ToScalewayInstanc
 
 func (o ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput) ToScalewayInstanceV1SecurityGroupRuleDirectionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleDirection] {
+	return pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleDirection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput) Elem() ScalewayInstanceV1SecurityGroupRuleDirectionOutput {
@@ -717,6 +796,12 @@ func (o ScalewayInstanceV1SecurityGroupRuleProtocolOutput) ToScalewayInstanceV1S
 	}).(ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput)
 }
 
+func (o ScalewayInstanceV1SecurityGroupRuleProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupRuleProtocol] {
+	return pulumix.Output[ScalewayInstanceV1SecurityGroupRuleProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1SecurityGroupRuleProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -750,6 +835,12 @@ func (o ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput) ToScalewayInstance
 
 func (o ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput) ToScalewayInstanceV1SecurityGroupRuleProtocolPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleProtocol] {
+	return pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput) Elem() ScalewayInstanceV1SecurityGroupRuleProtocolOutput {
@@ -844,6 +935,12 @@ func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToScalew
 	}).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput)
 }
 
+func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction] {
+	return pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -877,6 +974,12 @@ func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) ToSca
 
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction] {
+	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) Elem() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput {
@@ -939,6 +1042,12 @@ func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr) ToScalewa
 
 func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput)
+}
+
+func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction] {
+	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction]{
+		OutputState: in.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Direction the rule applies to
@@ -1009,6 +1118,12 @@ func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToSca
 	}).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput)
 }
 
+func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection] {
+	return pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1042,6 +1157,12 @@ func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) To
 
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection] {
+	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) Elem() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput {
@@ -1104,6 +1225,12 @@ func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr) ToScal
 
 func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput)
+}
+
+func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection] {
+	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection]{
+		OutputState: in.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Protocol family this rule applies to
@@ -1176,6 +1303,12 @@ func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToScal
 	}).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput)
 }
 
+func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol] {
+	return pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1209,6 +1342,12 @@ func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) ToS
 
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol] {
+	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) Elem() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput {
@@ -1271,6 +1410,12 @@ func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr) ToScale
 
 func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput)
+}
+
+func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol] {
+	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol]{
+		OutputState: in.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

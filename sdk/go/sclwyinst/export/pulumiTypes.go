@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -57,6 +58,12 @@ func (o ScalewayInstanceV1TaskOutput) ToScalewayInstanceV1TaskOutput() ScalewayI
 
 func (o ScalewayInstanceV1TaskOutput) ToScalewayInstanceV1TaskOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1TaskOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Task] {
+	return pulumix.Output[ScalewayInstanceV1Task]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the task
@@ -114,6 +121,12 @@ func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutput() Sca
 
 func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1TaskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Task] {
+	return pulumix.Output[*ScalewayInstanceV1Task]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1TaskPtrOutput) Elem() ScalewayInstanceV1TaskOutput {

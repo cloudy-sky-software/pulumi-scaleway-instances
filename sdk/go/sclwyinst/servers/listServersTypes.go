@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func ListServersTypes(ctx *pulumi.Context, args *ListServersTypesArgs, opts ...pulumi.InvokeOption) (*ListServersTypesResult, error) {
@@ -64,6 +65,12 @@ func (o ListServersTypesResultOutput) ToListServersTypesResultOutput() ListServe
 
 func (o ListServersTypesResultOutput) ToListServersTypesResultOutputWithContext(ctx context.Context) ListServersTypesResultOutput {
 	return o
+}
+
+func (o ListServersTypesResultOutput) ToOutput(ctx context.Context) pulumix.Output[ListServersTypesResult] {
+	return pulumix.Output[ListServersTypesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListServersTypesResultOutput) Items() ScalewayInstanceV1ListServersTypesResponseOutput {

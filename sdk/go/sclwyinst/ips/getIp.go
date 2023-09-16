@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupIp(ctx *pulumi.Context, args *LookupIpArgs, opts ...pulumi.InvokeOption) (*LookupIpResult, error) {
@@ -68,6 +69,12 @@ func (o LookupIpResultOutput) ToLookupIpResultOutput() LookupIpResultOutput {
 
 func (o LookupIpResultOutput) ToLookupIpResultOutputWithContext(ctx context.Context) LookupIpResultOutput {
 	return o
+}
+
+func (o LookupIpResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIpResult] {
+	return pulumix.Output[LookupIpResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupIpResultOutput) Items() ScalewayInstanceV1GetIpResponseOutput {

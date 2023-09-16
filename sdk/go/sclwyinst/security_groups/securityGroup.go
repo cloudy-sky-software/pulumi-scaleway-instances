@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type SecurityGroup struct {
@@ -175,6 +176,12 @@ func (i *SecurityGroup) ToSecurityGroupOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupOutput)
 }
 
+func (i *SecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroup] {
+	return pulumix.Output[*SecurityGroup]{
+		OutputState: i.ToSecurityGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupOutput) ElementType() reflect.Type {
@@ -187,6 +194,12 @@ func (o SecurityGroupOutput) ToSecurityGroupOutput() SecurityGroupOutput {
 
 func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
 	return o
+}
+
+func (o SecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroup] {
+	return pulumix.Output[*SecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The security group creation date (RFC 3339 format)

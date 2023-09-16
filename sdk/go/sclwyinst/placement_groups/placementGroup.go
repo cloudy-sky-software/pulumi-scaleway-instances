@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PlacementGroup struct {
@@ -133,6 +134,12 @@ func (i *PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupOutput)
 }
 
+func (i *PlacementGroup) ToOutput(ctx context.Context) pulumix.Output[*PlacementGroup] {
+	return pulumix.Output[*PlacementGroup]{
+		OutputState: i.ToPlacementGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlacementGroupOutput struct{ *pulumi.OutputState }
 
 func (PlacementGroupOutput) ElementType() reflect.Type {
@@ -145,6 +152,12 @@ func (o PlacementGroupOutput) ToPlacementGroupOutput() PlacementGroupOutput {
 
 func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
 	return o
+}
+
+func (o PlacementGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*PlacementGroup] {
+	return pulumix.Output[*PlacementGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The placement group name

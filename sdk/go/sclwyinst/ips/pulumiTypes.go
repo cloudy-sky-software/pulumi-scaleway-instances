@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -40,6 +41,12 @@ func (i GoogleProtobufStringValueArgs) ToGoogleProtobufStringValueOutput() Googl
 
 func (i GoogleProtobufStringValueArgs) ToGoogleProtobufStringValueOutputWithContext(ctx context.Context) GoogleProtobufStringValueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GoogleProtobufStringValueOutput)
+}
+
+func (i GoogleProtobufStringValueArgs) ToOutput(ctx context.Context) pulumix.Output[GoogleProtobufStringValue] {
+	return pulumix.Output[GoogleProtobufStringValue]{
+		OutputState: i.ToGoogleProtobufStringValueOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GoogleProtobufStringValueArgs) ToGoogleProtobufStringValuePtrOutput() GoogleProtobufStringValuePtrOutput {
@@ -83,6 +90,12 @@ func (i *googleProtobufStringValuePtrType) ToGoogleProtobufStringValuePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GoogleProtobufStringValuePtrOutput)
 }
 
+func (i *googleProtobufStringValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*GoogleProtobufStringValue] {
+	return pulumix.Output[*GoogleProtobufStringValue]{
+		OutputState: i.ToGoogleProtobufStringValuePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GoogleProtobufStringValueOutput struct{ *pulumi.OutputState }
 
 func (GoogleProtobufStringValueOutput) ElementType() reflect.Type {
@@ -107,6 +120,12 @@ func (o GoogleProtobufStringValueOutput) ToGoogleProtobufStringValuePtrOutputWit
 	}).(GoogleProtobufStringValuePtrOutput)
 }
 
+func (o GoogleProtobufStringValueOutput) ToOutput(ctx context.Context) pulumix.Output[GoogleProtobufStringValue] {
+	return pulumix.Output[GoogleProtobufStringValue]{
+		OutputState: o.OutputState,
+	}
+}
+
 type GoogleProtobufStringValuePtrOutput struct{ *pulumi.OutputState }
 
 func (GoogleProtobufStringValuePtrOutput) ElementType() reflect.Type {
@@ -119,6 +138,12 @@ func (o GoogleProtobufStringValuePtrOutput) ToGoogleProtobufStringValuePtrOutput
 
 func (o GoogleProtobufStringValuePtrOutput) ToGoogleProtobufStringValuePtrOutputWithContext(ctx context.Context) GoogleProtobufStringValuePtrOutput {
 	return o
+}
+
+func (o GoogleProtobufStringValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GoogleProtobufStringValue] {
+	return pulumix.Output[*GoogleProtobufStringValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GoogleProtobufStringValuePtrOutput) Elem() GoogleProtobufStringValueOutput {
@@ -149,6 +174,12 @@ func (o ScalewayInstanceV1GetIpResponseOutput) ToScalewayInstanceV1GetIpResponse
 	return o
 }
 
+func (o ScalewayInstanceV1GetIpResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetIpResponse] {
+	return pulumix.Output[ScalewayInstanceV1GetIpResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1GetIpResponseOutput) Ip() ScalewayInstanceV1IpPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetIpResponse) *ScalewayInstanceV1Ip { return v.Ip }).(ScalewayInstanceV1IpPtrOutput)
 }
@@ -177,6 +208,12 @@ func (o ScalewayInstanceV1IpOutput) ToScalewayInstanceV1IpOutput() ScalewayInsta
 
 func (o ScalewayInstanceV1IpOutput) ToScalewayInstanceV1IpOutputWithContext(ctx context.Context) ScalewayInstanceV1IpOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1IpOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Ip] {
+	return pulumix.Output[ScalewayInstanceV1Ip]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (IPv4 address)
@@ -224,6 +261,12 @@ func (o ScalewayInstanceV1IpPtrOutput) ToScalewayInstanceV1IpPtrOutput() Scalewa
 
 func (o ScalewayInstanceV1IpPtrOutput) ToScalewayInstanceV1IpPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1IpPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1IpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Ip] {
+	return pulumix.Output[*ScalewayInstanceV1Ip]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1IpPtrOutput) Elem() ScalewayInstanceV1IpOutput {
@@ -323,6 +366,12 @@ func (o ScalewayInstanceV1IpArrayOutput) ToScalewayInstanceV1IpArrayOutputWithCo
 	return o
 }
 
+func (o ScalewayInstanceV1IpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1Ip] {
+	return pulumix.Output[[]ScalewayInstanceV1Ip]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1IpArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1IpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalewayInstanceV1Ip {
 		return vs[0].([]ScalewayInstanceV1Ip)[vs[1].(int)]
@@ -346,6 +395,12 @@ func (o ScalewayInstanceV1ListIpsResponseOutput) ToScalewayInstanceV1ListIpsResp
 
 func (o ScalewayInstanceV1ListIpsResponseOutput) ToScalewayInstanceV1ListIpsResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1ListIpsResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ListIpsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListIpsResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListIpsResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of ips
@@ -384,6 +439,12 @@ func (i ScalewayInstanceV1ServerSummaryArgs) ToScalewayInstanceV1ServerSummaryOu
 
 func (i ScalewayInstanceV1ServerSummaryArgs) ToScalewayInstanceV1ServerSummaryOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerSummaryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1ServerSummaryOutput)
+}
+
+func (i ScalewayInstanceV1ServerSummaryArgs) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerSummary] {
+	return pulumix.Output[ScalewayInstanceV1ServerSummary]{
+		OutputState: i.ToScalewayInstanceV1ServerSummaryOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ScalewayInstanceV1ServerSummaryArgs) ToScalewayInstanceV1ServerSummaryPtrOutput() ScalewayInstanceV1ServerSummaryPtrOutput {
@@ -427,6 +488,12 @@ func (i *scalewayInstanceV1ServerSummaryPtrType) ToScalewayInstanceV1ServerSumma
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1ServerSummaryPtrOutput)
 }
 
+func (i *scalewayInstanceV1ServerSummaryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerSummary] {
+	return pulumix.Output[*ScalewayInstanceV1ServerSummary]{
+		OutputState: i.ToScalewayInstanceV1ServerSummaryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalewayInstanceV1ServerSummaryOutput struct{ *pulumi.OutputState }
 
 func (ScalewayInstanceV1ServerSummaryOutput) ElementType() reflect.Type {
@@ -451,6 +518,12 @@ func (o ScalewayInstanceV1ServerSummaryOutput) ToScalewayInstanceV1ServerSummary
 	}).(ScalewayInstanceV1ServerSummaryPtrOutput)
 }
 
+func (o ScalewayInstanceV1ServerSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerSummary] {
+	return pulumix.Output[ScalewayInstanceV1ServerSummary]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1ServerSummaryOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerSummary) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -471,6 +544,12 @@ func (o ScalewayInstanceV1ServerSummaryPtrOutput) ToScalewayInstanceV1ServerSumm
 
 func (o ScalewayInstanceV1ServerSummaryPtrOutput) ToScalewayInstanceV1ServerSummaryPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerSummaryPtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ServerSummaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerSummary] {
+	return pulumix.Output[*ScalewayInstanceV1ServerSummary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1ServerSummaryPtrOutput) Elem() ScalewayInstanceV1ServerSummaryOutput {

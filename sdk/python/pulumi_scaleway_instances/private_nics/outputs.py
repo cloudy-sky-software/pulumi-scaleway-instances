@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -21,8 +21,17 @@ __all__ = [
 class ScalewayInstanceV1GetPrivateNICResponse(dict):
     def __init__(__self__, *,
                  private_nic: Optional['outputs.ScalewayInstanceV1PrivateNIC'] = None):
+        ScalewayInstanceV1GetPrivateNICResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_nic=private_nic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_nic: Optional['outputs.ScalewayInstanceV1PrivateNIC'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_nic is not None:
-            pulumi.set(__self__, "private_nic", private_nic)
+            _setter("private_nic", private_nic)
 
     @property
     @pulumi.getter
@@ -34,8 +43,17 @@ class ScalewayInstanceV1GetPrivateNICResponse(dict):
 class ScalewayInstanceV1ListPrivateNICsResponse(dict):
     def __init__(__self__, *,
                  private_nics: Optional[Sequence['outputs.ScalewayInstanceV1PrivateNIC']] = None):
+        ScalewayInstanceV1ListPrivateNICsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_nics=private_nics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_nics: Optional[Sequence['outputs.ScalewayInstanceV1PrivateNIC']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if private_nics is not None:
-            pulumi.set(__self__, "private_nics", private_nics)
+            _setter("private_nics", private_nics)
 
     @property
     @pulumi.getter
@@ -58,18 +76,35 @@ class ScalewayInstanceV1PrivateNIC(dict):
         :param str server_id: The server the private NIC is attached to
         :param 'ScalewayInstanceV1PrivateNICState' state: The private NIC state
         """
+        ScalewayInstanceV1PrivateNIC._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            mac_address=mac_address,
+            private_network_id=private_network_id,
+            server_id=server_id,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             mac_address: Optional[str] = None,
+             private_network_id: Optional[str] = None,
+             server_id: Optional[str] = None,
+             state: Optional['ScalewayInstanceV1PrivateNICState'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
         if private_network_id is not None:
-            pulumi.set(__self__, "private_network_id", private_network_id)
+            _setter("private_network_id", private_network_id)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if state is None:
             state = 'available'
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter

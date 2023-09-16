@@ -9,6 +9,7 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -30,6 +31,12 @@ func (o GoogleProtobufUInt32ValueOutput) ToGoogleProtobufUInt32ValueOutputWithCo
 	return o
 }
 
+func (o GoogleProtobufUInt32ValueOutput) ToOutput(ctx context.Context) pulumix.Output[GoogleProtobufUInt32Value] {
+	return pulumix.Output[GoogleProtobufUInt32Value]{
+		OutputState: o.OutputState,
+	}
+}
+
 type GoogleProtobufUInt32ValuePtrOutput struct{ *pulumi.OutputState }
 
 func (GoogleProtobufUInt32ValuePtrOutput) ElementType() reflect.Type {
@@ -42,6 +49,12 @@ func (o GoogleProtobufUInt32ValuePtrOutput) ToGoogleProtobufUInt32ValuePtrOutput
 
 func (o GoogleProtobufUInt32ValuePtrOutput) ToGoogleProtobufUInt32ValuePtrOutputWithContext(ctx context.Context) GoogleProtobufUInt32ValuePtrOutput {
 	return o
+}
+
+func (o GoogleProtobufUInt32ValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GoogleProtobufUInt32Value] {
+	return pulumix.Output[*GoogleProtobufUInt32Value]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GoogleProtobufUInt32ValuePtrOutput) Elem() GoogleProtobufUInt32ValueOutput {
@@ -83,6 +96,12 @@ func (o ScalewayInstanceV1GetSecurityGroupRuleResponseOutput) ToScalewayInstance
 	return o
 }
 
+func (o ScalewayInstanceV1GetSecurityGroupRuleResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetSecurityGroupRuleResponse] {
+	return pulumix.Output[ScalewayInstanceV1GetSecurityGroupRuleResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1GetSecurityGroupRuleResponseOutput) Rule() ScalewayInstanceV1SecurityGroupRulePtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetSecurityGroupRuleResponse) *ScalewayInstanceV1SecurityGroupRule {
 		return v.Rule
@@ -106,6 +125,12 @@ func (o ScalewayInstanceV1ListSecurityGroupRulesResponseOutput) ToScalewayInstan
 
 func (o ScalewayInstanceV1ListSecurityGroupRulesResponseOutput) ToScalewayInstanceV1ListSecurityGroupRulesResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1ListSecurityGroupRulesResponseOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1ListSecurityGroupRulesResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListSecurityGroupRulesResponse] {
+	return pulumix.Output[ScalewayInstanceV1ListSecurityGroupRulesResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of security rules
@@ -162,6 +187,12 @@ func (o ScalewayInstanceV1SecurityGroupRuleOutput) ToScalewayInstanceV1SecurityG
 
 func (o ScalewayInstanceV1SecurityGroupRuleOutput) ToScalewayInstanceV1SecurityGroupRuleOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupRuleOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupRule] {
+	return pulumix.Output[ScalewayInstanceV1SecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupRuleOutput) Action() ScalewayInstanceV1SecurityGroupRuleActionPtrOutput {
@@ -223,6 +254,12 @@ func (o ScalewayInstanceV1SecurityGroupRulePtrOutput) ToScalewayInstanceV1Securi
 
 func (o ScalewayInstanceV1SecurityGroupRulePtrOutput) ToScalewayInstanceV1SecurityGroupRulePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupRulePtrOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SecurityGroupRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupRule] {
+	return pulumix.Output[*ScalewayInstanceV1SecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupRulePtrOutput) Elem() ScalewayInstanceV1SecurityGroupRuleOutput {
@@ -340,6 +377,12 @@ func (o ScalewayInstanceV1SecurityGroupRuleArrayOutput) ToScalewayInstanceV1Secu
 	return o
 }
 
+func (o ScalewayInstanceV1SecurityGroupRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1SecurityGroupRule] {
+	return pulumix.Output[[]ScalewayInstanceV1SecurityGroupRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalewayInstanceV1SecurityGroupRuleArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1SecurityGroupRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalewayInstanceV1SecurityGroupRule {
 		return vs[0].([]ScalewayInstanceV1SecurityGroupRule)[vs[1].(int)]
@@ -453,6 +496,12 @@ func (i ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs) ToScalewayInstan
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutput)
 }
 
+func (i ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRule] {
+	return pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRule]{
+		OutputState: i.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayInput is an input type that accepts ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArray and ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayOutput values.
 // You can construct a concrete instance of `ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayInput` via:
 //
@@ -478,6 +527,12 @@ func (i ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArray) ToScalewayInsta
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayOutput)
 }
 
+func (i ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1SetSecurityGroupRulesRequestRule] {
+	return pulumix.Output[[]ScalewayInstanceV1SetSecurityGroupRulesRequestRule]{
+		OutputState: i.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutput struct{ *pulumi.OutputState }
 
 func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutput) ElementType() reflect.Type {
@@ -490,6 +545,12 @@ func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutput) ToScalewayInst
 
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRule] {
+	return pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Action to apply when the rule matches a packet
@@ -560,6 +621,12 @@ func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayOutput) ToScalewa
 
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayOutput {
 	return o
+}
+
+func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1SetSecurityGroupRulesRequestRule] {
+	return pulumix.Output[[]ScalewayInstanceV1SetSecurityGroupRulesRequestRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleOutput {
