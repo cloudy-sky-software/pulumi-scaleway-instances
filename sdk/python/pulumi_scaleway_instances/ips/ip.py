@@ -179,13 +179,13 @@ class Ip(pulumi.CustomResource):
             if project is None and not opts.urn:
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
-            if not isinstance(reverse, GoogleProtobufStringValueArgs):
+            if reverse is not None and not isinstance(reverse, GoogleProtobufStringValueArgs):
                 reverse = reverse or {}
                 def _setter(key, value):
                     reverse[key] = value
                 GoogleProtobufStringValueArgs._configure(_setter, **reverse)
             __props__.__dict__["reverse"] = reverse
-            if not isinstance(server, ScalewayInstanceV1ServerSummaryArgs):
+            if server is not None and not isinstance(server, ScalewayInstanceV1ServerSummaryArgs):
                 server = server or {}
                 def _setter(key, value):
                     server[key] = value

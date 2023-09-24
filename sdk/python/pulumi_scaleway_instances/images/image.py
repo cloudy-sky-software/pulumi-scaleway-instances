@@ -262,7 +262,7 @@ class Image(pulumi.CustomResource):
             if arch is None:
                 arch = 'x86_64'
             __props__.__dict__["arch"] = arch
-            if not isinstance(default_bootscript, ScalewayInstanceV1BootscriptArgs):
+            if default_bootscript is not None and not isinstance(default_bootscript, ScalewayInstanceV1BootscriptArgs):
                 default_bootscript = default_bootscript or {}
                 def _setter(key, value):
                     default_bootscript[key] = value
@@ -275,7 +275,7 @@ class Image(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["public"] = public
-            if not isinstance(root_volume, ScalewayInstanceV1VolumeSummaryArgs):
+            if root_volume is not None and not isinstance(root_volume, ScalewayInstanceV1VolumeSummaryArgs):
                 root_volume = root_volume or {}
                 def _setter(key, value):
                     root_volume[key] = value
