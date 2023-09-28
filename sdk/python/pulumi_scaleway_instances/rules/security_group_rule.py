@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['SecurityGroupRuleArgs', 'SecurityGroupRule']
@@ -295,6 +296,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["security_group_id"] = security_group_id
             __props__.__dict__["zone"] = zone
+            __props__.__dict__["rule"] = None
         super(SecurityGroupRule, __self__).__init__(
             'scaleway-instances:rules:SecurityGroupRule',
             resource_name,
@@ -325,6 +327,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         __props__.__dict__["ip_range"] = None
         __props__.__dict__["position"] = None
         __props__.__dict__["protocol"] = None
+        __props__.__dict__["rule"] = None
         return SecurityGroupRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -381,4 +384,9 @@ class SecurityGroupRule(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output['Protocol']:
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def rule(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1SecurityGroupRule']]:
+        return pulumi.get(self, "rule")
 

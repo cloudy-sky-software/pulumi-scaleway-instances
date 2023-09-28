@@ -21,6 +21,19 @@ export const ScalewayInstanceV1SnapshotVolumeType = {
 
 export type ScalewayInstanceV1SnapshotVolumeType = (typeof ScalewayInstanceV1SnapshotVolumeType)[keyof typeof ScalewayInstanceV1SnapshotVolumeType];
 
+export const ScalewayInstanceV1TaskStatus = {
+    Pending: "pending",
+    Started: "started",
+    Success: "success",
+    Failure: "failure",
+    Retry: "retry",
+} as const;
+
+/**
+ * The task status
+ */
+export type ScalewayInstanceV1TaskStatus = (typeof ScalewayInstanceV1TaskStatus)[keyof typeof ScalewayInstanceV1TaskStatus];
+
 export const State = {
     Available: "available",
     Snapshotting: "snapshotting",

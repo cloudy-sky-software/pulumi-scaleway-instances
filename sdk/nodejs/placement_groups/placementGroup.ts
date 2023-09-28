@@ -42,6 +42,7 @@ export class PlacementGroup extends pulumi.CustomResource {
      * The placement group organization ID
      */
     public readonly organization!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly placement_group!: pulumi.Output<outputs.placement_groups.ScalewayInstanceV1PlacementGroup | undefined>;
     public readonly policy_mode!: pulumi.Output<enums.placement_groups.PolicyMode | undefined>;
     /**
      * Returns true if the policy is respected, false otherwise
@@ -82,10 +83,12 @@ export class PlacementGroup extends pulumi.CustomResource {
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["placement_group"] = undefined /*out*/;
             resourceInputs["policy_respected"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;
+            resourceInputs["placement_group"] = undefined /*out*/;
             resourceInputs["policy_mode"] = undefined /*out*/;
             resourceInputs["policy_respected"] = undefined /*out*/;
             resourceInputs["policy_type"] = undefined /*out*/;

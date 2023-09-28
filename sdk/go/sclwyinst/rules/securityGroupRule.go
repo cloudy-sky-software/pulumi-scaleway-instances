@@ -27,8 +27,9 @@ type SecurityGroupRule struct {
 	// (IP network)
 	Ip_range pulumi.StringOutput `pulumi:"ip_range"`
 	// The position of this rule in the security group rules list
-	Position pulumi.Float64PtrOutput `pulumi:"position"`
-	Protocol ProtocolOutput          `pulumi:"protocol"`
+	Position pulumi.Float64PtrOutput                      `pulumi:"position"`
+	Protocol ProtocolOutput                               `pulumi:"protocol"`
+	Rule     ScalewayInstanceV1SecurityGroupRulePtrOutput `pulumi:"rule"`
 }
 
 // NewSecurityGroupRule registers a new resource with the given unique name, arguments, and options.
@@ -207,6 +208,10 @@ func (o SecurityGroupRuleOutput) Position() pulumi.Float64PtrOutput {
 
 func (o SecurityGroupRuleOutput) Protocol() ProtocolOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) ProtocolOutput { return v.Protocol }).(ProtocolOutput)
+}
+
+func (o SecurityGroupRuleOutput) Rule() ScalewayInstanceV1SecurityGroupRulePtrOutput {
+	return o.ApplyT(func(v *SecurityGroupRule) ScalewayInstanceV1SecurityGroupRulePtrOutput { return v.Rule }).(ScalewayInstanceV1SecurityGroupRulePtrOutput)
 }
 
 func init() {

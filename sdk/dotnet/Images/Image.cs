@@ -12,6 +12,9 @@ namespace Pulumi.ScalewayInstances.Images
     [ScalewayInstancesResourceType("scaleway-instances:images:Image")]
     public partial class Image : global::Pulumi.CustomResource
     {
+        [Output("Location")]
+        public Output<string?> Location { get; private set; } = null!;
+
         [Output("arch")]
         public Output<Pulumi.ScalewayInstances.Images.Arch?> Arch { get; private set; } = null!;
 
@@ -29,6 +32,9 @@ namespace Pulumi.ScalewayInstances.Images
 
         [Output("from_server")]
         public Output<string?> From_server { get; private set; } = null!;
+
+        [Output("image")]
+        public Output<Outputs.ScalewayInstanceV1Image?> ImageValue { get; private set; } = null!;
 
         /// <summary>
         /// (RFC 3339 format)

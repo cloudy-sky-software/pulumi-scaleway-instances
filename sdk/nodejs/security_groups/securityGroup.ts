@@ -78,6 +78,7 @@ export class SecurityGroup extends pulumi.CustomResource {
      * True if it is your default security group for this project ID
      */
     public readonly project_default!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly security_group!: pulumi.Output<outputs.security_groups.ScalewayInstanceV1SecurityGroup | undefined>;
     /**
      * List of servers attached to this security group
      */
@@ -127,6 +128,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             resourceInputs["zone"] = args ? args.zone : undefined;
             resourceInputs["creation_date"] = undefined /*out*/;
             resourceInputs["modification_date"] = undefined /*out*/;
+            resourceInputs["security_group"] = undefined /*out*/;
             resourceInputs["servers"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {
@@ -141,6 +143,7 @@ export class SecurityGroup extends pulumi.CustomResource {
             resourceInputs["outbound_default_policy"] = undefined /*out*/;
             resourceInputs["project"] = undefined /*out*/;
             resourceInputs["project_default"] = undefined /*out*/;
+            resourceInputs["security_group"] = undefined /*out*/;
             resourceInputs["servers"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateful"] = undefined /*out*/;

@@ -84,6 +84,9 @@ namespace Pulumi.ScalewayInstances.Servers
         [Output("security_group")]
         public Output<string?> Security_group { get; private set; } = null!;
 
+        [Output("server")]
+        public Output<Outputs.ScalewayInstanceV1Server?> ServerValue { get; private set; } = null!;
+
         /// <summary>
         /// The server tags
         /// </summary>

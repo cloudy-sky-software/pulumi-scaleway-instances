@@ -253,6 +253,8 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["error_reason"] = None
             __props__.__dict__["modification_date"] = None
+            __props__.__dict__["snapshot"] = None
+            __props__.__dict__["task"] = None
         super(Snapshot, __self__).__init__(
             'scaleway-instances:snapshots:Snapshot',
             resource_name,
@@ -283,8 +285,10 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["organization"] = None
         __props__.__dict__["project"] = None
         __props__.__dict__["size"] = None
+        __props__.__dict__["snapshot"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["task"] = None
         __props__.__dict__["volume_type"] = None
         __props__.__dict__["zone"] = None
         return Snapshot(resource_name, opts=opts, __props__=__props__)
@@ -355,6 +359,11 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def snapshot(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1Snapshot']]:
+        return pulumi.get(self, "snapshot")
+
+    @property
+    @pulumi.getter
     def state(self) -> pulumi.Output[Optional['State']]:
         return pulumi.get(self, "state")
 
@@ -365,6 +374,11 @@ class Snapshot(pulumi.CustomResource):
         The snapshot tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def task(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1Task']]:
+        return pulumi.get(self, "task")
 
     @property
     @pulumi.getter

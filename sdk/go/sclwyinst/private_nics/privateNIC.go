@@ -16,7 +16,8 @@ import (
 type PrivateNIC struct {
 	pulumi.CustomResourceState
 
-	Private_network_id pulumi.StringOutput `pulumi:"private_network_id"`
+	Private_network_id pulumi.StringOutput                   `pulumi:"private_network_id"`
+	Private_nic        ScalewayInstanceV1PrivateNICPtrOutput `pulumi:"private_nic"`
 }
 
 // NewPrivateNIC registers a new resource with the given unique name, arguments, and options.
@@ -127,6 +128,10 @@ func (o PrivateNICOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateN
 
 func (o PrivateNICOutput) Private_network_id() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateNIC) pulumi.StringOutput { return v.Private_network_id }).(pulumi.StringOutput)
+}
+
+func (o PrivateNICOutput) Private_nic() ScalewayInstanceV1PrivateNICPtrOutput {
+	return o.ApplyT(func(v *PrivateNIC) ScalewayInstanceV1PrivateNICPtrOutput { return v.Private_nic }).(ScalewayInstanceV1PrivateNICPtrOutput)
 }
 
 func init() {

@@ -350,6 +350,7 @@ class SecurityGroup(pulumi.CustomResource):
             __props__.__dict__["zone"] = zone
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["modification_date"] = None
+            __props__.__dict__["security_group"] = None
             __props__.__dict__["servers"] = None
             __props__.__dict__["state"] = None
         super(SecurityGroup, __self__).__init__(
@@ -385,6 +386,7 @@ class SecurityGroup(pulumi.CustomResource):
         __props__.__dict__["outbound_default_policy"] = None
         __props__.__dict__["project"] = None
         __props__.__dict__["project_default"] = None
+        __props__.__dict__["security_group"] = None
         __props__.__dict__["servers"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["stateful"] = None
@@ -479,6 +481,11 @@ class SecurityGroup(pulumi.CustomResource):
         True if it is your default security group for this project ID
         """
         return pulumi.get(self, "project_default")
+
+    @property
+    @pulumi.getter
+    def security_group(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1SecurityGroup']]:
+        return pulumi.get(self, "security_group")
 
     @property
     @pulumi.getter

@@ -2889,6 +2889,72 @@
                 }
             ]
         },
+        "scaleway-instances:snapshots:ScalewayInstanceV1Task": {
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the task"
+                },
+                "href_from": {
+                    "type": "string"
+                },
+                "href_result": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the task"
+                },
+                "progress": {
+                    "type": "number",
+                    "description": "The progress of the task in percent"
+                },
+                "started_at": {
+                    "type": "string",
+                    "description": "The task start date (RFC 3339 format)"
+                },
+                "status": {
+                    "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1TaskStatus",
+                    "description": "The task status",
+                    "default": "pending"
+                },
+                "terminated_at": {
+                    "type": "string",
+                    "description": "The task end date (RFC 3339 format)"
+                },
+                "zone": {
+                    "type": "string",
+                    "description": "The zone in which is the task"
+                }
+            },
+            "type": "object"
+        },
+        "scaleway-instances:snapshots:ScalewayInstanceV1TaskStatus": {
+            "description": "The task status",
+            "type": "string",
+            "enum": [
+                {
+                    "name": "Pending",
+                    "value": "pending"
+                },
+                {
+                    "name": "Started",
+                    "value": "started"
+                },
+                {
+                    "name": "Success",
+                    "value": "success"
+                },
+                {
+                    "name": "Failure",
+                    "value": "failure"
+                },
+                {
+                    "name": "Retry",
+                    "value": "retry"
+                }
+            ]
+        },
         "scaleway-instances:snapshots:State": {
             "type": "string",
             "enum": [
@@ -3321,6 +3387,9 @@
         },
         "scaleway-instances:images:Image": {
             "properties": {
+                "Location": {
+                    "type": "string"
+                },
                 "arch": {
                     "$ref": "#/types/scaleway-instances:images:Arch",
                     "default": "x86_64"
@@ -3340,6 +3409,14 @@
                 },
                 "from_server": {
                     "type": "string"
+                },
+                "image": {
+                    "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Image",
+                    "language": {
+                        "csharp": {
+                            "name": "ImageValue"
+                        }
+                    }
                 },
                 "modification_date": {
                     "type": "string",
@@ -3431,9 +3508,20 @@
         },
         "scaleway-instances:ips:Ip": {
             "properties": {
+                "Location": {
+                    "type": "string"
+                },
                 "address": {
                     "type": "string",
                     "description": "(IPv4 address)"
+                },
+                "ip": {
+                    "$ref": "#/types/scaleway-instances:ips:ScalewayInstanceV1Ip",
+                    "language": {
+                        "csharp": {
+                            "name": "IpValue"
+                        }
+                    }
                 },
                 "organization": {
                     "type": "string"
@@ -3498,6 +3586,14 @@
                 "organization": {
                     "type": "string",
                     "description": "The placement group organization ID"
+                },
+                "placement_group": {
+                    "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1PlacementGroup",
+                    "language": {
+                        "csharp": {
+                            "name": "PlacementGroupValue"
+                        }
+                    }
                 },
                 "policy_mode": {
                     "$ref": "#/types/scaleway-instances:placement_groups:PolicyMode",
@@ -3573,6 +3669,9 @@
             "properties": {
                 "private_network_id": {
                     "type": "string"
+                },
+                "private_nic": {
+                    "$ref": "#/types/scaleway-instances:private_nics:ScalewayInstanceV1PrivateNIC"
                 }
             },
             "type": "object",
@@ -3628,6 +3727,9 @@
                 "protocol": {
                     "$ref": "#/types/scaleway-instances:rules:Protocol",
                     "default": "TCP"
+                },
+                "rule": {
+                    "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1SecurityGroupRule"
                 }
             },
             "type": "object",
@@ -3762,6 +3864,14 @@
                 "project_default": {
                     "type": "boolean",
                     "description": "True if it is your default security group for this project ID"
+                },
+                "security_group": {
+                    "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1SecurityGroup",
+                    "language": {
+                        "csharp": {
+                            "name": "SecurityGroupValue"
+                        }
+                    }
                 },
                 "servers": {
                     "type": "array",
@@ -3933,6 +4043,14 @@
                     "type": "string",
                     "description": "The security group ID"
                 },
+                "server": {
+                    "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1Server",
+                    "language": {
+                        "csharp": {
+                            "name": "ServerValue"
+                        }
+                    }
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -4058,6 +4176,14 @@
                     "type": "number",
                     "description": "The snapshot size (in bytes)"
                 },
+                "snapshot": {
+                    "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1Snapshot",
+                    "language": {
+                        "csharp": {
+                            "name": "SnapshotValue"
+                        }
+                    }
+                },
                 "state": {
                     "$ref": "#/types/scaleway-instances:snapshots:State",
                     "default": "available"
@@ -4068,6 +4194,9 @@
                         "type": "string"
                     },
                     "description": "The snapshot tags"
+                },
+                "task": {
+                    "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1Task"
                 },
                 "volume_type": {
                     "$ref": "#/types/scaleway-instances:snapshots:VolumeType",
@@ -4119,6 +4248,9 @@
         },
         "scaleway-instances:volumes:Volume": {
             "properties": {
+                "Location": {
+                    "type": "string"
+                },
                 "creation_date": {
                     "type": "string",
                     "description": "The volume creation date (RFC 3339 format)"
@@ -4161,6 +4293,14 @@
                         "type": "string"
                     },
                     "description": "The volume tags"
+                },
+                "volume": {
+                    "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1Volume",
+                    "language": {
+                        "csharp": {
+                            "name": "VolumeValue"
+                        }
+                    }
                 },
                 "volume_type": {
                     "$ref": "#/types/scaleway-instances:volumes:VolumeType",

@@ -51,6 +51,9 @@ namespace Pulumi.ScalewayInstances.Rules
         [Output("protocol")]
         public Output<Pulumi.ScalewayInstances.Rules.Protocol> Protocol { get; private set; } = null!;
 
+        [Output("rule")]
+        public Output<Outputs.ScalewayInstanceV1SecurityGroupRule?> Rule { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SecurityGroupRule resource with the given unique name, arguments, and options.

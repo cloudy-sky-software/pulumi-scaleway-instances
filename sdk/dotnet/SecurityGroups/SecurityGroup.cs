@@ -78,6 +78,9 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         [Output("project_default")]
         public Output<bool?> Project_default { get; private set; } = null!;
 
+        [Output("security_group")]
+        public Output<Outputs.ScalewayInstanceV1SecurityGroup?> SecurityGroupValue { get; private set; } = null!;
+
         /// <summary>
         /// List of servers attached to this security group
         /// </summary>

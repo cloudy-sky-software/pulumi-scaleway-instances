@@ -66,11 +66,13 @@ export class Snapshot extends pulumi.CustomResource {
      * The snapshot size (in bytes)
      */
     public readonly size!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly snapshot!: pulumi.Output<outputs.snapshots.ScalewayInstanceV1Snapshot | undefined>;
     public readonly state!: pulumi.Output<enums.snapshots.State | undefined>;
     /**
      * The snapshot tags
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly task!: pulumi.Output<outputs.snapshots.ScalewayInstanceV1Task | undefined>;
     public readonly volume_type!: pulumi.Output<enums.snapshots.VolumeType | undefined>;
     /**
      * The snapshot zone
@@ -100,6 +102,8 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["creation_date"] = undefined /*out*/;
             resourceInputs["error_reason"] = undefined /*out*/;
             resourceInputs["modification_date"] = undefined /*out*/;
+            resourceInputs["snapshot"] = undefined /*out*/;
+            resourceInputs["task"] = undefined /*out*/;
         } else {
             resourceInputs["base_volume"] = undefined /*out*/;
             resourceInputs["creation_date"] = undefined /*out*/;
@@ -109,8 +113,10 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["organization"] = undefined /*out*/;
             resourceInputs["project"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["snapshot"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["task"] = undefined /*out*/;
             resourceInputs["volume_type"] = undefined /*out*/;
             resourceInputs["zone"] = undefined /*out*/;
         }

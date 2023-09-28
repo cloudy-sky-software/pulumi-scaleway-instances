@@ -16,6 +16,7 @@ import (
 type Volume struct {
 	pulumi.CustomResourceState
 
+	Location pulumi.StringPtrOutput `pulumi:"Location"`
 	// The volume creation date (RFC 3339 format)
 	Creation_date pulumi.StringPtrOutput `pulumi:"creation_date"`
 	// Show the volume NBD export URI
@@ -34,8 +35,9 @@ type Volume struct {
 	Size  pulumi.Float64PtrOutput `pulumi:"size"`
 	State StatePtrOutput          `pulumi:"state"`
 	// The volume tags
-	Tags        pulumi.StringArrayOutput `pulumi:"tags"`
-	Volume_type VolumeTypePtrOutput      `pulumi:"volume_type"`
+	Tags        pulumi.StringArrayOutput          `pulumi:"tags"`
+	Volume      ScalewayInstanceV1VolumePtrOutput `pulumi:"volume"`
+	Volume_type VolumeTypePtrOutput               `pulumi:"volume_type"`
 	// The zone in which is the volume
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
@@ -167,6 +169,10 @@ func (o VolumeOutput) ToOutput(ctx context.Context) pulumix.Output[*Volume] {
 	}
 }
 
+func (o VolumeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 // The volume creation date (RFC 3339 format)
 func (o VolumeOutput) Creation_date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Creation_date }).(pulumi.StringPtrOutput)
@@ -214,6 +220,10 @@ func (o VolumeOutput) State() StatePtrOutput {
 // The volume tags
 func (o VolumeOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+func (o VolumeOutput) Volume() ScalewayInstanceV1VolumePtrOutput {
+	return o.ApplyT(func(v *Volume) ScalewayInstanceV1VolumePtrOutput { return v.Volume }).(ScalewayInstanceV1VolumePtrOutput)
 }
 
 func (o VolumeOutput) Volume_type() VolumeTypePtrOutput {

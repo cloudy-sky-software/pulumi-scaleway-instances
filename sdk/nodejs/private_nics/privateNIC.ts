@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export class PrivateNIC extends pulumi.CustomResource {
@@ -32,6 +35,7 @@ export class PrivateNIC extends pulumi.CustomResource {
     }
 
     public readonly private_network_id!: pulumi.Output<string>;
+    public /*out*/ readonly private_nic!: pulumi.Output<outputs.private_nics.ScalewayInstanceV1PrivateNIC | undefined>;
 
     /**
      * Create a PrivateNIC resource with the given unique name, arguments, and options.
@@ -50,8 +54,10 @@ export class PrivateNIC extends pulumi.CustomResource {
             resourceInputs["private_network_id"] = args ? args.private_network_id : undefined;
             resourceInputs["server_id"] = args ? args.server_id : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["private_nic"] = undefined /*out*/;
         } else {
             resourceInputs["private_network_id"] = undefined /*out*/;
+            resourceInputs["private_nic"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PrivateNIC.__pulumiType, name, resourceInputs, opts);

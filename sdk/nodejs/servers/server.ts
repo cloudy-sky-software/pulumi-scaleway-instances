@@ -82,6 +82,7 @@ export class Server extends pulumi.CustomResource {
      * The security group ID
      */
     public readonly security_group!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly server!: pulumi.Output<outputs.servers.ScalewayInstanceV1Server | undefined>;
     /**
      * The server tags
      */
@@ -117,6 +118,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["server"] = undefined /*out*/;
         } else {
             resourceInputs["boot_type"] = undefined /*out*/;
             resourceInputs["bootscript"] = undefined /*out*/;
@@ -130,6 +132,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["project"] = undefined /*out*/;
             resourceInputs["public_ip"] = undefined /*out*/;
             resourceInputs["security_group"] = undefined /*out*/;
+            resourceInputs["server"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["volumes"] = undefined /*out*/;
         }

@@ -34,10 +34,12 @@ export class Ip extends pulumi.CustomResource {
         return obj['__pulumiType'] === Ip.__pulumiType;
     }
 
+    public /*out*/ readonly Location!: pulumi.Output<string | undefined>;
     /**
      * (IPv4 address)
      */
     public /*out*/ readonly address!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly ip!: pulumi.Output<outputs.ips.ScalewayInstanceV1Ip | undefined>;
     public readonly organization!: pulumi.Output<string | undefined>;
     public readonly project!: pulumi.Output<string>;
     public readonly reverse!: pulumi.Output<outputs.ips.GoogleProtobufStringValue | undefined>;
@@ -65,9 +67,13 @@ export class Ip extends pulumi.CustomResource {
             resourceInputs["server"] = args ? args.server : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["Location"] = undefined /*out*/;
             resourceInputs["address"] = undefined /*out*/;
+            resourceInputs["ip"] = undefined /*out*/;
         } else {
+            resourceInputs["Location"] = undefined /*out*/;
             resourceInputs["address"] = undefined /*out*/;
+            resourceInputs["ip"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;
             resourceInputs["project"] = undefined /*out*/;
             resourceInputs["reverse"] = undefined /*out*/;

@@ -406,6 +406,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["zone"] = zone
+            __props__.__dict__["server"] = None
         super(Server, __self__).__init__(
             'scaleway-instances:servers:Server',
             resource_name,
@@ -440,6 +441,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["project"] = None
         __props__.__dict__["public_ip"] = None
         __props__.__dict__["security_group"] = None
+        __props__.__dict__["server"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["volumes"] = None
         return Server(resource_name, opts=opts, __props__=__props__)
@@ -539,6 +541,11 @@ class Server(pulumi.CustomResource):
         The security group ID
         """
         return pulumi.get(self, "security_group")
+
+    @property
+    @pulumi.getter
+    def server(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1Server']]:
+        return pulumi.get(self, "server")
 
     @property
     @pulumi.getter
