@@ -39,7 +39,8 @@ type Server struct {
 	// The ID of the reserved IP to attach to the server
 	Public_ip pulumi.StringPtrOutput `pulumi:"public_ip"`
 	// The security group ID
-	Security_group pulumi.StringPtrOutput `pulumi:"security_group"`
+	Security_group pulumi.StringPtrOutput            `pulumi:"security_group"`
+	Server         ScalewayInstanceV1ServerPtrOutput `pulumi:"server"`
 	// The server tags
 	Tags    pulumi.StringArrayOutput                        `pulumi:"tags"`
 	Volumes ScalewayInstanceV1VolumeServerTemplateMapOutput `pulumi:"volumes"`
@@ -262,6 +263,10 @@ func (o ServerOutput) Public_ip() pulumi.StringPtrOutput {
 // The security group ID
 func (o ServerOutput) Security_group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Security_group }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) Server() ScalewayInstanceV1ServerPtrOutput {
+	return o.ApplyT(func(v *Server) ScalewayInstanceV1ServerPtrOutput { return v.Server }).(ScalewayInstanceV1ServerPtrOutput)
 }
 
 // The server tags

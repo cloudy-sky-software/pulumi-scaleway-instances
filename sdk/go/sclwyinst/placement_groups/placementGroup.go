@@ -19,8 +19,9 @@ type PlacementGroup struct {
 	// The placement group name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The placement group organization ID
-	Organization pulumi.StringPtrOutput `pulumi:"organization"`
-	Policy_mode  PolicyModePtrOutput    `pulumi:"policy_mode"`
+	Organization    pulumi.StringPtrOutput                    `pulumi:"organization"`
+	Placement_group ScalewayInstanceV1PlacementGroupPtrOutput `pulumi:"placement_group"`
+	Policy_mode     PolicyModePtrOutput                       `pulumi:"policy_mode"`
 	// Returns true if the policy is respected, false otherwise
 	Policy_respected pulumi.BoolPtrOutput `pulumi:"policy_respected"`
 	Policy_type      PolicyTypePtrOutput  `pulumi:"policy_type"`
@@ -168,6 +169,10 @@ func (o PlacementGroupOutput) Name() pulumi.StringOutput {
 // The placement group organization ID
 func (o PlacementGroupOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.Organization }).(pulumi.StringPtrOutput)
+}
+
+func (o PlacementGroupOutput) Placement_group() ScalewayInstanceV1PlacementGroupPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) ScalewayInstanceV1PlacementGroupPtrOutput { return v.Placement_group }).(ScalewayInstanceV1PlacementGroupPtrOutput)
 }
 
 func (o PlacementGroupOutput) Policy_mode() PolicyModePtrOutput {

@@ -57,6 +57,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly position!: pulumi.Output<number | undefined>;
     public readonly protocol!: pulumi.Output<enums.rules.Protocol>;
+    public /*out*/ readonly rule!: pulumi.Output<outputs.rules.ScalewayInstanceV1SecurityGroupRule | undefined>;
 
     /**
      * Create a SecurityGroupRule resource with the given unique name, arguments, and options.
@@ -91,6 +92,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["protocol"] = (args ? args.protocol : undefined) ?? "TCP";
             resourceInputs["security_group_id"] = args ? args.security_group_id : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["rule"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
             resourceInputs["dest_port_from"] = undefined /*out*/;
@@ -100,6 +102,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["ip_range"] = undefined /*out*/;
             resourceInputs["position"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["rule"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityGroupRule.__pulumiType, name, resourceInputs, opts);

@@ -15,6 +15,9 @@ namespace Pulumi.ScalewayInstances.PrivateNics
         [Output("private_network_id")]
         public Output<string> Private_network_id { get; private set; } = null!;
 
+        [Output("private_nic")]
+        public Output<Outputs.ScalewayInstanceV1PrivateNIC?> Private_nic { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PrivateNIC resource with the given unique name, arguments, and options.

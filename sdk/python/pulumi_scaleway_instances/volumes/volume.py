@@ -229,11 +229,13 @@ class Volume(pulumi.CustomResource):
                 volume_type = 'l_ssd'
             __props__.__dict__["volume_type"] = volume_type
             __props__.__dict__["zone"] = zone
+            __props__.__dict__["location"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["export_uri"] = None
             __props__.__dict__["modification_date"] = None
             __props__.__dict__["server"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["volume"] = None
         super(Volume, __self__).__init__(
             'scaleway-instances:volumes:Volume',
             resource_name,
@@ -256,6 +258,7 @@ class Volume(pulumi.CustomResource):
 
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["export_uri"] = None
         __props__.__dict__["modification_date"] = None
@@ -266,9 +269,15 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["size"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["volume"] = None
         __props__.__dict__["volume_type"] = None
         __props__.__dict__["zone"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="Location")
+    def location(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -346,6 +355,11 @@ class Volume(pulumi.CustomResource):
         The volume tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def volume(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1Volume']]:
+        return pulumi.get(self, "volume")
 
     @property
     @pulumi.getter

@@ -60,6 +60,9 @@ namespace Pulumi.ScalewayInstances.Snapshots
         [Output("size")]
         public Output<double?> Size { get; private set; } = null!;
 
+        [Output("snapshot")]
+        public Output<Outputs.ScalewayInstanceV1Snapshot?> SnapshotValue { get; private set; } = null!;
+
         [Output("state")]
         public Output<Pulumi.ScalewayInstances.Snapshots.State?> State { get; private set; } = null!;
 
@@ -68,6 +71,9 @@ namespace Pulumi.ScalewayInstances.Snapshots
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
+
+        [Output("task")]
+        public Output<Outputs.ScalewayInstanceV1Task?> Task { get; private set; } = null!;
 
         [Output("volume_type")]
         public Output<Pulumi.ScalewayInstances.Snapshots.VolumeType?> Volume_type { get; private set; } = null!;

@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = ['PrivateNICArgs', 'PrivateNIC']
 
@@ -130,6 +132,7 @@ class PrivateNIC(pulumi.CustomResource):
             __props__.__dict__["private_network_id"] = private_network_id
             __props__.__dict__["server_id"] = server_id
             __props__.__dict__["zone"] = zone
+            __props__.__dict__["private_nic"] = None
         super(PrivateNIC, __self__).__init__(
             'scaleway-instances:private_nics:PrivateNIC',
             resource_name,
@@ -153,10 +156,16 @@ class PrivateNIC(pulumi.CustomResource):
         __props__ = PrivateNICArgs.__new__(PrivateNICArgs)
 
         __props__.__dict__["private_network_id"] = None
+        __props__.__dict__["private_nic"] = None
         return PrivateNIC(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def private_network_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "private_network_id")
+
+    @property
+    @pulumi.getter
+    def private_nic(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1PrivateNIC']]:
+        return pulumi.get(self, "private_nic")
 

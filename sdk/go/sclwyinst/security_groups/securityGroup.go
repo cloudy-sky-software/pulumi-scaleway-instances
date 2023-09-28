@@ -37,7 +37,8 @@ type SecurityGroup struct {
 	// The security group project ID
 	Project pulumi.StringOutput `pulumi:"project"`
 	// True if it is your default security group for this project ID
-	Project_default pulumi.BoolPtrOutput `pulumi:"project_default"`
+	Project_default pulumi.BoolPtrOutput                     `pulumi:"project_default"`
+	Security_group  ScalewayInstanceV1SecurityGroupPtrOutput `pulumi:"security_group"`
 	// List of servers attached to this security group
 	Servers ScalewayInstanceV1ServerSummaryArrayOutput `pulumi:"servers"`
 	// Security group state
@@ -255,6 +256,10 @@ func (o SecurityGroupOutput) Project() pulumi.StringOutput {
 // True if it is your default security group for this project ID
 func (o SecurityGroupOutput) Project_default() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.BoolPtrOutput { return v.Project_default }).(pulumi.BoolPtrOutput)
+}
+
+func (o SecurityGroupOutput) Security_group() ScalewayInstanceV1SecurityGroupPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) ScalewayInstanceV1SecurityGroupPtrOutput { return v.Security_group }).(ScalewayInstanceV1SecurityGroupPtrOutput)
 }
 
 // List of servers attached to this security group

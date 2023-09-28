@@ -16,8 +16,10 @@ import (
 type Ip struct {
 	pulumi.CustomResourceState
 
+	Location pulumi.StringPtrOutput `pulumi:"Location"`
 	// (IPv4 address)
 	Address      pulumi.StringPtrOutput                   `pulumi:"address"`
+	Ip           ScalewayInstanceV1IpPtrOutput            `pulumi:"ip"`
 	Organization pulumi.StringPtrOutput                   `pulumi:"organization"`
 	Project      pulumi.StringOutput                      `pulumi:"project"`
 	Reverse      GoogleProtobufStringValuePtrOutput       `pulumi:"reverse"`
@@ -138,9 +140,17 @@ func (o IpOutput) ToOutput(ctx context.Context) pulumix.Output[*Ip] {
 	}
 }
 
+func (o IpOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ip) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 // (IPv4 address)
 func (o IpOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ip) pulumi.StringPtrOutput { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+func (o IpOutput) Ip() ScalewayInstanceV1IpPtrOutput {
+	return o.ApplyT(func(v *Ip) ScalewayInstanceV1IpPtrOutput { return v.Ip }).(ScalewayInstanceV1IpPtrOutput)
 }
 
 func (o IpOutput) Organization() pulumi.StringPtrOutput {

@@ -16,12 +16,14 @@ import (
 type Image struct {
 	pulumi.CustomResourceState
 
-	Arch ArchPtrOutput `pulumi:"arch"`
+	Location pulumi.StringPtrOutput `pulumi:"Location"`
+	Arch     ArchPtrOutput          `pulumi:"arch"`
 	// (RFC 3339 format)
 	Creation_date      pulumi.StringPtrOutput                `pulumi:"creation_date"`
 	Default_bootscript ScalewayInstanceV1BootscriptPtrOutput `pulumi:"default_bootscript"`
 	Extra_volumes      ScalewayInstanceV1VolumeMapOutput     `pulumi:"extra_volumes"`
 	From_server        pulumi.StringPtrOutput                `pulumi:"from_server"`
+	Image              ScalewayInstanceV1ImagePtrOutput      `pulumi:"image"`
 	// (RFC 3339 format)
 	Modification_date pulumi.StringPtrOutput                `pulumi:"modification_date"`
 	Name              pulumi.StringOutput                   `pulumi:"name"`
@@ -169,6 +171,10 @@ func (o ImageOutput) ToOutput(ctx context.Context) pulumix.Output[*Image] {
 	}
 }
 
+func (o ImageOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o ImageOutput) Arch() ArchPtrOutput {
 	return o.ApplyT(func(v *Image) ArchPtrOutput { return v.Arch }).(ArchPtrOutput)
 }
@@ -188,6 +194,10 @@ func (o ImageOutput) Extra_volumes() ScalewayInstanceV1VolumeMapOutput {
 
 func (o ImageOutput) From_server() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.From_server }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageOutput) Image() ScalewayInstanceV1ImagePtrOutput {
+	return o.ApplyT(func(v *Image) ScalewayInstanceV1ImagePtrOutput { return v.Image }).(ScalewayInstanceV1ImagePtrOutput)
 }
 
 // (RFC 3339 format)

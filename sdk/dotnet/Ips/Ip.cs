@@ -12,11 +12,17 @@ namespace Pulumi.ScalewayInstances.Ips
     [ScalewayInstancesResourceType("scaleway-instances:ips:Ip")]
     public partial class Ip : global::Pulumi.CustomResource
     {
+        [Output("Location")]
+        public Output<string?> Location { get; private set; } = null!;
+
         /// <summary>
         /// (IPv4 address)
         /// </summary>
         [Output("address")]
         public Output<string?> Address { get; private set; } = null!;
+
+        [Output("ip")]
+        public Output<Outputs.ScalewayInstanceV1Ip?> IpValue { get; private set; } = null!;
 
         [Output("organization")]
         public Output<string?> Organization { get; private set; } = null!;

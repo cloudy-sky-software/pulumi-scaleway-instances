@@ -193,7 +193,9 @@ class Ip(pulumi.CustomResource):
             __props__.__dict__["server"] = server
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone"] = zone
+            __props__.__dict__["location"] = None
             __props__.__dict__["address"] = None
+            __props__.__dict__["ip"] = None
         super(Ip, __self__).__init__(
             'scaleway-instances:ips:Ip',
             resource_name,
@@ -216,7 +218,9 @@ class Ip(pulumi.CustomResource):
 
         __props__ = IpArgs.__new__(IpArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["address"] = None
+        __props__.__dict__["ip"] = None
         __props__.__dict__["organization"] = None
         __props__.__dict__["project"] = None
         __props__.__dict__["reverse"] = None
@@ -226,12 +230,22 @@ class Ip(pulumi.CustomResource):
         return Ip(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="Location")
+    def location(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "location")
+
+    @property
     @pulumi.getter
     def address(self) -> pulumi.Output[Optional[str]]:
         """
         (IPv4 address)
         """
         return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1Ip']]:
+        return pulumi.get(self, "ip")
 
     @property
     @pulumi.getter

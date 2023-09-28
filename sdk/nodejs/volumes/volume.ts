@@ -34,6 +34,7 @@ export class Volume extends pulumi.CustomResource {
         return obj['__pulumiType'] === Volume.__pulumiType;
     }
 
+    public /*out*/ readonly Location!: pulumi.Output<string | undefined>;
     /**
      * The volume creation date (RFC 3339 format)
      */
@@ -71,6 +72,7 @@ export class Volume extends pulumi.CustomResource {
      * The volume tags
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly volume!: pulumi.Output<outputs.volumes.ScalewayInstanceV1Volume | undefined>;
     public readonly volume_type!: pulumi.Output<enums.volumes.VolumeType | undefined>;
     /**
      * The zone in which is the volume
@@ -98,12 +100,15 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volume_type"] = (args ? args.volume_type : undefined) ?? "l_ssd";
             resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["Location"] = undefined /*out*/;
             resourceInputs["creation_date"] = undefined /*out*/;
             resourceInputs["export_uri"] = undefined /*out*/;
             resourceInputs["modification_date"] = undefined /*out*/;
             resourceInputs["server"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["volume"] = undefined /*out*/;
         } else {
+            resourceInputs["Location"] = undefined /*out*/;
             resourceInputs["creation_date"] = undefined /*out*/;
             resourceInputs["export_uri"] = undefined /*out*/;
             resourceInputs["modification_date"] = undefined /*out*/;
@@ -114,6 +119,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["size"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["volume"] = undefined /*out*/;
             resourceInputs["volume_type"] = undefined /*out*/;
             resourceInputs["zone"] = undefined /*out*/;
         }

@@ -288,8 +288,10 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone"] = zone
+            __props__.__dict__["location"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["from_server"] = None
+            __props__.__dict__["image"] = None
             __props__.__dict__["modification_date"] = None
         super(Image, __self__).__init__(
             'scaleway-instances:images:Image',
@@ -313,11 +315,13 @@ class Image(pulumi.CustomResource):
 
         __props__ = ImageArgs.__new__(ImageArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["arch"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["default_bootscript"] = None
         __props__.__dict__["extra_volumes"] = None
         __props__.__dict__["from_server"] = None
+        __props__.__dict__["image"] = None
         __props__.__dict__["modification_date"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["organization"] = None
@@ -328,6 +332,11 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["zone"] = None
         return Image(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="Location")
+    def location(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -356,6 +365,11 @@ class Image(pulumi.CustomResource):
     @pulumi.getter
     def from_server(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "from_server")
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1Image']]:
+        return pulumi.get(self, "image")
 
     @property
     @pulumi.getter

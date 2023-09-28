@@ -34,6 +34,7 @@ export class Image extends pulumi.CustomResource {
         return obj['__pulumiType'] === Image.__pulumiType;
     }
 
+    public /*out*/ readonly Location!: pulumi.Output<string | undefined>;
     public readonly arch!: pulumi.Output<enums.images.Arch | undefined>;
     /**
      * (RFC 3339 format)
@@ -42,6 +43,7 @@ export class Image extends pulumi.CustomResource {
     public readonly default_bootscript!: pulumi.Output<outputs.images.ScalewayInstanceV1Bootscript | undefined>;
     public readonly extra_volumes!: pulumi.Output<{[key: string]: outputs.images.ScalewayInstanceV1Volume} | undefined>;
     public /*out*/ readonly from_server!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly image!: pulumi.Output<outputs.images.ScalewayInstanceV1Image | undefined>;
     /**
      * (RFC 3339 format)
      */
@@ -83,15 +85,19 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["state"] = (args ? args.state : undefined) ?? "available";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["Location"] = undefined /*out*/;
             resourceInputs["creation_date"] = undefined /*out*/;
             resourceInputs["from_server"] = undefined /*out*/;
+            resourceInputs["image"] = undefined /*out*/;
             resourceInputs["modification_date"] = undefined /*out*/;
         } else {
+            resourceInputs["Location"] = undefined /*out*/;
             resourceInputs["arch"] = undefined /*out*/;
             resourceInputs["creation_date"] = undefined /*out*/;
             resourceInputs["default_bootscript"] = undefined /*out*/;
             resourceInputs["extra_volumes"] = undefined /*out*/;
             resourceInputs["from_server"] = undefined /*out*/;
+            resourceInputs["image"] = undefined /*out*/;
             resourceInputs["modification_date"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;

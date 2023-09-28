@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['PlacementGroupArgs', 'PlacementGroup']
@@ -227,6 +228,7 @@ class PlacementGroup(pulumi.CustomResource):
             __props__.__dict__["project"] = project
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone"] = zone
+            __props__.__dict__["placement_group"] = None
             __props__.__dict__["policy_respected"] = None
         super(PlacementGroup, __self__).__init__(
             'scaleway-instances:placement_groups:PlacementGroup',
@@ -252,6 +254,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["organization"] = None
+        __props__.__dict__["placement_group"] = None
         __props__.__dict__["policy_mode"] = None
         __props__.__dict__["policy_respected"] = None
         __props__.__dict__["policy_type"] = None
@@ -275,6 +278,11 @@ class PlacementGroup(pulumi.CustomResource):
         The placement group organization ID
         """
         return pulumi.get(self, "organization")
+
+    @property
+    @pulumi.getter
+    def placement_group(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1PlacementGroup']]:
+        return pulumi.get(self, "placement_group")
 
     @property
     @pulumi.getter

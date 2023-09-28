@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ScalewayInstanceV1SnapshotState',
     'ScalewayInstanceV1SnapshotVolumeType',
+    'ScalewayInstanceV1TaskStatus',
     'State',
     'VolumeType',
 ]
@@ -25,6 +26,17 @@ class ScalewayInstanceV1SnapshotVolumeType(str, Enum):
     LSSD = "l_ssd"
     BSSD = "b_ssd"
     UNIFIED = "unified"
+
+
+class ScalewayInstanceV1TaskStatus(str, Enum):
+    """
+    The task status
+    """
+    PENDING = "pending"
+    STARTED = "started"
+    SUCCESS = "success"
+    FAILURE = "failure"
+    RETRY = "retry"
 
 
 class State(str, Enum):

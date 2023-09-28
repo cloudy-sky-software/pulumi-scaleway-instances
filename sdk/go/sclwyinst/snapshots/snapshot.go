@@ -30,11 +30,13 @@ type Snapshot struct {
 	// The snapshot project ID
 	Project pulumi.StringPtrOutput `pulumi:"project"`
 	// The snapshot size (in bytes)
-	Size  pulumi.Float64PtrOutput `pulumi:"size"`
-	State StatePtrOutput          `pulumi:"state"`
+	Size     pulumi.Float64PtrOutput             `pulumi:"size"`
+	Snapshot ScalewayInstanceV1SnapshotPtrOutput `pulumi:"snapshot"`
+	State    StatePtrOutput                      `pulumi:"state"`
 	// The snapshot tags
-	Tags        pulumi.StringArrayOutput `pulumi:"tags"`
-	Volume_type VolumeTypePtrOutput      `pulumi:"volume_type"`
+	Tags        pulumi.StringArrayOutput        `pulumi:"tags"`
+	Task        ScalewayInstanceV1TaskPtrOutput `pulumi:"task"`
+	Volume_type VolumeTypePtrOutput             `pulumi:"volume_type"`
 	// The snapshot zone
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
@@ -208,6 +210,10 @@ func (o SnapshotOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.Float64PtrOutput { return v.Size }).(pulumi.Float64PtrOutput)
 }
 
+func (o SnapshotOutput) Snapshot() ScalewayInstanceV1SnapshotPtrOutput {
+	return o.ApplyT(func(v *Snapshot) ScalewayInstanceV1SnapshotPtrOutput { return v.Snapshot }).(ScalewayInstanceV1SnapshotPtrOutput)
+}
+
 func (o SnapshotOutput) State() StatePtrOutput {
 	return o.ApplyT(func(v *Snapshot) StatePtrOutput { return v.State }).(StatePtrOutput)
 }
@@ -215,6 +221,10 @@ func (o SnapshotOutput) State() StatePtrOutput {
 // The snapshot tags
 func (o SnapshotOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+func (o SnapshotOutput) Task() ScalewayInstanceV1TaskPtrOutput {
+	return o.ApplyT(func(v *Snapshot) ScalewayInstanceV1TaskPtrOutput { return v.Task }).(ScalewayInstanceV1TaskPtrOutput)
 }
 
 func (o SnapshotOutput) Volume_type() VolumeTypePtrOutput {

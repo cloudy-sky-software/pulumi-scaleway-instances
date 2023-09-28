@@ -24,6 +24,9 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         [Output("organization")]
         public Output<string?> Organization { get; private set; } = null!;
 
+        [Output("placement_group")]
+        public Output<Outputs.ScalewayInstanceV1PlacementGroup?> PlacementGroupValue { get; private set; } = null!;
+
         [Output("policy_mode")]
         public Output<Pulumi.ScalewayInstances.PlacementGroups.PolicyMode?> Policy_mode { get; private set; } = null!;
 

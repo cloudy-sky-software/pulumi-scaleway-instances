@@ -12,6 +12,9 @@ namespace Pulumi.ScalewayInstances.Volumes
     [ScalewayInstancesResourceType("scaleway-instances:volumes:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
     {
+        [Output("Location")]
+        public Output<string?> Location { get; private set; } = null!;
+
         /// <summary>
         /// The volume creation date (RFC 3339 format)
         /// </summary>
@@ -68,6 +71,9 @@ namespace Pulumi.ScalewayInstances.Volumes
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
+
+        [Output("volume")]
+        public Output<Outputs.ScalewayInstanceV1Volume?> VolumeValue { get; private set; } = null!;
 
         [Output("volume_type")]
         public Output<Pulumi.ScalewayInstances.Volumes.VolumeType?> Volume_type { get; private set; } = null!;
