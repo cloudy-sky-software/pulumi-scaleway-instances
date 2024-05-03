@@ -137,8 +137,11 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 	})
 
 	metadata := openapigen.ProviderMetadata{
-		ResourceCRUDMap: providerMetadata.ResourceCRUDMap,
-		AutoNameMap:     providerMetadata.AutoNameMap,
+		ResourceCRUDMap:  providerMetadata.ResourceCRUDMap,
+		AutoNameMap:      providerMetadata.AutoNameMap,
+		SDKToAPINameMap:  providerMetadata.SDKToAPINameMap,
+		APIToSDKNameMap:  providerMetadata.APIToSDKNameMap,
+		PathParamNameMap: providerMetadata.PathParamNameMap,
 	}
 	return pkg, metadata, updatedOpenAPIDoc
 }
