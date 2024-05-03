@@ -13,69 +13,69 @@ namespace Pulumi.ScalewayInstances.Dashboard.Outputs
     [OutputType]
     public sealed class ScalewayInstanceV1Dashboard
     {
-        public readonly double? Images_count;
-        public readonly double? Ips_count;
-        public readonly double? Ips_unused;
-        public readonly double? Placement_groups_count;
-        public readonly double? Private_nics_count;
-        public readonly double? Running_servers_count;
-        public readonly double? Security_groups_count;
-        public readonly ImmutableDictionary<string, double>? Servers_by_types;
-        public readonly double? Servers_count;
-        public readonly double? Snapshots_count;
-        public readonly double? Volumes_b_ssd_count;
-        public readonly double? Volumes_b_ssd_total_size;
-        public readonly double? Volumes_count;
-        public readonly double? Volumes_l_ssd_count;
-        public readonly double? Volumes_l_ssd_total_size;
+        public readonly double? ImagesCount;
+        public readonly double? IpsCount;
+        public readonly double? IpsUnused;
+        public readonly double? PlacementGroupsCount;
+        public readonly double? PrivateNicsCount;
+        public readonly double? RunningServersCount;
+        public readonly double? SecurityGroupsCount;
+        public readonly ImmutableDictionary<string, double>? ServersByTypes;
+        public readonly double? ServersCount;
+        public readonly double? SnapshotsCount;
+        public readonly double? VolumesBSsdCount;
+        public readonly double? VolumesBSsdTotalSize;
+        public readonly double? VolumesCount;
+        public readonly double? VolumesLSsdCount;
+        public readonly double? VolumesLSsdTotalSize;
 
         [OutputConstructor]
         private ScalewayInstanceV1Dashboard(
-            double? images_count,
+            double? imagesCount,
 
-            double? ips_count,
+            double? ipsCount,
 
-            double? ips_unused,
+            double? ipsUnused,
 
-            double? placement_groups_count,
+            double? placementGroupsCount,
 
-            double? private_nics_count,
+            double? privateNicsCount,
 
-            double? running_servers_count,
+            double? runningServersCount,
 
-            double? security_groups_count,
+            double? securityGroupsCount,
 
-            ImmutableDictionary<string, double>? servers_by_types,
+            ImmutableDictionary<string, double>? serversByTypes,
 
-            double? servers_count,
+            double? serversCount,
 
-            double? snapshots_count,
+            double? snapshotsCount,
 
-            double? volumes_b_ssd_count,
+            double? volumesBSsdCount,
 
-            double? volumes_b_ssd_total_size,
+            double? volumesBSsdTotalSize,
 
-            double? volumes_count,
+            double? volumesCount,
 
-            double? volumes_l_ssd_count,
+            double? volumesLSsdCount,
 
-            double? volumes_l_ssd_total_size)
+            double? volumesLSsdTotalSize)
         {
-            Images_count = images_count;
-            Ips_count = ips_count;
-            Ips_unused = ips_unused;
-            Placement_groups_count = placement_groups_count;
-            Private_nics_count = private_nics_count;
-            Running_servers_count = running_servers_count;
-            Security_groups_count = security_groups_count;
-            Servers_by_types = servers_by_types;
-            Servers_count = servers_count;
-            Snapshots_count = snapshots_count;
-            Volumes_b_ssd_count = volumes_b_ssd_count;
-            Volumes_b_ssd_total_size = volumes_b_ssd_total_size;
-            Volumes_count = volumes_count;
-            Volumes_l_ssd_count = volumes_l_ssd_count;
-            Volumes_l_ssd_total_size = volumes_l_ssd_total_size;
+            ImagesCount = imagesCount;
+            IpsCount = ipsCount;
+            IpsUnused = ipsUnused;
+            PlacementGroupsCount = placementGroupsCount;
+            PrivateNicsCount = privateNicsCount;
+            RunningServersCount = runningServersCount;
+            SecurityGroupsCount = securityGroupsCount;
+            ServersByTypes = serversByTypes;
+            ServersCount = serversCount;
+            SnapshotsCount = snapshotsCount;
+            VolumesBSsdCount = volumesBSsdCount;
+            VolumesBSsdTotalSize = volumesBSsdTotalSize;
+            VolumesCount = volumesCount;
+            VolumesLSsdCount = volumesLSsdCount;
+            VolumesLSsdTotalSize = volumesLSsdTotalSize;
         }
     }
 }

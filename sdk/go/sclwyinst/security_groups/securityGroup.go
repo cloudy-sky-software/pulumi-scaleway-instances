@@ -10,35 +10,34 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type SecurityGroup struct {
 	pulumi.CustomResourceState
 
 	// The security group creation date (RFC 3339 format)
-	Creation_date pulumi.StringPtrOutput `pulumi:"creation_date"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// The security groups description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
-	Enable_default_security pulumi.BoolPtrOutput `pulumi:"enable_default_security"`
+	EnableDefaultSecurity pulumi.BoolPtrOutput `pulumi:"enableDefaultSecurity"`
 	// The default inbound policy
-	Inbound_default_policy InboundDefaultPolicyPtrOutput `pulumi:"inbound_default_policy"`
+	InboundDefaultPolicy InboundDefaultPolicyPtrOutput `pulumi:"inboundDefaultPolicy"`
 	// The security group modification date (RFC 3339 format)
-	Modification_date pulumi.StringPtrOutput `pulumi:"modification_date"`
+	ModificationDate pulumi.StringPtrOutput `pulumi:"modificationDate"`
 	// The security groups name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The security groups organization ID
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// True if it is your default security group for this organization ID
-	Organization_default pulumi.BoolPtrOutput `pulumi:"organization_default"`
+	OrganizationDefault pulumi.BoolPtrOutput `pulumi:"organizationDefault"`
 	// The default outbound policy
-	Outbound_default_policy OutboundDefaultPolicyPtrOutput `pulumi:"outbound_default_policy"`
+	OutboundDefaultPolicy OutboundDefaultPolicyPtrOutput `pulumi:"outboundDefaultPolicy"`
 	// The security group project ID
 	Project pulumi.StringOutput `pulumi:"project"`
 	// True if it is your default security group for this project ID
-	Project_default pulumi.BoolPtrOutput                     `pulumi:"project_default"`
-	Security_group  ScalewayInstanceV1SecurityGroupPtrOutput `pulumi:"security_group"`
+	ProjectDefault pulumi.BoolPtrOutput                     `pulumi:"projectDefault"`
+	SecurityGroup  ScalewayInstanceV1SecurityGroupPtrOutput `pulumi:"securityGroup"`
 	// List of servers attached to this security group
 	Servers ScalewayInstanceV1ServerSummaryArrayOutput `pulumi:"servers"`
 	// Security group state
@@ -61,11 +60,11 @@ func NewSecurityGroup(ctx *pulumi.Context,
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
-	if args.Inbound_default_policy == nil {
-		args.Inbound_default_policy = InboundDefaultPolicy("accept")
+	if args.InboundDefaultPolicy == nil {
+		args.InboundDefaultPolicy = InboundDefaultPolicy("accept")
 	}
-	if args.Outbound_default_policy == nil {
-		args.Outbound_default_policy = OutboundDefaultPolicy("accept")
+	if args.OutboundDefaultPolicy == nil {
+		args.OutboundDefaultPolicy = OutboundDefaultPolicy("accept")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroup
@@ -103,21 +102,21 @@ type securityGroupArgs struct {
 	// The security groups description
 	Description *string `pulumi:"description"`
 	// True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
-	Enable_default_security *bool `pulumi:"enable_default_security"`
+	EnableDefaultSecurity *bool `pulumi:"enableDefaultSecurity"`
 	// The default inbound policy
-	Inbound_default_policy *InboundDefaultPolicy `pulumi:"inbound_default_policy"`
+	InboundDefaultPolicy *InboundDefaultPolicy `pulumi:"inboundDefaultPolicy"`
 	// The security groups name
 	Name *string `pulumi:"name"`
 	// The security groups organization ID
 	Organization *string `pulumi:"organization"`
 	// True if it is your default security group for this organization ID
-	Organization_default *bool `pulumi:"organization_default"`
+	OrganizationDefault *bool `pulumi:"organizationDefault"`
 	// The default outbound policy
-	Outbound_default_policy *OutboundDefaultPolicy `pulumi:"outbound_default_policy"`
+	OutboundDefaultPolicy *OutboundDefaultPolicy `pulumi:"outboundDefaultPolicy"`
 	// The security group project ID
 	Project string `pulumi:"project"`
 	// True if it is your default security group for this project ID
-	Project_default *bool `pulumi:"project_default"`
+	ProjectDefault *bool `pulumi:"projectDefault"`
 	// True if the security group is stateful
 	Stateful *bool `pulumi:"stateful"`
 	// The security group tags
@@ -131,21 +130,21 @@ type SecurityGroupArgs struct {
 	// The security groups description
 	Description pulumi.StringPtrInput
 	// True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
-	Enable_default_security pulumi.BoolPtrInput
+	EnableDefaultSecurity pulumi.BoolPtrInput
 	// The default inbound policy
-	Inbound_default_policy InboundDefaultPolicyPtrInput
+	InboundDefaultPolicy InboundDefaultPolicyPtrInput
 	// The security groups name
 	Name pulumi.StringPtrInput
 	// The security groups organization ID
 	Organization pulumi.StringPtrInput
 	// True if it is your default security group for this organization ID
-	Organization_default pulumi.BoolPtrInput
+	OrganizationDefault pulumi.BoolPtrInput
 	// The default outbound policy
-	Outbound_default_policy OutboundDefaultPolicyPtrInput
+	OutboundDefaultPolicy OutboundDefaultPolicyPtrInput
 	// The security group project ID
 	Project pulumi.StringInput
 	// True if it is your default security group for this project ID
-	Project_default pulumi.BoolPtrInput
+	ProjectDefault pulumi.BoolPtrInput
 	// True if the security group is stateful
 	Stateful pulumi.BoolPtrInput
 	// The security group tags
@@ -177,12 +176,6 @@ func (i *SecurityGroup) ToSecurityGroupOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupOutput)
 }
 
-func (i *SecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroup] {
-	return pulumix.Output[*SecurityGroup]{
-		OutputState: i.ToSecurityGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupOutput) ElementType() reflect.Type {
@@ -197,15 +190,9 @@ func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o SecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroup] {
-	return pulumix.Output[*SecurityGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The security group creation date (RFC 3339 format)
-func (o SecurityGroupOutput) Creation_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.Creation_date }).(pulumi.StringPtrOutput)
+func (o SecurityGroupOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // The security groups description
@@ -214,18 +201,18 @@ func (o SecurityGroupOutput) Description() pulumi.StringPtrOutput {
 }
 
 // True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
-func (o SecurityGroupOutput) Enable_default_security() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.BoolPtrOutput { return v.Enable_default_security }).(pulumi.BoolPtrOutput)
+func (o SecurityGroupOutput) EnableDefaultSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.BoolPtrOutput { return v.EnableDefaultSecurity }).(pulumi.BoolPtrOutput)
 }
 
 // The default inbound policy
-func (o SecurityGroupOutput) Inbound_default_policy() InboundDefaultPolicyPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) InboundDefaultPolicyPtrOutput { return v.Inbound_default_policy }).(InboundDefaultPolicyPtrOutput)
+func (o SecurityGroupOutput) InboundDefaultPolicy() InboundDefaultPolicyPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) InboundDefaultPolicyPtrOutput { return v.InboundDefaultPolicy }).(InboundDefaultPolicyPtrOutput)
 }
 
 // The security group modification date (RFC 3339 format)
-func (o SecurityGroupOutput) Modification_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.Modification_date }).(pulumi.StringPtrOutput)
+func (o SecurityGroupOutput) ModificationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.StringPtrOutput { return v.ModificationDate }).(pulumi.StringPtrOutput)
 }
 
 // The security groups name
@@ -239,13 +226,13 @@ func (o SecurityGroupOutput) Organization() pulumi.StringPtrOutput {
 }
 
 // True if it is your default security group for this organization ID
-func (o SecurityGroupOutput) Organization_default() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.BoolPtrOutput { return v.Organization_default }).(pulumi.BoolPtrOutput)
+func (o SecurityGroupOutput) OrganizationDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.BoolPtrOutput { return v.OrganizationDefault }).(pulumi.BoolPtrOutput)
 }
 
 // The default outbound policy
-func (o SecurityGroupOutput) Outbound_default_policy() OutboundDefaultPolicyPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) OutboundDefaultPolicyPtrOutput { return v.Outbound_default_policy }).(OutboundDefaultPolicyPtrOutput)
+func (o SecurityGroupOutput) OutboundDefaultPolicy() OutboundDefaultPolicyPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) OutboundDefaultPolicyPtrOutput { return v.OutboundDefaultPolicy }).(OutboundDefaultPolicyPtrOutput)
 }
 
 // The security group project ID
@@ -254,12 +241,12 @@ func (o SecurityGroupOutput) Project() pulumi.StringOutput {
 }
 
 // True if it is your default security group for this project ID
-func (o SecurityGroupOutput) Project_default() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) pulumi.BoolPtrOutput { return v.Project_default }).(pulumi.BoolPtrOutput)
+func (o SecurityGroupOutput) ProjectDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) pulumi.BoolPtrOutput { return v.ProjectDefault }).(pulumi.BoolPtrOutput)
 }
 
-func (o SecurityGroupOutput) Security_group() ScalewayInstanceV1SecurityGroupPtrOutput {
-	return o.ApplyT(func(v *SecurityGroup) ScalewayInstanceV1SecurityGroupPtrOutput { return v.Security_group }).(ScalewayInstanceV1SecurityGroupPtrOutput)
+func (o SecurityGroupOutput) SecurityGroup() ScalewayInstanceV1SecurityGroupPtrOutput {
+	return o.ApplyT(func(v *SecurityGroup) ScalewayInstanceV1SecurityGroupPtrOutput { return v.SecurityGroup }).(ScalewayInstanceV1SecurityGroupPtrOutput)
 }
 
 // List of servers attached to this security group

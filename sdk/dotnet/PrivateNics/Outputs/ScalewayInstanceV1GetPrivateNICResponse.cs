@@ -13,12 +13,12 @@ namespace Pulumi.ScalewayInstances.PrivateNics.Outputs
     [OutputType]
     public sealed class ScalewayInstanceV1GetPrivateNICResponse
     {
-        public readonly Outputs.ScalewayInstanceV1PrivateNIC? Private_nic;
+        public readonly Outputs.ScalewayInstanceV1PrivateNIC? PrivateNic;
 
         [OutputConstructor]
-        private ScalewayInstanceV1GetPrivateNICResponse(Outputs.ScalewayInstanceV1PrivateNIC? private_nic)
+        private ScalewayInstanceV1GetPrivateNICResponse(Outputs.ScalewayInstanceV1PrivateNIC? privateNic)
         {
-            Private_nic = private_nic;
+            PrivateNic = privateNic;
         }
     }
 }

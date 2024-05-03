@@ -9,13 +9,12 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
 
 type ScalewayInstanceV1GetSecurityGroupResponse struct {
-	Security_group *ScalewayInstanceV1SecurityGroup `pulumi:"security_group"`
+	SecurityGroup *ScalewayInstanceV1SecurityGroup `pulumi:"securityGroup"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1GetSecurityGroupResponse
@@ -24,7 +23,7 @@ func (val *ScalewayInstanceV1GetSecurityGroupResponse) Defaults() *ScalewayInsta
 		return nil
 	}
 	tmp := *val
-	tmp.Security_group = tmp.Security_group.Defaults()
+	tmp.SecurityGroup = tmp.SecurityGroup.Defaults()
 
 	return &tmp
 }
@@ -43,21 +42,15 @@ func (o ScalewayInstanceV1GetSecurityGroupResponseOutput) ToScalewayInstanceV1Ge
 	return o
 }
 
-func (o ScalewayInstanceV1GetSecurityGroupResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetSecurityGroupResponse] {
-	return pulumix.Output[ScalewayInstanceV1GetSecurityGroupResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1GetSecurityGroupResponseOutput) Security_group() ScalewayInstanceV1SecurityGroupPtrOutput {
+func (o ScalewayInstanceV1GetSecurityGroupResponseOutput) SecurityGroup() ScalewayInstanceV1SecurityGroupPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetSecurityGroupResponse) *ScalewayInstanceV1SecurityGroup {
-		return v.Security_group
+		return v.SecurityGroup
 	}).(ScalewayInstanceV1SecurityGroupPtrOutput)
 }
 
 type ScalewayInstanceV1ListSecurityGroupsResponse struct {
-	Security_groups []ScalewayInstanceV1SecurityGroup `pulumi:"security_groups"`
-	Total_count     *float64                          `pulumi:"total_count"`
+	SecurityGroups []ScalewayInstanceV1SecurityGroup `pulumi:"securityGroups"`
+	TotalCount     *float64                          `pulumi:"totalCount"`
 }
 
 type ScalewayInstanceV1ListSecurityGroupsResponseOutput struct{ *pulumi.OutputState }
@@ -74,46 +67,40 @@ func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) ToScalewayInstanceV1
 	return o
 }
 
-func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListSecurityGroupsResponse] {
-	return pulumix.Output[ScalewayInstanceV1ListSecurityGroupsResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) Security_groups() ScalewayInstanceV1SecurityGroupArrayOutput {
+func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) SecurityGroups() ScalewayInstanceV1SecurityGroupArrayOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ListSecurityGroupsResponse) []ScalewayInstanceV1SecurityGroup {
-		return v.Security_groups
+		return v.SecurityGroups
 	}).(ScalewayInstanceV1SecurityGroupArrayOutput)
 }
 
-func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) Total_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1ListSecurityGroupsResponse) *float64 { return v.Total_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1ListSecurityGroupsResponseOutput) TotalCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1ListSecurityGroupsResponse) *float64 { return v.TotalCount }).(pulumi.Float64PtrOutput)
 }
 
 type ScalewayInstanceV1SecurityGroup struct {
 	// The security group creation date (RFC 3339 format)
-	Creation_date *string `pulumi:"creation_date"`
+	CreationDate *string `pulumi:"creationDate"`
 	// The security groups description
 	Description *string `pulumi:"description"`
 	// True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
-	Enable_default_security *bool   `pulumi:"enable_default_security"`
-	Id                      *string `pulumi:"id"`
+	EnableDefaultSecurity *bool   `pulumi:"enableDefaultSecurity"`
+	Id                    *string `pulumi:"id"`
 	// The default inbound policy
-	Inbound_default_policy *ScalewayInstanceV1SecurityGroupInboundDefaultPolicy `pulumi:"inbound_default_policy"`
+	InboundDefaultPolicy *ScalewayInstanceV1SecurityGroupInboundDefaultPolicy `pulumi:"inboundDefaultPolicy"`
 	// The security group modification date (RFC 3339 format)
-	Modification_date *string `pulumi:"modification_date"`
+	ModificationDate *string `pulumi:"modificationDate"`
 	// The security groups name
 	Name string `pulumi:"name"`
 	// The security groups organization ID
 	Organization *string `pulumi:"organization"`
 	// True if it is your default security group for this organization ID
-	Organization_default *bool `pulumi:"organization_default"`
+	OrganizationDefault *bool `pulumi:"organizationDefault"`
 	// The default outbound policy
-	Outbound_default_policy *ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy `pulumi:"outbound_default_policy"`
+	OutboundDefaultPolicy *ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy `pulumi:"outboundDefaultPolicy"`
 	// The security group project ID
 	Project string `pulumi:"project"`
 	// True if it is your default security group for this project ID
-	Project_default *bool `pulumi:"project_default"`
+	ProjectDefault *bool `pulumi:"projectDefault"`
 	// List of servers attached to this security group
 	Servers []ScalewayInstanceV1ServerSummary `pulumi:"servers"`
 	// Security group state
@@ -132,13 +119,13 @@ func (val *ScalewayInstanceV1SecurityGroup) Defaults() *ScalewayInstanceV1Securi
 		return nil
 	}
 	tmp := *val
-	if tmp.Inbound_default_policy == nil {
-		inbound_default_policy_ := ScalewayInstanceV1SecurityGroupInboundDefaultPolicy("accept")
-		tmp.Inbound_default_policy = &inbound_default_policy_
+	if tmp.InboundDefaultPolicy == nil {
+		inboundDefaultPolicy_ := ScalewayInstanceV1SecurityGroupInboundDefaultPolicy("accept")
+		tmp.InboundDefaultPolicy = &inboundDefaultPolicy_
 	}
-	if tmp.Outbound_default_policy == nil {
-		outbound_default_policy_ := ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy("accept")
-		tmp.Outbound_default_policy = &outbound_default_policy_
+	if tmp.OutboundDefaultPolicy == nil {
+		outboundDefaultPolicy_ := ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy("accept")
+		tmp.OutboundDefaultPolicy = &outboundDefaultPolicy_
 	}
 	if tmp.State == nil {
 		state_ := ScalewayInstanceV1SecurityGroupState("available")
@@ -161,15 +148,9 @@ func (o ScalewayInstanceV1SecurityGroupOutput) ToScalewayInstanceV1SecurityGroup
 	return o
 }
 
-func (o ScalewayInstanceV1SecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroup] {
-	return pulumix.Output[ScalewayInstanceV1SecurityGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The security group creation date (RFC 3339 format)
-func (o ScalewayInstanceV1SecurityGroupOutput) Creation_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *string { return v.Creation_date }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1SecurityGroupOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // The security groups description
@@ -178,8 +159,8 @@ func (o ScalewayInstanceV1SecurityGroupOutput) Description() pulumi.StringPtrOut
 }
 
 // True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
-func (o ScalewayInstanceV1SecurityGroupOutput) Enable_default_security() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *bool { return v.Enable_default_security }).(pulumi.BoolPtrOutput)
+func (o ScalewayInstanceV1SecurityGroupOutput) EnableDefaultSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *bool { return v.EnableDefaultSecurity }).(pulumi.BoolPtrOutput)
 }
 
 func (o ScalewayInstanceV1SecurityGroupOutput) Id() pulumi.StringPtrOutput {
@@ -187,15 +168,15 @@ func (o ScalewayInstanceV1SecurityGroupOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The default inbound policy
-func (o ScalewayInstanceV1SecurityGroupOutput) Inbound_default_policy() ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput {
+func (o ScalewayInstanceV1SecurityGroupOutput) InboundDefaultPolicy() ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *ScalewayInstanceV1SecurityGroupInboundDefaultPolicy {
-		return v.Inbound_default_policy
+		return v.InboundDefaultPolicy
 	}).(ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput)
 }
 
 // The security group modification date (RFC 3339 format)
-func (o ScalewayInstanceV1SecurityGroupOutput) Modification_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *string { return v.Modification_date }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1SecurityGroupOutput) ModificationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *string { return v.ModificationDate }).(pulumi.StringPtrOutput)
 }
 
 // The security groups name
@@ -209,14 +190,14 @@ func (o ScalewayInstanceV1SecurityGroupOutput) Organization() pulumi.StringPtrOu
 }
 
 // True if it is your default security group for this organization ID
-func (o ScalewayInstanceV1SecurityGroupOutput) Organization_default() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *bool { return v.Organization_default }).(pulumi.BoolPtrOutput)
+func (o ScalewayInstanceV1SecurityGroupOutput) OrganizationDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *bool { return v.OrganizationDefault }).(pulumi.BoolPtrOutput)
 }
 
 // The default outbound policy
-func (o ScalewayInstanceV1SecurityGroupOutput) Outbound_default_policy() ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput {
+func (o ScalewayInstanceV1SecurityGroupOutput) OutboundDefaultPolicy() ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy {
-		return v.Outbound_default_policy
+		return v.OutboundDefaultPolicy
 	}).(ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput)
 }
 
@@ -226,8 +207,8 @@ func (o ScalewayInstanceV1SecurityGroupOutput) Project() pulumi.StringOutput {
 }
 
 // True if it is your default security group for this project ID
-func (o ScalewayInstanceV1SecurityGroupOutput) Project_default() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *bool { return v.Project_default }).(pulumi.BoolPtrOutput)
+func (o ScalewayInstanceV1SecurityGroupOutput) ProjectDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1SecurityGroup) *bool { return v.ProjectDefault }).(pulumi.BoolPtrOutput)
 }
 
 // List of servers attached to this security group
@@ -269,12 +250,6 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) ToScalewayInstanceV1SecurityGr
 	return o
 }
 
-func (o ScalewayInstanceV1SecurityGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroup] {
-	return pulumix.Output[*ScalewayInstanceV1SecurityGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1SecurityGroupPtrOutput) Elem() ScalewayInstanceV1SecurityGroupOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroup) ScalewayInstanceV1SecurityGroup {
 		if v != nil {
@@ -286,12 +261,12 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) Elem() ScalewayInstanceV1Secur
 }
 
 // The security group creation date (RFC 3339 format)
-func (o ScalewayInstanceV1SecurityGroupPtrOutput) Creation_date() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1SecurityGroupPtrOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroup) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Creation_date
+		return v.CreationDate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -306,12 +281,12 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) Description() pulumi.StringPtr
 }
 
 // True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
-func (o ScalewayInstanceV1SecurityGroupPtrOutput) Enable_default_security() pulumi.BoolPtrOutput {
+func (o ScalewayInstanceV1SecurityGroupPtrOutput) EnableDefaultSecurity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroup) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.Enable_default_security
+		return v.EnableDefaultSecurity
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -325,22 +300,22 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The default inbound policy
-func (o ScalewayInstanceV1SecurityGroupPtrOutput) Inbound_default_policy() ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput {
+func (o ScalewayInstanceV1SecurityGroupPtrOutput) InboundDefaultPolicy() ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroup) *ScalewayInstanceV1SecurityGroupInboundDefaultPolicy {
 		if v == nil {
 			return nil
 		}
-		return v.Inbound_default_policy
+		return v.InboundDefaultPolicy
 	}).(ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput)
 }
 
 // The security group modification date (RFC 3339 format)
-func (o ScalewayInstanceV1SecurityGroupPtrOutput) Modification_date() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1SecurityGroupPtrOutput) ModificationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroup) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Modification_date
+		return v.ModificationDate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -365,22 +340,22 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) Organization() pulumi.StringPt
 }
 
 // True if it is your default security group for this organization ID
-func (o ScalewayInstanceV1SecurityGroupPtrOutput) Organization_default() pulumi.BoolPtrOutput {
+func (o ScalewayInstanceV1SecurityGroupPtrOutput) OrganizationDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroup) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.Organization_default
+		return v.OrganizationDefault
 	}).(pulumi.BoolPtrOutput)
 }
 
 // The default outbound policy
-func (o ScalewayInstanceV1SecurityGroupPtrOutput) Outbound_default_policy() ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput {
+func (o ScalewayInstanceV1SecurityGroupPtrOutput) OutboundDefaultPolicy() ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroup) *ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy {
 		if v == nil {
 			return nil
 		}
-		return v.Outbound_default_policy
+		return v.OutboundDefaultPolicy
 	}).(ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput)
 }
 
@@ -395,12 +370,12 @@ func (o ScalewayInstanceV1SecurityGroupPtrOutput) Project() pulumi.StringPtrOutp
 }
 
 // True if it is your default security group for this project ID
-func (o ScalewayInstanceV1SecurityGroupPtrOutput) Project_default() pulumi.BoolPtrOutput {
+func (o ScalewayInstanceV1SecurityGroupPtrOutput) ProjectDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroup) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.Project_default
+		return v.ProjectDefault
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -468,12 +443,6 @@ func (o ScalewayInstanceV1SecurityGroupArrayOutput) ToScalewayInstanceV1Security
 	return o
 }
 
-func (o ScalewayInstanceV1SecurityGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1SecurityGroup] {
-	return pulumix.Output[[]ScalewayInstanceV1SecurityGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1SecurityGroupArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1SecurityGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalewayInstanceV1SecurityGroup {
 		return vs[0].([]ScalewayInstanceV1SecurityGroup)[vs[1].(int)]
@@ -499,12 +468,6 @@ func (o ScalewayInstanceV1ServerSummaryOutput) ToScalewayInstanceV1ServerSummary
 	return o
 }
 
-func (o ScalewayInstanceV1ServerSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerSummary] {
-	return pulumix.Output[ScalewayInstanceV1ServerSummary]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1ServerSummaryOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerSummary) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -525,12 +488,6 @@ func (o ScalewayInstanceV1ServerSummaryArrayOutput) ToScalewayInstanceV1ServerSu
 
 func (o ScalewayInstanceV1ServerSummaryArrayOutput) ToScalewayInstanceV1ServerSummaryArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerSummaryArrayOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1ServerSummaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1ServerSummary] {
-	return pulumix.Output[[]ScalewayInstanceV1ServerSummary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1ServerSummaryArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1ServerSummaryOutput {

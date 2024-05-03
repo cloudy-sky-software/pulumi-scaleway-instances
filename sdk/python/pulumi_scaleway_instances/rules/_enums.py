@@ -11,9 +11,6 @@ __all__ = [
     'ScalewayInstanceV1SecurityGroupRuleAction',
     'ScalewayInstanceV1SecurityGroupRuleDirection',
     'ScalewayInstanceV1SecurityGroupRuleProtocol',
-    'ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction',
-    'ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection',
-    'ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol',
 ]
 
 
@@ -45,32 +42,6 @@ class ScalewayInstanceV1SecurityGroupRuleDirection(str, Enum):
 
 
 class ScalewayInstanceV1SecurityGroupRuleProtocol(str, Enum):
-    TCP = "TCP"
-    UDP = "UDP"
-    ICMP = "ICMP"
-    ANY = "ANY"
-
-
-class ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction(str, Enum):
-    """
-    Action to apply when the rule matches a packet
-    """
-    ACCEPT = "accept"
-    DROP = "drop"
-
-
-class ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection(str, Enum):
-    """
-    Direction the rule applies to
-    """
-    INBOUND = "inbound"
-    OUTBOUND = "outbound"
-
-
-class ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol(str, Enum):
-    """
-    Protocol family this rule applies to
-    """
     TCP = "TCP"
     UDP = "UDP"
     ICMP = "ICMP"

@@ -7,26 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.ScalewayInstances.User_data.Outputs
+namespace Pulumi.ScalewayInstances.UserData.Outputs
 {
 
     [OutputType]
     public sealed class ScalewayStdFile
     {
         public readonly string? Content;
-        public readonly string? Content_type;
+        public readonly string? ContentType;
         public readonly string? Name;
 
         [OutputConstructor]
         private ScalewayStdFile(
             string? content,
 
-            string? content_type,
+            string? contentType,
 
             string? name)
         {
             Content = content;
-            Content_type = content_type;
+            ContentType = contentType;
             Name = name;
         }
     }

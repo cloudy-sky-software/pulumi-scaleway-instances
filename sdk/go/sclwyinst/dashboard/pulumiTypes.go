@@ -9,27 +9,26 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
 
 type ScalewayInstanceV1Dashboard struct {
-	Images_count             *float64           `pulumi:"images_count"`
-	Ips_count                *float64           `pulumi:"ips_count"`
-	Ips_unused               *float64           `pulumi:"ips_unused"`
-	Placement_groups_count   *float64           `pulumi:"placement_groups_count"`
-	Private_nics_count       *float64           `pulumi:"private_nics_count"`
-	Running_servers_count    *float64           `pulumi:"running_servers_count"`
-	Security_groups_count    *float64           `pulumi:"security_groups_count"`
-	Servers_by_types         map[string]float64 `pulumi:"servers_by_types"`
-	Servers_count            *float64           `pulumi:"servers_count"`
-	Snapshots_count          *float64           `pulumi:"snapshots_count"`
-	Volumes_b_ssd_count      *float64           `pulumi:"volumes_b_ssd_count"`
-	Volumes_b_ssd_total_size *float64           `pulumi:"volumes_b_ssd_total_size"`
-	Volumes_count            *float64           `pulumi:"volumes_count"`
-	Volumes_l_ssd_count      *float64           `pulumi:"volumes_l_ssd_count"`
-	Volumes_l_ssd_total_size *float64           `pulumi:"volumes_l_ssd_total_size"`
+	ImagesCount          *float64           `pulumi:"imagesCount"`
+	IpsCount             *float64           `pulumi:"ipsCount"`
+	IpsUnused            *float64           `pulumi:"ipsUnused"`
+	PlacementGroupsCount *float64           `pulumi:"placementGroupsCount"`
+	PrivateNicsCount     *float64           `pulumi:"privateNicsCount"`
+	RunningServersCount  *float64           `pulumi:"runningServersCount"`
+	SecurityGroupsCount  *float64           `pulumi:"securityGroupsCount"`
+	ServersByTypes       map[string]float64 `pulumi:"serversByTypes"`
+	ServersCount         *float64           `pulumi:"serversCount"`
+	SnapshotsCount       *float64           `pulumi:"snapshotsCount"`
+	VolumesBSsdCount     *float64           `pulumi:"volumesBSsdCount"`
+	VolumesBSsdTotalSize *float64           `pulumi:"volumesBSsdTotalSize"`
+	VolumesCount         *float64           `pulumi:"volumesCount"`
+	VolumesLSsdCount     *float64           `pulumi:"volumesLSsdCount"`
+	VolumesLSsdTotalSize *float64           `pulumi:"volumesLSsdTotalSize"`
 }
 
 type ScalewayInstanceV1DashboardOutput struct{ *pulumi.OutputState }
@@ -46,70 +45,64 @@ func (o ScalewayInstanceV1DashboardOutput) ToScalewayInstanceV1DashboardOutputWi
 	return o
 }
 
-func (o ScalewayInstanceV1DashboardOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Dashboard] {
-	return pulumix.Output[ScalewayInstanceV1Dashboard]{
-		OutputState: o.OutputState,
-	}
+func (o ScalewayInstanceV1DashboardOutput) ImagesCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.ImagesCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Images_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Images_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) IpsCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.IpsCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Ips_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Ips_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) IpsUnused() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.IpsUnused }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Ips_unused() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Ips_unused }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) PlacementGroupsCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.PlacementGroupsCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Placement_groups_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Placement_groups_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) PrivateNicsCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.PrivateNicsCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Private_nics_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Private_nics_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) RunningServersCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.RunningServersCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Running_servers_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Running_servers_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) SecurityGroupsCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.SecurityGroupsCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Security_groups_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Security_groups_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) ServersByTypes() pulumi.Float64MapOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) map[string]float64 { return v.ServersByTypes }).(pulumi.Float64MapOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Servers_by_types() pulumi.Float64MapOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) map[string]float64 { return v.Servers_by_types }).(pulumi.Float64MapOutput)
+func (o ScalewayInstanceV1DashboardOutput) ServersCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.ServersCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Servers_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Servers_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) SnapshotsCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.SnapshotsCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Snapshots_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Snapshots_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) VolumesBSsdCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.VolumesBSsdCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Volumes_b_ssd_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Volumes_b_ssd_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) VolumesBSsdTotalSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.VolumesBSsdTotalSize }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Volumes_b_ssd_total_size() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Volumes_b_ssd_total_size }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) VolumesCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.VolumesCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Volumes_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Volumes_count }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) VolumesLSsdCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.VolumesLSsdCount }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardOutput) Volumes_l_ssd_count() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Volumes_l_ssd_count }).(pulumi.Float64PtrOutput)
-}
-
-func (o ScalewayInstanceV1DashboardOutput) Volumes_l_ssd_total_size() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.Volumes_l_ssd_total_size }).(pulumi.Float64PtrOutput)
+func (o ScalewayInstanceV1DashboardOutput) VolumesLSsdTotalSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Dashboard) *float64 { return v.VolumesLSsdTotalSize }).(pulumi.Float64PtrOutput)
 }
 
 type ScalewayInstanceV1DashboardPtrOutput struct{ *pulumi.OutputState }
@@ -126,12 +119,6 @@ func (o ScalewayInstanceV1DashboardPtrOutput) ToScalewayInstanceV1DashboardPtrOu
 	return o
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Dashboard] {
-	return pulumix.Output[*ScalewayInstanceV1Dashboard]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1DashboardPtrOutput) Elem() ScalewayInstanceV1DashboardOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) ScalewayInstanceV1Dashboard {
 		if v != nil {
@@ -142,138 +129,138 @@ func (o ScalewayInstanceV1DashboardPtrOutput) Elem() ScalewayInstanceV1Dashboard
 	}).(ScalewayInstanceV1DashboardOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Images_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) ImagesCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Images_count
+		return v.ImagesCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Ips_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) IpsCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ips_count
+		return v.IpsCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Ips_unused() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) IpsUnused() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Ips_unused
+		return v.IpsUnused
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Placement_groups_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) PlacementGroupsCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Placement_groups_count
+		return v.PlacementGroupsCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Private_nics_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) PrivateNicsCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Private_nics_count
+		return v.PrivateNicsCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Running_servers_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) RunningServersCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Running_servers_count
+		return v.RunningServersCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Security_groups_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) SecurityGroupsCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Security_groups_count
+		return v.SecurityGroupsCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Servers_by_types() pulumi.Float64MapOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) ServersByTypes() pulumi.Float64MapOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) map[string]float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Servers_by_types
+		return v.ServersByTypes
 	}).(pulumi.Float64MapOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Servers_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) ServersCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Servers_count
+		return v.ServersCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Snapshots_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) SnapshotsCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Snapshots_count
+		return v.SnapshotsCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Volumes_b_ssd_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) VolumesBSsdCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Volumes_b_ssd_count
+		return v.VolumesBSsdCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Volumes_b_ssd_total_size() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) VolumesBSsdTotalSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Volumes_b_ssd_total_size
+		return v.VolumesBSsdTotalSize
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Volumes_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) VolumesCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Volumes_count
+		return v.VolumesCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Volumes_l_ssd_count() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) VolumesLSsdCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Volumes_l_ssd_count
+		return v.VolumesLSsdCount
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1DashboardPtrOutput) Volumes_l_ssd_total_size() pulumi.Float64PtrOutput {
+func (o ScalewayInstanceV1DashboardPtrOutput) VolumesLSsdTotalSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Dashboard) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.Volumes_l_ssd_total_size
+		return v.VolumesLSsdTotalSize
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -293,12 +280,6 @@ func (o ScalewayInstanceV1GetDashboardResponseOutput) ToScalewayInstanceV1GetDas
 
 func (o ScalewayInstanceV1GetDashboardResponseOutput) ToScalewayInstanceV1GetDashboardResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1GetDashboardResponseOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1GetDashboardResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetDashboardResponse] {
-	return pulumix.Output[ScalewayInstanceV1GetDashboardResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1GetDashboardResponseOutput) Dashboard() ScalewayInstanceV1DashboardPtrOutput {

@@ -16,7 +16,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// Alternative instance name if any
         /// </summary>
-        public readonly ImmutableArray<string> Alt_names;
+        public readonly ImmutableArray<string> AltNames;
         /// <summary>
         /// CPU architecture
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// Hourly price in Euro
         /// </summary>
-        public readonly double? Hourly_price;
+        public readonly double? HourlyPrice;
         /// <summary>
         /// Estimated monthly price, for a 30 days month, in Euro
         /// </summary>
-        public readonly double? Monthly_price;
+        public readonly double? MonthlyPrice;
         /// <summary>
         /// Number of CPU
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// Additional volume constraints
         /// </summary>
-        public readonly Outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintProperties? Per_volume_constraint;
+        public readonly Outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintProperties? PerVolumeConstraint;
         /// <summary>
         /// Available RAM in bytes
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// Initial volume constraints
         /// </summary>
-        public readonly Outputs.ScalewayInstanceV1ServerTypeVolumesConstraintProperties? Volumes_constraint;
+        public readonly Outputs.ScalewayInstanceV1ServerTypeVolumesConstraintProperties? VolumesConstraint;
 
         [OutputConstructor]
         private ScalewayInstanceV1ServerType(
-            ImmutableArray<string> alt_names,
+            ImmutableArray<string> altNames,
 
             Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerTypeArch? arch,
 
@@ -74,32 +74,32 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             double? gpu,
 
-            double? hourly_price,
+            double? hourlyPrice,
 
-            double? monthly_price,
+            double? monthlyPrice,
 
             double? ncpus,
 
             Outputs.ScalewayInstanceV1ServerTypeNetworkProperties? network,
 
-            Outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintProperties? per_volume_constraint,
+            Outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintProperties? perVolumeConstraint,
 
             double? ram,
 
-            Outputs.ScalewayInstanceV1ServerTypeVolumesConstraintProperties? volumes_constraint)
+            Outputs.ScalewayInstanceV1ServerTypeVolumesConstraintProperties? volumesConstraint)
         {
-            Alt_names = alt_names;
+            AltNames = altNames;
             Arch = arch;
             Baremetal = baremetal;
             Capabilities = capabilities;
             Gpu = gpu;
-            Hourly_price = hourly_price;
-            Monthly_price = monthly_price;
+            HourlyPrice = hourlyPrice;
+            MonthlyPrice = monthlyPrice;
             Ncpus = ncpus;
             Network = network;
-            Per_volume_constraint = per_volume_constraint;
+            PerVolumeConstraint = perVolumeConstraint;
             Ram = ram;
-            Volumes_constraint = volumes_constraint;
+            VolumesConstraint = volumesConstraint;
         }
     }
 }

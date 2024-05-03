@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -22,20 +22,11 @@ __all__ = [
 class ScalewayInstanceV1GetSecurityGroupResponse(dict):
     def __init__(__self__, *,
                  security_group: Optional['outputs.ScalewayInstanceV1SecurityGroup'] = None):
-        ScalewayInstanceV1GetSecurityGroupResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group=security_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group: Optional['outputs.ScalewayInstanceV1SecurityGroup'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group is not None:
-            _setter("security_group", security_group)
+            pulumi.set(__self__, "security_group", security_group)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="securityGroup")
     def security_group(self) -> Optional['outputs.ScalewayInstanceV1SecurityGroup']:
         return pulumi.get(self, "security_group")
 
@@ -45,35 +36,53 @@ class ScalewayInstanceV1ListSecurityGroupsResponse(dict):
     def __init__(__self__, *,
                  security_groups: Optional[Sequence['outputs.ScalewayInstanceV1SecurityGroup']] = None,
                  total_count: Optional[float] = None):
-        ScalewayInstanceV1ListSecurityGroupsResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_groups=security_groups,
-            total_count=total_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_groups: Optional[Sequence['outputs.ScalewayInstanceV1SecurityGroup']] = None,
-             total_count: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if security_groups is not None:
-            _setter("security_groups", security_groups)
+            pulumi.set(__self__, "security_groups", security_groups)
         if total_count is not None:
-            _setter("total_count", total_count)
+            pulumi.set(__self__, "total_count", total_count)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence['outputs.ScalewayInstanceV1SecurityGroup']]:
         return pulumi.get(self, "security_groups")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="totalCount")
     def total_count(self) -> Optional[float]:
         return pulumi.get(self, "total_count")
 
 
 @pulumi.output_type
 class ScalewayInstanceV1SecurityGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+        elif key == "enableDefaultSecurity":
+            suggest = "enable_default_security"
+        elif key == "inboundDefaultPolicy":
+            suggest = "inbound_default_policy"
+        elif key == "modificationDate":
+            suggest = "modification_date"
+        elif key == "organizationDefault":
+            suggest = "organization_default"
+        elif key == "outboundDefaultPolicy":
+            suggest = "outbound_default_policy"
+        elif key == "projectDefault":
+            suggest = "project_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1SecurityGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1SecurityGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1SecurityGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  project: str,
@@ -110,85 +119,44 @@ class ScalewayInstanceV1SecurityGroup(dict):
         :param Sequence[str] tags: The security group tags
         :param str zone: The zone in which is the security group
         """
-        ScalewayInstanceV1SecurityGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            project=project,
-            creation_date=creation_date,
-            description=description,
-            enable_default_security=enable_default_security,
-            id=id,
-            inbound_default_policy=inbound_default_policy,
-            modification_date=modification_date,
-            organization=organization,
-            organization_default=organization_default,
-            outbound_default_policy=outbound_default_policy,
-            project_default=project_default,
-            servers=servers,
-            state=state,
-            stateful=stateful,
-            tags=tags,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             project: str,
-             creation_date: Optional[str] = None,
-             description: Optional[str] = None,
-             enable_default_security: Optional[bool] = None,
-             id: Optional[str] = None,
-             inbound_default_policy: Optional['ScalewayInstanceV1SecurityGroupInboundDefaultPolicy'] = None,
-             modification_date: Optional[str] = None,
-             organization: Optional[str] = None,
-             organization_default: Optional[bool] = None,
-             outbound_default_policy: Optional['ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy'] = None,
-             project_default: Optional[bool] = None,
-             servers: Optional[Sequence['outputs.ScalewayInstanceV1ServerSummary']] = None,
-             state: Optional['ScalewayInstanceV1SecurityGroupState'] = None,
-             stateful: Optional[bool] = None,
-             tags: Optional[Sequence[str]] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("project", project)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enable_default_security is not None:
-            _setter("enable_default_security", enable_default_security)
+            pulumi.set(__self__, "enable_default_security", enable_default_security)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if inbound_default_policy is None:
             inbound_default_policy = 'accept'
         if inbound_default_policy is not None:
-            _setter("inbound_default_policy", inbound_default_policy)
+            pulumi.set(__self__, "inbound_default_policy", inbound_default_policy)
         if modification_date is not None:
-            _setter("modification_date", modification_date)
+            pulumi.set(__self__, "modification_date", modification_date)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if organization_default is not None:
-            _setter("organization_default", organization_default)
+            pulumi.set(__self__, "organization_default", organization_default)
         if outbound_default_policy is None:
             outbound_default_policy = 'accept'
         if outbound_default_policy is not None:
-            _setter("outbound_default_policy", outbound_default_policy)
+            pulumi.set(__self__, "outbound_default_policy", outbound_default_policy)
         if project_default is not None:
-            _setter("project_default", project_default)
+            pulumi.set(__self__, "project_default", project_default)
         if servers is not None:
-            _setter("servers", servers)
+            pulumi.set(__self__, "servers", servers)
         if state is None:
             state = 'available'
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if stateful is not None:
-            _setter("stateful", stateful)
+            pulumi.set(__self__, "stateful", stateful)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -207,7 +175,7 @@ class ScalewayInstanceV1SecurityGroup(dict):
         return pulumi.get(self, "project")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
         """
         The security group creation date (RFC 3339 format)
@@ -223,7 +191,7 @@ class ScalewayInstanceV1SecurityGroup(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="enableDefaultSecurity")
     def enable_default_security(self) -> Optional[bool]:
         """
         True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
@@ -236,7 +204,7 @@ class ScalewayInstanceV1SecurityGroup(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="inboundDefaultPolicy")
     def inbound_default_policy(self) -> Optional['ScalewayInstanceV1SecurityGroupInboundDefaultPolicy']:
         """
         The default inbound policy
@@ -244,7 +212,7 @@ class ScalewayInstanceV1SecurityGroup(dict):
         return pulumi.get(self, "inbound_default_policy")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="modificationDate")
     def modification_date(self) -> Optional[str]:
         """
         The security group modification date (RFC 3339 format)
@@ -260,7 +228,7 @@ class ScalewayInstanceV1SecurityGroup(dict):
         return pulumi.get(self, "organization")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="organizationDefault")
     def organization_default(self) -> Optional[bool]:
         """
         True if it is your default security group for this organization ID
@@ -268,7 +236,7 @@ class ScalewayInstanceV1SecurityGroup(dict):
         return pulumi.get(self, "organization_default")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="outboundDefaultPolicy")
     def outbound_default_policy(self) -> Optional['ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy']:
         """
         The default outbound policy
@@ -276,7 +244,7 @@ class ScalewayInstanceV1SecurityGroup(dict):
         return pulumi.get(self, "outbound_default_policy")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="projectDefault")
     def project_default(self) -> Optional[bool]:
         """
         True if it is your default security group for this project ID
@@ -329,21 +297,10 @@ class ScalewayInstanceV1ServerSummary(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
-        ScalewayInstanceV1ServerSummary._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,42 +32,21 @@ class VolumeArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The volume tags
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        VolumeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project=project,
-            name=name,
-            organization=organization,
-            size=size,
-            tags=tags,
-            volume_type=volume_type,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project: pulumi.Input[str],
-             name: Optional[pulumi.Input[str]] = None,
-             organization: Optional[pulumi.Input[str]] = None,
-             size: Optional[pulumi.Input[float]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             volume_type: Optional[pulumi.Input['VolumeType']] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("project", project)
+        pulumi.set(__self__, "project", project)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -130,7 +109,7 @@ class VolumeArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input['VolumeType']]:
         return pulumi.get(self, "volume_type")
 
@@ -193,10 +172,6 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -280,7 +255,7 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         The volume creation date (RFC 3339 format)
@@ -288,7 +263,7 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="exportUri")
     def export_uri(self) -> pulumi.Output[Optional[str]]:
         """
         Show the volume NBD export URI
@@ -296,7 +271,7 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "export_uri")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="modificationDate")
     def modification_date(self) -> pulumi.Output[Optional[str]]:
         """
         The volume modification date (RFC 3339 format)
@@ -362,7 +337,7 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "volume")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Output[Optional['VolumeType']]:
         return pulumi.get(self, "volume_type")
 

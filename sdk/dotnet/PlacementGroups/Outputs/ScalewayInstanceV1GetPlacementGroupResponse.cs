@@ -13,12 +13,12 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
     [OutputType]
     public sealed class ScalewayInstanceV1GetPlacementGroupResponse
     {
-        public readonly Outputs.ScalewayInstanceV1PlacementGroup? Placement_group;
+        public readonly Outputs.ScalewayInstanceV1PlacementGroup? PlacementGroup;
 
         [OutputConstructor]
-        private ScalewayInstanceV1GetPlacementGroupResponse(Outputs.ScalewayInstanceV1PlacementGroup? placement_group)
+        private ScalewayInstanceV1GetPlacementGroupResponse(Outputs.ScalewayInstanceV1PlacementGroup? placementGroup)
         {
-            Placement_group = placement_group;
+            PlacementGroup = placementGroup;
         }
     }
 }

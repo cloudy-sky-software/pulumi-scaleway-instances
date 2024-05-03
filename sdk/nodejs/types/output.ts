@@ -14,7 +14,7 @@ export namespace action {
     }
 
     export interface ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate {
-        volume_type?: enums.action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType;
+        volumeType?: enums.action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType;
     }
     /**
      * scalewayInstanceV1ServerActionRequestVolumeBackupTemplateProvideDefaults sets the appropriate defaults for ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate
@@ -22,7 +22,7 @@ export namespace action {
     export function scalewayInstanceV1ServerActionRequestVolumeBackupTemplateProvideDefaults(val: ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate): ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate {
         return {
             ...val,
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -31,8 +31,8 @@ export namespace action {
          * The description of the task
          */
         description?: string;
-        href_from?: string;
-        href_result?: string;
+        hrefFrom?: string;
+        hrefResult?: string;
         /**
          * The unique ID of the task
          */
@@ -44,7 +44,7 @@ export namespace action {
         /**
          * The task start date (RFC 3339 format)
          */
-        started_at?: string;
+        startedAt?: string;
         /**
          * The task status
          */
@@ -52,7 +52,7 @@ export namespace action {
         /**
          * The task end date (RFC 3339 format)
          */
-        terminated_at?: string;
+        terminatedAt?: string;
         /**
          * The zone in which is the task
          */
@@ -175,21 +175,21 @@ export namespace bootscripts {
 
 export namespace dashboard {
     export interface ScalewayInstanceV1Dashboard {
-        images_count?: number;
-        ips_count?: number;
-        ips_unused?: number;
-        placement_groups_count?: number;
-        private_nics_count?: number;
-        running_servers_count?: number;
-        security_groups_count?: number;
-        servers_by_types?: {[key: string]: number};
-        servers_count?: number;
-        snapshots_count?: number;
-        volumes_b_ssd_count?: number;
-        volumes_b_ssd_total_size?: number;
-        volumes_count?: number;
-        volumes_l_ssd_count?: number;
-        volumes_l_ssd_total_size?: number;
+        imagesCount?: number;
+        ipsCount?: number;
+        ipsUnused?: number;
+        placementGroupsCount?: number;
+        privateNicsCount?: number;
+        runningServersCount?: number;
+        securityGroupsCount?: number;
+        serversByTypes?: {[key: string]: number};
+        serversCount?: number;
+        snapshotsCount?: number;
+        volumesBSsdCount?: number;
+        volumesBSsdTotalSize?: number;
+        volumesCount?: number;
+        volumesLSsdCount?: number;
+        volumesLSsdTotalSize?: number;
     }
 
     export interface ScalewayInstanceV1GetDashboardResponse {
@@ -277,20 +277,20 @@ export namespace images {
         /**
          * (RFC 3339 format)
          */
-        creation_date?: string;
-        default_bootscript?: outputs.images.ScalewayInstanceV1Bootscript;
-        extra_volumes?: {[key: string]: outputs.images.ScalewayInstanceV1Volume};
-        from_server?: string;
+        creationDate?: string;
+        defaultBootscript?: outputs.images.ScalewayInstanceV1Bootscript;
+        extraVolumes?: {[key: string]: outputs.images.ScalewayInstanceV1Volume};
+        fromServer?: string;
         id?: string;
         /**
          * (RFC 3339 format)
          */
-        modification_date?: string;
+        modificationDate?: string;
         name: string;
         organization?: string;
         project: string;
         public?: boolean;
-        root_volume: outputs.images.ScalewayInstanceV1VolumeSummary;
+        rootVolume: outputs.images.ScalewayInstanceV1VolumeSummary;
         state?: enums.images.ScalewayInstanceV1ImageState;
         tags?: string[];
         zone?: string;
@@ -302,8 +302,8 @@ export namespace images {
         return {
             ...val,
             arch: (val.arch) ?? "x86_64",
-            default_bootscript: (val.default_bootscript ? outputs.images.scalewayInstanceV1BootscriptProvideDefaults(val.default_bootscript) : undefined),
-            root_volume: outputs.images.scalewayInstanceV1VolumeSummaryProvideDefaults(val.root_volume),
+            defaultBootscript: (val.defaultBootscript ? outputs.images.scalewayInstanceV1BootscriptProvideDefaults(val.defaultBootscript) : undefined),
+            rootVolume: outputs.images.scalewayInstanceV1VolumeSummaryProvideDefaults(val.rootVolume),
             state: (val.state) ?? "available",
         };
     }
@@ -319,16 +319,16 @@ export namespace images {
         /**
          * The volume creation date (RFC 3339 format)
          */
-        creation_date?: string;
+        creationDate?: string;
         /**
          * Show the volume NBD export URI
          */
-        export_uri?: string;
+        exportUri?: string;
         id?: string;
         /**
          * The volume modification date (RFC 3339 format)
          */
-        modification_date?: string;
+        modificationDate?: string;
         /**
          * The volume name
          */
@@ -354,7 +354,7 @@ export namespace images {
          * The volume tags
          */
         tags?: string[];
-        volume_type?: enums.images.ScalewayInstanceV1VolumeVolumeType;
+        volumeType?: enums.images.ScalewayInstanceV1VolumeVolumeType;
         /**
          * The zone in which is the volume
          */
@@ -367,7 +367,7 @@ export namespace images {
         return {
             ...val,
             state: (val.state) ?? "available",
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -386,7 +386,7 @@ export namespace images {
          * (in bytes)
          */
         size?: number;
-        volume_type?: enums.images.ScalewayInstanceV1VolumeSummaryVolumeType;
+        volumeType?: enums.images.ScalewayInstanceV1VolumeSummaryVolumeType;
     }
     /**
      * scalewayInstanceV1VolumeSummaryProvideDefaults sets the appropriate defaults for ScalewayInstanceV1VolumeSummary
@@ -394,16 +394,13 @@ export namespace images {
     export function scalewayInstanceV1VolumeSummaryProvideDefaults(val: ScalewayInstanceV1VolumeSummary): ScalewayInstanceV1VolumeSummary {
         return {
             ...val,
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
 }
 
 export namespace ips {
-    export interface GoogleProtobufStringValue {
-    }
-
     export interface ScalewayInstanceV1GetIpResponse {
         ip?: outputs.ips.ScalewayInstanceV1Ip;
     }
@@ -416,7 +413,7 @@ export namespace ips {
         id?: string;
         organization?: string;
         project: string;
-        reverse?: outputs.ips.GoogleProtobufStringValue;
+        reverse?: string;
         server?: outputs.ips.ScalewayInstanceV1ServerSummary;
         tags?: string[];
         zone?: string;
@@ -438,7 +435,7 @@ export namespace ips {
 
 export namespace placement_groups {
     export interface ScalewayInstanceV1GetPlacementGroupResponse {
-        placement_group?: outputs.placement_groups.ScalewayInstanceV1PlacementGroup;
+        placementGroup?: outputs.placement_groups.ScalewayInstanceV1PlacementGroup;
     }
     /**
      * scalewayInstanceV1GetPlacementGroupResponseProvideDefaults sets the appropriate defaults for ScalewayInstanceV1GetPlacementGroupResponse
@@ -446,7 +443,7 @@ export namespace placement_groups {
     export function scalewayInstanceV1GetPlacementGroupResponseProvideDefaults(val: ScalewayInstanceV1GetPlacementGroupResponse): ScalewayInstanceV1GetPlacementGroupResponse {
         return {
             ...val,
-            placement_group: (val.placement_group ? outputs.placement_groups.scalewayInstanceV1PlacementGroupProvideDefaults(val.placement_group) : undefined),
+            placementGroup: (val.placementGroup ? outputs.placement_groups.scalewayInstanceV1PlacementGroupProvideDefaults(val.placementGroup) : undefined),
         };
     }
 
@@ -454,7 +451,7 @@ export namespace placement_groups {
         /**
          * List of placement groups
          */
-        placement_groups?: outputs.placement_groups.ScalewayInstanceV1PlacementGroup[];
+        placementGroups?: outputs.placement_groups.ScalewayInstanceV1PlacementGroup[];
     }
 
     export interface ScalewayInstanceV1PlacementGroup {
@@ -467,12 +464,12 @@ export namespace placement_groups {
          * The placement group organization ID
          */
         organization?: string;
-        policy_mode?: enums.placement_groups.ScalewayInstanceV1PlacementGroupPolicyMode;
+        policyMode?: enums.placement_groups.ScalewayInstanceV1PlacementGroupPolicyMode;
         /**
          * Returns true if the policy is respected, false otherwise
          */
-        policy_respected?: boolean;
-        policy_type?: enums.placement_groups.ScalewayInstanceV1PlacementGroupPolicyType;
+        policyRespected?: boolean;
+        policyType?: enums.placement_groups.ScalewayInstanceV1PlacementGroupPolicyType;
         /**
          * The placement group project ID
          */
@@ -492,8 +489,8 @@ export namespace placement_groups {
     export function scalewayInstanceV1PlacementGroupProvideDefaults(val: ScalewayInstanceV1PlacementGroup): ScalewayInstanceV1PlacementGroup {
         return {
             ...val,
-            policy_mode: (val.policy_mode) ?? "optional",
-            policy_type: (val.policy_type) ?? "max_availability",
+            policyMode: (val.policyMode) ?? "optional",
+            policyType: (val.policyType) ?? "max_availability",
         };
     }
 
@@ -501,7 +498,7 @@ export namespace placement_groups {
 
 export namespace private_nics {
     export interface ScalewayInstanceV1GetPrivateNICResponse {
-        private_nic?: outputs.private_nics.ScalewayInstanceV1PrivateNIC;
+        privateNic?: outputs.private_nics.ScalewayInstanceV1PrivateNIC;
     }
     /**
      * scalewayInstanceV1GetPrivateNICResponseProvideDefaults sets the appropriate defaults for ScalewayInstanceV1GetPrivateNICResponse
@@ -509,12 +506,12 @@ export namespace private_nics {
     export function scalewayInstanceV1GetPrivateNICResponseProvideDefaults(val: ScalewayInstanceV1GetPrivateNICResponse): ScalewayInstanceV1GetPrivateNICResponse {
         return {
             ...val,
-            private_nic: (val.private_nic ? outputs.private_nics.scalewayInstanceV1PrivateNICProvideDefaults(val.private_nic) : undefined),
+            privateNic: (val.privateNic ? outputs.private_nics.scalewayInstanceV1PrivateNICProvideDefaults(val.privateNic) : undefined),
         };
     }
 
     export interface ScalewayInstanceV1ListPrivateNICsResponse {
-        private_nics?: outputs.private_nics.ScalewayInstanceV1PrivateNIC[];
+        privateNics?: outputs.private_nics.ScalewayInstanceV1PrivateNIC[];
     }
 
     export interface ScalewayInstanceV1PrivateNIC {
@@ -525,15 +522,15 @@ export namespace private_nics {
         /**
          * The private NIC MAC address
          */
-        mac_address?: string;
+        macAddress?: string;
         /**
          * The private network where the private NIC is attached
          */
-        private_network_id?: string;
+        privateNetworkId?: string;
         /**
          * The server the private NIC is attached to
          */
-        server_id?: string;
+        serverId?: string;
         /**
          * The private NIC state
          */
@@ -552,9 +549,6 @@ export namespace private_nics {
 }
 
 export namespace rules {
-    export interface GoogleProtobufUInt32Value {
-    }
-
     export interface ScalewayInstanceV1GetSecurityGroupRuleResponse {
         rule?: outputs.rules.ScalewayInstanceV1SecurityGroupRule;
     }
@@ -577,15 +571,15 @@ export namespace rules {
 
     export interface ScalewayInstanceV1SecurityGroupRule {
         action?: enums.rules.ScalewayInstanceV1SecurityGroupRuleAction;
-        dest_port_from?: outputs.rules.GoogleProtobufUInt32Value;
-        dest_port_to?: outputs.rules.GoogleProtobufUInt32Value;
+        destPortFrom?: number;
+        destPortTo?: number;
         direction?: enums.rules.ScalewayInstanceV1SecurityGroupRuleDirection;
         editable?: boolean;
         id?: string;
         /**
          * (IP network)
          */
-        ip_range?: string;
+        ipRange?: string;
         position?: number;
         protocol?: enums.rules.ScalewayInstanceV1SecurityGroupRuleProtocol;
         zone?: string;
@@ -602,65 +596,11 @@ export namespace rules {
         };
     }
 
-    export interface ScalewayInstanceV1SetSecurityGroupRulesRequestRule {
-        /**
-         * Action to apply when the rule matches a packet
-         */
-        action?: enums.rules.ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction;
-        /**
-         * Beginning of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY
-         */
-        dest_port_from?: number;
-        /**
-         * End of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY, or if it is equal to dest_port_from
-         */
-        dest_port_to?: number;
-        /**
-         * Direction the rule applies to
-         */
-        direction?: enums.rules.ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection;
-        /**
-         * Indicates if this rule is editable. Rules with the value false will be ignored
-         */
-        editable?: boolean;
-        /**
-         * UUID of the security rule to update. If no value is provided, a new rule will be created
-         */
-        id?: string;
-        /**
-         * The range of IP address this rules applies to (IP network)
-         */
-        ip_range?: string;
-        /**
-         * Position of this rule in the security group rules list. If several rules are passed with the same position, the resulting order is undefined
-         */
-        position?: number;
-        /**
-         * Protocol family this rule applies to
-         */
-        protocol?: enums.rules.ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol;
-        /**
-         * Zone of the rule. This field is ignored
-         */
-        zone?: string;
-    }
-    /**
-     * scalewayInstanceV1SetSecurityGroupRulesRequestRuleProvideDefaults sets the appropriate defaults for ScalewayInstanceV1SetSecurityGroupRulesRequestRule
-     */
-    export function scalewayInstanceV1SetSecurityGroupRulesRequestRuleProvideDefaults(val: ScalewayInstanceV1SetSecurityGroupRulesRequestRule): ScalewayInstanceV1SetSecurityGroupRulesRequestRule {
-        return {
-            ...val,
-            action: (val.action) ?? "accept",
-            direction: (val.direction) ?? "inbound",
-            protocol: (val.protocol) ?? "TCP",
-        };
-    }
-
 }
 
 export namespace security_groups {
     export interface ScalewayInstanceV1GetSecurityGroupResponse {
-        security_group?: outputs.security_groups.ScalewayInstanceV1SecurityGroup;
+        securityGroup?: outputs.security_groups.ScalewayInstanceV1SecurityGroup;
     }
     /**
      * scalewayInstanceV1GetSecurityGroupResponseProvideDefaults sets the appropriate defaults for ScalewayInstanceV1GetSecurityGroupResponse
@@ -668,20 +608,20 @@ export namespace security_groups {
     export function scalewayInstanceV1GetSecurityGroupResponseProvideDefaults(val: ScalewayInstanceV1GetSecurityGroupResponse): ScalewayInstanceV1GetSecurityGroupResponse {
         return {
             ...val,
-            security_group: (val.security_group ? outputs.security_groups.scalewayInstanceV1SecurityGroupProvideDefaults(val.security_group) : undefined),
+            securityGroup: (val.securityGroup ? outputs.security_groups.scalewayInstanceV1SecurityGroupProvideDefaults(val.securityGroup) : undefined),
         };
     }
 
     export interface ScalewayInstanceV1ListSecurityGroupsResponse {
-        security_groups?: outputs.security_groups.ScalewayInstanceV1SecurityGroup[];
-        total_count?: number;
+        securityGroups?: outputs.security_groups.ScalewayInstanceV1SecurityGroup[];
+        totalCount?: number;
     }
 
     export interface ScalewayInstanceV1SecurityGroup {
         /**
          * The security group creation date (RFC 3339 format)
          */
-        creation_date?: string;
+        creationDate?: string;
         /**
          * The security groups description
          */
@@ -689,16 +629,16 @@ export namespace security_groups {
         /**
          * True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
          */
-        enable_default_security?: boolean;
+        enableDefaultSecurity?: boolean;
         id?: string;
         /**
          * The default inbound policy
          */
-        inbound_default_policy?: enums.security_groups.ScalewayInstanceV1SecurityGroupInboundDefaultPolicy;
+        inboundDefaultPolicy?: enums.security_groups.ScalewayInstanceV1SecurityGroupInboundDefaultPolicy;
         /**
          * The security group modification date (RFC 3339 format)
          */
-        modification_date?: string;
+        modificationDate?: string;
         /**
          * The security groups name
          */
@@ -710,11 +650,11 @@ export namespace security_groups {
         /**
          * True if it is your default security group for this organization ID
          */
-        organization_default?: boolean;
+        organizationDefault?: boolean;
         /**
          * The default outbound policy
          */
-        outbound_default_policy?: enums.security_groups.ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy;
+        outboundDefaultPolicy?: enums.security_groups.ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy;
         /**
          * The security group project ID
          */
@@ -722,7 +662,7 @@ export namespace security_groups {
         /**
          * True if it is your default security group for this project ID
          */
-        project_default?: boolean;
+        projectDefault?: boolean;
         /**
          * List of servers attached to this security group
          */
@@ -750,8 +690,8 @@ export namespace security_groups {
     export function scalewayInstanceV1SecurityGroupProvideDefaults(val: ScalewayInstanceV1SecurityGroup): ScalewayInstanceV1SecurityGroup {
         return {
             ...val,
-            inbound_default_policy: (val.inbound_default_policy) ?? "accept",
-            outbound_default_policy: (val.outbound_default_policy) ?? "accept",
+            inboundDefaultPolicy: (val.inboundDefaultPolicy) ?? "accept",
+            outboundDefaultPolicy: (val.outboundDefaultPolicy) ?? "accept",
             state: (val.state) ?? "available",
         };
     }
@@ -846,20 +786,20 @@ export namespace servers {
         /**
          * (RFC 3339 format)
          */
-        creation_date?: string;
-        default_bootscript?: outputs.servers.ScalewayInstanceV1Bootscript;
-        extra_volumes?: {[key: string]: outputs.servers.ScalewayInstanceV1Volume};
-        from_server?: string;
+        creationDate?: string;
+        defaultBootscript?: outputs.servers.ScalewayInstanceV1Bootscript;
+        extraVolumes?: {[key: string]: outputs.servers.ScalewayInstanceV1Volume};
+        fromServer?: string;
         id?: string;
         /**
          * (RFC 3339 format)
          */
-        modification_date?: string;
+        modificationDate?: string;
         name: string;
         organization?: string;
         project: string;
         public?: boolean;
-        root_volume: outputs.servers.ScalewayInstanceV1VolumeSummary;
+        rootVolume: outputs.servers.ScalewayInstanceV1VolumeSummary;
         state?: enums.servers.ScalewayInstanceV1ImageState;
         tags?: string[];
         zone?: string;
@@ -871,8 +811,8 @@ export namespace servers {
         return {
             ...val,
             arch: (val.arch) ?? "x86_64",
-            default_bootscript: (val.default_bootscript ? outputs.servers.scalewayInstanceV1BootscriptProvideDefaults(val.default_bootscript) : undefined),
-            root_volume: outputs.servers.scalewayInstanceV1VolumeSummaryProvideDefaults(val.root_volume),
+            defaultBootscript: (val.defaultBootscript ? outputs.servers.scalewayInstanceV1BootscriptProvideDefaults(val.defaultBootscript) : undefined),
+            rootVolume: outputs.servers.scalewayInstanceV1VolumeSummaryProvideDefaults(val.rootVolume),
             state: (val.state) ?? "available",
         };
     }
@@ -901,12 +841,12 @@ export namespace servers {
          * The placement group organization ID
          */
         organization?: string;
-        policy_mode?: enums.servers.ScalewayInstanceV1PlacementGroupPolicyMode;
+        policyMode?: enums.servers.ScalewayInstanceV1PlacementGroupPolicyMode;
         /**
          * Returns true if the policy is respected, false otherwise
          */
-        policy_respected?: boolean;
-        policy_type?: enums.servers.ScalewayInstanceV1PlacementGroupPolicyType;
+        policyRespected?: boolean;
+        policyType?: enums.servers.ScalewayInstanceV1PlacementGroupPolicyType;
         /**
          * The placement group project ID
          */
@@ -926,15 +866,15 @@ export namespace servers {
     export function scalewayInstanceV1PlacementGroupProvideDefaults(val: ScalewayInstanceV1PlacementGroup): ScalewayInstanceV1PlacementGroup {
         return {
             ...val,
-            policy_mode: (val.policy_mode) ?? "optional",
-            policy_type: (val.policy_type) ?? "max_availability",
+            policyMode: (val.policyMode) ?? "optional",
+            policyType: (val.policyType) ?? "max_availability",
         };
     }
 
     export interface ScalewayInstanceV1PlacementGroupServer {
         id?: string;
         name?: string;
-        policy_respected?: boolean;
+        policyRespected?: boolean;
     }
 
     export interface ScalewayInstanceV1PrivateNIC {
@@ -945,15 +885,15 @@ export namespace servers {
         /**
          * The private NIC MAC address
          */
-        mac_address?: string;
+        macAddress?: string;
         /**
          * The private network where the private NIC is attached
          */
-        private_network_id?: string;
+        privateNetworkId?: string;
         /**
          * The server the private NIC is attached to
          */
-        server_id?: string;
+        serverId?: string;
         /**
          * The private NIC state
          */
@@ -973,29 +913,29 @@ export namespace servers {
         /**
          * Provide as list of allowed actions on the server
          */
-        allowed_actions?: enums.servers.ScalewayInstanceV1ServerAllowedActionsItem[];
+        allowedActions?: enums.servers.ScalewayInstanceV1ServerAllowedActionsItem[];
         /**
          * The server arch
          */
         arch?: enums.servers.ScalewayInstanceV1ServerArch;
-        boot_type?: enums.servers.ScalewayInstanceV1ServerBootType;
+        bootType?: enums.servers.ScalewayInstanceV1ServerBootType;
         bootscript?: outputs.servers.ScalewayInstanceV1Bootscript;
         /**
          * The server commercial type (eg. GP1-M)
          */
-        commercial_type?: string;
+        commercialType?: string;
         /**
          * The server creation date (RFC 3339 format)
          */
-        creation_date?: string;
+        creationDate?: string;
         /**
          * True if a dynamic IP is required
          */
-        dynamic_ip_required?: boolean;
+        dynamicIpRequired?: boolean;
         /**
          * True if IPv6 is enabled
          */
-        enable_ipv6?: boolean;
+        enableIpv6?: boolean;
         /**
          * The server host name
          */
@@ -1020,7 +960,7 @@ export namespace servers {
         /**
          * The server modification date (RFC 3339 format)
          */
-        modification_date?: string;
+        modificationDate?: string;
         /**
          * The server name
          */
@@ -1029,15 +969,15 @@ export namespace servers {
          * The server organization ID
          */
         organization?: string;
-        placement_group?: outputs.servers.ScalewayInstanceV1PlacementGroup;
+        placementGroup?: outputs.servers.ScalewayInstanceV1PlacementGroup;
         /**
          * The server private IP address
          */
-        private_ip?: string;
+        privateIp?: string;
         /**
          * The server private NICs
          */
-        private_nics?: outputs.servers.ScalewayInstanceV1PrivateNIC[];
+        privateNics?: outputs.servers.ScalewayInstanceV1PrivateNIC[];
         /**
          * The server project ID
          */
@@ -1049,11 +989,11 @@ export namespace servers {
         /**
          * Information about the public IP
          */
-        public_ip?: outputs.servers.ScalewayInstanceV1ServerPublicIpProperties;
+        publicIp?: outputs.servers.ScalewayInstanceV1ServerPublicIpProperties;
         /**
          * The server security group
          */
-        security_group?: outputs.servers.ScalewayInstanceV1ServerSecurityGroupProperties;
+        securityGroup?: outputs.servers.ScalewayInstanceV1ServerSecurityGroupProperties;
         /**
          * The server state
          */
@@ -1061,7 +1001,7 @@ export namespace servers {
         /**
          * The server state_detail
          */
-        state_detail?: string;
+        stateDetail?: string;
         /**
          * The server associated tags
          */
@@ -1082,10 +1022,10 @@ export namespace servers {
         return {
             ...val,
             arch: (val.arch) ?? "x86_64",
-            boot_type: (val.boot_type) ?? "local",
+            bootType: (val.bootType) ?? "local",
             bootscript: (val.bootscript ? outputs.servers.scalewayInstanceV1BootscriptProvideDefaults(val.bootscript) : undefined),
             image: (val.image ? outputs.servers.scalewayInstanceV1ImageProvideDefaults(val.image) : undefined),
-            placement_group: (val.placement_group ? outputs.servers.scalewayInstanceV1PlacementGroupProvideDefaults(val.placement_group) : undefined),
+            placementGroup: (val.placementGroup ? outputs.servers.scalewayInstanceV1PlacementGroupProvideDefaults(val.placementGroup) : undefined),
             state: (val.state) ?? "running",
         };
     }
@@ -1112,11 +1052,11 @@ export namespace servers {
      * The server location
      */
     export interface ScalewayInstanceV1ServerLocationProperties {
-        cluster_id?: string;
-        hypervisor_id?: string;
-        node_id?: string;
-        platform_id?: string;
-        zone_id?: string;
+        clusterId?: string;
+        hypervisorId?: string;
+        nodeId?: string;
+        platformId?: string;
+        zoneId?: string;
     }
 
     export interface ScalewayInstanceV1ServerMaintenance {
@@ -1157,7 +1097,7 @@ export namespace servers {
         /**
          * Alternative instance name if any
          */
-        alt_names?: string[];
+        altNames?: string[];
         /**
          * CPU architecture
          */
@@ -1177,11 +1117,11 @@ export namespace servers {
         /**
          * Hourly price in Euro
          */
-        hourly_price?: number;
+        hourlyPrice?: number;
         /**
          * Estimated monthly price, for a 30 days month, in Euro
          */
-        monthly_price?: number;
+        monthlyPrice?: number;
         /**
          * Number of CPU
          */
@@ -1193,7 +1133,7 @@ export namespace servers {
         /**
          * Additional volume constraints
          */
-        per_volume_constraint?: outputs.servers.ScalewayInstanceV1ServerTypePerVolumeConstraintProperties;
+        perVolumeConstraint?: outputs.servers.ScalewayInstanceV1ServerTypePerVolumeConstraintProperties;
         /**
          * Available RAM in bytes
          */
@@ -1201,7 +1141,7 @@ export namespace servers {
         /**
          * Initial volume constraints
          */
-        volumes_constraint?: outputs.servers.ScalewayInstanceV1ServerTypeVolumesConstraintProperties;
+        volumesConstraint?: outputs.servers.ScalewayInstanceV1ServerTypeVolumesConstraintProperties;
     }
     /**
      * scalewayInstanceV1ServerTypeProvideDefaults sets the appropriate defaults for ScalewayInstanceV1ServerType
@@ -1220,22 +1160,22 @@ export namespace servers {
         /**
          * True if server supports block storage
          */
-        block_storage?: boolean;
+        blockStorage?: boolean;
         /**
          * List of supported boot types
          */
-        boot_types?: enums.servers.ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem[];
+        bootTypes?: enums.servers.ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem[];
     }
 
     export interface ScalewayInstanceV1ServerTypeNetworkInterface {
         /**
          * Maximum internal bandwidth in bits per seconds
          */
-        internal_bandwidth?: number;
+        internalBandwidth?: number;
         /**
          * Maximum internet bandwidth in bits per seconds
          */
-        internet_bandwidth?: number;
+        internetBandwidth?: number;
     }
 
     /**
@@ -1243,21 +1183,21 @@ export namespace servers {
      */
     export interface ScalewayInstanceV1ServerTypeNetworkProperties {
         /**
+         * True if IPv6 is enabled
+         */
+        _ipv6Support?: boolean;
+        /**
          * List of available network interfaces
          */
         interfaces?: outputs.servers.ScalewayInstanceV1ServerTypeNetworkInterface[];
         /**
-         * True if IPv6 is enabled
-         */
-        ipv6_support?: boolean;
-        /**
          * Total maximum internal bandwidth in bits per seconds
          */
-        sum_internal_bandwidth?: number;
+        sumInternalBandwidth?: number;
         /**
          * Total maximum internet bandwidth in bits per seconds
          */
-        sum_internet_bandwidth?: number;
+        sumInternetBandwidth?: number;
     }
 
     /**
@@ -1267,7 +1207,7 @@ export namespace servers {
         /**
          * Local SSD volumes
          */
-        l_ssd?: outputs.servers.ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties;
+        lSsd?: outputs.servers.ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties;
     }
 
     /**
@@ -1277,11 +1217,11 @@ export namespace servers {
         /**
          * Maximum volume size in bytes (in bytes)
          */
-        max_size?: number;
+        maxSize?: number;
         /**
          * Minimum volume size in bytes (in bytes)
          */
-        min_size?: number;
+        minSize?: number;
     }
 
     /**
@@ -1291,27 +1231,27 @@ export namespace servers {
         /**
          * Maximum volume size in bytes (in bytes)
          */
-        max_size?: number;
+        maxSize?: number;
         /**
          * Minimum volume size in bytes (in bytes)
          */
-        min_size?: number;
+        minSize?: number;
     }
 
     export interface ScalewayInstanceV1Volume {
         /**
          * The volume creation date (RFC 3339 format)
          */
-        creation_date?: string;
+        creationDate?: string;
         /**
          * Show the volume NBD export URI
          */
-        export_uri?: string;
+        exportUri?: string;
         id?: string;
         /**
          * The volume modification date (RFC 3339 format)
          */
-        modification_date?: string;
+        modificationDate?: string;
         /**
          * The volume name
          */
@@ -1337,7 +1277,7 @@ export namespace servers {
          * The volume tags
          */
         tags?: string[];
-        volume_type?: enums.servers.ScalewayInstanceV1VolumeVolumeType;
+        volumeType?: enums.servers.ScalewayInstanceV1VolumeVolumeType;
         /**
          * The zone in which is the volume
          */
@@ -1350,7 +1290,7 @@ export namespace servers {
         return {
             ...val,
             state: (val.state) ?? "available",
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -1359,13 +1299,13 @@ export namespace servers {
         /**
          * (RFC 3339 format)
          */
-        creation_date?: string;
-        export_uri?: string;
+        creationDate?: string;
+        exportUri?: string;
         id?: string;
         /**
          * (RFC 3339 format)
          */
-        modification_date?: string;
+        modificationDate?: string;
         name?: string;
         organization?: string;
         project?: string;
@@ -1375,7 +1315,7 @@ export namespace servers {
          */
         size?: number;
         state?: enums.servers.ScalewayInstanceV1VolumeServerState;
-        volume_type?: enums.servers.ScalewayInstanceV1VolumeServerVolumeType;
+        volumeType?: enums.servers.ScalewayInstanceV1VolumeServerVolumeType;
         zone?: string;
     }
     /**
@@ -1385,7 +1325,7 @@ export namespace servers {
         return {
             ...val,
             state: (val.state) ?? "available",
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -1401,7 +1341,7 @@ export namespace servers {
         /**
          * The ID of the snapshot on which this volume will be based
          */
-        base_snapshot?: string;
+        baseSnapshot?: string;
         /**
          * Force the server to boot on this volume
          */
@@ -1426,7 +1366,7 @@ export namespace servers {
          * Disk size of the volume, must be a multiple of 512 (in bytes)
          */
         size?: number;
-        volume_type?: enums.servers.ScalewayInstanceV1VolumeServerTemplateVolumeType;
+        volumeType?: enums.servers.ScalewayInstanceV1VolumeServerTemplateVolumeType;
     }
     /**
      * scalewayInstanceV1VolumeServerTemplateProvideDefaults sets the appropriate defaults for ScalewayInstanceV1VolumeServerTemplate
@@ -1435,7 +1375,7 @@ export namespace servers {
         return {
             ...val,
             boot: (val.boot) ?? false,
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -1446,7 +1386,7 @@ export namespace servers {
          * (in bytes)
          */
         size?: number;
-        volume_type?: enums.servers.ScalewayInstanceV1VolumeSummaryVolumeType;
+        volumeType?: enums.servers.ScalewayInstanceV1VolumeSummaryVolumeType;
     }
     /**
      * scalewayInstanceV1VolumeSummaryProvideDefaults sets the appropriate defaults for ScalewayInstanceV1VolumeSummary
@@ -1454,7 +1394,7 @@ export namespace servers {
     export function scalewayInstanceV1VolumeSummaryProvideDefaults(val: ScalewayInstanceV1VolumeSummary): ScalewayInstanceV1VolumeSummary {
         return {
             ...val,
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -1466,8 +1406,8 @@ export namespace snapshot_export {
          * The description of the task
          */
         description?: string;
-        href_from?: string;
-        href_result?: string;
+        hrefFrom?: string;
+        hrefResult?: string;
         /**
          * The unique ID of the task
          */
@@ -1479,7 +1419,7 @@ export namespace snapshot_export {
         /**
          * The task start date (RFC 3339 format)
          */
-        started_at?: string;
+        startedAt?: string;
         /**
          * The task status
          */
@@ -1487,7 +1427,7 @@ export namespace snapshot_export {
         /**
          * The task end date (RFC 3339 format)
          */
-        terminated_at?: string;
+        terminatedAt?: string;
         /**
          * The zone in which is the task
          */
@@ -1544,20 +1484,20 @@ export namespace snapshots {
         /**
          * The volume on which the snapshot is based on
          */
-        base_volume?: outputs.snapshots.ScalewayInstanceV1SnapshotBaseVolumeProperties;
+        baseVolume?: outputs.snapshots.ScalewayInstanceV1SnapshotBaseVolumeProperties;
         /**
          * The snapshot creation date (RFC 3339 format)
          */
-        creation_date?: string;
+        creationDate?: string;
         /**
          * The reason for the failed snapshot import
          */
-        error_reason?: string;
+        errorReason?: string;
         id?: string;
         /**
          * The snapshot modification date (RFC 3339 format)
          */
-        modification_date?: string;
+        modificationDate?: string;
         /**
          * The snapshot name
          */
@@ -1579,7 +1519,7 @@ export namespace snapshots {
          * The snapshot tags
          */
         tags?: string[];
-        volume_type?: enums.snapshots.ScalewayInstanceV1SnapshotVolumeType;
+        volumeType?: enums.snapshots.ScalewayInstanceV1SnapshotVolumeType;
         /**
          * The snapshot zone
          */
@@ -1592,7 +1532,7 @@ export namespace snapshots {
         return {
             ...val,
             state: (val.state) ?? "available",
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -1615,8 +1555,8 @@ export namespace snapshots {
          * The description of the task
          */
         description?: string;
-        href_from?: string;
-        href_result?: string;
+        hrefFrom?: string;
+        hrefResult?: string;
         /**
          * The unique ID of the task
          */
@@ -1628,7 +1568,7 @@ export namespace snapshots {
         /**
          * The task start date (RFC 3339 format)
          */
-        started_at?: string;
+        startedAt?: string;
         /**
          * The task status
          */
@@ -1636,7 +1576,7 @@ export namespace snapshots {
         /**
          * The task end date (RFC 3339 format)
          */
-        terminated_at?: string;
+        terminatedAt?: string;
         /**
          * The zone in which is the task
          */
@@ -1656,12 +1596,12 @@ export namespace snapshots {
 
 export namespace user_data {
     export interface ScalewayInstanceV1ListServerUserDataResponse {
-        user_data?: string[];
+        userData?: string[];
     }
 
     export interface ScalewayStdFile {
         content?: string;
-        content_type?: string;
+        contentType?: string;
         name?: string;
     }
 
@@ -1699,16 +1639,16 @@ export namespace volumes {
         /**
          * The volume creation date (RFC 3339 format)
          */
-        creation_date?: string;
+        creationDate?: string;
         /**
          * Show the volume NBD export URI
          */
-        export_uri?: string;
+        exportUri?: string;
         id?: string;
         /**
          * The volume modification date (RFC 3339 format)
          */
-        modification_date?: string;
+        modificationDate?: string;
         /**
          * The volume name
          */
@@ -1734,7 +1674,7 @@ export namespace volumes {
          * The volume tags
          */
         tags?: string[];
-        volume_type?: enums.volumes.ScalewayInstanceV1VolumeVolumeType;
+        volumeType?: enums.volumes.ScalewayInstanceV1VolumeVolumeType;
         /**
          * The zone in which is the volume
          */
@@ -1747,7 +1687,7 @@ export namespace volumes {
         return {
             ...val,
             state: (val.state) ?? "available",
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -1762,7 +1702,7 @@ export namespace volumes {
     export interface ScalewayInstanceV1VolumeType {
         capabilities?: outputs.volumes.ScalewayInstanceV1VolumeTypeCapabilities;
         constraints?: outputs.volumes.ScalewayInstanceV1VolumeTypeConstraints;
-        display_name?: string;
+        displayName?: string;
     }
 
     export interface ScalewayInstanceV1VolumeTypeCapabilities {

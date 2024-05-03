@@ -16,29 +16,29 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// Provide as list of allowed actions on the server
         /// </summary>
-        public readonly ImmutableArray<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerAllowedActionsItem> Allowed_actions;
+        public readonly ImmutableArray<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerAllowedActionsItem> AllowedActions;
         /// <summary>
         /// The server arch
         /// </summary>
         public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerArch? Arch;
-        public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerBootType? Boot_type;
+        public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerBootType? BootType;
         public readonly Outputs.ScalewayInstanceV1Bootscript? Bootscript;
         /// <summary>
         /// The server commercial type (eg. GP1-M)
         /// </summary>
-        public readonly string? Commercial_type;
+        public readonly string? CommercialType;
         /// <summary>
         /// The server creation date (RFC 3339 format)
         /// </summary>
-        public readonly string? Creation_date;
+        public readonly string? CreationDate;
         /// <summary>
         /// True if a dynamic IP is required
         /// </summary>
-        public readonly bool? Dynamic_ip_required;
+        public readonly bool? DynamicIpRequired;
         /// <summary>
         /// True if IPv6 is enabled
         /// </summary>
-        public readonly bool? Enable_ipv6;
+        public readonly bool? EnableIpv6;
         /// <summary>
         /// The server host name
         /// </summary>
@@ -63,7 +63,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// The server modification date (RFC 3339 format)
         /// </summary>
-        public readonly string? Modification_date;
+        public readonly string? ModificationDate;
         /// <summary>
         /// The server name
         /// </summary>
@@ -72,15 +72,15 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// The server organization ID
         /// </summary>
         public readonly string? Organization;
-        public readonly Outputs.ScalewayInstanceV1PlacementGroup? Placement_group;
+        public readonly Outputs.ScalewayInstanceV1PlacementGroup? PlacementGroup;
         /// <summary>
         /// The server private IP address
         /// </summary>
-        public readonly string? Private_ip;
+        public readonly string? PrivateIp;
         /// <summary>
         /// The server private NICs
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScalewayInstanceV1PrivateNIC> Private_nics;
+        public readonly ImmutableArray<Outputs.ScalewayInstanceV1PrivateNIC> PrivateNics;
         /// <summary>
         /// The server project ID
         /// </summary>
@@ -92,11 +92,11 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// Information about the public IP
         /// </summary>
-        public readonly Outputs.ScalewayInstanceV1ServerPublicIpProperties? Public_ip;
+        public readonly Outputs.ScalewayInstanceV1ServerPublicIpProperties? PublicIp;
         /// <summary>
         /// The server security group
         /// </summary>
-        public readonly Outputs.ScalewayInstanceV1ServerSecurityGroupProperties? Security_group;
+        public readonly Outputs.ScalewayInstanceV1ServerSecurityGroupProperties? SecurityGroup;
         /// <summary>
         /// The server state
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// The server state_detail
         /// </summary>
-        public readonly string? State_detail;
+        public readonly string? StateDetail;
         /// <summary>
         /// The server associated tags
         /// </summary>
@@ -120,21 +120,21 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
         [OutputConstructor]
         private ScalewayInstanceV1Server(
-            ImmutableArray<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerAllowedActionsItem> allowed_actions,
+            ImmutableArray<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerAllowedActionsItem> allowedActions,
 
             Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerArch? arch,
 
-            Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerBootType? boot_type,
+            Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerBootType? bootType,
 
             Outputs.ScalewayInstanceV1Bootscript? bootscript,
 
-            string? commercial_type,
+            string? commercialType,
 
-            string? creation_date,
+            string? creationDate,
 
-            bool? dynamic_ip_required,
+            bool? dynamicIpRequired,
 
-            bool? enable_ipv6,
+            bool? enableIpv6,
 
             string? hostname,
 
@@ -148,29 +148,29 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             ImmutableArray<Outputs.ScalewayInstanceV1ServerMaintenance> maintenances,
 
-            string? modification_date,
+            string? modificationDate,
 
             string? name,
 
             string? organization,
 
-            Outputs.ScalewayInstanceV1PlacementGroup? placement_group,
+            Outputs.ScalewayInstanceV1PlacementGroup? placementGroup,
 
-            string? private_ip,
+            string? privateIp,
 
-            ImmutableArray<Outputs.ScalewayInstanceV1PrivateNIC> private_nics,
+            ImmutableArray<Outputs.ScalewayInstanceV1PrivateNIC> privateNics,
 
             string? project,
 
             bool? @protected,
 
-            Outputs.ScalewayInstanceV1ServerPublicIpProperties? public_ip,
+            Outputs.ScalewayInstanceV1ServerPublicIpProperties? publicIp,
 
-            Outputs.ScalewayInstanceV1ServerSecurityGroupProperties? security_group,
+            Outputs.ScalewayInstanceV1ServerSecurityGroupProperties? securityGroup,
 
             Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerState? state,
 
-            string? state_detail,
+            string? stateDetail,
 
             ImmutableArray<string> tags,
 
@@ -178,32 +178,32 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             string? zone)
         {
-            Allowed_actions = allowed_actions;
+            AllowedActions = allowedActions;
             Arch = arch;
-            Boot_type = boot_type;
+            BootType = bootType;
             Bootscript = bootscript;
-            Commercial_type = commercial_type;
-            Creation_date = creation_date;
-            Dynamic_ip_required = dynamic_ip_required;
-            Enable_ipv6 = enable_ipv6;
+            CommercialType = commercialType;
+            CreationDate = creationDate;
+            DynamicIpRequired = dynamicIpRequired;
+            EnableIpv6 = enableIpv6;
             Hostname = hostname;
             Id = id;
             Image = image;
             Ipv6 = ipv6;
             Location = location;
             Maintenances = maintenances;
-            Modification_date = modification_date;
+            ModificationDate = modificationDate;
             Name = name;
             Organization = organization;
-            Placement_group = placement_group;
-            Private_ip = private_ip;
-            Private_nics = private_nics;
+            PlacementGroup = placementGroup;
+            PrivateIp = privateIp;
+            PrivateNics = privateNics;
             Project = project;
             Protected = @protected;
-            Public_ip = public_ip;
-            Security_group = security_group;
+            PublicIp = publicIp;
+            SecurityGroup = securityGroup;
             State = state;
-            State_detail = state_detail;
+            StateDetail = stateDetail;
             Tags = tags;
             Volumes = volumes;
             Zone = zone;

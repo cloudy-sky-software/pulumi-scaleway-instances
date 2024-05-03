@@ -31,7 +31,7 @@ namespace Pulumi.ScalewayInstances.Ips
         public Output<string> Project { get; private set; } = null!;
 
         [Output("reverse")]
-        public Output<Outputs.GoogleProtobufStringValue?> Reverse { get; private set; } = null!;
+        public Output<string?> Reverse { get; private set; } = null!;
 
         [Output("server")]
         public Output<Outputs.ScalewayInstanceV1ServerSummary?> Server { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.ScalewayInstances.Ips
         public Input<string> Project { get; set; } = null!;
 
         [Input("reverse")]
-        public Input<Inputs.GoogleProtobufStringValueArgs>? Reverse { get; set; }
+        public Input<string>? Reverse { get; set; }
 
         [Input("server")]
         public Input<Inputs.ScalewayInstanceV1ServerSummaryArgs>? Server { get; set; }

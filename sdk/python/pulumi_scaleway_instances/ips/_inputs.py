@@ -6,45 +6,22 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GoogleProtobufStringValueArgs',
     'ScalewayInstanceV1ServerSummaryArgs',
 ]
-
-@pulumi.input_type
-class GoogleProtobufStringValueArgs:
-    def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
-
 
 @pulumi.input_type
 class ScalewayInstanceV1ServerSummaryArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        ScalewayInstanceV1ServerSummaryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter

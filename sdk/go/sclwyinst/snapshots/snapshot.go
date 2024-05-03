@@ -9,20 +9,19 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Snapshot struct {
 	pulumi.CustomResourceState
 
 	// The volume on which the snapshot is based on
-	Base_volume BaseVolumePropertiesPtrOutput `pulumi:"base_volume"`
+	BaseVolume BaseVolumePropertiesPtrOutput `pulumi:"baseVolume"`
 	// The snapshot creation date (RFC 3339 format)
-	Creation_date pulumi.StringPtrOutput `pulumi:"creation_date"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// The reason for the failed snapshot import
-	Error_reason pulumi.StringPtrOutput `pulumi:"error_reason"`
+	ErrorReason pulumi.StringPtrOutput `pulumi:"errorReason"`
 	// The snapshot modification date (RFC 3339 format)
-	Modification_date pulumi.StringPtrOutput `pulumi:"modification_date"`
+	ModificationDate pulumi.StringPtrOutput `pulumi:"modificationDate"`
 	// The snapshot name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The snapshot organization ID
@@ -34,9 +33,9 @@ type Snapshot struct {
 	Snapshot ScalewayInstanceV1SnapshotPtrOutput `pulumi:"snapshot"`
 	State    StatePtrOutput                      `pulumi:"state"`
 	// The snapshot tags
-	Tags        pulumi.StringArrayOutput        `pulumi:"tags"`
-	Task        ScalewayInstanceV1TaskPtrOutput `pulumi:"task"`
-	Volume_type VolumeTypePtrOutput             `pulumi:"volume_type"`
+	Tags       pulumi.StringArrayOutput        `pulumi:"tags"`
+	Task       ScalewayInstanceV1TaskPtrOutput `pulumi:"task"`
+	VolumeType VolumeTypePtrOutput             `pulumi:"volumeType"`
 	// The snapshot zone
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
@@ -51,8 +50,8 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.State == nil {
 		args.State = State("available")
 	}
-	if args.Volume_type == nil {
-		args.Volume_type = VolumeType("l_ssd")
+	if args.VolumeType == nil {
+		args.VolumeType = VolumeType("l_ssd")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
@@ -97,8 +96,8 @@ type snapshotArgs struct {
 	Size  *float64 `pulumi:"size"`
 	State *State   `pulumi:"state"`
 	// The snapshot tags
-	Tags        []string    `pulumi:"tags"`
-	Volume_type *VolumeType `pulumi:"volume_type"`
+	Tags       []string    `pulumi:"tags"`
+	VolumeType *VolumeType `pulumi:"volumeType"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
@@ -115,8 +114,8 @@ type SnapshotArgs struct {
 	Size  pulumi.Float64PtrInput
 	State StatePtrInput
 	// The snapshot tags
-	Tags        pulumi.StringArrayInput
-	Volume_type VolumeTypePtrInput
+	Tags       pulumi.StringArrayInput
+	VolumeType VolumeTypePtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }
@@ -144,12 +143,6 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-func (i *Snapshot) ToOutput(ctx context.Context) pulumix.Output[*Snapshot] {
-	return pulumix.Output[*Snapshot]{
-		OutputState: i.ToSnapshotOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnapshotOutput struct{ *pulumi.OutputState }
 
 func (SnapshotOutput) ElementType() reflect.Type {
@@ -164,30 +157,24 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
-func (o SnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[*Snapshot] {
-	return pulumix.Output[*Snapshot]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The volume on which the snapshot is based on
-func (o SnapshotOutput) Base_volume() BaseVolumePropertiesPtrOutput {
-	return o.ApplyT(func(v *Snapshot) BaseVolumePropertiesPtrOutput { return v.Base_volume }).(BaseVolumePropertiesPtrOutput)
+func (o SnapshotOutput) BaseVolume() BaseVolumePropertiesPtrOutput {
+	return o.ApplyT(func(v *Snapshot) BaseVolumePropertiesPtrOutput { return v.BaseVolume }).(BaseVolumePropertiesPtrOutput)
 }
 
 // The snapshot creation date (RFC 3339 format)
-func (o SnapshotOutput) Creation_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.Creation_date }).(pulumi.StringPtrOutput)
+func (o SnapshotOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // The reason for the failed snapshot import
-func (o SnapshotOutput) Error_reason() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.Error_reason }).(pulumi.StringPtrOutput)
+func (o SnapshotOutput) ErrorReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.ErrorReason }).(pulumi.StringPtrOutput)
 }
 
 // The snapshot modification date (RFC 3339 format)
-func (o SnapshotOutput) Modification_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.Modification_date }).(pulumi.StringPtrOutput)
+func (o SnapshotOutput) ModificationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.ModificationDate }).(pulumi.StringPtrOutput)
 }
 
 // The snapshot name
@@ -227,8 +214,8 @@ func (o SnapshotOutput) Task() ScalewayInstanceV1TaskPtrOutput {
 	return o.ApplyT(func(v *Snapshot) ScalewayInstanceV1TaskPtrOutput { return v.Task }).(ScalewayInstanceV1TaskPtrOutput)
 }
 
-func (o SnapshotOutput) Volume_type() VolumeTypePtrOutput {
-	return o.ApplyT(func(v *Snapshot) VolumeTypePtrOutput { return v.Volume_type }).(VolumeTypePtrOutput)
+func (o SnapshotOutput) VolumeType() VolumeTypePtrOutput {
+	return o.ApplyT(func(v *Snapshot) VolumeTypePtrOutput { return v.VolumeType }).(VolumeTypePtrOutput)
 }
 
 // The snapshot zone

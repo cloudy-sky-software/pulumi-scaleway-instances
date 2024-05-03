@@ -20,15 +20,15 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// The private NIC MAC address
         /// </summary>
-        public readonly string? Mac_address;
+        public readonly string? MacAddress;
         /// <summary>
         /// The private network where the private NIC is attached
         /// </summary>
-        public readonly string? Private_network_id;
+        public readonly string? PrivateNetworkId;
         /// <summary>
         /// The server the private NIC is attached to
         /// </summary>
-        public readonly string? Server_id;
+        public readonly string? ServerId;
         /// <summary>
         /// The private NIC state
         /// </summary>
@@ -38,18 +38,18 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         private ScalewayInstanceV1PrivateNIC(
             string? id,
 
-            string? mac_address,
+            string? macAddress,
 
-            string? private_network_id,
+            string? privateNetworkId,
 
-            string? server_id,
+            string? serverId,
 
             Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1PrivateNICState? state)
         {
             Id = id;
-            Mac_address = mac_address;
-            Private_network_id = private_network_id;
-            Server_id = server_id;
+            MacAddress = macAddress;
+            PrivateNetworkId = privateNetworkId;
+            ServerId = serverId;
             State = state;
         }
     }

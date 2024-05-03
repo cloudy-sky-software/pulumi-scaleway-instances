@@ -10,14 +10,13 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PrivateNIC struct {
 	pulumi.CustomResourceState
 
-	Private_network_id pulumi.StringOutput                   `pulumi:"private_network_id"`
-	Private_nic        ScalewayInstanceV1PrivateNICPtrOutput `pulumi:"private_nic"`
+	PrivateNetworkId pulumi.StringOutput                   `pulumi:"privateNetworkId"`
+	PrivateNic       ScalewayInstanceV1PrivateNICPtrOutput `pulumi:"privateNic"`
 }
 
 // NewPrivateNIC registers a new resource with the given unique name, arguments, and options.
@@ -27,8 +26,8 @@ func NewPrivateNIC(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Private_network_id == nil {
-		return nil, errors.New("invalid value for required argument 'Private_network_id'")
+	if args.PrivateNetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateNetworkId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrivateNIC
@@ -63,16 +62,16 @@ func (PrivateNICState) ElementType() reflect.Type {
 }
 
 type privateNICArgs struct {
-	Private_network_id string  `pulumi:"private_network_id"`
-	Server_id          *string `pulumi:"server_id"`
+	PrivateNetworkId string  `pulumi:"privateNetworkId"`
+	ServerId         *string `pulumi:"serverId"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a PrivateNIC resource.
 type PrivateNICArgs struct {
-	Private_network_id pulumi.StringInput
-	Server_id          pulumi.StringPtrInput
+	PrivateNetworkId pulumi.StringInput
+	ServerId         pulumi.StringPtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }
@@ -100,12 +99,6 @@ func (i *PrivateNIC) ToPrivateNICOutputWithContext(ctx context.Context) PrivateN
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateNICOutput)
 }
 
-func (i *PrivateNIC) ToOutput(ctx context.Context) pulumix.Output[*PrivateNIC] {
-	return pulumix.Output[*PrivateNIC]{
-		OutputState: i.ToPrivateNICOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateNICOutput struct{ *pulumi.OutputState }
 
 func (PrivateNICOutput) ElementType() reflect.Type {
@@ -120,18 +113,12 @@ func (o PrivateNICOutput) ToPrivateNICOutputWithContext(ctx context.Context) Pri
 	return o
 }
 
-func (o PrivateNICOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateNIC] {
-	return pulumix.Output[*PrivateNIC]{
-		OutputState: o.OutputState,
-	}
+func (o PrivateNICOutput) PrivateNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateNIC) pulumi.StringOutput { return v.PrivateNetworkId }).(pulumi.StringOutput)
 }
 
-func (o PrivateNICOutput) Private_network_id() pulumi.StringOutput {
-	return o.ApplyT(func(v *PrivateNIC) pulumi.StringOutput { return v.Private_network_id }).(pulumi.StringOutput)
-}
-
-func (o PrivateNICOutput) Private_nic() ScalewayInstanceV1PrivateNICPtrOutput {
-	return o.ApplyT(func(v *PrivateNIC) ScalewayInstanceV1PrivateNICPtrOutput { return v.Private_nic }).(ScalewayInstanceV1PrivateNICPtrOutput)
+func (o PrivateNICOutput) PrivateNic() ScalewayInstanceV1PrivateNICPtrOutput {
+	return o.ApplyT(func(v *PrivateNIC) ScalewayInstanceV1PrivateNICPtrOutput { return v.PrivateNic }).(ScalewayInstanceV1PrivateNICPtrOutput)
 }
 
 func init() {

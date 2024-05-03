@@ -37,7 +37,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The security group creation date (RFC 3339 format)
      */
-    public /*out*/ readonly creation_date!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * The security groups description
      */
@@ -45,15 +45,15 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
      */
-    public readonly enable_default_security!: pulumi.Output<boolean | undefined>;
+    public readonly enableDefaultSecurity!: pulumi.Output<boolean | undefined>;
     /**
      * The default inbound policy
      */
-    public readonly inbound_default_policy!: pulumi.Output<enums.security_groups.InboundDefaultPolicy | undefined>;
+    public readonly inboundDefaultPolicy!: pulumi.Output<enums.security_groups.InboundDefaultPolicy | undefined>;
     /**
      * The security group modification date (RFC 3339 format)
      */
-    public /*out*/ readonly modification_date!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly modificationDate!: pulumi.Output<string | undefined>;
     /**
      * The security groups name
      */
@@ -65,11 +65,11 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * True if it is your default security group for this organization ID
      */
-    public readonly organization_default!: pulumi.Output<boolean | undefined>;
+    public readonly organizationDefault!: pulumi.Output<boolean | undefined>;
     /**
      * The default outbound policy
      */
-    public readonly outbound_default_policy!: pulumi.Output<enums.security_groups.OutboundDefaultPolicy | undefined>;
+    public readonly outboundDefaultPolicy!: pulumi.Output<enums.security_groups.OutboundDefaultPolicy | undefined>;
     /**
      * The security group project ID
      */
@@ -77,8 +77,8 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * True if it is your default security group for this project ID
      */
-    public readonly project_default!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly security_group!: pulumi.Output<outputs.security_groups.ScalewayInstanceV1SecurityGroup | undefined>;
+    public readonly projectDefault!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly securityGroup!: pulumi.Output<outputs.security_groups.ScalewayInstanceV1SecurityGroup | undefined>;
     /**
      * List of servers attached to this security group
      */
@@ -115,35 +115,35 @@ export class SecurityGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'project'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enable_default_security"] = args ? args.enable_default_security : undefined;
-            resourceInputs["inbound_default_policy"] = (args ? args.inbound_default_policy : undefined) ?? "accept";
+            resourceInputs["enableDefaultSecurity"] = args ? args.enableDefaultSecurity : undefined;
+            resourceInputs["inboundDefaultPolicy"] = (args ? args.inboundDefaultPolicy : undefined) ?? "accept";
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organization"] = args ? args.organization : undefined;
-            resourceInputs["organization_default"] = args ? args.organization_default : undefined;
-            resourceInputs["outbound_default_policy"] = (args ? args.outbound_default_policy : undefined) ?? "accept";
+            resourceInputs["organizationDefault"] = args ? args.organizationDefault : undefined;
+            resourceInputs["outboundDefaultPolicy"] = (args ? args.outboundDefaultPolicy : undefined) ?? "accept";
             resourceInputs["project"] = args ? args.project : undefined;
-            resourceInputs["project_default"] = args ? args.project_default : undefined;
+            resourceInputs["projectDefault"] = args ? args.projectDefault : undefined;
             resourceInputs["stateful"] = args ? args.stateful : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
-            resourceInputs["creation_date"] = undefined /*out*/;
-            resourceInputs["modification_date"] = undefined /*out*/;
-            resourceInputs["security_group"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["modificationDate"] = undefined /*out*/;
+            resourceInputs["securityGroup"] = undefined /*out*/;
             resourceInputs["servers"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
         } else {
-            resourceInputs["creation_date"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["enable_default_security"] = undefined /*out*/;
-            resourceInputs["inbound_default_policy"] = undefined /*out*/;
-            resourceInputs["modification_date"] = undefined /*out*/;
+            resourceInputs["enableDefaultSecurity"] = undefined /*out*/;
+            resourceInputs["inboundDefaultPolicy"] = undefined /*out*/;
+            resourceInputs["modificationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;
-            resourceInputs["organization_default"] = undefined /*out*/;
-            resourceInputs["outbound_default_policy"] = undefined /*out*/;
+            resourceInputs["organizationDefault"] = undefined /*out*/;
+            resourceInputs["outboundDefaultPolicy"] = undefined /*out*/;
             resourceInputs["project"] = undefined /*out*/;
-            resourceInputs["project_default"] = undefined /*out*/;
-            resourceInputs["security_group"] = undefined /*out*/;
+            resourceInputs["projectDefault"] = undefined /*out*/;
+            resourceInputs["securityGroup"] = undefined /*out*/;
             resourceInputs["servers"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateful"] = undefined /*out*/;
@@ -166,11 +166,11 @@ export interface SecurityGroupArgs {
     /**
      * True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
      */
-    enable_default_security?: pulumi.Input<boolean>;
+    enableDefaultSecurity?: pulumi.Input<boolean>;
     /**
      * The default inbound policy
      */
-    inbound_default_policy?: pulumi.Input<enums.security_groups.InboundDefaultPolicy>;
+    inboundDefaultPolicy?: pulumi.Input<enums.security_groups.InboundDefaultPolicy>;
     /**
      * The security groups name
      */
@@ -182,11 +182,11 @@ export interface SecurityGroupArgs {
     /**
      * True if it is your default security group for this organization ID
      */
-    organization_default?: pulumi.Input<boolean>;
+    organizationDefault?: pulumi.Input<boolean>;
     /**
      * The default outbound policy
      */
-    outbound_default_policy?: pulumi.Input<enums.security_groups.OutboundDefaultPolicy>;
+    outboundDefaultPolicy?: pulumi.Input<enums.security_groups.OutboundDefaultPolicy>;
     /**
      * The security group project ID
      */
@@ -194,7 +194,7 @@ export interface SecurityGroupArgs {
     /**
      * True if it is your default security group for this project ID
      */
-    project_default?: pulumi.Input<boolean>;
+    projectDefault?: pulumi.Input<boolean>;
     /**
      * True if the security group is stateful
      */

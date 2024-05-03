@@ -10,6 +10,4 @@ from .get_security_group_rule import *
 from .list_default_security_group_rules import *
 from .list_security_group_rules import *
 from .security_group_rule import *
-from .security_group_rules import *
-from ._inputs import *
 from . import outputs

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,21 +33,10 @@ class BaseVolumeProperties(dict):
         :param str id: The volume ID on which the snapshot is based on
         :param str name: The volume name on which the snapshot is based on
         """
-        BaseVolumeProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -70,17 +59,8 @@ class BaseVolumeProperties(dict):
 class ScalewayInstanceV1GetSnapshotResponse(dict):
     def __init__(__self__, *,
                  snapshot: Optional['outputs.ScalewayInstanceV1Snapshot'] = None):
-        ScalewayInstanceV1GetSnapshotResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            snapshot=snapshot,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             snapshot: Optional['outputs.ScalewayInstanceV1Snapshot'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if snapshot is not None:
-            _setter("snapshot", snapshot)
+            pulumi.set(__self__, "snapshot", snapshot)
 
     @property
     @pulumi.getter
@@ -95,17 +75,8 @@ class ScalewayInstanceV1ListSnapshotsResponse(dict):
         """
         :param Sequence['ScalewayInstanceV1Snapshot'] snapshots: List of snapshots
         """
-        ScalewayInstanceV1ListSnapshotsResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            snapshots=snapshots,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             snapshots: Optional[Sequence['outputs.ScalewayInstanceV1Snapshot']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if snapshots is not None:
-            _setter("snapshots", snapshots)
+            pulumi.set(__self__, "snapshots", snapshots)
 
     @property
     @pulumi.getter
@@ -118,6 +89,31 @@ class ScalewayInstanceV1ListSnapshotsResponse(dict):
 
 @pulumi.output_type
 class ScalewayInstanceV1Snapshot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseVolume":
+            suggest = "base_volume"
+        elif key == "creationDate":
+            suggest = "creation_date"
+        elif key == "errorReason":
+            suggest = "error_reason"
+        elif key == "modificationDate":
+            suggest = "modification_date"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1Snapshot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1Snapshot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1Snapshot.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_volume: Optional['outputs.ScalewayInstanceV1SnapshotBaseVolumeProperties'] = None,
                  creation_date: Optional[str] = None,
@@ -144,72 +140,39 @@ class ScalewayInstanceV1Snapshot(dict):
         :param Sequence[str] tags: The snapshot tags
         :param str zone: The snapshot zone
         """
-        ScalewayInstanceV1Snapshot._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base_volume=base_volume,
-            creation_date=creation_date,
-            error_reason=error_reason,
-            id=id,
-            modification_date=modification_date,
-            name=name,
-            organization=organization,
-            project=project,
-            size=size,
-            state=state,
-            tags=tags,
-            volume_type=volume_type,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base_volume: Optional['outputs.ScalewayInstanceV1SnapshotBaseVolumeProperties'] = None,
-             creation_date: Optional[str] = None,
-             error_reason: Optional[str] = None,
-             id: Optional[str] = None,
-             modification_date: Optional[str] = None,
-             name: Optional[str] = None,
-             organization: Optional[str] = None,
-             project: Optional[str] = None,
-             size: Optional[float] = None,
-             state: Optional['ScalewayInstanceV1SnapshotState'] = None,
-             tags: Optional[Sequence[str]] = None,
-             volume_type: Optional['ScalewayInstanceV1SnapshotVolumeType'] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if base_volume is not None:
-            _setter("base_volume", base_volume)
+            pulumi.set(__self__, "base_volume", base_volume)
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if error_reason is not None:
-            _setter("error_reason", error_reason)
+            pulumi.set(__self__, "error_reason", error_reason)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if modification_date is not None:
-            _setter("modification_date", modification_date)
+            pulumi.set(__self__, "modification_date", modification_date)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if state is None:
             state = 'available'
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="baseVolume")
     def base_volume(self) -> Optional['outputs.ScalewayInstanceV1SnapshotBaseVolumeProperties']:
         """
         The volume on which the snapshot is based on
@@ -217,7 +180,7 @@ class ScalewayInstanceV1Snapshot(dict):
         return pulumi.get(self, "base_volume")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
         """
         The snapshot creation date (RFC 3339 format)
@@ -225,7 +188,7 @@ class ScalewayInstanceV1Snapshot(dict):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="errorReason")
     def error_reason(self) -> Optional[str]:
         """
         The reason for the failed snapshot import
@@ -238,7 +201,7 @@ class ScalewayInstanceV1Snapshot(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="modificationDate")
     def modification_date(self) -> Optional[str]:
         """
         The snapshot modification date (RFC 3339 format)
@@ -291,7 +254,7 @@ class ScalewayInstanceV1Snapshot(dict):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional['ScalewayInstanceV1SnapshotVolumeType']:
         return pulumi.get(self, "volume_type")
 
@@ -317,21 +280,10 @@ class ScalewayInstanceV1SnapshotBaseVolumeProperties(dict):
         :param str id: The volume ID on which the snapshot is based on
         :param str name: The volume name on which the snapshot is based on
         """
-        ScalewayInstanceV1SnapshotBaseVolumeProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -352,6 +304,29 @@ class ScalewayInstanceV1SnapshotBaseVolumeProperties(dict):
 
 @pulumi.output_type
 class ScalewayInstanceV1Task(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hrefFrom":
+            suggest = "href_from"
+        elif key == "hrefResult":
+            suggest = "href_result"
+        elif key == "startedAt":
+            suggest = "started_at"
+        elif key == "terminatedAt":
+            suggest = "terminated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1Task. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1Task.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1Task.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  href_from: Optional[str] = None,
@@ -371,51 +346,26 @@ class ScalewayInstanceV1Task(dict):
         :param str terminated_at: The task end date (RFC 3339 format)
         :param str zone: The zone in which is the task
         """
-        ScalewayInstanceV1Task._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            href_from=href_from,
-            href_result=href_result,
-            id=id,
-            progress=progress,
-            started_at=started_at,
-            status=status,
-            terminated_at=terminated_at,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[str] = None,
-             href_from: Optional[str] = None,
-             href_result: Optional[str] = None,
-             id: Optional[str] = None,
-             progress: Optional[float] = None,
-             started_at: Optional[str] = None,
-             status: Optional['ScalewayInstanceV1TaskStatus'] = None,
-             terminated_at: Optional[str] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if href_from is not None:
-            _setter("href_from", href_from)
+            pulumi.set(__self__, "href_from", href_from)
         if href_result is not None:
-            _setter("href_result", href_result)
+            pulumi.set(__self__, "href_result", href_result)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if progress is not None:
-            _setter("progress", progress)
+            pulumi.set(__self__, "progress", progress)
         if started_at is not None:
-            _setter("started_at", started_at)
+            pulumi.set(__self__, "started_at", started_at)
         if status is None:
             status = 'pending'
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if terminated_at is not None:
-            _setter("terminated_at", terminated_at)
+            pulumi.set(__self__, "terminated_at", terminated_at)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -426,12 +376,12 @@ class ScalewayInstanceV1Task(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="hrefFrom")
     def href_from(self) -> Optional[str]:
         return pulumi.get(self, "href_from")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="hrefResult")
     def href_result(self) -> Optional[str]:
         return pulumi.get(self, "href_result")
 
@@ -452,7 +402,7 @@ class ScalewayInstanceV1Task(dict):
         return pulumi.get(self, "progress")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="startedAt")
     def started_at(self) -> Optional[str]:
         """
         The task start date (RFC 3339 format)
@@ -468,7 +418,7 @@ class ScalewayInstanceV1Task(dict):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="terminatedAt")
     def terminated_at(self) -> Optional[str]:
         """
         The task end date (RFC 3339 format)

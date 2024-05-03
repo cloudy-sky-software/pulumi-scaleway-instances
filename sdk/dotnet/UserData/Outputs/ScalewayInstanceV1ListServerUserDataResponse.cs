@@ -7,18 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.ScalewayInstances.User_data.Outputs
+namespace Pulumi.ScalewayInstances.UserData.Outputs
 {
 
     [OutputType]
     public sealed class ScalewayInstanceV1ListServerUserDataResponse
     {
-        public readonly ImmutableArray<string> User_data;
+        public readonly ImmutableArray<string> UserData;
 
         [OutputConstructor]
-        private ScalewayInstanceV1ListServerUserDataResponse(ImmutableArray<string> user_data)
+        private ScalewayInstanceV1ListServerUserDataResponse(ImmutableArray<string> userData)
         {
-            User_data = user_data;
+            UserData = userData;
         }
     }
 }

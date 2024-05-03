@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -71,63 +71,32 @@ class ScalewayInstanceV1Bootscript(dict):
         :param str title: The bootscript title
         :param str zone: The zone in which is the bootscript
         """
-        ScalewayInstanceV1Bootscript._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arch=arch,
-            bootcmdargs=bootcmdargs,
-            default=default,
-            dtb=dtb,
-            id=id,
-            initrd=initrd,
-            kernel=kernel,
-            organization=organization,
-            project=project,
-            public=public,
-            title=title,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arch: Optional['ScalewayInstanceV1BootscriptArch'] = None,
-             bootcmdargs: Optional[str] = None,
-             default: Optional[bool] = None,
-             dtb: Optional[str] = None,
-             id: Optional[str] = None,
-             initrd: Optional[str] = None,
-             kernel: Optional[str] = None,
-             organization: Optional[str] = None,
-             project: Optional[str] = None,
-             public: Optional[bool] = None,
-             title: Optional[str] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arch is None:
             arch = 'x86_64'
         if arch is not None:
-            _setter("arch", arch)
+            pulumi.set(__self__, "arch", arch)
         if bootcmdargs is not None:
-            _setter("bootcmdargs", bootcmdargs)
+            pulumi.set(__self__, "bootcmdargs", bootcmdargs)
         if default is not None:
-            _setter("default", default)
+            pulumi.set(__self__, "default", default)
         if dtb is not None:
-            _setter("dtb", dtb)
+            pulumi.set(__self__, "dtb", dtb)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if initrd is not None:
-            _setter("initrd", initrd)
+            pulumi.set(__self__, "initrd", initrd)
         if kernel is not None:
-            _setter("kernel", kernel)
+            pulumi.set(__self__, "kernel", kernel)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if public is not None:
-            _setter("public", public)
+            pulumi.set(__self__, "public", public)
         if title is not None:
-            _setter("title", title)
+            pulumi.set(__self__, "title", title)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -230,17 +199,8 @@ class ScalewayInstanceV1Bootscript(dict):
 class ScalewayInstanceV1GetPlacementGroupServersResponse(dict):
     def __init__(__self__, *,
                  servers: Optional[Sequence['outputs.ScalewayInstanceV1PlacementGroupServer']] = None):
-        ScalewayInstanceV1GetPlacementGroupServersResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            servers=servers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             servers: Optional[Sequence['outputs.ScalewayInstanceV1PlacementGroupServer']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if servers is not None:
-            _setter("servers", servers)
+            pulumi.set(__self__, "servers", servers)
 
     @property
     @pulumi.getter
@@ -252,17 +212,8 @@ class ScalewayInstanceV1GetPlacementGroupServersResponse(dict):
 class ScalewayInstanceV1GetServerResponse(dict):
     def __init__(__self__, *,
                  server: Optional['outputs.ScalewayInstanceV1Server'] = None):
-        ScalewayInstanceV1GetServerResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server=server,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server: Optional['outputs.ScalewayInstanceV1Server'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if server is not None:
-            _setter("server", server)
+            pulumi.set(__self__, "server", server)
 
     @property
     @pulumi.getter
@@ -272,6 +223,33 @@ class ScalewayInstanceV1GetServerResponse(dict):
 
 @pulumi.output_type
 class ScalewayInstanceV1Image(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rootVolume":
+            suggest = "root_volume"
+        elif key == "creationDate":
+            suggest = "creation_date"
+        elif key == "defaultBootscript":
+            suggest = "default_bootscript"
+        elif key == "extraVolumes":
+            suggest = "extra_volumes"
+        elif key == "fromServer":
+            suggest = "from_server"
+        elif key == "modificationDate":
+            suggest = "modification_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1Image. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1Image.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1Image.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  project: str,
@@ -292,74 +270,37 @@ class ScalewayInstanceV1Image(dict):
         :param str creation_date: (RFC 3339 format)
         :param str modification_date: (RFC 3339 format)
         """
-        ScalewayInstanceV1Image._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            project=project,
-            root_volume=root_volume,
-            arch=arch,
-            creation_date=creation_date,
-            default_bootscript=default_bootscript,
-            extra_volumes=extra_volumes,
-            from_server=from_server,
-            id=id,
-            modification_date=modification_date,
-            organization=organization,
-            public=public,
-            state=state,
-            tags=tags,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             project: str,
-             root_volume: 'outputs.ScalewayInstanceV1VolumeSummary',
-             arch: Optional['ScalewayInstanceV1ImageArch'] = None,
-             creation_date: Optional[str] = None,
-             default_bootscript: Optional['outputs.ScalewayInstanceV1Bootscript'] = None,
-             extra_volumes: Optional[Mapping[str, 'outputs.ScalewayInstanceV1Volume']] = None,
-             from_server: Optional[str] = None,
-             id: Optional[str] = None,
-             modification_date: Optional[str] = None,
-             organization: Optional[str] = None,
-             public: Optional[bool] = None,
-             state: Optional['ScalewayInstanceV1ImageState'] = None,
-             tags: Optional[Sequence[str]] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("project", project)
-        _setter("root_volume", root_volume)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
+        pulumi.set(__self__, "root_volume", root_volume)
         if arch is None:
             arch = 'x86_64'
         if arch is not None:
-            _setter("arch", arch)
+            pulumi.set(__self__, "arch", arch)
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if default_bootscript is not None:
-            _setter("default_bootscript", default_bootscript)
+            pulumi.set(__self__, "default_bootscript", default_bootscript)
         if extra_volumes is not None:
-            _setter("extra_volumes", extra_volumes)
+            pulumi.set(__self__, "extra_volumes", extra_volumes)
         if from_server is not None:
-            _setter("from_server", from_server)
+            pulumi.set(__self__, "from_server", from_server)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if modification_date is not None:
-            _setter("modification_date", modification_date)
+            pulumi.set(__self__, "modification_date", modification_date)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if public is not None:
-            _setter("public", public)
+            pulumi.set(__self__, "public", public)
         if state is None:
             state = 'available'
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -372,7 +313,7 @@ class ScalewayInstanceV1Image(dict):
         return pulumi.get(self, "project")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="rootVolume")
     def root_volume(self) -> 'outputs.ScalewayInstanceV1VolumeSummary':
         return pulumi.get(self, "root_volume")
 
@@ -382,7 +323,7 @@ class ScalewayInstanceV1Image(dict):
         return pulumi.get(self, "arch")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
         """
         (RFC 3339 format)
@@ -390,17 +331,17 @@ class ScalewayInstanceV1Image(dict):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="defaultBootscript")
     def default_bootscript(self) -> Optional['outputs.ScalewayInstanceV1Bootscript']:
         return pulumi.get(self, "default_bootscript")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="extraVolumes")
     def extra_volumes(self) -> Optional[Mapping[str, 'outputs.ScalewayInstanceV1Volume']]:
         return pulumi.get(self, "extra_volumes")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="fromServer")
     def from_server(self) -> Optional[str]:
         return pulumi.get(self, "from_server")
 
@@ -410,7 +351,7 @@ class ScalewayInstanceV1Image(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="modificationDate")
     def modification_date(self) -> Optional[str]:
         """
         (RFC 3339 format)
@@ -450,17 +391,8 @@ class ScalewayInstanceV1ListServersResponse(dict):
         """
         :param Sequence['ScalewayInstanceV1Server'] servers: List of servers
         """
-        ScalewayInstanceV1ListServersResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            servers=servers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             servers: Optional[Sequence['outputs.ScalewayInstanceV1Server']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if servers is not None:
-            _setter("servers", servers)
+            pulumi.set(__self__, "servers", servers)
 
     @property
     @pulumi.getter
@@ -478,17 +410,8 @@ class ScalewayInstanceV1ListServersTypesResponse(dict):
         """
         :param Mapping[str, 'ScalewayInstanceV1ServerType'] servers: List of server types
         """
-        ScalewayInstanceV1ListServersTypesResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            servers=servers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             servers: Optional[Mapping[str, 'outputs.ScalewayInstanceV1ServerType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if servers is not None:
-            _setter("servers", servers)
+            pulumi.set(__self__, "servers", servers)
 
     @property
     @pulumi.getter
@@ -501,6 +424,27 @@ class ScalewayInstanceV1ListServersTypesResponse(dict):
 
 @pulumi.output_type
 class ScalewayInstanceV1PlacementGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyMode":
+            suggest = "policy_mode"
+        elif key == "policyRespected":
+            suggest = "policy_respected"
+        elif key == "policyType":
+            suggest = "policy_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1PlacementGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1PlacementGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1PlacementGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  project: str,
@@ -519,51 +463,26 @@ class ScalewayInstanceV1PlacementGroup(dict):
         :param Sequence[str] tags: The placement group tags
         :param str zone: The zone in which is the placement group
         """
-        ScalewayInstanceV1PlacementGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            project=project,
-            id=id,
-            organization=organization,
-            policy_mode=policy_mode,
-            policy_respected=policy_respected,
-            policy_type=policy_type,
-            tags=tags,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             project: str,
-             id: Optional[str] = None,
-             organization: Optional[str] = None,
-             policy_mode: Optional['ScalewayInstanceV1PlacementGroupPolicyMode'] = None,
-             policy_respected: Optional[bool] = None,
-             policy_type: Optional['ScalewayInstanceV1PlacementGroupPolicyType'] = None,
-             tags: Optional[Sequence[str]] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("project", project)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if policy_mode is None:
             policy_mode = 'optional'
         if policy_mode is not None:
-            _setter("policy_mode", policy_mode)
+            pulumi.set(__self__, "policy_mode", policy_mode)
         if policy_respected is not None:
-            _setter("policy_respected", policy_respected)
+            pulumi.set(__self__, "policy_respected", policy_respected)
         if policy_type is None:
             policy_type = 'max_availability'
         if policy_type is not None:
-            _setter("policy_type", policy_type)
+            pulumi.set(__self__, "policy_type", policy_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -595,12 +514,12 @@ class ScalewayInstanceV1PlacementGroup(dict):
         return pulumi.get(self, "organization")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="policyMode")
     def policy_mode(self) -> Optional['ScalewayInstanceV1PlacementGroupPolicyMode']:
         return pulumi.get(self, "policy_mode")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="policyRespected")
     def policy_respected(self) -> Optional[bool]:
         """
         Returns true if the policy is respected, false otherwise
@@ -608,7 +527,7 @@ class ScalewayInstanceV1PlacementGroup(dict):
         return pulumi.get(self, "policy_respected")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional['ScalewayInstanceV1PlacementGroupPolicyType']:
         return pulumi.get(self, "policy_type")
 
@@ -635,25 +554,12 @@ class ScalewayInstanceV1PlacementGroupServer(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None,
                  policy_respected: Optional[bool] = None):
-        ScalewayInstanceV1PlacementGroupServer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-            policy_respected=policy_respected,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             policy_respected: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy_respected is not None:
-            _setter("policy_respected", policy_respected)
+            pulumi.set(__self__, "policy_respected", policy_respected)
 
     @property
     @pulumi.getter
@@ -666,13 +572,34 @@ class ScalewayInstanceV1PlacementGroupServer(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="policyRespected")
     def policy_respected(self) -> Optional[bool]:
         return pulumi.get(self, "policy_respected")
 
 
 @pulumi.output_type
 class ScalewayInstanceV1PrivateNIC(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "macAddress":
+            suggest = "mac_address"
+        elif key == "privateNetworkId":
+            suggest = "private_network_id"
+        elif key == "serverId":
+            suggest = "server_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1PrivateNIC. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1PrivateNIC.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1PrivateNIC.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  mac_address: Optional[str] = None,
@@ -686,35 +613,18 @@ class ScalewayInstanceV1PrivateNIC(dict):
         :param str server_id: The server the private NIC is attached to
         :param 'ScalewayInstanceV1PrivateNICState' state: The private NIC state
         """
-        ScalewayInstanceV1PrivateNIC._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            mac_address=mac_address,
-            private_network_id=private_network_id,
-            server_id=server_id,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             mac_address: Optional[str] = None,
-             private_network_id: Optional[str] = None,
-             server_id: Optional[str] = None,
-             state: Optional['ScalewayInstanceV1PrivateNICState'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if mac_address is not None:
-            _setter("mac_address", mac_address)
+            pulumi.set(__self__, "mac_address", mac_address)
         if private_network_id is not None:
-            _setter("private_network_id", private_network_id)
+            pulumi.set(__self__, "private_network_id", private_network_id)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if state is None:
             state = 'available'
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -725,7 +635,7 @@ class ScalewayInstanceV1PrivateNIC(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="macAddress")
     def mac_address(self) -> Optional[str]:
         """
         The private NIC MAC address
@@ -733,7 +643,7 @@ class ScalewayInstanceV1PrivateNIC(dict):
         return pulumi.get(self, "mac_address")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="privateNetworkId")
     def private_network_id(self) -> Optional[str]:
         """
         The private network where the private NIC is attached
@@ -741,7 +651,7 @@ class ScalewayInstanceV1PrivateNIC(dict):
         return pulumi.get(self, "private_network_id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[str]:
         """
         The server the private NIC is attached to
@@ -759,6 +669,47 @@ class ScalewayInstanceV1PrivateNIC(dict):
 
 @pulumi.output_type
 class ScalewayInstanceV1Server(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedActions":
+            suggest = "allowed_actions"
+        elif key == "bootType":
+            suggest = "boot_type"
+        elif key == "commercialType":
+            suggest = "commercial_type"
+        elif key == "creationDate":
+            suggest = "creation_date"
+        elif key == "dynamicIpRequired":
+            suggest = "dynamic_ip_required"
+        elif key == "enableIpv6":
+            suggest = "enable_ipv6"
+        elif key == "modificationDate":
+            suggest = "modification_date"
+        elif key == "placementGroup":
+            suggest = "placement_group"
+        elif key == "privateIp":
+            suggest = "private_ip"
+        elif key == "privateNics":
+            suggest = "private_nics"
+        elif key == "publicIp":
+            suggest = "public_ip"
+        elif key == "securityGroup":
+            suggest = "security_group"
+        elif key == "stateDetail":
+            suggest = "state_detail"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1Server. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1Server.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1Server.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_actions: Optional[Sequence['ScalewayInstanceV1ServerAllowedActionsItem']] = None,
                  arch: Optional['ScalewayInstanceV1ServerArch'] = None,
@@ -816,138 +767,73 @@ class ScalewayInstanceV1Server(dict):
         :param Mapping[str, 'ScalewayInstanceV1VolumeServer'] volumes: The server volumes
         :param str zone: The zone in which is the server
         """
-        ScalewayInstanceV1Server._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_actions=allowed_actions,
-            arch=arch,
-            boot_type=boot_type,
-            bootscript=bootscript,
-            commercial_type=commercial_type,
-            creation_date=creation_date,
-            dynamic_ip_required=dynamic_ip_required,
-            enable_ipv6=enable_ipv6,
-            hostname=hostname,
-            id=id,
-            image=image,
-            ipv6=ipv6,
-            location=location,
-            maintenances=maintenances,
-            modification_date=modification_date,
-            name=name,
-            organization=organization,
-            placement_group=placement_group,
-            private_ip=private_ip,
-            private_nics=private_nics,
-            project=project,
-            protected=protected,
-            public_ip=public_ip,
-            security_group=security_group,
-            state=state,
-            state_detail=state_detail,
-            tags=tags,
-            volumes=volumes,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_actions: Optional[Sequence['ScalewayInstanceV1ServerAllowedActionsItem']] = None,
-             arch: Optional['ScalewayInstanceV1ServerArch'] = None,
-             boot_type: Optional['ScalewayInstanceV1ServerBootType'] = None,
-             bootscript: Optional['outputs.ScalewayInstanceV1Bootscript'] = None,
-             commercial_type: Optional[str] = None,
-             creation_date: Optional[str] = None,
-             dynamic_ip_required: Optional[bool] = None,
-             enable_ipv6: Optional[bool] = None,
-             hostname: Optional[str] = None,
-             id: Optional[str] = None,
-             image: Optional['outputs.ScalewayInstanceV1Image'] = None,
-             ipv6: Optional['outputs.ScalewayInstanceV1ServerIpv6Properties'] = None,
-             location: Optional['outputs.ScalewayInstanceV1ServerLocationProperties'] = None,
-             maintenances: Optional[Sequence['outputs.ScalewayInstanceV1ServerMaintenance']] = None,
-             modification_date: Optional[str] = None,
-             name: Optional[str] = None,
-             organization: Optional[str] = None,
-             placement_group: Optional['outputs.ScalewayInstanceV1PlacementGroup'] = None,
-             private_ip: Optional[str] = None,
-             private_nics: Optional[Sequence['outputs.ScalewayInstanceV1PrivateNIC']] = None,
-             project: Optional[str] = None,
-             protected: Optional[bool] = None,
-             public_ip: Optional['outputs.ScalewayInstanceV1ServerPublicIpProperties'] = None,
-             security_group: Optional['outputs.ScalewayInstanceV1ServerSecurityGroupProperties'] = None,
-             state: Optional['ScalewayInstanceV1ServerState'] = None,
-             state_detail: Optional[str] = None,
-             tags: Optional[Sequence[str]] = None,
-             volumes: Optional[Mapping[str, 'outputs.ScalewayInstanceV1VolumeServer']] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_actions is not None:
-            _setter("allowed_actions", allowed_actions)
+            pulumi.set(__self__, "allowed_actions", allowed_actions)
         if arch is None:
             arch = 'x86_64'
         if arch is not None:
-            _setter("arch", arch)
+            pulumi.set(__self__, "arch", arch)
         if boot_type is None:
             boot_type = 'local'
         if boot_type is not None:
-            _setter("boot_type", boot_type)
+            pulumi.set(__self__, "boot_type", boot_type)
         if bootscript is not None:
-            _setter("bootscript", bootscript)
+            pulumi.set(__self__, "bootscript", bootscript)
         if commercial_type is not None:
-            _setter("commercial_type", commercial_type)
+            pulumi.set(__self__, "commercial_type", commercial_type)
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if dynamic_ip_required is not None:
-            _setter("dynamic_ip_required", dynamic_ip_required)
+            pulumi.set(__self__, "dynamic_ip_required", dynamic_ip_required)
         if enable_ipv6 is not None:
-            _setter("enable_ipv6", enable_ipv6)
+            pulumi.set(__self__, "enable_ipv6", enable_ipv6)
         if hostname is not None:
-            _setter("hostname", hostname)
+            pulumi.set(__self__, "hostname", hostname)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if image is not None:
-            _setter("image", image)
+            pulumi.set(__self__, "image", image)
         if ipv6 is not None:
-            _setter("ipv6", ipv6)
+            pulumi.set(__self__, "ipv6", ipv6)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if maintenances is not None:
-            _setter("maintenances", maintenances)
+            pulumi.set(__self__, "maintenances", maintenances)
         if modification_date is not None:
-            _setter("modification_date", modification_date)
+            pulumi.set(__self__, "modification_date", modification_date)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if placement_group is not None:
-            _setter("placement_group", placement_group)
+            pulumi.set(__self__, "placement_group", placement_group)
         if private_ip is not None:
-            _setter("private_ip", private_ip)
+            pulumi.set(__self__, "private_ip", private_ip)
         if private_nics is not None:
-            _setter("private_nics", private_nics)
+            pulumi.set(__self__, "private_nics", private_nics)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if protected is not None:
-            _setter("protected", protected)
+            pulumi.set(__self__, "protected", protected)
         if public_ip is not None:
-            _setter("public_ip", public_ip)
+            pulumi.set(__self__, "public_ip", public_ip)
         if security_group is not None:
-            _setter("security_group", security_group)
+            pulumi.set(__self__, "security_group", security_group)
         if state is None:
             state = 'running'
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if state_detail is not None:
-            _setter("state_detail", state_detail)
+            pulumi.set(__self__, "state_detail", state_detail)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if volumes is not None:
-            _setter("volumes", volumes)
+            pulumi.set(__self__, "volumes", volumes)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="allowedActions")
     def allowed_actions(self) -> Optional[Sequence['ScalewayInstanceV1ServerAllowedActionsItem']]:
         """
         Provide as list of allowed actions on the server
@@ -963,7 +849,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "arch")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="bootType")
     def boot_type(self) -> Optional['ScalewayInstanceV1ServerBootType']:
         return pulumi.get(self, "boot_type")
 
@@ -973,7 +859,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "bootscript")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="commercialType")
     def commercial_type(self) -> Optional[str]:
         """
         The server commercial type (eg. GP1-M)
@@ -981,7 +867,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "commercial_type")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
         """
         The server creation date (RFC 3339 format)
@@ -989,7 +875,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="dynamicIpRequired")
     def dynamic_ip_required(self) -> Optional[bool]:
         """
         True if a dynamic IP is required
@@ -997,7 +883,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "dynamic_ip_required")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="enableIpv6")
     def enable_ipv6(self) -> Optional[bool]:
         """
         True if IPv6 is enabled
@@ -1050,7 +936,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "maintenances")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="modificationDate")
     def modification_date(self) -> Optional[str]:
         """
         The server modification date (RFC 3339 format)
@@ -1074,12 +960,12 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "organization")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="placementGroup")
     def placement_group(self) -> Optional['outputs.ScalewayInstanceV1PlacementGroup']:
         return pulumi.get(self, "placement_group")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[str]:
         """
         The server private IP address
@@ -1087,7 +973,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "private_ip")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="privateNics")
     def private_nics(self) -> Optional[Sequence['outputs.ScalewayInstanceV1PrivateNIC']]:
         """
         The server private NICs
@@ -1111,7 +997,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "protected")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="publicIp")
     def public_ip(self) -> Optional['outputs.ScalewayInstanceV1ServerPublicIpProperties']:
         """
         Information about the public IP
@@ -1119,7 +1005,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "public_ip")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="securityGroup")
     def security_group(self) -> Optional['outputs.ScalewayInstanceV1ServerSecurityGroupProperties']:
         """
         The server security group
@@ -1135,7 +1021,7 @@ class ScalewayInstanceV1Server(dict):
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="stateDetail")
     def state_detail(self) -> Optional[str]:
         """
         The server state_detail
@@ -1182,25 +1068,12 @@ class ScalewayInstanceV1ServerIpv6Properties(dict):
         :param str gateway: The IPv6 IP-addresses gateway (IPv6 address)
         :param str netmask: The IPv6 IP-addresses CIDR netmask
         """
-        ScalewayInstanceV1ServerIpv6Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            gateway=gateway,
-            netmask=netmask,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[str] = None,
-             gateway: Optional[str] = None,
-             netmask: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if gateway is not None:
-            _setter("gateway", gateway)
+            pulumi.set(__self__, "gateway", gateway)
         if netmask is not None:
-            _setter("netmask", netmask)
+            pulumi.set(__self__, "netmask", netmask)
 
     @property
     @pulumi.getter
@@ -1232,6 +1105,31 @@ class ScalewayInstanceV1ServerLocationProperties(dict):
     """
     The server location
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterId":
+            suggest = "cluster_id"
+        elif key == "hypervisorId":
+            suggest = "hypervisor_id"
+        elif key == "nodeId":
+            suggest = "node_id"
+        elif key == "platformId":
+            suggest = "platform_id"
+        elif key == "zoneId":
+            suggest = "zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1ServerLocationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1ServerLocationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1ServerLocationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_id: Optional[str] = None,
                  hypervisor_id: Optional[str] = None,
@@ -1241,56 +1139,39 @@ class ScalewayInstanceV1ServerLocationProperties(dict):
         """
         The server location
         """
-        ScalewayInstanceV1ServerLocationProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_id=cluster_id,
-            hypervisor_id=hypervisor_id,
-            node_id=node_id,
-            platform_id=platform_id,
-            zone_id=zone_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_id: Optional[str] = None,
-             hypervisor_id: Optional[str] = None,
-             node_id: Optional[str] = None,
-             platform_id: Optional[str] = None,
-             zone_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cluster_id is not None:
-            _setter("cluster_id", cluster_id)
+            pulumi.set(__self__, "cluster_id", cluster_id)
         if hypervisor_id is not None:
-            _setter("hypervisor_id", hypervisor_id)
+            pulumi.set(__self__, "hypervisor_id", hypervisor_id)
         if node_id is not None:
-            _setter("node_id", node_id)
+            pulumi.set(__self__, "node_id", node_id)
         if platform_id is not None:
-            _setter("platform_id", platform_id)
+            pulumi.set(__self__, "platform_id", platform_id)
         if zone_id is not None:
-            _setter("zone_id", zone_id)
+            pulumi.set(__self__, "zone_id", zone_id)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[str]:
         return pulumi.get(self, "cluster_id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="hypervisorId")
     def hypervisor_id(self) -> Optional[str]:
         return pulumi.get(self, "hypervisor_id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="nodeId")
     def node_id(self) -> Optional[str]:
         return pulumi.get(self, "node_id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="platformId")
     def platform_id(self) -> Optional[str]:
         return pulumi.get(self, "platform_id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="zoneId")
     def zone_id(self) -> Optional[str]:
         return pulumi.get(self, "zone_id")
 
@@ -1298,11 +1179,6 @@ class ScalewayInstanceV1ServerLocationProperties(dict):
 @pulumi.output_type
 class ScalewayInstanceV1ServerMaintenance(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -1321,25 +1197,12 @@ class ScalewayInstanceV1ServerPublicIpProperties(dict):
         :param bool dynamic: True if the IP address is dynamic
         :param str id: The unique ID of the IP address
         """
-        ScalewayInstanceV1ServerPublicIpProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            dynamic=dynamic,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[str] = None,
-             dynamic: Optional[bool] = None,
-             id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if dynamic is not None:
-            _setter("dynamic", dynamic)
+            pulumi.set(__self__, "dynamic", dynamic)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -1377,21 +1240,10 @@ class ScalewayInstanceV1ServerSecurityGroupProperties(dict):
         """
         The server security group
         """
-        ScalewayInstanceV1ServerSecurityGroupProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1409,21 +1261,10 @@ class ScalewayInstanceV1ServerSummary(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
-        ScalewayInstanceV1ServerSummary._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1465,66 +1306,35 @@ class ScalewayInstanceV1ServerType(dict):
         :param float ram: Available RAM in bytes
         :param 'ScalewayInstanceV1ServerTypeVolumesConstraintProperties' volumes_constraint: Initial volume constraints
         """
-        ScalewayInstanceV1ServerType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alt_names=alt_names,
-            arch=arch,
-            baremetal=baremetal,
-            capabilities=capabilities,
-            gpu=gpu,
-            hourly_price=hourly_price,
-            monthly_price=monthly_price,
-            ncpus=ncpus,
-            network=network,
-            per_volume_constraint=per_volume_constraint,
-            ram=ram,
-            volumes_constraint=volumes_constraint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alt_names: Optional[Sequence[str]] = None,
-             arch: Optional['ScalewayInstanceV1ServerTypeArch'] = None,
-             baremetal: Optional[bool] = None,
-             capabilities: Optional['outputs.ScalewayInstanceV1ServerTypeCapabilitiesProperties'] = None,
-             gpu: Optional[float] = None,
-             hourly_price: Optional[float] = None,
-             monthly_price: Optional[float] = None,
-             ncpus: Optional[float] = None,
-             network: Optional['outputs.ScalewayInstanceV1ServerTypeNetworkProperties'] = None,
-             per_volume_constraint: Optional['outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintProperties'] = None,
-             ram: Optional[float] = None,
-             volumes_constraint: Optional['outputs.ScalewayInstanceV1ServerTypeVolumesConstraintProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if alt_names is not None:
-            _setter("alt_names", alt_names)
+            pulumi.set(__self__, "alt_names", alt_names)
         if arch is None:
             arch = 'x86_64'
         if arch is not None:
-            _setter("arch", arch)
+            pulumi.set(__self__, "arch", arch)
         if baremetal is not None:
-            _setter("baremetal", baremetal)
+            pulumi.set(__self__, "baremetal", baremetal)
         if capabilities is not None:
-            _setter("capabilities", capabilities)
+            pulumi.set(__self__, "capabilities", capabilities)
         if gpu is not None:
-            _setter("gpu", gpu)
+            pulumi.set(__self__, "gpu", gpu)
         if hourly_price is not None:
-            _setter("hourly_price", hourly_price)
+            pulumi.set(__self__, "hourly_price", hourly_price)
         if monthly_price is not None:
-            _setter("monthly_price", monthly_price)
+            pulumi.set(__self__, "monthly_price", monthly_price)
         if ncpus is not None:
-            _setter("ncpus", ncpus)
+            pulumi.set(__self__, "ncpus", ncpus)
         if network is not None:
-            _setter("network", network)
+            pulumi.set(__self__, "network", network)
         if per_volume_constraint is not None:
-            _setter("per_volume_constraint", per_volume_constraint)
+            pulumi.set(__self__, "per_volume_constraint", per_volume_constraint)
         if ram is not None:
-            _setter("ram", ram)
+            pulumi.set(__self__, "ram", ram)
         if volumes_constraint is not None:
-            _setter("volumes_constraint", volumes_constraint)
+            pulumi.set(__self__, "volumes_constraint", volumes_constraint)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="altNames")
     def alt_names(self) -> Optional[Sequence[str]]:
         """
         Alternative instance name if any
@@ -1564,7 +1374,7 @@ class ScalewayInstanceV1ServerType(dict):
         return pulumi.get(self, "gpu")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="hourlyPrice")
     def hourly_price(self) -> Optional[float]:
         """
         Hourly price in Euro
@@ -1572,7 +1382,7 @@ class ScalewayInstanceV1ServerType(dict):
         return pulumi.get(self, "hourly_price")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="monthlyPrice")
     def monthly_price(self) -> Optional[float]:
         """
         Estimated monthly price, for a 30 days month, in Euro
@@ -1596,7 +1406,7 @@ class ScalewayInstanceV1ServerType(dict):
         return pulumi.get(self, "network")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="perVolumeConstraint")
     def per_volume_constraint(self) -> Optional['outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintProperties']:
         """
         Additional volume constraints
@@ -1612,7 +1422,7 @@ class ScalewayInstanceV1ServerType(dict):
         return pulumi.get(self, "ram")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumesConstraint")
     def volumes_constraint(self) -> Optional['outputs.ScalewayInstanceV1ServerTypeVolumesConstraintProperties']:
         """
         Initial volume constraints
@@ -1633,24 +1443,13 @@ class ScalewayInstanceV1ServerTypeCapabilitiesProperties(dict):
         :param bool block_storage: True if server supports block storage
         :param Sequence['ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem'] boot_types: List of supported boot types
         """
-        ScalewayInstanceV1ServerTypeCapabilitiesProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            block_storage=block_storage,
-            boot_types=boot_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             block_storage: Optional[bool] = None,
-             boot_types: Optional[Sequence['ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if block_storage is not None:
-            _setter("block_storage", block_storage)
+            pulumi.set(__self__, "block_storage", block_storage)
         if boot_types is not None:
-            _setter("boot_types", boot_types)
+            pulumi.set(__self__, "boot_types", boot_types)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="blockStorage")
     def block_storage(self) -> Optional[bool]:
         """
         True if server supports block storage
@@ -1658,7 +1457,7 @@ class ScalewayInstanceV1ServerTypeCapabilitiesProperties(dict):
         return pulumi.get(self, "block_storage")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="bootTypes")
     def boot_types(self) -> Optional[Sequence['ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem']]:
         """
         List of supported boot types
@@ -1675,24 +1474,13 @@ class ScalewayInstanceV1ServerTypeNetworkInterface(dict):
         :param float internal_bandwidth: Maximum internal bandwidth in bits per seconds
         :param float internet_bandwidth: Maximum internet bandwidth in bits per seconds
         """
-        ScalewayInstanceV1ServerTypeNetworkInterface._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            internal_bandwidth=internal_bandwidth,
-            internet_bandwidth=internet_bandwidth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             internal_bandwidth: Optional[float] = None,
-             internet_bandwidth: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if internal_bandwidth is not None:
-            _setter("internal_bandwidth", internal_bandwidth)
+            pulumi.set(__self__, "internal_bandwidth", internal_bandwidth)
         if internet_bandwidth is not None:
-            _setter("internet_bandwidth", internet_bandwidth)
+            pulumi.set(__self__, "internet_bandwidth", internet_bandwidth)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="internalBandwidth")
     def internal_bandwidth(self) -> Optional[float]:
         """
         Maximum internal bandwidth in bits per seconds
@@ -1700,7 +1488,7 @@ class ScalewayInstanceV1ServerTypeNetworkInterface(dict):
         return pulumi.get(self, "internal_bandwidth")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="internetBandwidth")
     def internet_bandwidth(self) -> Optional[float]:
         """
         Maximum internet bandwidth in bits per seconds
@@ -1714,40 +1502,33 @@ class ScalewayInstanceV1ServerTypeNetworkProperties(dict):
     Network available for the instance
     """
     def __init__(__self__, *,
+                 _ipv6_support: Optional[bool] = None,
                  interfaces: Optional[Sequence['outputs.ScalewayInstanceV1ServerTypeNetworkInterface']] = None,
-                 ipv6_support: Optional[bool] = None,
                  sum_internal_bandwidth: Optional[float] = None,
                  sum_internet_bandwidth: Optional[float] = None):
         """
         Network available for the instance
+        :param bool _ipv6_support: True if IPv6 is enabled
         :param Sequence['ScalewayInstanceV1ServerTypeNetworkInterface'] interfaces: List of available network interfaces
-        :param bool ipv6_support: True if IPv6 is enabled
         :param float sum_internal_bandwidth: Total maximum internal bandwidth in bits per seconds
         :param float sum_internet_bandwidth: Total maximum internet bandwidth in bits per seconds
         """
-        ScalewayInstanceV1ServerTypeNetworkProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interfaces=interfaces,
-            ipv6_support=ipv6_support,
-            sum_internal_bandwidth=sum_internal_bandwidth,
-            sum_internet_bandwidth=sum_internet_bandwidth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interfaces: Optional[Sequence['outputs.ScalewayInstanceV1ServerTypeNetworkInterface']] = None,
-             ipv6_support: Optional[bool] = None,
-             sum_internal_bandwidth: Optional[float] = None,
-             sum_internet_bandwidth: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+        if _ipv6_support is not None:
+            pulumi.set(__self__, "_ipv6_support", _ipv6_support)
         if interfaces is not None:
-            _setter("interfaces", interfaces)
-        if ipv6_support is not None:
-            _setter("ipv6_support", ipv6_support)
+            pulumi.set(__self__, "interfaces", interfaces)
         if sum_internal_bandwidth is not None:
-            _setter("sum_internal_bandwidth", sum_internal_bandwidth)
+            pulumi.set(__self__, "sum_internal_bandwidth", sum_internal_bandwidth)
         if sum_internet_bandwidth is not None:
-            _setter("sum_internet_bandwidth", sum_internet_bandwidth)
+            pulumi.set(__self__, "sum_internet_bandwidth", sum_internet_bandwidth)
+
+    @property
+    @pulumi.getter(name="_ipv6Support")
+    def _ipv6_support(self) -> Optional[bool]:
+        """
+        True if IPv6 is enabled
+        """
+        return pulumi.get(self, "_ipv6_support")
 
     @property
     @pulumi.getter
@@ -1758,15 +1539,7 @@ class ScalewayInstanceV1ServerTypeNetworkProperties(dict):
         return pulumi.get(self, "interfaces")
 
     @property
-    @pulumi.getter
-    def ipv6_support(self) -> Optional[bool]:
-        """
-        True if IPv6 is enabled
-        """
-        return pulumi.get(self, "ipv6_support")
-
-    @property
-    @pulumi.getter
+    @pulumi.getter(name="sumInternalBandwidth")
     def sum_internal_bandwidth(self) -> Optional[float]:
         """
         Total maximum internal bandwidth in bits per seconds
@@ -1774,7 +1547,7 @@ class ScalewayInstanceV1ServerTypeNetworkProperties(dict):
         return pulumi.get(self, "sum_internal_bandwidth")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="sumInternetBandwidth")
     def sum_internet_bandwidth(self) -> Optional[float]:
         """
         Total maximum internet bandwidth in bits per seconds
@@ -1793,20 +1566,11 @@ class ScalewayInstanceV1ServerTypePerVolumeConstraintProperties(dict):
         Additional volume constraints
         :param 'ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties' l_ssd: Local SSD volumes
         """
-        ScalewayInstanceV1ServerTypePerVolumeConstraintProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            l_ssd=l_ssd,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             l_ssd: Optional['outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if l_ssd is not None:
-            _setter("l_ssd", l_ssd)
+            pulumi.set(__self__, "l_ssd", l_ssd)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="lSsd")
     def l_ssd(self) -> Optional['outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties']:
         """
         Local SSD volumes
@@ -1827,24 +1591,13 @@ class ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties(di
         :param float max_size: Maximum volume size in bytes (in bytes)
         :param float min_size: Minimum volume size in bytes (in bytes)
         """
-        ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_size=max_size,
-            min_size=min_size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_size: Optional[float] = None,
-             min_size: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if max_size is not None:
-            _setter("max_size", max_size)
+            pulumi.set(__self__, "max_size", max_size)
         if min_size is not None:
-            _setter("min_size", min_size)
+            pulumi.set(__self__, "min_size", min_size)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[float]:
         """
         Maximum volume size in bytes (in bytes)
@@ -1852,7 +1605,7 @@ class ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties(di
         return pulumi.get(self, "max_size")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[float]:
         """
         Minimum volume size in bytes (in bytes)
@@ -1873,24 +1626,13 @@ class ScalewayInstanceV1ServerTypeVolumesConstraintProperties(dict):
         :param float max_size: Maximum volume size in bytes (in bytes)
         :param float min_size: Minimum volume size in bytes (in bytes)
         """
-        ScalewayInstanceV1ServerTypeVolumesConstraintProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_size=max_size,
-            min_size=min_size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_size: Optional[float] = None,
-             min_size: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if max_size is not None:
-            _setter("max_size", max_size)
+            pulumi.set(__self__, "max_size", max_size)
         if min_size is not None:
-            _setter("min_size", min_size)
+            pulumi.set(__self__, "min_size", min_size)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[float]:
         """
         Maximum volume size in bytes (in bytes)
@@ -1898,7 +1640,7 @@ class ScalewayInstanceV1ServerTypeVolumesConstraintProperties(dict):
         return pulumi.get(self, "max_size")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[float]:
         """
         Minimum volume size in bytes (in bytes)
@@ -1908,6 +1650,29 @@ class ScalewayInstanceV1ServerTypeVolumesConstraintProperties(dict):
 
 @pulumi.output_type
 class ScalewayInstanceV1Volume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+        elif key == "exportUri":
+            suggest = "export_uri"
+        elif key == "modificationDate":
+            suggest = "modification_date"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1Volume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1Volume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1Volume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  project: str,
@@ -1934,67 +1699,34 @@ class ScalewayInstanceV1Volume(dict):
         :param Sequence[str] tags: The volume tags
         :param str zone: The zone in which is the volume
         """
-        ScalewayInstanceV1Volume._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            project=project,
-            creation_date=creation_date,
-            export_uri=export_uri,
-            id=id,
-            modification_date=modification_date,
-            organization=organization,
-            server=server,
-            size=size,
-            state=state,
-            tags=tags,
-            volume_type=volume_type,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             project: str,
-             creation_date: Optional[str] = None,
-             export_uri: Optional[str] = None,
-             id: Optional[str] = None,
-             modification_date: Optional[str] = None,
-             organization: Optional[str] = None,
-             server: Optional['outputs.ScalewayInstanceV1VolumeServerProperties'] = None,
-             size: Optional[float] = None,
-             state: Optional['ScalewayInstanceV1VolumeState'] = None,
-             tags: Optional[Sequence[str]] = None,
-             volume_type: Optional['ScalewayInstanceV1VolumeVolumeType'] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("project", project)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project", project)
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if export_uri is not None:
-            _setter("export_uri", export_uri)
+            pulumi.set(__self__, "export_uri", export_uri)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if modification_date is not None:
-            _setter("modification_date", modification_date)
+            pulumi.set(__self__, "modification_date", modification_date)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if server is not None:
-            _setter("server", server)
+            pulumi.set(__self__, "server", server)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if state is None:
             state = 'available'
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -2013,7 +1745,7 @@ class ScalewayInstanceV1Volume(dict):
         return pulumi.get(self, "project")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
         """
         The volume creation date (RFC 3339 format)
@@ -2021,7 +1753,7 @@ class ScalewayInstanceV1Volume(dict):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="exportUri")
     def export_uri(self) -> Optional[str]:
         """
         Show the volume NBD export URI
@@ -2034,7 +1766,7 @@ class ScalewayInstanceV1Volume(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="modificationDate")
     def modification_date(self) -> Optional[str]:
         """
         The volume modification date (RFC 3339 format)
@@ -2079,7 +1811,7 @@ class ScalewayInstanceV1Volume(dict):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional['ScalewayInstanceV1VolumeVolumeType']:
         return pulumi.get(self, "volume_type")
 
@@ -2094,6 +1826,29 @@ class ScalewayInstanceV1Volume(dict):
 
 @pulumi.output_type
 class ScalewayInstanceV1VolumeServer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+        elif key == "exportUri":
+            suggest = "export_uri"
+        elif key == "modificationDate":
+            suggest = "modification_date"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1VolumeServer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1VolumeServer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1VolumeServer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  boot: Optional[bool] = None,
                  creation_date: Optional[str] = None,
@@ -2113,69 +1868,36 @@ class ScalewayInstanceV1VolumeServer(dict):
         :param str modification_date: (RFC 3339 format)
         :param float size: (in bytes)
         """
-        ScalewayInstanceV1VolumeServer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            boot=boot,
-            creation_date=creation_date,
-            export_uri=export_uri,
-            id=id,
-            modification_date=modification_date,
-            name=name,
-            organization=organization,
-            project=project,
-            server=server,
-            size=size,
-            state=state,
-            volume_type=volume_type,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             boot: Optional[bool] = None,
-             creation_date: Optional[str] = None,
-             export_uri: Optional[str] = None,
-             id: Optional[str] = None,
-             modification_date: Optional[str] = None,
-             name: Optional[str] = None,
-             organization: Optional[str] = None,
-             project: Optional[str] = None,
-             server: Optional['outputs.ScalewayInstanceV1ServerSummary'] = None,
-             size: Optional[float] = None,
-             state: Optional['ScalewayInstanceV1VolumeServerState'] = None,
-             volume_type: Optional['ScalewayInstanceV1VolumeServerVolumeType'] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if boot is not None:
-            _setter("boot", boot)
+            pulumi.set(__self__, "boot", boot)
         if creation_date is not None:
-            _setter("creation_date", creation_date)
+            pulumi.set(__self__, "creation_date", creation_date)
         if export_uri is not None:
-            _setter("export_uri", export_uri)
+            pulumi.set(__self__, "export_uri", export_uri)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if modification_date is not None:
-            _setter("modification_date", modification_date)
+            pulumi.set(__self__, "modification_date", modification_date)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if server is not None:
-            _setter("server", server)
+            pulumi.set(__self__, "server", server)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if state is None:
             state = 'available'
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -2183,7 +1905,7 @@ class ScalewayInstanceV1VolumeServer(dict):
         return pulumi.get(self, "boot")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
         """
         (RFC 3339 format)
@@ -2191,7 +1913,7 @@ class ScalewayInstanceV1VolumeServer(dict):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="exportUri")
     def export_uri(self) -> Optional[str]:
         return pulumi.get(self, "export_uri")
 
@@ -2201,7 +1923,7 @@ class ScalewayInstanceV1VolumeServer(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="modificationDate")
     def modification_date(self) -> Optional[str]:
         """
         (RFC 3339 format)
@@ -2242,7 +1964,7 @@ class ScalewayInstanceV1VolumeServer(dict):
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional['ScalewayInstanceV1VolumeServerVolumeType']:
         return pulumi.get(self, "volume_type")
 
@@ -2263,21 +1985,10 @@ class ScalewayInstanceV1VolumeServerProperties(dict):
         """
         The server attached to the volume
         """
-        ScalewayInstanceV1VolumeServerProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -2292,6 +2003,25 @@ class ScalewayInstanceV1VolumeServerProperties(dict):
 
 @pulumi.output_type
 class ScalewayInstanceV1VolumeServerTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseSnapshot":
+            suggest = "base_snapshot"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1VolumeServerTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1VolumeServerTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1VolumeServerTemplate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_snapshot: Optional[str] = None,
                  boot: Optional[bool] = None,
@@ -2310,52 +2040,29 @@ class ScalewayInstanceV1VolumeServerTemplate(dict):
         :param str project: Project ID of the volume
         :param float size: Disk size of the volume, must be a multiple of 512 (in bytes)
         """
-        ScalewayInstanceV1VolumeServerTemplate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base_snapshot=base_snapshot,
-            boot=boot,
-            id=id,
-            name=name,
-            organization=organization,
-            project=project,
-            size=size,
-            volume_type=volume_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base_snapshot: Optional[str] = None,
-             boot: Optional[bool] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             organization: Optional[str] = None,
-             project: Optional[str] = None,
-             size: Optional[float] = None,
-             volume_type: Optional['ScalewayInstanceV1VolumeServerTemplateVolumeType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if base_snapshot is not None:
-            _setter("base_snapshot", base_snapshot)
+            pulumi.set(__self__, "base_snapshot", base_snapshot)
         if boot is None:
             boot = False
         if boot is not None:
-            _setter("boot", boot)
+            pulumi.set(__self__, "boot", boot)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="baseSnapshot")
     def base_snapshot(self) -> Optional[str]:
         """
         The ID of the snapshot on which this volume will be based
@@ -2411,13 +2118,30 @@ class ScalewayInstanceV1VolumeServerTemplate(dict):
         return pulumi.get(self, "size")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional['ScalewayInstanceV1VolumeServerTemplateVolumeType']:
         return pulumi.get(self, "volume_type")
 
 
 @pulumi.output_type
 class ScalewayInstanceV1VolumeSummary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1VolumeSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1VolumeSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1VolumeSummary.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
@@ -2426,31 +2150,16 @@ class ScalewayInstanceV1VolumeSummary(dict):
         """
         :param float size: (in bytes)
         """
-        ScalewayInstanceV1VolumeSummary._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-            size=size,
-            volume_type=volume_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             size: Optional[float] = None,
-             volume_type: Optional['ScalewayInstanceV1VolumeSummaryVolumeType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter
@@ -2471,7 +2180,7 @@ class ScalewayInstanceV1VolumeSummary(dict):
         return pulumi.get(self, "size")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional['ScalewayInstanceV1VolumeSummaryVolumeType']:
         return pulumi.get(self, "volume_type")
 

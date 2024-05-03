@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -18,20 +18,11 @@ __all__ = [
 class ScalewayInstanceV1ListServerUserDataResponse(dict):
     def __init__(__self__, *,
                  user_data: Optional[Sequence[str]] = None):
-        ScalewayInstanceV1ListServerUserDataResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            user_data=user_data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             user_data: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if user_data is not None:
-            _setter("user_data", user_data)
+            pulumi.set(__self__, "user_data", user_data)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="userData")
     def user_data(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "user_data")
 
@@ -42,25 +33,12 @@ class ScalewayStdFile(dict):
                  content: Optional[str] = None,
                  content_type: Optional[str] = None,
                  name: Optional[str] = None):
-        ScalewayStdFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[str] = None,
-             content_type: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -68,7 +46,7 @@ class ScalewayStdFile(dict):
         return pulumi.get(self, "content")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[str]:
         return pulumi.get(self, "content_type")
 

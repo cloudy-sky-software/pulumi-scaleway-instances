@@ -16,29 +16,29 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
     [OutputType]
     public sealed class ScalewayInstanceV1ServerLocationProperties
     {
-        public readonly string? Cluster_id;
-        public readonly string? Hypervisor_id;
-        public readonly string? Node_id;
-        public readonly string? Platform_id;
-        public readonly string? Zone_id;
+        public readonly string? ClusterId;
+        public readonly string? HypervisorId;
+        public readonly string? NodeId;
+        public readonly string? PlatformId;
+        public readonly string? ZoneId;
 
         [OutputConstructor]
         private ScalewayInstanceV1ServerLocationProperties(
-            string? cluster_id,
+            string? clusterId,
 
-            string? hypervisor_id,
+            string? hypervisorId,
 
-            string? node_id,
+            string? nodeId,
 
-            string? platform_id,
+            string? platformId,
 
-            string? zone_id)
+            string? zoneId)
         {
-            Cluster_id = cluster_id;
-            Hypervisor_id = hypervisor_id;
-            Node_id = node_id;
-            Platform_id = platform_id;
-            Zone_id = zone_id;
+            ClusterId = clusterId;
+            HypervisorId = hypervisorId;
+            NodeId = nodeId;
+            PlatformId = platformId;
+            ZoneId = zoneId;
         }
     }
 }

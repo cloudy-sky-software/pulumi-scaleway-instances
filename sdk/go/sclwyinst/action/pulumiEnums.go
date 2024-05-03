@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The action to perform on the server
@@ -83,12 +82,6 @@ func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPt
 	}).(ActionPtrOutput)
 }
 
-func (o ActionOutput) ToOutput(ctx context.Context) pulumix.Output[Action] {
-	return pulumix.Output[Action]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -124,12 +117,6 @@ func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) Actio
 	return o
 }
 
-func (o ActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Action] {
-	return pulumix.Output[*Action]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionPtrOutput) Elem() ActionOutput {
 	return o.ApplyT(func(v *Action) Action {
 		if v != nil {
@@ -154,10 +141,15 @@ func (o ActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// ActionInput is an input type that accepts ActionArgs and ActionOutput values.
-// You can construct a concrete instance of `ActionInput` via:
+// ActionInput is an input type that accepts values of the Action enum
+// A concrete instance of `ActionInput` can be one of the following:
 //
-//	ActionArgs{...}
+//	ActionPoweron
+//	ActionBackup
+//	ActionStopInPlace
+//	ActionPoweroff
+//	ActionTerminate
+//	ActionReboot
 type ActionInput interface {
 	pulumi.Input
 
@@ -190,12 +182,6 @@ func (in *actionPtr) ToActionPtrOutput() ActionPtrOutput {
 
 func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
-}
-
-func (in *actionPtr) ToOutput(ctx context.Context) pulumix.Output[*Action] {
-	return pulumix.Output[*Action]{
-		OutputState: in.ToActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ScalewayInstanceV1ListServerActionsResponseActionsItem string
@@ -233,12 +219,6 @@ func (o ScalewayInstanceV1ListServerActionsResponseActionsItemOutput) ToScaleway
 	}).(ScalewayInstanceV1ListServerActionsResponseActionsItemPtrOutput)
 }
 
-func (o ScalewayInstanceV1ListServerActionsResponseActionsItemOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListServerActionsResponseActionsItem] {
-	return pulumix.Output[ScalewayInstanceV1ListServerActionsResponseActionsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1ListServerActionsResponseActionsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -272,12 +252,6 @@ func (o ScalewayInstanceV1ListServerActionsResponseActionsItemPtrOutput) ToScale
 
 func (o ScalewayInstanceV1ListServerActionsResponseActionsItemPtrOutput) ToScalewayInstanceV1ListServerActionsResponseActionsItemPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ListServerActionsResponseActionsItemPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1ListServerActionsResponseActionsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ListServerActionsResponseActionsItem] {
-	return pulumix.Output[*ScalewayInstanceV1ListServerActionsResponseActionsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1ListServerActionsResponseActionsItemPtrOutput) Elem() ScalewayInstanceV1ListServerActionsResponseActionsItemOutput {
@@ -316,12 +290,6 @@ func (o ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput) ToSca
 
 func (o ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput) ToScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1ListServerActionsResponseActionsItem] {
-	return pulumix.Output[[]ScalewayInstanceV1ListServerActionsResponseActionsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1ListServerActionsResponseActionsItemOutput {
@@ -398,12 +366,6 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutpu
 	}).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType] {
-	return pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -439,12 +401,6 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOu
 	return o
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType] {
-	return pulumix.Output[*ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) Elem() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType {
 		if v != nil {
@@ -469,10 +425,12 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput is an input type that accepts ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeArgs and ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput values.
-// You can construct a concrete instance of `ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput` via:
+// ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput is an input type that accepts values of the ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType enum
+// A concrete instance of `ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput` can be one of the following:
 //
-//	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeArgs{...}
+//	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeLSsd
+//	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeBSsd
+//	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeUnified
 type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput interface {
 	pulumi.Input
 
@@ -505,12 +463,6 @@ func (in *scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr
 
 func (in *scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
-}
-
-func (in *scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType] {
-	return pulumix.Output[*ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType]{
-		OutputState: in.ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The task status
@@ -548,12 +500,6 @@ func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOut
 	}).(ScalewayInstanceV1TaskStatusPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1TaskStatus] {
-	return pulumix.Output[ScalewayInstanceV1TaskStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -587,12 +533,6 @@ func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtr
 
 func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1TaskStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1TaskStatus] {
-	return pulumix.Output[*ScalewayInstanceV1TaskStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1TaskStatusPtrOutput) Elem() ScalewayInstanceV1TaskStatusOutput {

@@ -10,22 +10,21 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Server struct {
 	pulumi.CustomResourceState
 
 	// The boot type to use
-	Boot_type BootTypePtrOutput `pulumi:"boot_type"`
+	BootType BootTypePtrOutput `pulumi:"bootType"`
 	// The bootscript ID to use when `boot_type` is set to `bootscript`
 	Bootscript pulumi.StringPtrOutput `pulumi:"bootscript"`
 	// Define the server commercial type (i.e. GP1-S)
-	Commercial_type pulumi.StringOutput `pulumi:"commercial_type"`
+	CommercialType pulumi.StringOutput `pulumi:"commercialType"`
 	// Define if a dynamic IP is required for the instance
-	Dynamic_ip_required pulumi.BoolPtrOutput `pulumi:"dynamic_ip_required"`
+	DynamicIpRequired pulumi.BoolPtrOutput `pulumi:"dynamicIpRequired"`
 	// True if IPv6 is enabled on the server
-	Enable_ipv6 pulumi.BoolPtrOutput `pulumi:"enable_ipv6"`
+	EnableIpv6 pulumi.BoolPtrOutput `pulumi:"enableIpv6"`
 	// The server image ID
 	Image pulumi.StringPtrOutput `pulumi:"image"`
 	// The server name
@@ -33,14 +32,14 @@ type Server struct {
 	// The server organization ID
 	Organization pulumi.StringPtrOutput `pulumi:"organization"`
 	// Placement group ID if server must be part of a placement group
-	Placement_group pulumi.StringPtrOutput `pulumi:"placement_group"`
+	PlacementGroup pulumi.StringPtrOutput `pulumi:"placementGroup"`
 	// The server project ID
 	Project pulumi.StringPtrOutput `pulumi:"project"`
 	// The ID of the reserved IP to attach to the server
-	Public_ip pulumi.StringPtrOutput `pulumi:"public_ip"`
+	PublicIp pulumi.StringPtrOutput `pulumi:"publicIp"`
 	// The security group ID
-	Security_group pulumi.StringPtrOutput            `pulumi:"security_group"`
-	Server         ScalewayInstanceV1ServerPtrOutput `pulumi:"server"`
+	SecurityGroup pulumi.StringPtrOutput            `pulumi:"securityGroup"`
+	Server        ScalewayInstanceV1ServerPtrOutput `pulumi:"server"`
 	// The server tags
 	Tags    pulumi.StringArrayOutput                        `pulumi:"tags"`
 	Volumes ScalewayInstanceV1VolumeServerTemplateMapOutput `pulumi:"volumes"`
@@ -53,11 +52,11 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Commercial_type == nil {
-		return nil, errors.New("invalid value for required argument 'Commercial_type'")
+	if args.CommercialType == nil {
+		return nil, errors.New("invalid value for required argument 'CommercialType'")
 	}
-	if args.Boot_type == nil {
-		args.Boot_type = BootType("local")
+	if args.BootType == nil {
+		args.BootType = BootType("local")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Server
@@ -93,15 +92,15 @@ func (ServerState) ElementType() reflect.Type {
 
 type serverArgs struct {
 	// The boot type to use
-	Boot_type *BootType `pulumi:"boot_type"`
+	BootType *BootType `pulumi:"bootType"`
 	// The bootscript ID to use when `boot_type` is set to `bootscript`
 	Bootscript *string `pulumi:"bootscript"`
 	// Define the server commercial type (i.e. GP1-S)
-	Commercial_type string `pulumi:"commercial_type"`
+	CommercialType string `pulumi:"commercialType"`
 	// Define if a dynamic IP is required for the instance
-	Dynamic_ip_required *bool `pulumi:"dynamic_ip_required"`
+	DynamicIpRequired *bool `pulumi:"dynamicIpRequired"`
 	// True if IPv6 is enabled on the server
-	Enable_ipv6 *bool `pulumi:"enable_ipv6"`
+	EnableIpv6 *bool `pulumi:"enableIpv6"`
 	// The server image ID
 	Image *string `pulumi:"image"`
 	// The server name
@@ -109,13 +108,13 @@ type serverArgs struct {
 	// The server organization ID
 	Organization *string `pulumi:"organization"`
 	// Placement group ID if server must be part of a placement group
-	Placement_group *string `pulumi:"placement_group"`
+	PlacementGroup *string `pulumi:"placementGroup"`
 	// The server project ID
 	Project *string `pulumi:"project"`
 	// The ID of the reserved IP to attach to the server
-	Public_ip *string `pulumi:"public_ip"`
+	PublicIp *string `pulumi:"publicIp"`
 	// The security group ID
-	Security_group *string `pulumi:"security_group"`
+	SecurityGroup *string `pulumi:"securityGroup"`
 	// The server tags
 	Tags    []string                                          `pulumi:"tags"`
 	Volumes map[string]ScalewayInstanceV1VolumeServerTemplate `pulumi:"volumes"`
@@ -126,15 +125,15 @@ type serverArgs struct {
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
 	// The boot type to use
-	Boot_type BootTypePtrInput
+	BootType BootTypePtrInput
 	// The bootscript ID to use when `boot_type` is set to `bootscript`
 	Bootscript pulumi.StringPtrInput
 	// Define the server commercial type (i.e. GP1-S)
-	Commercial_type pulumi.StringInput
+	CommercialType pulumi.StringInput
 	// Define if a dynamic IP is required for the instance
-	Dynamic_ip_required pulumi.BoolPtrInput
+	DynamicIpRequired pulumi.BoolPtrInput
 	// True if IPv6 is enabled on the server
-	Enable_ipv6 pulumi.BoolPtrInput
+	EnableIpv6 pulumi.BoolPtrInput
 	// The server image ID
 	Image pulumi.StringPtrInput
 	// The server name
@@ -142,13 +141,13 @@ type ServerArgs struct {
 	// The server organization ID
 	Organization pulumi.StringPtrInput
 	// Placement group ID if server must be part of a placement group
-	Placement_group pulumi.StringPtrInput
+	PlacementGroup pulumi.StringPtrInput
 	// The server project ID
 	Project pulumi.StringPtrInput
 	// The ID of the reserved IP to attach to the server
-	Public_ip pulumi.StringPtrInput
+	PublicIp pulumi.StringPtrInput
 	// The security group ID
-	Security_group pulumi.StringPtrInput
+	SecurityGroup pulumi.StringPtrInput
 	// The server tags
 	Tags    pulumi.StringArrayInput
 	Volumes ScalewayInstanceV1VolumeServerTemplateMapInput
@@ -179,12 +178,6 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
-func (i *Server) ToOutput(ctx context.Context) pulumix.Output[*Server] {
-	return pulumix.Output[*Server]{
-		OutputState: i.ToServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
@@ -199,15 +192,9 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
-func (o ServerOutput) ToOutput(ctx context.Context) pulumix.Output[*Server] {
-	return pulumix.Output[*Server]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The boot type to use
-func (o ServerOutput) Boot_type() BootTypePtrOutput {
-	return o.ApplyT(func(v *Server) BootTypePtrOutput { return v.Boot_type }).(BootTypePtrOutput)
+func (o ServerOutput) BootType() BootTypePtrOutput {
+	return o.ApplyT(func(v *Server) BootTypePtrOutput { return v.BootType }).(BootTypePtrOutput)
 }
 
 // The bootscript ID to use when `boot_type` is set to `bootscript`
@@ -216,18 +203,18 @@ func (o ServerOutput) Bootscript() pulumi.StringPtrOutput {
 }
 
 // Define the server commercial type (i.e. GP1-S)
-func (o ServerOutput) Commercial_type() pulumi.StringOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Commercial_type }).(pulumi.StringOutput)
+func (o ServerOutput) CommercialType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.CommercialType }).(pulumi.StringOutput)
 }
 
 // Define if a dynamic IP is required for the instance
-func (o ServerOutput) Dynamic_ip_required() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.Dynamic_ip_required }).(pulumi.BoolPtrOutput)
+func (o ServerOutput) DynamicIpRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.DynamicIpRequired }).(pulumi.BoolPtrOutput)
 }
 
 // True if IPv6 is enabled on the server
-func (o ServerOutput) Enable_ipv6() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.Enable_ipv6 }).(pulumi.BoolPtrOutput)
+func (o ServerOutput) EnableIpv6() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.EnableIpv6 }).(pulumi.BoolPtrOutput)
 }
 
 // The server image ID
@@ -246,8 +233,8 @@ func (o ServerOutput) Organization() pulumi.StringPtrOutput {
 }
 
 // Placement group ID if server must be part of a placement group
-func (o ServerOutput) Placement_group() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Placement_group }).(pulumi.StringPtrOutput)
+func (o ServerOutput) PlacementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PlacementGroup }).(pulumi.StringPtrOutput)
 }
 
 // The server project ID
@@ -256,13 +243,13 @@ func (o ServerOutput) Project() pulumi.StringPtrOutput {
 }
 
 // The ID of the reserved IP to attach to the server
-func (o ServerOutput) Public_ip() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Public_ip }).(pulumi.StringPtrOutput)
+func (o ServerOutput) PublicIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PublicIp }).(pulumi.StringPtrOutput)
 }
 
 // The security group ID
-func (o ServerOutput) Security_group() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Security_group }).(pulumi.StringPtrOutput)
+func (o ServerOutput) SecurityGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SecurityGroup }).(pulumi.StringPtrOutput)
 }
 
 func (o ServerOutput) Server() ScalewayInstanceV1ServerPtrOutput {

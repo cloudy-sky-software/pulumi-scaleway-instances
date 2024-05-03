@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,49 +33,26 @@ class SnapshotArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The snapshot tags
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        SnapshotArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            organization=organization,
-            project=project,
-            size=size,
-            state=state,
-            tags=tags,
-            volume_type=volume_type,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             organization: Optional[pulumi.Input[str]] = None,
-             project: Optional[pulumi.Input[str]] = None,
-             size: Optional[pulumi.Input[float]] = None,
-             state: Optional[pulumi.Input['State']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             volume_type: Optional[pulumi.Input['VolumeType']] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if state is None:
             state = 'available'
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -147,7 +124,7 @@ class SnapshotArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input['VolumeType']]:
         return pulumi.get(self, "volume_type")
 
@@ -211,10 +188,6 @@ class Snapshot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SnapshotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -294,7 +267,7 @@ class Snapshot(pulumi.CustomResource):
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="baseVolume")
     def base_volume(self) -> pulumi.Output[Optional['outputs.BaseVolumeProperties']]:
         """
         The volume on which the snapshot is based on
@@ -302,7 +275,7 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "base_volume")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         The snapshot creation date (RFC 3339 format)
@@ -310,7 +283,7 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="errorReason")
     def error_reason(self) -> pulumi.Output[Optional[str]]:
         """
         The reason for the failed snapshot import
@@ -318,7 +291,7 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "error_reason")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="modificationDate")
     def modification_date(self) -> pulumi.Output[Optional[str]]:
         """
         The snapshot modification date (RFC 3339 format)
@@ -381,7 +354,7 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "task")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Output[Optional['VolumeType']]:
         return pulumi.get(self, "volume_type")
 

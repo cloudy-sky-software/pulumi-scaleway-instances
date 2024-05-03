@@ -16,7 +16,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
         /// <summary>
         /// The security group creation date (RFC 3339 format)
         /// </summary>
-        public readonly string? Creation_date;
+        public readonly string? CreationDate;
         /// <summary>
         /// The security groups description
         /// </summary>
@@ -24,16 +24,16 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
         /// <summary>
         /// True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
         /// </summary>
-        public readonly bool? Enable_default_security;
+        public readonly bool? EnableDefaultSecurity;
         public readonly string? Id;
         /// <summary>
         /// The default inbound policy
         /// </summary>
-        public readonly Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupInboundDefaultPolicy? Inbound_default_policy;
+        public readonly Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupInboundDefaultPolicy? InboundDefaultPolicy;
         /// <summary>
         /// The security group modification date (RFC 3339 format)
         /// </summary>
-        public readonly string? Modification_date;
+        public readonly string? ModificationDate;
         /// <summary>
         /// The security groups name
         /// </summary>
@@ -45,11 +45,11 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
         /// <summary>
         /// True if it is your default security group for this organization ID
         /// </summary>
-        public readonly bool? Organization_default;
+        public readonly bool? OrganizationDefault;
         /// <summary>
         /// The default outbound policy
         /// </summary>
-        public readonly Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy? Outbound_default_policy;
+        public readonly Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy? OutboundDefaultPolicy;
         /// <summary>
         /// The security group project ID
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
         /// <summary>
         /// True if it is your default security group for this project ID
         /// </summary>
-        public readonly bool? Project_default;
+        public readonly bool? ProjectDefault;
         /// <summary>
         /// List of servers attached to this security group
         /// </summary>
@@ -81,29 +81,29 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
 
         [OutputConstructor]
         private ScalewayInstanceV1SecurityGroup(
-            string? creation_date,
+            string? creationDate,
 
             string? description,
 
-            bool? enable_default_security,
+            bool? enableDefaultSecurity,
 
             string? id,
 
-            Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupInboundDefaultPolicy? inbound_default_policy,
+            Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupInboundDefaultPolicy? inboundDefaultPolicy,
 
-            string? modification_date,
+            string? modificationDate,
 
             string name,
 
             string? organization,
 
-            bool? organization_default,
+            bool? organizationDefault,
 
-            Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy? outbound_default_policy,
+            Pulumi.ScalewayInstances.SecurityGroups.ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy? outboundDefaultPolicy,
 
             string project,
 
-            bool? project_default,
+            bool? projectDefault,
 
             ImmutableArray<Outputs.ScalewayInstanceV1ServerSummary> servers,
 
@@ -115,18 +115,18 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
 
             string? zone)
         {
-            Creation_date = creation_date;
+            CreationDate = creationDate;
             Description = description;
-            Enable_default_security = enable_default_security;
+            EnableDefaultSecurity = enableDefaultSecurity;
             Id = id;
-            Inbound_default_policy = inbound_default_policy;
-            Modification_date = modification_date;
+            InboundDefaultPolicy = inboundDefaultPolicy;
+            ModificationDate = modificationDate;
             Name = name;
             Organization = organization;
-            Organization_default = organization_default;
-            Outbound_default_policy = outbound_default_policy;
+            OrganizationDefault = organizationDefault;
+            OutboundDefaultPolicy = outboundDefaultPolicy;
             Project = project;
-            Project_default = project_default;
+            ProjectDefault = projectDefault;
             Servers = servers;
             State = state;
             Stateful = stateful;

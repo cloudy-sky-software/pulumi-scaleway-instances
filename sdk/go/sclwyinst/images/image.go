@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Image struct {
@@ -19,21 +18,21 @@ type Image struct {
 	Location pulumi.StringPtrOutput `pulumi:"Location"`
 	Arch     ArchPtrOutput          `pulumi:"arch"`
 	// (RFC 3339 format)
-	Creation_date      pulumi.StringPtrOutput                `pulumi:"creation_date"`
-	Default_bootscript ScalewayInstanceV1BootscriptPtrOutput `pulumi:"default_bootscript"`
-	Extra_volumes      ScalewayInstanceV1VolumeMapOutput     `pulumi:"extra_volumes"`
-	From_server        pulumi.StringPtrOutput                `pulumi:"from_server"`
-	Image              ScalewayInstanceV1ImagePtrOutput      `pulumi:"image"`
+	CreationDate      pulumi.StringPtrOutput                `pulumi:"creationDate"`
+	DefaultBootscript ScalewayInstanceV1BootscriptPtrOutput `pulumi:"defaultBootscript"`
+	ExtraVolumes      ScalewayInstanceV1VolumeMapOutput     `pulumi:"extraVolumes"`
+	FromServer        pulumi.StringPtrOutput                `pulumi:"fromServer"`
+	Image             ScalewayInstanceV1ImagePtrOutput      `pulumi:"image"`
 	// (RFC 3339 format)
-	Modification_date pulumi.StringPtrOutput                `pulumi:"modification_date"`
-	Name              pulumi.StringOutput                   `pulumi:"name"`
-	Organization      pulumi.StringPtrOutput                `pulumi:"organization"`
-	Project           pulumi.StringOutput                   `pulumi:"project"`
-	Public            pulumi.BoolPtrOutput                  `pulumi:"public"`
-	Root_volume       ScalewayInstanceV1VolumeSummaryOutput `pulumi:"root_volume"`
-	State             StatePtrOutput                        `pulumi:"state"`
-	Tags              pulumi.StringArrayOutput              `pulumi:"tags"`
-	Zone              pulumi.StringPtrOutput                `pulumi:"zone"`
+	ModificationDate pulumi.StringPtrOutput                `pulumi:"modificationDate"`
+	Name             pulumi.StringOutput                   `pulumi:"name"`
+	Organization     pulumi.StringPtrOutput                `pulumi:"organization"`
+	Project          pulumi.StringOutput                   `pulumi:"project"`
+	Public           pulumi.BoolPtrOutput                  `pulumi:"public"`
+	RootVolume       ScalewayInstanceV1VolumeSummaryOutput `pulumi:"rootVolume"`
+	State            StatePtrOutput                        `pulumi:"state"`
+	Tags             pulumi.StringArrayOutput              `pulumi:"tags"`
+	Zone             pulumi.StringPtrOutput                `pulumi:"zone"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
@@ -46,16 +45,16 @@ func NewImage(ctx *pulumi.Context,
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
-	if args.Root_volume == nil {
-		return nil, errors.New("invalid value for required argument 'Root_volume'")
+	if args.RootVolume == nil {
+		return nil, errors.New("invalid value for required argument 'RootVolume'")
 	}
 	if args.Arch == nil {
 		args.Arch = Arch("x86_64")
 	}
-	if args.Default_bootscript != nil {
-		args.Default_bootscript = args.Default_bootscript.ToScalewayInstanceV1BootscriptPtrOutput().ApplyT(func(v *ScalewayInstanceV1Bootscript) *ScalewayInstanceV1Bootscript { return v.Defaults() }).(ScalewayInstanceV1BootscriptPtrOutput)
+	if args.DefaultBootscript != nil {
+		args.DefaultBootscript = args.DefaultBootscript.ToScalewayInstanceV1BootscriptPtrOutput().ApplyT(func(v *ScalewayInstanceV1Bootscript) *ScalewayInstanceV1Bootscript { return v.Defaults() }).(ScalewayInstanceV1BootscriptPtrOutput)
 	}
-	args.Root_volume = args.Root_volume.ToScalewayInstanceV1VolumeSummaryOutput().ApplyT(func(v ScalewayInstanceV1VolumeSummary) ScalewayInstanceV1VolumeSummary { return *v.Defaults() }).(ScalewayInstanceV1VolumeSummaryOutput)
+	args.RootVolume = args.RootVolume.ToScalewayInstanceV1VolumeSummaryOutput().ApplyT(func(v ScalewayInstanceV1VolumeSummary) ScalewayInstanceV1VolumeSummary { return *v.Defaults() }).(ScalewayInstanceV1VolumeSummaryOutput)
 	if args.State == nil {
 		args.State = State("available")
 	}
@@ -92,32 +91,32 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	Arch               *Arch                               `pulumi:"arch"`
-	Default_bootscript *ScalewayInstanceV1Bootscript       `pulumi:"default_bootscript"`
-	Extra_volumes      map[string]ScalewayInstanceV1Volume `pulumi:"extra_volumes"`
-	Name               *string                             `pulumi:"name"`
-	Organization       *string                             `pulumi:"organization"`
-	Project            string                              `pulumi:"project"`
-	Public             *bool                               `pulumi:"public"`
-	Root_volume        ScalewayInstanceV1VolumeSummary     `pulumi:"root_volume"`
-	State              *State                              `pulumi:"state"`
-	Tags               []string                            `pulumi:"tags"`
+	Arch              *Arch                               `pulumi:"arch"`
+	DefaultBootscript *ScalewayInstanceV1Bootscript       `pulumi:"defaultBootscript"`
+	ExtraVolumes      map[string]ScalewayInstanceV1Volume `pulumi:"extraVolumes"`
+	Name              *string                             `pulumi:"name"`
+	Organization      *string                             `pulumi:"organization"`
+	Project           string                              `pulumi:"project"`
+	Public            *bool                               `pulumi:"public"`
+	RootVolume        ScalewayInstanceV1VolumeSummary     `pulumi:"rootVolume"`
+	State             *State                              `pulumi:"state"`
+	Tags              []string                            `pulumi:"tags"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	Arch               ArchPtrInput
-	Default_bootscript ScalewayInstanceV1BootscriptPtrInput
-	Extra_volumes      ScalewayInstanceV1VolumeMapInput
-	Name               pulumi.StringPtrInput
-	Organization       pulumi.StringPtrInput
-	Project            pulumi.StringInput
-	Public             pulumi.BoolPtrInput
-	Root_volume        ScalewayInstanceV1VolumeSummaryInput
-	State              StatePtrInput
-	Tags               pulumi.StringArrayInput
+	Arch              ArchPtrInput
+	DefaultBootscript ScalewayInstanceV1BootscriptPtrInput
+	ExtraVolumes      ScalewayInstanceV1VolumeMapInput
+	Name              pulumi.StringPtrInput
+	Organization      pulumi.StringPtrInput
+	Project           pulumi.StringInput
+	Public            pulumi.BoolPtrInput
+	RootVolume        ScalewayInstanceV1VolumeSummaryInput
+	State             StatePtrInput
+	Tags              pulumi.StringArrayInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }
@@ -145,12 +144,6 @@ func (i *Image) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutput)
 }
 
-func (i *Image) ToOutput(ctx context.Context) pulumix.Output[*Image] {
-	return pulumix.Output[*Image]{
-		OutputState: i.ToImageOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ImageOutput struct{ *pulumi.OutputState }
 
 func (ImageOutput) ElementType() reflect.Type {
@@ -165,12 +158,6 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
-func (o ImageOutput) ToOutput(ctx context.Context) pulumix.Output[*Image] {
-	return pulumix.Output[*Image]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImageOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
 }
@@ -180,20 +167,20 @@ func (o ImageOutput) Arch() ArchPtrOutput {
 }
 
 // (RFC 3339 format)
-func (o ImageOutput) Creation_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.Creation_date }).(pulumi.StringPtrOutput)
+func (o ImageOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
-func (o ImageOutput) Default_bootscript() ScalewayInstanceV1BootscriptPtrOutput {
-	return o.ApplyT(func(v *Image) ScalewayInstanceV1BootscriptPtrOutput { return v.Default_bootscript }).(ScalewayInstanceV1BootscriptPtrOutput)
+func (o ImageOutput) DefaultBootscript() ScalewayInstanceV1BootscriptPtrOutput {
+	return o.ApplyT(func(v *Image) ScalewayInstanceV1BootscriptPtrOutput { return v.DefaultBootscript }).(ScalewayInstanceV1BootscriptPtrOutput)
 }
 
-func (o ImageOutput) Extra_volumes() ScalewayInstanceV1VolumeMapOutput {
-	return o.ApplyT(func(v *Image) ScalewayInstanceV1VolumeMapOutput { return v.Extra_volumes }).(ScalewayInstanceV1VolumeMapOutput)
+func (o ImageOutput) ExtraVolumes() ScalewayInstanceV1VolumeMapOutput {
+	return o.ApplyT(func(v *Image) ScalewayInstanceV1VolumeMapOutput { return v.ExtraVolumes }).(ScalewayInstanceV1VolumeMapOutput)
 }
 
-func (o ImageOutput) From_server() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.From_server }).(pulumi.StringPtrOutput)
+func (o ImageOutput) FromServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.FromServer }).(pulumi.StringPtrOutput)
 }
 
 func (o ImageOutput) Image() ScalewayInstanceV1ImagePtrOutput {
@@ -201,8 +188,8 @@ func (o ImageOutput) Image() ScalewayInstanceV1ImagePtrOutput {
 }
 
 // (RFC 3339 format)
-func (o ImageOutput) Modification_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.Modification_date }).(pulumi.StringPtrOutput)
+func (o ImageOutput) ModificationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ModificationDate }).(pulumi.StringPtrOutput)
 }
 
 func (o ImageOutput) Name() pulumi.StringOutput {
@@ -221,8 +208,8 @@ func (o ImageOutput) Public() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.BoolPtrOutput { return v.Public }).(pulumi.BoolPtrOutput)
 }
 
-func (o ImageOutput) Root_volume() ScalewayInstanceV1VolumeSummaryOutput {
-	return o.ApplyT(func(v *Image) ScalewayInstanceV1VolumeSummaryOutput { return v.Root_volume }).(ScalewayInstanceV1VolumeSummaryOutput)
+func (o ImageOutput) RootVolume() ScalewayInstanceV1VolumeSummaryOutput {
+	return o.ApplyT(func(v *Image) ScalewayInstanceV1VolumeSummaryOutput { return v.RootVolume }).(ScalewayInstanceV1VolumeSummaryOutput)
 }
 
 func (o ImageOutput) State() StatePtrOutput {

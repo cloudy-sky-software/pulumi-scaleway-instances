@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -34,52 +34,29 @@ class ScalewayInstanceV1VolumeServerTemplateArgs:
         :param pulumi.Input[str] project: Project ID of the volume
         :param pulumi.Input[float] size: Disk size of the volume, must be a multiple of 512 (in bytes)
         """
-        ScalewayInstanceV1VolumeServerTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base_snapshot=base_snapshot,
-            boot=boot,
-            id=id,
-            name=name,
-            organization=organization,
-            project=project,
-            size=size,
-            volume_type=volume_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base_snapshot: Optional[pulumi.Input[str]] = None,
-             boot: Optional[pulumi.Input[bool]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             organization: Optional[pulumi.Input[str]] = None,
-             project: Optional[pulumi.Input[str]] = None,
-             size: Optional[pulumi.Input[float]] = None,
-             volume_type: Optional[pulumi.Input['ScalewayInstanceV1VolumeServerTemplateVolumeType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if base_snapshot is not None:
-            _setter("base_snapshot", base_snapshot)
+            pulumi.set(__self__, "base_snapshot", base_snapshot)
         if boot is None:
             boot = False
         if boot is not None:
-            _setter("boot", boot)
+            pulumi.set(__self__, "boot", boot)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="baseSnapshot")
     def base_snapshot(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the snapshot on which this volume will be based
@@ -163,7 +140,7 @@ class ScalewayInstanceV1VolumeServerTemplateArgs:
         pulumi.set(self, "size", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[pulumi.Input['ScalewayInstanceV1VolumeServerTemplateVolumeType']]:
         return pulumi.get(self, "volume_type")
 

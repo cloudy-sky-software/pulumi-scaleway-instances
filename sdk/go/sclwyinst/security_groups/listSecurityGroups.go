@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func ListSecurityGroups(ctx *pulumi.Context, args *ListSecurityGroupsArgs, opts ...pulumi.InvokeOption) (*ListSecurityGroupsResult, error) {
@@ -65,12 +64,6 @@ func (o ListSecurityGroupsResultOutput) ToListSecurityGroupsResultOutput() ListS
 
 func (o ListSecurityGroupsResultOutput) ToListSecurityGroupsResultOutputWithContext(ctx context.Context) ListSecurityGroupsResultOutput {
 	return o
-}
-
-func (o ListSecurityGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[ListSecurityGroupsResult] {
-	return pulumix.Output[ListSecurityGroupsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListSecurityGroupsResultOutput) Items() ScalewayInstanceV1ListSecurityGroupsResponseOutput {

@@ -12,14 +12,14 @@ export function getSecurityGroupRule(args: GetSecurityGroupRuleArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:rules:getSecurityGroupRule", {
         "id": args.id,
-        "security_group_id": args.security_group_id,
+        "securityGroupId": args.securityGroupId,
         "zone": args.zone,
     }, opts);
 }
 
 export interface GetSecurityGroupRuleArgs {
     id: string;
-    security_group_id: string;
+    securityGroupId: string;
     /**
      * The zone you want to target
      */
@@ -35,7 +35,7 @@ export function getSecurityGroupRuleOutput(args: GetSecurityGroupRuleOutputArgs,
 
 export interface GetSecurityGroupRuleOutputArgs {
     id: pulumi.Input<string>;
-    security_group_id: pulumi.Input<string>;
+    securityGroupId: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

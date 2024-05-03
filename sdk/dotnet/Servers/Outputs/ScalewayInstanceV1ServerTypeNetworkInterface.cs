@@ -16,20 +16,20 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// Maximum internal bandwidth in bits per seconds
         /// </summary>
-        public readonly double? Internal_bandwidth;
+        public readonly double? InternalBandwidth;
         /// <summary>
         /// Maximum internet bandwidth in bits per seconds
         /// </summary>
-        public readonly double? Internet_bandwidth;
+        public readonly double? InternetBandwidth;
 
         [OutputConstructor]
         private ScalewayInstanceV1ServerTypeNetworkInterface(
-            double? internal_bandwidth,
+            double? internalBandwidth,
 
-            double? internet_bandwidth)
+            double? internetBandwidth)
         {
-            Internal_bandwidth = internal_bandwidth;
-            Internet_bandwidth = internet_bandwidth;
+            InternalBandwidth = internalBandwidth;
+            InternetBandwidth = internetBandwidth;
         }
     }
 }

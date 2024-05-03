@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The task status
@@ -46,12 +45,6 @@ func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOut
 	}).(ScalewayInstanceV1TaskStatusPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1TaskStatus] {
-	return pulumix.Output[ScalewayInstanceV1TaskStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -85,12 +78,6 @@ func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtr
 
 func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1TaskStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1TaskStatus] {
-	return pulumix.Output[*ScalewayInstanceV1TaskStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1TaskStatusPtrOutput) Elem() ScalewayInstanceV1TaskStatusOutput {

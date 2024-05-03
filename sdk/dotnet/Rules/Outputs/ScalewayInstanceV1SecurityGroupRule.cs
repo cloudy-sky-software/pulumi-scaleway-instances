@@ -14,15 +14,15 @@ namespace Pulumi.ScalewayInstances.Rules.Outputs
     public sealed class ScalewayInstanceV1SecurityGroupRule
     {
         public readonly Pulumi.ScalewayInstances.Rules.ScalewayInstanceV1SecurityGroupRuleAction? Action;
-        public readonly Outputs.GoogleProtobufUInt32Value? Dest_port_from;
-        public readonly Outputs.GoogleProtobufUInt32Value? Dest_port_to;
+        public readonly double? DestPortFrom;
+        public readonly double? DestPortTo;
         public readonly Pulumi.ScalewayInstances.Rules.ScalewayInstanceV1SecurityGroupRuleDirection? Direction;
         public readonly bool? Editable;
         public readonly string? Id;
         /// <summary>
         /// (IP network)
         /// </summary>
-        public readonly string? Ip_range;
+        public readonly string? IpRange;
         public readonly double? Position;
         public readonly Pulumi.ScalewayInstances.Rules.ScalewayInstanceV1SecurityGroupRuleProtocol? Protocol;
         public readonly string? Zone;
@@ -31,9 +31,9 @@ namespace Pulumi.ScalewayInstances.Rules.Outputs
         private ScalewayInstanceV1SecurityGroupRule(
             Pulumi.ScalewayInstances.Rules.ScalewayInstanceV1SecurityGroupRuleAction? action,
 
-            Outputs.GoogleProtobufUInt32Value? dest_port_from,
+            double? destPortFrom,
 
-            Outputs.GoogleProtobufUInt32Value? dest_port_to,
+            double? destPortTo,
 
             Pulumi.ScalewayInstances.Rules.ScalewayInstanceV1SecurityGroupRuleDirection? direction,
 
@@ -41,7 +41,7 @@ namespace Pulumi.ScalewayInstances.Rules.Outputs
 
             string? id,
 
-            string? ip_range,
+            string? ipRange,
 
             double? position,
 
@@ -50,12 +50,12 @@ namespace Pulumi.ScalewayInstances.Rules.Outputs
             string? zone)
         {
             Action = action;
-            Dest_port_from = dest_port_from;
-            Dest_port_to = dest_port_to;
+            DestPortFrom = destPortFrom;
+            DestPortTo = destPortTo;
             Direction = direction;
             Editable = editable;
             Id = id;
-            Ip_range = ip_range;
+            IpRange = ipRange;
             Position = position;
             Protocol = protocol;
             Zone = zone;

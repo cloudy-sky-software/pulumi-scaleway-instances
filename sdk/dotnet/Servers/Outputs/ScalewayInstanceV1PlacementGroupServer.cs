@@ -15,7 +15,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
     {
         public readonly string? Id;
         public readonly string? Name;
-        public readonly bool? Policy_respected;
+        public readonly bool? PolicyRespected;
 
         [OutputConstructor]
         private ScalewayInstanceV1PlacementGroupServer(
@@ -23,11 +23,11 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             string? name,
 
-            bool? policy_respected)
+            bool? policyRespected)
         {
             Id = id;
             Name = name;
-            Policy_respected = policy_respected;
+            PolicyRespected = policyRespected;
         }
     }
 }

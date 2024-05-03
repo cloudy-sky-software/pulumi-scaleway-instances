@@ -15,8 +15,8 @@ namespace Pulumi.ScalewayInstances.Servers.Inputs
         /// <summary>
         /// The ID of the snapshot on which this volume will be based
         /// </summary>
-        [Input("base_snapshot")]
-        public Input<string>? Base_snapshot { get; set; }
+        [Input("baseSnapshot")]
+        public Input<string>? BaseSnapshot { get; set; }
 
         /// <summary>
         /// Force the server to boot on this volume
@@ -54,13 +54,13 @@ namespace Pulumi.ScalewayInstances.Servers.Inputs
         [Input("size")]
         public Input<double>? Size { get; set; }
 
-        [Input("volume_type")]
-        public Input<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType>? Volume_type { get; set; }
+        [Input("volumeType")]
+        public Input<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType>? VolumeType { get; set; }
 
         public ScalewayInstanceV1VolumeServerTemplateArgs()
         {
             Boot = false;
-            Volume_type = Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType.LSsd;
+            VolumeType = Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType.LSsd;
         }
         public static new ScalewayInstanceV1VolumeServerTemplateArgs Empty => new ScalewayInstanceV1VolumeServerTemplateArgs();
     }

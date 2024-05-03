@@ -19,7 +19,7 @@ namespace Pulumi.ScalewayInstances.Images.Outputs
         /// (in bytes)
         /// </summary>
         public readonly double? Size;
-        public readonly Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeSummaryVolumeType? Volume_type;
+        public readonly Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeSummaryVolumeType? VolumeType;
 
         [OutputConstructor]
         private ScalewayInstanceV1VolumeSummary(
@@ -29,12 +29,12 @@ namespace Pulumi.ScalewayInstances.Images.Outputs
 
             double? size,
 
-            Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeSummaryVolumeType? volume_type)
+            Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeSummaryVolumeType? volumeType)
         {
             Id = id;
             Name = name;
             Size = size;
-            Volume_type = volume_type;
+            VolumeType = volumeType;
         }
     }
 }

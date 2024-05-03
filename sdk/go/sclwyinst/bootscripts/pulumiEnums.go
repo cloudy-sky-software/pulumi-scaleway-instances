@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The bootscript arch
@@ -41,12 +40,6 @@ func (o ScalewayInstanceV1BootscriptArchOutput) ToScalewayInstanceV1BootscriptAr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1BootscriptArch) *ScalewayInstanceV1BootscriptArch {
 		return &v
 	}).(ScalewayInstanceV1BootscriptArchPtrOutput)
-}
-
-func (o ScalewayInstanceV1BootscriptArchOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1BootscriptArch] {
-	return pulumix.Output[ScalewayInstanceV1BootscriptArch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1BootscriptArchOutput) ToStringOutput() pulumi.StringOutput {
@@ -82,12 +75,6 @@ func (o ScalewayInstanceV1BootscriptArchPtrOutput) ToScalewayInstanceV1Bootscrip
 
 func (o ScalewayInstanceV1BootscriptArchPtrOutput) ToScalewayInstanceV1BootscriptArchPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1BootscriptArchPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1BootscriptArchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1BootscriptArch] {
-	return pulumix.Output[*ScalewayInstanceV1BootscriptArch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1BootscriptArchPtrOutput) Elem() ScalewayInstanceV1BootscriptArchOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Ip struct {
@@ -22,7 +21,7 @@ type Ip struct {
 	Ip           ScalewayInstanceV1IpPtrOutput            `pulumi:"ip"`
 	Organization pulumi.StringPtrOutput                   `pulumi:"organization"`
 	Project      pulumi.StringOutput                      `pulumi:"project"`
-	Reverse      GoogleProtobufStringValuePtrOutput       `pulumi:"reverse"`
+	Reverse      pulumi.StringPtrOutput                   `pulumi:"reverse"`
 	Server       ScalewayInstanceV1ServerSummaryPtrOutput `pulumi:"server"`
 	Tags         pulumi.StringArrayOutput                 `pulumi:"tags"`
 	Zone         pulumi.StringPtrOutput                   `pulumi:"zone"`
@@ -73,7 +72,7 @@ func (IpState) ElementType() reflect.Type {
 type ipArgs struct {
 	Organization *string                          `pulumi:"organization"`
 	Project      string                           `pulumi:"project"`
-	Reverse      *GoogleProtobufStringValue       `pulumi:"reverse"`
+	Reverse      *string                          `pulumi:"reverse"`
 	Server       *ScalewayInstanceV1ServerSummary `pulumi:"server"`
 	Tags         []string                         `pulumi:"tags"`
 	// The zone you want to target
@@ -84,7 +83,7 @@ type ipArgs struct {
 type IpArgs struct {
 	Organization pulumi.StringPtrInput
 	Project      pulumi.StringInput
-	Reverse      GoogleProtobufStringValuePtrInput
+	Reverse      pulumi.StringPtrInput
 	Server       ScalewayInstanceV1ServerSummaryPtrInput
 	Tags         pulumi.StringArrayInput
 	// The zone you want to target
@@ -114,12 +113,6 @@ func (i *Ip) ToIpOutputWithContext(ctx context.Context) IpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpOutput)
 }
 
-func (i *Ip) ToOutput(ctx context.Context) pulumix.Output[*Ip] {
-	return pulumix.Output[*Ip]{
-		OutputState: i.ToIpOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpOutput struct{ *pulumi.OutputState }
 
 func (IpOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o IpOutput) ToIpOutput() IpOutput {
 
 func (o IpOutput) ToIpOutputWithContext(ctx context.Context) IpOutput {
 	return o
-}
-
-func (o IpOutput) ToOutput(ctx context.Context) pulumix.Output[*Ip] {
-	return pulumix.Output[*Ip]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpOutput) Location() pulumi.StringPtrOutput {
@@ -161,8 +148,8 @@ func (o IpOutput) Project() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ip) pulumi.StringOutput { return v.Project }).(pulumi.StringOutput)
 }
 
-func (o IpOutput) Reverse() GoogleProtobufStringValuePtrOutput {
-	return o.ApplyT(func(v *Ip) GoogleProtobufStringValuePtrOutput { return v.Reverse }).(GoogleProtobufStringValuePtrOutput)
+func (o IpOutput) Reverse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ip) pulumi.StringPtrOutput { return v.Reverse }).(pulumi.StringPtrOutput)
 }
 
 func (o IpOutput) Server() ScalewayInstanceV1ServerSummaryPtrOutput {

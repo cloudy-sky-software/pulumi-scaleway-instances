@@ -16,7 +16,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// The ID of the snapshot on which this volume will be based
         /// </summary>
-        public readonly string? Base_snapshot;
+        public readonly string? BaseSnapshot;
         /// <summary>
         /// Force the server to boot on this volume
         /// </summary>
@@ -41,11 +41,11 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// Disk size of the volume, must be a multiple of 512 (in bytes)
         /// </summary>
         public readonly double? Size;
-        public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType? Volume_type;
+        public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType? VolumeType;
 
         [OutputConstructor]
         private ScalewayInstanceV1VolumeServerTemplate(
-            string? base_snapshot,
+            string? baseSnapshot,
 
             bool? boot,
 
@@ -59,16 +59,16 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             double? size,
 
-            Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType? volume_type)
+            Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType? volumeType)
         {
-            Base_snapshot = base_snapshot;
+            BaseSnapshot = baseSnapshot;
             Boot = boot;
             Id = id;
             Name = name;
             Organization = organization;
             Project = project;
             Size = size;
-            Volume_type = volume_type;
+            VolumeType = volumeType;
         }
     }
 }

@@ -17,8 +17,8 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
         /// The description of the task
         /// </summary>
         public readonly string? Description;
-        public readonly string? Href_from;
-        public readonly string? Href_result;
+        public readonly string? HrefFrom;
+        public readonly string? HrefResult;
         /// <summary>
         /// The unique ID of the task
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
         /// <summary>
         /// The task start date (RFC 3339 format)
         /// </summary>
-        public readonly string? Started_at;
+        public readonly string? StartedAt;
         /// <summary>
         /// The task status
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
         /// <summary>
         /// The task end date (RFC 3339 format)
         /// </summary>
-        public readonly string? Terminated_at;
+        public readonly string? TerminatedAt;
         /// <summary>
         /// The zone in which is the task
         /// </summary>
@@ -48,30 +48,30 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
         private ScalewayInstanceV1Task(
             string? description,
 
-            string? href_from,
+            string? hrefFrom,
 
-            string? href_result,
+            string? hrefResult,
 
             string? id,
 
             double? progress,
 
-            string? started_at,
+            string? startedAt,
 
             Pulumi.ScalewayInstances.Snapshots.ScalewayInstanceV1TaskStatus? status,
 
-            string? terminated_at,
+            string? terminatedAt,
 
             string? zone)
         {
             Description = description;
-            Href_from = href_from;
-            Href_result = href_result;
+            HrefFrom = hrefFrom;
+            HrefResult = hrefResult;
             Id = id;
             Progress = progress;
-            Started_at = started_at;
+            StartedAt = startedAt;
             Status = status;
-            Terminated_at = terminated_at;
+            TerminatedAt = terminatedAt;
             Zone = zone;
         }
     }

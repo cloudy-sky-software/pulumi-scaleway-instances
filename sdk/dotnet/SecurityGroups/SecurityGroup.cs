@@ -15,8 +15,8 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// The security group creation date (RFC 3339 format)
         /// </summary>
-        [Output("creation_date")]
-        public Output<string?> Creation_date { get; private set; } = null!;
+        [Output("creationDate")]
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The security groups description
@@ -27,20 +27,20 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
         /// </summary>
-        [Output("enable_default_security")]
-        public Output<bool?> Enable_default_security { get; private set; } = null!;
+        [Output("enableDefaultSecurity")]
+        public Output<bool?> EnableDefaultSecurity { get; private set; } = null!;
 
         /// <summary>
         /// The default inbound policy
         /// </summary>
-        [Output("inbound_default_policy")]
-        public Output<Pulumi.ScalewayInstances.SecurityGroups.InboundDefaultPolicy?> Inbound_default_policy { get; private set; } = null!;
+        [Output("inboundDefaultPolicy")]
+        public Output<Pulumi.ScalewayInstances.SecurityGroups.InboundDefaultPolicy?> InboundDefaultPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The security group modification date (RFC 3339 format)
         /// </summary>
-        [Output("modification_date")]
-        public Output<string?> Modification_date { get; private set; } = null!;
+        [Output("modificationDate")]
+        public Output<string?> ModificationDate { get; private set; } = null!;
 
         /// <summary>
         /// The security groups name
@@ -57,14 +57,14 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// True if it is your default security group for this organization ID
         /// </summary>
-        [Output("organization_default")]
-        public Output<bool?> Organization_default { get; private set; } = null!;
+        [Output("organizationDefault")]
+        public Output<bool?> OrganizationDefault { get; private set; } = null!;
 
         /// <summary>
         /// The default outbound policy
         /// </summary>
-        [Output("outbound_default_policy")]
-        public Output<Pulumi.ScalewayInstances.SecurityGroups.OutboundDefaultPolicy?> Outbound_default_policy { get; private set; } = null!;
+        [Output("outboundDefaultPolicy")]
+        public Output<Pulumi.ScalewayInstances.SecurityGroups.OutboundDefaultPolicy?> OutboundDefaultPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The security group project ID
@@ -75,10 +75,10 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// True if it is your default security group for this project ID
         /// </summary>
-        [Output("project_default")]
-        public Output<bool?> Project_default { get; private set; } = null!;
+        [Output("projectDefault")]
+        public Output<bool?> ProjectDefault { get; private set; } = null!;
 
-        [Output("security_group")]
+        [Output("securityGroup")]
         public Output<Outputs.ScalewayInstanceV1SecurityGroup?> SecurityGroupValue { get; private set; } = null!;
 
         /// <summary>
@@ -166,14 +166,14 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
         /// </summary>
-        [Input("enable_default_security")]
-        public Input<bool>? Enable_default_security { get; set; }
+        [Input("enableDefaultSecurity")]
+        public Input<bool>? EnableDefaultSecurity { get; set; }
 
         /// <summary>
         /// The default inbound policy
         /// </summary>
-        [Input("inbound_default_policy")]
-        public Input<Pulumi.ScalewayInstances.SecurityGroups.InboundDefaultPolicy>? Inbound_default_policy { get; set; }
+        [Input("inboundDefaultPolicy")]
+        public Input<Pulumi.ScalewayInstances.SecurityGroups.InboundDefaultPolicy>? InboundDefaultPolicy { get; set; }
 
         /// <summary>
         /// The security groups name
@@ -190,14 +190,14 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// True if it is your default security group for this organization ID
         /// </summary>
-        [Input("organization_default")]
-        public Input<bool>? Organization_default { get; set; }
+        [Input("organizationDefault")]
+        public Input<bool>? OrganizationDefault { get; set; }
 
         /// <summary>
         /// The default outbound policy
         /// </summary>
-        [Input("outbound_default_policy")]
-        public Input<Pulumi.ScalewayInstances.SecurityGroups.OutboundDefaultPolicy>? Outbound_default_policy { get; set; }
+        [Input("outboundDefaultPolicy")]
+        public Input<Pulumi.ScalewayInstances.SecurityGroups.OutboundDefaultPolicy>? OutboundDefaultPolicy { get; set; }
 
         /// <summary>
         /// The security group project ID
@@ -208,8 +208,8 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// True if it is your default security group for this project ID
         /// </summary>
-        [Input("project_default")]
-        public Input<bool>? Project_default { get; set; }
+        [Input("projectDefault")]
+        public Input<bool>? ProjectDefault { get; set; }
 
         /// <summary>
         /// True if the security group is stateful
@@ -237,8 +237,8 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
 
         public SecurityGroupArgs()
         {
-            Inbound_default_policy = Pulumi.ScalewayInstances.SecurityGroups.InboundDefaultPolicy.Accept;
-            Outbound_default_policy = Pulumi.ScalewayInstances.SecurityGroups.OutboundDefaultPolicy.Accept;
+            InboundDefaultPolicy = Pulumi.ScalewayInstances.SecurityGroups.InboundDefaultPolicy.Accept;
+            OutboundDefaultPolicy = Pulumi.ScalewayInstances.SecurityGroups.OutboundDefaultPolicy.Accept;
         }
         public static new SecurityGroupArgs Empty => new SecurityGroupArgs();
     }

@@ -38,11 +38,11 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     /**
      * The beginning of the range of ports to apply this rule to (inclusive)
      */
-    public readonly dest_port_from!: pulumi.Output<number | undefined>;
+    public readonly destPortFrom!: pulumi.Output<number | undefined>;
     /**
      * The end of the range of ports to apply this rule to (inclusive)
      */
-    public readonly dest_port_to!: pulumi.Output<number | undefined>;
+    public readonly destPortTo!: pulumi.Output<number | undefined>;
     public readonly direction!: pulumi.Output<enums.rules.Direction>;
     /**
      * Indicates if this rule is editable (will be ignored)
@@ -51,7 +51,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     /**
      * (IP network)
      */
-    public readonly ip_range!: pulumi.Output<string>;
+    public readonly ipRange!: pulumi.Output<string>;
     /**
      * The position of this rule in the security group rules list
      */
@@ -76,30 +76,30 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             if ((!args || args.direction === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'direction'");
             }
-            if ((!args || args.ip_range === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ip_range'");
+            if ((!args || args.ipRange === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'ipRange'");
             }
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
             resourceInputs["action"] = (args ? args.action : undefined) ?? "accept";
-            resourceInputs["dest_port_from"] = args ? args.dest_port_from : undefined;
-            resourceInputs["dest_port_to"] = args ? args.dest_port_to : undefined;
+            resourceInputs["destPortFrom"] = args ? args.destPortFrom : undefined;
+            resourceInputs["destPortTo"] = args ? args.destPortTo : undefined;
             resourceInputs["direction"] = (args ? args.direction : undefined) ?? "inbound";
             resourceInputs["editable"] = args ? args.editable : undefined;
-            resourceInputs["ip_range"] = args ? args.ip_range : undefined;
+            resourceInputs["ipRange"] = args ? args.ipRange : undefined;
             resourceInputs["position"] = args ? args.position : undefined;
             resourceInputs["protocol"] = (args ? args.protocol : undefined) ?? "TCP";
-            resourceInputs["security_group_id"] = args ? args.security_group_id : undefined;
+            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
             resourceInputs["rule"] = undefined /*out*/;
         } else {
             resourceInputs["action"] = undefined /*out*/;
-            resourceInputs["dest_port_from"] = undefined /*out*/;
-            resourceInputs["dest_port_to"] = undefined /*out*/;
+            resourceInputs["destPortFrom"] = undefined /*out*/;
+            resourceInputs["destPortTo"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
             resourceInputs["editable"] = undefined /*out*/;
-            resourceInputs["ip_range"] = undefined /*out*/;
+            resourceInputs["ipRange"] = undefined /*out*/;
             resourceInputs["position"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["rule"] = undefined /*out*/;
@@ -117,11 +117,11 @@ export interface SecurityGroupRuleArgs {
     /**
      * The beginning of the range of ports to apply this rule to (inclusive)
      */
-    dest_port_from?: pulumi.Input<number>;
+    destPortFrom?: pulumi.Input<number>;
     /**
      * The end of the range of ports to apply this rule to (inclusive)
      */
-    dest_port_to?: pulumi.Input<number>;
+    destPortTo?: pulumi.Input<number>;
     direction: pulumi.Input<enums.rules.Direction>;
     /**
      * Indicates if this rule is editable (will be ignored)
@@ -130,7 +130,7 @@ export interface SecurityGroupRuleArgs {
     /**
      * (IP network)
      */
-    ip_range: pulumi.Input<string>;
+    ipRange: pulumi.Input<string>;
     /**
      * The position of this rule in the security group rules list
      */
@@ -139,7 +139,7 @@ export interface SecurityGroupRuleArgs {
     /**
      * UUID of the security group
      */
-    security_group_id?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

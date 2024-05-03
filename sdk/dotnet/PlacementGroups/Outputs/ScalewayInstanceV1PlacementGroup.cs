@@ -22,12 +22,12 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
         /// The placement group organization ID
         /// </summary>
         public readonly string? Organization;
-        public readonly Pulumi.ScalewayInstances.PlacementGroups.ScalewayInstanceV1PlacementGroupPolicyMode? Policy_mode;
+        public readonly Pulumi.ScalewayInstances.PlacementGroups.ScalewayInstanceV1PlacementGroupPolicyMode? PolicyMode;
         /// <summary>
         /// Returns true if the policy is respected, false otherwise
         /// </summary>
-        public readonly bool? Policy_respected;
-        public readonly Pulumi.ScalewayInstances.PlacementGroups.ScalewayInstanceV1PlacementGroupPolicyType? Policy_type;
+        public readonly bool? PolicyRespected;
+        public readonly Pulumi.ScalewayInstances.PlacementGroups.ScalewayInstanceV1PlacementGroupPolicyType? PolicyType;
         /// <summary>
         /// The placement group project ID
         /// </summary>
@@ -49,11 +49,11 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
 
             string? organization,
 
-            Pulumi.ScalewayInstances.PlacementGroups.ScalewayInstanceV1PlacementGroupPolicyMode? policy_mode,
+            Pulumi.ScalewayInstances.PlacementGroups.ScalewayInstanceV1PlacementGroupPolicyMode? policyMode,
 
-            bool? policy_respected,
+            bool? policyRespected,
 
-            Pulumi.ScalewayInstances.PlacementGroups.ScalewayInstanceV1PlacementGroupPolicyType? policy_type,
+            Pulumi.ScalewayInstances.PlacementGroups.ScalewayInstanceV1PlacementGroupPolicyType? policyType,
 
             string project,
 
@@ -64,9 +64,9 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
             Id = id;
             Name = name;
             Organization = organization;
-            Policy_mode = policy_mode;
-            Policy_respected = policy_respected;
-            Policy_type = policy_type;
+            PolicyMode = policyMode;
+            PolicyRespected = policyRespected;
+            PolicyType = policyType;
             Project = project;
             Tags = tags;
             Zone = zone;

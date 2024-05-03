@@ -12,12 +12,12 @@ namespace Pulumi.ScalewayInstances.Action.Inputs
 
     public sealed class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs : global::Pulumi.ResourceArgs
     {
-        [Input("volume_type")]
-        public Input<Pulumi.ScalewayInstances.Action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType>? Volume_type { get; set; }
+        [Input("volumeType")]
+        public Input<Pulumi.ScalewayInstances.Action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType>? VolumeType { get; set; }
 
         public ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs()
         {
-            Volume_type = Pulumi.ScalewayInstances.Action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType.LSsd;
+            VolumeType = Pulumi.ScalewayInstances.Action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType.LSsd;
         }
         public static new ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs Empty => new ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs();
     }

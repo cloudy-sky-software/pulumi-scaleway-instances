@@ -37,19 +37,19 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The volume on which the snapshot is based on
      */
-    public /*out*/ readonly base_volume!: pulumi.Output<outputs.snapshots.BaseVolumeProperties | undefined>;
+    public /*out*/ readonly baseVolume!: pulumi.Output<outputs.snapshots.BaseVolumeProperties | undefined>;
     /**
      * The snapshot creation date (RFC 3339 format)
      */
-    public /*out*/ readonly creation_date!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * The reason for the failed snapshot import
      */
-    public /*out*/ readonly error_reason!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly errorReason!: pulumi.Output<string | undefined>;
     /**
      * The snapshot modification date (RFC 3339 format)
      */
-    public /*out*/ readonly modification_date!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly modificationDate!: pulumi.Output<string | undefined>;
     /**
      * The snapshot name
      */
@@ -73,7 +73,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly task!: pulumi.Output<outputs.snapshots.ScalewayInstanceV1Task | undefined>;
-    public readonly volume_type!: pulumi.Output<enums.snapshots.VolumeType | undefined>;
+    public readonly volumeType!: pulumi.Output<enums.snapshots.VolumeType | undefined>;
     /**
      * The snapshot zone
      */
@@ -96,19 +96,19 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["size"] = args ? args.size : undefined;
             resourceInputs["state"] = (args ? args.state : undefined) ?? "available";
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["volume_type"] = (args ? args.volume_type : undefined) ?? "l_ssd";
+            resourceInputs["volumeType"] = (args ? args.volumeType : undefined) ?? "l_ssd";
             resourceInputs["zone"] = args ? args.zone : undefined;
-            resourceInputs["base_volume"] = undefined /*out*/;
-            resourceInputs["creation_date"] = undefined /*out*/;
-            resourceInputs["error_reason"] = undefined /*out*/;
-            resourceInputs["modification_date"] = undefined /*out*/;
+            resourceInputs["baseVolume"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["errorReason"] = undefined /*out*/;
+            resourceInputs["modificationDate"] = undefined /*out*/;
             resourceInputs["snapshot"] = undefined /*out*/;
             resourceInputs["task"] = undefined /*out*/;
         } else {
-            resourceInputs["base_volume"] = undefined /*out*/;
-            resourceInputs["creation_date"] = undefined /*out*/;
-            resourceInputs["error_reason"] = undefined /*out*/;
-            resourceInputs["modification_date"] = undefined /*out*/;
+            resourceInputs["baseVolume"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["errorReason"] = undefined /*out*/;
+            resourceInputs["modificationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;
             resourceInputs["project"] = undefined /*out*/;
@@ -117,7 +117,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["task"] = undefined /*out*/;
-            resourceInputs["volume_type"] = undefined /*out*/;
+            resourceInputs["volumeType"] = undefined /*out*/;
             resourceInputs["zone"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,7 +150,7 @@ export interface SnapshotArgs {
      * The snapshot tags
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    volume_type?: pulumi.Input<enums.snapshots.VolumeType>;
+    volumeType?: pulumi.Input<enums.snapshots.VolumeType>;
     /**
      * The zone you want to target
      */

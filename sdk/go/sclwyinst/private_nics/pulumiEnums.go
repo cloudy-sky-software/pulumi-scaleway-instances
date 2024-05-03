@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The private NIC state
@@ -44,12 +43,6 @@ func (o ScalewayInstanceV1PrivateNICStateOutput) ToScalewayInstanceV1PrivateNICS
 	}).(ScalewayInstanceV1PrivateNICStatePtrOutput)
 }
 
-func (o ScalewayInstanceV1PrivateNICStateOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PrivateNICState] {
-	return pulumix.Output[ScalewayInstanceV1PrivateNICState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1PrivateNICStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -83,12 +76,6 @@ func (o ScalewayInstanceV1PrivateNICStatePtrOutput) ToScalewayInstanceV1PrivateN
 
 func (o ScalewayInstanceV1PrivateNICStatePtrOutput) ToScalewayInstanceV1PrivateNICStatePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1PrivateNICStatePtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1PrivateNICStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1PrivateNICState] {
-	return pulumix.Output[*ScalewayInstanceV1PrivateNICState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1PrivateNICStatePtrOutput) Elem() ScalewayInstanceV1PrivateNICStateOutput {

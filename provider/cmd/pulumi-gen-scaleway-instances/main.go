@@ -3,6 +3,7 @@
 package main
 
 import (
+	"bytes"
 	_ "embed"
 
 	"encoding/json"
@@ -10,6 +11,8 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+
+	"gopkg.in/yaml.v3"
 
 	providerSchemaGen "github.com/cloudy-sky-software/pulumi-scaleway-instances/provider/pkg/gen"
 	providerVersion "github.com/cloudy-sky-software/pulumi-scaleway-instances/provider/pkg/version"
@@ -87,7 +90,7 @@ func main() {
 		writeGoClient(schemaPkg, outdir)
 	case Schema:
 		openapiDoc := openapi.GetOpenAPISpec(openapiDocBytes)
-		schemaSpec, metadata := providerSchemaGen.PulumiSchema(*openapiDoc)
+		schemaSpec, metadata, updatedOpenAPIDoc := providerSchemaGen.PulumiSchema(*openapiDoc)
 		providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-scaleway-instances")
 		mustWritePulumiSchema(schemaSpec, providerDir)
 
@@ -95,8 +98,16 @@ func main() {
 		metadataBytes, _ := json.Marshal(metadata)
 		mustWriteFile(providerDir, "metadata.json", metadataBytes)
 
+		var buf bytes.Buffer
+		enc := yaml.NewEncoder(&buf)
+		enc.SetIndent(2)
+		err := enc.Encode(updatedOpenAPIDoc)
+		if err != nil {
+			panic(err)
+		}
+
 		// Also copy the raw OpenAPI spec file to the provider dir.
-		mustWriteFile(providerDir, "openapi_generated.yml", openapiDocBytes)
+		mustWriteFile(providerDir, "openapi_generated.yml", buf.Bytes())
 	default:
 		panic(fmt.Sprintf("Unrecognized language '%s'", language))
 	}
@@ -138,7 +149,7 @@ func writeNodeJSClient(pkg *schema.Package, outdir string) {
 	}
 
 	overlays := map[string][]byte{}
-	files, err := nodejsgen.GeneratePackage("pulumigen", pkg, overlays)
+	files, err := nodejsgen.GeneratePackage("pulumigen", pkg, overlays, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -170,7 +181,7 @@ func writeDotnetClient(pkg *schema.Package, outdir string) {
 
 	overlays := map[string][]byte{}
 
-	files, err := dotnetgen.GeneratePackage("pulumigen", pkg, overlays)
+	files, err := dotnetgen.GeneratePackage("pulumigen", pkg, overlays, nil)
 	if err != nil {
 		panic(err)
 	}

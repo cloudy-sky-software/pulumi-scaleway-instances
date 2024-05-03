@@ -19,20 +19,20 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// True if server supports block storage
         /// </summary>
-        public readonly bool? Block_storage;
+        public readonly bool? BlockStorage;
         /// <summary>
         /// List of supported boot types
         /// </summary>
-        public readonly ImmutableArray<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem> Boot_types;
+        public readonly ImmutableArray<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem> BootTypes;
 
         [OutputConstructor]
         private ScalewayInstanceV1ServerTypeCapabilitiesProperties(
-            bool? block_storage,
+            bool? blockStorage,
 
-            ImmutableArray<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem> boot_types)
+            ImmutableArray<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem> bootTypes)
         {
-            Block_storage = block_storage;
-            Boot_types = boot_types;
+            BlockStorage = blockStorage;
+            BootTypes = bootTypes;
         }
     }
 }

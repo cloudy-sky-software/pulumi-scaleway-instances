@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Volume struct {
@@ -18,11 +17,11 @@ type Volume struct {
 
 	Location pulumi.StringPtrOutput `pulumi:"Location"`
 	// The volume creation date (RFC 3339 format)
-	Creation_date pulumi.StringPtrOutput `pulumi:"creation_date"`
+	CreationDate pulumi.StringPtrOutput `pulumi:"creationDate"`
 	// Show the volume NBD export URI
-	Export_uri pulumi.StringPtrOutput `pulumi:"export_uri"`
+	ExportUri pulumi.StringPtrOutput `pulumi:"exportUri"`
 	// The volume modification date (RFC 3339 format)
-	Modification_date pulumi.StringPtrOutput `pulumi:"modification_date"`
+	ModificationDate pulumi.StringPtrOutput `pulumi:"modificationDate"`
 	// The volume name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The volume organization ID
@@ -35,9 +34,9 @@ type Volume struct {
 	Size  pulumi.Float64PtrOutput `pulumi:"size"`
 	State StatePtrOutput          `pulumi:"state"`
 	// The volume tags
-	Tags        pulumi.StringArrayOutput          `pulumi:"tags"`
-	Volume      ScalewayInstanceV1VolumePtrOutput `pulumi:"volume"`
-	Volume_type VolumeTypePtrOutput               `pulumi:"volume_type"`
+	Tags       pulumi.StringArrayOutput          `pulumi:"tags"`
+	Volume     ScalewayInstanceV1VolumePtrOutput `pulumi:"volume"`
+	VolumeType VolumeTypePtrOutput               `pulumi:"volumeType"`
 	// The zone in which is the volume
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
@@ -52,8 +51,8 @@ func NewVolume(ctx *pulumi.Context,
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
-	if args.Volume_type == nil {
-		args.Volume_type = VolumeType("l_ssd")
+	if args.VolumeType == nil {
+		args.VolumeType = VolumeType("l_ssd")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Volume
@@ -97,8 +96,8 @@ type volumeArgs struct {
 	// The volume disk size (in bytes)
 	Size *float64 `pulumi:"size"`
 	// The volume tags
-	Tags        []string    `pulumi:"tags"`
-	Volume_type *VolumeType `pulumi:"volume_type"`
+	Tags       []string    `pulumi:"tags"`
+	VolumeType *VolumeType `pulumi:"volumeType"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
@@ -114,8 +113,8 @@ type VolumeArgs struct {
 	// The volume disk size (in bytes)
 	Size pulumi.Float64PtrInput
 	// The volume tags
-	Tags        pulumi.StringArrayInput
-	Volume_type VolumeTypePtrInput
+	Tags       pulumi.StringArrayInput
+	VolumeType VolumeTypePtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }
@@ -143,12 +142,6 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-func (i *Volume) ToOutput(ctx context.Context) pulumix.Output[*Volume] {
-	return pulumix.Output[*Volume]{
-		OutputState: i.ToVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
@@ -163,29 +156,23 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
-func (o VolumeOutput) ToOutput(ctx context.Context) pulumix.Output[*Volume] {
-	return pulumix.Output[*Volume]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // The volume creation date (RFC 3339 format)
-func (o VolumeOutput) Creation_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Creation_date }).(pulumi.StringPtrOutput)
+func (o VolumeOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // Show the volume NBD export URI
-func (o VolumeOutput) Export_uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Export_uri }).(pulumi.StringPtrOutput)
+func (o VolumeOutput) ExportUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.ExportUri }).(pulumi.StringPtrOutput)
 }
 
 // The volume modification date (RFC 3339 format)
-func (o VolumeOutput) Modification_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Modification_date }).(pulumi.StringPtrOutput)
+func (o VolumeOutput) ModificationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.ModificationDate }).(pulumi.StringPtrOutput)
 }
 
 // The volume name
@@ -226,8 +213,8 @@ func (o VolumeOutput) Volume() ScalewayInstanceV1VolumePtrOutput {
 	return o.ApplyT(func(v *Volume) ScalewayInstanceV1VolumePtrOutput { return v.Volume }).(ScalewayInstanceV1VolumePtrOutput)
 }
 
-func (o VolumeOutput) Volume_type() VolumeTypePtrOutput {
-	return o.ApplyT(func(v *Volume) VolumeTypePtrOutput { return v.Volume_type }).(VolumeTypePtrOutput)
+func (o VolumeOutput) VolumeType() VolumeTypePtrOutput {
+	return o.ApplyT(func(v *Volume) VolumeTypePtrOutput { return v.VolumeType }).(VolumeTypePtrOutput)
 }
 
 // The zone in which is the volume

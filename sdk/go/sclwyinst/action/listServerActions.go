@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func ListServerActions(ctx *pulumi.Context, args *ListServerActionsArgs, opts ...pulumi.InvokeOption) (*ListServerActionsResult, error) {
@@ -23,7 +22,7 @@ func ListServerActions(ctx *pulumi.Context, args *ListServerActionsArgs, opts ..
 }
 
 type ListServerActionsArgs struct {
-	Server_id string `pulumi:"server_id"`
+	ServerId string `pulumi:"serverId"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -46,7 +45,7 @@ func ListServerActionsOutput(ctx *pulumi.Context, args ListServerActionsOutputAr
 }
 
 type ListServerActionsOutputArgs struct {
-	Server_id pulumi.StringInput `pulumi:"server_id"`
+	ServerId pulumi.StringInput `pulumi:"serverId"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }
@@ -67,12 +66,6 @@ func (o ListServerActionsResultOutput) ToListServerActionsResultOutput() ListSer
 
 func (o ListServerActionsResultOutput) ToListServerActionsResultOutputWithContext(ctx context.Context) ListServerActionsResultOutput {
 	return o
-}
-
-func (o ListServerActionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[ListServerActionsResult] {
-	return pulumix.Output[ListServerActionsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListServerActionsResultOutput) Items() ScalewayInstanceV1ListServerActionsResponseOutput {

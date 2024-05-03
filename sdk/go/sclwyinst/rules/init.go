@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "scaleway-instances:rules:SecurityGroupRule":
 		r = &SecurityGroupRule{}
-	case "scaleway-instances:rules:SecurityGroupRules":
-		r = &SecurityGroupRules{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

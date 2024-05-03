@@ -15,14 +15,14 @@ namespace Pulumi.ScalewayInstances.Images.Inputs
         /// <summary>
         /// The volume creation date (RFC 3339 format)
         /// </summary>
-        [Input("creation_date")]
-        public Input<string>? Creation_date { get; set; }
+        [Input("creationDate")]
+        public Input<string>? CreationDate { get; set; }
 
         /// <summary>
         /// Show the volume NBD export URI
         /// </summary>
-        [Input("export_uri")]
-        public Input<string>? Export_uri { get; set; }
+        [Input("exportUri")]
+        public Input<string>? ExportUri { get; set; }
 
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -30,8 +30,8 @@ namespace Pulumi.ScalewayInstances.Images.Inputs
         /// <summary>
         /// The volume modification date (RFC 3339 format)
         /// </summary>
-        [Input("modification_date")]
-        public Input<string>? Modification_date { get; set; }
+        [Input("modificationDate")]
+        public Input<string>? ModificationDate { get; set; }
 
         /// <summary>
         /// The volume name
@@ -78,8 +78,8 @@ namespace Pulumi.ScalewayInstances.Images.Inputs
             set => _tags = value;
         }
 
-        [Input("volume_type")]
-        public Input<Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeVolumeType>? Volume_type { get; set; }
+        [Input("volumeType")]
+        public Input<Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeVolumeType>? VolumeType { get; set; }
 
         /// <summary>
         /// The zone in which is the volume
@@ -90,7 +90,7 @@ namespace Pulumi.ScalewayInstances.Images.Inputs
         public ScalewayInstanceV1VolumeArgs()
         {
             State = Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeState.Available;
-            Volume_type = Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeVolumeType.LSsd;
+            VolumeType = Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeVolumeType.LSsd;
         }
         public static new ScalewayInstanceV1VolumeArgs Empty => new ScalewayInstanceV1VolumeArgs();
     }

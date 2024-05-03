@@ -9,13 +9,12 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
 
 type ScalewayInstanceV1GetPlacementGroupResponse struct {
-	Placement_group *ScalewayInstanceV1PlacementGroup `pulumi:"placement_group"`
+	PlacementGroup *ScalewayInstanceV1PlacementGroup `pulumi:"placementGroup"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1GetPlacementGroupResponse
@@ -24,7 +23,7 @@ func (val *ScalewayInstanceV1GetPlacementGroupResponse) Defaults() *ScalewayInst
 		return nil
 	}
 	tmp := *val
-	tmp.Placement_group = tmp.Placement_group.Defaults()
+	tmp.PlacementGroup = tmp.PlacementGroup.Defaults()
 
 	return &tmp
 }
@@ -43,21 +42,15 @@ func (o ScalewayInstanceV1GetPlacementGroupResponseOutput) ToScalewayInstanceV1G
 	return o
 }
 
-func (o ScalewayInstanceV1GetPlacementGroupResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetPlacementGroupResponse] {
-	return pulumix.Output[ScalewayInstanceV1GetPlacementGroupResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1GetPlacementGroupResponseOutput) Placement_group() ScalewayInstanceV1PlacementGroupPtrOutput {
+func (o ScalewayInstanceV1GetPlacementGroupResponseOutput) PlacementGroup() ScalewayInstanceV1PlacementGroupPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetPlacementGroupResponse) *ScalewayInstanceV1PlacementGroup {
-		return v.Placement_group
+		return v.PlacementGroup
 	}).(ScalewayInstanceV1PlacementGroupPtrOutput)
 }
 
 type ScalewayInstanceV1ListPlacementGroupsResponse struct {
 	// List of placement groups
-	Placement_groups []ScalewayInstanceV1PlacementGroup `pulumi:"placement_groups"`
+	PlacementGroups []ScalewayInstanceV1PlacementGroup `pulumi:"placementGroups"`
 }
 
 type ScalewayInstanceV1ListPlacementGroupsResponseOutput struct{ *pulumi.OutputState }
@@ -74,16 +67,10 @@ func (o ScalewayInstanceV1ListPlacementGroupsResponseOutput) ToScalewayInstanceV
 	return o
 }
 
-func (o ScalewayInstanceV1ListPlacementGroupsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListPlacementGroupsResponse] {
-	return pulumix.Output[ScalewayInstanceV1ListPlacementGroupsResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of placement groups
-func (o ScalewayInstanceV1ListPlacementGroupsResponseOutput) Placement_groups() ScalewayInstanceV1PlacementGroupArrayOutput {
+func (o ScalewayInstanceV1ListPlacementGroupsResponseOutput) PlacementGroups() ScalewayInstanceV1PlacementGroupArrayOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ListPlacementGroupsResponse) []ScalewayInstanceV1PlacementGroup {
-		return v.Placement_groups
+		return v.PlacementGroups
 	}).(ScalewayInstanceV1PlacementGroupArrayOutput)
 }
 
@@ -93,10 +80,10 @@ type ScalewayInstanceV1PlacementGroup struct {
 	Name string `pulumi:"name"`
 	// The placement group organization ID
 	Organization *string                                     `pulumi:"organization"`
-	Policy_mode  *ScalewayInstanceV1PlacementGroupPolicyMode `pulumi:"policy_mode"`
+	PolicyMode   *ScalewayInstanceV1PlacementGroupPolicyMode `pulumi:"policyMode"`
 	// Returns true if the policy is respected, false otherwise
-	Policy_respected *bool                                       `pulumi:"policy_respected"`
-	Policy_type      *ScalewayInstanceV1PlacementGroupPolicyType `pulumi:"policy_type"`
+	PolicyRespected *bool                                       `pulumi:"policyRespected"`
+	PolicyType      *ScalewayInstanceV1PlacementGroupPolicyType `pulumi:"policyType"`
 	// The placement group project ID
 	Project string `pulumi:"project"`
 	// The placement group tags
@@ -111,13 +98,13 @@ func (val *ScalewayInstanceV1PlacementGroup) Defaults() *ScalewayInstanceV1Place
 		return nil
 	}
 	tmp := *val
-	if tmp.Policy_mode == nil {
-		policy_mode_ := ScalewayInstanceV1PlacementGroupPolicyMode("optional")
-		tmp.Policy_mode = &policy_mode_
+	if tmp.PolicyMode == nil {
+		policyMode_ := ScalewayInstanceV1PlacementGroupPolicyMode("optional")
+		tmp.PolicyMode = &policyMode_
 	}
-	if tmp.Policy_type == nil {
-		policy_type_ := ScalewayInstanceV1PlacementGroupPolicyType("max_availability")
-		tmp.Policy_type = &policy_type_
+	if tmp.PolicyType == nil {
+		policyType_ := ScalewayInstanceV1PlacementGroupPolicyType("max_availability")
+		tmp.PolicyType = &policyType_
 	}
 	return &tmp
 }
@@ -136,12 +123,6 @@ func (o ScalewayInstanceV1PlacementGroupOutput) ToScalewayInstanceV1PlacementGro
 	return o
 }
 
-func (o ScalewayInstanceV1PlacementGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PlacementGroup] {
-	return pulumix.Output[ScalewayInstanceV1PlacementGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1PlacementGroupOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -156,20 +137,20 @@ func (o ScalewayInstanceV1PlacementGroupOutput) Organization() pulumi.StringPtrO
 	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1PlacementGroupOutput) Policy_mode() ScalewayInstanceV1PlacementGroupPolicyModePtrOutput {
+func (o ScalewayInstanceV1PlacementGroupOutput) PolicyMode() ScalewayInstanceV1PlacementGroupPolicyModePtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *ScalewayInstanceV1PlacementGroupPolicyMode {
-		return v.Policy_mode
+		return v.PolicyMode
 	}).(ScalewayInstanceV1PlacementGroupPolicyModePtrOutput)
 }
 
 // Returns true if the policy is respected, false otherwise
-func (o ScalewayInstanceV1PlacementGroupOutput) Policy_respected() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *bool { return v.Policy_respected }).(pulumi.BoolPtrOutput)
+func (o ScalewayInstanceV1PlacementGroupOutput) PolicyRespected() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *bool { return v.PolicyRespected }).(pulumi.BoolPtrOutput)
 }
 
-func (o ScalewayInstanceV1PlacementGroupOutput) Policy_type() ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput {
+func (o ScalewayInstanceV1PlacementGroupOutput) PolicyType() ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1PlacementGroup) *ScalewayInstanceV1PlacementGroupPolicyType {
-		return v.Policy_type
+		return v.PolicyType
 	}).(ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput)
 }
 
@@ -200,12 +181,6 @@ func (o ScalewayInstanceV1PlacementGroupPtrOutput) ToScalewayInstanceV1Placement
 
 func (o ScalewayInstanceV1PlacementGroupPtrOutput) ToScalewayInstanceV1PlacementGroupPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1PlacementGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1PlacementGroup] {
-	return pulumix.Output[*ScalewayInstanceV1PlacementGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupPtrOutput) Elem() ScalewayInstanceV1PlacementGroupOutput {
@@ -247,31 +222,31 @@ func (o ScalewayInstanceV1PlacementGroupPtrOutput) Organization() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1PlacementGroupPtrOutput) Policy_mode() ScalewayInstanceV1PlacementGroupPolicyModePtrOutput {
+func (o ScalewayInstanceV1PlacementGroupPtrOutput) PolicyMode() ScalewayInstanceV1PlacementGroupPolicyModePtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1PlacementGroup) *ScalewayInstanceV1PlacementGroupPolicyMode {
 		if v == nil {
 			return nil
 		}
-		return v.Policy_mode
+		return v.PolicyMode
 	}).(ScalewayInstanceV1PlacementGroupPolicyModePtrOutput)
 }
 
 // Returns true if the policy is respected, false otherwise
-func (o ScalewayInstanceV1PlacementGroupPtrOutput) Policy_respected() pulumi.BoolPtrOutput {
+func (o ScalewayInstanceV1PlacementGroupPtrOutput) PolicyRespected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1PlacementGroup) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.Policy_respected
+		return v.PolicyRespected
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o ScalewayInstanceV1PlacementGroupPtrOutput) Policy_type() ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput {
+func (o ScalewayInstanceV1PlacementGroupPtrOutput) PolicyType() ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1PlacementGroup) *ScalewayInstanceV1PlacementGroupPolicyType {
 		if v == nil {
 			return nil
 		}
-		return v.Policy_type
+		return v.PolicyType
 	}).(ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput)
 }
 
@@ -317,12 +292,6 @@ func (o ScalewayInstanceV1PlacementGroupArrayOutput) ToScalewayInstanceV1Placeme
 
 func (o ScalewayInstanceV1PlacementGroupArrayOutput) ToScalewayInstanceV1PlacementGroupArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1PlacementGroupArrayOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1PlacementGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1PlacementGroup] {
-	return pulumix.Output[[]ScalewayInstanceV1PlacementGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1PlacementGroupArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1PlacementGroupOutput {

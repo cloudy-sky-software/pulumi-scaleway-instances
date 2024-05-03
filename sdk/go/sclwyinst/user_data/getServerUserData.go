@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetServerUserData(ctx *pulumi.Context, args *GetServerUserDataArgs, opts ...pulumi.InvokeOption) (*GetServerUserDataResult, error) {
@@ -26,7 +25,7 @@ type GetServerUserDataArgs struct {
 	// Key of the user data to get
 	Key string `pulumi:"key"`
 	// UUID of the server
-	Server_id string `pulumi:"server_id"`
+	ServerId string `pulumi:"serverId"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -52,7 +51,7 @@ type GetServerUserDataOutputArgs struct {
 	// Key of the user data to get
 	Key pulumi.StringInput `pulumi:"key"`
 	// UUID of the server
-	Server_id pulumi.StringInput `pulumi:"server_id"`
+	ServerId pulumi.StringInput `pulumi:"serverId"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }
@@ -73,12 +72,6 @@ func (o GetServerUserDataResultOutput) ToGetServerUserDataResultOutput() GetServ
 
 func (o GetServerUserDataResultOutput) ToGetServerUserDataResultOutputWithContext(ctx context.Context) GetServerUserDataResultOutput {
 	return o
-}
-
-func (o GetServerUserDataResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerUserDataResult] {
-	return pulumix.Output[GetServerUserDataResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServerUserDataResultOutput) Items() ScalewayStdFileOutput {

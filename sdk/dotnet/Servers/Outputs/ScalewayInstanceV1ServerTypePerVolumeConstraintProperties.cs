@@ -19,12 +19,12 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// Local SSD volumes
         /// </summary>
-        public readonly Outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties? L_ssd;
+        public readonly Outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties? LSsd;
 
         [OutputConstructor]
-        private ScalewayInstanceV1ServerTypePerVolumeConstraintProperties(Outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties? l_ssd)
+        private ScalewayInstanceV1ServerTypePerVolumeConstraintProperties(Outputs.ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties? lSsd)
         {
-            L_ssd = l_ssd;
+            LSsd = lSsd;
         }
     }
 }

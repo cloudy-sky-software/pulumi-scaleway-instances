@@ -17,20 +17,20 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// (RFC 3339 format)
         /// </summary>
-        public readonly string? Creation_date;
-        public readonly Outputs.ScalewayInstanceV1Bootscript? Default_bootscript;
-        public readonly ImmutableDictionary<string, Outputs.ScalewayInstanceV1Volume>? Extra_volumes;
-        public readonly string? From_server;
+        public readonly string? CreationDate;
+        public readonly Outputs.ScalewayInstanceV1Bootscript? DefaultBootscript;
+        public readonly ImmutableDictionary<string, Outputs.ScalewayInstanceV1Volume>? ExtraVolumes;
+        public readonly string? FromServer;
         public readonly string? Id;
         /// <summary>
         /// (RFC 3339 format)
         /// </summary>
-        public readonly string? Modification_date;
+        public readonly string? ModificationDate;
         public readonly string Name;
         public readonly string? Organization;
         public readonly string Project;
         public readonly bool? Public;
-        public readonly Outputs.ScalewayInstanceV1VolumeSummary Root_volume;
+        public readonly Outputs.ScalewayInstanceV1VolumeSummary RootVolume;
         public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ImageState? State;
         public readonly ImmutableArray<string> Tags;
         public readonly string? Zone;
@@ -39,17 +39,17 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         private ScalewayInstanceV1Image(
             Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ImageArch? arch,
 
-            string? creation_date,
+            string? creationDate,
 
-            Outputs.ScalewayInstanceV1Bootscript? default_bootscript,
+            Outputs.ScalewayInstanceV1Bootscript? defaultBootscript,
 
-            ImmutableDictionary<string, Outputs.ScalewayInstanceV1Volume>? extra_volumes,
+            ImmutableDictionary<string, Outputs.ScalewayInstanceV1Volume>? extraVolumes,
 
-            string? from_server,
+            string? fromServer,
 
             string? id,
 
-            string? modification_date,
+            string? modificationDate,
 
             string name,
 
@@ -59,7 +59,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             bool? @public,
 
-            Outputs.ScalewayInstanceV1VolumeSummary root_volume,
+            Outputs.ScalewayInstanceV1VolumeSummary rootVolume,
 
             Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1ImageState? state,
 
@@ -68,17 +68,17 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
             string? zone)
         {
             Arch = arch;
-            Creation_date = creation_date;
-            Default_bootscript = default_bootscript;
-            Extra_volumes = extra_volumes;
-            From_server = from_server;
+            CreationDate = creationDate;
+            DefaultBootscript = defaultBootscript;
+            ExtraVolumes = extraVolumes;
+            FromServer = fromServer;
             Id = id;
-            Modification_date = modification_date;
+            ModificationDate = modificationDate;
             Name = name;
             Organization = organization;
             Project = project;
             Public = @public;
-            Root_volume = root_volume;
+            RootVolume = rootVolume;
             State = state;
             Tags = tags;
             Zone = zone;

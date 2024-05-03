@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -20,17 +20,8 @@ __all__ = [
 class ScalewayInstanceV1ListServerActionsResponse(dict):
     def __init__(__self__, *,
                  actions: Optional[Sequence['ScalewayInstanceV1ListServerActionsResponseActionsItem']] = None):
-        ScalewayInstanceV1ListServerActionsResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[Sequence['ScalewayInstanceV1ListServerActionsResponseActionsItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
 
     @property
     @pulumi.getter
@@ -40,30 +31,61 @@ class ScalewayInstanceV1ListServerActionsResponse(dict):
 
 @pulumi.output_type
 class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  volume_type: Optional['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType'] = None):
-        ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            volume_type=volume_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             volume_type: Optional['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']:
         return pulumi.get(self, "volume_type")
 
 
 @pulumi.output_type
 class ScalewayInstanceV1Task(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hrefFrom":
+            suggest = "href_from"
+        elif key == "hrefResult":
+            suggest = "href_result"
+        elif key == "startedAt":
+            suggest = "started_at"
+        elif key == "terminatedAt":
+            suggest = "terminated_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalewayInstanceV1Task. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalewayInstanceV1Task.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalewayInstanceV1Task.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  href_from: Optional[str] = None,
@@ -83,51 +105,26 @@ class ScalewayInstanceV1Task(dict):
         :param str terminated_at: The task end date (RFC 3339 format)
         :param str zone: The zone in which is the task
         """
-        ScalewayInstanceV1Task._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            href_from=href_from,
-            href_result=href_result,
-            id=id,
-            progress=progress,
-            started_at=started_at,
-            status=status,
-            terminated_at=terminated_at,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[str] = None,
-             href_from: Optional[str] = None,
-             href_result: Optional[str] = None,
-             id: Optional[str] = None,
-             progress: Optional[float] = None,
-             started_at: Optional[str] = None,
-             status: Optional['ScalewayInstanceV1TaskStatus'] = None,
-             terminated_at: Optional[str] = None,
-             zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if href_from is not None:
-            _setter("href_from", href_from)
+            pulumi.set(__self__, "href_from", href_from)
         if href_result is not None:
-            _setter("href_result", href_result)
+            pulumi.set(__self__, "href_result", href_result)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if progress is not None:
-            _setter("progress", progress)
+            pulumi.set(__self__, "progress", progress)
         if started_at is not None:
-            _setter("started_at", started_at)
+            pulumi.set(__self__, "started_at", started_at)
         if status is None:
             status = 'pending'
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if terminated_at is not None:
-            _setter("terminated_at", terminated_at)
+            pulumi.set(__self__, "terminated_at", terminated_at)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -138,12 +135,12 @@ class ScalewayInstanceV1Task(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="hrefFrom")
     def href_from(self) -> Optional[str]:
         return pulumi.get(self, "href_from")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="hrefResult")
     def href_result(self) -> Optional[str]:
         return pulumi.get(self, "href_result")
 
@@ -164,7 +161,7 @@ class ScalewayInstanceV1Task(dict):
         return pulumi.get(self, "progress")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="startedAt")
     def started_at(self) -> Optional[str]:
         """
         The task start date (RFC 3339 format)
@@ -180,7 +177,7 @@ class ScalewayInstanceV1Task(dict):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="terminatedAt")
     def terminated_at(self) -> Optional[str]:
         """
         The task end date (RFC 3339 format)

@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func ListIps(ctx *pulumi.Context, args *ListIpsArgs, opts ...pulumi.InvokeOption) (*ListIpsResult, error) {
@@ -65,12 +64,6 @@ func (o ListIpsResultOutput) ToListIpsResultOutput() ListIpsResultOutput {
 
 func (o ListIpsResultOutput) ToListIpsResultOutputWithContext(ctx context.Context) ListIpsResultOutput {
 	return o
-}
-
-func (o ListIpsResultOutput) ToOutput(ctx context.Context) pulumix.Output[ListIpsResult] {
-	return pulumix.Output[ListIpsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListIpsResultOutput) Items() ScalewayInstanceV1ListIpsResponseOutput {

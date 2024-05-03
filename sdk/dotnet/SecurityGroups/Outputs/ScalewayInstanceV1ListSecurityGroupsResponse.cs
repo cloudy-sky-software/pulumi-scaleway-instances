@@ -13,17 +13,17 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
     [OutputType]
     public sealed class ScalewayInstanceV1ListSecurityGroupsResponse
     {
-        public readonly ImmutableArray<Outputs.ScalewayInstanceV1SecurityGroup> Security_groups;
-        public readonly double? Total_count;
+        public readonly ImmutableArray<Outputs.ScalewayInstanceV1SecurityGroup> SecurityGroups;
+        public readonly double? TotalCount;
 
         [OutputConstructor]
         private ScalewayInstanceV1ListSecurityGroupsResponse(
-            ImmutableArray<Outputs.ScalewayInstanceV1SecurityGroup> security_groups,
+            ImmutableArray<Outputs.ScalewayInstanceV1SecurityGroup> securityGroups,
 
-            double? total_count)
+            double? totalCount)
         {
-            Security_groups = security_groups;
-            Total_count = total_count;
+            SecurityGroups = securityGroups;
+            TotalCount = totalCount;
         }
     }
 }
