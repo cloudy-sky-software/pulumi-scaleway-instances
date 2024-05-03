@@ -20,7 +20,7 @@ import (
 const packageName = "scaleway-instances"
 
 // PulumiSchema will generate a Pulumi schema for the given k8s schema.
-func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.ProviderMetadata) {
+func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.ProviderMetadata, openapi3.T) {
 	pkg := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A Pulumi package for creating and managing Scaleway Instances resources.",
@@ -95,7 +95,7 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 		UseParentResourceAsModule: true,
 	}
 
-	providerMetadata, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
+	providerMetadata, updatedOpenAPIDoc, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
 	if err != nil {
 		contract.Failf("generating resources from OpenAPI spec: %v", err)
 	}
@@ -155,7 +155,7 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 		ResourceCRUDMap: providerMetadata.ResourceCRUDMap,
 		AutoNameMap:     providerMetadata.AutoNameMap,
 	}
-	return pkg, metadata
+	return pkg, metadata, updatedOpenAPIDoc
 }
 
 func rawMessage(v interface{}) pschema.RawMessage {
