@@ -18,6 +18,9 @@
             "namespaces": {
                 "": "Provider",
                 "action": "Action",
+                "availability": "Availability",
+                "bootscripts": "Bootscripts",
+                "dashboard": "Dashboard",
                 "export": "Export",
                 "images": "Images",
                 "ips": "Ips",
@@ -28,6 +31,7 @@
                 "security_groups": "SecurityGroups",
                 "servers": "Servers",
                 "snapshots": "Snapshots",
+                "user_data": "UserData",
                 "volumes": "Volumes"
             },
             "packageReferences": {
@@ -153,7 +157,7 @@
         },
         "scaleway-instances:action:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate": {
             "properties": {
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:action:ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType",
                     "default": "l_ssd"
                 }
@@ -183,10 +187,10 @@
                     "type": "string",
                     "description": "The description of the task"
                 },
-                "href_from": {
+                "hrefFrom": {
                     "type": "string"
                 },
-                "href_result": {
+                "hrefResult": {
                     "type": "string"
                 },
                 "id": {
@@ -197,7 +201,7 @@
                     "type": "number",
                     "description": "The progress of the task in percent"
                 },
-                "started_at": {
+                "startedAt": {
                     "type": "string",
                     "description": "The task start date (RFC 3339 format)"
                 },
@@ -206,7 +210,7 @@
                     "description": "The task status",
                     "default": "pending"
                 },
-                "terminated_at": {
+                "terminatedAt": {
                     "type": "string",
                     "description": "The task end date (RFC 3339 format)"
                 },
@@ -370,52 +374,52 @@
         },
         "scaleway-instances:dashboard:ScalewayInstanceV1Dashboard": {
             "properties": {
-                "images_count": {
+                "imagesCount": {
                     "type": "number"
                 },
-                "ips_count": {
+                "ipsCount": {
                     "type": "number"
                 },
-                "ips_unused": {
+                "ipsUnused": {
                     "type": "number"
                 },
-                "placement_groups_count": {
+                "placementGroupsCount": {
                     "type": "number"
                 },
-                "private_nics_count": {
+                "privateNicsCount": {
                     "type": "number"
                 },
-                "running_servers_count": {
+                "runningServersCount": {
                     "type": "number"
                 },
-                "security_groups_count": {
+                "securityGroupsCount": {
                     "type": "number"
                 },
-                "servers_by_types": {
+                "serversByTypes": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "number"
                     }
                 },
-                "servers_count": {
+                "serversCount": {
                     "type": "number"
                 },
-                "snapshots_count": {
+                "snapshotsCount": {
                     "type": "number"
                 },
-                "volumes_b_ssd_count": {
+                "volumesBSsdCount": {
                     "type": "number"
                 },
-                "volumes_b_ssd_total_size": {
+                "volumesBSsdTotalSize": {
                     "type": "number"
                 },
-                "volumes_count": {
+                "volumesCount": {
                     "type": "number"
                 },
-                "volumes_l_ssd_count": {
+                "volumesLSsdCount": {
                     "type": "number"
                 },
-                "volumes_l_ssd_total_size": {
+                "volumesLSsdTotalSize": {
                     "type": "number"
                 }
             },
@@ -435,10 +439,10 @@
                     "type": "string",
                     "description": "The description of the task"
                 },
-                "href_from": {
+                "hrefFrom": {
                     "type": "string"
                 },
-                "href_result": {
+                "hrefResult": {
                     "type": "string"
                 },
                 "id": {
@@ -449,7 +453,7 @@
                     "type": "number",
                     "description": "The progress of the task in percent"
                 },
-                "started_at": {
+                "startedAt": {
                     "type": "string",
                     "description": "The task start date (RFC 3339 format)"
                 },
@@ -458,7 +462,7 @@
                     "description": "The task status",
                     "default": "pending"
                 },
-                "terminated_at": {
+                "terminatedAt": {
                     "type": "string",
                     "description": "The task end date (RFC 3339 format)"
                 },
@@ -590,26 +594,26 @@
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1ImageArch",
                     "default": "x86_64"
                 },
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
                 },
-                "default_bootscript": {
+                "defaultBootscript": {
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Bootscript"
                 },
-                "extra_volumes": {
+                "extraVolumes": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Volume"
                     }
                 },
-                "from_server": {
+                "fromServer": {
                     "type": "string"
                 },
                 "id": {
                     "type": "string"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
                 },
@@ -625,7 +629,7 @@
                 "public": {
                     "type": "boolean"
                 },
-                "root_volume": {
+                "rootVolume": {
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1VolumeSummary"
                 },
                 "state": {
@@ -646,7 +650,7 @@
             "required": [
                 "name",
                 "project",
-                "root_volume"
+                "rootVolume"
             ]
         },
         "scaleway-instances:images:ScalewayInstanceV1ImageArch": {
@@ -693,18 +697,18 @@
         },
         "scaleway-instances:images:ScalewayInstanceV1Volume": {
             "properties": {
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "The volume creation date (RFC 3339 format)"
                 },
-                "export_uri": {
+                "exportUri": {
                     "type": "string",
                     "description": "Show the volume NBD export URI"
                 },
                 "id": {
                     "type": "string"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "The volume modification date (RFC 3339 format)"
                 },
@@ -739,7 +743,7 @@
                     },
                     "description": "The volume tags"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1VolumeVolumeType",
                     "default": "l_ssd"
                 },
@@ -811,7 +815,7 @@
                     "type": "number",
                     "description": "(in bytes)"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1VolumeSummaryVolumeType",
                     "default": "l_ssd"
                 }
@@ -869,9 +873,6 @@
                 }
             ]
         },
-        "scaleway-instances:ips:GoogleProtobufStringValue": {
-            "type": "object"
-        },
         "scaleway-instances:ips:ScalewayInstanceV1GetIpResponse": {
             "properties": {
                 "ip": {
@@ -896,7 +897,7 @@
                     "type": "string"
                 },
                 "reverse": {
-                    "$ref": "#/types/scaleway-instances:ips:GoogleProtobufStringValue"
+                    "type": "string"
                 },
                 "server": {
                     "$ref": "#/types/scaleway-instances:ips:ScalewayInstanceV1ServerSummary"
@@ -967,7 +968,7 @@
         },
         "scaleway-instances:placement_groups:ScalewayInstanceV1GetPlacementGroupResponse": {
             "properties": {
-                "placement_group": {
+                "placementGroup": {
                     "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1PlacementGroup"
                 }
             },
@@ -975,7 +976,7 @@
         },
         "scaleway-instances:placement_groups:ScalewayInstanceV1ListPlacementGroupsResponse": {
             "properties": {
-                "placement_groups": {
+                "placementGroups": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1PlacementGroup"
@@ -998,15 +999,15 @@
                     "type": "string",
                     "description": "The placement group organization ID"
                 },
-                "policy_mode": {
+                "policyMode": {
                     "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1PlacementGroupPolicyMode",
                     "default": "optional"
                 },
-                "policy_respected": {
+                "policyRespected": {
                     "type": "boolean",
                     "description": "Returns true if the policy is respected, false otherwise"
                 },
-                "policy_type": {
+                "policyType": {
                     "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1PlacementGroupPolicyType",
                     "default": "max_availability"
                 },
@@ -1060,7 +1061,7 @@
         },
         "scaleway-instances:private_nics:ScalewayInstanceV1GetPrivateNICResponse": {
             "properties": {
-                "private_nic": {
+                "privateNic": {
                     "$ref": "#/types/scaleway-instances:private_nics:ScalewayInstanceV1PrivateNIC"
                 }
             },
@@ -1068,7 +1069,7 @@
         },
         "scaleway-instances:private_nics:ScalewayInstanceV1ListPrivateNICsResponse": {
             "properties": {
-                "private_nics": {
+                "privateNics": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/scaleway-instances:private_nics:ScalewayInstanceV1PrivateNIC"
@@ -1083,15 +1084,15 @@
                     "type": "string",
                     "description": "The private NIC unique ID"
                 },
-                "mac_address": {
+                "macAddress": {
                     "type": "string",
                     "description": "The private NIC MAC address"
                 },
-                "private_network_id": {
+                "privateNetworkId": {
                     "type": "string",
                     "description": "The private network where the private NIC is attached"
                 },
-                "server_id": {
+                "serverId": {
                     "type": "string",
                     "description": "The server the private NIC is attached to"
                 },
@@ -1147,9 +1148,6 @@
                 }
             ]
         },
-        "scaleway-instances:rules:GoogleProtobufUInt32Value": {
-            "type": "object"
-        },
         "scaleway-instances:rules:Protocol": {
             "type": "string",
             "enum": [
@@ -1197,11 +1195,11 @@
                     "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1SecurityGroupRuleAction",
                     "default": "accept"
                 },
-                "dest_port_from": {
-                    "$ref": "#/types/scaleway-instances:rules:GoogleProtobufUInt32Value"
+                "destPortFrom": {
+                    "type": "number"
                 },
-                "dest_port_to": {
-                    "$ref": "#/types/scaleway-instances:rules:GoogleProtobufUInt32Value"
+                "destPortTo": {
+                    "type": "number"
                 },
                 "direction": {
                     "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1SecurityGroupRuleDirection",
@@ -1213,7 +1211,7 @@
                 "id": {
                     "type": "string"
                 },
-                "ip_range": {
+                "ipRange": {
                     "type": "string",
                     "description": "(IP network)"
                 },
@@ -1277,104 +1275,6 @@
                 }
             ]
         },
-        "scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRule": {
-            "properties": {
-                "action": {
-                    "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction",
-                    "description": "Action to apply when the rule matches a packet",
-                    "default": "accept"
-                },
-                "dest_port_from": {
-                    "type": "number",
-                    "description": "Beginning of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY"
-                },
-                "dest_port_to": {
-                    "type": "number",
-                    "description": "End of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY, or if it is equal to dest_port_from"
-                },
-                "direction": {
-                    "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection",
-                    "description": "Direction the rule applies to",
-                    "default": "inbound"
-                },
-                "editable": {
-                    "type": "boolean",
-                    "description": "Indicates if this rule is editable. Rules with the value false will be ignored"
-                },
-                "id": {
-                    "type": "string",
-                    "description": "UUID of the security rule to update. If no value is provided, a new rule will be created"
-                },
-                "ip_range": {
-                    "type": "string",
-                    "description": "The range of IP address this rules applies to (IP network)"
-                },
-                "position": {
-                    "type": "number",
-                    "description": "Position of this rule in the security group rules list. If several rules are passed with the same position, the resulting order is undefined"
-                },
-                "protocol": {
-                    "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol",
-                    "description": "Protocol family this rule applies to",
-                    "default": "TCP"
-                },
-                "zone": {
-                    "type": "string",
-                    "description": "Zone of the rule. This field is ignored"
-                }
-            },
-            "type": "object"
-        },
-        "scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction": {
-            "description": "Action to apply when the rule matches a packet",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Accept",
-                    "value": "accept"
-                },
-                {
-                    "name": "Drop",
-                    "value": "drop"
-                }
-            ]
-        },
-        "scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection": {
-            "description": "Direction the rule applies to",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Inbound",
-                    "value": "inbound"
-                },
-                {
-                    "name": "Outbound",
-                    "value": "outbound"
-                }
-            ]
-        },
-        "scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol": {
-            "description": "Protocol family this rule applies to",
-            "type": "string",
-            "enum": [
-                {
-                    "name": "Tcp",
-                    "value": "TCP"
-                },
-                {
-                    "name": "Udp",
-                    "value": "UDP"
-                },
-                {
-                    "name": "Icmp",
-                    "value": "ICMP"
-                },
-                {
-                    "name": "Any",
-                    "value": "ANY"
-                }
-            ]
-        },
         "scaleway-instances:security_groups:InboundDefaultPolicy": {
             "description": "The default inbound policy",
             "type": "string",
@@ -1405,7 +1305,7 @@
         },
         "scaleway-instances:security_groups:ScalewayInstanceV1GetSecurityGroupResponse": {
             "properties": {
-                "security_group": {
+                "securityGroup": {
                     "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1SecurityGroup"
                 }
             },
@@ -1413,13 +1313,13 @@
         },
         "scaleway-instances:security_groups:ScalewayInstanceV1ListSecurityGroupsResponse": {
             "properties": {
-                "security_groups": {
+                "securityGroups": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1SecurityGroup"
                     }
                 },
-                "total_count": {
+                "totalCount": {
                     "type": "number"
                 }
             },
@@ -1427,7 +1327,7 @@
         },
         "scaleway-instances:security_groups:ScalewayInstanceV1SecurityGroup": {
             "properties": {
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "The security group creation date (RFC 3339 format)"
                 },
@@ -1435,19 +1335,19 @@
                     "type": "string",
                     "description": "The security groups description"
                 },
-                "enable_default_security": {
+                "enableDefaultSecurity": {
                     "type": "boolean",
                     "description": "True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable."
                 },
                 "id": {
                     "type": "string"
                 },
-                "inbound_default_policy": {
+                "inboundDefaultPolicy": {
                     "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1SecurityGroupInboundDefaultPolicy",
                     "description": "The default inbound policy",
                     "default": "accept"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "The security group modification date (RFC 3339 format)"
                 },
@@ -1459,11 +1359,11 @@
                     "type": "string",
                     "description": "The security groups organization ID"
                 },
-                "organization_default": {
+                "organizationDefault": {
                     "type": "boolean",
                     "description": "True if it is your default security group for this organization ID"
                 },
-                "outbound_default_policy": {
+                "outboundDefaultPolicy": {
                     "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy",
                     "description": "The default outbound policy",
                     "default": "accept"
@@ -1472,7 +1372,7 @@
                     "type": "string",
                     "description": "The security group project ID"
                 },
-                "project_default": {
+                "projectDefault": {
                     "type": "boolean",
                     "description": "True if it is your default security group for this project ID"
                 },
@@ -1696,26 +1596,26 @@
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ImageArch",
                     "default": "x86_64"
                 },
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
                 },
-                "default_bootscript": {
+                "defaultBootscript": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1Bootscript"
                 },
-                "extra_volumes": {
+                "extraVolumes": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1Volume"
                     }
                 },
-                "from_server": {
+                "fromServer": {
                     "type": "string"
                 },
                 "id": {
                     "type": "string"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
                 },
@@ -1731,7 +1631,7 @@
                 "public": {
                     "type": "boolean"
                 },
-                "root_volume": {
+                "rootVolume": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1VolumeSummary"
                 },
                 "state": {
@@ -1752,7 +1652,7 @@
             "required": [
                 "name",
                 "project",
-                "root_volume"
+                "rootVolume"
             ]
         },
         "scaleway-instances:servers:ScalewayInstanceV1ImageArch": {
@@ -1822,15 +1722,15 @@
                     "type": "string",
                     "description": "The placement group organization ID"
                 },
-                "policy_mode": {
+                "policyMode": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1PlacementGroupPolicyMode",
                     "default": "optional"
                 },
-                "policy_respected": {
+                "policyRespected": {
                     "type": "boolean",
                     "description": "Returns true if the policy is respected, false otherwise"
                 },
-                "policy_type": {
+                "policyType": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1PlacementGroupPolicyType",
                     "default": "max_availability"
                 },
@@ -1890,7 +1790,7 @@
                 "name": {
                     "type": "string"
                 },
-                "policy_respected": {
+                "policyRespected": {
                     "type": "boolean"
                 }
             },
@@ -1902,15 +1802,15 @@
                     "type": "string",
                     "description": "The private NIC unique ID"
                 },
-                "mac_address": {
+                "macAddress": {
                     "type": "string",
                     "description": "The private NIC MAC address"
                 },
-                "private_network_id": {
+                "privateNetworkId": {
                     "type": "string",
                     "description": "The private network where the private NIC is attached"
                 },
-                "server_id": {
+                "serverId": {
                     "type": "string",
                     "description": "The server the private NIC is attached to"
                 },
@@ -1942,7 +1842,7 @@
         },
         "scaleway-instances:servers:ScalewayInstanceV1Server": {
             "properties": {
-                "allowed_actions": {
+                "allowedActions": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerAllowedActionsItem"
@@ -1954,26 +1854,26 @@
                     "description": "The server arch",
                     "default": "x86_64"
                 },
-                "boot_type": {
+                "bootType": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerBootType",
                     "default": "local"
                 },
                 "bootscript": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1Bootscript"
                 },
-                "commercial_type": {
+                "commercialType": {
                     "type": "string",
                     "description": "The server commercial type (eg. GP1-M)"
                 },
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "The server creation date (RFC 3339 format)"
                 },
-                "dynamic_ip_required": {
+                "dynamicIpRequired": {
                     "type": "boolean",
                     "description": "True if a dynamic IP is required"
                 },
-                "enable_ipv6": {
+                "enableIpv6": {
                     "type": "boolean",
                     "description": "True if IPv6 is enabled"
                 },
@@ -2003,7 +1903,7 @@
                     },
                     "description": "The server planned maintenances"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "The server modification date (RFC 3339 format)"
                 },
@@ -2015,14 +1915,14 @@
                     "type": "string",
                     "description": "The server organization ID"
                 },
-                "placement_group": {
+                "placementGroup": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1PlacementGroup"
                 },
-                "private_ip": {
+                "privateIp": {
                     "type": "string",
                     "description": "The server private IP address"
                 },
-                "private_nics": {
+                "privateNics": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1PrivateNIC"
@@ -2037,11 +1937,11 @@
                     "type": "boolean",
                     "description": "The server protection option is activated"
                 },
-                "public_ip": {
+                "publicIp": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerPublicIpProperties",
                     "description": "Information about the public IP"
                 },
-                "security_group": {
+                "securityGroup": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerSecurityGroupProperties",
                     "description": "The server security group"
                 },
@@ -2050,7 +1950,7 @@
                     "description": "The server state",
                     "default": "running"
                 },
-                "state_detail": {
+                "stateDetail": {
                     "type": "string",
                     "description": "The server state_detail"
                 },
@@ -2156,19 +2056,19 @@
         "scaleway-instances:servers:ScalewayInstanceV1ServerLocationProperties": {
             "description": "The server location",
             "properties": {
-                "cluster_id": {
+                "clusterId": {
                     "type": "string"
                 },
-                "hypervisor_id": {
+                "hypervisorId": {
                     "type": "string"
                 },
-                "node_id": {
+                "nodeId": {
                     "type": "string"
                 },
-                "platform_id": {
+                "platformId": {
                     "type": "string"
                 },
-                "zone_id": {
+                "zoneId": {
                     "type": "string"
                 }
             },
@@ -2250,7 +2150,7 @@
         },
         "scaleway-instances:servers:ScalewayInstanceV1ServerType": {
             "properties": {
-                "alt_names": {
+                "altNames": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -2274,11 +2174,11 @@
                     "type": "number",
                     "description": "Number of GPU"
                 },
-                "hourly_price": {
+                "hourlyPrice": {
                     "type": "number",
                     "description": "Hourly price in Euro"
                 },
-                "monthly_price": {
+                "monthlyPrice": {
                     "type": "number",
                     "description": "Estimated monthly price, for a 30 days month, in Euro"
                 },
@@ -2290,7 +2190,7 @@
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerTypeNetworkProperties",
                     "description": "Network available for the instance"
                 },
-                "per_volume_constraint": {
+                "perVolumeConstraint": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerTypePerVolumeConstraintProperties",
                     "description": "Additional volume constraints"
                 },
@@ -2298,7 +2198,7 @@
                     "type": "number",
                     "description": "Available RAM in bytes"
                 },
-                "volumes_constraint": {
+                "volumesConstraint": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerTypeVolumesConstraintProperties",
                     "description": "Initial volume constraints"
                 }
@@ -2322,11 +2222,11 @@
         "scaleway-instances:servers:ScalewayInstanceV1ServerTypeCapabilitiesProperties": {
             "description": "Capabilities",
             "properties": {
-                "block_storage": {
+                "blockStorage": {
                     "type": "boolean",
                     "description": "True if server supports block storage"
                 },
-                "boot_types": {
+                "bootTypes": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem"
@@ -2355,11 +2255,11 @@
         },
         "scaleway-instances:servers:ScalewayInstanceV1ServerTypeNetworkInterface": {
             "properties": {
-                "internal_bandwidth": {
+                "internalBandwidth": {
                     "type": "number",
                     "description": "Maximum internal bandwidth in bits per seconds"
                 },
-                "internet_bandwidth": {
+                "internetBandwidth": {
                     "type": "number",
                     "description": "Maximum internet bandwidth in bits per seconds"
                 }
@@ -2369,6 +2269,10 @@
         "scaleway-instances:servers:ScalewayInstanceV1ServerTypeNetworkProperties": {
             "description": "Network available for the instance",
             "properties": {
+                "_ipv6Support": {
+                    "type": "boolean",
+                    "description": "True if IPv6 is enabled"
+                },
                 "interfaces": {
                     "type": "array",
                     "items": {
@@ -2376,15 +2280,11 @@
                     },
                     "description": "List of available network interfaces"
                 },
-                "ipv6_support": {
-                    "type": "boolean",
-                    "description": "True if IPv6 is enabled"
-                },
-                "sum_internal_bandwidth": {
+                "sumInternalBandwidth": {
                     "type": "number",
                     "description": "Total maximum internal bandwidth in bits per seconds"
                 },
-                "sum_internet_bandwidth": {
+                "sumInternetBandwidth": {
                     "type": "number",
                     "description": "Total maximum internet bandwidth in bits per seconds"
                 }
@@ -2394,7 +2294,7 @@
         "scaleway-instances:servers:ScalewayInstanceV1ServerTypePerVolumeConstraintProperties": {
             "description": "Additional volume constraints",
             "properties": {
-                "l_ssd": {
+                "lSsd": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties",
                     "description": "Local SSD volumes"
                 }
@@ -2404,11 +2304,11 @@
         "scaleway-instances:servers:ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties": {
             "description": "Local SSD volumes",
             "properties": {
-                "max_size": {
+                "maxSize": {
                     "type": "number",
                     "description": "Maximum volume size in bytes (in bytes)"
                 },
-                "min_size": {
+                "minSize": {
                     "type": "number",
                     "description": "Minimum volume size in bytes (in bytes)"
                 }
@@ -2418,11 +2318,11 @@
         "scaleway-instances:servers:ScalewayInstanceV1ServerTypeVolumesConstraintProperties": {
             "description": "Initial volume constraints",
             "properties": {
-                "max_size": {
+                "maxSize": {
                     "type": "number",
                     "description": "Maximum volume size in bytes (in bytes)"
                 },
-                "min_size": {
+                "minSize": {
                     "type": "number",
                     "description": "Minimum volume size in bytes (in bytes)"
                 }
@@ -2431,18 +2331,18 @@
         },
         "scaleway-instances:servers:ScalewayInstanceV1Volume": {
             "properties": {
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "The volume creation date (RFC 3339 format)"
                 },
-                "export_uri": {
+                "exportUri": {
                     "type": "string",
                     "description": "Show the volume NBD export URI"
                 },
                 "id": {
                     "type": "string"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "The volume modification date (RFC 3339 format)"
                 },
@@ -2477,7 +2377,7 @@
                     },
                     "description": "The volume tags"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1VolumeVolumeType",
                     "default": "l_ssd"
                 },
@@ -2497,17 +2397,17 @@
                 "boot": {
                     "type": "boolean"
                 },
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
                 },
-                "export_uri": {
+                "exportUri": {
                     "type": "string"
                 },
                 "id": {
                     "type": "string"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
                 },
@@ -2531,7 +2431,7 @@
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1VolumeServerState",
                     "default": "available"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1VolumeServerVolumeType",
                     "default": "l_ssd"
                 },
@@ -2588,7 +2488,7 @@
         },
         "scaleway-instances:servers:ScalewayInstanceV1VolumeServerTemplate": {
             "properties": {
-                "base_snapshot": {
+                "baseSnapshot": {
                     "type": "string",
                     "description": "The ID of the snapshot on which this volume will be based"
                 },
@@ -2617,7 +2517,7 @@
                     "type": "number",
                     "description": "Disk size of the volume, must be a multiple of 512 (in bytes)"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1VolumeServerTemplateVolumeType",
                     "default": "l_ssd"
                 }
@@ -2695,7 +2595,7 @@
                     "type": "number",
                     "description": "(in bytes)"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1VolumeSummaryVolumeType",
                     "default": "l_ssd"
                 }
@@ -2772,22 +2672,22 @@
         },
         "scaleway-instances:snapshots:ScalewayInstanceV1Snapshot": {
             "properties": {
-                "base_volume": {
+                "baseVolume": {
                     "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1SnapshotBaseVolumeProperties",
                     "description": "The volume on which the snapshot is based on"
                 },
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "The snapshot creation date (RFC 3339 format)"
                 },
-                "error_reason": {
+                "errorReason": {
                     "type": "string",
                     "description": "The reason for the failed snapshot import"
                 },
                 "id": {
                     "type": "string"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "The snapshot modification date (RFC 3339 format)"
                 },
@@ -2818,7 +2718,7 @@
                     },
                     "description": "The snapshot tags"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1SnapshotVolumeType",
                     "default": "l_ssd"
                 },
@@ -2895,10 +2795,10 @@
                     "type": "string",
                     "description": "The description of the task"
                 },
-                "href_from": {
+                "hrefFrom": {
                     "type": "string"
                 },
-                "href_result": {
+                "hrefResult": {
                     "type": "string"
                 },
                 "id": {
@@ -2909,7 +2809,7 @@
                     "type": "number",
                     "description": "The progress of the task in percent"
                 },
-                "started_at": {
+                "startedAt": {
                     "type": "string",
                     "description": "The task start date (RFC 3339 format)"
                 },
@@ -2918,7 +2818,7 @@
                     "description": "The task status",
                     "default": "pending"
                 },
-                "terminated_at": {
+                "terminatedAt": {
                     "type": "string",
                     "description": "The task end date (RFC 3339 format)"
                 },
@@ -3003,7 +2903,7 @@
         },
         "scaleway-instances:user_data:ScalewayInstanceV1ListServerUserDataResponse": {
             "properties": {
-                "user_data": {
+                "userData": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -3017,7 +2917,7 @@
                 "content": {
                     "type": "string"
                 },
-                "content_type": {
+                "contentType": {
                     "type": "string"
                 },
                 "name": {
@@ -3060,18 +2960,18 @@
         },
         "scaleway-instances:volumes:ScalewayInstanceV1Volume": {
             "properties": {
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "The volume creation date (RFC 3339 format)"
                 },
-                "export_uri": {
+                "exportUri": {
                     "type": "string",
                     "description": "Show the volume NBD export URI"
                 },
                 "id": {
                     "type": "string"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "The volume modification date (RFC 3339 format)"
                 },
@@ -3106,7 +3006,7 @@
                     },
                     "description": "The volume tags"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1VolumeVolumeType",
                     "default": "l_ssd"
                 },
@@ -3174,7 +3074,7 @@
                 "constraints": {
                     "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1VolumeTypeConstraints"
                 },
-                "display_name": {
+                "displayName": {
                     "type": "string"
                 }
             },
@@ -3335,7 +3235,7 @@
                     "type": "string",
                     "description": "The name of the backup you want to create.\nThis field should only be specified when performing a backup action.\n"
                 },
-                "server_id": {
+                "serverId": {
                     "type": "string",
                     "description": "UUID of the server"
                 },
@@ -3375,7 +3275,7 @@
                     "type": "string",
                     "description": "S3 object key"
                 },
-                "snapshot_id": {
+                "snapshotId": {
                     "type": "string",
                     "description": "The snapshot ID"
                 },
@@ -3394,20 +3294,20 @@
                     "$ref": "#/types/scaleway-instances:images:Arch",
                     "default": "x86_64"
                 },
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
                 },
-                "default_bootscript": {
+                "defaultBootscript": {
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Bootscript"
                 },
-                "extra_volumes": {
+                "extraVolumes": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Volume"
                     }
                 },
-                "from_server": {
+                "fromServer": {
                     "type": "string"
                 },
                 "image": {
@@ -3418,7 +3318,7 @@
                         }
                     }
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "(RFC 3339 format)"
                 },
@@ -3434,7 +3334,7 @@
                 "public": {
                     "type": "boolean"
                 },
-                "root_volume": {
+                "rootVolume": {
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1VolumeSummary"
                 },
                 "state": {
@@ -3455,17 +3355,17 @@
             "required": [
                 "name",
                 "project",
-                "root_volume"
+                "rootVolume"
             ],
             "inputProperties": {
                 "arch": {
                     "$ref": "#/types/scaleway-instances:images:Arch",
                     "default": "x86_64"
                 },
-                "default_bootscript": {
+                "defaultBootscript": {
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Bootscript"
                 },
-                "extra_volumes": {
+                "extraVolumes": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1Volume"
@@ -3483,7 +3383,7 @@
                 "public": {
                     "type": "boolean"
                 },
-                "root_volume": {
+                "rootVolume": {
                     "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1VolumeSummary"
                 },
                 "state": {
@@ -3503,7 +3403,7 @@
             },
             "requiredInputs": [
                 "project",
-                "root_volume"
+                "rootVolume"
             ]
         },
         "scaleway-instances:ips:Ip": {
@@ -3530,7 +3430,7 @@
                     "type": "string"
                 },
                 "reverse": {
-                    "$ref": "#/types/scaleway-instances:ips:GoogleProtobufStringValue"
+                    "type": "string"
                 },
                 "server": {
                     "$ref": "#/types/scaleway-instances:ips:ScalewayInstanceV1ServerSummary"
@@ -3557,7 +3457,7 @@
                     "type": "string"
                 },
                 "reverse": {
-                    "$ref": "#/types/scaleway-instances:ips:GoogleProtobufStringValue"
+                    "type": "string"
                 },
                 "server": {
                     "$ref": "#/types/scaleway-instances:ips:ScalewayInstanceV1ServerSummary"
@@ -3587,7 +3487,7 @@
                     "type": "string",
                     "description": "The placement group organization ID"
                 },
-                "placement_group": {
+                "placementGroup": {
                     "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1PlacementGroup",
                     "language": {
                         "csharp": {
@@ -3595,15 +3495,15 @@
                         }
                     }
                 },
-                "policy_mode": {
+                "policyMode": {
                     "$ref": "#/types/scaleway-instances:placement_groups:PolicyMode",
                     "default": "optional"
                 },
-                "policy_respected": {
+                "policyRespected": {
                     "type": "boolean",
                     "description": "Returns true if the policy is respected, false otherwise"
                 },
-                "policy_type": {
+                "policyType": {
                     "$ref": "#/types/scaleway-instances:placement_groups:PolicyType",
                     "default": "max_availability"
                 },
@@ -3637,11 +3537,11 @@
                     "type": "string",
                     "description": "The placement group organization ID"
                 },
-                "policy_mode": {
+                "policyMode": {
                     "$ref": "#/types/scaleway-instances:placement_groups:PolicyMode",
                     "default": "optional"
                 },
-                "policy_type": {
+                "policyType": {
                     "$ref": "#/types/scaleway-instances:placement_groups:PolicyType",
                     "default": "max_availability"
                 },
@@ -3667,22 +3567,22 @@
         },
         "scaleway-instances:private_nics:PrivateNIC": {
             "properties": {
-                "private_network_id": {
+                "privateNetworkId": {
                     "type": "string"
                 },
-                "private_nic": {
+                "privateNic": {
                     "$ref": "#/types/scaleway-instances:private_nics:ScalewayInstanceV1PrivateNIC"
                 }
             },
             "type": "object",
             "required": [
-                "private_network_id"
+                "privateNetworkId"
             ],
             "inputProperties": {
-                "private_network_id": {
+                "privateNetworkId": {
                     "type": "string"
                 },
-                "server_id": {
+                "serverId": {
                     "type": "string"
                 },
                 "zone": {
@@ -3691,7 +3591,7 @@
                 }
             },
             "requiredInputs": [
-                "private_network_id"
+                "privateNetworkId"
             ]
         },
         "scaleway-instances:rules:SecurityGroupRule": {
@@ -3700,11 +3600,11 @@
                     "$ref": "#/types/scaleway-instances:rules:Action",
                     "default": "accept"
                 },
-                "dest_port_from": {
+                "destPortFrom": {
                     "type": "number",
                     "description": "The beginning of the range of ports to apply this rule to (inclusive)"
                 },
-                "dest_port_to": {
+                "destPortTo": {
                     "type": "number",
                     "description": "The end of the range of ports to apply this rule to (inclusive)"
                 },
@@ -3716,7 +3616,7 @@
                     "type": "boolean",
                     "description": "Indicates if this rule is editable (will be ignored)"
                 },
-                "ip_range": {
+                "ipRange": {
                     "type": "string",
                     "description": "(IP network)"
                 },
@@ -3736,7 +3636,7 @@
             "required": [
                 "action",
                 "direction",
-                "ip_range",
+                "ipRange",
                 "protocol"
             ],
             "inputProperties": {
@@ -3744,11 +3644,11 @@
                     "$ref": "#/types/scaleway-instances:rules:Action",
                     "default": "accept"
                 },
-                "dest_port_from": {
+                "destPortFrom": {
                     "type": "number",
                     "description": "The beginning of the range of ports to apply this rule to (inclusive)"
                 },
-                "dest_port_to": {
+                "destPortTo": {
                     "type": "number",
                     "description": "The end of the range of ports to apply this rule to (inclusive)"
                 },
@@ -3760,7 +3660,7 @@
                     "type": "boolean",
                     "description": "Indicates if this rule is editable (will be ignored)"
                 },
-                "ip_range": {
+                "ipRange": {
                     "type": "string",
                     "description": "(IP network)"
                 },
@@ -3772,7 +3672,7 @@
                     "$ref": "#/types/scaleway-instances:rules:Protocol",
                     "default": "TCP"
                 },
-                "security_group_id": {
+                "securityGroupId": {
                     "type": "string",
                     "description": "UUID of the security group"
                 },
@@ -3784,42 +3684,13 @@
             "requiredInputs": [
                 "action",
                 "direction",
-                "ip_range",
+                "ipRange",
                 "protocol"
             ]
         },
-        "scaleway-instances:rules:SecurityGroupRules": {
-            "properties": {
-                "rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRule"
-                    },
-                    "description": "List of rules to update in the security group"
-                }
-            },
-            "type": "object",
-            "inputProperties": {
-                "rules": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1SetSecurityGroupRulesRequestRule"
-                    },
-                    "description": "List of rules to update in the security group"
-                },
-                "security_group_id": {
-                    "type": "string",
-                    "description": "UUID of the security group to update the rules on"
-                },
-                "zone": {
-                    "type": "string",
-                    "description": "The zone you want to target"
-                }
-            }
-        },
         "scaleway-instances:security_groups:SecurityGroup": {
             "properties": {
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "The security group creation date (RFC 3339 format)"
                 },
@@ -3827,16 +3698,16 @@
                     "type": "string",
                     "description": "The security groups description"
                 },
-                "enable_default_security": {
+                "enableDefaultSecurity": {
                     "type": "boolean",
                     "description": "True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable."
                 },
-                "inbound_default_policy": {
+                "inboundDefaultPolicy": {
                     "$ref": "#/types/scaleway-instances:security_groups:InboundDefaultPolicy",
                     "description": "The default inbound policy",
                     "default": "accept"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "The security group modification date (RFC 3339 format)"
                 },
@@ -3848,11 +3719,11 @@
                     "type": "string",
                     "description": "The security groups organization ID"
                 },
-                "organization_default": {
+                "organizationDefault": {
                     "type": "boolean",
                     "description": "True if it is your default security group for this organization ID"
                 },
-                "outbound_default_policy": {
+                "outboundDefaultPolicy": {
                     "$ref": "#/types/scaleway-instances:security_groups:OutboundDefaultPolicy",
                     "description": "The default outbound policy",
                     "default": "accept"
@@ -3861,11 +3732,11 @@
                     "type": "string",
                     "description": "The security group project ID"
                 },
-                "project_default": {
+                "projectDefault": {
                     "type": "boolean",
                     "description": "True if it is your default security group for this project ID"
                 },
-                "security_group": {
+                "securityGroup": {
                     "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1SecurityGroup",
                     "language": {
                         "csharp": {
@@ -3911,11 +3782,11 @@
                     "type": "string",
                     "description": "The security groups description"
                 },
-                "enable_default_security": {
+                "enableDefaultSecurity": {
                     "type": "boolean",
                     "description": "True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable."
                 },
-                "inbound_default_policy": {
+                "inboundDefaultPolicy": {
                     "$ref": "#/types/scaleway-instances:security_groups:InboundDefaultPolicy",
                     "description": "The default inbound policy",
                     "default": "accept"
@@ -3928,11 +3799,11 @@
                     "type": "string",
                     "description": "The security groups organization ID"
                 },
-                "organization_default": {
+                "organizationDefault": {
                     "type": "boolean",
                     "description": "True if it is your default security group for this organization ID"
                 },
-                "outbound_default_policy": {
+                "outboundDefaultPolicy": {
                     "$ref": "#/types/scaleway-instances:security_groups:OutboundDefaultPolicy",
                     "description": "The default outbound policy",
                     "default": "accept"
@@ -3941,7 +3812,7 @@
                     "type": "string",
                     "description": "The security group project ID"
                 },
-                "project_default": {
+                "projectDefault": {
                     "type": "boolean",
                     "description": "True if it is your default security group for this project ID"
                 },
@@ -3976,7 +3847,7 @@
             },
             "type": "object",
             "inputProperties": {
-                "placement_group_id": {
+                "placementGroupId": {
                     "type": "string",
                     "description": "UUID of the placement group"
                 },
@@ -3994,7 +3865,7 @@
         },
         "scaleway-instances:servers:Server": {
             "properties": {
-                "boot_type": {
+                "bootType": {
                     "$ref": "#/types/scaleway-instances:servers:BootType",
                     "description": "The boot type to use",
                     "default": "local"
@@ -4003,15 +3874,15 @@
                     "type": "string",
                     "description": "The bootscript ID to use when `boot_type` is set to `bootscript`"
                 },
-                "commercial_type": {
+                "commercialType": {
                     "type": "string",
                     "description": "Define the server commercial type (i.e. GP1-S)"
                 },
-                "dynamic_ip_required": {
+                "dynamicIpRequired": {
                     "type": "boolean",
                     "description": "Define if a dynamic IP is required for the instance"
                 },
-                "enable_ipv6": {
+                "enableIpv6": {
                     "type": "boolean",
                     "description": "True if IPv6 is enabled on the server"
                 },
@@ -4027,7 +3898,7 @@
                     "type": "string",
                     "description": "The server organization ID"
                 },
-                "placement_group": {
+                "placementGroup": {
                     "type": "string",
                     "description": "Placement group ID if server must be part of a placement group"
                 },
@@ -4035,11 +3906,11 @@
                     "type": "string",
                     "description": "The server project ID"
                 },
-                "public_ip": {
+                "publicIp": {
                     "type": "string",
                     "description": "The ID of the reserved IP to attach to the server"
                 },
-                "security_group": {
+                "securityGroup": {
                     "type": "string",
                     "description": "The security group ID"
                 },
@@ -4067,11 +3938,11 @@
             },
             "type": "object",
             "required": [
-                "commercial_type",
+                "commercialType",
                 "name"
             ],
             "inputProperties": {
-                "boot_type": {
+                "bootType": {
                     "$ref": "#/types/scaleway-instances:servers:BootType",
                     "description": "The boot type to use",
                     "default": "local"
@@ -4080,15 +3951,15 @@
                     "type": "string",
                     "description": "The bootscript ID to use when `boot_type` is set to `bootscript`"
                 },
-                "commercial_type": {
+                "commercialType": {
                     "type": "string",
                     "description": "Define the server commercial type (i.e. GP1-S)"
                 },
-                "dynamic_ip_required": {
+                "dynamicIpRequired": {
                     "type": "boolean",
                     "description": "Define if a dynamic IP is required for the instance"
                 },
-                "enable_ipv6": {
+                "enableIpv6": {
                     "type": "boolean",
                     "description": "True if IPv6 is enabled on the server"
                 },
@@ -4104,7 +3975,7 @@
                     "type": "string",
                     "description": "The server organization ID"
                 },
-                "placement_group": {
+                "placementGroup": {
                     "type": "string",
                     "description": "Placement group ID if server must be part of a placement group"
                 },
@@ -4112,11 +3983,11 @@
                     "type": "string",
                     "description": "The server project ID"
                 },
-                "public_ip": {
+                "publicIp": {
                     "type": "string",
                     "description": "The ID of the reserved IP to attach to the server"
                 },
-                "security_group": {
+                "securityGroup": {
                     "type": "string",
                     "description": "The security group ID"
                 },
@@ -4139,24 +4010,24 @@
                 }
             },
             "requiredInputs": [
-                "commercial_type"
+                "commercialType"
             ]
         },
         "scaleway-instances:snapshots:Snapshot": {
             "properties": {
-                "base_volume": {
+                "baseVolume": {
                     "$ref": "#/types/scaleway-instances:snapshots:BaseVolumeProperties",
                     "description": "The volume on which the snapshot is based on"
                 },
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "The snapshot creation date (RFC 3339 format)"
                 },
-                "error_reason": {
+                "errorReason": {
                     "type": "string",
                     "description": "The reason for the failed snapshot import"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "The snapshot modification date (RFC 3339 format)"
                 },
@@ -4198,7 +4069,7 @@
                 "task": {
                     "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1Task"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:snapshots:VolumeType",
                     "default": "l_ssd"
                 },
@@ -4236,7 +4107,7 @@
                     },
                     "description": "The snapshot tags"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:snapshots:VolumeType",
                     "default": "l_ssd"
                 },
@@ -4251,15 +4122,15 @@
                 "Location": {
                     "type": "string"
                 },
-                "creation_date": {
+                "creationDate": {
                     "type": "string",
                     "description": "The volume creation date (RFC 3339 format)"
                 },
-                "export_uri": {
+                "exportUri": {
                     "type": "string",
                     "description": "Show the volume NBD export URI"
                 },
-                "modification_date": {
+                "modificationDate": {
                     "type": "string",
                     "description": "The volume modification date (RFC 3339 format)"
                 },
@@ -4302,7 +4173,7 @@
                         }
                     }
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:volumes:VolumeType",
                     "default": "l_ssd"
                 },
@@ -4340,7 +4211,7 @@
                     },
                     "description": "The volume tags"
                 },
-                "volume_type": {
+                "volumeType": {
                     "$ref": "#/types/scaleway-instances:volumes:VolumeType",
                     "default": "l_ssd"
                 },
@@ -4358,7 +4229,7 @@
         "scaleway-instances:action:listServerActions": {
             "inputs": {
                 "properties": {
-                    "server_id": {
+                    "serverId": {
                         "type": "string"
                     },
                     "zone": {
@@ -4367,7 +4238,7 @@
                     }
                 },
                 "required": [
-                    "server_id",
+                    "serverId",
                     "zone"
                 ]
             },
@@ -4637,7 +4508,7 @@
                     "id": {
                         "type": "string"
                     },
-                    "server_id": {
+                    "serverId": {
                         "type": "string"
                     },
                     "zone": {
@@ -4647,7 +4518,7 @@
                 },
                 "required": [
                     "id",
-                    "server_id",
+                    "serverId",
                     "zone"
                 ]
             },
@@ -4665,7 +4536,7 @@
         "scaleway-instances:private_nics:listPrivateNICs": {
             "inputs": {
                 "properties": {
-                    "server_id": {
+                    "serverId": {
                         "type": "string"
                     },
                     "zone": {
@@ -4674,7 +4545,7 @@
                     }
                 },
                 "required": [
-                    "server_id",
+                    "serverId",
                     "zone"
                 ]
             },
@@ -4695,7 +4566,7 @@
                     "id": {
                         "type": "string"
                     },
-                    "security_group_id": {
+                    "securityGroupId": {
                         "type": "string"
                     },
                     "zone": {
@@ -4705,7 +4576,7 @@
                 },
                 "required": [
                     "id",
-                    "security_group_id",
+                    "securityGroupId",
                     "zone"
                 ]
             },
@@ -4746,7 +4617,7 @@
         "scaleway-instances:rules:listSecurityGroupRules": {
             "inputs": {
                 "properties": {
-                    "security_group_id": {
+                    "securityGroupId": {
                         "type": "string",
                         "description": "UUID of the security group"
                     },
@@ -4756,7 +4627,7 @@
                     }
                 },
                 "required": [
-                    "security_group_id",
+                    "securityGroupId",
                     "zone"
                 ]
             },
@@ -4774,7 +4645,7 @@
         "scaleway-instances:security_groups:getSecurityGroup": {
             "inputs": {
                 "properties": {
-                    "security_group_id": {
+                    "securityGroupId": {
                         "type": "string",
                         "description": "UUID of the security group you want to get"
                     },
@@ -4784,7 +4655,7 @@
                     }
                 },
                 "required": [
-                    "security_group_id",
+                    "securityGroupId",
                     "zone"
                 ]
             },
@@ -4822,10 +4693,10 @@
                 ]
             }
         },
-        "scaleway-instances:servers:getPlacementGroupServers": {
+        "scaleway-instances:servers:getPlacementGroupServer": {
             "inputs": {
                 "properties": {
-                    "placement_group_id": {
+                    "placementGroupId": {
                         "type": "string",
                         "description": "UUID of the placement group"
                     },
@@ -4835,7 +4706,7 @@
                     }
                 },
                 "required": [
-                    "placement_group_id",
+                    "placementGroupId",
                     "zone"
                 ]
             },
@@ -4982,7 +4853,7 @@
                         "type": "string",
                         "description": "Key of the user data to get"
                     },
-                    "server_id": {
+                    "serverId": {
                         "type": "string",
                         "description": "UUID of the server"
                     },
@@ -4993,7 +4864,7 @@
                 },
                 "required": [
                     "key",
-                    "server_id",
+                    "serverId",
                     "zone"
                 ]
             },
@@ -5011,7 +4882,7 @@
         "scaleway-instances:user_data:listServerUserData": {
             "inputs": {
                 "properties": {
-                    "server_id": {
+                    "serverId": {
                         "type": "string",
                         "description": "UUID of the server"
                     },
@@ -5021,7 +4892,7 @@
                     }
                 },
                 "required": [
-                    "server_id",
+                    "serverId",
                     "zone"
                 ]
             },
