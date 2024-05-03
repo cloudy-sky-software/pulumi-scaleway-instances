@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,170 +28,124 @@ class ScalewayInstanceV1Dashboard(dict):
                  servers_by_types: Optional[Mapping[str, float]] = None,
                  servers_count: Optional[float] = None,
                  snapshots_count: Optional[float] = None,
-                 volumes_b_ssd_count: Optional[float] = None,
-                 volumes_b_ssd_total_size: Optional[float] = None,
+                 volumes_bssd_count: Optional[float] = None,
+                 volumes_bssd_total_size: Optional[float] = None,
                  volumes_count: Optional[float] = None,
-                 volumes_l_ssd_count: Optional[float] = None,
-                 volumes_l_ssd_total_size: Optional[float] = None):
-        ScalewayInstanceV1Dashboard._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            images_count=images_count,
-            ips_count=ips_count,
-            ips_unused=ips_unused,
-            placement_groups_count=placement_groups_count,
-            private_nics_count=private_nics_count,
-            running_servers_count=running_servers_count,
-            security_groups_count=security_groups_count,
-            servers_by_types=servers_by_types,
-            servers_count=servers_count,
-            snapshots_count=snapshots_count,
-            volumes_b_ssd_count=volumes_b_ssd_count,
-            volumes_b_ssd_total_size=volumes_b_ssd_total_size,
-            volumes_count=volumes_count,
-            volumes_l_ssd_count=volumes_l_ssd_count,
-            volumes_l_ssd_total_size=volumes_l_ssd_total_size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             images_count: Optional[float] = None,
-             ips_count: Optional[float] = None,
-             ips_unused: Optional[float] = None,
-             placement_groups_count: Optional[float] = None,
-             private_nics_count: Optional[float] = None,
-             running_servers_count: Optional[float] = None,
-             security_groups_count: Optional[float] = None,
-             servers_by_types: Optional[Mapping[str, float]] = None,
-             servers_count: Optional[float] = None,
-             snapshots_count: Optional[float] = None,
-             volumes_b_ssd_count: Optional[float] = None,
-             volumes_b_ssd_total_size: Optional[float] = None,
-             volumes_count: Optional[float] = None,
-             volumes_l_ssd_count: Optional[float] = None,
-             volumes_l_ssd_total_size: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+                 volumes_lssd_count: Optional[float] = None,
+                 volumes_lssd_total_size: Optional[float] = None):
         if images_count is not None:
-            _setter("images_count", images_count)
+            pulumi.set(__self__, "images_count", images_count)
         if ips_count is not None:
-            _setter("ips_count", ips_count)
+            pulumi.set(__self__, "ips_count", ips_count)
         if ips_unused is not None:
-            _setter("ips_unused", ips_unused)
+            pulumi.set(__self__, "ips_unused", ips_unused)
         if placement_groups_count is not None:
-            _setter("placement_groups_count", placement_groups_count)
+            pulumi.set(__self__, "placement_groups_count", placement_groups_count)
         if private_nics_count is not None:
-            _setter("private_nics_count", private_nics_count)
+            pulumi.set(__self__, "private_nics_count", private_nics_count)
         if running_servers_count is not None:
-            _setter("running_servers_count", running_servers_count)
+            pulumi.set(__self__, "running_servers_count", running_servers_count)
         if security_groups_count is not None:
-            _setter("security_groups_count", security_groups_count)
+            pulumi.set(__self__, "security_groups_count", security_groups_count)
         if servers_by_types is not None:
-            _setter("servers_by_types", servers_by_types)
+            pulumi.set(__self__, "servers_by_types", servers_by_types)
         if servers_count is not None:
-            _setter("servers_count", servers_count)
+            pulumi.set(__self__, "servers_count", servers_count)
         if snapshots_count is not None:
-            _setter("snapshots_count", snapshots_count)
-        if volumes_b_ssd_count is not None:
-            _setter("volumes_b_ssd_count", volumes_b_ssd_count)
-        if volumes_b_ssd_total_size is not None:
-            _setter("volumes_b_ssd_total_size", volumes_b_ssd_total_size)
+            pulumi.set(__self__, "snapshots_count", snapshots_count)
+        if volumes_bssd_count is not None:
+            pulumi.set(__self__, "volumes_bssd_count", volumes_bssd_count)
+        if volumes_bssd_total_size is not None:
+            pulumi.set(__self__, "volumes_bssd_total_size", volumes_bssd_total_size)
         if volumes_count is not None:
-            _setter("volumes_count", volumes_count)
-        if volumes_l_ssd_count is not None:
-            _setter("volumes_l_ssd_count", volumes_l_ssd_count)
-        if volumes_l_ssd_total_size is not None:
-            _setter("volumes_l_ssd_total_size", volumes_l_ssd_total_size)
+            pulumi.set(__self__, "volumes_count", volumes_count)
+        if volumes_lssd_count is not None:
+            pulumi.set(__self__, "volumes_lssd_count", volumes_lssd_count)
+        if volumes_lssd_total_size is not None:
+            pulumi.set(__self__, "volumes_lssd_total_size", volumes_lssd_total_size)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="imagesCount")
     def images_count(self) -> Optional[float]:
         return pulumi.get(self, "images_count")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="ipsCount")
     def ips_count(self) -> Optional[float]:
         return pulumi.get(self, "ips_count")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="ipsUnused")
     def ips_unused(self) -> Optional[float]:
         return pulumi.get(self, "ips_unused")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="placementGroupsCount")
     def placement_groups_count(self) -> Optional[float]:
         return pulumi.get(self, "placement_groups_count")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="privateNicsCount")
     def private_nics_count(self) -> Optional[float]:
         return pulumi.get(self, "private_nics_count")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="runningServersCount")
     def running_servers_count(self) -> Optional[float]:
         return pulumi.get(self, "running_servers_count")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="securityGroupsCount")
     def security_groups_count(self) -> Optional[float]:
         return pulumi.get(self, "security_groups_count")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="serversByTypes")
     def servers_by_types(self) -> Optional[Mapping[str, float]]:
         return pulumi.get(self, "servers_by_types")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="serversCount")
     def servers_count(self) -> Optional[float]:
         return pulumi.get(self, "servers_count")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="snapshotsCount")
     def snapshots_count(self) -> Optional[float]:
         return pulumi.get(self, "snapshots_count")
 
     @property
-    @pulumi.getter
-    def volumes_b_ssd_count(self) -> Optional[float]:
-        return pulumi.get(self, "volumes_b_ssd_count")
+    @pulumi.getter(name="volumesBSsdCount")
+    def volumes_bssd_count(self) -> Optional[float]:
+        return pulumi.get(self, "volumes_bssd_count")
 
     @property
-    @pulumi.getter
-    def volumes_b_ssd_total_size(self) -> Optional[float]:
-        return pulumi.get(self, "volumes_b_ssd_total_size")
+    @pulumi.getter(name="volumesBSsdTotalSize")
+    def volumes_bssd_total_size(self) -> Optional[float]:
+        return pulumi.get(self, "volumes_bssd_total_size")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="volumesCount")
     def volumes_count(self) -> Optional[float]:
         return pulumi.get(self, "volumes_count")
 
     @property
-    @pulumi.getter
-    def volumes_l_ssd_count(self) -> Optional[float]:
-        return pulumi.get(self, "volumes_l_ssd_count")
+    @pulumi.getter(name="volumesLSsdCount")
+    def volumes_lssd_count(self) -> Optional[float]:
+        return pulumi.get(self, "volumes_lssd_count")
 
     @property
-    @pulumi.getter
-    def volumes_l_ssd_total_size(self) -> Optional[float]:
-        return pulumi.get(self, "volumes_l_ssd_total_size")
+    @pulumi.getter(name="volumesLSsdTotalSize")
+    def volumes_lssd_total_size(self) -> Optional[float]:
+        return pulumi.get(self, "volumes_lssd_total_size")
 
 
 @pulumi.output_type
 class ScalewayInstanceV1GetDashboardResponse(dict):
     def __init__(__self__, *,
                  dashboard: Optional['outputs.ScalewayInstanceV1Dashboard'] = None):
-        ScalewayInstanceV1GetDashboardResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dashboard=dashboard,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dashboard: Optional['outputs.ScalewayInstanceV1Dashboard'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dashboard is not None:
-            _setter("dashboard", dashboard)
+            pulumi.set(__self__, "dashboard", dashboard)
 
     @property
     @pulumi.getter

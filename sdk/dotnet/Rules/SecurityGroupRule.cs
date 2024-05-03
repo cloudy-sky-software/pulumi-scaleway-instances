@@ -18,14 +18,14 @@ namespace Pulumi.ScalewayInstances.Rules
         /// <summary>
         /// The beginning of the range of ports to apply this rule to (inclusive)
         /// </summary>
-        [Output("dest_port_from")]
-        public Output<double?> Dest_port_from { get; private set; } = null!;
+        [Output("destPortFrom")]
+        public Output<double?> DestPortFrom { get; private set; } = null!;
 
         /// <summary>
         /// The end of the range of ports to apply this rule to (inclusive)
         /// </summary>
-        [Output("dest_port_to")]
-        public Output<double?> Dest_port_to { get; private set; } = null!;
+        [Output("destPortTo")]
+        public Output<double?> DestPortTo { get; private set; } = null!;
 
         [Output("direction")]
         public Output<Pulumi.ScalewayInstances.Rules.Direction> Direction { get; private set; } = null!;
@@ -39,8 +39,8 @@ namespace Pulumi.ScalewayInstances.Rules
         /// <summary>
         /// (IP network)
         /// </summary>
-        [Output("ip_range")]
-        public Output<string> Ip_range { get; private set; } = null!;
+        [Output("ipRange")]
+        public Output<string> IpRange { get; private set; } = null!;
 
         /// <summary>
         /// The position of this rule in the security group rules list
@@ -106,14 +106,14 @@ namespace Pulumi.ScalewayInstances.Rules
         /// <summary>
         /// The beginning of the range of ports to apply this rule to (inclusive)
         /// </summary>
-        [Input("dest_port_from")]
-        public Input<double>? Dest_port_from { get; set; }
+        [Input("destPortFrom")]
+        public Input<double>? DestPortFrom { get; set; }
 
         /// <summary>
         /// The end of the range of ports to apply this rule to (inclusive)
         /// </summary>
-        [Input("dest_port_to")]
-        public Input<double>? Dest_port_to { get; set; }
+        [Input("destPortTo")]
+        public Input<double>? DestPortTo { get; set; }
 
         [Input("direction", required: true)]
         public Input<Pulumi.ScalewayInstances.Rules.Direction> Direction { get; set; } = null!;
@@ -127,8 +127,8 @@ namespace Pulumi.ScalewayInstances.Rules
         /// <summary>
         /// (IP network)
         /// </summary>
-        [Input("ip_range", required: true)]
-        public Input<string> Ip_range { get; set; } = null!;
+        [Input("ipRange", required: true)]
+        public Input<string> IpRange { get; set; } = null!;
 
         /// <summary>
         /// The position of this rule in the security group rules list
@@ -142,8 +142,8 @@ namespace Pulumi.ScalewayInstances.Rules
         /// <summary>
         /// UUID of the security group
         /// </summary>
-        [Input("security_group_id")]
-        public Input<string>? Security_group_id { get; set; }
+        [Input("securityGroupId")]
+        public Input<string>? SecurityGroupId { get; set; }
 
         /// <summary>
         /// The zone you want to target

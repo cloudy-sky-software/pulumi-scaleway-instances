@@ -15,7 +15,7 @@ namespace Pulumi.ScalewayInstances.Volumes.Outputs
     {
         public readonly Outputs.ScalewayInstanceV1VolumeTypeCapabilities? Capabilities;
         public readonly Outputs.ScalewayInstanceV1VolumeTypeConstraints? Constraints;
-        public readonly string? Display_name;
+        public readonly string? DisplayName;
 
         [OutputConstructor]
         private ScalewayInstanceV1VolumeType(
@@ -23,11 +23,11 @@ namespace Pulumi.ScalewayInstances.Volumes.Outputs
 
             Outputs.ScalewayInstanceV1VolumeTypeConstraints? constraints,
 
-            string? display_name)
+            string? displayName)
         {
             Capabilities = capabilities;
             Constraints = constraints;
-            Display_name = display_name;
+            DisplayName = displayName;
         }
     }
 }

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ScalewayInstanceV1SnapshotState string
@@ -46,12 +45,6 @@ func (o ScalewayInstanceV1SnapshotStateOutput) ToScalewayInstanceV1SnapshotState
 	}).(ScalewayInstanceV1SnapshotStatePtrOutput)
 }
 
-func (o ScalewayInstanceV1SnapshotStateOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SnapshotState] {
-	return pulumix.Output[ScalewayInstanceV1SnapshotState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1SnapshotStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -85,12 +78,6 @@ func (o ScalewayInstanceV1SnapshotStatePtrOutput) ToScalewayInstanceV1SnapshotSt
 
 func (o ScalewayInstanceV1SnapshotStatePtrOutput) ToScalewayInstanceV1SnapshotStatePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SnapshotStatePtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1SnapshotStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SnapshotState] {
-	return pulumix.Output[*ScalewayInstanceV1SnapshotState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1SnapshotStatePtrOutput) Elem() ScalewayInstanceV1SnapshotStateOutput {
@@ -149,12 +136,6 @@ func (o ScalewayInstanceV1SnapshotVolumeTypeOutput) ToScalewayInstanceV1Snapshot
 	}).(ScalewayInstanceV1SnapshotVolumeTypePtrOutput)
 }
 
-func (o ScalewayInstanceV1SnapshotVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SnapshotVolumeType] {
-	return pulumix.Output[ScalewayInstanceV1SnapshotVolumeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1SnapshotVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -188,12 +169,6 @@ func (o ScalewayInstanceV1SnapshotVolumeTypePtrOutput) ToScalewayInstanceV1Snaps
 
 func (o ScalewayInstanceV1SnapshotVolumeTypePtrOutput) ToScalewayInstanceV1SnapshotVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SnapshotVolumeTypePtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1SnapshotVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SnapshotVolumeType] {
-	return pulumix.Output[*ScalewayInstanceV1SnapshotVolumeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1SnapshotVolumeTypePtrOutput) Elem() ScalewayInstanceV1SnapshotVolumeTypeOutput {
@@ -255,12 +230,6 @@ func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOut
 	}).(ScalewayInstanceV1TaskStatusPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1TaskStatus] {
-	return pulumix.Output[ScalewayInstanceV1TaskStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -294,12 +263,6 @@ func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtr
 
 func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1TaskStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1TaskStatus] {
-	return pulumix.Output[*ScalewayInstanceV1TaskStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1TaskStatusPtrOutput) Elem() ScalewayInstanceV1TaskStatusOutput {
@@ -397,12 +360,6 @@ func (o StateOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOu
 	}).(StatePtrOutput)
 }
 
-func (o StateOutput) ToOutput(ctx context.Context) pulumix.Output[State] {
-	return pulumix.Output[State]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -438,12 +395,6 @@ func (o StatePtrOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePt
 	return o
 }
 
-func (o StatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*State] {
-	return pulumix.Output[*State]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StatePtrOutput) Elem() StateOutput {
 	return o.ApplyT(func(v *State) State {
 		if v != nil {
@@ -468,10 +419,15 @@ func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// StateInput is an input type that accepts StateArgs and StateOutput values.
-// You can construct a concrete instance of `StateInput` via:
+// StateInput is an input type that accepts values of the State enum
+// A concrete instance of `StateInput` can be one of the following:
 //
-//	StateArgs{...}
+//	StateAvailable
+//	StateSnapshotting
+//	StateError
+//	StateInvalidData
+//	StateImporting
+//	StateExporting
 type StateInput interface {
 	pulumi.Input
 
@@ -504,12 +460,6 @@ func (in *statePtr) ToStatePtrOutput() StatePtrOutput {
 
 func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
-}
-
-func (in *statePtr) ToOutput(ctx context.Context) pulumix.Output[*State] {
-	return pulumix.Output[*State]{
-		OutputState: in.ToStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type VolumeType string
@@ -580,12 +530,6 @@ func (o VolumeTypeOutput) ToVolumeTypePtrOutputWithContext(ctx context.Context) 
 	}).(VolumeTypePtrOutput)
 }
 
-func (o VolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeType] {
-	return pulumix.Output[VolumeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -621,12 +565,6 @@ func (o VolumeTypePtrOutput) ToVolumeTypePtrOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o VolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeType] {
-	return pulumix.Output[*VolumeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeTypePtrOutput) Elem() VolumeTypeOutput {
 	return o.ApplyT(func(v *VolumeType) VolumeType {
 		if v != nil {
@@ -651,10 +589,12 @@ func (o VolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// VolumeTypeInput is an input type that accepts VolumeTypeArgs and VolumeTypeOutput values.
-// You can construct a concrete instance of `VolumeTypeInput` via:
+// VolumeTypeInput is an input type that accepts values of the VolumeType enum
+// A concrete instance of `VolumeTypeInput` can be one of the following:
 //
-//	VolumeTypeArgs{...}
+//	VolumeTypeLSsd
+//	VolumeTypeBSsd
+//	VolumeTypeUnified
 type VolumeTypeInput interface {
 	pulumi.Input
 
@@ -687,12 +627,6 @@ func (in *volumeTypePtr) ToVolumeTypePtrOutput() VolumeTypePtrOutput {
 
 func (in *volumeTypePtr) ToVolumeTypePtrOutputWithContext(ctx context.Context) VolumeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VolumeTypePtrOutput)
-}
-
-func (in *volumeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*VolumeType] {
-	return pulumix.Output[*VolumeType]{
-		OutputState: in.ToVolumeTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

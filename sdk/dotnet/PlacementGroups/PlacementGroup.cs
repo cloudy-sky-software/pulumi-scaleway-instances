@@ -24,20 +24,20 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         [Output("organization")]
         public Output<string?> Organization { get; private set; } = null!;
 
-        [Output("placement_group")]
+        [Output("placementGroup")]
         public Output<Outputs.ScalewayInstanceV1PlacementGroup?> PlacementGroupValue { get; private set; } = null!;
 
-        [Output("policy_mode")]
-        public Output<Pulumi.ScalewayInstances.PlacementGroups.PolicyMode?> Policy_mode { get; private set; } = null!;
+        [Output("policyMode")]
+        public Output<Pulumi.ScalewayInstances.PlacementGroups.PolicyMode?> PolicyMode { get; private set; } = null!;
 
         /// <summary>
         /// Returns true if the policy is respected, false otherwise
         /// </summary>
-        [Output("policy_respected")]
-        public Output<bool?> Policy_respected { get; private set; } = null!;
+        [Output("policyRespected")]
+        public Output<bool?> PolicyRespected { get; private set; } = null!;
 
-        [Output("policy_type")]
-        public Output<Pulumi.ScalewayInstances.PlacementGroups.PolicyType?> Policy_type { get; private set; } = null!;
+        [Output("policyType")]
+        public Output<Pulumi.ScalewayInstances.PlacementGroups.PolicyType?> PolicyType { get; private set; } = null!;
 
         /// <summary>
         /// The placement group project ID
@@ -115,11 +115,11 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         [Input("organization")]
         public Input<string>? Organization { get; set; }
 
-        [Input("policy_mode")]
-        public Input<Pulumi.ScalewayInstances.PlacementGroups.PolicyMode>? Policy_mode { get; set; }
+        [Input("policyMode")]
+        public Input<Pulumi.ScalewayInstances.PlacementGroups.PolicyMode>? PolicyMode { get; set; }
 
-        [Input("policy_type")]
-        public Input<Pulumi.ScalewayInstances.PlacementGroups.PolicyType>? Policy_type { get; set; }
+        [Input("policyType")]
+        public Input<Pulumi.ScalewayInstances.PlacementGroups.PolicyType>? PolicyType { get; set; }
 
         /// <summary>
         /// The placement group project ID
@@ -147,8 +147,8 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
 
         public PlacementGroupArgs()
         {
-            Policy_mode = Pulumi.ScalewayInstances.PlacementGroups.PolicyMode.Optional;
-            Policy_type = Pulumi.ScalewayInstances.PlacementGroups.PolicyType.MaxAvailability;
+            PolicyMode = Pulumi.ScalewayInstances.PlacementGroups.PolicyMode.Optional;
+            PolicyType = Pulumi.ScalewayInstances.PlacementGroups.PolicyType.MaxAvailability;
         }
         public static new PlacementGroupArgs Empty => new PlacementGroupArgs();
     }

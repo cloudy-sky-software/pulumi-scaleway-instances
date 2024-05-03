@@ -24,8 +24,8 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// UUID of the security group you want to get
         /// </summary>
-        [Input("security_group_id", required: true)]
-        public string Security_group_id { get; set; } = null!;
+        [Input("securityGroupId", required: true)]
+        public string SecurityGroupId { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target
@@ -44,8 +44,8 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// <summary>
         /// UUID of the security group you want to get
         /// </summary>
-        [Input("security_group_id", required: true)]
-        public Input<string> Security_group_id { get; set; } = null!;
+        [Input("securityGroupId", required: true)]
+        public Input<string> SecurityGroupId { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target

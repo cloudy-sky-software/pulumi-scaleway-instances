@@ -38,15 +38,15 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The volume creation date (RFC 3339 format)
      */
-    public /*out*/ readonly creation_date!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
     /**
      * Show the volume NBD export URI
      */
-    public /*out*/ readonly export_uri!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly exportUri!: pulumi.Output<string | undefined>;
     /**
      * The volume modification date (RFC 3339 format)
      */
-    public /*out*/ readonly modification_date!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly modificationDate!: pulumi.Output<string | undefined>;
     /**
      * The volume name
      */
@@ -73,7 +73,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly volume!: pulumi.Output<outputs.volumes.ScalewayInstanceV1Volume | undefined>;
-    public readonly volume_type!: pulumi.Output<enums.volumes.VolumeType | undefined>;
+    public readonly volumeType!: pulumi.Output<enums.volumes.VolumeType | undefined>;
     /**
      * The zone in which is the volume
      */
@@ -98,20 +98,20 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["size"] = args ? args.size : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["volume_type"] = (args ? args.volume_type : undefined) ?? "l_ssd";
+            resourceInputs["volumeType"] = (args ? args.volumeType : undefined) ?? "l_ssd";
             resourceInputs["zone"] = args ? args.zone : undefined;
             resourceInputs["Location"] = undefined /*out*/;
-            resourceInputs["creation_date"] = undefined /*out*/;
-            resourceInputs["export_uri"] = undefined /*out*/;
-            resourceInputs["modification_date"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["exportUri"] = undefined /*out*/;
+            resourceInputs["modificationDate"] = undefined /*out*/;
             resourceInputs["server"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["volume"] = undefined /*out*/;
         } else {
             resourceInputs["Location"] = undefined /*out*/;
-            resourceInputs["creation_date"] = undefined /*out*/;
-            resourceInputs["export_uri"] = undefined /*out*/;
-            resourceInputs["modification_date"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["exportUri"] = undefined /*out*/;
+            resourceInputs["modificationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;
             resourceInputs["project"] = undefined /*out*/;
@@ -120,7 +120,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["volume"] = undefined /*out*/;
-            resourceInputs["volume_type"] = undefined /*out*/;
+            resourceInputs["volumeType"] = undefined /*out*/;
             resourceInputs["zone"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -152,7 +152,7 @@ export interface VolumeArgs {
      * The volume tags
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    volume_type?: pulumi.Input<enums.volumes.VolumeType>;
+    volumeType?: pulumi.Input<enums.volumes.VolumeType>;
     /**
      * The zone you want to target
      */

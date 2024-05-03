@@ -11,7 +11,7 @@ export function getSecurityGroup(args: GetSecurityGroupArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:security_groups:getSecurityGroup", {
-        "security_group_id": args.security_group_id,
+        "securityGroupId": args.securityGroupId,
         "zone": args.zone,
     }, opts);
 }
@@ -20,7 +20,7 @@ export interface GetSecurityGroupArgs {
     /**
      * UUID of the security group you want to get
      */
-    security_group_id: string;
+    securityGroupId: string;
     /**
      * The zone you want to target
      */
@@ -38,7 +38,7 @@ export interface GetSecurityGroupOutputArgs {
     /**
      * UUID of the security group you want to get
      */
-    security_group_id: pulumi.Input<string>;
+    securityGroupId: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 
 export namespace action {
     export interface ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs {
-        volume_type?: pulumi.Input<enums.action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType>;
+        volumeType?: pulumi.Input<enums.action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType>;
     }
     /**
      * scalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgsProvideDefaults sets the appropriate defaults for ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs
@@ -18,7 +18,7 @@ export namespace action {
     export function scalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgsProvideDefaults(val: ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs): ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs {
         return {
             ...val,
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -98,16 +98,16 @@ export namespace images {
         /**
          * The volume creation date (RFC 3339 format)
          */
-        creation_date?: pulumi.Input<string>;
+        creationDate?: pulumi.Input<string>;
         /**
          * Show the volume NBD export URI
          */
-        export_uri?: pulumi.Input<string>;
+        exportUri?: pulumi.Input<string>;
         id?: pulumi.Input<string>;
         /**
          * The volume modification date (RFC 3339 format)
          */
-        modification_date?: pulumi.Input<string>;
+        modificationDate?: pulumi.Input<string>;
         /**
          * The volume name
          */
@@ -133,7 +133,7 @@ export namespace images {
          * The volume tags
          */
         tags?: pulumi.Input<pulumi.Input<string>[]>;
-        volume_type?: pulumi.Input<enums.images.ScalewayInstanceV1VolumeVolumeType>;
+        volumeType?: pulumi.Input<enums.images.ScalewayInstanceV1VolumeVolumeType>;
         /**
          * The zone in which is the volume
          */
@@ -146,7 +146,7 @@ export namespace images {
         return {
             ...val,
             state: (val.state) ?? "available",
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 
@@ -165,7 +165,7 @@ export namespace images {
          * (in bytes)
          */
         size?: pulumi.Input<number>;
-        volume_type?: pulumi.Input<enums.images.ScalewayInstanceV1VolumeSummaryVolumeType>;
+        volumeType?: pulumi.Input<enums.images.ScalewayInstanceV1VolumeSummaryVolumeType>;
     }
     /**
      * scalewayInstanceV1VolumeSummaryArgsProvideDefaults sets the appropriate defaults for ScalewayInstanceV1VolumeSummaryArgs
@@ -173,15 +173,12 @@ export namespace images {
     export function scalewayInstanceV1VolumeSummaryArgsProvideDefaults(val: ScalewayInstanceV1VolumeSummaryArgs): ScalewayInstanceV1VolumeSummaryArgs {
         return {
             ...val,
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 }
 
 export namespace ips {
-    export interface GoogleProtobufStringValueArgs {
-    }
-
     export interface ScalewayInstanceV1ServerSummaryArgs {
         id?: pulumi.Input<string>;
         name?: pulumi.Input<string>;
@@ -195,59 +192,6 @@ export namespace private_nics {
 }
 
 export namespace rules {
-    export interface ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs {
-        /**
-         * Action to apply when the rule matches a packet
-         */
-        action?: pulumi.Input<enums.rules.ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction>;
-        /**
-         * Beginning of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY
-         */
-        dest_port_from?: pulumi.Input<number>;
-        /**
-         * End of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY, or if it is equal to dest_port_from
-         */
-        dest_port_to?: pulumi.Input<number>;
-        /**
-         * Direction the rule applies to
-         */
-        direction?: pulumi.Input<enums.rules.ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection>;
-        /**
-         * Indicates if this rule is editable. Rules with the value false will be ignored
-         */
-        editable?: pulumi.Input<boolean>;
-        /**
-         * UUID of the security rule to update. If no value is provided, a new rule will be created
-         */
-        id?: pulumi.Input<string>;
-        /**
-         * The range of IP address this rules applies to (IP network)
-         */
-        ip_range?: pulumi.Input<string>;
-        /**
-         * Position of this rule in the security group rules list. If several rules are passed with the same position, the resulting order is undefined
-         */
-        position?: pulumi.Input<number>;
-        /**
-         * Protocol family this rule applies to
-         */
-        protocol?: pulumi.Input<enums.rules.ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol>;
-        /**
-         * Zone of the rule. This field is ignored
-         */
-        zone?: pulumi.Input<string>;
-    }
-    /**
-     * scalewayInstanceV1SetSecurityGroupRulesRequestRuleArgsProvideDefaults sets the appropriate defaults for ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs
-     */
-    export function scalewayInstanceV1SetSecurityGroupRulesRequestRuleArgsProvideDefaults(val: ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs): ScalewayInstanceV1SetSecurityGroupRulesRequestRuleArgs {
-        return {
-            ...val,
-            action: (val.action) ?? "accept",
-            direction: (val.direction) ?? "inbound",
-            protocol: (val.protocol) ?? "TCP",
-        };
-    }
 }
 
 export namespace security_groups {
@@ -258,7 +202,7 @@ export namespace servers {
         /**
          * The ID of the snapshot on which this volume will be based
          */
-        base_snapshot?: pulumi.Input<string>;
+        baseSnapshot?: pulumi.Input<string>;
         /**
          * Force the server to boot on this volume
          */
@@ -283,7 +227,7 @@ export namespace servers {
          * Disk size of the volume, must be a multiple of 512 (in bytes)
          */
         size?: pulumi.Input<number>;
-        volume_type?: pulumi.Input<enums.servers.ScalewayInstanceV1VolumeServerTemplateVolumeType>;
+        volumeType?: pulumi.Input<enums.servers.ScalewayInstanceV1VolumeServerTemplateVolumeType>;
     }
     /**
      * scalewayInstanceV1VolumeServerTemplateArgsProvideDefaults sets the appropriate defaults for ScalewayInstanceV1VolumeServerTemplateArgs
@@ -292,7 +236,7 @@ export namespace servers {
         return {
             ...val,
             boot: (val.boot) ?? false,
-            volume_type: (val.volume_type) ?? "l_ssd",
+            volumeType: (val.volumeType) ?? "l_ssd",
         };
     }
 

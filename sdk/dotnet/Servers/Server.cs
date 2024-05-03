@@ -15,8 +15,8 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// The boot type to use
         /// </summary>
-        [Output("boot_type")]
-        public Output<Pulumi.ScalewayInstances.Servers.BootType?> Boot_type { get; private set; } = null!;
+        [Output("bootType")]
+        public Output<Pulumi.ScalewayInstances.Servers.BootType?> BootType { get; private set; } = null!;
 
         /// <summary>
         /// The bootscript ID to use when `boot_type` is set to `bootscript`
@@ -27,20 +27,20 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// Define the server commercial type (i.e. GP1-S)
         /// </summary>
-        [Output("commercial_type")]
-        public Output<string> Commercial_type { get; private set; } = null!;
+        [Output("commercialType")]
+        public Output<string> CommercialType { get; private set; } = null!;
 
         /// <summary>
         /// Define if a dynamic IP is required for the instance
         /// </summary>
-        [Output("dynamic_ip_required")]
-        public Output<bool?> Dynamic_ip_required { get; private set; } = null!;
+        [Output("dynamicIpRequired")]
+        public Output<bool?> DynamicIpRequired { get; private set; } = null!;
 
         /// <summary>
         /// True if IPv6 is enabled on the server
         /// </summary>
-        [Output("enable_ipv6")]
-        public Output<bool?> Enable_ipv6 { get; private set; } = null!;
+        [Output("enableIpv6")]
+        public Output<bool?> EnableIpv6 { get; private set; } = null!;
 
         /// <summary>
         /// The server image ID
@@ -63,8 +63,8 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// Placement group ID if server must be part of a placement group
         /// </summary>
-        [Output("placement_group")]
-        public Output<string?> Placement_group { get; private set; } = null!;
+        [Output("placementGroup")]
+        public Output<string?> PlacementGroup { get; private set; } = null!;
 
         /// <summary>
         /// The server project ID
@@ -75,14 +75,14 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// The ID of the reserved IP to attach to the server
         /// </summary>
-        [Output("public_ip")]
-        public Output<string?> Public_ip { get; private set; } = null!;
+        [Output("publicIp")]
+        public Output<string?> PublicIp { get; private set; } = null!;
 
         /// <summary>
         /// The security group ID
         /// </summary>
-        [Output("security_group")]
-        public Output<string?> Security_group { get; private set; } = null!;
+        [Output("securityGroup")]
+        public Output<string?> SecurityGroup { get; private set; } = null!;
 
         [Output("server")]
         public Output<Outputs.ScalewayInstanceV1Server?> ServerValue { get; private set; } = null!;
@@ -145,8 +145,8 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// The boot type to use
         /// </summary>
-        [Input("boot_type")]
-        public Input<Pulumi.ScalewayInstances.Servers.BootType>? Boot_type { get; set; }
+        [Input("bootType")]
+        public Input<Pulumi.ScalewayInstances.Servers.BootType>? BootType { get; set; }
 
         /// <summary>
         /// The bootscript ID to use when `boot_type` is set to `bootscript`
@@ -157,20 +157,20 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// Define the server commercial type (i.e. GP1-S)
         /// </summary>
-        [Input("commercial_type", required: true)]
-        public Input<string> Commercial_type { get; set; } = null!;
+        [Input("commercialType", required: true)]
+        public Input<string> CommercialType { get; set; } = null!;
 
         /// <summary>
         /// Define if a dynamic IP is required for the instance
         /// </summary>
-        [Input("dynamic_ip_required")]
-        public Input<bool>? Dynamic_ip_required { get; set; }
+        [Input("dynamicIpRequired")]
+        public Input<bool>? DynamicIpRequired { get; set; }
 
         /// <summary>
         /// True if IPv6 is enabled on the server
         /// </summary>
-        [Input("enable_ipv6")]
-        public Input<bool>? Enable_ipv6 { get; set; }
+        [Input("enableIpv6")]
+        public Input<bool>? EnableIpv6 { get; set; }
 
         /// <summary>
         /// The server image ID
@@ -193,8 +193,8 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// Placement group ID if server must be part of a placement group
         /// </summary>
-        [Input("placement_group")]
-        public Input<string>? Placement_group { get; set; }
+        [Input("placementGroup")]
+        public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
         /// The server project ID
@@ -205,14 +205,14 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// The ID of the reserved IP to attach to the server
         /// </summary>
-        [Input("public_ip")]
-        public Input<string>? Public_ip { get; set; }
+        [Input("publicIp")]
+        public Input<string>? PublicIp { get; set; }
 
         /// <summary>
         /// The security group ID
         /// </summary>
-        [Input("security_group")]
-        public Input<string>? Security_group { get; set; }
+        [Input("securityGroup")]
+        public Input<string>? SecurityGroup { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
@@ -242,7 +242,7 @@ namespace Pulumi.ScalewayInstances.Servers
 
         public ServerArgs()
         {
-            Boot_type = Pulumi.ScalewayInstances.Servers.BootType.Local;
+            BootType = Pulumi.ScalewayInstances.Servers.BootType.Local;
         }
         public static new ServerArgs Empty => new ServerArgs();
     }

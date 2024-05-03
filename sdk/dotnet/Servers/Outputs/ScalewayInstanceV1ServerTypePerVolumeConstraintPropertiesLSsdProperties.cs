@@ -19,20 +19,20 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// Maximum volume size in bytes (in bytes)
         /// </summary>
-        public readonly double? Max_size;
+        public readonly double? MaxSize;
         /// <summary>
         /// Minimum volume size in bytes (in bytes)
         /// </summary>
-        public readonly double? Min_size;
+        public readonly double? MinSize;
 
         [OutputConstructor]
         private ScalewayInstanceV1ServerTypePerVolumeConstraintPropertiesLSsdProperties(
-            double? max_size,
+            double? maxSize,
 
-            double? min_size)
+            double? minSize)
         {
-            Max_size = max_size;
-            Min_size = min_size;
+            MaxSize = maxSize;
+            MinSize = minSize;
         }
     }
 }

@@ -42,13 +42,13 @@ export class PlacementGroup extends pulumi.CustomResource {
      * The placement group organization ID
      */
     public readonly organization!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly placement_group!: pulumi.Output<outputs.placement_groups.ScalewayInstanceV1PlacementGroup | undefined>;
-    public readonly policy_mode!: pulumi.Output<enums.placement_groups.PolicyMode | undefined>;
+    public /*out*/ readonly placementGroup!: pulumi.Output<outputs.placement_groups.ScalewayInstanceV1PlacementGroup | undefined>;
+    public readonly policyMode!: pulumi.Output<enums.placement_groups.PolicyMode | undefined>;
     /**
      * Returns true if the policy is respected, false otherwise
      */
-    public /*out*/ readonly policy_respected!: pulumi.Output<boolean | undefined>;
-    public readonly policy_type!: pulumi.Output<enums.placement_groups.PolicyType | undefined>;
+    public /*out*/ readonly policyRespected!: pulumi.Output<boolean | undefined>;
+    public readonly policyType!: pulumi.Output<enums.placement_groups.PolicyType | undefined>;
     /**
      * The placement group project ID
      */
@@ -78,20 +78,20 @@ export class PlacementGroup extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organization"] = args ? args.organization : undefined;
-            resourceInputs["policy_mode"] = (args ? args.policy_mode : undefined) ?? "optional";
-            resourceInputs["policy_type"] = (args ? args.policy_type : undefined) ?? "max_availability";
+            resourceInputs["policyMode"] = (args ? args.policyMode : undefined) ?? "optional";
+            resourceInputs["policyType"] = (args ? args.policyType : undefined) ?? "max_availability";
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
-            resourceInputs["placement_group"] = undefined /*out*/;
-            resourceInputs["policy_respected"] = undefined /*out*/;
+            resourceInputs["placementGroup"] = undefined /*out*/;
+            resourceInputs["policyRespected"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;
-            resourceInputs["placement_group"] = undefined /*out*/;
-            resourceInputs["policy_mode"] = undefined /*out*/;
-            resourceInputs["policy_respected"] = undefined /*out*/;
-            resourceInputs["policy_type"] = undefined /*out*/;
+            resourceInputs["placementGroup"] = undefined /*out*/;
+            resourceInputs["policyMode"] = undefined /*out*/;
+            resourceInputs["policyRespected"] = undefined /*out*/;
+            resourceInputs["policyType"] = undefined /*out*/;
             resourceInputs["project"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["zone"] = undefined /*out*/;
@@ -113,8 +113,8 @@ export interface PlacementGroupArgs {
      * The placement group organization ID
      */
     organization?: pulumi.Input<string>;
-    policy_mode?: pulumi.Input<enums.placement_groups.PolicyMode>;
-    policy_type?: pulumi.Input<enums.placement_groups.PolicyType>;
+    policyMode?: pulumi.Input<enums.placement_groups.PolicyMode>;
+    policyType?: pulumi.Input<enums.placement_groups.PolicyType>;
     /**
      * The placement group project ID
      */

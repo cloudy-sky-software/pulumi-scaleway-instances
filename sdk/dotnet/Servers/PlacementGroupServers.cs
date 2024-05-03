@@ -64,8 +64,8 @@ namespace Pulumi.ScalewayInstances.Servers
         /// <summary>
         /// UUID of the placement group
         /// </summary>
-        [Input("placement_group_id")]
-        public Input<string>? Placement_group_id { get; set; }
+        [Input("placementGroupId")]
+        public Input<string>? PlacementGroupId { get; set; }
 
         [Input("servers")]
         private InputList<string>? _servers;

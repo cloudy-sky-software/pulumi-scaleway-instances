@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupPrivateNIC(ctx *pulumi.Context, args *LookupPrivateNICArgs, opts ...pulumi.InvokeOption) (*LookupPrivateNICResult, error) {
@@ -23,8 +22,8 @@ func LookupPrivateNIC(ctx *pulumi.Context, args *LookupPrivateNICArgs, opts ...p
 }
 
 type LookupPrivateNICArgs struct {
-	Id        string `pulumi:"id"`
-	Server_id string `pulumi:"server_id"`
+	Id       string `pulumi:"id"`
+	ServerId string `pulumi:"serverId"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -58,8 +57,8 @@ func LookupPrivateNICOutput(ctx *pulumi.Context, args LookupPrivateNICOutputArgs
 }
 
 type LookupPrivateNICOutputArgs struct {
-	Id        pulumi.StringInput `pulumi:"id"`
-	Server_id pulumi.StringInput `pulumi:"server_id"`
+	Id       pulumi.StringInput `pulumi:"id"`
+	ServerId pulumi.StringInput `pulumi:"serverId"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }
@@ -80,12 +79,6 @@ func (o LookupPrivateNICResultOutput) ToLookupPrivateNICResultOutput() LookupPri
 
 func (o LookupPrivateNICResultOutput) ToLookupPrivateNICResultOutputWithContext(ctx context.Context) LookupPrivateNICResultOutput {
 	return o
-}
-
-func (o LookupPrivateNICResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrivateNICResult] {
-	return pulumix.Output[LookupPrivateNICResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPrivateNICResultOutput) Items() ScalewayInstanceV1GetPrivateNICResponseOutput {

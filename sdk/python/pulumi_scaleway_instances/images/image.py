@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,59 +32,30 @@ class ImageArgs:
         The set of arguments for constructing a Image resource.
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        ImageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project=project,
-            root_volume=root_volume,
-            arch=arch,
-            default_bootscript=default_bootscript,
-            extra_volumes=extra_volumes,
-            name=name,
-            organization=organization,
-            public=public,
-            state=state,
-            tags=tags,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project: pulumi.Input[str],
-             root_volume: pulumi.Input['ScalewayInstanceV1VolumeSummaryArgs'],
-             arch: Optional[pulumi.Input['Arch']] = None,
-             default_bootscript: Optional[pulumi.Input['ScalewayInstanceV1BootscriptArgs']] = None,
-             extra_volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input['ScalewayInstanceV1VolumeArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             organization: Optional[pulumi.Input[str]] = None,
-             public: Optional[pulumi.Input[bool]] = None,
-             state: Optional[pulumi.Input['State']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("project", project)
-        _setter("root_volume", root_volume)
+        pulumi.set(__self__, "project", project)
+        pulumi.set(__self__, "root_volume", root_volume)
         if arch is None:
             arch = 'x86_64'
         if arch is not None:
-            _setter("arch", arch)
+            pulumi.set(__self__, "arch", arch)
         if default_bootscript is not None:
-            _setter("default_bootscript", default_bootscript)
+            pulumi.set(__self__, "default_bootscript", default_bootscript)
         if extra_volumes is not None:
-            _setter("extra_volumes", extra_volumes)
+            pulumi.set(__self__, "extra_volumes", extra_volumes)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if public is not None:
-            _setter("public", public)
+            pulumi.set(__self__, "public", public)
         if state is None:
             state = 'available'
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -96,7 +67,7 @@ class ImageArgs:
         pulumi.set(self, "project", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="rootVolume")
     def root_volume(self) -> pulumi.Input['ScalewayInstanceV1VolumeSummaryArgs']:
         return pulumi.get(self, "root_volume")
 
@@ -114,7 +85,7 @@ class ImageArgs:
         pulumi.set(self, "arch", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="defaultBootscript")
     def default_bootscript(self) -> Optional[pulumi.Input['ScalewayInstanceV1BootscriptArgs']]:
         return pulumi.get(self, "default_bootscript")
 
@@ -123,7 +94,7 @@ class ImageArgs:
         pulumi.set(self, "default_bootscript", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="extraVolumes")
     def extra_volumes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ScalewayInstanceV1VolumeArgs']]]]:
         return pulumi.get(self, "extra_volumes")
 
@@ -230,10 +201,6 @@ class Image(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -262,11 +229,6 @@ class Image(pulumi.CustomResource):
             if arch is None:
                 arch = 'x86_64'
             __props__.__dict__["arch"] = arch
-            if default_bootscript is not None and not isinstance(default_bootscript, ScalewayInstanceV1BootscriptArgs):
-                default_bootscript = default_bootscript or {}
-                def _setter(key, value):
-                    default_bootscript[key] = value
-                ScalewayInstanceV1BootscriptArgs._configure(_setter, **default_bootscript)
             __props__.__dict__["default_bootscript"] = default_bootscript
             __props__.__dict__["extra_volumes"] = extra_volumes
             __props__.__dict__["name"] = name
@@ -275,11 +237,6 @@ class Image(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project'")
             __props__.__dict__["project"] = project
             __props__.__dict__["public"] = public
-            if root_volume is not None and not isinstance(root_volume, ScalewayInstanceV1VolumeSummaryArgs):
-                root_volume = root_volume or {}
-                def _setter(key, value):
-                    root_volume[key] = value
-                ScalewayInstanceV1VolumeSummaryArgs._configure(_setter, **root_volume)
             if root_volume is None and not opts.urn:
                 raise TypeError("Missing required property 'root_volume'")
             __props__.__dict__["root_volume"] = root_volume
@@ -344,7 +301,7 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "arch")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[Optional[str]]:
         """
         (RFC 3339 format)
@@ -352,17 +309,17 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "creation_date")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="defaultBootscript")
     def default_bootscript(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1Bootscript']]:
         return pulumi.get(self, "default_bootscript")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="extraVolumes")
     def extra_volumes(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ScalewayInstanceV1Volume']]]:
         return pulumi.get(self, "extra_volumes")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="fromServer")
     def from_server(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "from_server")
 
@@ -372,7 +329,7 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "image")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="modificationDate")
     def modification_date(self) -> pulumi.Output[Optional[str]]:
         """
         (RFC 3339 format)
@@ -400,7 +357,7 @@ class Image(pulumi.CustomResource):
         return pulumi.get(self, "public")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="rootVolume")
     def root_volume(self) -> pulumi.Output['outputs.ScalewayInstanceV1VolumeSummary']:
         return pulumi.get(self, "root_volume")
 

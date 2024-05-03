@@ -16,12 +16,12 @@ namespace Pulumi.ScalewayInstances.PlacementGroups.Outputs
         /// <summary>
         /// List of placement groups
         /// </summary>
-        public readonly ImmutableArray<Outputs.ScalewayInstanceV1PlacementGroup> Placement_groups;
+        public readonly ImmutableArray<Outputs.ScalewayInstanceV1PlacementGroup> PlacementGroups;
 
         [OutputConstructor]
-        private ScalewayInstanceV1ListPlacementGroupsResponse(ImmutableArray<Outputs.ScalewayInstanceV1PlacementGroup> placement_groups)
+        private ScalewayInstanceV1ListPlacementGroupsResponse(ImmutableArray<Outputs.ScalewayInstanceV1PlacementGroup> placementGroups)
         {
-            Placement_groups = placement_groups;
+            PlacementGroups = placementGroups;
         }
     }
 }

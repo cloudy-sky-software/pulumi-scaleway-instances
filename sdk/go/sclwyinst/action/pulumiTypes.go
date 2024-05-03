@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -32,12 +31,6 @@ func (o ScalewayInstanceV1ListServerActionsResponseOutput) ToScalewayInstanceV1L
 	return o
 }
 
-func (o ScalewayInstanceV1ListServerActionsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListServerActionsResponse] {
-	return pulumix.Output[ScalewayInstanceV1ListServerActionsResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1ListServerActionsResponseOutput) Actions() ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ListServerActionsResponse) []ScalewayInstanceV1ListServerActionsResponseActionsItem {
 		return v.Actions
@@ -45,7 +38,7 @@ func (o ScalewayInstanceV1ListServerActionsResponseOutput) Actions() ScalewayIns
 }
 
 type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate struct {
-	Volume_type *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType `pulumi:"volume_type"`
+	VolumeType *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType `pulumi:"volumeType"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate
@@ -54,9 +47,9 @@ func (val *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate) Defaults()
 		return nil
 	}
 	tmp := *val
-	if tmp.Volume_type == nil {
-		volume_type_ := ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
-		tmp.Volume_type = &volume_type_
+	if tmp.VolumeType == nil {
+		volumeType_ := ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
+		tmp.VolumeType = &volumeType_
 	}
 	return &tmp
 }
@@ -73,7 +66,7 @@ type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateInput interface {
 }
 
 type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs struct {
-	Volume_type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput `pulumi:"volume_type"`
+	VolumeType ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput `pulumi:"volumeType"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs
@@ -82,8 +75,8 @@ func (val *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs) Defaul
 		return nil
 	}
 	tmp := *val
-	if tmp.Volume_type == nil {
-		tmp.Volume_type = ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
+	if tmp.VolumeType == nil {
+		tmp.VolumeType = ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
 	}
 	return &tmp
 }
@@ -97,12 +90,6 @@ func (i ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs) ToScalewa
 
 func (i ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput)
-}
-
-func (i ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate] {
-	return pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate]{
-		OutputState: i.ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapInput is an input type that accepts ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMap and ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput values.
@@ -130,12 +117,6 @@ func (i ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMap) ToScaleway
 	return pulumi.ToOutputWithContext(ctx, i).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput)
 }
 
-func (i ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate] {
-	return pulumix.Output[map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate]{
-		OutputState: i.ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput struct{ *pulumi.OutputState }
 
 func (ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) ElementType() reflect.Type {
@@ -150,15 +131,9 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) ToScale
 	return o
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate] {
-	return pulumix.Output[ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) Volume_type() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) VolumeType() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate) *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType {
-		return v.Volume_type
+		return v.VolumeType
 	}).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
 }
 
@@ -176,12 +151,6 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput) ToSc
 	return o
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate] {
-	return pulumix.Output[map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput) MapIndex(k pulumi.StringInput) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput {
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate {
 		return vs[0].(map[string]ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate)[vs[1].(string)]
@@ -191,18 +160,18 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput) MapI
 type ScalewayInstanceV1Task struct {
 	// The description of the task
 	Description *string `pulumi:"description"`
-	Href_from   *string `pulumi:"href_from"`
-	Href_result *string `pulumi:"href_result"`
+	HrefFrom    *string `pulumi:"hrefFrom"`
+	HrefResult  *string `pulumi:"hrefResult"`
 	// The unique ID of the task
 	Id *string `pulumi:"id"`
 	// The progress of the task in percent
 	Progress *float64 `pulumi:"progress"`
 	// The task start date (RFC 3339 format)
-	Started_at *string `pulumi:"started_at"`
+	StartedAt *string `pulumi:"startedAt"`
 	// The task status
 	Status *ScalewayInstanceV1TaskStatus `pulumi:"status"`
 	// The task end date (RFC 3339 format)
-	Terminated_at *string `pulumi:"terminated_at"`
+	TerminatedAt *string `pulumi:"terminatedAt"`
 	// The zone in which is the task
 	Zone *string `pulumi:"zone"`
 }
@@ -234,23 +203,17 @@ func (o ScalewayInstanceV1TaskOutput) ToScalewayInstanceV1TaskOutputWithContext(
 	return o
 }
 
-func (o ScalewayInstanceV1TaskOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Task] {
-	return pulumix.Output[ScalewayInstanceV1Task]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The description of the task
 func (o ScalewayInstanceV1TaskOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskOutput) Href_from() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Href_from }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) HrefFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.HrefFrom }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskOutput) Href_result() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Href_result }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) HrefResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.HrefResult }).(pulumi.StringPtrOutput)
 }
 
 // The unique ID of the task
@@ -264,8 +227,8 @@ func (o ScalewayInstanceV1TaskOutput) Progress() pulumi.Float64PtrOutput {
 }
 
 // The task start date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskOutput) Started_at() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Started_at }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.StartedAt }).(pulumi.StringPtrOutput)
 }
 
 // The task status
@@ -274,8 +237,8 @@ func (o ScalewayInstanceV1TaskOutput) Status() ScalewayInstanceV1TaskStatusPtrOu
 }
 
 // The task end date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskOutput) Terminated_at() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Terminated_at }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) TerminatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.TerminatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The zone in which is the task
@@ -295,12 +258,6 @@ func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutput() Sca
 
 func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1TaskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Task] {
-	return pulumix.Output[*ScalewayInstanceV1Task]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1TaskPtrOutput) Elem() ScalewayInstanceV1TaskOutput {
@@ -323,21 +280,21 @@ func (o ScalewayInstanceV1TaskPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskPtrOutput) Href_from() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) HrefFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Href_from
+		return v.HrefFrom
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskPtrOutput) Href_result() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) HrefResult() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Href_result
+		return v.HrefResult
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -362,12 +319,12 @@ func (o ScalewayInstanceV1TaskPtrOutput) Progress() pulumi.Float64PtrOutput {
 }
 
 // The task start date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskPtrOutput) Started_at() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) StartedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Started_at
+		return v.StartedAt
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -382,12 +339,12 @@ func (o ScalewayInstanceV1TaskPtrOutput) Status() ScalewayInstanceV1TaskStatusPt
 }
 
 // The task end date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskPtrOutput) Terminated_at() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) TerminatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Terminated_at
+		return v.TerminatedAt
 	}).(pulumi.StringPtrOutput)
 }
 

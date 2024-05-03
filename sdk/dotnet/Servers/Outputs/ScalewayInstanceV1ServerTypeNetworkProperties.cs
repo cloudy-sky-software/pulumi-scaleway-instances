@@ -17,36 +17,36 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
     public sealed class ScalewayInstanceV1ServerTypeNetworkProperties
     {
         /// <summary>
+        /// True if IPv6 is enabled
+        /// </summary>
+        public readonly bool? _ipv6Support;
+        /// <summary>
         /// List of available network interfaces
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalewayInstanceV1ServerTypeNetworkInterface> Interfaces;
         /// <summary>
-        /// True if IPv6 is enabled
-        /// </summary>
-        public readonly bool? Ipv6_support;
-        /// <summary>
         /// Total maximum internal bandwidth in bits per seconds
         /// </summary>
-        public readonly double? Sum_internal_bandwidth;
+        public readonly double? SumInternalBandwidth;
         /// <summary>
         /// Total maximum internet bandwidth in bits per seconds
         /// </summary>
-        public readonly double? Sum_internet_bandwidth;
+        public readonly double? SumInternetBandwidth;
 
         [OutputConstructor]
         private ScalewayInstanceV1ServerTypeNetworkProperties(
+            bool? _ipv6Support,
+
             ImmutableArray<Outputs.ScalewayInstanceV1ServerTypeNetworkInterface> interfaces,
 
-            bool? ipv6_support,
+            double? sumInternalBandwidth,
 
-            double? sum_internal_bandwidth,
-
-            double? sum_internet_bandwidth)
+            double? sumInternetBandwidth)
         {
+            this._ipv6Support = _ipv6Support;
             Interfaces = interfaces;
-            Ipv6_support = ipv6_support;
-            Sum_internal_bandwidth = sum_internal_bandwidth;
-            Sum_internet_bandwidth = sum_internet_bandwidth;
+            SumInternalBandwidth = sumInternalBandwidth;
+            SumInternetBandwidth = sumInternetBandwidth;
         }
     }
 }

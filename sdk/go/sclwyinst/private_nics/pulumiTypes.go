@@ -9,13 +9,12 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
 
 type ScalewayInstanceV1GetPrivateNICResponse struct {
-	Private_nic *ScalewayInstanceV1PrivateNIC `pulumi:"private_nic"`
+	PrivateNic *ScalewayInstanceV1PrivateNIC `pulumi:"privateNic"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1GetPrivateNICResponse
@@ -24,7 +23,7 @@ func (val *ScalewayInstanceV1GetPrivateNICResponse) Defaults() *ScalewayInstance
 		return nil
 	}
 	tmp := *val
-	tmp.Private_nic = tmp.Private_nic.Defaults()
+	tmp.PrivateNic = tmp.PrivateNic.Defaults()
 
 	return &tmp
 }
@@ -43,18 +42,12 @@ func (o ScalewayInstanceV1GetPrivateNICResponseOutput) ToScalewayInstanceV1GetPr
 	return o
 }
 
-func (o ScalewayInstanceV1GetPrivateNICResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetPrivateNICResponse] {
-	return pulumix.Output[ScalewayInstanceV1GetPrivateNICResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1GetPrivateNICResponseOutput) Private_nic() ScalewayInstanceV1PrivateNICPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1GetPrivateNICResponse) *ScalewayInstanceV1PrivateNIC { return v.Private_nic }).(ScalewayInstanceV1PrivateNICPtrOutput)
+func (o ScalewayInstanceV1GetPrivateNICResponseOutput) PrivateNic() ScalewayInstanceV1PrivateNICPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1GetPrivateNICResponse) *ScalewayInstanceV1PrivateNIC { return v.PrivateNic }).(ScalewayInstanceV1PrivateNICPtrOutput)
 }
 
 type ScalewayInstanceV1ListPrivateNICsResponse struct {
-	Private_nics []ScalewayInstanceV1PrivateNIC `pulumi:"private_nics"`
+	PrivateNics []ScalewayInstanceV1PrivateNIC `pulumi:"privateNics"`
 }
 
 type ScalewayInstanceV1ListPrivateNICsResponseOutput struct{ *pulumi.OutputState }
@@ -71,27 +64,19 @@ func (o ScalewayInstanceV1ListPrivateNICsResponseOutput) ToScalewayInstanceV1Lis
 	return o
 }
 
-func (o ScalewayInstanceV1ListPrivateNICsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListPrivateNICsResponse] {
-	return pulumix.Output[ScalewayInstanceV1ListPrivateNICsResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1ListPrivateNICsResponseOutput) Private_nics() ScalewayInstanceV1PrivateNICArrayOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1ListPrivateNICsResponse) []ScalewayInstanceV1PrivateNIC {
-		return v.Private_nics
-	}).(ScalewayInstanceV1PrivateNICArrayOutput)
+func (o ScalewayInstanceV1ListPrivateNICsResponseOutput) PrivateNics() ScalewayInstanceV1PrivateNICArrayOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1ListPrivateNICsResponse) []ScalewayInstanceV1PrivateNIC { return v.PrivateNics }).(ScalewayInstanceV1PrivateNICArrayOutput)
 }
 
 type ScalewayInstanceV1PrivateNIC struct {
 	// The private NIC unique ID
 	Id *string `pulumi:"id"`
 	// The private NIC MAC address
-	Mac_address *string `pulumi:"mac_address"`
+	MacAddress *string `pulumi:"macAddress"`
 	// The private network where the private NIC is attached
-	Private_network_id *string `pulumi:"private_network_id"`
+	PrivateNetworkId *string `pulumi:"privateNetworkId"`
 	// The server the private NIC is attached to
-	Server_id *string `pulumi:"server_id"`
+	ServerId *string `pulumi:"serverId"`
 	// The private NIC state
 	State *ScalewayInstanceV1PrivateNICState `pulumi:"state"`
 }
@@ -123,30 +108,24 @@ func (o ScalewayInstanceV1PrivateNICOutput) ToScalewayInstanceV1PrivateNICOutput
 	return o
 }
 
-func (o ScalewayInstanceV1PrivateNICOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1PrivateNIC] {
-	return pulumix.Output[ScalewayInstanceV1PrivateNIC]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The private NIC unique ID
 func (o ScalewayInstanceV1PrivateNICOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1PrivateNIC) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The private NIC MAC address
-func (o ScalewayInstanceV1PrivateNICOutput) Mac_address() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1PrivateNIC) *string { return v.Mac_address }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1PrivateNICOutput) MacAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1PrivateNIC) *string { return v.MacAddress }).(pulumi.StringPtrOutput)
 }
 
 // The private network where the private NIC is attached
-func (o ScalewayInstanceV1PrivateNICOutput) Private_network_id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1PrivateNIC) *string { return v.Private_network_id }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1PrivateNICOutput) PrivateNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1PrivateNIC) *string { return v.PrivateNetworkId }).(pulumi.StringPtrOutput)
 }
 
 // The server the private NIC is attached to
-func (o ScalewayInstanceV1PrivateNICOutput) Server_id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1PrivateNIC) *string { return v.Server_id }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1PrivateNICOutput) ServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1PrivateNIC) *string { return v.ServerId }).(pulumi.StringPtrOutput)
 }
 
 // The private NIC state
@@ -166,12 +145,6 @@ func (o ScalewayInstanceV1PrivateNICPtrOutput) ToScalewayInstanceV1PrivateNICPtr
 
 func (o ScalewayInstanceV1PrivateNICPtrOutput) ToScalewayInstanceV1PrivateNICPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1PrivateNICPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1PrivateNICPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1PrivateNIC] {
-	return pulumix.Output[*ScalewayInstanceV1PrivateNIC]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1PrivateNICPtrOutput) Elem() ScalewayInstanceV1PrivateNICOutput {
@@ -195,32 +168,32 @@ func (o ScalewayInstanceV1PrivateNICPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The private NIC MAC address
-func (o ScalewayInstanceV1PrivateNICPtrOutput) Mac_address() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1PrivateNICPtrOutput) MacAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1PrivateNIC) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Mac_address
+		return v.MacAddress
 	}).(pulumi.StringPtrOutput)
 }
 
 // The private network where the private NIC is attached
-func (o ScalewayInstanceV1PrivateNICPtrOutput) Private_network_id() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1PrivateNICPtrOutput) PrivateNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1PrivateNIC) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Private_network_id
+		return v.PrivateNetworkId
 	}).(pulumi.StringPtrOutput)
 }
 
 // The server the private NIC is attached to
-func (o ScalewayInstanceV1PrivateNICPtrOutput) Server_id() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1PrivateNICPtrOutput) ServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1PrivateNIC) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Server_id
+		return v.ServerId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -246,12 +219,6 @@ func (o ScalewayInstanceV1PrivateNICArrayOutput) ToScalewayInstanceV1PrivateNICA
 
 func (o ScalewayInstanceV1PrivateNICArrayOutput) ToScalewayInstanceV1PrivateNICArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1PrivateNICArrayOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1PrivateNICArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1PrivateNIC] {
-	return pulumix.Output[[]ScalewayInstanceV1PrivateNIC]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1PrivateNICArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1PrivateNICOutput {

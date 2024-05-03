@@ -16,16 +16,16 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// The volume creation date (RFC 3339 format)
         /// </summary>
-        public readonly string? Creation_date;
+        public readonly string? CreationDate;
         /// <summary>
         /// Show the volume NBD export URI
         /// </summary>
-        public readonly string? Export_uri;
+        public readonly string? ExportUri;
         public readonly string? Id;
         /// <summary>
         /// The volume modification date (RFC 3339 format)
         /// </summary>
-        public readonly string? Modification_date;
+        public readonly string? ModificationDate;
         /// <summary>
         /// The volume name
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// The volume tags
         /// </summary>
         public readonly ImmutableArray<string> Tags;
-        public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeVolumeType? Volume_type;
+        public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeVolumeType? VolumeType;
         /// <summary>
         /// The zone in which is the volume
         /// </summary>
@@ -59,13 +59,13 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
         [OutputConstructor]
         private ScalewayInstanceV1Volume(
-            string? creation_date,
+            string? creationDate,
 
-            string? export_uri,
+            string? exportUri,
 
             string? id,
 
-            string? modification_date,
+            string? modificationDate,
 
             string name,
 
@@ -81,14 +81,14 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             ImmutableArray<string> tags,
 
-            Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeVolumeType? volume_type,
+            Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeVolumeType? volumeType,
 
             string? zone)
         {
-            Creation_date = creation_date;
-            Export_uri = export_uri;
+            CreationDate = creationDate;
+            ExportUri = exportUri;
             Id = id;
-            Modification_date = modification_date;
+            ModificationDate = modificationDate;
             Name = name;
             Organization = organization;
             Project = project;
@@ -96,7 +96,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
             Size = size;
             State = state;
             Tags = tags;
-            Volume_type = volume_type;
+            VolumeType = volumeType;
             Zone = zone;
         }
     }

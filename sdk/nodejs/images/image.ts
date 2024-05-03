@@ -39,20 +39,20 @@ export class Image extends pulumi.CustomResource {
     /**
      * (RFC 3339 format)
      */
-    public /*out*/ readonly creation_date!: pulumi.Output<string | undefined>;
-    public readonly default_bootscript!: pulumi.Output<outputs.images.ScalewayInstanceV1Bootscript | undefined>;
-    public readonly extra_volumes!: pulumi.Output<{[key: string]: outputs.images.ScalewayInstanceV1Volume} | undefined>;
-    public /*out*/ readonly from_server!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string | undefined>;
+    public readonly defaultBootscript!: pulumi.Output<outputs.images.ScalewayInstanceV1Bootscript | undefined>;
+    public readonly extraVolumes!: pulumi.Output<{[key: string]: outputs.images.ScalewayInstanceV1Volume} | undefined>;
+    public /*out*/ readonly fromServer!: pulumi.Output<string | undefined>;
     public /*out*/ readonly image!: pulumi.Output<outputs.images.ScalewayInstanceV1Image | undefined>;
     /**
      * (RFC 3339 format)
      */
-    public /*out*/ readonly modification_date!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly modificationDate!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly organization!: pulumi.Output<string | undefined>;
     public readonly project!: pulumi.Output<string>;
     public readonly public!: pulumi.Output<boolean | undefined>;
-    public readonly root_volume!: pulumi.Output<outputs.images.ScalewayInstanceV1VolumeSummary>;
+    public readonly rootVolume!: pulumi.Output<outputs.images.ScalewayInstanceV1VolumeSummary>;
     public readonly state!: pulumi.Output<enums.images.State | undefined>;
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly zone!: pulumi.Output<string | undefined>;
@@ -71,39 +71,39 @@ export class Image extends pulumi.CustomResource {
             if ((!args || args.project === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'project'");
             }
-            if ((!args || args.root_volume === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'root_volume'");
+            if ((!args || args.rootVolume === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'rootVolume'");
             }
             resourceInputs["arch"] = (args ? args.arch : undefined) ?? "x86_64";
-            resourceInputs["default_bootscript"] = args ? (args.default_bootscript ? pulumi.output(args.default_bootscript).apply(inputs.images.scalewayInstanceV1BootscriptArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["extra_volumes"] = args ? args.extra_volumes : undefined;
+            resourceInputs["defaultBootscript"] = args ? (args.defaultBootscript ? pulumi.output(args.defaultBootscript).apply(inputs.images.scalewayInstanceV1BootscriptArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["extraVolumes"] = args ? args.extraVolumes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organization"] = args ? args.organization : undefined;
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["public"] = args ? args.public : undefined;
-            resourceInputs["root_volume"] = args ? (args.root_volume ? pulumi.output(args.root_volume).apply(inputs.images.scalewayInstanceV1VolumeSummaryArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["rootVolume"] = args ? (args.rootVolume ? pulumi.output(args.rootVolume).apply(inputs.images.scalewayInstanceV1VolumeSummaryArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["state"] = (args ? args.state : undefined) ?? "available";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
             resourceInputs["Location"] = undefined /*out*/;
-            resourceInputs["creation_date"] = undefined /*out*/;
-            resourceInputs["from_server"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["fromServer"] = undefined /*out*/;
             resourceInputs["image"] = undefined /*out*/;
-            resourceInputs["modification_date"] = undefined /*out*/;
+            resourceInputs["modificationDate"] = undefined /*out*/;
         } else {
             resourceInputs["Location"] = undefined /*out*/;
             resourceInputs["arch"] = undefined /*out*/;
-            resourceInputs["creation_date"] = undefined /*out*/;
-            resourceInputs["default_bootscript"] = undefined /*out*/;
-            resourceInputs["extra_volumes"] = undefined /*out*/;
-            resourceInputs["from_server"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["defaultBootscript"] = undefined /*out*/;
+            resourceInputs["extraVolumes"] = undefined /*out*/;
+            resourceInputs["fromServer"] = undefined /*out*/;
             resourceInputs["image"] = undefined /*out*/;
-            resourceInputs["modification_date"] = undefined /*out*/;
+            resourceInputs["modificationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["organization"] = undefined /*out*/;
             resourceInputs["project"] = undefined /*out*/;
             resourceInputs["public"] = undefined /*out*/;
-            resourceInputs["root_volume"] = undefined /*out*/;
+            resourceInputs["rootVolume"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["zone"] = undefined /*out*/;
@@ -118,13 +118,13 @@ export class Image extends pulumi.CustomResource {
  */
 export interface ImageArgs {
     arch?: pulumi.Input<enums.images.Arch>;
-    default_bootscript?: pulumi.Input<inputs.images.ScalewayInstanceV1BootscriptArgs>;
-    extra_volumes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.images.ScalewayInstanceV1VolumeArgs>}>;
+    defaultBootscript?: pulumi.Input<inputs.images.ScalewayInstanceV1BootscriptArgs>;
+    extraVolumes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.images.ScalewayInstanceV1VolumeArgs>}>;
     name?: pulumi.Input<string>;
     organization?: pulumi.Input<string>;
     project: pulumi.Input<string>;
     public?: pulumi.Input<boolean>;
-    root_volume: pulumi.Input<inputs.images.ScalewayInstanceV1VolumeSummaryArgs>;
+    rootVolume: pulumi.Input<inputs.images.ScalewayInstanceV1VolumeSummaryArgs>;
     state?: pulumi.Input<enums.images.State>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**

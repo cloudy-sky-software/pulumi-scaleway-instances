@@ -7,38 +7,38 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getPlacementGroupServers(args: GetPlacementGroupServersArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupServersResult> {
+export function getPlacementGroupServer(args: GetPlacementGroupServerArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupServerResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("scaleway-instances:servers:getPlacementGroupServers", {
-        "placement_group_id": args.placement_group_id,
+    return pulumi.runtime.invoke("scaleway-instances:servers:getPlacementGroupServer", {
+        "placementGroupId": args.placementGroupId,
         "zone": args.zone,
     }, opts);
 }
 
-export interface GetPlacementGroupServersArgs {
+export interface GetPlacementGroupServerArgs {
     /**
      * UUID of the placement group
      */
-    placement_group_id: string;
+    placementGroupId: string;
     /**
      * The zone you want to target
      */
     zone: string;
 }
 
-export interface GetPlacementGroupServersResult {
+export interface GetPlacementGroupServerResult {
     readonly items: outputs.servers.ScalewayInstanceV1GetPlacementGroupServersResponse;
 }
-export function getPlacementGroupServersOutput(args: GetPlacementGroupServersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupServersResult> {
-    return pulumi.output(args).apply((a: any) => getPlacementGroupServers(a, opts))
+export function getPlacementGroupServerOutput(args: GetPlacementGroupServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupServerResult> {
+    return pulumi.output(args).apply((a: any) => getPlacementGroupServer(a, opts))
 }
 
-export interface GetPlacementGroupServersOutputArgs {
+export interface GetPlacementGroupServerOutputArgs {
     /**
      * UUID of the placement group
      */
-    placement_group_id: pulumi.Input<string>;
+    placementGroupId: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

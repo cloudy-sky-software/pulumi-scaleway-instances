@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupResult, error) {
@@ -24,7 +23,7 @@ func LookupSecurityGroup(ctx *pulumi.Context, args *LookupSecurityGroupArgs, opt
 
 type LookupSecurityGroupArgs struct {
 	// UUID of the security group you want to get
-	Security_group_id string `pulumi:"security_group_id"`
+	SecurityGroupId string `pulumi:"securityGroupId"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -59,7 +58,7 @@ func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutp
 
 type LookupSecurityGroupOutputArgs struct {
 	// UUID of the security group you want to get
-	Security_group_id pulumi.StringInput `pulumi:"security_group_id"`
+	SecurityGroupId pulumi.StringInput `pulumi:"securityGroupId"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }
@@ -80,12 +79,6 @@ func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutput() Loo
 
 func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutputWithContext(ctx context.Context) LookupSecurityGroupResultOutput {
 	return o
-}
-
-func (o LookupSecurityGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecurityGroupResult] {
-	return pulumix.Output[LookupSecurityGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSecurityGroupResultOutput) Items() ScalewayInstanceV1GetSecurityGroupResponseOutput {

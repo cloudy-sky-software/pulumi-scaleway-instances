@@ -25,11 +25,6 @@ export type SecurityGroupRule = import("./securityGroupRule").SecurityGroupRule;
 export const SecurityGroupRule: typeof import("./securityGroupRule").SecurityGroupRule = null as any;
 utilities.lazyLoad(exports, ["SecurityGroupRule"], () => require("./securityGroupRule"));
 
-export { SecurityGroupRulesArgs } from "./securityGroupRules";
-export type SecurityGroupRules = import("./securityGroupRules").SecurityGroupRules;
-export const SecurityGroupRules: typeof import("./securityGroupRules").SecurityGroupRules = null as any;
-utilities.lazyLoad(exports, ["SecurityGroupRules"], () => require("./securityGroupRules"));
-
 
 // Export enums:
 export * from "../types/enums/rules";
@@ -40,8 +35,6 @@ const _module = {
         switch (type) {
             case "scaleway-instances:rules:SecurityGroupRule":
                 return new SecurityGroupRule(name, <any>undefined, { urn })
-            case "scaleway-instances:rules:SecurityGroupRules":
-                return new SecurityGroupRules(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

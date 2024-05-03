@@ -21,17 +21,17 @@ namespace Pulumi.ScalewayInstances.Images
         /// <summary>
         /// (RFC 3339 format)
         /// </summary>
-        [Output("creation_date")]
-        public Output<string?> Creation_date { get; private set; } = null!;
+        [Output("creationDate")]
+        public Output<string?> CreationDate { get; private set; } = null!;
 
-        [Output("default_bootscript")]
-        public Output<Outputs.ScalewayInstanceV1Bootscript?> Default_bootscript { get; private set; } = null!;
+        [Output("defaultBootscript")]
+        public Output<Outputs.ScalewayInstanceV1Bootscript?> DefaultBootscript { get; private set; } = null!;
 
-        [Output("extra_volumes")]
-        public Output<ImmutableDictionary<string, Outputs.ScalewayInstanceV1Volume>?> Extra_volumes { get; private set; } = null!;
+        [Output("extraVolumes")]
+        public Output<ImmutableDictionary<string, Outputs.ScalewayInstanceV1Volume>?> ExtraVolumes { get; private set; } = null!;
 
-        [Output("from_server")]
-        public Output<string?> From_server { get; private set; } = null!;
+        [Output("fromServer")]
+        public Output<string?> FromServer { get; private set; } = null!;
 
         [Output("image")]
         public Output<Outputs.ScalewayInstanceV1Image?> ImageValue { get; private set; } = null!;
@@ -39,8 +39,8 @@ namespace Pulumi.ScalewayInstances.Images
         /// <summary>
         /// (RFC 3339 format)
         /// </summary>
-        [Output("modification_date")]
-        public Output<string?> Modification_date { get; private set; } = null!;
+        [Output("modificationDate")]
+        public Output<string?> ModificationDate { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -54,8 +54,8 @@ namespace Pulumi.ScalewayInstances.Images
         [Output("public")]
         public Output<bool?> Public { get; private set; } = null!;
 
-        [Output("root_volume")]
-        public Output<Outputs.ScalewayInstanceV1VolumeSummary> Root_volume { get; private set; } = null!;
+        [Output("rootVolume")]
+        public Output<Outputs.ScalewayInstanceV1VolumeSummary> RootVolume { get; private set; } = null!;
 
         [Output("state")]
         public Output<Pulumi.ScalewayInstances.Images.State?> State { get; private set; } = null!;
@@ -115,15 +115,15 @@ namespace Pulumi.ScalewayInstances.Images
         [Input("arch")]
         public Input<Pulumi.ScalewayInstances.Images.Arch>? Arch { get; set; }
 
-        [Input("default_bootscript")]
-        public Input<Inputs.ScalewayInstanceV1BootscriptArgs>? Default_bootscript { get; set; }
+        [Input("defaultBootscript")]
+        public Input<Inputs.ScalewayInstanceV1BootscriptArgs>? DefaultBootscript { get; set; }
 
-        [Input("extra_volumes")]
-        private InputMap<Inputs.ScalewayInstanceV1VolumeArgs>? _extra_volumes;
-        public InputMap<Inputs.ScalewayInstanceV1VolumeArgs> Extra_volumes
+        [Input("extraVolumes")]
+        private InputMap<Inputs.ScalewayInstanceV1VolumeArgs>? _extraVolumes;
+        public InputMap<Inputs.ScalewayInstanceV1VolumeArgs> ExtraVolumes
         {
-            get => _extra_volumes ?? (_extra_volumes = new InputMap<Inputs.ScalewayInstanceV1VolumeArgs>());
-            set => _extra_volumes = value;
+            get => _extraVolumes ?? (_extraVolumes = new InputMap<Inputs.ScalewayInstanceV1VolumeArgs>());
+            set => _extraVolumes = value;
         }
 
         [Input("name")]
@@ -138,8 +138,8 @@ namespace Pulumi.ScalewayInstances.Images
         [Input("public")]
         public Input<bool>? Public { get; set; }
 
-        [Input("root_volume", required: true)]
-        public Input<Inputs.ScalewayInstanceV1VolumeSummaryArgs> Root_volume { get; set; } = null!;
+        [Input("rootVolume", required: true)]
+        public Input<Inputs.ScalewayInstanceV1VolumeSummaryArgs> RootVolume { get; set; } = null!;
 
         [Input("state")]
         public Input<Pulumi.ScalewayInstances.Images.State>? State { get; set; }

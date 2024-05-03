@@ -9,13 +9,12 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
 
 type ScalewayInstanceV1ListServerUserDataResponse struct {
-	User_data []string `pulumi:"user_data"`
+	UserData []string `pulumi:"userData"`
 }
 
 type ScalewayInstanceV1ListServerUserDataResponseOutput struct{ *pulumi.OutputState }
@@ -32,20 +31,14 @@ func (o ScalewayInstanceV1ListServerUserDataResponseOutput) ToScalewayInstanceV1
 	return o
 }
 
-func (o ScalewayInstanceV1ListServerUserDataResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListServerUserDataResponse] {
-	return pulumix.Output[ScalewayInstanceV1ListServerUserDataResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1ListServerUserDataResponseOutput) User_data() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1ListServerUserDataResponse) []string { return v.User_data }).(pulumi.StringArrayOutput)
+func (o ScalewayInstanceV1ListServerUserDataResponseOutput) UserData() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1ListServerUserDataResponse) []string { return v.UserData }).(pulumi.StringArrayOutput)
 }
 
 type ScalewayStdFile struct {
-	Content      *string `pulumi:"content"`
-	Content_type *string `pulumi:"content_type"`
-	Name         *string `pulumi:"name"`
+	Content     *string `pulumi:"content"`
+	ContentType *string `pulumi:"contentType"`
+	Name        *string `pulumi:"name"`
 }
 
 type ScalewayStdFileOutput struct{ *pulumi.OutputState }
@@ -62,18 +55,12 @@ func (o ScalewayStdFileOutput) ToScalewayStdFileOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ScalewayStdFileOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayStdFile] {
-	return pulumix.Output[ScalewayStdFile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayStdFileOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayStdFile) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayStdFileOutput) Content_type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayStdFile) *string { return v.Content_type }).(pulumi.StringPtrOutput)
+func (o ScalewayStdFileOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayStdFile) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
 func (o ScalewayStdFileOutput) Name() pulumi.StringPtrOutput {

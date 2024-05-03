@@ -15,26 +15,26 @@ namespace Pulumi.ScalewayInstances.Snapshots
         /// <summary>
         /// The volume on which the snapshot is based on
         /// </summary>
-        [Output("base_volume")]
-        public Output<Outputs.BaseVolumeProperties?> Base_volume { get; private set; } = null!;
+        [Output("baseVolume")]
+        public Output<Outputs.BaseVolumeProperties?> BaseVolume { get; private set; } = null!;
 
         /// <summary>
         /// The snapshot creation date (RFC 3339 format)
         /// </summary>
-        [Output("creation_date")]
-        public Output<string?> Creation_date { get; private set; } = null!;
+        [Output("creationDate")]
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// The reason for the failed snapshot import
         /// </summary>
-        [Output("error_reason")]
-        public Output<string?> Error_reason { get; private set; } = null!;
+        [Output("errorReason")]
+        public Output<string?> ErrorReason { get; private set; } = null!;
 
         /// <summary>
         /// The snapshot modification date (RFC 3339 format)
         /// </summary>
-        [Output("modification_date")]
-        public Output<string?> Modification_date { get; private set; } = null!;
+        [Output("modificationDate")]
+        public Output<string?> ModificationDate { get; private set; } = null!;
 
         /// <summary>
         /// The snapshot name
@@ -75,8 +75,8 @@ namespace Pulumi.ScalewayInstances.Snapshots
         [Output("task")]
         public Output<Outputs.ScalewayInstanceV1Task?> Task { get; private set; } = null!;
 
-        [Output("volume_type")]
-        public Output<Pulumi.ScalewayInstances.Snapshots.VolumeType?> Volume_type { get; private set; } = null!;
+        [Output("volumeType")]
+        public Output<Pulumi.ScalewayInstances.Snapshots.VolumeType?> VolumeType { get; private set; } = null!;
 
         /// <summary>
         /// The snapshot zone
@@ -169,8 +169,8 @@ namespace Pulumi.ScalewayInstances.Snapshots
             set => _tags = value;
         }
 
-        [Input("volume_type")]
-        public Input<Pulumi.ScalewayInstances.Snapshots.VolumeType>? Volume_type { get; set; }
+        [Input("volumeType")]
+        public Input<Pulumi.ScalewayInstances.Snapshots.VolumeType>? VolumeType { get; set; }
 
         /// <summary>
         /// The zone you want to target
@@ -181,7 +181,7 @@ namespace Pulumi.ScalewayInstances.Snapshots
         public SnapshotArgs()
         {
             State = Pulumi.ScalewayInstances.Snapshots.State.Available;
-            Volume_type = Pulumi.ScalewayInstances.Snapshots.VolumeType.LSsd;
+            VolumeType = Pulumi.ScalewayInstances.Snapshots.VolumeType.LSsd;
         }
         public static new SnapshotArgs Empty => new SnapshotArgs();
     }

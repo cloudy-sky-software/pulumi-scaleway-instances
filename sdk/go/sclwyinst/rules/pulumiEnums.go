@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Action string
@@ -78,12 +77,6 @@ func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPt
 	}).(ActionPtrOutput)
 }
 
-func (o ActionOutput) ToOutput(ctx context.Context) pulumix.Output[Action] {
-	return pulumix.Output[Action]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +112,6 @@ func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) Actio
 	return o
 }
 
-func (o ActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Action] {
-	return pulumix.Output[*Action]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionPtrOutput) Elem() ActionOutput {
 	return o.ApplyT(func(v *Action) Action {
 		if v != nil {
@@ -149,10 +136,11 @@ func (o ActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// ActionInput is an input type that accepts ActionArgs and ActionOutput values.
-// You can construct a concrete instance of `ActionInput` via:
+// ActionInput is an input type that accepts values of the Action enum
+// A concrete instance of `ActionInput` can be one of the following:
 //
-//	ActionArgs{...}
+//	ActionAccept
+//	ActionDrop
 type ActionInput interface {
 	pulumi.Input
 
@@ -185,12 +173,6 @@ func (in *actionPtr) ToActionPtrOutput() ActionPtrOutput {
 
 func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
-}
-
-func (in *actionPtr) ToOutput(ctx context.Context) pulumix.Output[*Action] {
-	return pulumix.Output[*Action]{
-		OutputState: in.ToActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type Direction string
@@ -260,12 +242,6 @@ func (o DirectionOutput) ToDirectionPtrOutputWithContext(ctx context.Context) Di
 	}).(DirectionPtrOutput)
 }
 
-func (o DirectionOutput) ToOutput(ctx context.Context) pulumix.Output[Direction] {
-	return pulumix.Output[Direction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +277,6 @@ func (o DirectionPtrOutput) ToDirectionPtrOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o DirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Direction] {
-	return pulumix.Output[*Direction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DirectionPtrOutput) Elem() DirectionOutput {
 	return o.ApplyT(func(v *Direction) Direction {
 		if v != nil {
@@ -331,10 +301,11 @@ func (o DirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// DirectionInput is an input type that accepts DirectionArgs and DirectionOutput values.
-// You can construct a concrete instance of `DirectionInput` via:
+// DirectionInput is an input type that accepts values of the Direction enum
+// A concrete instance of `DirectionInput` can be one of the following:
 //
-//	DirectionArgs{...}
+//	DirectionInbound
+//	DirectionOutbound
 type DirectionInput interface {
 	pulumi.Input
 
@@ -367,12 +338,6 @@ func (in *directionPtr) ToDirectionPtrOutput() DirectionPtrOutput {
 
 func (in *directionPtr) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DirectionPtrOutput)
-}
-
-func (in *directionPtr) ToOutput(ctx context.Context) pulumix.Output[*Direction] {
-	return pulumix.Output[*Direction]{
-		OutputState: in.ToDirectionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type Protocol string
@@ -444,12 +409,6 @@ func (o ProtocolOutput) ToProtocolPtrOutputWithContext(ctx context.Context) Prot
 	}).(ProtocolPtrOutput)
 }
 
-func (o ProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[Protocol] {
-	return pulumix.Output[Protocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -485,12 +444,6 @@ func (o ProtocolPtrOutput) ToProtocolPtrOutputWithContext(ctx context.Context) P
 	return o
 }
 
-func (o ProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Protocol] {
-	return pulumix.Output[*Protocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtocolPtrOutput) Elem() ProtocolOutput {
 	return o.ApplyT(func(v *Protocol) Protocol {
 		if v != nil {
@@ -515,10 +468,13 @@ func (o ProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProtocolInput is an input type that accepts ProtocolArgs and ProtocolOutput values.
-// You can construct a concrete instance of `ProtocolInput` via:
+// ProtocolInput is an input type that accepts values of the Protocol enum
+// A concrete instance of `ProtocolInput` can be one of the following:
 //
-//	ProtocolArgs{...}
+//	ProtocolTcp
+//	ProtocolUdp
+//	ProtocolIcmp
+//	ProtocolAny
 type ProtocolInput interface {
 	pulumi.Input
 
@@ -553,12 +509,6 @@ func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) Proto
 	return pulumi.ToOutputWithContext(ctx, in).(ProtocolPtrOutput)
 }
 
-func (in *protocolPtr) ToOutput(ctx context.Context) pulumix.Output[*Protocol] {
-	return pulumix.Output[*Protocol]{
-		OutputState: in.ToProtocolPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalewayInstanceV1SecurityGroupRuleAction string
 
 const (
@@ -588,12 +538,6 @@ func (o ScalewayInstanceV1SecurityGroupRuleActionOutput) ToScalewayInstanceV1Sec
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1SecurityGroupRuleAction) *ScalewayInstanceV1SecurityGroupRuleAction {
 		return &v
 	}).(ScalewayInstanceV1SecurityGroupRuleActionPtrOutput)
-}
-
-func (o ScalewayInstanceV1SecurityGroupRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupRuleAction] {
-	return pulumix.Output[ScalewayInstanceV1SecurityGroupRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupRuleActionOutput) ToStringOutput() pulumi.StringOutput {
@@ -629,12 +573,6 @@ func (o ScalewayInstanceV1SecurityGroupRuleActionPtrOutput) ToScalewayInstanceV1
 
 func (o ScalewayInstanceV1SecurityGroupRuleActionPtrOutput) ToScalewayInstanceV1SecurityGroupRuleActionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupRuleActionPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1SecurityGroupRuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleAction] {
-	return pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupRuleActionPtrOutput) Elem() ScalewayInstanceV1SecurityGroupRuleActionOutput {
@@ -692,12 +630,6 @@ func (o ScalewayInstanceV1SecurityGroupRuleDirectionOutput) ToScalewayInstanceV1
 	}).(ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput)
 }
 
-func (o ScalewayInstanceV1SecurityGroupRuleDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupRuleDirection] {
-	return pulumix.Output[ScalewayInstanceV1SecurityGroupRuleDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1SecurityGroupRuleDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -731,12 +663,6 @@ func (o ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput) ToScalewayInstanc
 
 func (o ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput) ToScalewayInstanceV1SecurityGroupRuleDirectionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleDirection] {
-	return pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleDirection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput) Elem() ScalewayInstanceV1SecurityGroupRuleDirectionOutput {
@@ -796,12 +722,6 @@ func (o ScalewayInstanceV1SecurityGroupRuleProtocolOutput) ToScalewayInstanceV1S
 	}).(ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput)
 }
 
-func (o ScalewayInstanceV1SecurityGroupRuleProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SecurityGroupRuleProtocol] {
-	return pulumix.Output[ScalewayInstanceV1SecurityGroupRuleProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1SecurityGroupRuleProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -837,12 +757,6 @@ func (o ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput) ToScalewayInstance
 	return o
 }
 
-func (o ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleProtocol] {
-	return pulumix.Output[*ScalewayInstanceV1SecurityGroupRuleProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput) Elem() ScalewayInstanceV1SecurityGroupRuleProtocolOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1SecurityGroupRuleProtocol) ScalewayInstanceV1SecurityGroupRuleProtocol {
 		if v != nil {
@@ -867,557 +781,6 @@ func (o ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// Action to apply when the rule matches a packet
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction string
-
-const (
-	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionAccept = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction("accept")
-	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionDrop   = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction("drop")
-)
-
-func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction)(nil)).Elem()
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput {
-	return pulumi.ToOutput(e).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
-	return e.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(context.Background())
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
-	return ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction(e).ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutputWithContext(ctx).ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(ctx)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput struct{ *pulumi.OutputState }
-
-func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction)(nil)).Elem()
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
-	return o.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction {
-		return &v
-	}).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput)
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction] {
-	return pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput struct{ *pulumi.OutputState }
-
-func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction)(nil)).Elem()
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction] {
-	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) Elem() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput {
-	return o.ApplyT(func(v *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction {
-		if v != nil {
-			return *v
-		}
-		var ret ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction
-		return ret
-	}).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput)
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionInput is an input type that accepts ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionArgs and ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput values.
-// You can construct a concrete instance of `ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionInput` via:
-//
-//	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionArgs{...}
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionInput interface {
-	pulumi.Input
-
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutputWithContext(context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput
-}
-
-var scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrType = reflect.TypeOf((**ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction)(nil)).Elem()
-
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrInput interface {
-	pulumi.Input
-
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput
-}
-
-type scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr string
-
-func ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr(v string) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrInput {
-	return (*scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr)(&v)
-}
-
-func (*scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr) ElementType() reflect.Type {
-	return scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrType
-}
-
-func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
-	return pulumi.ToOutput(in).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput)
-}
-
-func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput)
-}
-
-func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction] {
-	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction]{
-		OutputState: in.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-// Direction the rule applies to
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection string
-
-const (
-	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionInbound  = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection("inbound")
-	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutbound = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection("outbound")
-)
-
-func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection)(nil)).Elem()
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput {
-	return pulumi.ToOutput(e).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
-	return e.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(context.Background())
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
-	return ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection(e).ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutputWithContext(ctx).ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(ctx)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput struct{ *pulumi.OutputState }
-
-func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection)(nil)).Elem()
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
-	return o.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection {
-		return &v
-	}).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput)
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection] {
-	return pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput struct{ *pulumi.OutputState }
-
-func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection)(nil)).Elem()
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection] {
-	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) Elem() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput {
-	return o.ApplyT(func(v *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection {
-		if v != nil {
-			return *v
-		}
-		var ret ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection
-		return ret
-	}).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput)
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionInput is an input type that accepts ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionArgs and ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput values.
-// You can construct a concrete instance of `ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionInput` via:
-//
-//	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionArgs{...}
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionInput interface {
-	pulumi.Input
-
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutputWithContext(context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput
-}
-
-var scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrType = reflect.TypeOf((**ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection)(nil)).Elem()
-
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrInput interface {
-	pulumi.Input
-
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput
-}
-
-type scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr string
-
-func ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr(v string) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrInput {
-	return (*scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr)(&v)
-}
-
-func (*scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr) ElementType() reflect.Type {
-	return scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrType
-}
-
-func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
-	return pulumi.ToOutput(in).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput)
-}
-
-func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput)
-}
-
-func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection] {
-	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection]{
-		OutputState: in.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-// Protocol family this rule applies to
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol string
-
-const (
-	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolTcp  = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol("TCP")
-	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolUdp  = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol("UDP")
-	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolIcmp = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol("ICMP")
-	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolAny  = ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol("ANY")
-)
-
-func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol)(nil)).Elem()
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput {
-	return pulumi.ToOutput(e).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
-	return e.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(context.Background())
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
-	return ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol(e).ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutputWithContext(ctx).ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(ctx)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput struct{ *pulumi.OutputState }
-
-func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol)(nil)).Elem()
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
-	return o.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol {
-		return &v
-	}).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput)
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol] {
-	return pulumix.Output[ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput struct{ *pulumi.OutputState }
-
-func (ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol)(nil)).Elem()
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol] {
-	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) Elem() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput {
-	return o.ApplyT(func(v *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol {
-		if v != nil {
-			return *v
-		}
-		var ret ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol
-		return ret
-	}).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput)
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolInput is an input type that accepts ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolArgs and ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput values.
-// You can construct a concrete instance of `ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolInput` via:
-//
-//	ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolArgs{...}
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolInput interface {
-	pulumi.Input
-
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutputWithContext(context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput
-}
-
-var scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrType = reflect.TypeOf((**ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol)(nil)).Elem()
-
-type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrInput interface {
-	pulumi.Input
-
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput
-	ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput
-}
-
-type scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr string
-
-func ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr(v string) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrInput {
-	return (*scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr)(&v)
-}
-
-func (*scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr) ElementType() reflect.Type {
-	return scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrType
-}
-
-func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput() ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
-	return pulumi.ToOutput(in).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput)
-}
-
-func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr) ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput)
-}
-
-func (in *scalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol] {
-	return pulumix.Output[*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol]{
-		OutputState: in.ToScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionInput)(nil)).Elem(), Action("accept"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionPtrInput)(nil)).Elem(), Action("accept"))
@@ -1425,12 +788,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectionPtrInput)(nil)).Elem(), Direction("inbound"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolInput)(nil)).Elem(), Protocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolPtrInput)(nil)).Elem(), Protocol("TCP"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionInput)(nil)).Elem(), ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction("accept"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrInput)(nil)).Elem(), ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction("accept"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionInput)(nil)).Elem(), ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection("inbound"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrInput)(nil)).Elem(), ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection("inbound"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolInput)(nil)).Elem(), ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol("TCP"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrInput)(nil)).Elem(), ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol("TCP"))
 	pulumi.RegisterOutputType(ActionOutput{})
 	pulumi.RegisterOutputType(ActionPtrOutput{})
 	pulumi.RegisterOutputType(DirectionOutput{})
@@ -1443,10 +800,4 @@ func init() {
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupRuleProtocolOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleActionPtrOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirectionPtrOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocolPtrOutput{})
 }

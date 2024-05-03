@@ -24,12 +24,12 @@ namespace Pulumi.ScalewayInstances.Images.Inputs
         [Input("size")]
         public Input<double>? Size { get; set; }
 
-        [Input("volume_type")]
-        public Input<Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeSummaryVolumeType>? Volume_type { get; set; }
+        [Input("volumeType")]
+        public Input<Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeSummaryVolumeType>? VolumeType { get; set; }
 
         public ScalewayInstanceV1VolumeSummaryArgs()
         {
-            Volume_type = Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeSummaryVolumeType.LSsd;
+            VolumeType = Pulumi.ScalewayInstances.Images.ScalewayInstanceV1VolumeSummaryVolumeType.LSsd;
         }
         public static new ScalewayInstanceV1VolumeSummaryArgs Empty => new ScalewayInstanceV1VolumeSummaryArgs();
     }

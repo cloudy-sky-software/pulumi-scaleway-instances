@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type SecurityGroupRule struct {
@@ -18,14 +17,14 @@ type SecurityGroupRule struct {
 
 	Action ActionOutput `pulumi:"action"`
 	// The beginning of the range of ports to apply this rule to (inclusive)
-	Dest_port_from pulumi.Float64PtrOutput `pulumi:"dest_port_from"`
+	DestPortFrom pulumi.Float64PtrOutput `pulumi:"destPortFrom"`
 	// The end of the range of ports to apply this rule to (inclusive)
-	Dest_port_to pulumi.Float64PtrOutput `pulumi:"dest_port_to"`
-	Direction    DirectionOutput         `pulumi:"direction"`
+	DestPortTo pulumi.Float64PtrOutput `pulumi:"destPortTo"`
+	Direction  DirectionOutput         `pulumi:"direction"`
 	// Indicates if this rule is editable (will be ignored)
 	Editable pulumi.BoolPtrOutput `pulumi:"editable"`
 	// (IP network)
-	Ip_range pulumi.StringOutput `pulumi:"ip_range"`
+	IpRange pulumi.StringOutput `pulumi:"ipRange"`
 	// The position of this rule in the security group rules list
 	Position pulumi.Float64PtrOutput                      `pulumi:"position"`
 	Protocol ProtocolOutput                               `pulumi:"protocol"`
@@ -39,8 +38,8 @@ func NewSecurityGroupRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Ip_range == nil {
-		return nil, errors.New("invalid value for required argument 'Ip_range'")
+	if args.IpRange == nil {
+		return nil, errors.New("invalid value for required argument 'IpRange'")
 	}
 	if args.Action == nil {
 		args.Action = Action("accept")
@@ -86,19 +85,19 @@ func (SecurityGroupRuleState) ElementType() reflect.Type {
 type securityGroupRuleArgs struct {
 	Action Action `pulumi:"action"`
 	// The beginning of the range of ports to apply this rule to (inclusive)
-	Dest_port_from *float64 `pulumi:"dest_port_from"`
+	DestPortFrom *float64 `pulumi:"destPortFrom"`
 	// The end of the range of ports to apply this rule to (inclusive)
-	Dest_port_to *float64  `pulumi:"dest_port_to"`
-	Direction    Direction `pulumi:"direction"`
+	DestPortTo *float64  `pulumi:"destPortTo"`
+	Direction  Direction `pulumi:"direction"`
 	// Indicates if this rule is editable (will be ignored)
 	Editable *bool `pulumi:"editable"`
 	// (IP network)
-	Ip_range string `pulumi:"ip_range"`
+	IpRange string `pulumi:"ipRange"`
 	// The position of this rule in the security group rules list
 	Position *float64 `pulumi:"position"`
 	Protocol Protocol `pulumi:"protocol"`
 	// UUID of the security group
-	Security_group_id *string `pulumi:"security_group_id"`
+	SecurityGroupId *string `pulumi:"securityGroupId"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
@@ -107,19 +106,19 @@ type securityGroupRuleArgs struct {
 type SecurityGroupRuleArgs struct {
 	Action ActionInput
 	// The beginning of the range of ports to apply this rule to (inclusive)
-	Dest_port_from pulumi.Float64PtrInput
+	DestPortFrom pulumi.Float64PtrInput
 	// The end of the range of ports to apply this rule to (inclusive)
-	Dest_port_to pulumi.Float64PtrInput
-	Direction    DirectionInput
+	DestPortTo pulumi.Float64PtrInput
+	Direction  DirectionInput
 	// Indicates if this rule is editable (will be ignored)
 	Editable pulumi.BoolPtrInput
 	// (IP network)
-	Ip_range pulumi.StringInput
+	IpRange pulumi.StringInput
 	// The position of this rule in the security group rules list
 	Position pulumi.Float64PtrInput
 	Protocol ProtocolInput
 	// UUID of the security group
-	Security_group_id pulumi.StringPtrInput
+	SecurityGroupId pulumi.StringPtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }
@@ -147,12 +146,6 @@ func (i *SecurityGroupRule) ToSecurityGroupRuleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupRuleOutput)
 }
 
-func (i *SecurityGroupRule) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupRule] {
-	return pulumix.Output[*SecurityGroupRule]{
-		OutputState: i.ToSecurityGroupRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupRuleOutput) ElementType() reflect.Type {
@@ -167,24 +160,18 @@ func (o SecurityGroupRuleOutput) ToSecurityGroupRuleOutputWithContext(ctx contex
 	return o
 }
 
-func (o SecurityGroupRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupRule] {
-	return pulumix.Output[*SecurityGroupRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityGroupRuleOutput) Action() ActionOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) ActionOutput { return v.Action }).(ActionOutput)
 }
 
 // The beginning of the range of ports to apply this rule to (inclusive)
-func (o SecurityGroupRuleOutput) Dest_port_from() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SecurityGroupRule) pulumi.Float64PtrOutput { return v.Dest_port_from }).(pulumi.Float64PtrOutput)
+func (o SecurityGroupRuleOutput) DestPortFrom() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SecurityGroupRule) pulumi.Float64PtrOutput { return v.DestPortFrom }).(pulumi.Float64PtrOutput)
 }
 
 // The end of the range of ports to apply this rule to (inclusive)
-func (o SecurityGroupRuleOutput) Dest_port_to() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SecurityGroupRule) pulumi.Float64PtrOutput { return v.Dest_port_to }).(pulumi.Float64PtrOutput)
+func (o SecurityGroupRuleOutput) DestPortTo() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SecurityGroupRule) pulumi.Float64PtrOutput { return v.DestPortTo }).(pulumi.Float64PtrOutput)
 }
 
 func (o SecurityGroupRuleOutput) Direction() DirectionOutput {
@@ -197,8 +184,8 @@ func (o SecurityGroupRuleOutput) Editable() pulumi.BoolPtrOutput {
 }
 
 // (IP network)
-func (o SecurityGroupRuleOutput) Ip_range() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.Ip_range }).(pulumi.StringOutput)
+func (o SecurityGroupRuleOutput) IpRange() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.IpRange }).(pulumi.StringOutput)
 }
 
 // The position of this rule in the security group rules list

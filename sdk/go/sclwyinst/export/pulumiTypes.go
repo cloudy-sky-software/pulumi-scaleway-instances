@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -17,18 +16,18 @@ var _ = internal.GetEnvOrDefault
 type ScalewayInstanceV1Task struct {
 	// The description of the task
 	Description *string `pulumi:"description"`
-	Href_from   *string `pulumi:"href_from"`
-	Href_result *string `pulumi:"href_result"`
+	HrefFrom    *string `pulumi:"hrefFrom"`
+	HrefResult  *string `pulumi:"hrefResult"`
 	// The unique ID of the task
 	Id *string `pulumi:"id"`
 	// The progress of the task in percent
 	Progress *float64 `pulumi:"progress"`
 	// The task start date (RFC 3339 format)
-	Started_at *string `pulumi:"started_at"`
+	StartedAt *string `pulumi:"startedAt"`
 	// The task status
 	Status *ScalewayInstanceV1TaskStatus `pulumi:"status"`
 	// The task end date (RFC 3339 format)
-	Terminated_at *string `pulumi:"terminated_at"`
+	TerminatedAt *string `pulumi:"terminatedAt"`
 	// The zone in which is the task
 	Zone *string `pulumi:"zone"`
 }
@@ -60,23 +59,17 @@ func (o ScalewayInstanceV1TaskOutput) ToScalewayInstanceV1TaskOutputWithContext(
 	return o
 }
 
-func (o ScalewayInstanceV1TaskOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Task] {
-	return pulumix.Output[ScalewayInstanceV1Task]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The description of the task
 func (o ScalewayInstanceV1TaskOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskOutput) Href_from() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Href_from }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) HrefFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.HrefFrom }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskOutput) Href_result() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Href_result }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) HrefResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.HrefResult }).(pulumi.StringPtrOutput)
 }
 
 // The unique ID of the task
@@ -90,8 +83,8 @@ func (o ScalewayInstanceV1TaskOutput) Progress() pulumi.Float64PtrOutput {
 }
 
 // The task start date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskOutput) Started_at() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Started_at }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.StartedAt }).(pulumi.StringPtrOutput)
 }
 
 // The task status
@@ -100,8 +93,8 @@ func (o ScalewayInstanceV1TaskOutput) Status() ScalewayInstanceV1TaskStatusPtrOu
 }
 
 // The task end date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskOutput) Terminated_at() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Terminated_at }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) TerminatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.TerminatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The zone in which is the task
@@ -121,12 +114,6 @@ func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutput() Sca
 
 func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1TaskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Task] {
-	return pulumix.Output[*ScalewayInstanceV1Task]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1TaskPtrOutput) Elem() ScalewayInstanceV1TaskOutput {
@@ -149,21 +136,21 @@ func (o ScalewayInstanceV1TaskPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskPtrOutput) Href_from() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) HrefFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Href_from
+		return v.HrefFrom
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskPtrOutput) Href_result() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) HrefResult() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Href_result
+		return v.HrefResult
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -188,12 +175,12 @@ func (o ScalewayInstanceV1TaskPtrOutput) Progress() pulumi.Float64PtrOutput {
 }
 
 // The task start date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskPtrOutput) Started_at() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) StartedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Started_at
+		return v.StartedAt
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -208,12 +195,12 @@ func (o ScalewayInstanceV1TaskPtrOutput) Status() ScalewayInstanceV1TaskStatusPt
 }
 
 // The task end date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskPtrOutput) Terminated_at() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) TerminatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Terminated_at
+		return v.TerminatedAt
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,27 +23,14 @@ class PrivateNICArgs:
         The set of arguments for constructing a PrivateNIC resource.
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        PrivateNICArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            private_network_id=private_network_id,
-            server_id=server_id,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             private_network_id: pulumi.Input[str],
-             server_id: Optional[pulumi.Input[str]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("private_network_id", private_network_id)
+        pulumi.set(__self__, "private_network_id", private_network_id)
         if server_id is not None:
-            _setter("server_id", server_id)
+            pulumi.set(__self__, "server_id", server_id)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="privateNetworkId")
     def private_network_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "private_network_id")
 
@@ -52,7 +39,7 @@ class PrivateNICArgs:
         pulumi.set(self, "private_network_id", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "server_id")
 
@@ -106,10 +93,6 @@ class PrivateNIC(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PrivateNICArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,12 +143,12 @@ class PrivateNIC(pulumi.CustomResource):
         return PrivateNIC(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="privateNetworkId")
     def private_network_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "private_network_id")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="privateNic")
     def private_nic(self) -> pulumi.Output[Optional['outputs.ScalewayInstanceV1PrivateNIC']]:
         return pulumi.get(self, "private_nic")
 

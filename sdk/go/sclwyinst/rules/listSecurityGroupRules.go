@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func ListSecurityGroupRules(ctx *pulumi.Context, args *ListSecurityGroupRulesArgs, opts ...pulumi.InvokeOption) (*ListSecurityGroupRulesResult, error) {
@@ -24,7 +23,7 @@ func ListSecurityGroupRules(ctx *pulumi.Context, args *ListSecurityGroupRulesArg
 
 type ListSecurityGroupRulesArgs struct {
 	// UUID of the security group
-	Security_group_id string `pulumi:"security_group_id"`
+	SecurityGroupId string `pulumi:"securityGroupId"`
 	// The zone you want to target
 	Zone string `pulumi:"zone"`
 }
@@ -48,7 +47,7 @@ func ListSecurityGroupRulesOutput(ctx *pulumi.Context, args ListSecurityGroupRul
 
 type ListSecurityGroupRulesOutputArgs struct {
 	// UUID of the security group
-	Security_group_id pulumi.StringInput `pulumi:"security_group_id"`
+	SecurityGroupId pulumi.StringInput `pulumi:"securityGroupId"`
 	// The zone you want to target
 	Zone pulumi.StringInput `pulumi:"zone"`
 }
@@ -69,12 +68,6 @@ func (o ListSecurityGroupRulesResultOutput) ToListSecurityGroupRulesResultOutput
 
 func (o ListSecurityGroupRulesResultOutput) ToListSecurityGroupRulesResultOutputWithContext(ctx context.Context) ListSecurityGroupRulesResultOutput {
 	return o
-}
-
-func (o ListSecurityGroupRulesResultOutput) ToOutput(ctx context.Context) pulumix.Output[ListSecurityGroupRulesResult] {
-	return pulumix.Output[ListSecurityGroupRulesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListSecurityGroupRulesResultOutput) Items() ScalewayInstanceV1ListSecurityGroupRulesResponseOutput {

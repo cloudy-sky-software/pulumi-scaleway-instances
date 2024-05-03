@@ -44,7 +44,7 @@ export class PlacementGroupServers extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["placement_group_id"] = args ? args.placement_group_id : undefined;
+            resourceInputs["placementGroupId"] = args ? args.placementGroupId : undefined;
             resourceInputs["servers"] = args ? args.servers : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
         } else {
@@ -62,7 +62,7 @@ export interface PlacementGroupServersArgs {
     /**
      * UUID of the placement group
      */
-    placement_group_id?: pulumi.Input<string>;
+    placementGroupId?: pulumi.Input<string>;
     servers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The zone you want to target

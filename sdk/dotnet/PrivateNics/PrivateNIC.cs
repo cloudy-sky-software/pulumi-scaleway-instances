@@ -12,11 +12,11 @@ namespace Pulumi.ScalewayInstances.PrivateNics
     [ScalewayInstancesResourceType("scaleway-instances:private_nics:PrivateNIC")]
     public partial class PrivateNIC : global::Pulumi.CustomResource
     {
-        [Output("private_network_id")]
-        public Output<string> Private_network_id { get; private set; } = null!;
+        [Output("privateNetworkId")]
+        public Output<string> PrivateNetworkId { get; private set; } = null!;
 
-        [Output("private_nic")]
-        public Output<Outputs.ScalewayInstanceV1PrivateNIC?> Private_nic { get; private set; } = null!;
+        [Output("privateNic")]
+        public Output<Outputs.ScalewayInstanceV1PrivateNIC?> PrivateNic { get; private set; } = null!;
 
 
         /// <summary>
@@ -64,11 +64,11 @@ namespace Pulumi.ScalewayInstances.PrivateNics
 
     public sealed class PrivateNICArgs : global::Pulumi.ResourceArgs
     {
-        [Input("private_network_id", required: true)]
-        public Input<string> Private_network_id { get; set; } = null!;
+        [Input("privateNetworkId", required: true)]
+        public Input<string> PrivateNetworkId { get; set; } = null!;
 
-        [Input("server_id")]
-        public Input<string>? Server_id { get; set; }
+        [Input("serverId")]
+        public Input<string>? ServerId { get; set; }
 
         /// <summary>
         /// The zone you want to target

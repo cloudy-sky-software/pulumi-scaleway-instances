@@ -57,7 +57,7 @@ export class ExportSnapshot extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["snapshot_id"] = args ? args.snapshot_id : undefined;
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["zone"] = args ? args.zone : undefined;
             resourceInputs["task"] = undefined /*out*/;
         } else {
@@ -85,7 +85,7 @@ export interface ExportSnapshotArgs {
     /**
      * The snapshot ID
      */
-    snapshot_id?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -37,12 +36,6 @@ func (o BaseVolumePropertiesOutput) ToBaseVolumePropertiesOutputWithContext(ctx 
 	return o
 }
 
-func (o BaseVolumePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[BaseVolumeProperties] {
-	return pulumix.Output[BaseVolumeProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The volume ID on which the snapshot is based on
 func (o BaseVolumePropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BaseVolumeProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -65,12 +58,6 @@ func (o BaseVolumePropertiesPtrOutput) ToBaseVolumePropertiesPtrOutput() BaseVol
 
 func (o BaseVolumePropertiesPtrOutput) ToBaseVolumePropertiesPtrOutputWithContext(ctx context.Context) BaseVolumePropertiesPtrOutput {
 	return o
-}
-
-func (o BaseVolumePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BaseVolumeProperties] {
-	return pulumix.Output[*BaseVolumeProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BaseVolumePropertiesPtrOutput) Elem() BaseVolumePropertiesOutput {
@@ -132,12 +119,6 @@ func (o ScalewayInstanceV1GetSnapshotResponseOutput) ToScalewayInstanceV1GetSnap
 	return o
 }
 
-func (o ScalewayInstanceV1GetSnapshotResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetSnapshotResponse] {
-	return pulumix.Output[ScalewayInstanceV1GetSnapshotResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1GetSnapshotResponseOutput) Snapshot() ScalewayInstanceV1SnapshotPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetSnapshotResponse) *ScalewayInstanceV1Snapshot { return v.Snapshot }).(ScalewayInstanceV1SnapshotPtrOutput)
 }
@@ -161,12 +142,6 @@ func (o ScalewayInstanceV1ListSnapshotsResponseOutput) ToScalewayInstanceV1ListS
 	return o
 }
 
-func (o ScalewayInstanceV1ListSnapshotsResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1ListSnapshotsResponse] {
-	return pulumix.Output[ScalewayInstanceV1ListSnapshotsResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of snapshots
 func (o ScalewayInstanceV1ListSnapshotsResponseOutput) Snapshots() ScalewayInstanceV1SnapshotArrayOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1ListSnapshotsResponse) []ScalewayInstanceV1Snapshot { return v.Snapshots }).(ScalewayInstanceV1SnapshotArrayOutput)
@@ -174,14 +149,14 @@ func (o ScalewayInstanceV1ListSnapshotsResponseOutput) Snapshots() ScalewayInsta
 
 type ScalewayInstanceV1Snapshot struct {
 	// The volume on which the snapshot is based on
-	Base_volume *ScalewayInstanceV1SnapshotBaseVolumeProperties `pulumi:"base_volume"`
+	BaseVolume *ScalewayInstanceV1SnapshotBaseVolumeProperties `pulumi:"baseVolume"`
 	// The snapshot creation date (RFC 3339 format)
-	Creation_date *string `pulumi:"creation_date"`
+	CreationDate *string `pulumi:"creationDate"`
 	// The reason for the failed snapshot import
-	Error_reason *string `pulumi:"error_reason"`
-	Id           *string `pulumi:"id"`
+	ErrorReason *string `pulumi:"errorReason"`
+	Id          *string `pulumi:"id"`
 	// The snapshot modification date (RFC 3339 format)
-	Modification_date *string `pulumi:"modification_date"`
+	ModificationDate *string `pulumi:"modificationDate"`
 	// The snapshot name
 	Name *string `pulumi:"name"`
 	// The snapshot organization ID
@@ -192,8 +167,8 @@ type ScalewayInstanceV1Snapshot struct {
 	Size  *float64                         `pulumi:"size"`
 	State *ScalewayInstanceV1SnapshotState `pulumi:"state"`
 	// The snapshot tags
-	Tags        []string                              `pulumi:"tags"`
-	Volume_type *ScalewayInstanceV1SnapshotVolumeType `pulumi:"volume_type"`
+	Tags       []string                              `pulumi:"tags"`
+	VolumeType *ScalewayInstanceV1SnapshotVolumeType `pulumi:"volumeType"`
 	// The snapshot zone
 	Zone *string `pulumi:"zone"`
 }
@@ -208,9 +183,9 @@ func (val *ScalewayInstanceV1Snapshot) Defaults() *ScalewayInstanceV1Snapshot {
 		state_ := ScalewayInstanceV1SnapshotState("available")
 		tmp.State = &state_
 	}
-	if tmp.Volume_type == nil {
-		volume_type_ := ScalewayInstanceV1SnapshotVolumeType("l_ssd")
-		tmp.Volume_type = &volume_type_
+	if tmp.VolumeType == nil {
+		volumeType_ := ScalewayInstanceV1SnapshotVolumeType("l_ssd")
+		tmp.VolumeType = &volumeType_
 	}
 	return &tmp
 }
@@ -229,27 +204,21 @@ func (o ScalewayInstanceV1SnapshotOutput) ToScalewayInstanceV1SnapshotOutputWith
 	return o
 }
 
-func (o ScalewayInstanceV1SnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Snapshot] {
-	return pulumix.Output[ScalewayInstanceV1Snapshot]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The volume on which the snapshot is based on
-func (o ScalewayInstanceV1SnapshotOutput) Base_volume() ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput {
+func (o ScalewayInstanceV1SnapshotOutput) BaseVolume() ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *ScalewayInstanceV1SnapshotBaseVolumeProperties {
-		return v.Base_volume
+		return v.BaseVolume
 	}).(ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput)
 }
 
 // The snapshot creation date (RFC 3339 format)
-func (o ScalewayInstanceV1SnapshotOutput) Creation_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *string { return v.Creation_date }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1SnapshotOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
 // The reason for the failed snapshot import
-func (o ScalewayInstanceV1SnapshotOutput) Error_reason() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *string { return v.Error_reason }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1SnapshotOutput) ErrorReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *string { return v.ErrorReason }).(pulumi.StringPtrOutput)
 }
 
 func (o ScalewayInstanceV1SnapshotOutput) Id() pulumi.StringPtrOutput {
@@ -257,8 +226,8 @@ func (o ScalewayInstanceV1SnapshotOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The snapshot modification date (RFC 3339 format)
-func (o ScalewayInstanceV1SnapshotOutput) Modification_date() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *string { return v.Modification_date }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1SnapshotOutput) ModificationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *string { return v.ModificationDate }).(pulumi.StringPtrOutput)
 }
 
 // The snapshot name
@@ -290,8 +259,8 @@ func (o ScalewayInstanceV1SnapshotOutput) Tags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) []string { return v.Tags }).(pulumi.StringArrayOutput)
 }
 
-func (o ScalewayInstanceV1SnapshotOutput) Volume_type() ScalewayInstanceV1SnapshotVolumeTypePtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *ScalewayInstanceV1SnapshotVolumeType { return v.Volume_type }).(ScalewayInstanceV1SnapshotVolumeTypePtrOutput)
+func (o ScalewayInstanceV1SnapshotOutput) VolumeType() ScalewayInstanceV1SnapshotVolumeTypePtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Snapshot) *ScalewayInstanceV1SnapshotVolumeType { return v.VolumeType }).(ScalewayInstanceV1SnapshotVolumeTypePtrOutput)
 }
 
 // The snapshot zone
@@ -313,12 +282,6 @@ func (o ScalewayInstanceV1SnapshotPtrOutput) ToScalewayInstanceV1SnapshotPtrOutp
 	return o
 }
 
-func (o ScalewayInstanceV1SnapshotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Snapshot] {
-	return pulumix.Output[*ScalewayInstanceV1Snapshot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1SnapshotPtrOutput) Elem() ScalewayInstanceV1SnapshotOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Snapshot) ScalewayInstanceV1Snapshot {
 		if v != nil {
@@ -330,32 +293,32 @@ func (o ScalewayInstanceV1SnapshotPtrOutput) Elem() ScalewayInstanceV1SnapshotOu
 }
 
 // The volume on which the snapshot is based on
-func (o ScalewayInstanceV1SnapshotPtrOutput) Base_volume() ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput {
+func (o ScalewayInstanceV1SnapshotPtrOutput) BaseVolume() ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Snapshot) *ScalewayInstanceV1SnapshotBaseVolumeProperties {
 		if v == nil {
 			return nil
 		}
-		return v.Base_volume
+		return v.BaseVolume
 	}).(ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput)
 }
 
 // The snapshot creation date (RFC 3339 format)
-func (o ScalewayInstanceV1SnapshotPtrOutput) Creation_date() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1SnapshotPtrOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Snapshot) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Creation_date
+		return v.CreationDate
 	}).(pulumi.StringPtrOutput)
 }
 
 // The reason for the failed snapshot import
-func (o ScalewayInstanceV1SnapshotPtrOutput) Error_reason() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1SnapshotPtrOutput) ErrorReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Snapshot) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Error_reason
+		return v.ErrorReason
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -369,12 +332,12 @@ func (o ScalewayInstanceV1SnapshotPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The snapshot modification date (RFC 3339 format)
-func (o ScalewayInstanceV1SnapshotPtrOutput) Modification_date() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1SnapshotPtrOutput) ModificationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Snapshot) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Modification_date
+		return v.ModificationDate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -437,12 +400,12 @@ func (o ScalewayInstanceV1SnapshotPtrOutput) Tags() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o ScalewayInstanceV1SnapshotPtrOutput) Volume_type() ScalewayInstanceV1SnapshotVolumeTypePtrOutput {
+func (o ScalewayInstanceV1SnapshotPtrOutput) VolumeType() ScalewayInstanceV1SnapshotVolumeTypePtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Snapshot) *ScalewayInstanceV1SnapshotVolumeType {
 		if v == nil {
 			return nil
 		}
-		return v.Volume_type
+		return v.VolumeType
 	}).(ScalewayInstanceV1SnapshotVolumeTypePtrOutput)
 }
 
@@ -468,12 +431,6 @@ func (o ScalewayInstanceV1SnapshotArrayOutput) ToScalewayInstanceV1SnapshotArray
 
 func (o ScalewayInstanceV1SnapshotArrayOutput) ToScalewayInstanceV1SnapshotArrayOutputWithContext(ctx context.Context) ScalewayInstanceV1SnapshotArrayOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1SnapshotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalewayInstanceV1Snapshot] {
-	return pulumix.Output[[]ScalewayInstanceV1Snapshot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1SnapshotArrayOutput) Index(i pulumi.IntInput) ScalewayInstanceV1SnapshotOutput {
@@ -505,12 +462,6 @@ func (o ScalewayInstanceV1SnapshotBaseVolumePropertiesOutput) ToScalewayInstance
 	return o
 }
 
-func (o ScalewayInstanceV1SnapshotBaseVolumePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1SnapshotBaseVolumeProperties] {
-	return pulumix.Output[ScalewayInstanceV1SnapshotBaseVolumeProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The volume ID on which the snapshot is based on
 func (o ScalewayInstanceV1SnapshotBaseVolumePropertiesOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1SnapshotBaseVolumeProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -533,12 +484,6 @@ func (o ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput) ToScalewayInsta
 
 func (o ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput) ToScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1SnapshotBaseVolumeProperties] {
-	return pulumix.Output[*ScalewayInstanceV1SnapshotBaseVolumeProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput) Elem() ScalewayInstanceV1SnapshotBaseVolumePropertiesOutput {
@@ -574,18 +519,18 @@ func (o ScalewayInstanceV1SnapshotBaseVolumePropertiesPtrOutput) Name() pulumi.S
 type ScalewayInstanceV1Task struct {
 	// The description of the task
 	Description *string `pulumi:"description"`
-	Href_from   *string `pulumi:"href_from"`
-	Href_result *string `pulumi:"href_result"`
+	HrefFrom    *string `pulumi:"hrefFrom"`
+	HrefResult  *string `pulumi:"hrefResult"`
 	// The unique ID of the task
 	Id *string `pulumi:"id"`
 	// The progress of the task in percent
 	Progress *float64 `pulumi:"progress"`
 	// The task start date (RFC 3339 format)
-	Started_at *string `pulumi:"started_at"`
+	StartedAt *string `pulumi:"startedAt"`
 	// The task status
 	Status *ScalewayInstanceV1TaskStatus `pulumi:"status"`
 	// The task end date (RFC 3339 format)
-	Terminated_at *string `pulumi:"terminated_at"`
+	TerminatedAt *string `pulumi:"terminatedAt"`
 	// The zone in which is the task
 	Zone *string `pulumi:"zone"`
 }
@@ -617,23 +562,17 @@ func (o ScalewayInstanceV1TaskOutput) ToScalewayInstanceV1TaskOutputWithContext(
 	return o
 }
 
-func (o ScalewayInstanceV1TaskOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1Task] {
-	return pulumix.Output[ScalewayInstanceV1Task]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The description of the task
 func (o ScalewayInstanceV1TaskOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskOutput) Href_from() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Href_from }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) HrefFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.HrefFrom }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskOutput) Href_result() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Href_result }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) HrefResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.HrefResult }).(pulumi.StringPtrOutput)
 }
 
 // The unique ID of the task
@@ -647,8 +586,8 @@ func (o ScalewayInstanceV1TaskOutput) Progress() pulumi.Float64PtrOutput {
 }
 
 // The task start date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskOutput) Started_at() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Started_at }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.StartedAt }).(pulumi.StringPtrOutput)
 }
 
 // The task status
@@ -657,8 +596,8 @@ func (o ScalewayInstanceV1TaskOutput) Status() ScalewayInstanceV1TaskStatusPtrOu
 }
 
 // The task end date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskOutput) Terminated_at() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.Terminated_at }).(pulumi.StringPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) TerminatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *string { return v.TerminatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The zone in which is the task
@@ -678,12 +617,6 @@ func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutput() Sca
 
 func (o ScalewayInstanceV1TaskPtrOutput) ToScalewayInstanceV1TaskPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskPtrOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1TaskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalewayInstanceV1Task] {
-	return pulumix.Output[*ScalewayInstanceV1Task]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1TaskPtrOutput) Elem() ScalewayInstanceV1TaskOutput {
@@ -706,21 +639,21 @@ func (o ScalewayInstanceV1TaskPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskPtrOutput) Href_from() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) HrefFrom() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Href_from
+		return v.HrefFrom
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskPtrOutput) Href_result() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) HrefResult() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Href_result
+		return v.HrefResult
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -745,12 +678,12 @@ func (o ScalewayInstanceV1TaskPtrOutput) Progress() pulumi.Float64PtrOutput {
 }
 
 // The task start date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskPtrOutput) Started_at() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) StartedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Started_at
+		return v.StartedAt
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -765,12 +698,12 @@ func (o ScalewayInstanceV1TaskPtrOutput) Status() ScalewayInstanceV1TaskStatusPt
 }
 
 // The task end date (RFC 3339 format)
-func (o ScalewayInstanceV1TaskPtrOutput) Terminated_at() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskPtrOutput) TerminatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalewayInstanceV1Task) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Terminated_at
+		return v.TerminatedAt
 	}).(pulumi.StringPtrOutput)
 }
 

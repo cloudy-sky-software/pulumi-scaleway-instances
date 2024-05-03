@@ -47,35 +47,3 @@ export const ScalewayInstanceV1SecurityGroupRuleProtocol = {
 } as const;
 
 export type ScalewayInstanceV1SecurityGroupRuleProtocol = (typeof ScalewayInstanceV1SecurityGroupRuleProtocol)[keyof typeof ScalewayInstanceV1SecurityGroupRuleProtocol];
-
-export const ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction = {
-    Accept: "accept",
-    Drop: "drop",
-} as const;
-
-/**
- * Action to apply when the rule matches a packet
- */
-export type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction = (typeof ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction)[keyof typeof ScalewayInstanceV1SetSecurityGroupRulesRequestRuleAction];
-
-export const ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection = {
-    Inbound: "inbound",
-    Outbound: "outbound",
-} as const;
-
-/**
- * Direction the rule applies to
- */
-export type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection = (typeof ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection)[keyof typeof ScalewayInstanceV1SetSecurityGroupRulesRequestRuleDirection];
-
-export const ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol = {
-    Tcp: "TCP",
-    Udp: "UDP",
-    Icmp: "ICMP",
-    Any: "ANY",
-} as const;
-
-/**
- * Protocol family this rule applies to
- */
-export type ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol = (typeof ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol)[keyof typeof ScalewayInstanceV1SetSecurityGroupRulesRequestRuleProtocol];

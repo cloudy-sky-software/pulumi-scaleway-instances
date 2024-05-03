@@ -11,13 +11,13 @@ export function listPrivateNICs(args: ListPrivateNICsArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:private_nics:listPrivateNICs", {
-        "server_id": args.server_id,
+        "serverId": args.serverId,
         "zone": args.zone,
     }, opts);
 }
 
 export interface ListPrivateNICsArgs {
-    server_id: string;
+    serverId: string;
     /**
      * The zone you want to target
      */
@@ -32,7 +32,7 @@ export function listPrivateNICsOutput(args: ListPrivateNICsOutputArgs, opts?: pu
 }
 
 export interface ListPrivateNICsOutputArgs {
-    server_id: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

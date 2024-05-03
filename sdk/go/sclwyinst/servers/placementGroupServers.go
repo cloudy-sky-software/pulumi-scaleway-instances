@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type PlacementGroupServers struct {
@@ -59,8 +58,8 @@ func (PlacementGroupServersState) ElementType() reflect.Type {
 
 type placementGroupServersArgs struct {
 	// UUID of the placement group
-	Placement_group_id *string  `pulumi:"placement_group_id"`
-	Servers            []string `pulumi:"servers"`
+	PlacementGroupId *string  `pulumi:"placementGroupId"`
+	Servers          []string `pulumi:"servers"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
@@ -68,8 +67,8 @@ type placementGroupServersArgs struct {
 // The set of arguments for constructing a PlacementGroupServers resource.
 type PlacementGroupServersArgs struct {
 	// UUID of the placement group
-	Placement_group_id pulumi.StringPtrInput
-	Servers            pulumi.StringArrayInput
+	PlacementGroupId pulumi.StringPtrInput
+	Servers          pulumi.StringArrayInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }
@@ -97,12 +96,6 @@ func (i *PlacementGroupServers) ToPlacementGroupServersOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupServersOutput)
 }
 
-func (i *PlacementGroupServers) ToOutput(ctx context.Context) pulumix.Output[*PlacementGroupServers] {
-	return pulumix.Output[*PlacementGroupServers]{
-		OutputState: i.ToPlacementGroupServersOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlacementGroupServersOutput struct{ *pulumi.OutputState }
 
 func (PlacementGroupServersOutput) ElementType() reflect.Type {
@@ -115,12 +108,6 @@ func (o PlacementGroupServersOutput) ToPlacementGroupServersOutput() PlacementGr
 
 func (o PlacementGroupServersOutput) ToPlacementGroupServersOutputWithContext(ctx context.Context) PlacementGroupServersOutput {
 	return o
-}
-
-func (o PlacementGroupServersOutput) ToOutput(ctx context.Context) pulumix.Output[*PlacementGroupServers] {
-	return pulumix.Output[*PlacementGroupServers]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlacementGroupServersOutput) Servers() pulumi.StringArrayOutput {

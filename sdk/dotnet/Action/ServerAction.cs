@@ -93,8 +93,8 @@ namespace Pulumi.ScalewayInstances.Action
         /// <summary>
         /// UUID of the server
         /// </summary>
-        [Input("server_id")]
-        public Input<string>? Server_id { get; set; }
+        [Input("serverId")]
+        public Input<string>? ServerId { get; set; }
 
         [Input("volumes")]
         private InputMap<Inputs.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs>? _volumes;

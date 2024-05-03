@@ -17,13 +17,13 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// <summary>
         /// (RFC 3339 format)
         /// </summary>
-        public readonly string? Creation_date;
-        public readonly string? Export_uri;
+        public readonly string? CreationDate;
+        public readonly string? ExportUri;
         public readonly string? Id;
         /// <summary>
         /// (RFC 3339 format)
         /// </summary>
-        public readonly string? Modification_date;
+        public readonly string? ModificationDate;
         public readonly string? Name;
         public readonly string? Organization;
         public readonly string? Project;
@@ -33,20 +33,20 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// </summary>
         public readonly double? Size;
         public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerState? State;
-        public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerVolumeType? Volume_type;
+        public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerVolumeType? VolumeType;
         public readonly string? Zone;
 
         [OutputConstructor]
         private ScalewayInstanceV1VolumeServer(
             bool? boot,
 
-            string? creation_date,
+            string? creationDate,
 
-            string? export_uri,
+            string? exportUri,
 
             string? id,
 
-            string? modification_date,
+            string? modificationDate,
 
             string? name,
 
@@ -60,22 +60,22 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerState? state,
 
-            Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerVolumeType? volume_type,
+            Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerVolumeType? volumeType,
 
             string? zone)
         {
             Boot = boot;
-            Creation_date = creation_date;
-            Export_uri = export_uri;
+            CreationDate = creationDate;
+            ExportUri = exportUri;
             Id = id;
-            Modification_date = modification_date;
+            ModificationDate = modificationDate;
             Name = name;
             Organization = organization;
             Project = project;
             Server = server;
             Size = size;
             State = state;
-            Volume_type = volume_type;
+            VolumeType = volumeType;
             Zone = zone;
         }
     }

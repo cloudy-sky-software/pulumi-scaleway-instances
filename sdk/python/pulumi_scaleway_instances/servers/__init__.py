@@ -6,7 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_placement_group_servers import *
+from .get_placement_group_server import *
 from .get_server import *
 from .list_servers import *
 from .list_servers_types import *

@@ -42,7 +42,7 @@ export class Ip extends pulumi.CustomResource {
     public /*out*/ readonly ip!: pulumi.Output<outputs.ips.ScalewayInstanceV1Ip | undefined>;
     public readonly organization!: pulumi.Output<string | undefined>;
     public readonly project!: pulumi.Output<string>;
-    public readonly reverse!: pulumi.Output<outputs.ips.GoogleProtobufStringValue | undefined>;
+    public readonly reverse!: pulumi.Output<string | undefined>;
     public readonly server!: pulumi.Output<outputs.ips.ScalewayInstanceV1ServerSummary | undefined>;
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly zone!: pulumi.Output<string | undefined>;
@@ -92,7 +92,7 @@ export class Ip extends pulumi.CustomResource {
 export interface IpArgs {
     organization?: pulumi.Input<string>;
     project: pulumi.Input<string>;
-    reverse?: pulumi.Input<inputs.ips.GoogleProtobufStringValueArgs>;
+    reverse?: pulumi.Input<string>;
     server?: pulumi.Input<inputs.ips.ScalewayInstanceV1ServerSummaryArgs>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**

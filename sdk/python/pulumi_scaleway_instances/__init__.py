@@ -115,8 +115,7 @@ _utilities.register(
   "mod": "rules",
   "fqn": "pulumi_scaleway_instances.rules",
   "classes": {
-   "scaleway-instances:rules:SecurityGroupRule": "SecurityGroupRule",
-   "scaleway-instances:rules:SecurityGroupRules": "SecurityGroupRules"
+   "scaleway-instances:rules:SecurityGroupRule": "SecurityGroupRule"
   }
  },
  {

@@ -11,13 +11,13 @@ export function listServerActions(args: ListServerActionsArgs, opts?: pulumi.Inv
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:action:listServerActions", {
-        "server_id": args.server_id,
+        "serverId": args.serverId,
         "zone": args.zone,
     }, opts);
 }
 
 export interface ListServerActionsArgs {
-    server_id: string;
+    serverId: string;
     /**
      * The zone you want to target
      */
@@ -32,7 +32,7 @@ export function listServerActionsOutput(args: ListServerActionsOutputArgs, opts?
 }
 
 export interface ListServerActionsOutputArgs {
-    server_id: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

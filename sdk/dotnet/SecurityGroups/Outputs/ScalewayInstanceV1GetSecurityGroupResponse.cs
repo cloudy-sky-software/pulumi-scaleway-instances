@@ -13,12 +13,12 @@ namespace Pulumi.ScalewayInstances.SecurityGroups.Outputs
     [OutputType]
     public sealed class ScalewayInstanceV1GetSecurityGroupResponse
     {
-        public readonly Outputs.ScalewayInstanceV1SecurityGroup? Security_group;
+        public readonly Outputs.ScalewayInstanceV1SecurityGroup? SecurityGroup;
 
         [OutputConstructor]
-        private ScalewayInstanceV1GetSecurityGroupResponse(Outputs.ScalewayInstanceV1SecurityGroup? security_group)
+        private ScalewayInstanceV1GetSecurityGroupResponse(Outputs.ScalewayInstanceV1SecurityGroup? securityGroup)
         {
-            Security_group = security_group;
+            SecurityGroup = securityGroup;
         }
     }
 }

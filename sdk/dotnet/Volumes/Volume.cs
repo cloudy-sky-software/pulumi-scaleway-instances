@@ -18,20 +18,20 @@ namespace Pulumi.ScalewayInstances.Volumes
         /// <summary>
         /// The volume creation date (RFC 3339 format)
         /// </summary>
-        [Output("creation_date")]
-        public Output<string?> Creation_date { get; private set; } = null!;
+        [Output("creationDate")]
+        public Output<string?> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// Show the volume NBD export URI
         /// </summary>
-        [Output("export_uri")]
-        public Output<string?> Export_uri { get; private set; } = null!;
+        [Output("exportUri")]
+        public Output<string?> ExportUri { get; private set; } = null!;
 
         /// <summary>
         /// The volume modification date (RFC 3339 format)
         /// </summary>
-        [Output("modification_date")]
-        public Output<string?> Modification_date { get; private set; } = null!;
+        [Output("modificationDate")]
+        public Output<string?> ModificationDate { get; private set; } = null!;
 
         /// <summary>
         /// The volume name
@@ -75,8 +75,8 @@ namespace Pulumi.ScalewayInstances.Volumes
         [Output("volume")]
         public Output<Outputs.ScalewayInstanceV1Volume?> VolumeValue { get; private set; } = null!;
 
-        [Output("volume_type")]
-        public Output<Pulumi.ScalewayInstances.Volumes.VolumeType?> Volume_type { get; private set; } = null!;
+        [Output("volumeType")]
+        public Output<Pulumi.ScalewayInstances.Volumes.VolumeType?> VolumeType { get; private set; } = null!;
 
         /// <summary>
         /// The zone in which is the volume
@@ -166,8 +166,8 @@ namespace Pulumi.ScalewayInstances.Volumes
             set => _tags = value;
         }
 
-        [Input("volume_type")]
-        public Input<Pulumi.ScalewayInstances.Volumes.VolumeType>? Volume_type { get; set; }
+        [Input("volumeType")]
+        public Input<Pulumi.ScalewayInstances.Volumes.VolumeType>? VolumeType { get; set; }
 
         /// <summary>
         /// The zone you want to target
@@ -177,7 +177,7 @@ namespace Pulumi.ScalewayInstances.Volumes
 
         public VolumeArgs()
         {
-            Volume_type = Pulumi.ScalewayInstances.Volumes.VolumeType.LSsd;
+            VolumeType = Pulumi.ScalewayInstances.Volumes.VolumeType.LSsd;
         }
         public static new VolumeArgs Empty => new VolumeArgs();
     }

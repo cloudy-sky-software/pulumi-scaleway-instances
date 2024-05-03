@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,55 +36,28 @@ class SecurityGroupRuleArgs:
         :param pulumi.Input[str] security_group_id: UUID of the security group
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        SecurityGroupRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            direction=direction,
-            ip_range=ip_range,
-            protocol=protocol,
-            dest_port_from=dest_port_from,
-            dest_port_to=dest_port_to,
-            editable=editable,
-            position=position,
-            security_group_id=security_group_id,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input['Action']] = None,
-             direction: Optional[pulumi.Input['Direction']] = None,
-             ip_range: pulumi.Input[str],
-             protocol: Optional[pulumi.Input['Protocol']] = None,
-             dest_port_from: Optional[pulumi.Input[float]] = None,
-             dest_port_to: Optional[pulumi.Input[float]] = None,
-             editable: Optional[pulumi.Input[bool]] = None,
-             position: Optional[pulumi.Input[float]] = None,
-             security_group_id: Optional[pulumi.Input[str]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if action is None:
             action = 'accept'
-        _setter("action", action)
+        pulumi.set(__self__, "action", action)
         if direction is None:
             direction = 'inbound'
-        _setter("direction", direction)
-        _setter("ip_range", ip_range)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "ip_range", ip_range)
         if protocol is None:
             protocol = 'TCP'
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "protocol", protocol)
         if dest_port_from is not None:
-            _setter("dest_port_from", dest_port_from)
+            pulumi.set(__self__, "dest_port_from", dest_port_from)
         if dest_port_to is not None:
-            _setter("dest_port_to", dest_port_to)
+            pulumi.set(__self__, "dest_port_to", dest_port_to)
         if editable is not None:
-            _setter("editable", editable)
+            pulumi.set(__self__, "editable", editable)
         if position is not None:
-            _setter("position", position)
+            pulumi.set(__self__, "position", position)
         if security_group_id is not None:
-            _setter("security_group_id", security_group_id)
+            pulumi.set(__self__, "security_group_id", security_group_id)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter
@@ -105,7 +78,7 @@ class SecurityGroupRuleArgs:
         pulumi.set(self, "direction", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="ipRange")
     def ip_range(self) -> pulumi.Input[str]:
         """
         (IP network)
@@ -126,7 +99,7 @@ class SecurityGroupRuleArgs:
         pulumi.set(self, "protocol", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="destPortFrom")
     def dest_port_from(self) -> Optional[pulumi.Input[float]]:
         """
         The beginning of the range of ports to apply this rule to (inclusive)
@@ -138,7 +111,7 @@ class SecurityGroupRuleArgs:
         pulumi.set(self, "dest_port_from", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="destPortTo")
     def dest_port_to(self) -> Optional[pulumi.Input[float]]:
         """
         The end of the range of ports to apply this rule to (inclusive)
@@ -174,7 +147,7 @@ class SecurityGroupRuleArgs:
         pulumi.set(self, "position", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[str]]:
         """
         UUID of the security group
@@ -244,10 +217,6 @@ class SecurityGroupRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecurityGroupRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -336,7 +305,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         return pulumi.get(self, "action")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="destPortFrom")
     def dest_port_from(self) -> pulumi.Output[Optional[float]]:
         """
         The beginning of the range of ports to apply this rule to (inclusive)
@@ -344,7 +313,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         return pulumi.get(self, "dest_port_from")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="destPortTo")
     def dest_port_to(self) -> pulumi.Output[Optional[float]]:
         """
         The end of the range of ports to apply this rule to (inclusive)
@@ -365,7 +334,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         return pulumi.get(self, "editable")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="ipRange")
     def ip_range(self) -> pulumi.Output[str]:
         """
         (IP network)

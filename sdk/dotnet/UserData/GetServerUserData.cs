@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.ScalewayInstances.User_data
+namespace Pulumi.ScalewayInstances.UserData
 {
     public static class GetServerUserData
     {
@@ -30,8 +30,8 @@ namespace Pulumi.ScalewayInstances.User_data
         /// <summary>
         /// UUID of the server
         /// </summary>
-        [Input("server_id", required: true)]
-        public string Server_id { get; set; } = null!;
+        [Input("serverId", required: true)]
+        public string ServerId { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target
@@ -56,8 +56,8 @@ namespace Pulumi.ScalewayInstances.User_data
         /// <summary>
         /// UUID of the server
         /// </summary>
-        [Input("server_id", required: true)]
-        public Input<string> Server_id { get; set; } = null!;
+        [Input("serverId", required: true)]
+        public Input<string> ServerId { get; set; } = null!;
 
         /// <summary>
         /// The zone you want to target

@@ -88,8 +88,8 @@ namespace Pulumi.ScalewayInstances.Export
         /// <summary>
         /// The snapshot ID
         /// </summary>
-        [Input("snapshot_id")]
-        public Input<string>? Snapshot_id { get; set; }
+        [Input("snapshotId")]
+        public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
         /// The zone you want to target

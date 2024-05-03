@@ -16,20 +16,20 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
         /// <summary>
         /// The volume on which the snapshot is based on
         /// </summary>
-        public readonly Outputs.ScalewayInstanceV1SnapshotBaseVolumeProperties? Base_volume;
+        public readonly Outputs.ScalewayInstanceV1SnapshotBaseVolumeProperties? BaseVolume;
         /// <summary>
         /// The snapshot creation date (RFC 3339 format)
         /// </summary>
-        public readonly string? Creation_date;
+        public readonly string? CreationDate;
         /// <summary>
         /// The reason for the failed snapshot import
         /// </summary>
-        public readonly string? Error_reason;
+        public readonly string? ErrorReason;
         public readonly string? Id;
         /// <summary>
         /// The snapshot modification date (RFC 3339 format)
         /// </summary>
-        public readonly string? Modification_date;
+        public readonly string? ModificationDate;
         /// <summary>
         /// The snapshot name
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
         /// The snapshot tags
         /// </summary>
         public readonly ImmutableArray<string> Tags;
-        public readonly Pulumi.ScalewayInstances.Snapshots.ScalewayInstanceV1SnapshotVolumeType? Volume_type;
+        public readonly Pulumi.ScalewayInstances.Snapshots.ScalewayInstanceV1SnapshotVolumeType? VolumeType;
         /// <summary>
         /// The snapshot zone
         /// </summary>
@@ -59,15 +59,15 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
 
         [OutputConstructor]
         private ScalewayInstanceV1Snapshot(
-            Outputs.ScalewayInstanceV1SnapshotBaseVolumeProperties? base_volume,
+            Outputs.ScalewayInstanceV1SnapshotBaseVolumeProperties? baseVolume,
 
-            string? creation_date,
+            string? creationDate,
 
-            string? error_reason,
+            string? errorReason,
 
             string? id,
 
-            string? modification_date,
+            string? modificationDate,
 
             string? name,
 
@@ -81,22 +81,22 @@ namespace Pulumi.ScalewayInstances.Snapshots.Outputs
 
             ImmutableArray<string> tags,
 
-            Pulumi.ScalewayInstances.Snapshots.ScalewayInstanceV1SnapshotVolumeType? volume_type,
+            Pulumi.ScalewayInstances.Snapshots.ScalewayInstanceV1SnapshotVolumeType? volumeType,
 
             string? zone)
         {
-            Base_volume = base_volume;
-            Creation_date = creation_date;
-            Error_reason = error_reason;
+            BaseVolume = baseVolume;
+            CreationDate = creationDate;
+            ErrorReason = errorReason;
             Id = id;
-            Modification_date = modification_date;
+            ModificationDate = modificationDate;
             Name = name;
             Organization = organization;
             Project = project;
             Size = size;
             State = state;
             Tags = tags;
-            Volume_type = volume_type;
+            VolumeType = volumeType;
             Zone = zone;
         }
     }

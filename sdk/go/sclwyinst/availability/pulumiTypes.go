@@ -9,7 +9,6 @@ import (
 
 	"github.com/cloudy-sky-software/pulumi-scaleway-instances/sdk/go/sclwyinst/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -30,12 +29,6 @@ func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseOutput) ToScalewayIn
 
 func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseOutput) ToScalewayInstanceV1GetServerTypesAvailabilityResponseOutputWithContext(ctx context.Context) ScalewayInstanceV1GetServerTypesAvailabilityResponseOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetServerTypesAvailabilityResponse] {
-	return pulumix.Output[ScalewayInstanceV1GetServerTypesAvailabilityResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseOutput) Servers() ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityMapOutput {
@@ -75,12 +68,6 @@ func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityOutput) 
 	return o
 }
 
-func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityOutput) ToOutput(ctx context.Context) pulumix.Output[ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability] {
-	return pulumix.Output[ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityOutput) Availability() ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailabilityPtrOutput {
 	return o.ApplyT(func(v ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability) *ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityAvailability {
 		return v.Availability
@@ -99,12 +86,6 @@ func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityMapOutpu
 
 func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityMapOutput) ToScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityMapOutputWithContext(ctx context.Context) ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityMapOutput {
 	return o
-}
-
-func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability] {
-	return pulumix.Output[map[string]ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityMapOutput) MapIndex(k pulumi.StringInput) ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityOutput {

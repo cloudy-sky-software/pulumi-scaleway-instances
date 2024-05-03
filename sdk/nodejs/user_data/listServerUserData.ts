@@ -11,7 +11,7 @@ export function listServerUserData(args: ListServerUserDataArgs, opts?: pulumi.I
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:user_data:listServerUserData", {
-        "server_id": args.server_id,
+        "serverId": args.serverId,
         "zone": args.zone,
     }, opts);
 }
@@ -20,7 +20,7 @@ export interface ListServerUserDataArgs {
     /**
      * UUID of the server
      */
-    server_id: string;
+    serverId: string;
     /**
      * The zone you want to target
      */
@@ -38,7 +38,7 @@ export interface ListServerUserDataOutputArgs {
     /**
      * UUID of the server
      */
-    server_id: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

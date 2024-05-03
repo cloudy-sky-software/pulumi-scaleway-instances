@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,7 +50,7 @@ def get_security_group(security_group_id: Optional[str] = None,
     :param str zone: The zone you want to target
     """
     __args__ = dict()
-    __args__['security_group_id'] = security_group_id
+    __args__['securityGroupId'] = security_group_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('scaleway-instances:security_groups:getSecurityGroup', __args__, opts=opts, typ=GetSecurityGroupResult).value

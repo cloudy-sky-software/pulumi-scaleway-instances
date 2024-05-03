@@ -12,14 +12,14 @@ export function getPrivateNIC(args: GetPrivateNICArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:private_nics:getPrivateNIC", {
         "id": args.id,
-        "server_id": args.server_id,
+        "serverId": args.serverId,
         "zone": args.zone,
     }, opts);
 }
 
 export interface GetPrivateNICArgs {
     id: string;
-    server_id: string;
+    serverId: string;
     /**
      * The zone you want to target
      */
@@ -35,7 +35,7 @@ export function getPrivateNICOutput(args: GetPrivateNICOutputArgs, opts?: pulumi
 
 export interface GetPrivateNICOutputArgs {
     id: pulumi.Input<string>;
-    server_id: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
     /**
      * The zone you want to target
      */

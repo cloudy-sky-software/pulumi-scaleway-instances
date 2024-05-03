@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -49,77 +49,40 @@ class ServerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: The server tags
         :param pulumi.Input[str] zone: The zone you want to target
         """
-        ServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            commercial_type=commercial_type,
-            boot_type=boot_type,
-            bootscript=bootscript,
-            dynamic_ip_required=dynamic_ip_required,
-            enable_ipv6=enable_ipv6,
-            image=image,
-            name=name,
-            organization=organization,
-            placement_group=placement_group,
-            project=project,
-            public_ip=public_ip,
-            security_group=security_group,
-            tags=tags,
-            volumes=volumes,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             commercial_type: pulumi.Input[str],
-             boot_type: Optional[pulumi.Input['BootType']] = None,
-             bootscript: Optional[pulumi.Input[str]] = None,
-             dynamic_ip_required: Optional[pulumi.Input[bool]] = None,
-             enable_ipv6: Optional[pulumi.Input[bool]] = None,
-             image: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             organization: Optional[pulumi.Input[str]] = None,
-             placement_group: Optional[pulumi.Input[str]] = None,
-             project: Optional[pulumi.Input[str]] = None,
-             public_ip: Optional[pulumi.Input[str]] = None,
-             security_group: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input['ScalewayInstanceV1VolumeServerTemplateArgs']]]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("commercial_type", commercial_type)
+        pulumi.set(__self__, "commercial_type", commercial_type)
         if boot_type is None:
             boot_type = 'local'
         if boot_type is not None:
-            _setter("boot_type", boot_type)
+            pulumi.set(__self__, "boot_type", boot_type)
         if bootscript is not None:
-            _setter("bootscript", bootscript)
+            pulumi.set(__self__, "bootscript", bootscript)
         if dynamic_ip_required is not None:
-            _setter("dynamic_ip_required", dynamic_ip_required)
+            pulumi.set(__self__, "dynamic_ip_required", dynamic_ip_required)
         if enable_ipv6 is not None:
-            _setter("enable_ipv6", enable_ipv6)
+            pulumi.set(__self__, "enable_ipv6", enable_ipv6)
         if image is not None:
-            _setter("image", image)
+            pulumi.set(__self__, "image", image)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if organization is not None:
-            _setter("organization", organization)
+            pulumi.set(__self__, "organization", organization)
         if placement_group is not None:
-            _setter("placement_group", placement_group)
+            pulumi.set(__self__, "placement_group", placement_group)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
         if public_ip is not None:
-            _setter("public_ip", public_ip)
+            pulumi.set(__self__, "public_ip", public_ip)
         if security_group is not None:
-            _setter("security_group", security_group)
+            pulumi.set(__self__, "security_group", security_group)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if volumes is not None:
-            _setter("volumes", volumes)
+            pulumi.set(__self__, "volumes", volumes)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="commercialType")
     def commercial_type(self) -> pulumi.Input[str]:
         """
         Define the server commercial type (i.e. GP1-S)
@@ -131,7 +94,7 @@ class ServerArgs:
         pulumi.set(self, "commercial_type", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="bootType")
     def boot_type(self) -> Optional[pulumi.Input['BootType']]:
         """
         The boot type to use
@@ -155,7 +118,7 @@ class ServerArgs:
         pulumi.set(self, "bootscript", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="dynamicIpRequired")
     def dynamic_ip_required(self) -> Optional[pulumi.Input[bool]]:
         """
         Define if a dynamic IP is required for the instance
@@ -167,7 +130,7 @@ class ServerArgs:
         pulumi.set(self, "dynamic_ip_required", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="enableIpv6")
     def enable_ipv6(self) -> Optional[pulumi.Input[bool]]:
         """
         True if IPv6 is enabled on the server
@@ -215,7 +178,7 @@ class ServerArgs:
         pulumi.set(self, "organization", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="placementGroup")
     def placement_group(self) -> Optional[pulumi.Input[str]]:
         """
         Placement group ID if server must be part of a placement group
@@ -239,7 +202,7 @@ class ServerArgs:
         pulumi.set(self, "project", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="publicIp")
     def public_ip(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the reserved IP to attach to the server
@@ -251,7 +214,7 @@ class ServerArgs:
         pulumi.set(self, "public_ip", value)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="securityGroup")
     def security_group(self) -> Optional[pulumi.Input[str]]:
         """
         The security group ID
@@ -354,10 +317,6 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -447,7 +406,7 @@ class Server(pulumi.CustomResource):
         return Server(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="bootType")
     def boot_type(self) -> pulumi.Output[Optional['BootType']]:
         """
         The boot type to use
@@ -463,7 +422,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "bootscript")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="commercialType")
     def commercial_type(self) -> pulumi.Output[str]:
         """
         Define the server commercial type (i.e. GP1-S)
@@ -471,7 +430,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "commercial_type")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="dynamicIpRequired")
     def dynamic_ip_required(self) -> pulumi.Output[Optional[bool]]:
         """
         Define if a dynamic IP is required for the instance
@@ -479,7 +438,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "dynamic_ip_required")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="enableIpv6")
     def enable_ipv6(self) -> pulumi.Output[Optional[bool]]:
         """
         True if IPv6 is enabled on the server
@@ -511,7 +470,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "organization")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="placementGroup")
     def placement_group(self) -> pulumi.Output[Optional[str]]:
         """
         Placement group ID if server must be part of a placement group
@@ -527,7 +486,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "project")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="publicIp")
     def public_ip(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the reserved IP to attach to the server
@@ -535,7 +494,7 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "public_ip")
 
     @property
-    @pulumi.getter
+    @pulumi.getter(name="securityGroup")
     def security_group(self) -> pulumi.Output[Optional[str]]:
         """
         The security group ID
