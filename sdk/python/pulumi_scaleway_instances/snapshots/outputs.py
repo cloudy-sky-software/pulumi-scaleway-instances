@@ -334,7 +334,7 @@ class ScalewayInstanceV1Task(dict):
                  id: Optional[str] = None,
                  progress: Optional[float] = None,
                  started_at: Optional[str] = None,
-                 status: Optional['ScalewayInstanceV1TaskStatus'] = None,
+                 status: Optional['SnapshotScalewayInstanceV1TaskStatus'] = None,
                  terminated_at: Optional[str] = None,
                  zone: Optional[str] = None):
         """
@@ -342,7 +342,7 @@ class ScalewayInstanceV1Task(dict):
         :param str id: The unique ID of the task
         :param float progress: The progress of the task in percent
         :param str started_at: The task start date (RFC 3339 format)
-        :param 'ScalewayInstanceV1TaskStatus' status: The task status
+        :param 'SnapshotScalewayInstanceV1TaskStatus' status: The task status
         :param str terminated_at: The task end date (RFC 3339 format)
         :param str zone: The zone in which is the task
         """
@@ -411,7 +411,7 @@ class ScalewayInstanceV1Task(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['ScalewayInstanceV1TaskStatus']:
+    def status(self) -> Optional['SnapshotScalewayInstanceV1TaskStatus']:
         """
         The task status
         """

@@ -34,7 +34,7 @@ namespace Pulumi.ScalewayInstances.Action.Outputs
         /// <summary>
         /// The task status
         /// </summary>
-        public readonly Pulumi.ScalewayInstances.Action.ScalewayInstanceV1TaskStatus? Status;
+        public readonly Pulumi.ScalewayInstances.Action.ServerActionScalewayInstanceV1TaskStatus? Status;
         /// <summary>
         /// The task end date (RFC 3339 format)
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.ScalewayInstances.Action.Outputs
 
             string? startedAt,
 
-            Pulumi.ScalewayInstances.Action.ScalewayInstanceV1TaskStatus? status,
+            Pulumi.ScalewayInstances.Action.ServerActionScalewayInstanceV1TaskStatus? status,
 
             string? terminatedAt,
 

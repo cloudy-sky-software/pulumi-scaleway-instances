@@ -10,180 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The action to perform on the server
-type Action string
-
-const (
-	ActionPoweron     = Action("poweron")
-	ActionBackup      = Action("backup")
-	ActionStopInPlace = Action("stop_in_place")
-	ActionPoweroff    = Action("poweroff")
-	ActionTerminate   = Action("terminate")
-	ActionReboot      = Action("reboot")
-)
-
-func (Action) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
-}
-
-func (e Action) ToActionOutput() ActionOutput {
-	return pulumi.ToOutput(e).(ActionOutput)
-}
-
-func (e Action) ToActionOutputWithContext(ctx context.Context) ActionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ActionOutput)
-}
-
-func (e Action) ToActionPtrOutput() ActionPtrOutput {
-	return e.ToActionPtrOutputWithContext(context.Background())
-}
-
-func (e Action) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return Action(e).ToActionOutputWithContext(ctx).ToActionPtrOutputWithContext(ctx)
-}
-
-func (e Action) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Action) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e Action) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e Action) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ActionOutput struct{ *pulumi.OutputState }
-
-func (ActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
-}
-
-func (o ActionOutput) ToActionOutput() ActionOutput {
-	return o
-}
-
-func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutput {
-	return o
-}
-
-func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
-	return o.ToActionPtrOutputWithContext(context.Background())
-}
-
-func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Action) *Action {
-		return &v
-	}).(ActionPtrOutput)
-}
-
-func (o ActionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Action) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Action) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ActionPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Action)(nil)).Elem()
-}
-
-func (o ActionPtrOutput) ToActionPtrOutput() ActionPtrOutput {
-	return o
-}
-
-func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o
-}
-
-func (o ActionPtrOutput) Elem() ActionOutput {
-	return o.ApplyT(func(v *Action) Action {
-		if v != nil {
-			return *v
-		}
-		var ret Action
-		return ret
-	}).(ActionOutput)
-}
-
-func (o ActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Action) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ActionInput is an input type that accepts values of the Action enum
-// A concrete instance of `ActionInput` can be one of the following:
-//
-//	ActionPoweron
-//	ActionBackup
-//	ActionStopInPlace
-//	ActionPoweroff
-//	ActionTerminate
-//	ActionReboot
-type ActionInput interface {
-	pulumi.Input
-
-	ToActionOutput() ActionOutput
-	ToActionOutputWithContext(context.Context) ActionOutput
-}
-
-var actionPtrType = reflect.TypeOf((**Action)(nil)).Elem()
-
-type ActionPtrInput interface {
-	pulumi.Input
-
-	ToActionPtrOutput() ActionPtrOutput
-	ToActionPtrOutputWithContext(context.Context) ActionPtrOutput
-}
-
-type actionPtr string
-
-func ActionPtr(v string) ActionPtrInput {
-	return (*actionPtr)(&v)
-}
-
-func (*actionPtr) ElementType() reflect.Type {
-	return actionPtrType
-}
-
-func (in *actionPtr) ToActionPtrOutput() ActionPtrOutput {
-	return pulumi.ToOutput(in).(ActionPtrOutput)
-}
-
-func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
-}
-
 type ScalewayInstanceV1ListServerActionsResponseActionsItem string
 
 const (
@@ -298,125 +124,129 @@ func (o ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput) Index
 	}).(ScalewayInstanceV1ListServerActionsResponseActionsItemOutput)
 }
 
-type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType string
+// The action to perform on the server
+type ServerActionAction string
 
 const (
-	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeLSsd    = ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
-	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeBSsd    = ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("b_ssd")
-	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeUnified = ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("unified")
+	ServerActionActionPoweron     = ServerActionAction("poweron")
+	ServerActionActionBackup      = ServerActionAction("backup")
+	ServerActionActionStopInPlace = ServerActionAction("stop_in_place")
+	ServerActionActionPoweroff    = ServerActionAction("poweroff")
+	ServerActionActionTerminate   = ServerActionAction("terminate")
+	ServerActionActionReboot      = ServerActionAction("reboot")
 )
 
-func (ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)(nil)).Elem()
+func (ServerActionAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerActionAction)(nil)).Elem()
 }
 
-func (e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
-	return pulumi.ToOutput(e).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput)
+func (e ServerActionAction) ToServerActionActionOutput() ServerActionActionOutput {
+	return pulumi.ToOutput(e).(ServerActionActionOutput)
 }
 
-func (e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput)
+func (e ServerActionAction) ToServerActionActionOutputWithContext(ctx context.Context) ServerActionActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerActionActionOutput)
 }
 
-func (e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
-	return e.ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(context.Background())
+func (e ServerActionAction) ToServerActionActionPtrOutput() ServerActionActionPtrOutput {
+	return e.ToServerActionActionPtrOutputWithContext(context.Background())
 }
 
-func (e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
-	return ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType(e).ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutputWithContext(ctx).ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx)
+func (e ServerActionAction) ToServerActionActionPtrOutputWithContext(ctx context.Context) ServerActionActionPtrOutput {
+	return ServerActionAction(e).ToServerActionActionOutputWithContext(ctx).ToServerActionActionPtrOutputWithContext(ctx)
 }
 
-func (e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToStringOutput() pulumi.StringOutput {
+func (e ServerActionAction) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ServerActionAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ServerActionAction) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ServerActionAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput struct{ *pulumi.OutputState }
+type ServerActionActionOutput struct{ *pulumi.OutputState }
 
-func (ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)(nil)).Elem()
+func (ServerActionActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerActionAction)(nil)).Elem()
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
+func (o ServerActionActionOutput) ToServerActionActionOutput() ServerActionActionOutput {
 	return o
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
+func (o ServerActionActionOutput) ToServerActionActionOutputWithContext(ctx context.Context) ServerActionActionOutput {
 	return o
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
-	return o.ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(context.Background())
+func (o ServerActionActionOutput) ToServerActionActionPtrOutput() ServerActionActionPtrOutput {
+	return o.ToServerActionActionPtrOutputWithContext(context.Background())
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType {
+func (o ServerActionActionOutput) ToServerActionActionPtrOutputWithContext(ctx context.Context) ServerActionActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerActionAction) *ServerActionAction {
 		return &v
-	}).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
+	}).(ServerActionActionPtrOutput)
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o ServerActionActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) string {
+func (o ServerActionActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerActionAction) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ServerActionActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) *string {
+func (o ServerActionActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerActionAction) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput struct{ *pulumi.OutputState }
+type ServerActionActionPtrOutput struct{ *pulumi.OutputState }
 
-func (ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)(nil)).Elem()
+func (ServerActionActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerActionAction)(nil)).Elem()
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+func (o ServerActionActionPtrOutput) ToServerActionActionPtrOutput() ServerActionActionPtrOutput {
 	return o
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+func (o ServerActionActionPtrOutput) ToServerActionActionPtrOutputWithContext(ctx context.Context) ServerActionActionPtrOutput {
 	return o
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) Elem() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
-	return o.ApplyT(func(v *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType {
+func (o ServerActionActionPtrOutput) Elem() ServerActionActionOutput {
+	return o.ApplyT(func(v *ServerActionAction) ServerActionAction {
 		if v != nil {
 			return *v
 		}
-		var ret ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType
+		var ret ServerActionAction
 		return ret
-	}).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput)
+	}).(ServerActionActionOutput)
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ServerActionActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) *string {
+func (o ServerActionActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerActionAction) *string {
 		if e == nil {
 			return nil
 		}
@@ -425,132 +255,302 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput is an input type that accepts values of the ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType enum
-// A concrete instance of `ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput` can be one of the following:
+// ServerActionActionInput is an input type that accepts values of the ServerActionAction enum
+// A concrete instance of `ServerActionActionInput` can be one of the following:
 //
-//	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeLSsd
-//	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeBSsd
-//	ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeUnified
-type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput interface {
+//	ServerActionActionPoweron
+//	ServerActionActionBackup
+//	ServerActionActionStopInPlace
+//	ServerActionActionPoweroff
+//	ServerActionActionTerminate
+//	ServerActionActionReboot
+type ServerActionActionInput interface {
 	pulumi.Input
 
-	ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput
-	ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutputWithContext(context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput
+	ToServerActionActionOutput() ServerActionActionOutput
+	ToServerActionActionOutputWithContext(context.Context) ServerActionActionOutput
 }
 
-var scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrType = reflect.TypeOf((**ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)(nil)).Elem()
+var serverActionActionPtrType = reflect.TypeOf((**ServerActionAction)(nil)).Elem()
 
-type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput interface {
+type ServerActionActionPtrInput interface {
 	pulumi.Input
 
-	ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput
-	ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput
+	ToServerActionActionPtrOutput() ServerActionActionPtrOutput
+	ToServerActionActionPtrOutputWithContext(context.Context) ServerActionActionPtrOutput
 }
 
-type scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr string
+type serverActionActionPtr string
 
-func ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr(v string) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput {
-	return (*scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr)(&v)
+func ServerActionActionPtr(v string) ServerActionActionPtrInput {
+	return (*serverActionActionPtr)(&v)
 }
 
-func (*scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr) ElementType() reflect.Type {
-	return scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrType
+func (*serverActionActionPtr) ElementType() reflect.Type {
+	return serverActionActionPtrType
 }
 
-func (in *scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
-	return pulumi.ToOutput(in).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
+func (in *serverActionActionPtr) ToServerActionActionPtrOutput() ServerActionActionPtrOutput {
+	return pulumi.ToOutput(in).(ServerActionActionPtrOutput)
 }
 
-func (in *scalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr) ToScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
+func (in *serverActionActionPtr) ToServerActionActionPtrOutputWithContext(ctx context.Context) ServerActionActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerActionActionPtrOutput)
 }
 
-// The task status
-type ScalewayInstanceV1TaskStatus string
+type ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType string
 
 const (
-	ScalewayInstanceV1TaskStatusPending = ScalewayInstanceV1TaskStatus("pending")
-	ScalewayInstanceV1TaskStatusStarted = ScalewayInstanceV1TaskStatus("started")
-	ScalewayInstanceV1TaskStatusSuccess = ScalewayInstanceV1TaskStatus("success")
-	ScalewayInstanceV1TaskStatusFailure = ScalewayInstanceV1TaskStatus("failure")
-	ScalewayInstanceV1TaskStatusRetry   = ScalewayInstanceV1TaskStatus("retry")
+	ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeLSsd    = ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
+	ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeBSsd    = ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("b_ssd")
+	ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeUnified = ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("unified")
 )
 
-type ScalewayInstanceV1TaskStatusOutput struct{ *pulumi.OutputState }
-
-func (ScalewayInstanceV1TaskStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1TaskStatus)(nil)).Elem()
+func (ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)(nil)).Elem()
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusOutput() ScalewayInstanceV1TaskStatusOutput {
+func (e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
+	return pulumi.ToOutput(e).(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput)
+}
+
+func (e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutputWithContext(ctx context.Context) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput)
+}
+
+func (e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+	return e.ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+	return ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType(e).ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutputWithContext(ctx).ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx)
+}
+
+func (e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)(nil)).Elem()
+}
+
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
 	return o
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusOutput {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutputWithContext(ctx context.Context) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
 	return o
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOutput() ScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ToScalewayInstanceV1TaskStatusPtrOutputWithContext(context.Background())
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+	return o.ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(context.Background())
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1TaskStatus) *ScalewayInstanceV1TaskStatus {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) *ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType {
 		return &v
-	}).(ScalewayInstanceV1TaskStatusPtrOutput)
+	}).(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1TaskStatus) string {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ScalewayInstanceV1TaskStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1TaskStatus) *string {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ScalewayInstanceV1TaskStatusPtrOutput struct{ *pulumi.OutputState }
+type ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ScalewayInstanceV1TaskStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalewayInstanceV1TaskStatus)(nil)).Elem()
+func (ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)(nil)).Elem()
 }
 
-func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutput() ScalewayInstanceV1TaskStatusPtrOutput {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
 	return o
 }
 
-func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
 	return o
 }
 
-func (o ScalewayInstanceV1TaskStatusPtrOutput) Elem() ScalewayInstanceV1TaskStatusOutput {
-	return o.ApplyT(func(v *ScalewayInstanceV1TaskStatus) ScalewayInstanceV1TaskStatus {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) Elem() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput {
+	return o.ApplyT(func(v *ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType {
 		if v != nil {
 			return *v
 		}
-		var ret ScalewayInstanceV1TaskStatus
+		var ret ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType
 		return ret
-	}).(ScalewayInstanceV1TaskStatusOutput)
+	}).(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput)
 }
 
-func (o ScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScalewayInstanceV1TaskStatus) *string {
+func (o ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput is an input type that accepts values of the ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType enum
+// A concrete instance of `ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput` can be one of the following:
+//
+//	ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeLSsd
+//	ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeBSsd
+//	ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeUnified
+type ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput interface {
+	pulumi.Input
+
+	ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput
+	ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutputWithContext(context.Context) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput
+}
+
+var serverActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrType = reflect.TypeOf((**ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)(nil)).Elem()
+
+type ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput interface {
+	pulumi.Input
+
+	ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput
+	ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(context.Context) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput
+}
+
+type serverActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr string
+
+func ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr(v string) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput {
+	return (*serverActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr)(&v)
+}
+
+func (*serverActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr) ElementType() reflect.Type {
+	return serverActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrType
+}
+
+func (in *serverActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+	return pulumi.ToOutput(in).(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
+}
+
+func (in *serverActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtr) ToServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
+}
+
+// The task status
+type ServerActionScalewayInstanceV1TaskStatus string
+
+const (
+	ServerActionScalewayInstanceV1TaskStatusPending = ServerActionScalewayInstanceV1TaskStatus("pending")
+	ServerActionScalewayInstanceV1TaskStatusStarted = ServerActionScalewayInstanceV1TaskStatus("started")
+	ServerActionScalewayInstanceV1TaskStatusSuccess = ServerActionScalewayInstanceV1TaskStatus("success")
+	ServerActionScalewayInstanceV1TaskStatusFailure = ServerActionScalewayInstanceV1TaskStatus("failure")
+	ServerActionScalewayInstanceV1TaskStatusRetry   = ServerActionScalewayInstanceV1TaskStatus("retry")
+)
+
+type ServerActionScalewayInstanceV1TaskStatusOutput struct{ *pulumi.OutputState }
+
+func (ServerActionScalewayInstanceV1TaskStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerActionScalewayInstanceV1TaskStatus)(nil)).Elem()
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusOutput) ToServerActionScalewayInstanceV1TaskStatusOutput() ServerActionScalewayInstanceV1TaskStatusOutput {
+	return o
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusOutput) ToServerActionScalewayInstanceV1TaskStatusOutputWithContext(ctx context.Context) ServerActionScalewayInstanceV1TaskStatusOutput {
+	return o
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusOutput) ToServerActionScalewayInstanceV1TaskStatusPtrOutput() ServerActionScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ToServerActionScalewayInstanceV1TaskStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusOutput) ToServerActionScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ServerActionScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerActionScalewayInstanceV1TaskStatus) *ServerActionScalewayInstanceV1TaskStatus {
+		return &v
+	}).(ServerActionScalewayInstanceV1TaskStatusPtrOutput)
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerActionScalewayInstanceV1TaskStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerActionScalewayInstanceV1TaskStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerActionScalewayInstanceV1TaskStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerActionScalewayInstanceV1TaskStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerActionScalewayInstanceV1TaskStatus)(nil)).Elem()
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusPtrOutput) ToServerActionScalewayInstanceV1TaskStatusPtrOutput() ServerActionScalewayInstanceV1TaskStatusPtrOutput {
+	return o
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusPtrOutput) ToServerActionScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ServerActionScalewayInstanceV1TaskStatusPtrOutput {
+	return o
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusPtrOutput) Elem() ServerActionScalewayInstanceV1TaskStatusOutput {
+	return o.ApplyT(func(v *ServerActionScalewayInstanceV1TaskStatus) ServerActionScalewayInstanceV1TaskStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ServerActionScalewayInstanceV1TaskStatus
+		return ret
+	}).(ServerActionScalewayInstanceV1TaskStatusOutput)
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerActionScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerActionScalewayInstanceV1TaskStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -560,17 +560,17 @@ func (o ScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionInput)(nil)).Elem(), Action("poweron"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ActionPtrInput)(nil)).Elem(), Action("poweron"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput)(nil)).Elem(), ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput)(nil)).Elem(), ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd"))
-	pulumi.RegisterOutputType(ActionOutput{})
-	pulumi.RegisterOutputType(ActionPtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerActionActionInput)(nil)).Elem(), ServerActionAction("poweron"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerActionActionPtrInput)(nil)).Elem(), ServerActionAction("poweron"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeInput)(nil)).Elem(), ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput)(nil)).Elem(), ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd"))
 	pulumi.RegisterOutputType(ScalewayInstanceV1ListServerActionsResponseActionsItemOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1ListServerActionsResponseActionsItemPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1ListServerActionsResponseActionsItemArrayOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1TaskStatusOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1TaskStatusPtrOutput{})
+	pulumi.RegisterOutputType(ServerActionActionOutput{})
+	pulumi.RegisterOutputType(ServerActionActionPtrOutput{})
+	pulumi.RegisterOutputType(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypeOutput{})
+	pulumi.RegisterOutputType(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(ServerActionScalewayInstanceV1TaskStatusOutput{})
+	pulumi.RegisterOutputType(ServerActionScalewayInstanceV1TaskStatusPtrOutput{})
 }

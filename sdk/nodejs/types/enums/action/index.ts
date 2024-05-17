@@ -2,20 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const Action = {
-    Poweron: "poweron",
-    Backup: "backup",
-    StopInPlace: "stop_in_place",
-    Poweroff: "poweroff",
-    Terminate: "terminate",
-    Reboot: "reboot",
-} as const;
-
-/**
- * The action to perform on the server
- */
-export type Action = (typeof Action)[keyof typeof Action];
-
 export const ScalewayInstanceV1ListServerActionsResponseActionsItem = {
     Poweron: "poweron",
     Backup: "backup",
@@ -27,15 +13,29 @@ export const ScalewayInstanceV1ListServerActionsResponseActionsItem = {
 
 export type ScalewayInstanceV1ListServerActionsResponseActionsItem = (typeof ScalewayInstanceV1ListServerActionsResponseActionsItem)[keyof typeof ScalewayInstanceV1ListServerActionsResponseActionsItem];
 
-export const ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType = {
+export const ServerActionAction = {
+    Poweron: "poweron",
+    Backup: "backup",
+    StopInPlace: "stop_in_place",
+    Poweroff: "poweroff",
+    Terminate: "terminate",
+    Reboot: "reboot",
+} as const;
+
+/**
+ * The action to perform on the server
+ */
+export type ServerActionAction = (typeof ServerActionAction)[keyof typeof ServerActionAction];
+
+export const ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType = {
     LSsd: "l_ssd",
     BSsd: "b_ssd",
     Unified: "unified",
 } as const;
 
-export type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType = (typeof ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)[keyof typeof ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType];
+export type ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType = (typeof ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType)[keyof typeof ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType];
 
-export const ScalewayInstanceV1TaskStatus = {
+export const ServerActionScalewayInstanceV1TaskStatus = {
     Pending: "pending",
     Started: "started",
     Success: "success",
@@ -46,4 +46,4 @@ export const ScalewayInstanceV1TaskStatus = {
 /**
  * The task status
  */
-export type ScalewayInstanceV1TaskStatus = (typeof ScalewayInstanceV1TaskStatus)[keyof typeof ScalewayInstanceV1TaskStatus];
+export type ServerActionScalewayInstanceV1TaskStatus = (typeof ServerActionScalewayInstanceV1TaskStatus)[keyof typeof ServerActionScalewayInstanceV1TaskStatus];

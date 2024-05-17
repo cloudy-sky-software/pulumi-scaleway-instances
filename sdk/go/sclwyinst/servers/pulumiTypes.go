@@ -3000,8 +3000,8 @@ type ScalewayInstanceV1VolumeServerTemplate struct {
 	// Project ID of the volume
 	Project *string `pulumi:"project"`
 	// Disk size of the volume, must be a multiple of 512 (in bytes)
-	Size       *float64                                          `pulumi:"size"`
-	VolumeType *ScalewayInstanceV1VolumeServerTemplateVolumeType `pulumi:"volumeType"`
+	Size       *float64                                                `pulumi:"size"`
+	VolumeType *ServerScalewayInstanceV1VolumeServerTemplateVolumeType `pulumi:"volumeType"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1VolumeServerTemplate
@@ -3015,7 +3015,7 @@ func (val *ScalewayInstanceV1VolumeServerTemplate) Defaults() *ScalewayInstanceV
 		tmp.Boot = &boot_
 	}
 	if tmp.VolumeType == nil {
-		volumeType_ := ScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd")
+		volumeType_ := ServerScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd")
 		tmp.VolumeType = &volumeType_
 	}
 	return &tmp
@@ -3046,8 +3046,8 @@ type ScalewayInstanceV1VolumeServerTemplateArgs struct {
 	// Project ID of the volume
 	Project pulumi.StringPtrInput `pulumi:"project"`
 	// Disk size of the volume, must be a multiple of 512 (in bytes)
-	Size       pulumi.Float64PtrInput                                   `pulumi:"size"`
-	VolumeType ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrInput `pulumi:"volumeType"`
+	Size       pulumi.Float64PtrInput                                         `pulumi:"size"`
+	VolumeType ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrInput `pulumi:"volumeType"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1VolumeServerTemplateArgs
@@ -3060,7 +3060,7 @@ func (val *ScalewayInstanceV1VolumeServerTemplateArgs) Defaults() *ScalewayInsta
 		tmp.Boot = pulumi.BoolPtr(false)
 	}
 	if tmp.VolumeType == nil {
-		tmp.VolumeType = ScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd")
+		tmp.VolumeType = ServerScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd")
 	}
 	return &tmp
 }
@@ -3150,10 +3150,10 @@ func (o ScalewayInstanceV1VolumeServerTemplateOutput) Size() pulumi.Float64PtrOu
 	return o.ApplyT(func(v ScalewayInstanceV1VolumeServerTemplate) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
 }
 
-func (o ScalewayInstanceV1VolumeServerTemplateOutput) VolumeType() ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1VolumeServerTemplate) *ScalewayInstanceV1VolumeServerTemplateVolumeType {
+func (o ScalewayInstanceV1VolumeServerTemplateOutput) VolumeType() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1VolumeServerTemplate) *ServerScalewayInstanceV1VolumeServerTemplateVolumeType {
 		return v.VolumeType
-	}).(ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput)
+	}).(ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput)
 }
 
 type ScalewayInstanceV1VolumeServerTemplateMapOutput struct{ *pulumi.OutputState }

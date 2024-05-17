@@ -31,11 +31,11 @@ type Snapshot struct {
 	// The snapshot size (in bytes)
 	Size     pulumi.Float64PtrOutput             `pulumi:"size"`
 	Snapshot ScalewayInstanceV1SnapshotPtrOutput `pulumi:"snapshot"`
-	State    StatePtrOutput                      `pulumi:"state"`
+	State    SnapshotStateEnumPtrOutput          `pulumi:"state"`
 	// The snapshot tags
 	Tags       pulumi.StringArrayOutput        `pulumi:"tags"`
 	Task       ScalewayInstanceV1TaskPtrOutput `pulumi:"task"`
-	VolumeType VolumeTypePtrOutput             `pulumi:"volumeType"`
+	VolumeType SnapshotVolumeTypePtrOutput     `pulumi:"volumeType"`
 	// The snapshot zone
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
 }
@@ -48,10 +48,10 @@ func NewSnapshot(ctx *pulumi.Context,
 	}
 
 	if args.State == nil {
-		args.State = State("available")
+		args.State = SnapshotStateEnum("available")
 	}
 	if args.VolumeType == nil {
-		args.VolumeType = VolumeType("l_ssd")
+		args.VolumeType = SnapshotVolumeType("l_ssd")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
@@ -93,11 +93,11 @@ type snapshotArgs struct {
 	// The snapshot project ID
 	Project *string `pulumi:"project"`
 	// The snapshot size (in bytes)
-	Size  *float64 `pulumi:"size"`
-	State *State   `pulumi:"state"`
+	Size  *float64           `pulumi:"size"`
+	State *SnapshotStateEnum `pulumi:"state"`
 	// The snapshot tags
-	Tags       []string    `pulumi:"tags"`
-	VolumeType *VolumeType `pulumi:"volumeType"`
+	Tags       []string            `pulumi:"tags"`
+	VolumeType *SnapshotVolumeType `pulumi:"volumeType"`
 	// The zone you want to target
 	Zone *string `pulumi:"zone"`
 }
@@ -112,10 +112,10 @@ type SnapshotArgs struct {
 	Project pulumi.StringPtrInput
 	// The snapshot size (in bytes)
 	Size  pulumi.Float64PtrInput
-	State StatePtrInput
+	State SnapshotStateEnumPtrInput
 	// The snapshot tags
 	Tags       pulumi.StringArrayInput
-	VolumeType VolumeTypePtrInput
+	VolumeType SnapshotVolumeTypePtrInput
 	// The zone you want to target
 	Zone pulumi.StringPtrInput
 }
@@ -201,8 +201,8 @@ func (o SnapshotOutput) Snapshot() ScalewayInstanceV1SnapshotPtrOutput {
 	return o.ApplyT(func(v *Snapshot) ScalewayInstanceV1SnapshotPtrOutput { return v.Snapshot }).(ScalewayInstanceV1SnapshotPtrOutput)
 }
 
-func (o SnapshotOutput) State() StatePtrOutput {
-	return o.ApplyT(func(v *Snapshot) StatePtrOutput { return v.State }).(StatePtrOutput)
+func (o SnapshotOutput) State() SnapshotStateEnumPtrOutput {
+	return o.ApplyT(func(v *Snapshot) SnapshotStateEnumPtrOutput { return v.State }).(SnapshotStateEnumPtrOutput)
 }
 
 // The snapshot tags
@@ -214,8 +214,8 @@ func (o SnapshotOutput) Task() ScalewayInstanceV1TaskPtrOutput {
 	return o.ApplyT(func(v *Snapshot) ScalewayInstanceV1TaskPtrOutput { return v.Task }).(ScalewayInstanceV1TaskPtrOutput)
 }
 
-func (o SnapshotOutput) VolumeType() VolumeTypePtrOutput {
-	return o.ApplyT(func(v *Snapshot) VolumeTypePtrOutput { return v.VolumeType }).(VolumeTypePtrOutput)
+func (o SnapshotOutput) VolumeType() SnapshotVolumeTypePtrOutput {
+	return o.ApplyT(func(v *Snapshot) SnapshotVolumeTypePtrOutput { return v.VolumeType }).(SnapshotVolumeTypePtrOutput)
 }
 
 // The snapshot zone

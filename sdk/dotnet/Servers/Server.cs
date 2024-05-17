@@ -16,7 +16,7 @@ namespace Pulumi.ScalewayInstances.Servers
         /// The boot type to use
         /// </summary>
         [Output("bootType")]
-        public Output<Pulumi.ScalewayInstances.Servers.BootType?> BootType { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Servers.ServerBootType?> BootType { get; private set; } = null!;
 
         /// <summary>
         /// The bootscript ID to use when `boot_type` is set to `bootscript`
@@ -146,7 +146,7 @@ namespace Pulumi.ScalewayInstances.Servers
         /// The boot type to use
         /// </summary>
         [Input("bootType")]
-        public Input<Pulumi.ScalewayInstances.Servers.BootType>? BootType { get; set; }
+        public Input<Pulumi.ScalewayInstances.Servers.ServerBootType>? BootType { get; set; }
 
         /// <summary>
         /// The bootscript ID to use when `boot_type` is set to `bootscript`
@@ -242,7 +242,7 @@ namespace Pulumi.ScalewayInstances.Servers
 
         public ServerArgs()
         {
-            BootType = Pulumi.ScalewayInstances.Servers.BootType.Local;
+            BootType = Pulumi.ScalewayInstances.Servers.ServerBootType.Local;
         }
         public static new ServerArgs Empty => new ServerArgs();
     }

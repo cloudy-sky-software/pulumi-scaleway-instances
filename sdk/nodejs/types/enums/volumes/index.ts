@@ -22,7 +22,7 @@ export const ScalewayInstanceV1VolumeVolumeType = {
 
 export type ScalewayInstanceV1VolumeVolumeType = (typeof ScalewayInstanceV1VolumeVolumeType)[keyof typeof ScalewayInstanceV1VolumeVolumeType];
 
-export const State = {
+export const VolumeState = {
     Available: "available",
     Snapshotting: "snapshotting",
     Error: "error",
@@ -32,7 +32,7 @@ export const State = {
     Hotsyncing: "hotsyncing",
 } as const;
 
-export type State = (typeof State)[keyof typeof State];
+export type VolumeState = (typeof VolumeState)[keyof typeof VolumeState];
 
 export const VolumeType = {
     LSsd: "l_ssd",

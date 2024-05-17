@@ -8,26 +8,55 @@ using Pulumi;
 namespace Pulumi.ScalewayInstances.Images
 {
     [EnumType]
-    public readonly struct Arch : IEquatable<Arch>
+    public readonly struct ImageArch : IEquatable<ImageArch>
     {
         private readonly string _value;
 
-        private Arch(string value)
+        private ImageArch(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Arch X8664 { get; } = new Arch("x86_64");
-        public static Arch Arm { get; } = new Arch("arm");
+        public static ImageArch X8664 { get; } = new ImageArch("x86_64");
+        public static ImageArch Arm { get; } = new ImageArch("arm");
 
-        public static bool operator ==(Arch left, Arch right) => left.Equals(right);
-        public static bool operator !=(Arch left, Arch right) => !left.Equals(right);
+        public static bool operator ==(ImageArch left, ImageArch right) => left.Equals(right);
+        public static bool operator !=(ImageArch left, ImageArch right) => !left.Equals(right);
 
-        public static explicit operator string(Arch value) => value._value;
+        public static explicit operator string(ImageArch value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Arch other && Equals(other);
-        public bool Equals(Arch other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ImageArch other && Equals(other);
+        public bool Equals(ImageArch other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ImageState : IEquatable<ImageState>
+    {
+        private readonly string _value;
+
+        private ImageState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageState Available { get; } = new ImageState("available");
+        public static ImageState Creating { get; } = new ImageState("creating");
+        public static ImageState Error { get; } = new ImageState("error");
+
+        public static bool operator ==(ImageState left, ImageState right) => left.Equals(right);
+        public static bool operator !=(ImageState left, ImageState right) => !left.Equals(right);
+
+        public static explicit operator string(ImageState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageState other && Equals(other);
+        public bool Equals(ImageState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -207,35 +236,6 @@ namespace Pulumi.ScalewayInstances.Images
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScalewayInstanceV1VolumeVolumeType other && Equals(other);
         public bool Equals(ScalewayInstanceV1VolumeVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct State : IEquatable<State>
-    {
-        private readonly string _value;
-
-        private State(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static State Available { get; } = new State("available");
-        public static State Creating { get; } = new State("creating");
-        public static State Error { get; } = new State("error");
-
-        public static bool operator ==(State left, State right) => left.Equals(right);
-        public static bool operator !=(State left, State right) => !left.Equals(right);
-
-        public static explicit operator string(State value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is State other && Equals(other);
-        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -2030,7 +2030,7 @@ class ScalewayInstanceV1VolumeServerTemplate(dict):
                  organization: Optional[str] = None,
                  project: Optional[str] = None,
                  size: Optional[float] = None,
-                 volume_type: Optional['ScalewayInstanceV1VolumeServerTemplateVolumeType'] = None):
+                 volume_type: Optional['ServerScalewayInstanceV1VolumeServerTemplateVolumeType'] = None):
         """
         :param str base_snapshot: The ID of the snapshot on which this volume will be based
         :param bool boot: Force the server to boot on this volume
@@ -2119,7 +2119,7 @@ class ScalewayInstanceV1VolumeServerTemplate(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional['ScalewayInstanceV1VolumeServerTemplateVolumeType']:
+    def volume_type(self) -> Optional['ServerScalewayInstanceV1VolumeServerTemplateVolumeType']:
         return pulumi.get(self, "volume_type")
 
 

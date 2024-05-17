@@ -8,92 +8,6 @@ using Pulumi;
 namespace Pulumi.ScalewayInstances.Rules
 {
     [EnumType]
-    public readonly struct Action : IEquatable<Action>
-    {
-        private readonly string _value;
-
-        private Action(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Action Accept { get; } = new Action("accept");
-        public static Action Drop { get; } = new Action("drop");
-
-        public static bool operator ==(Action left, Action right) => left.Equals(right);
-        public static bool operator !=(Action left, Action right) => !left.Equals(right);
-
-        public static explicit operator string(Action value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Action other && Equals(other);
-        public bool Equals(Action other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct Direction : IEquatable<Direction>
-    {
-        private readonly string _value;
-
-        private Direction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Direction Inbound { get; } = new Direction("inbound");
-        public static Direction Outbound { get; } = new Direction("outbound");
-
-        public static bool operator ==(Direction left, Direction right) => left.Equals(right);
-        public static bool operator !=(Direction left, Direction right) => !left.Equals(right);
-
-        public static explicit operator string(Direction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Direction other && Equals(other);
-        public bool Equals(Direction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct Protocol : IEquatable<Protocol>
-    {
-        private readonly string _value;
-
-        private Protocol(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static Protocol Tcp { get; } = new Protocol("TCP");
-        public static Protocol Udp { get; } = new Protocol("UDP");
-        public static Protocol Icmp { get; } = new Protocol("ICMP");
-        public static Protocol Any { get; } = new Protocol("ANY");
-
-        public static bool operator ==(Protocol left, Protocol right) => left.Equals(right);
-        public static bool operator !=(Protocol left, Protocol right) => !left.Equals(right);
-
-        public static explicit operator string(Protocol value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Protocol other && Equals(other);
-        public bool Equals(Protocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct ScalewayInstanceV1SecurityGroupRuleAction : IEquatable<ScalewayInstanceV1SecurityGroupRuleAction>
     {
         private readonly string _value;
@@ -172,6 +86,92 @@ namespace Pulumi.ScalewayInstances.Rules
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScalewayInstanceV1SecurityGroupRuleProtocol other && Equals(other);
         public bool Equals(ScalewayInstanceV1SecurityGroupRuleProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SecurityGroupRuleAction : IEquatable<SecurityGroupRuleAction>
+    {
+        private readonly string _value;
+
+        private SecurityGroupRuleAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityGroupRuleAction Accept { get; } = new SecurityGroupRuleAction("accept");
+        public static SecurityGroupRuleAction Drop { get; } = new SecurityGroupRuleAction("drop");
+
+        public static bool operator ==(SecurityGroupRuleAction left, SecurityGroupRuleAction right) => left.Equals(right);
+        public static bool operator !=(SecurityGroupRuleAction left, SecurityGroupRuleAction right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityGroupRuleAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityGroupRuleAction other && Equals(other);
+        public bool Equals(SecurityGroupRuleAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SecurityGroupRuleDirection : IEquatable<SecurityGroupRuleDirection>
+    {
+        private readonly string _value;
+
+        private SecurityGroupRuleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityGroupRuleDirection Inbound { get; } = new SecurityGroupRuleDirection("inbound");
+        public static SecurityGroupRuleDirection Outbound { get; } = new SecurityGroupRuleDirection("outbound");
+
+        public static bool operator ==(SecurityGroupRuleDirection left, SecurityGroupRuleDirection right) => left.Equals(right);
+        public static bool operator !=(SecurityGroupRuleDirection left, SecurityGroupRuleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityGroupRuleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityGroupRuleDirection other && Equals(other);
+        public bool Equals(SecurityGroupRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SecurityGroupRuleProtocol : IEquatable<SecurityGroupRuleProtocol>
+    {
+        private readonly string _value;
+
+        private SecurityGroupRuleProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityGroupRuleProtocol Tcp { get; } = new SecurityGroupRuleProtocol("TCP");
+        public static SecurityGroupRuleProtocol Udp { get; } = new SecurityGroupRuleProtocol("UDP");
+        public static SecurityGroupRuleProtocol Icmp { get; } = new SecurityGroupRuleProtocol("ICMP");
+        public static SecurityGroupRuleProtocol Any { get; } = new SecurityGroupRuleProtocol("ANY");
+
+        public static bool operator ==(SecurityGroupRuleProtocol left, SecurityGroupRuleProtocol right) => left.Equals(right);
+        public static bool operator !=(SecurityGroupRuleProtocol left, SecurityGroupRuleProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityGroupRuleProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityGroupRuleProtocol other && Equals(other);
+        public bool Equals(SecurityGroupRuleProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

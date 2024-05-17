@@ -11,338 +11,6 @@ import (
 )
 
 // The default inbound policy
-type InboundDefaultPolicy string
-
-const (
-	InboundDefaultPolicyAccept = InboundDefaultPolicy("accept")
-	InboundDefaultPolicyDrop   = InboundDefaultPolicy("drop")
-)
-
-func (InboundDefaultPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*InboundDefaultPolicy)(nil)).Elem()
-}
-
-func (e InboundDefaultPolicy) ToInboundDefaultPolicyOutput() InboundDefaultPolicyOutput {
-	return pulumi.ToOutput(e).(InboundDefaultPolicyOutput)
-}
-
-func (e InboundDefaultPolicy) ToInboundDefaultPolicyOutputWithContext(ctx context.Context) InboundDefaultPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(InboundDefaultPolicyOutput)
-}
-
-func (e InboundDefaultPolicy) ToInboundDefaultPolicyPtrOutput() InboundDefaultPolicyPtrOutput {
-	return e.ToInboundDefaultPolicyPtrOutputWithContext(context.Background())
-}
-
-func (e InboundDefaultPolicy) ToInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) InboundDefaultPolicyPtrOutput {
-	return InboundDefaultPolicy(e).ToInboundDefaultPolicyOutputWithContext(ctx).ToInboundDefaultPolicyPtrOutputWithContext(ctx)
-}
-
-func (e InboundDefaultPolicy) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e InboundDefaultPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e InboundDefaultPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e InboundDefaultPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type InboundDefaultPolicyOutput struct{ *pulumi.OutputState }
-
-func (InboundDefaultPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InboundDefaultPolicy)(nil)).Elem()
-}
-
-func (o InboundDefaultPolicyOutput) ToInboundDefaultPolicyOutput() InboundDefaultPolicyOutput {
-	return o
-}
-
-func (o InboundDefaultPolicyOutput) ToInboundDefaultPolicyOutputWithContext(ctx context.Context) InboundDefaultPolicyOutput {
-	return o
-}
-
-func (o InboundDefaultPolicyOutput) ToInboundDefaultPolicyPtrOutput() InboundDefaultPolicyPtrOutput {
-	return o.ToInboundDefaultPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o InboundDefaultPolicyOutput) ToInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) InboundDefaultPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InboundDefaultPolicy) *InboundDefaultPolicy {
-		return &v
-	}).(InboundDefaultPolicyPtrOutput)
-}
-
-func (o InboundDefaultPolicyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o InboundDefaultPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e InboundDefaultPolicy) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o InboundDefaultPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o InboundDefaultPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e InboundDefaultPolicy) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type InboundDefaultPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (InboundDefaultPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InboundDefaultPolicy)(nil)).Elem()
-}
-
-func (o InboundDefaultPolicyPtrOutput) ToInboundDefaultPolicyPtrOutput() InboundDefaultPolicyPtrOutput {
-	return o
-}
-
-func (o InboundDefaultPolicyPtrOutput) ToInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) InboundDefaultPolicyPtrOutput {
-	return o
-}
-
-func (o InboundDefaultPolicyPtrOutput) Elem() InboundDefaultPolicyOutput {
-	return o.ApplyT(func(v *InboundDefaultPolicy) InboundDefaultPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret InboundDefaultPolicy
-		return ret
-	}).(InboundDefaultPolicyOutput)
-}
-
-func (o InboundDefaultPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o InboundDefaultPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InboundDefaultPolicy) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// InboundDefaultPolicyInput is an input type that accepts values of the InboundDefaultPolicy enum
-// A concrete instance of `InboundDefaultPolicyInput` can be one of the following:
-//
-//	InboundDefaultPolicyAccept
-//	InboundDefaultPolicyDrop
-type InboundDefaultPolicyInput interface {
-	pulumi.Input
-
-	ToInboundDefaultPolicyOutput() InboundDefaultPolicyOutput
-	ToInboundDefaultPolicyOutputWithContext(context.Context) InboundDefaultPolicyOutput
-}
-
-var inboundDefaultPolicyPtrType = reflect.TypeOf((**InboundDefaultPolicy)(nil)).Elem()
-
-type InboundDefaultPolicyPtrInput interface {
-	pulumi.Input
-
-	ToInboundDefaultPolicyPtrOutput() InboundDefaultPolicyPtrOutput
-	ToInboundDefaultPolicyPtrOutputWithContext(context.Context) InboundDefaultPolicyPtrOutput
-}
-
-type inboundDefaultPolicyPtr string
-
-func InboundDefaultPolicyPtr(v string) InboundDefaultPolicyPtrInput {
-	return (*inboundDefaultPolicyPtr)(&v)
-}
-
-func (*inboundDefaultPolicyPtr) ElementType() reflect.Type {
-	return inboundDefaultPolicyPtrType
-}
-
-func (in *inboundDefaultPolicyPtr) ToInboundDefaultPolicyPtrOutput() InboundDefaultPolicyPtrOutput {
-	return pulumi.ToOutput(in).(InboundDefaultPolicyPtrOutput)
-}
-
-func (in *inboundDefaultPolicyPtr) ToInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) InboundDefaultPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(InboundDefaultPolicyPtrOutput)
-}
-
-// The default outbound policy
-type OutboundDefaultPolicy string
-
-const (
-	OutboundDefaultPolicyAccept = OutboundDefaultPolicy("accept")
-	OutboundDefaultPolicyDrop   = OutboundDefaultPolicy("drop")
-)
-
-func (OutboundDefaultPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutboundDefaultPolicy)(nil)).Elem()
-}
-
-func (e OutboundDefaultPolicy) ToOutboundDefaultPolicyOutput() OutboundDefaultPolicyOutput {
-	return pulumi.ToOutput(e).(OutboundDefaultPolicyOutput)
-}
-
-func (e OutboundDefaultPolicy) ToOutboundDefaultPolicyOutputWithContext(ctx context.Context) OutboundDefaultPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(OutboundDefaultPolicyOutput)
-}
-
-func (e OutboundDefaultPolicy) ToOutboundDefaultPolicyPtrOutput() OutboundDefaultPolicyPtrOutput {
-	return e.ToOutboundDefaultPolicyPtrOutputWithContext(context.Background())
-}
-
-func (e OutboundDefaultPolicy) ToOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) OutboundDefaultPolicyPtrOutput {
-	return OutboundDefaultPolicy(e).ToOutboundDefaultPolicyOutputWithContext(ctx).ToOutboundDefaultPolicyPtrOutputWithContext(ctx)
-}
-
-func (e OutboundDefaultPolicy) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e OutboundDefaultPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e OutboundDefaultPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e OutboundDefaultPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type OutboundDefaultPolicyOutput struct{ *pulumi.OutputState }
-
-func (OutboundDefaultPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutboundDefaultPolicy)(nil)).Elem()
-}
-
-func (o OutboundDefaultPolicyOutput) ToOutboundDefaultPolicyOutput() OutboundDefaultPolicyOutput {
-	return o
-}
-
-func (o OutboundDefaultPolicyOutput) ToOutboundDefaultPolicyOutputWithContext(ctx context.Context) OutboundDefaultPolicyOutput {
-	return o
-}
-
-func (o OutboundDefaultPolicyOutput) ToOutboundDefaultPolicyPtrOutput() OutboundDefaultPolicyPtrOutput {
-	return o.ToOutboundDefaultPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o OutboundDefaultPolicyOutput) ToOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) OutboundDefaultPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundDefaultPolicy) *OutboundDefaultPolicy {
-		return &v
-	}).(OutboundDefaultPolicyPtrOutput)
-}
-
-func (o OutboundDefaultPolicyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o OutboundDefaultPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutboundDefaultPolicy) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o OutboundDefaultPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OutboundDefaultPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutboundDefaultPolicy) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type OutboundDefaultPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (OutboundDefaultPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutboundDefaultPolicy)(nil)).Elem()
-}
-
-func (o OutboundDefaultPolicyPtrOutput) ToOutboundDefaultPolicyPtrOutput() OutboundDefaultPolicyPtrOutput {
-	return o
-}
-
-func (o OutboundDefaultPolicyPtrOutput) ToOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) OutboundDefaultPolicyPtrOutput {
-	return o
-}
-
-func (o OutboundDefaultPolicyPtrOutput) Elem() OutboundDefaultPolicyOutput {
-	return o.ApplyT(func(v *OutboundDefaultPolicy) OutboundDefaultPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret OutboundDefaultPolicy
-		return ret
-	}).(OutboundDefaultPolicyOutput)
-}
-
-func (o OutboundDefaultPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OutboundDefaultPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OutboundDefaultPolicy) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// OutboundDefaultPolicyInput is an input type that accepts values of the OutboundDefaultPolicy enum
-// A concrete instance of `OutboundDefaultPolicyInput` can be one of the following:
-//
-//	OutboundDefaultPolicyAccept
-//	OutboundDefaultPolicyDrop
-type OutboundDefaultPolicyInput interface {
-	pulumi.Input
-
-	ToOutboundDefaultPolicyOutput() OutboundDefaultPolicyOutput
-	ToOutboundDefaultPolicyOutputWithContext(context.Context) OutboundDefaultPolicyOutput
-}
-
-var outboundDefaultPolicyPtrType = reflect.TypeOf((**OutboundDefaultPolicy)(nil)).Elem()
-
-type OutboundDefaultPolicyPtrInput interface {
-	pulumi.Input
-
-	ToOutboundDefaultPolicyPtrOutput() OutboundDefaultPolicyPtrOutput
-	ToOutboundDefaultPolicyPtrOutputWithContext(context.Context) OutboundDefaultPolicyPtrOutput
-}
-
-type outboundDefaultPolicyPtr string
-
-func OutboundDefaultPolicyPtr(v string) OutboundDefaultPolicyPtrInput {
-	return (*outboundDefaultPolicyPtr)(&v)
-}
-
-func (*outboundDefaultPolicyPtr) ElementType() reflect.Type {
-	return outboundDefaultPolicyPtrType
-}
-
-func (in *outboundDefaultPolicyPtr) ToOutboundDefaultPolicyPtrOutput() OutboundDefaultPolicyPtrOutput {
-	return pulumi.ToOutput(in).(OutboundDefaultPolicyPtrOutput)
-}
-
-func (in *outboundDefaultPolicyPtr) ToOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) OutboundDefaultPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(OutboundDefaultPolicyPtrOutput)
-}
-
-// The default inbound policy
 type ScalewayInstanceV1SecurityGroupInboundDefaultPolicy string
 
 const (
@@ -616,90 +284,422 @@ func (o ScalewayInstanceV1SecurityGroupStatePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// Security group state
-type State string
+// The default inbound policy
+type SecurityGroupInboundDefaultPolicy string
 
 const (
-	StateAvailable    = State("available")
-	StateSyncing      = State("syncing")
-	StateSyncingError = State("syncing_error")
+	SecurityGroupInboundDefaultPolicyAccept = SecurityGroupInboundDefaultPolicy("accept")
+	SecurityGroupInboundDefaultPolicyDrop   = SecurityGroupInboundDefaultPolicy("drop")
 )
 
-type StateOutput struct{ *pulumi.OutputState }
-
-func (StateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*State)(nil)).Elem()
+func (SecurityGroupInboundDefaultPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupInboundDefaultPolicy)(nil)).Elem()
 }
 
-func (o StateOutput) ToStateOutput() StateOutput {
+func (e SecurityGroupInboundDefaultPolicy) ToSecurityGroupInboundDefaultPolicyOutput() SecurityGroupInboundDefaultPolicyOutput {
+	return pulumi.ToOutput(e).(SecurityGroupInboundDefaultPolicyOutput)
+}
+
+func (e SecurityGroupInboundDefaultPolicy) ToSecurityGroupInboundDefaultPolicyOutputWithContext(ctx context.Context) SecurityGroupInboundDefaultPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SecurityGroupInboundDefaultPolicyOutput)
+}
+
+func (e SecurityGroupInboundDefaultPolicy) ToSecurityGroupInboundDefaultPolicyPtrOutput() SecurityGroupInboundDefaultPolicyPtrOutput {
+	return e.ToSecurityGroupInboundDefaultPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityGroupInboundDefaultPolicy) ToSecurityGroupInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) SecurityGroupInboundDefaultPolicyPtrOutput {
+	return SecurityGroupInboundDefaultPolicy(e).ToSecurityGroupInboundDefaultPolicyOutputWithContext(ctx).ToSecurityGroupInboundDefaultPolicyPtrOutputWithContext(ctx)
+}
+
+func (e SecurityGroupInboundDefaultPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityGroupInboundDefaultPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityGroupInboundDefaultPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityGroupInboundDefaultPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SecurityGroupInboundDefaultPolicyOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupInboundDefaultPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupInboundDefaultPolicy)(nil)).Elem()
+}
+
+func (o SecurityGroupInboundDefaultPolicyOutput) ToSecurityGroupInboundDefaultPolicyOutput() SecurityGroupInboundDefaultPolicyOutput {
 	return o
 }
 
-func (o StateOutput) ToStateOutputWithContext(ctx context.Context) StateOutput {
+func (o SecurityGroupInboundDefaultPolicyOutput) ToSecurityGroupInboundDefaultPolicyOutputWithContext(ctx context.Context) SecurityGroupInboundDefaultPolicyOutput {
 	return o
 }
 
-func (o StateOutput) ToStatePtrOutput() StatePtrOutput {
-	return o.ToStatePtrOutputWithContext(context.Background())
+func (o SecurityGroupInboundDefaultPolicyOutput) ToSecurityGroupInboundDefaultPolicyPtrOutput() SecurityGroupInboundDefaultPolicyPtrOutput {
+	return o.ToSecurityGroupInboundDefaultPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o StateOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v State) *State {
+func (o SecurityGroupInboundDefaultPolicyOutput) ToSecurityGroupInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) SecurityGroupInboundDefaultPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroupInboundDefaultPolicy) *SecurityGroupInboundDefaultPolicy {
 		return &v
-	}).(StatePtrOutput)
+	}).(SecurityGroupInboundDefaultPolicyPtrOutput)
 }
 
-func (o StateOutput) ToStringOutput() pulumi.StringOutput {
+func (o SecurityGroupInboundDefaultPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o StateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) string {
+func (o SecurityGroupInboundDefaultPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupInboundDefaultPolicy) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o StateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o SecurityGroupInboundDefaultPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o StateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) *string {
+func (o SecurityGroupInboundDefaultPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupInboundDefaultPolicy) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type StatePtrOutput struct{ *pulumi.OutputState }
+type SecurityGroupInboundDefaultPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (StatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**State)(nil)).Elem()
+func (SecurityGroupInboundDefaultPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityGroupInboundDefaultPolicy)(nil)).Elem()
 }
 
-func (o StatePtrOutput) ToStatePtrOutput() StatePtrOutput {
+func (o SecurityGroupInboundDefaultPolicyPtrOutput) ToSecurityGroupInboundDefaultPolicyPtrOutput() SecurityGroupInboundDefaultPolicyPtrOutput {
 	return o
 }
 
-func (o StatePtrOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
+func (o SecurityGroupInboundDefaultPolicyPtrOutput) ToSecurityGroupInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) SecurityGroupInboundDefaultPolicyPtrOutput {
 	return o
 }
 
-func (o StatePtrOutput) Elem() StateOutput {
-	return o.ApplyT(func(v *State) State {
+func (o SecurityGroupInboundDefaultPolicyPtrOutput) Elem() SecurityGroupInboundDefaultPolicyOutput {
+	return o.ApplyT(func(v *SecurityGroupInboundDefaultPolicy) SecurityGroupInboundDefaultPolicy {
 		if v != nil {
 			return *v
 		}
-		var ret State
+		var ret SecurityGroupInboundDefaultPolicy
 		return ret
-	}).(StateOutput)
+	}).(SecurityGroupInboundDefaultPolicyOutput)
 }
 
-func (o StatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o SecurityGroupInboundDefaultPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *State) *string {
+func (o SecurityGroupInboundDefaultPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityGroupInboundDefaultPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SecurityGroupInboundDefaultPolicyInput is an input type that accepts values of the SecurityGroupInboundDefaultPolicy enum
+// A concrete instance of `SecurityGroupInboundDefaultPolicyInput` can be one of the following:
+//
+//	SecurityGroupInboundDefaultPolicyAccept
+//	SecurityGroupInboundDefaultPolicyDrop
+type SecurityGroupInboundDefaultPolicyInput interface {
+	pulumi.Input
+
+	ToSecurityGroupInboundDefaultPolicyOutput() SecurityGroupInboundDefaultPolicyOutput
+	ToSecurityGroupInboundDefaultPolicyOutputWithContext(context.Context) SecurityGroupInboundDefaultPolicyOutput
+}
+
+var securityGroupInboundDefaultPolicyPtrType = reflect.TypeOf((**SecurityGroupInboundDefaultPolicy)(nil)).Elem()
+
+type SecurityGroupInboundDefaultPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSecurityGroupInboundDefaultPolicyPtrOutput() SecurityGroupInboundDefaultPolicyPtrOutput
+	ToSecurityGroupInboundDefaultPolicyPtrOutputWithContext(context.Context) SecurityGroupInboundDefaultPolicyPtrOutput
+}
+
+type securityGroupInboundDefaultPolicyPtr string
+
+func SecurityGroupInboundDefaultPolicyPtr(v string) SecurityGroupInboundDefaultPolicyPtrInput {
+	return (*securityGroupInboundDefaultPolicyPtr)(&v)
+}
+
+func (*securityGroupInboundDefaultPolicyPtr) ElementType() reflect.Type {
+	return securityGroupInboundDefaultPolicyPtrType
+}
+
+func (in *securityGroupInboundDefaultPolicyPtr) ToSecurityGroupInboundDefaultPolicyPtrOutput() SecurityGroupInboundDefaultPolicyPtrOutput {
+	return pulumi.ToOutput(in).(SecurityGroupInboundDefaultPolicyPtrOutput)
+}
+
+func (in *securityGroupInboundDefaultPolicyPtr) ToSecurityGroupInboundDefaultPolicyPtrOutputWithContext(ctx context.Context) SecurityGroupInboundDefaultPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SecurityGroupInboundDefaultPolicyPtrOutput)
+}
+
+// The default outbound policy
+type SecurityGroupOutboundDefaultPolicy string
+
+const (
+	SecurityGroupOutboundDefaultPolicyAccept = SecurityGroupOutboundDefaultPolicy("accept")
+	SecurityGroupOutboundDefaultPolicyDrop   = SecurityGroupOutboundDefaultPolicy("drop")
+)
+
+func (SecurityGroupOutboundDefaultPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupOutboundDefaultPolicy)(nil)).Elem()
+}
+
+func (e SecurityGroupOutboundDefaultPolicy) ToSecurityGroupOutboundDefaultPolicyOutput() SecurityGroupOutboundDefaultPolicyOutput {
+	return pulumi.ToOutput(e).(SecurityGroupOutboundDefaultPolicyOutput)
+}
+
+func (e SecurityGroupOutboundDefaultPolicy) ToSecurityGroupOutboundDefaultPolicyOutputWithContext(ctx context.Context) SecurityGroupOutboundDefaultPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SecurityGroupOutboundDefaultPolicyOutput)
+}
+
+func (e SecurityGroupOutboundDefaultPolicy) ToSecurityGroupOutboundDefaultPolicyPtrOutput() SecurityGroupOutboundDefaultPolicyPtrOutput {
+	return e.ToSecurityGroupOutboundDefaultPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityGroupOutboundDefaultPolicy) ToSecurityGroupOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) SecurityGroupOutboundDefaultPolicyPtrOutput {
+	return SecurityGroupOutboundDefaultPolicy(e).ToSecurityGroupOutboundDefaultPolicyOutputWithContext(ctx).ToSecurityGroupOutboundDefaultPolicyPtrOutputWithContext(ctx)
+}
+
+func (e SecurityGroupOutboundDefaultPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityGroupOutboundDefaultPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityGroupOutboundDefaultPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityGroupOutboundDefaultPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SecurityGroupOutboundDefaultPolicyOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupOutboundDefaultPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupOutboundDefaultPolicy)(nil)).Elem()
+}
+
+func (o SecurityGroupOutboundDefaultPolicyOutput) ToSecurityGroupOutboundDefaultPolicyOutput() SecurityGroupOutboundDefaultPolicyOutput {
+	return o
+}
+
+func (o SecurityGroupOutboundDefaultPolicyOutput) ToSecurityGroupOutboundDefaultPolicyOutputWithContext(ctx context.Context) SecurityGroupOutboundDefaultPolicyOutput {
+	return o
+}
+
+func (o SecurityGroupOutboundDefaultPolicyOutput) ToSecurityGroupOutboundDefaultPolicyPtrOutput() SecurityGroupOutboundDefaultPolicyPtrOutput {
+	return o.ToSecurityGroupOutboundDefaultPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupOutboundDefaultPolicyOutput) ToSecurityGroupOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) SecurityGroupOutboundDefaultPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroupOutboundDefaultPolicy) *SecurityGroupOutboundDefaultPolicy {
+		return &v
+	}).(SecurityGroupOutboundDefaultPolicyPtrOutput)
+}
+
+func (o SecurityGroupOutboundDefaultPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupOutboundDefaultPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupOutboundDefaultPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupOutboundDefaultPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupOutboundDefaultPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupOutboundDefaultPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityGroupOutboundDefaultPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupOutboundDefaultPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityGroupOutboundDefaultPolicy)(nil)).Elem()
+}
+
+func (o SecurityGroupOutboundDefaultPolicyPtrOutput) ToSecurityGroupOutboundDefaultPolicyPtrOutput() SecurityGroupOutboundDefaultPolicyPtrOutput {
+	return o
+}
+
+func (o SecurityGroupOutboundDefaultPolicyPtrOutput) ToSecurityGroupOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) SecurityGroupOutboundDefaultPolicyPtrOutput {
+	return o
+}
+
+func (o SecurityGroupOutboundDefaultPolicyPtrOutput) Elem() SecurityGroupOutboundDefaultPolicyOutput {
+	return o.ApplyT(func(v *SecurityGroupOutboundDefaultPolicy) SecurityGroupOutboundDefaultPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityGroupOutboundDefaultPolicy
+		return ret
+	}).(SecurityGroupOutboundDefaultPolicyOutput)
+}
+
+func (o SecurityGroupOutboundDefaultPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupOutboundDefaultPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityGroupOutboundDefaultPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SecurityGroupOutboundDefaultPolicyInput is an input type that accepts values of the SecurityGroupOutboundDefaultPolicy enum
+// A concrete instance of `SecurityGroupOutboundDefaultPolicyInput` can be one of the following:
+//
+//	SecurityGroupOutboundDefaultPolicyAccept
+//	SecurityGroupOutboundDefaultPolicyDrop
+type SecurityGroupOutboundDefaultPolicyInput interface {
+	pulumi.Input
+
+	ToSecurityGroupOutboundDefaultPolicyOutput() SecurityGroupOutboundDefaultPolicyOutput
+	ToSecurityGroupOutboundDefaultPolicyOutputWithContext(context.Context) SecurityGroupOutboundDefaultPolicyOutput
+}
+
+var securityGroupOutboundDefaultPolicyPtrType = reflect.TypeOf((**SecurityGroupOutboundDefaultPolicy)(nil)).Elem()
+
+type SecurityGroupOutboundDefaultPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSecurityGroupOutboundDefaultPolicyPtrOutput() SecurityGroupOutboundDefaultPolicyPtrOutput
+	ToSecurityGroupOutboundDefaultPolicyPtrOutputWithContext(context.Context) SecurityGroupOutboundDefaultPolicyPtrOutput
+}
+
+type securityGroupOutboundDefaultPolicyPtr string
+
+func SecurityGroupOutboundDefaultPolicyPtr(v string) SecurityGroupOutboundDefaultPolicyPtrInput {
+	return (*securityGroupOutboundDefaultPolicyPtr)(&v)
+}
+
+func (*securityGroupOutboundDefaultPolicyPtr) ElementType() reflect.Type {
+	return securityGroupOutboundDefaultPolicyPtrType
+}
+
+func (in *securityGroupOutboundDefaultPolicyPtr) ToSecurityGroupOutboundDefaultPolicyPtrOutput() SecurityGroupOutboundDefaultPolicyPtrOutput {
+	return pulumi.ToOutput(in).(SecurityGroupOutboundDefaultPolicyPtrOutput)
+}
+
+func (in *securityGroupOutboundDefaultPolicyPtr) ToSecurityGroupOutboundDefaultPolicyPtrOutputWithContext(ctx context.Context) SecurityGroupOutboundDefaultPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SecurityGroupOutboundDefaultPolicyPtrOutput)
+}
+
+// Security group state
+type SecurityGroupStateEnum string
+
+const (
+	SecurityGroupStateEnumAvailable    = SecurityGroupStateEnum("available")
+	SecurityGroupStateEnumSyncing      = SecurityGroupStateEnum("syncing")
+	SecurityGroupStateEnumSyncingError = SecurityGroupStateEnum("syncing_error")
+)
+
+type SecurityGroupStateEnumOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupStateEnum)(nil)).Elem()
+}
+
+func (o SecurityGroupStateEnumOutput) ToSecurityGroupStateEnumOutput() SecurityGroupStateEnumOutput {
+	return o
+}
+
+func (o SecurityGroupStateEnumOutput) ToSecurityGroupStateEnumOutputWithContext(ctx context.Context) SecurityGroupStateEnumOutput {
+	return o
+}
+
+func (o SecurityGroupStateEnumOutput) ToSecurityGroupStateEnumPtrOutput() SecurityGroupStateEnumPtrOutput {
+	return o.ToSecurityGroupStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupStateEnumOutput) ToSecurityGroupStateEnumPtrOutputWithContext(ctx context.Context) SecurityGroupStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroupStateEnum) *SecurityGroupStateEnum {
+		return &v
+	}).(SecurityGroupStateEnumPtrOutput)
+}
+
+func (o SecurityGroupStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityGroupStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityGroupStateEnum)(nil)).Elem()
+}
+
+func (o SecurityGroupStateEnumPtrOutput) ToSecurityGroupStateEnumPtrOutput() SecurityGroupStateEnumPtrOutput {
+	return o
+}
+
+func (o SecurityGroupStateEnumPtrOutput) ToSecurityGroupStateEnumPtrOutputWithContext(ctx context.Context) SecurityGroupStateEnumPtrOutput {
+	return o
+}
+
+func (o SecurityGroupStateEnumPtrOutput) Elem() SecurityGroupStateEnumOutput {
+	return o.ApplyT(func(v *SecurityGroupStateEnum) SecurityGroupStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityGroupStateEnum
+		return ret
+	}).(SecurityGroupStateEnumOutput)
+}
+
+func (o SecurityGroupStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityGroupStateEnum) *string {
 		if e == nil {
 			return nil
 		}
@@ -709,20 +709,20 @@ func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*InboundDefaultPolicyInput)(nil)).Elem(), InboundDefaultPolicy("accept"))
-	pulumi.RegisterInputType(reflect.TypeOf((*InboundDefaultPolicyPtrInput)(nil)).Elem(), InboundDefaultPolicy("accept"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OutboundDefaultPolicyInput)(nil)).Elem(), OutboundDefaultPolicy("accept"))
-	pulumi.RegisterInputType(reflect.TypeOf((*OutboundDefaultPolicyPtrInput)(nil)).Elem(), OutboundDefaultPolicy("accept"))
-	pulumi.RegisterOutputType(InboundDefaultPolicyOutput{})
-	pulumi.RegisterOutputType(InboundDefaultPolicyPtrOutput{})
-	pulumi.RegisterOutputType(OutboundDefaultPolicyOutput{})
-	pulumi.RegisterOutputType(OutboundDefaultPolicyPtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupInboundDefaultPolicyInput)(nil)).Elem(), SecurityGroupInboundDefaultPolicy("accept"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupInboundDefaultPolicyPtrInput)(nil)).Elem(), SecurityGroupInboundDefaultPolicy("accept"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupOutboundDefaultPolicyInput)(nil)).Elem(), SecurityGroupOutboundDefaultPolicy("accept"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupOutboundDefaultPolicyPtrInput)(nil)).Elem(), SecurityGroupOutboundDefaultPolicy("accept"))
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupInboundDefaultPolicyOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupInboundDefaultPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupOutboundDefaultPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupStateOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupStatePtrOutput{})
-	pulumi.RegisterOutputType(StateOutput{})
-	pulumi.RegisterOutputType(StatePtrOutput{})
+	pulumi.RegisterOutputType(SecurityGroupInboundDefaultPolicyOutput{})
+	pulumi.RegisterOutputType(SecurityGroupInboundDefaultPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SecurityGroupOutboundDefaultPolicyOutput{})
+	pulumi.RegisterOutputType(SecurityGroupOutboundDefaultPolicyPtrOutput{})
+	pulumi.RegisterOutputType(SecurityGroupStateEnumOutput{})
+	pulumi.RegisterOutputType(SecurityGroupStateEnumPtrOutput{})
 }

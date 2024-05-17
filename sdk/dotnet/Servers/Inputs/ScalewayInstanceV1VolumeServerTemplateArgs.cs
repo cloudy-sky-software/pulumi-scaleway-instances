@@ -55,12 +55,12 @@ namespace Pulumi.ScalewayInstances.Servers.Inputs
         public Input<double>? Size { get; set; }
 
         [Input("volumeType")]
-        public Input<Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType>? VolumeType { get; set; }
+        public Input<Pulumi.ScalewayInstances.Servers.ServerScalewayInstanceV1VolumeServerTemplateVolumeType>? VolumeType { get; set; }
 
         public ScalewayInstanceV1VolumeServerTemplateArgs()
         {
             Boot = false;
-            VolumeType = Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType.LSsd;
+            VolumeType = Pulumi.ScalewayInstances.Servers.ServerScalewayInstanceV1VolumeServerTemplateVolumeType.LSsd;
         }
         public static new ScalewayInstanceV1VolumeServerTemplateArgs Empty => new ScalewayInstanceV1VolumeServerTemplateArgs();
     }

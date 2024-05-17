@@ -11,68 +11,6 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
     /// The default inbound policy
     /// </summary>
     [EnumType]
-    public readonly struct InboundDefaultPolicy : IEquatable<InboundDefaultPolicy>
-    {
-        private readonly string _value;
-
-        private InboundDefaultPolicy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static InboundDefaultPolicy Accept { get; } = new InboundDefaultPolicy("accept");
-        public static InboundDefaultPolicy Drop { get; } = new InboundDefaultPolicy("drop");
-
-        public static bool operator ==(InboundDefaultPolicy left, InboundDefaultPolicy right) => left.Equals(right);
-        public static bool operator !=(InboundDefaultPolicy left, InboundDefaultPolicy right) => !left.Equals(right);
-
-        public static explicit operator string(InboundDefaultPolicy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is InboundDefaultPolicy other && Equals(other);
-        public bool Equals(InboundDefaultPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The default outbound policy
-    /// </summary>
-    [EnumType]
-    public readonly struct OutboundDefaultPolicy : IEquatable<OutboundDefaultPolicy>
-    {
-        private readonly string _value;
-
-        private OutboundDefaultPolicy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OutboundDefaultPolicy Accept { get; } = new OutboundDefaultPolicy("accept");
-        public static OutboundDefaultPolicy Drop { get; } = new OutboundDefaultPolicy("drop");
-
-        public static bool operator ==(OutboundDefaultPolicy left, OutboundDefaultPolicy right) => left.Equals(right);
-        public static bool operator !=(OutboundDefaultPolicy left, OutboundDefaultPolicy right) => !left.Equals(right);
-
-        public static explicit operator string(OutboundDefaultPolicy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OutboundDefaultPolicy other && Equals(other);
-        public bool Equals(OutboundDefaultPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The default inbound policy
-    /// </summary>
-    [EnumType]
     public readonly struct ScalewayInstanceV1SecurityGroupInboundDefaultPolicy : IEquatable<ScalewayInstanceV1SecurityGroupInboundDefaultPolicy>
     {
         private readonly string _value;
@@ -164,30 +102,92 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
     }
 
     /// <summary>
-    /// Security group state
+    /// The default inbound policy
     /// </summary>
     [EnumType]
-    public readonly struct State : IEquatable<State>
+    public readonly struct SecurityGroupInboundDefaultPolicy : IEquatable<SecurityGroupInboundDefaultPolicy>
     {
         private readonly string _value;
 
-        private State(string value)
+        private SecurityGroupInboundDefaultPolicy(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static State Available { get; } = new State("available");
-        public static State Syncing { get; } = new State("syncing");
-        public static State SyncingError { get; } = new State("syncing_error");
+        public static SecurityGroupInboundDefaultPolicy Accept { get; } = new SecurityGroupInboundDefaultPolicy("accept");
+        public static SecurityGroupInboundDefaultPolicy Drop { get; } = new SecurityGroupInboundDefaultPolicy("drop");
 
-        public static bool operator ==(State left, State right) => left.Equals(right);
-        public static bool operator !=(State left, State right) => !left.Equals(right);
+        public static bool operator ==(SecurityGroupInboundDefaultPolicy left, SecurityGroupInboundDefaultPolicy right) => left.Equals(right);
+        public static bool operator !=(SecurityGroupInboundDefaultPolicy left, SecurityGroupInboundDefaultPolicy right) => !left.Equals(right);
 
-        public static explicit operator string(State value) => value._value;
+        public static explicit operator string(SecurityGroupInboundDefaultPolicy value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is State other && Equals(other);
-        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is SecurityGroupInboundDefaultPolicy other && Equals(other);
+        public bool Equals(SecurityGroupInboundDefaultPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The default outbound policy
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityGroupOutboundDefaultPolicy : IEquatable<SecurityGroupOutboundDefaultPolicy>
+    {
+        private readonly string _value;
+
+        private SecurityGroupOutboundDefaultPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityGroupOutboundDefaultPolicy Accept { get; } = new SecurityGroupOutboundDefaultPolicy("accept");
+        public static SecurityGroupOutboundDefaultPolicy Drop { get; } = new SecurityGroupOutboundDefaultPolicy("drop");
+
+        public static bool operator ==(SecurityGroupOutboundDefaultPolicy left, SecurityGroupOutboundDefaultPolicy right) => left.Equals(right);
+        public static bool operator !=(SecurityGroupOutboundDefaultPolicy left, SecurityGroupOutboundDefaultPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityGroupOutboundDefaultPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityGroupOutboundDefaultPolicy other && Equals(other);
+        public bool Equals(SecurityGroupOutboundDefaultPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Security group state
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityGroupState : IEquatable<SecurityGroupState>
+    {
+        private readonly string _value;
+
+        private SecurityGroupState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityGroupState Available { get; } = new SecurityGroupState("available");
+        public static SecurityGroupState Syncing { get; } = new SecurityGroupState("syncing");
+        public static SecurityGroupState SyncingError { get; } = new SecurityGroupState("syncing_error");
+
+        public static bool operator ==(SecurityGroupState left, SecurityGroupState right) => left.Equals(right);
+        public static bool operator !=(SecurityGroupState left, SecurityGroupState right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityGroupState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityGroupState other && Equals(other);
+        public bool Equals(SecurityGroupState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

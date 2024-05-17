@@ -13,7 +13,7 @@ namespace Pulumi.ScalewayInstances.Rules
     public partial class SecurityGroupRule : global::Pulumi.CustomResource
     {
         [Output("action")]
-        public Output<Pulumi.ScalewayInstances.Rules.Action> Action { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Rules.SecurityGroupRuleAction> Action { get; private set; } = null!;
 
         /// <summary>
         /// The beginning of the range of ports to apply this rule to (inclusive)
@@ -28,7 +28,7 @@ namespace Pulumi.ScalewayInstances.Rules
         public Output<double?> DestPortTo { get; private set; } = null!;
 
         [Output("direction")]
-        public Output<Pulumi.ScalewayInstances.Rules.Direction> Direction { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Rules.SecurityGroupRuleDirection> Direction { get; private set; } = null!;
 
         /// <summary>
         /// Indicates if this rule is editable (will be ignored)
@@ -49,7 +49,7 @@ namespace Pulumi.ScalewayInstances.Rules
         public Output<double?> Position { get; private set; } = null!;
 
         [Output("protocol")]
-        public Output<Pulumi.ScalewayInstances.Rules.Protocol> Protocol { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Rules.SecurityGroupRuleProtocol> Protocol { get; private set; } = null!;
 
         [Output("rule")]
         public Output<Outputs.ScalewayInstanceV1SecurityGroupRule?> Rule { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.ScalewayInstances.Rules
     public sealed class SecurityGroupRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
-        public Input<Pulumi.ScalewayInstances.Rules.Action> Action { get; set; } = null!;
+        public Input<Pulumi.ScalewayInstances.Rules.SecurityGroupRuleAction> Action { get; set; } = null!;
 
         /// <summary>
         /// The beginning of the range of ports to apply this rule to (inclusive)
@@ -116,7 +116,7 @@ namespace Pulumi.ScalewayInstances.Rules
         public Input<double>? DestPortTo { get; set; }
 
         [Input("direction", required: true)]
-        public Input<Pulumi.ScalewayInstances.Rules.Direction> Direction { get; set; } = null!;
+        public Input<Pulumi.ScalewayInstances.Rules.SecurityGroupRuleDirection> Direction { get; set; } = null!;
 
         /// <summary>
         /// Indicates if this rule is editable (will be ignored)
@@ -137,7 +137,7 @@ namespace Pulumi.ScalewayInstances.Rules
         public Input<double>? Position { get; set; }
 
         [Input("protocol", required: true)]
-        public Input<Pulumi.ScalewayInstances.Rules.Protocol> Protocol { get; set; } = null!;
+        public Input<Pulumi.ScalewayInstances.Rules.SecurityGroupRuleProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// UUID of the security group
@@ -153,9 +153,9 @@ namespace Pulumi.ScalewayInstances.Rules
 
         public SecurityGroupRuleArgs()
         {
-            Action = Pulumi.ScalewayInstances.Rules.Action.Accept;
-            Direction = Pulumi.ScalewayInstances.Rules.Direction.Inbound;
-            Protocol = Pulumi.ScalewayInstances.Rules.Protocol.Tcp;
+            Action = Pulumi.ScalewayInstances.Rules.SecurityGroupRuleAction.Accept;
+            Direction = Pulumi.ScalewayInstances.Rules.SecurityGroupRuleDirection.Inbound;
+            Protocol = Pulumi.ScalewayInstances.Rules.SecurityGroupRuleProtocol.Tcp;
         }
         public static new SecurityGroupRuleArgs Empty => new SecurityGroupRuleArgs();
     }

@@ -17,7 +17,7 @@ __all__ = [
 @pulumi.input_type
 class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs:
     def __init__(__self__, *,
-                 volume_type: Optional[pulumi.Input['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']] = None):
+                 volume_type: Optional[pulumi.Input['ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']] = None):
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
@@ -25,11 +25,11 @@ class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs:
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']]:
+    def volume_type(self) -> Optional[pulumi.Input['ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']]:
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']]):
+    def volume_type(self, value: Optional[pulumi.Input['ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']]):
         pulumi.set(self, "volume_type", value)
 
 

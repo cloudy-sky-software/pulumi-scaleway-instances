@@ -28,7 +28,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         public Output<Outputs.ScalewayInstanceV1PlacementGroup?> PlacementGroupValue { get; private set; } = null!;
 
         [Output("policyMode")]
-        public Output<Pulumi.ScalewayInstances.PlacementGroups.PolicyMode?> PolicyMode { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.PlacementGroups.PlacementGroupPolicyMode?> PolicyMode { get; private set; } = null!;
 
         /// <summary>
         /// Returns true if the policy is respected, false otherwise
@@ -37,7 +37,7 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         public Output<bool?> PolicyRespected { get; private set; } = null!;
 
         [Output("policyType")]
-        public Output<Pulumi.ScalewayInstances.PlacementGroups.PolicyType?> PolicyType { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.PlacementGroups.PlacementGroupPolicyType?> PolicyType { get; private set; } = null!;
 
         /// <summary>
         /// The placement group project ID
@@ -116,10 +116,10 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         public Input<string>? Organization { get; set; }
 
         [Input("policyMode")]
-        public Input<Pulumi.ScalewayInstances.PlacementGroups.PolicyMode>? PolicyMode { get; set; }
+        public Input<Pulumi.ScalewayInstances.PlacementGroups.PlacementGroupPolicyMode>? PolicyMode { get; set; }
 
         [Input("policyType")]
-        public Input<Pulumi.ScalewayInstances.PlacementGroups.PolicyType>? PolicyType { get; set; }
+        public Input<Pulumi.ScalewayInstances.PlacementGroups.PlacementGroupPolicyType>? PolicyType { get; set; }
 
         /// <summary>
         /// The placement group project ID
@@ -147,8 +147,8 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
 
         public PlacementGroupArgs()
         {
-            PolicyMode = Pulumi.ScalewayInstances.PlacementGroups.PolicyMode.Optional;
-            PolicyType = Pulumi.ScalewayInstances.PlacementGroups.PolicyType.MaxAvailability;
+            PolicyMode = Pulumi.ScalewayInstances.PlacementGroups.PlacementGroupPolicyMode.Optional;
+            PolicyType = Pulumi.ScalewayInstances.PlacementGroups.PlacementGroupPolicyType.MaxAvailability;
         }
         public static new PlacementGroupArgs Empty => new PlacementGroupArgs();
     }

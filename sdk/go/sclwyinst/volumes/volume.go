@@ -31,8 +31,8 @@ type Volume struct {
 	// The server attached to the volume
 	Server ServerPropertiesPtrOutput `pulumi:"server"`
 	// The volume disk size (in bytes)
-	Size  pulumi.Float64PtrOutput `pulumi:"size"`
-	State StatePtrOutput          `pulumi:"state"`
+	Size  pulumi.Float64PtrOutput  `pulumi:"size"`
+	State VolumeStateEnumPtrOutput `pulumi:"state"`
 	// The volume tags
 	Tags       pulumi.StringArrayOutput          `pulumi:"tags"`
 	Volume     ScalewayInstanceV1VolumePtrOutput `pulumi:"volume"`
@@ -200,8 +200,8 @@ func (o VolumeOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.Float64PtrOutput { return v.Size }).(pulumi.Float64PtrOutput)
 }
 
-func (o VolumeOutput) State() StatePtrOutput {
-	return o.ApplyT(func(v *Volume) StatePtrOutput { return v.State }).(StatePtrOutput)
+func (o VolumeOutput) State() VolumeStateEnumPtrOutput {
+	return o.ApplyT(func(v *Volume) VolumeStateEnumPtrOutput { return v.State }).(VolumeStateEnumPtrOutput)
 }
 
 // The volume tags

@@ -320,7 +320,7 @@ class Volume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[Optional['State']]:
+    def state(self) -> pulumi.Output[Optional['VolumeState']]:
         return pulumi.get(self, "state")
 
     @property
