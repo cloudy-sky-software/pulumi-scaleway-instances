@@ -10,174 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The boot type to use
-type BootType string
-
-const (
-	BootTypeLocal      = BootType("local")
-	BootTypeBootscript = BootType("bootscript")
-	BootTypeRescue     = BootType("rescue")
-)
-
-func (BootType) ElementType() reflect.Type {
-	return reflect.TypeOf((*BootType)(nil)).Elem()
-}
-
-func (e BootType) ToBootTypeOutput() BootTypeOutput {
-	return pulumi.ToOutput(e).(BootTypeOutput)
-}
-
-func (e BootType) ToBootTypeOutputWithContext(ctx context.Context) BootTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(BootTypeOutput)
-}
-
-func (e BootType) ToBootTypePtrOutput() BootTypePtrOutput {
-	return e.ToBootTypePtrOutputWithContext(context.Background())
-}
-
-func (e BootType) ToBootTypePtrOutputWithContext(ctx context.Context) BootTypePtrOutput {
-	return BootType(e).ToBootTypeOutputWithContext(ctx).ToBootTypePtrOutputWithContext(ctx)
-}
-
-func (e BootType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e BootType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e BootType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e BootType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type BootTypeOutput struct{ *pulumi.OutputState }
-
-func (BootTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BootType)(nil)).Elem()
-}
-
-func (o BootTypeOutput) ToBootTypeOutput() BootTypeOutput {
-	return o
-}
-
-func (o BootTypeOutput) ToBootTypeOutputWithContext(ctx context.Context) BootTypeOutput {
-	return o
-}
-
-func (o BootTypeOutput) ToBootTypePtrOutput() BootTypePtrOutput {
-	return o.ToBootTypePtrOutputWithContext(context.Background())
-}
-
-func (o BootTypeOutput) ToBootTypePtrOutputWithContext(ctx context.Context) BootTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootType) *BootType {
-		return &v
-	}).(BootTypePtrOutput)
-}
-
-func (o BootTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o BootTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BootType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o BootTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BootTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BootType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type BootTypePtrOutput struct{ *pulumi.OutputState }
-
-func (BootTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BootType)(nil)).Elem()
-}
-
-func (o BootTypePtrOutput) ToBootTypePtrOutput() BootTypePtrOutput {
-	return o
-}
-
-func (o BootTypePtrOutput) ToBootTypePtrOutputWithContext(ctx context.Context) BootTypePtrOutput {
-	return o
-}
-
-func (o BootTypePtrOutput) Elem() BootTypeOutput {
-	return o.ApplyT(func(v *BootType) BootType {
-		if v != nil {
-			return *v
-		}
-		var ret BootType
-		return ret
-	}).(BootTypeOutput)
-}
-
-func (o BootTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BootTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BootType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// BootTypeInput is an input type that accepts values of the BootType enum
-// A concrete instance of `BootTypeInput` can be one of the following:
-//
-//	BootTypeLocal
-//	BootTypeBootscript
-//	BootTypeRescue
-type BootTypeInput interface {
-	pulumi.Input
-
-	ToBootTypeOutput() BootTypeOutput
-	ToBootTypeOutputWithContext(context.Context) BootTypeOutput
-}
-
-var bootTypePtrType = reflect.TypeOf((**BootType)(nil)).Elem()
-
-type BootTypePtrInput interface {
-	pulumi.Input
-
-	ToBootTypePtrOutput() BootTypePtrOutput
-	ToBootTypePtrOutputWithContext(context.Context) BootTypePtrOutput
-}
-
-type bootTypePtr string
-
-func BootTypePtr(v string) BootTypePtrInput {
-	return (*bootTypePtr)(&v)
-}
-
-func (*bootTypePtr) ElementType() reflect.Type {
-	return bootTypePtrType
-}
-
-func (in *bootTypePtr) ToBootTypePtrOutput() BootTypePtrOutput {
-	return pulumi.ToOutput(in).(BootTypePtrOutput)
-}
-
-func (in *bootTypePtr) ToBootTypePtrOutputWithContext(ctx context.Context) BootTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(BootTypePtrOutput)
-}
-
 // The bootscript arch
 type ScalewayInstanceV1BootscriptArch string
 
@@ -1410,171 +1242,6 @@ func (o ScalewayInstanceV1VolumeServerStatePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-type ScalewayInstanceV1VolumeServerTemplateVolumeType string
-
-const (
-	ScalewayInstanceV1VolumeServerTemplateVolumeTypeLSsd = ScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd")
-	ScalewayInstanceV1VolumeServerTemplateVolumeTypeBSsd = ScalewayInstanceV1VolumeServerTemplateVolumeType("b_ssd")
-)
-
-func (ScalewayInstanceV1VolumeServerTemplateVolumeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1VolumeServerTemplateVolumeType)(nil)).Elem()
-}
-
-func (e ScalewayInstanceV1VolumeServerTemplateVolumeType) ToScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput() ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
-	return pulumi.ToOutput(e).(ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput)
-}
-
-func (e ScalewayInstanceV1VolumeServerTemplateVolumeType) ToScalewayInstanceV1VolumeServerTemplateVolumeTypeOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput)
-}
-
-func (e ScalewayInstanceV1VolumeServerTemplateVolumeType) ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
-	return e.ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(context.Background())
-}
-
-func (e ScalewayInstanceV1VolumeServerTemplateVolumeType) ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
-	return ScalewayInstanceV1VolumeServerTemplateVolumeType(e).ToScalewayInstanceV1VolumeServerTemplateVolumeTypeOutputWithContext(ctx).ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx)
-}
-
-func (e ScalewayInstanceV1VolumeServerTemplateVolumeType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScalewayInstanceV1VolumeServerTemplateVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ScalewayInstanceV1VolumeServerTemplateVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ScalewayInstanceV1VolumeServerTemplateVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput struct{ *pulumi.OutputState }
-
-func (ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScalewayInstanceV1VolumeServerTemplateVolumeType)(nil)).Elem()
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput() ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToScalewayInstanceV1VolumeServerTemplateVolumeTypeOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
-	return o.ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1VolumeServerTemplateVolumeType) *ScalewayInstanceV1VolumeServerTemplateVolumeType {
-		return &v
-	}).(ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput)
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1VolumeServerTemplateVolumeType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1VolumeServerTemplateVolumeType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalewayInstanceV1VolumeServerTemplateVolumeType)(nil)).Elem()
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
-	return o
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) Elem() ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
-	return o.ApplyT(func(v *ScalewayInstanceV1VolumeServerTemplateVolumeType) ScalewayInstanceV1VolumeServerTemplateVolumeType {
-		if v != nil {
-			return *v
-		}
-		var ret ScalewayInstanceV1VolumeServerTemplateVolumeType
-		return ret
-	}).(ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput)
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScalewayInstanceV1VolumeServerTemplateVolumeType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ScalewayInstanceV1VolumeServerTemplateVolumeTypeInput is an input type that accepts values of the ScalewayInstanceV1VolumeServerTemplateVolumeType enum
-// A concrete instance of `ScalewayInstanceV1VolumeServerTemplateVolumeTypeInput` can be one of the following:
-//
-//	ScalewayInstanceV1VolumeServerTemplateVolumeTypeLSsd
-//	ScalewayInstanceV1VolumeServerTemplateVolumeTypeBSsd
-type ScalewayInstanceV1VolumeServerTemplateVolumeTypeInput interface {
-	pulumi.Input
-
-	ToScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput() ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput
-	ToScalewayInstanceV1VolumeServerTemplateVolumeTypeOutputWithContext(context.Context) ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput
-}
-
-var scalewayInstanceV1VolumeServerTemplateVolumeTypePtrType = reflect.TypeOf((**ScalewayInstanceV1VolumeServerTemplateVolumeType)(nil)).Elem()
-
-type ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrInput interface {
-	pulumi.Input
-
-	ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput
-	ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(context.Context) ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput
-}
-
-type scalewayInstanceV1VolumeServerTemplateVolumeTypePtr string
-
-func ScalewayInstanceV1VolumeServerTemplateVolumeTypePtr(v string) ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrInput {
-	return (*scalewayInstanceV1VolumeServerTemplateVolumeTypePtr)(&v)
-}
-
-func (*scalewayInstanceV1VolumeServerTemplateVolumeTypePtr) ElementType() reflect.Type {
-	return scalewayInstanceV1VolumeServerTemplateVolumeTypePtrType
-}
-
-func (in *scalewayInstanceV1VolumeServerTemplateVolumeTypePtr) ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
-	return pulumi.ToOutput(in).(ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput)
-}
-
-func (in *scalewayInstanceV1VolumeServerTemplateVolumeTypePtr) ToScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput)
-}
-
 type ScalewayInstanceV1VolumeServerVolumeType string
 
 const (
@@ -1942,13 +1609,344 @@ func (o ScalewayInstanceV1VolumeVolumeTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
+// The boot type to use
+type ServerBootType string
+
+const (
+	ServerBootTypeLocal      = ServerBootType("local")
+	ServerBootTypeBootscript = ServerBootType("bootscript")
+	ServerBootTypeRescue     = ServerBootType("rescue")
+)
+
+func (ServerBootType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerBootType)(nil)).Elem()
+}
+
+func (e ServerBootType) ToServerBootTypeOutput() ServerBootTypeOutput {
+	return pulumi.ToOutput(e).(ServerBootTypeOutput)
+}
+
+func (e ServerBootType) ToServerBootTypeOutputWithContext(ctx context.Context) ServerBootTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerBootTypeOutput)
+}
+
+func (e ServerBootType) ToServerBootTypePtrOutput() ServerBootTypePtrOutput {
+	return e.ToServerBootTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServerBootType) ToServerBootTypePtrOutputWithContext(ctx context.Context) ServerBootTypePtrOutput {
+	return ServerBootType(e).ToServerBootTypeOutputWithContext(ctx).ToServerBootTypePtrOutputWithContext(ctx)
+}
+
+func (e ServerBootType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerBootType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerBootType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerBootType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerBootTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerBootTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerBootType)(nil)).Elem()
+}
+
+func (o ServerBootTypeOutput) ToServerBootTypeOutput() ServerBootTypeOutput {
+	return o
+}
+
+func (o ServerBootTypeOutput) ToServerBootTypeOutputWithContext(ctx context.Context) ServerBootTypeOutput {
+	return o
+}
+
+func (o ServerBootTypeOutput) ToServerBootTypePtrOutput() ServerBootTypePtrOutput {
+	return o.ToServerBootTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServerBootTypeOutput) ToServerBootTypePtrOutputWithContext(ctx context.Context) ServerBootTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerBootType) *ServerBootType {
+		return &v
+	}).(ServerBootTypePtrOutput)
+}
+
+func (o ServerBootTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerBootTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerBootType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerBootTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerBootTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerBootType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerBootTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerBootTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerBootType)(nil)).Elem()
+}
+
+func (o ServerBootTypePtrOutput) ToServerBootTypePtrOutput() ServerBootTypePtrOutput {
+	return o
+}
+
+func (o ServerBootTypePtrOutput) ToServerBootTypePtrOutputWithContext(ctx context.Context) ServerBootTypePtrOutput {
+	return o
+}
+
+func (o ServerBootTypePtrOutput) Elem() ServerBootTypeOutput {
+	return o.ApplyT(func(v *ServerBootType) ServerBootType {
+		if v != nil {
+			return *v
+		}
+		var ret ServerBootType
+		return ret
+	}).(ServerBootTypeOutput)
+}
+
+func (o ServerBootTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerBootTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerBootType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerBootTypeInput is an input type that accepts values of the ServerBootType enum
+// A concrete instance of `ServerBootTypeInput` can be one of the following:
+//
+//	ServerBootTypeLocal
+//	ServerBootTypeBootscript
+//	ServerBootTypeRescue
+type ServerBootTypeInput interface {
+	pulumi.Input
+
+	ToServerBootTypeOutput() ServerBootTypeOutput
+	ToServerBootTypeOutputWithContext(context.Context) ServerBootTypeOutput
+}
+
+var serverBootTypePtrType = reflect.TypeOf((**ServerBootType)(nil)).Elem()
+
+type ServerBootTypePtrInput interface {
+	pulumi.Input
+
+	ToServerBootTypePtrOutput() ServerBootTypePtrOutput
+	ToServerBootTypePtrOutputWithContext(context.Context) ServerBootTypePtrOutput
+}
+
+type serverBootTypePtr string
+
+func ServerBootTypePtr(v string) ServerBootTypePtrInput {
+	return (*serverBootTypePtr)(&v)
+}
+
+func (*serverBootTypePtr) ElementType() reflect.Type {
+	return serverBootTypePtrType
+}
+
+func (in *serverBootTypePtr) ToServerBootTypePtrOutput() ServerBootTypePtrOutput {
+	return pulumi.ToOutput(in).(ServerBootTypePtrOutput)
+}
+
+func (in *serverBootTypePtr) ToServerBootTypePtrOutputWithContext(ctx context.Context) ServerBootTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerBootTypePtrOutput)
+}
+
+type ServerScalewayInstanceV1VolumeServerTemplateVolumeType string
+
+const (
+	ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeLSsd = ServerScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd")
+	ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeBSsd = ServerScalewayInstanceV1VolumeServerTemplateVolumeType("b_ssd")
+)
+
+func (ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerScalewayInstanceV1VolumeServerTemplateVolumeType)(nil)).Elem()
+}
+
+func (e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
+	return pulumi.ToOutput(e).(ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput)
+}
+
+func (e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutputWithContext(ctx context.Context) ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput)
+}
+
+func (e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
+	return e.ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
+	return ServerScalewayInstanceV1VolumeServerTemplateVolumeType(e).ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutputWithContext(ctx).ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx)
+}
+
+func (e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerScalewayInstanceV1VolumeServerTemplateVolumeType)(nil)).Elem()
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
+	return o
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutputWithContext(ctx context.Context) ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
+	return o
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
+	return o.ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerScalewayInstanceV1VolumeServerTemplateVolumeType) *ServerScalewayInstanceV1VolumeServerTemplateVolumeType {
+		return &v
+	}).(ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput)
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerScalewayInstanceV1VolumeServerTemplateVolumeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerScalewayInstanceV1VolumeServerTemplateVolumeType)(nil)).Elem()
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
+	return o
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
+	return o
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) Elem() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput {
+	return o.ApplyT(func(v *ServerScalewayInstanceV1VolumeServerTemplateVolumeType) ServerScalewayInstanceV1VolumeServerTemplateVolumeType {
+		if v != nil {
+			return *v
+		}
+		var ret ServerScalewayInstanceV1VolumeServerTemplateVolumeType
+		return ret
+	}).(ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput)
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerScalewayInstanceV1VolumeServerTemplateVolumeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeInput is an input type that accepts values of the ServerScalewayInstanceV1VolumeServerTemplateVolumeType enum
+// A concrete instance of `ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeInput` can be one of the following:
+//
+//	ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeLSsd
+//	ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeBSsd
+type ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeInput interface {
+	pulumi.Input
+
+	ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput
+	ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutputWithContext(context.Context) ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput
+}
+
+var serverScalewayInstanceV1VolumeServerTemplateVolumeTypePtrType = reflect.TypeOf((**ServerScalewayInstanceV1VolumeServerTemplateVolumeType)(nil)).Elem()
+
+type ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrInput interface {
+	pulumi.Input
+
+	ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput
+	ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(context.Context) ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput
+}
+
+type serverScalewayInstanceV1VolumeServerTemplateVolumeTypePtr string
+
+func ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtr(v string) ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrInput {
+	return (*serverScalewayInstanceV1VolumeServerTemplateVolumeTypePtr)(&v)
+}
+
+func (*serverScalewayInstanceV1VolumeServerTemplateVolumeTypePtr) ElementType() reflect.Type {
+	return serverScalewayInstanceV1VolumeServerTemplateVolumeTypePtrType
+}
+
+func (in *serverScalewayInstanceV1VolumeServerTemplateVolumeTypePtr) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput() ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
+	return pulumi.ToOutput(in).(ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput)
+}
+
+func (in *serverScalewayInstanceV1VolumeServerTemplateVolumeTypePtr) ToServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutputWithContext(ctx context.Context) ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput)
+}
+
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*BootTypeInput)(nil)).Elem(), BootType("local"))
-	pulumi.RegisterInputType(reflect.TypeOf((*BootTypePtrInput)(nil)).Elem(), BootType("local"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1VolumeServerTemplateVolumeTypeInput)(nil)).Elem(), ScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrInput)(nil)).Elem(), ScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd"))
-	pulumi.RegisterOutputType(BootTypeOutput{})
-	pulumi.RegisterOutputType(BootTypePtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerBootTypeInput)(nil)).Elem(), ServerBootType("local"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerBootTypePtrInput)(nil)).Elem(), ServerBootType("local"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeInput)(nil)).Elem(), ServerScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrInput)(nil)).Elem(), ServerScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd"))
 	pulumi.RegisterOutputType(ScalewayInstanceV1BootscriptArchOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1BootscriptArchPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1ImageArchOutput{})
@@ -1977,8 +1975,6 @@ func init() {
 	pulumi.RegisterOutputType(ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItemArrayOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeServerStateOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeServerStatePtrOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput{})
-	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeServerVolumeTypeOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeServerVolumeTypePtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeStateOutput{})
@@ -1987,4 +1983,8 @@ func init() {
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeVolumeTypeOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(ServerBootTypeOutput{})
+	pulumi.RegisterOutputType(ServerBootTypePtrOutput{})
+	pulumi.RegisterOutputType(ServerScalewayInstanceV1VolumeServerTemplateVolumeTypeOutput{})
+	pulumi.RegisterOutputType(ServerScalewayInstanceV1VolumeServerTemplateVolumeTypePtrOutput{})
 }

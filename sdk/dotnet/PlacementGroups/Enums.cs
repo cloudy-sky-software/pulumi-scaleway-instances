@@ -8,26 +8,26 @@ using Pulumi;
 namespace Pulumi.ScalewayInstances.PlacementGroups
 {
     [EnumType]
-    public readonly struct PolicyMode : IEquatable<PolicyMode>
+    public readonly struct PlacementGroupPolicyMode : IEquatable<PlacementGroupPolicyMode>
     {
         private readonly string _value;
 
-        private PolicyMode(string value)
+        private PlacementGroupPolicyMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PolicyMode Optional { get; } = new PolicyMode("optional");
-        public static PolicyMode Enforced { get; } = new PolicyMode("enforced");
+        public static PlacementGroupPolicyMode Optional { get; } = new PlacementGroupPolicyMode("optional");
+        public static PlacementGroupPolicyMode Enforced { get; } = new PlacementGroupPolicyMode("enforced");
 
-        public static bool operator ==(PolicyMode left, PolicyMode right) => left.Equals(right);
-        public static bool operator !=(PolicyMode left, PolicyMode right) => !left.Equals(right);
+        public static bool operator ==(PlacementGroupPolicyMode left, PlacementGroupPolicyMode right) => left.Equals(right);
+        public static bool operator !=(PlacementGroupPolicyMode left, PlacementGroupPolicyMode right) => !left.Equals(right);
 
-        public static explicit operator string(PolicyMode value) => value._value;
+        public static explicit operator string(PlacementGroupPolicyMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PolicyMode other && Equals(other);
-        public bool Equals(PolicyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PlacementGroupPolicyMode other && Equals(other);
+        public bool Equals(PlacementGroupPolicyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -36,26 +36,26 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
     }
 
     [EnumType]
-    public readonly struct PolicyType : IEquatable<PolicyType>
+    public readonly struct PlacementGroupPolicyType : IEquatable<PlacementGroupPolicyType>
     {
         private readonly string _value;
 
-        private PolicyType(string value)
+        private PlacementGroupPolicyType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PolicyType MaxAvailability { get; } = new PolicyType("max_availability");
-        public static PolicyType LowLatency { get; } = new PolicyType("low_latency");
+        public static PlacementGroupPolicyType MaxAvailability { get; } = new PlacementGroupPolicyType("max_availability");
+        public static PlacementGroupPolicyType LowLatency { get; } = new PlacementGroupPolicyType("low_latency");
 
-        public static bool operator ==(PolicyType left, PolicyType right) => left.Equals(right);
-        public static bool operator !=(PolicyType left, PolicyType right) => !left.Equals(right);
+        public static bool operator ==(PlacementGroupPolicyType left, PlacementGroupPolicyType right) => left.Equals(right);
+        public static bool operator !=(PlacementGroupPolicyType left, PlacementGroupPolicyType right) => !left.Equals(right);
 
-        public static explicit operator string(PolicyType value) => value._value;
+        public static explicit operator string(PlacementGroupPolicyType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PolicyType other && Equals(other);
-        public bool Equals(PolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is PlacementGroupPolicyType other && Equals(other);
+        public bool Equals(PlacementGroupPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

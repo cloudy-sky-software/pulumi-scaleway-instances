@@ -34,7 +34,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// The default inbound policy
         /// </summary>
         [Output("inboundDefaultPolicy")]
-        public Output<Pulumi.ScalewayInstances.SecurityGroups.InboundDefaultPolicy?> InboundDefaultPolicy { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.SecurityGroups.SecurityGroupInboundDefaultPolicy?> InboundDefaultPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The security group modification date (RFC 3339 format)
@@ -64,7 +64,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// The default outbound policy
         /// </summary>
         [Output("outboundDefaultPolicy")]
-        public Output<Pulumi.ScalewayInstances.SecurityGroups.OutboundDefaultPolicy?> OutboundDefaultPolicy { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.SecurityGroups.SecurityGroupOutboundDefaultPolicy?> OutboundDefaultPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The security group project ID
@@ -91,7 +91,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// Security group state
         /// </summary>
         [Output("state")]
-        public Output<Pulumi.ScalewayInstances.SecurityGroups.State?> State { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.SecurityGroups.SecurityGroupState?> State { get; private set; } = null!;
 
         /// <summary>
         /// True if the security group is stateful
@@ -173,7 +173,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// The default inbound policy
         /// </summary>
         [Input("inboundDefaultPolicy")]
-        public Input<Pulumi.ScalewayInstances.SecurityGroups.InboundDefaultPolicy>? InboundDefaultPolicy { get; set; }
+        public Input<Pulumi.ScalewayInstances.SecurityGroups.SecurityGroupInboundDefaultPolicy>? InboundDefaultPolicy { get; set; }
 
         /// <summary>
         /// The security groups name
@@ -197,7 +197,7 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         /// The default outbound policy
         /// </summary>
         [Input("outboundDefaultPolicy")]
-        public Input<Pulumi.ScalewayInstances.SecurityGroups.OutboundDefaultPolicy>? OutboundDefaultPolicy { get; set; }
+        public Input<Pulumi.ScalewayInstances.SecurityGroups.SecurityGroupOutboundDefaultPolicy>? OutboundDefaultPolicy { get; set; }
 
         /// <summary>
         /// The security group project ID
@@ -237,8 +237,8 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
 
         public SecurityGroupArgs()
         {
-            InboundDefaultPolicy = Pulumi.ScalewayInstances.SecurityGroups.InboundDefaultPolicy.Accept;
-            OutboundDefaultPolicy = Pulumi.ScalewayInstances.SecurityGroups.OutboundDefaultPolicy.Accept;
+            InboundDefaultPolicy = Pulumi.ScalewayInstances.SecurityGroups.SecurityGroupInboundDefaultPolicy.Accept;
+            OutboundDefaultPolicy = Pulumi.ScalewayInstances.SecurityGroups.SecurityGroupOutboundDefaultPolicy.Accept;
         }
         public static new SecurityGroupArgs Empty => new SecurityGroupArgs();
     }

@@ -38,7 +38,7 @@ func (o ScalewayInstanceV1ListServerActionsResponseOutput) Actions() ScalewayIns
 }
 
 type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate struct {
-	VolumeType *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType `pulumi:"volumeType"`
+	VolumeType *ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType `pulumi:"volumeType"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate
@@ -48,7 +48,7 @@ func (val *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate) Defaults()
 	}
 	tmp := *val
 	if tmp.VolumeType == nil {
-		volumeType_ := ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
+		volumeType_ := ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
 		tmp.VolumeType = &volumeType_
 	}
 	return &tmp
@@ -66,7 +66,7 @@ type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateInput interface {
 }
 
 type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs struct {
-	VolumeType ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput `pulumi:"volumeType"`
+	VolumeType ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrInput `pulumi:"volumeType"`
 }
 
 // Defaults sets the appropriate defaults for ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs
@@ -76,7 +76,7 @@ func (val *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs) Defaul
 	}
 	tmp := *val
 	if tmp.VolumeType == nil {
-		tmp.VolumeType = ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
+		tmp.VolumeType = ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd")
 	}
 	return &tmp
 }
@@ -131,10 +131,10 @@ func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) ToScale
 	return o
 }
 
-func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) VolumeType() ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate) *ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType {
+func (o ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateOutput) VolumeType() ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate) *ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType {
 		return v.VolumeType
-	}).(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
+	}).(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeTypePtrOutput)
 }
 
 type ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateMapOutput struct{ *pulumi.OutputState }
@@ -169,7 +169,7 @@ type ScalewayInstanceV1Task struct {
 	// The task start date (RFC 3339 format)
 	StartedAt *string `pulumi:"startedAt"`
 	// The task status
-	Status *ScalewayInstanceV1TaskStatus `pulumi:"status"`
+	Status *ServerActionScalewayInstanceV1TaskStatus `pulumi:"status"`
 	// The task end date (RFC 3339 format)
 	TerminatedAt *string `pulumi:"terminatedAt"`
 	// The zone in which is the task
@@ -183,7 +183,7 @@ func (val *ScalewayInstanceV1Task) Defaults() *ScalewayInstanceV1Task {
 	}
 	tmp := *val
 	if tmp.Status == nil {
-		status_ := ScalewayInstanceV1TaskStatus("pending")
+		status_ := ServerActionScalewayInstanceV1TaskStatus("pending")
 		tmp.Status = &status_
 	}
 	return &tmp
@@ -232,8 +232,8 @@ func (o ScalewayInstanceV1TaskOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The task status
-func (o ScalewayInstanceV1TaskOutput) Status() ScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *ScalewayInstanceV1TaskStatus { return v.Status }).(ScalewayInstanceV1TaskStatusPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) Status() ServerActionScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *ServerActionScalewayInstanceV1TaskStatus { return v.Status }).(ServerActionScalewayInstanceV1TaskStatusPtrOutput)
 }
 
 // The task end date (RFC 3339 format)
@@ -329,13 +329,13 @@ func (o ScalewayInstanceV1TaskPtrOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The task status
-func (o ScalewayInstanceV1TaskPtrOutput) Status() ScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ApplyT(func(v *ScalewayInstanceV1Task) *ScalewayInstanceV1TaskStatus {
+func (o ScalewayInstanceV1TaskPtrOutput) Status() ServerActionScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1Task) *ServerActionScalewayInstanceV1TaskStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(ScalewayInstanceV1TaskStatusPtrOutput)
+	}).(ServerActionScalewayInstanceV1TaskStatusPtrOutput)
 }
 
 // The task end date (RFC 3339 format)

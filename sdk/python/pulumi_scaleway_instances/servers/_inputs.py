@@ -24,7 +24,7 @@ class ScalewayInstanceV1VolumeServerTemplateArgs:
                  organization: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[float]] = None,
-                 volume_type: Optional[pulumi.Input['ScalewayInstanceV1VolumeServerTemplateVolumeType']] = None):
+                 volume_type: Optional[pulumi.Input['ServerScalewayInstanceV1VolumeServerTemplateVolumeType']] = None):
         """
         :param pulumi.Input[str] base_snapshot: The ID of the snapshot on which this volume will be based
         :param pulumi.Input[bool] boot: Force the server to boot on this volume
@@ -141,11 +141,11 @@ class ScalewayInstanceV1VolumeServerTemplateArgs:
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input['ScalewayInstanceV1VolumeServerTemplateVolumeType']]:
+    def volume_type(self) -> Optional[pulumi.Input['ServerScalewayInstanceV1VolumeServerTemplateVolumeType']]:
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input['ScalewayInstanceV1VolumeServerTemplateVolumeType']]):
+    def volume_type(self, value: Optional[pulumi.Input['ServerScalewayInstanceV1VolumeServerTemplateVolumeType']]):
         pulumi.set(self, "volume_type", value)
 
 

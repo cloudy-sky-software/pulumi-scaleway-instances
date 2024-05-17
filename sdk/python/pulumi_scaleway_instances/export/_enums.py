@@ -5,11 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'ScalewayInstanceV1TaskStatus',
+    'ExportSnapshotScalewayInstanceV1TaskStatus',
 ]
 
 
-class ScalewayInstanceV1TaskStatus(str, Enum):
+class ExportSnapshotScalewayInstanceV1TaskStatus(str, Enum):
     """
     The task status
     """

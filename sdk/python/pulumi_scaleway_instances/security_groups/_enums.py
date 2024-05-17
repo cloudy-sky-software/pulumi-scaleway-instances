@@ -5,29 +5,13 @@
 from enum import Enum
 
 __all__ = [
-    'InboundDefaultPolicy',
-    'OutboundDefaultPolicy',
     'ScalewayInstanceV1SecurityGroupInboundDefaultPolicy',
     'ScalewayInstanceV1SecurityGroupOutboundDefaultPolicy',
     'ScalewayInstanceV1SecurityGroupState',
-    'State',
+    'SecurityGroupInboundDefaultPolicy',
+    'SecurityGroupOutboundDefaultPolicy',
+    'SecurityGroupState',
 ]
-
-
-class InboundDefaultPolicy(str, Enum):
-    """
-    The default inbound policy
-    """
-    ACCEPT = "accept"
-    DROP = "drop"
-
-
-class OutboundDefaultPolicy(str, Enum):
-    """
-    The default outbound policy
-    """
-    ACCEPT = "accept"
-    DROP = "drop"
 
 
 class ScalewayInstanceV1SecurityGroupInboundDefaultPolicy(str, Enum):
@@ -55,7 +39,23 @@ class ScalewayInstanceV1SecurityGroupState(str, Enum):
     SYNCING_ERROR = "syncing_error"
 
 
-class State(str, Enum):
+class SecurityGroupInboundDefaultPolicy(str, Enum):
+    """
+    The default inbound policy
+    """
+    ACCEPT = "accept"
+    DROP = "drop"
+
+
+class SecurityGroupOutboundDefaultPolicy(str, Enum):
+    """
+    The default outbound policy
+    """
+    ACCEPT = "accept"
+    DROP = "drop"
+
+
+class SecurityGroupState(str, Enum):
     """
     Security group state
     """

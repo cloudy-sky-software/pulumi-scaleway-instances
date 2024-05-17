@@ -20,9 +20,9 @@ class SnapshotArgs:
                  organization: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[float]] = None,
-                 state: Optional[pulumi.Input['State']] = None,
+                 state: Optional[pulumi.Input['SnapshotState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 volume_type: Optional[pulumi.Input['VolumeType']] = None,
+                 volume_type: Optional[pulumi.Input['SnapshotVolumeType']] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
@@ -104,11 +104,11 @@ class SnapshotArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['State']]:
+    def state(self) -> Optional[pulumi.Input['SnapshotState']]:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['State']]):
+    def state(self, value: Optional[pulumi.Input['SnapshotState']]):
         pulumi.set(self, "state", value)
 
     @property
@@ -125,11 +125,11 @@ class SnapshotArgs:
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input['VolumeType']]:
+    def volume_type(self) -> Optional[pulumi.Input['SnapshotVolumeType']]:
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input['VolumeType']]):
+    def volume_type(self, value: Optional[pulumi.Input['SnapshotVolumeType']]):
         pulumi.set(self, "volume_type", value)
 
     @property
@@ -154,9 +154,9 @@ class Snapshot(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[float]] = None,
-                 state: Optional[pulumi.Input['State']] = None,
+                 state: Optional[pulumi.Input['SnapshotState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 volume_type: Optional[pulumi.Input['VolumeType']] = None,
+                 volume_type: Optional[pulumi.Input['SnapshotVolumeType']] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -197,9 +197,9 @@ class Snapshot(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[float]] = None,
-                 state: Optional[pulumi.Input['State']] = None,
+                 state: Optional[pulumi.Input['SnapshotState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 volume_type: Optional[pulumi.Input['VolumeType']] = None,
+                 volume_type: Optional[pulumi.Input['SnapshotVolumeType']] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -337,7 +337,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[Optional['State']]:
+    def state(self) -> pulumi.Output[Optional['SnapshotState']]:
         return pulumi.get(self, "state")
 
     @property
@@ -355,7 +355,7 @@ class Snapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> pulumi.Output[Optional['VolumeType']]:
+    def volume_type(self) -> pulumi.Output[Optional['SnapshotVolumeType']]:
         return pulumi.get(self, "volume_type")
 
     @property

@@ -43,12 +43,12 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     public readonly organization!: pulumi.Output<string | undefined>;
     public /*out*/ readonly placementGroup!: pulumi.Output<outputs.placement_groups.ScalewayInstanceV1PlacementGroup | undefined>;
-    public readonly policyMode!: pulumi.Output<enums.placement_groups.PolicyMode | undefined>;
+    public readonly policyMode!: pulumi.Output<enums.placement_groups.PlacementGroupPolicyMode | undefined>;
     /**
      * Returns true if the policy is respected, false otherwise
      */
     public /*out*/ readonly policyRespected!: pulumi.Output<boolean | undefined>;
-    public readonly policyType!: pulumi.Output<enums.placement_groups.PolicyType | undefined>;
+    public readonly policyType!: pulumi.Output<enums.placement_groups.PlacementGroupPolicyType | undefined>;
     /**
      * The placement group project ID
      */
@@ -113,8 +113,8 @@ export interface PlacementGroupArgs {
      * The placement group organization ID
      */
     organization?: pulumi.Input<string>;
-    policyMode?: pulumi.Input<enums.placement_groups.PolicyMode>;
-    policyType?: pulumi.Input<enums.placement_groups.PolicyType>;
+    policyMode?: pulumi.Input<enums.placement_groups.PlacementGroupPolicyMode>;
+    policyType?: pulumi.Input<enums.placement_groups.PlacementGroupPolicyType>;
     /**
      * The placement group project ID
      */

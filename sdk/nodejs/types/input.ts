@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 
 export namespace action {
     export interface ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs {
-        volumeType?: pulumi.Input<enums.action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType>;
+        volumeType?: pulumi.Input<enums.action.ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType>;
     }
     /**
      * scalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgsProvideDefaults sets the appropriate defaults for ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs
@@ -227,7 +227,7 @@ export namespace servers {
          * Disk size of the volume, must be a multiple of 512 (in bytes)
          */
         size?: pulumi.Input<number>;
-        volumeType?: pulumi.Input<enums.servers.ScalewayInstanceV1VolumeServerTemplateVolumeType>;
+        volumeType?: pulumi.Input<enums.servers.ServerScalewayInstanceV1VolumeServerTemplateVolumeType>;
     }
     /**
      * scalewayInstanceV1VolumeServerTemplateArgsProvideDefaults sets the appropriate defaults for ScalewayInstanceV1VolumeServerTemplateArgs

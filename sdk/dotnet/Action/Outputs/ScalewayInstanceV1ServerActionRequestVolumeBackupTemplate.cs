@@ -13,10 +13,10 @@ namespace Pulumi.ScalewayInstances.Action.Outputs
     [OutputType]
     public sealed class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate
     {
-        public readonly Pulumi.ScalewayInstances.Action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType? VolumeType;
+        public readonly Pulumi.ScalewayInstances.Action.ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType? VolumeType;
 
         [OutputConstructor]
-        private ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate(Pulumi.ScalewayInstances.Action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType? volumeType)
+        private ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate(Pulumi.ScalewayInstances.Action.ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType? volumeType)
         {
             VolumeType = volumeType;
         }

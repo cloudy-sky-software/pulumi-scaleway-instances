@@ -16,7 +16,7 @@ namespace Pulumi.ScalewayInstances.Images
         public Output<string?> Location { get; private set; } = null!;
 
         [Output("arch")]
-        public Output<Pulumi.ScalewayInstances.Images.Arch?> Arch { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Images.ImageArch?> Arch { get; private set; } = null!;
 
         /// <summary>
         /// (RFC 3339 format)
@@ -58,7 +58,7 @@ namespace Pulumi.ScalewayInstances.Images
         public Output<Outputs.ScalewayInstanceV1VolumeSummary> RootVolume { get; private set; } = null!;
 
         [Output("state")]
-        public Output<Pulumi.ScalewayInstances.Images.State?> State { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Images.ImageState?> State { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.ScalewayInstances.Images
     public sealed class ImageArgs : global::Pulumi.ResourceArgs
     {
         [Input("arch")]
-        public Input<Pulumi.ScalewayInstances.Images.Arch>? Arch { get; set; }
+        public Input<Pulumi.ScalewayInstances.Images.ImageArch>? Arch { get; set; }
 
         [Input("defaultBootscript")]
         public Input<Inputs.ScalewayInstanceV1BootscriptArgs>? DefaultBootscript { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.ScalewayInstances.Images
         public Input<Inputs.ScalewayInstanceV1VolumeSummaryArgs> RootVolume { get; set; } = null!;
 
         [Input("state")]
-        public Input<Pulumi.ScalewayInstances.Images.State>? State { get; set; }
+        public Input<Pulumi.ScalewayInstances.Images.ImageState>? State { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
@@ -160,8 +160,8 @@ namespace Pulumi.ScalewayInstances.Images
 
         public ImageArgs()
         {
-            Arch = Pulumi.ScalewayInstances.Images.Arch.X8664;
-            State = Pulumi.ScalewayInstances.Images.State.Available;
+            Arch = Pulumi.ScalewayInstances.Images.ImageArch.X8664;
+            State = Pulumi.ScalewayInstances.Images.ImageState.Available;
         }
         public static new ImageArgs Empty => new ImageArgs();
     }

@@ -64,7 +64,7 @@ namespace Pulumi.ScalewayInstances.Volumes
         public Output<double?> Size { get; private set; } = null!;
 
         [Output("state")]
-        public Output<Pulumi.ScalewayInstances.Volumes.State?> State { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Volumes.VolumeState?> State { get; private set; } = null!;
 
         /// <summary>
         /// The volume tags

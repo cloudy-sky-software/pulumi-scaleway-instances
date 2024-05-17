@@ -2,29 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const Action = {
-    Accept: "accept",
-    Drop: "drop",
-} as const;
-
-export type Action = (typeof Action)[keyof typeof Action];
-
-export const Direction = {
-    Inbound: "inbound",
-    Outbound: "outbound",
-} as const;
-
-export type Direction = (typeof Direction)[keyof typeof Direction];
-
-export const Protocol = {
-    Tcp: "TCP",
-    Udp: "UDP",
-    Icmp: "ICMP",
-    Any: "ANY",
-} as const;
-
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
-
 export const ScalewayInstanceV1SecurityGroupRuleAction = {
     Accept: "accept",
     Drop: "drop",
@@ -47,3 +24,26 @@ export const ScalewayInstanceV1SecurityGroupRuleProtocol = {
 } as const;
 
 export type ScalewayInstanceV1SecurityGroupRuleProtocol = (typeof ScalewayInstanceV1SecurityGroupRuleProtocol)[keyof typeof ScalewayInstanceV1SecurityGroupRuleProtocol];
+
+export const SecurityGroupRuleAction = {
+    Accept: "accept",
+    Drop: "drop",
+} as const;
+
+export type SecurityGroupRuleAction = (typeof SecurityGroupRuleAction)[keyof typeof SecurityGroupRuleAction];
+
+export const SecurityGroupRuleDirection = {
+    Inbound: "inbound",
+    Outbound: "outbound",
+} as const;
+
+export type SecurityGroupRuleDirection = (typeof SecurityGroupRuleDirection)[keyof typeof SecurityGroupRuleDirection];
+
+export const SecurityGroupRuleProtocol = {
+    Tcp: "TCP",
+    Udp: "UDP",
+    Icmp: "ICMP",
+    Any: "ANY",
+} as const;
+
+export type SecurityGroupRuleProtocol = (typeof SecurityGroupRuleProtocol)[keyof typeof SecurityGroupRuleProtocol];

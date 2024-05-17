@@ -10,124 +10,124 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type PolicyMode string
+type PlacementGroupPolicyMode string
 
 const (
-	PolicyModeOptional = PolicyMode("optional")
-	PolicyModeEnforced = PolicyMode("enforced")
+	PlacementGroupPolicyModeOptional = PlacementGroupPolicyMode("optional")
+	PlacementGroupPolicyModeEnforced = PlacementGroupPolicyMode("enforced")
 )
 
-func (PolicyMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyMode)(nil)).Elem()
+func (PlacementGroupPolicyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroupPolicyMode)(nil)).Elem()
 }
 
-func (e PolicyMode) ToPolicyModeOutput() PolicyModeOutput {
-	return pulumi.ToOutput(e).(PolicyModeOutput)
+func (e PlacementGroupPolicyMode) ToPlacementGroupPolicyModeOutput() PlacementGroupPolicyModeOutput {
+	return pulumi.ToOutput(e).(PlacementGroupPolicyModeOutput)
 }
 
-func (e PolicyMode) ToPolicyModeOutputWithContext(ctx context.Context) PolicyModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PolicyModeOutput)
+func (e PlacementGroupPolicyMode) ToPlacementGroupPolicyModeOutputWithContext(ctx context.Context) PlacementGroupPolicyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlacementGroupPolicyModeOutput)
 }
 
-func (e PolicyMode) ToPolicyModePtrOutput() PolicyModePtrOutput {
-	return e.ToPolicyModePtrOutputWithContext(context.Background())
+func (e PlacementGroupPolicyMode) ToPlacementGroupPolicyModePtrOutput() PlacementGroupPolicyModePtrOutput {
+	return e.ToPlacementGroupPolicyModePtrOutputWithContext(context.Background())
 }
 
-func (e PolicyMode) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
-	return PolicyMode(e).ToPolicyModeOutputWithContext(ctx).ToPolicyModePtrOutputWithContext(ctx)
+func (e PlacementGroupPolicyMode) ToPlacementGroupPolicyModePtrOutputWithContext(ctx context.Context) PlacementGroupPolicyModePtrOutput {
+	return PlacementGroupPolicyMode(e).ToPlacementGroupPolicyModeOutputWithContext(ctx).ToPlacementGroupPolicyModePtrOutputWithContext(ctx)
 }
 
-func (e PolicyMode) ToStringOutput() pulumi.StringOutput {
+func (e PlacementGroupPolicyMode) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PolicyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e PlacementGroupPolicyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PolicyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e PlacementGroupPolicyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PolicyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e PlacementGroupPolicyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PolicyModeOutput struct{ *pulumi.OutputState }
+type PlacementGroupPolicyModeOutput struct{ *pulumi.OutputState }
 
-func (PolicyModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyMode)(nil)).Elem()
+func (PlacementGroupPolicyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroupPolicyMode)(nil)).Elem()
 }
 
-func (o PolicyModeOutput) ToPolicyModeOutput() PolicyModeOutput {
+func (o PlacementGroupPolicyModeOutput) ToPlacementGroupPolicyModeOutput() PlacementGroupPolicyModeOutput {
 	return o
 }
 
-func (o PolicyModeOutput) ToPolicyModeOutputWithContext(ctx context.Context) PolicyModeOutput {
+func (o PlacementGroupPolicyModeOutput) ToPlacementGroupPolicyModeOutputWithContext(ctx context.Context) PlacementGroupPolicyModeOutput {
 	return o
 }
 
-func (o PolicyModeOutput) ToPolicyModePtrOutput() PolicyModePtrOutput {
-	return o.ToPolicyModePtrOutputWithContext(context.Background())
+func (o PlacementGroupPolicyModeOutput) ToPlacementGroupPolicyModePtrOutput() PlacementGroupPolicyModePtrOutput {
+	return o.ToPlacementGroupPolicyModePtrOutputWithContext(context.Background())
 }
 
-func (o PolicyModeOutput) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyMode) *PolicyMode {
+func (o PlacementGroupPolicyModeOutput) ToPlacementGroupPolicyModePtrOutputWithContext(ctx context.Context) PlacementGroupPolicyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlacementGroupPolicyMode) *PlacementGroupPolicyMode {
 		return &v
-	}).(PolicyModePtrOutput)
+	}).(PlacementGroupPolicyModePtrOutput)
 }
 
-func (o PolicyModeOutput) ToStringOutput() pulumi.StringOutput {
+func (o PlacementGroupPolicyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PolicyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyMode) string {
+func (o PlacementGroupPolicyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementGroupPolicyMode) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PolicyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PlacementGroupPolicyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PolicyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyMode) *string {
+func (o PlacementGroupPolicyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementGroupPolicyMode) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PolicyModePtrOutput struct{ *pulumi.OutputState }
+type PlacementGroupPolicyModePtrOutput struct{ *pulumi.OutputState }
 
-func (PolicyModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyMode)(nil)).Elem()
+func (PlacementGroupPolicyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlacementGroupPolicyMode)(nil)).Elem()
 }
 
-func (o PolicyModePtrOutput) ToPolicyModePtrOutput() PolicyModePtrOutput {
+func (o PlacementGroupPolicyModePtrOutput) ToPlacementGroupPolicyModePtrOutput() PlacementGroupPolicyModePtrOutput {
 	return o
 }
 
-func (o PolicyModePtrOutput) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
+func (o PlacementGroupPolicyModePtrOutput) ToPlacementGroupPolicyModePtrOutputWithContext(ctx context.Context) PlacementGroupPolicyModePtrOutput {
 	return o
 }
 
-func (o PolicyModePtrOutput) Elem() PolicyModeOutput {
-	return o.ApplyT(func(v *PolicyMode) PolicyMode {
+func (o PlacementGroupPolicyModePtrOutput) Elem() PlacementGroupPolicyModeOutput {
+	return o.ApplyT(func(v *PlacementGroupPolicyMode) PlacementGroupPolicyMode {
 		if v != nil {
 			return *v
 		}
-		var ret PolicyMode
+		var ret PlacementGroupPolicyMode
 		return ret
-	}).(PolicyModeOutput)
+	}).(PlacementGroupPolicyModeOutput)
 }
 
-func (o PolicyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PlacementGroupPolicyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PolicyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyMode) *string {
+func (o PlacementGroupPolicyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlacementGroupPolicyMode) *string {
 		if e == nil {
 			return nil
 		}
@@ -136,163 +136,163 @@ func (o PolicyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicyModeInput is an input type that accepts values of the PolicyMode enum
-// A concrete instance of `PolicyModeInput` can be one of the following:
+// PlacementGroupPolicyModeInput is an input type that accepts values of the PlacementGroupPolicyMode enum
+// A concrete instance of `PlacementGroupPolicyModeInput` can be one of the following:
 //
-//	PolicyModeOptional
-//	PolicyModeEnforced
-type PolicyModeInput interface {
+//	PlacementGroupPolicyModeOptional
+//	PlacementGroupPolicyModeEnforced
+type PlacementGroupPolicyModeInput interface {
 	pulumi.Input
 
-	ToPolicyModeOutput() PolicyModeOutput
-	ToPolicyModeOutputWithContext(context.Context) PolicyModeOutput
+	ToPlacementGroupPolicyModeOutput() PlacementGroupPolicyModeOutput
+	ToPlacementGroupPolicyModeOutputWithContext(context.Context) PlacementGroupPolicyModeOutput
 }
 
-var policyModePtrType = reflect.TypeOf((**PolicyMode)(nil)).Elem()
+var placementGroupPolicyModePtrType = reflect.TypeOf((**PlacementGroupPolicyMode)(nil)).Elem()
 
-type PolicyModePtrInput interface {
+type PlacementGroupPolicyModePtrInput interface {
 	pulumi.Input
 
-	ToPolicyModePtrOutput() PolicyModePtrOutput
-	ToPolicyModePtrOutputWithContext(context.Context) PolicyModePtrOutput
+	ToPlacementGroupPolicyModePtrOutput() PlacementGroupPolicyModePtrOutput
+	ToPlacementGroupPolicyModePtrOutputWithContext(context.Context) PlacementGroupPolicyModePtrOutput
 }
 
-type policyModePtr string
+type placementGroupPolicyModePtr string
 
-func PolicyModePtr(v string) PolicyModePtrInput {
-	return (*policyModePtr)(&v)
+func PlacementGroupPolicyModePtr(v string) PlacementGroupPolicyModePtrInput {
+	return (*placementGroupPolicyModePtr)(&v)
 }
 
-func (*policyModePtr) ElementType() reflect.Type {
-	return policyModePtrType
+func (*placementGroupPolicyModePtr) ElementType() reflect.Type {
+	return placementGroupPolicyModePtrType
 }
 
-func (in *policyModePtr) ToPolicyModePtrOutput() PolicyModePtrOutput {
-	return pulumi.ToOutput(in).(PolicyModePtrOutput)
+func (in *placementGroupPolicyModePtr) ToPlacementGroupPolicyModePtrOutput() PlacementGroupPolicyModePtrOutput {
+	return pulumi.ToOutput(in).(PlacementGroupPolicyModePtrOutput)
 }
 
-func (in *policyModePtr) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PolicyModePtrOutput)
+func (in *placementGroupPolicyModePtr) ToPlacementGroupPolicyModePtrOutputWithContext(ctx context.Context) PlacementGroupPolicyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlacementGroupPolicyModePtrOutput)
 }
 
-type PolicyType string
+type PlacementGroupPolicyType string
 
 const (
-	PolicyTypeMaxAvailability = PolicyType("max_availability")
-	PolicyTypeLowLatency      = PolicyType("low_latency")
+	PlacementGroupPolicyTypeMaxAvailability = PlacementGroupPolicyType("max_availability")
+	PlacementGroupPolicyTypeLowLatency      = PlacementGroupPolicyType("low_latency")
 )
 
-func (PolicyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+func (PlacementGroupPolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroupPolicyType)(nil)).Elem()
 }
 
-func (e PolicyType) ToPolicyTypeOutput() PolicyTypeOutput {
-	return pulumi.ToOutput(e).(PolicyTypeOutput)
+func (e PlacementGroupPolicyType) ToPlacementGroupPolicyTypeOutput() PlacementGroupPolicyTypeOutput {
+	return pulumi.ToOutput(e).(PlacementGroupPolicyTypeOutput)
 }
 
-func (e PolicyType) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PolicyTypeOutput)
+func (e PlacementGroupPolicyType) ToPlacementGroupPolicyTypeOutputWithContext(ctx context.Context) PlacementGroupPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlacementGroupPolicyTypeOutput)
 }
 
-func (e PolicyType) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
-	return e.ToPolicyTypePtrOutputWithContext(context.Background())
+func (e PlacementGroupPolicyType) ToPlacementGroupPolicyTypePtrOutput() PlacementGroupPolicyTypePtrOutput {
+	return e.ToPlacementGroupPolicyTypePtrOutputWithContext(context.Background())
 }
 
-func (e PolicyType) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
-	return PolicyType(e).ToPolicyTypeOutputWithContext(ctx).ToPolicyTypePtrOutputWithContext(ctx)
+func (e PlacementGroupPolicyType) ToPlacementGroupPolicyTypePtrOutputWithContext(ctx context.Context) PlacementGroupPolicyTypePtrOutput {
+	return PlacementGroupPolicyType(e).ToPlacementGroupPolicyTypeOutputWithContext(ctx).ToPlacementGroupPolicyTypePtrOutputWithContext(ctx)
 }
 
-func (e PolicyType) ToStringOutput() pulumi.StringOutput {
+func (e PlacementGroupPolicyType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e PlacementGroupPolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e PolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e PlacementGroupPolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e PolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e PlacementGroupPolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PolicyTypeOutput struct{ *pulumi.OutputState }
+type PlacementGroupPolicyTypeOutput struct{ *pulumi.OutputState }
 
-func (PolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyType)(nil)).Elem()
+func (PlacementGroupPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroupPolicyType)(nil)).Elem()
 }
 
-func (o PolicyTypeOutput) ToPolicyTypeOutput() PolicyTypeOutput {
+func (o PlacementGroupPolicyTypeOutput) ToPlacementGroupPolicyTypeOutput() PlacementGroupPolicyTypeOutput {
 	return o
 }
 
-func (o PolicyTypeOutput) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
+func (o PlacementGroupPolicyTypeOutput) ToPlacementGroupPolicyTypeOutputWithContext(ctx context.Context) PlacementGroupPolicyTypeOutput {
 	return o
 }
 
-func (o PolicyTypeOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
-	return o.ToPolicyTypePtrOutputWithContext(context.Background())
+func (o PlacementGroupPolicyTypeOutput) ToPlacementGroupPolicyTypePtrOutput() PlacementGroupPolicyTypePtrOutput {
+	return o.ToPlacementGroupPolicyTypePtrOutputWithContext(context.Background())
 }
 
-func (o PolicyTypeOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyType) *PolicyType {
+func (o PlacementGroupPolicyTypeOutput) ToPlacementGroupPolicyTypePtrOutputWithContext(ctx context.Context) PlacementGroupPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlacementGroupPolicyType) *PlacementGroupPolicyType {
 		return &v
-	}).(PolicyTypePtrOutput)
+	}).(PlacementGroupPolicyTypePtrOutput)
 }
 
-func (o PolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o PlacementGroupPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o PolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyType) string {
+func (o PlacementGroupPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementGroupPolicyType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o PolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PlacementGroupPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyType) *string {
+func (o PlacementGroupPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementGroupPolicyType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type PolicyTypePtrOutput struct{ *pulumi.OutputState }
+type PlacementGroupPolicyTypePtrOutput struct{ *pulumi.OutputState }
 
-func (PolicyTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyType)(nil)).Elem()
+func (PlacementGroupPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlacementGroupPolicyType)(nil)).Elem()
 }
 
-func (o PolicyTypePtrOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
+func (o PlacementGroupPolicyTypePtrOutput) ToPlacementGroupPolicyTypePtrOutput() PlacementGroupPolicyTypePtrOutput {
 	return o
 }
 
-func (o PolicyTypePtrOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
+func (o PlacementGroupPolicyTypePtrOutput) ToPlacementGroupPolicyTypePtrOutputWithContext(ctx context.Context) PlacementGroupPolicyTypePtrOutput {
 	return o
 }
 
-func (o PolicyTypePtrOutput) Elem() PolicyTypeOutput {
-	return o.ApplyT(func(v *PolicyType) PolicyType {
+func (o PlacementGroupPolicyTypePtrOutput) Elem() PlacementGroupPolicyTypeOutput {
+	return o.ApplyT(func(v *PlacementGroupPolicyType) PlacementGroupPolicyType {
 		if v != nil {
 			return *v
 		}
-		var ret PolicyType
+		var ret PlacementGroupPolicyType
 		return ret
-	}).(PolicyTypeOutput)
+	}).(PlacementGroupPolicyTypeOutput)
 }
 
-func (o PolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o PlacementGroupPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyType) *string {
+func (o PlacementGroupPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlacementGroupPolicyType) *string {
 		if e == nil {
 			return nil
 		}
@@ -301,43 +301,43 @@ func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicyTypeInput is an input type that accepts values of the PolicyType enum
-// A concrete instance of `PolicyTypeInput` can be one of the following:
+// PlacementGroupPolicyTypeInput is an input type that accepts values of the PlacementGroupPolicyType enum
+// A concrete instance of `PlacementGroupPolicyTypeInput` can be one of the following:
 //
-//	PolicyTypeMaxAvailability
-//	PolicyTypeLowLatency
-type PolicyTypeInput interface {
+//	PlacementGroupPolicyTypeMaxAvailability
+//	PlacementGroupPolicyTypeLowLatency
+type PlacementGroupPolicyTypeInput interface {
 	pulumi.Input
 
-	ToPolicyTypeOutput() PolicyTypeOutput
-	ToPolicyTypeOutputWithContext(context.Context) PolicyTypeOutput
+	ToPlacementGroupPolicyTypeOutput() PlacementGroupPolicyTypeOutput
+	ToPlacementGroupPolicyTypeOutputWithContext(context.Context) PlacementGroupPolicyTypeOutput
 }
 
-var policyTypePtrType = reflect.TypeOf((**PolicyType)(nil)).Elem()
+var placementGroupPolicyTypePtrType = reflect.TypeOf((**PlacementGroupPolicyType)(nil)).Elem()
 
-type PolicyTypePtrInput interface {
+type PlacementGroupPolicyTypePtrInput interface {
 	pulumi.Input
 
-	ToPolicyTypePtrOutput() PolicyTypePtrOutput
-	ToPolicyTypePtrOutputWithContext(context.Context) PolicyTypePtrOutput
+	ToPlacementGroupPolicyTypePtrOutput() PlacementGroupPolicyTypePtrOutput
+	ToPlacementGroupPolicyTypePtrOutputWithContext(context.Context) PlacementGroupPolicyTypePtrOutput
 }
 
-type policyTypePtr string
+type placementGroupPolicyTypePtr string
 
-func PolicyTypePtr(v string) PolicyTypePtrInput {
-	return (*policyTypePtr)(&v)
+func PlacementGroupPolicyTypePtr(v string) PlacementGroupPolicyTypePtrInput {
+	return (*placementGroupPolicyTypePtr)(&v)
 }
 
-func (*policyTypePtr) ElementType() reflect.Type {
-	return policyTypePtrType
+func (*placementGroupPolicyTypePtr) ElementType() reflect.Type {
+	return placementGroupPolicyTypePtrType
 }
 
-func (in *policyTypePtr) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
-	return pulumi.ToOutput(in).(PolicyTypePtrOutput)
+func (in *placementGroupPolicyTypePtr) ToPlacementGroupPolicyTypePtrOutput() PlacementGroupPolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(PlacementGroupPolicyTypePtrOutput)
 }
 
-func (in *policyTypePtr) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PolicyTypePtrOutput)
+func (in *placementGroupPolicyTypePtr) ToPlacementGroupPolicyTypePtrOutputWithContext(ctx context.Context) PlacementGroupPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlacementGroupPolicyTypePtrOutput)
 }
 
 type ScalewayInstanceV1PlacementGroupPolicyMode string
@@ -521,14 +521,14 @@ func (o ScalewayInstanceV1PlacementGroupPolicyTypePtrOutput) ToStringPtrOutputWi
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyModeInput)(nil)).Elem(), PolicyMode("optional"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyModePtrInput)(nil)).Elem(), PolicyMode("optional"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypeInput)(nil)).Elem(), PolicyType("max_availability"))
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("max_availability"))
-	pulumi.RegisterOutputType(PolicyModeOutput{})
-	pulumi.RegisterOutputType(PolicyModePtrOutput{})
-	pulumi.RegisterOutputType(PolicyTypeOutput{})
-	pulumi.RegisterOutputType(PolicyTypePtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupPolicyModeInput)(nil)).Elem(), PlacementGroupPolicyMode("optional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupPolicyModePtrInput)(nil)).Elem(), PlacementGroupPolicyMode("optional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupPolicyTypeInput)(nil)).Elem(), PlacementGroupPolicyType("max_availability"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupPolicyTypePtrInput)(nil)).Elem(), PlacementGroupPolicyType("max_availability"))
+	pulumi.RegisterOutputType(PlacementGroupPolicyModeOutput{})
+	pulumi.RegisterOutputType(PlacementGroupPolicyModePtrOutput{})
+	pulumi.RegisterOutputType(PlacementGroupPolicyTypeOutput{})
+	pulumi.RegisterOutputType(PlacementGroupPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1PlacementGroupPolicyModeOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1PlacementGroupPolicyModePtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1PlacementGroupPolicyTypeOutput{})

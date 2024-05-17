@@ -37,7 +37,7 @@ export class ServerAction extends pulumi.CustomResource {
     /**
      * The action to perform on the server
      */
-    public readonly action!: pulumi.Output<enums.action.Action | undefined>;
+    public readonly action!: pulumi.Output<enums.action.ServerActionAction | undefined>;
     /**
      * The name of the backup you want to create.
      * This field should only be specified when performing a backup action.
@@ -81,7 +81,7 @@ export interface ServerActionArgs {
     /**
      * The action to perform on the server
      */
-    action?: pulumi.Input<enums.action.Action>;
+    action?: pulumi.Input<enums.action.ServerActionAction>;
     /**
      * The name of the backup you want to create.
      * This field should only be specified when performing a backup action.

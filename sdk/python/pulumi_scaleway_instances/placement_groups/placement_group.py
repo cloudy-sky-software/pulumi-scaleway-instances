@@ -19,8 +19,8 @@ class PlacementGroupArgs:
                  project: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
-                 policy_mode: Optional[pulumi.Input['PolicyMode']] = None,
-                 policy_type: Optional[pulumi.Input['PolicyType']] = None,
+                 policy_mode: Optional[pulumi.Input['PlacementGroupPolicyMode']] = None,
+                 policy_type: Optional[pulumi.Input['PlacementGroupPolicyType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
@@ -87,20 +87,20 @@ class PlacementGroupArgs:
 
     @property
     @pulumi.getter(name="policyMode")
-    def policy_mode(self) -> Optional[pulumi.Input['PolicyMode']]:
+    def policy_mode(self) -> Optional[pulumi.Input['PlacementGroupPolicyMode']]:
         return pulumi.get(self, "policy_mode")
 
     @policy_mode.setter
-    def policy_mode(self, value: Optional[pulumi.Input['PolicyMode']]):
+    def policy_mode(self, value: Optional[pulumi.Input['PlacementGroupPolicyMode']]):
         pulumi.set(self, "policy_mode", value)
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[pulumi.Input['PolicyType']]:
+    def policy_type(self) -> Optional[pulumi.Input['PlacementGroupPolicyType']]:
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: Optional[pulumi.Input['PolicyType']]):
+    def policy_type(self, value: Optional[pulumi.Input['PlacementGroupPolicyType']]):
         pulumi.set(self, "policy_type", value)
 
     @property
@@ -135,8 +135,8 @@ class PlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
-                 policy_mode: Optional[pulumi.Input['PolicyMode']] = None,
-                 policy_type: Optional[pulumi.Input['PolicyType']] = None,
+                 policy_mode: Optional[pulumi.Input['PlacementGroupPolicyMode']] = None,
+                 policy_type: Optional[pulumi.Input['PlacementGroupPolicyType']] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -176,8 +176,8 @@ class PlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
-                 policy_mode: Optional[pulumi.Input['PolicyMode']] = None,
-                 policy_type: Optional[pulumi.Input['PolicyType']] = None,
+                 policy_mode: Optional[pulumi.Input['PlacementGroupPolicyMode']] = None,
+                 policy_type: Optional[pulumi.Input['PlacementGroupPolicyType']] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
@@ -261,7 +261,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyMode")
-    def policy_mode(self) -> pulumi.Output[Optional['PolicyMode']]:
+    def policy_mode(self) -> pulumi.Output[Optional['PlacementGroupPolicyMode']]:
         return pulumi.get(self, "policy_mode")
 
     @property
@@ -274,7 +274,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> pulumi.Output[Optional['PolicyType']]:
+    def policy_type(self) -> pulumi.Output[Optional['PlacementGroupPolicyType']]:
         return pulumi.get(self, "policy_type")
 
     @property

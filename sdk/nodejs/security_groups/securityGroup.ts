@@ -49,7 +49,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The default inbound policy
      */
-    public readonly inboundDefaultPolicy!: pulumi.Output<enums.security_groups.InboundDefaultPolicy | undefined>;
+    public readonly inboundDefaultPolicy!: pulumi.Output<enums.security_groups.SecurityGroupInboundDefaultPolicy | undefined>;
     /**
      * The security group modification date (RFC 3339 format)
      */
@@ -69,7 +69,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * The default outbound policy
      */
-    public readonly outboundDefaultPolicy!: pulumi.Output<enums.security_groups.OutboundDefaultPolicy | undefined>;
+    public readonly outboundDefaultPolicy!: pulumi.Output<enums.security_groups.SecurityGroupOutboundDefaultPolicy | undefined>;
     /**
      * The security group project ID
      */
@@ -86,7 +86,7 @@ export class SecurityGroup extends pulumi.CustomResource {
     /**
      * Security group state
      */
-    public /*out*/ readonly state!: pulumi.Output<enums.security_groups.State | undefined>;
+    public /*out*/ readonly state!: pulumi.Output<enums.security_groups.SecurityGroupState | undefined>;
     /**
      * True if the security group is stateful
      */
@@ -170,7 +170,7 @@ export interface SecurityGroupArgs {
     /**
      * The default inbound policy
      */
-    inboundDefaultPolicy?: pulumi.Input<enums.security_groups.InboundDefaultPolicy>;
+    inboundDefaultPolicy?: pulumi.Input<enums.security_groups.SecurityGroupInboundDefaultPolicy>;
     /**
      * The security groups name
      */
@@ -186,7 +186,7 @@ export interface SecurityGroupArgs {
     /**
      * The default outbound policy
      */
-    outboundDefaultPolicy?: pulumi.Input<enums.security_groups.OutboundDefaultPolicy>;
+    outboundDefaultPolicy?: pulumi.Input<enums.security_groups.SecurityGroupOutboundDefaultPolicy>;
     /**
      * The security group project ID
      */

@@ -2,19 +2,19 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const PolicyMode = {
+export const PlacementGroupPolicyMode = {
     Optional: "optional",
     Enforced: "enforced",
 } as const;
 
-export type PolicyMode = (typeof PolicyMode)[keyof typeof PolicyMode];
+export type PlacementGroupPolicyMode = (typeof PlacementGroupPolicyMode)[keyof typeof PlacementGroupPolicyMode];
 
-export const PolicyType = {
+export const PlacementGroupPolicyType = {
     MaxAvailability: "max_availability",
     LowLatency: "low_latency",
 } as const;
 
-export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+export type PlacementGroupPolicyType = (typeof PlacementGroupPolicyType)[keyof typeof PlacementGroupPolicyType];
 
 export const ScalewayInstanceV1PlacementGroupPolicyMode = {
     Optional: "optional",

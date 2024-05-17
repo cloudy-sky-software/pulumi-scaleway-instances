@@ -25,7 +25,7 @@ type ScalewayInstanceV1Task struct {
 	// The task start date (RFC 3339 format)
 	StartedAt *string `pulumi:"startedAt"`
 	// The task status
-	Status *ScalewayInstanceV1TaskStatus `pulumi:"status"`
+	Status *ExportSnapshotScalewayInstanceV1TaskStatus `pulumi:"status"`
 	// The task end date (RFC 3339 format)
 	TerminatedAt *string `pulumi:"terminatedAt"`
 	// The zone in which is the task
@@ -39,7 +39,7 @@ func (val *ScalewayInstanceV1Task) Defaults() *ScalewayInstanceV1Task {
 	}
 	tmp := *val
 	if tmp.Status == nil {
-		status_ := ScalewayInstanceV1TaskStatus("pending")
+		status_ := ExportSnapshotScalewayInstanceV1TaskStatus("pending")
 		tmp.Status = &status_
 	}
 	return &tmp
@@ -88,8 +88,8 @@ func (o ScalewayInstanceV1TaskOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The task status
-func (o ScalewayInstanceV1TaskOutput) Status() ScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ApplyT(func(v ScalewayInstanceV1Task) *ScalewayInstanceV1TaskStatus { return v.Status }).(ScalewayInstanceV1TaskStatusPtrOutput)
+func (o ScalewayInstanceV1TaskOutput) Status() ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ApplyT(func(v ScalewayInstanceV1Task) *ExportSnapshotScalewayInstanceV1TaskStatus { return v.Status }).(ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput)
 }
 
 // The task end date (RFC 3339 format)
@@ -185,13 +185,13 @@ func (o ScalewayInstanceV1TaskPtrOutput) StartedAt() pulumi.StringPtrOutput {
 }
 
 // The task status
-func (o ScalewayInstanceV1TaskPtrOutput) Status() ScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ApplyT(func(v *ScalewayInstanceV1Task) *ScalewayInstanceV1TaskStatus {
+func (o ScalewayInstanceV1TaskPtrOutput) Status() ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1Task) *ExportSnapshotScalewayInstanceV1TaskStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(ScalewayInstanceV1TaskStatusPtrOutput)
+	}).(ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput)
 }
 
 // The task end date (RFC 3339 format)

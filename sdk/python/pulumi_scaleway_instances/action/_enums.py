@@ -5,23 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'Action',
     'ScalewayInstanceV1ListServerActionsResponseActionsItem',
-    'ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType',
-    'ScalewayInstanceV1TaskStatus',
+    'ServerActionAction',
+    'ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType',
+    'ServerActionScalewayInstanceV1TaskStatus',
 ]
-
-
-class Action(str, Enum):
-    """
-    The action to perform on the server
-    """
-    POWERON = "poweron"
-    BACKUP = "backup"
-    STOP_IN_PLACE = "stop_in_place"
-    POWEROFF = "poweroff"
-    TERMINATE = "terminate"
-    REBOOT = "reboot"
 
 
 class ScalewayInstanceV1ListServerActionsResponseActionsItem(str, Enum):
@@ -33,13 +21,25 @@ class ScalewayInstanceV1ListServerActionsResponseActionsItem(str, Enum):
     REBOOT = "reboot"
 
 
-class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType(str, Enum):
+class ServerActionAction(str, Enum):
+    """
+    The action to perform on the server
+    """
+    POWERON = "poweron"
+    BACKUP = "backup"
+    STOP_IN_PLACE = "stop_in_place"
+    POWEROFF = "poweroff"
+    TERMINATE = "terminate"
+    REBOOT = "reboot"
+
+
+class ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType(str, Enum):
     LSSD = "l_ssd"
     BSSD = "b_ssd"
     UNIFIED = "unified"
 
 
-class ScalewayInstanceV1TaskStatus(str, Enum):
+class ServerActionScalewayInstanceV1TaskStatus(str, Enum):
     """
     The task status
     """

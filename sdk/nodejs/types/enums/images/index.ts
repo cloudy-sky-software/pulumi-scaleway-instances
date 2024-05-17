@@ -2,12 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const Arch = {
+export const ImageArch = {
     X8664: "x86_64",
     Arm: "arm",
 } as const;
 
-export type Arch = (typeof Arch)[keyof typeof Arch];
+export type ImageArch = (typeof ImageArch)[keyof typeof ImageArch];
+
+export const ImageState = {
+    Available: "available",
+    Creating: "creating",
+    Error: "error",
+} as const;
+
+export type ImageState = (typeof ImageState)[keyof typeof ImageState];
 
 export const ScalewayInstanceV1BootscriptArch = {
     X8664: "x86_64",
@@ -61,11 +69,3 @@ export const ScalewayInstanceV1VolumeVolumeType = {
 } as const;
 
 export type ScalewayInstanceV1VolumeVolumeType = (typeof ScalewayInstanceV1VolumeVolumeType)[keyof typeof ScalewayInstanceV1VolumeVolumeType];
-
-export const State = {
-    Available: "available",
-    Creating: "creating",
-    Error: "error",
-} as const;
-
-export type State = (typeof State)[keyof typeof State];
