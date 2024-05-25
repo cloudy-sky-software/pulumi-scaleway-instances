@@ -7,7 +7,7 @@ from enum import Enum
 __all__ = [
     'ScalewayInstanceV1VolumeState',
     'ScalewayInstanceV1VolumeVolumeType',
-    'VolumeState',
+    'State',
     'VolumeType',
 ]
 
@@ -28,7 +28,7 @@ class ScalewayInstanceV1VolumeVolumeType(str, Enum):
     UNIFIED = "unified"
 
 
-class VolumeState(str, Enum):
+class State(str, Enum):
     AVAILABLE = "available"
     SNAPSHOTTING = "snapshotting"
     ERROR = "error"

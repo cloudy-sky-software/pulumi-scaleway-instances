@@ -67,7 +67,7 @@ export class Volume extends pulumi.CustomResource {
      * The volume disk size (in bytes)
      */
     public readonly size!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly state!: pulumi.Output<enums.volumes.VolumeState | undefined>;
+    public /*out*/ readonly state!: pulumi.Output<enums.volumes.State | undefined>;
     /**
      * The volume tags
      */

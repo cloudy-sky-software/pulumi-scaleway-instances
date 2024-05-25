@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'BootType',
     'ScalewayInstanceV1BootscriptArch',
     'ScalewayInstanceV1ImageArch',
     'ScalewayInstanceV1ImageState',
@@ -18,13 +19,21 @@ __all__ = [
     'ScalewayInstanceV1ServerTypeArch',
     'ScalewayInstanceV1ServerTypeCapabilitiesPropertiesBootTypesItem',
     'ScalewayInstanceV1VolumeServerState',
+    'ScalewayInstanceV1VolumeServerTemplateVolumeType',
     'ScalewayInstanceV1VolumeServerVolumeType',
     'ScalewayInstanceV1VolumeState',
     'ScalewayInstanceV1VolumeSummaryVolumeType',
     'ScalewayInstanceV1VolumeVolumeType',
-    'ServerBootType',
-    'ServerScalewayInstanceV1VolumeServerTemplateVolumeType',
 ]
+
+
+class BootType(str, Enum):
+    """
+    The boot type to use
+    """
+    LOCAL = "local"
+    BOOTSCRIPT = "bootscript"
+    RESCUE = "rescue"
 
 
 class ScalewayInstanceV1BootscriptArch(str, Enum):
@@ -124,6 +133,11 @@ class ScalewayInstanceV1VolumeServerState(str, Enum):
     HOTSYNCING = "hotsyncing"
 
 
+class ScalewayInstanceV1VolumeServerTemplateVolumeType(str, Enum):
+    LSSD = "l_ssd"
+    BSSD = "b_ssd"
+
+
 class ScalewayInstanceV1VolumeServerVolumeType(str, Enum):
     LSSD = "l_ssd"
     BSSD = "b_ssd"
@@ -149,17 +163,3 @@ class ScalewayInstanceV1VolumeVolumeType(str, Enum):
     LSSD = "l_ssd"
     BSSD = "b_ssd"
     UNIFIED = "unified"
-
-
-class ServerBootType(str, Enum):
-    """
-    The boot type to use
-    """
-    LOCAL = "local"
-    BOOTSCRIPT = "bootscript"
-    RESCUE = "rescue"
-
-
-class ServerScalewayInstanceV1VolumeServerTemplateVolumeType(str, Enum):
-    LSSD = "l_ssd"
-    BSSD = "b_ssd"

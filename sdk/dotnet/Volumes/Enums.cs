@@ -70,31 +70,31 @@ namespace Pulumi.ScalewayInstances.Volumes
     }
 
     [EnumType]
-    public readonly struct VolumeState : IEquatable<VolumeState>
+    public readonly struct State : IEquatable<State>
     {
         private readonly string _value;
 
-        private VolumeState(string value)
+        private State(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static VolumeState Available { get; } = new VolumeState("available");
-        public static VolumeState Snapshotting { get; } = new VolumeState("snapshotting");
-        public static VolumeState Error { get; } = new VolumeState("error");
-        public static VolumeState Fetching { get; } = new VolumeState("fetching");
-        public static VolumeState Resizing { get; } = new VolumeState("resizing");
-        public static VolumeState Saving { get; } = new VolumeState("saving");
-        public static VolumeState Hotsyncing { get; } = new VolumeState("hotsyncing");
+        public static State Available { get; } = new State("available");
+        public static State Snapshotting { get; } = new State("snapshotting");
+        public static State Error { get; } = new State("error");
+        public static State Fetching { get; } = new State("fetching");
+        public static State Resizing { get; } = new State("resizing");
+        public static State Saving { get; } = new State("saving");
+        public static State Hotsyncing { get; } = new State("hotsyncing");
 
-        public static bool operator ==(VolumeState left, VolumeState right) => left.Equals(right);
-        public static bool operator !=(VolumeState left, VolumeState right) => !left.Equals(right);
+        public static bool operator ==(State left, State right) => left.Equals(right);
+        public static bool operator !=(State left, State right) => !left.Equals(right);
 
-        public static explicit operator string(VolumeState value) => value._value;
+        public static explicit operator string(State value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VolumeState other && Equals(other);
-        public bool Equals(VolumeState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is State other && Equals(other);
+        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

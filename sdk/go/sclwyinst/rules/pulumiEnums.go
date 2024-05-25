@@ -10,6 +10,505 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type Action string
+
+const (
+	ActionAccept = Action("accept")
+	ActionDrop   = Action("drop")
+)
+
+func (Action) ElementType() reflect.Type {
+	return reflect.TypeOf((*Action)(nil)).Elem()
+}
+
+func (e Action) ToActionOutput() ActionOutput {
+	return pulumi.ToOutput(e).(ActionOutput)
+}
+
+func (e Action) ToActionOutputWithContext(ctx context.Context) ActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ActionOutput)
+}
+
+func (e Action) ToActionPtrOutput() ActionPtrOutput {
+	return e.ToActionPtrOutputWithContext(context.Background())
+}
+
+func (e Action) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return Action(e).ToActionOutputWithContext(ctx).ToActionPtrOutputWithContext(ctx)
+}
+
+func (e Action) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Action) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Action) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Action) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ActionOutput struct{ *pulumi.OutputState }
+
+func (ActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Action)(nil)).Elem()
+}
+
+func (o ActionOutput) ToActionOutput() ActionOutput {
+	return o
+}
+
+func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutput {
+	return o
+}
+
+func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
+	return o.ToActionPtrOutputWithContext(context.Background())
+}
+
+func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Action) *Action {
+		return &v
+	}).(ActionPtrOutput)
+}
+
+func (o ActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Action) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Action) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Action)(nil)).Elem()
+}
+
+func (o ActionPtrOutput) ToActionPtrOutput() ActionPtrOutput {
+	return o
+}
+
+func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return o
+}
+
+func (o ActionPtrOutput) Elem() ActionOutput {
+	return o.ApplyT(func(v *Action) Action {
+		if v != nil {
+			return *v
+		}
+		var ret Action
+		return ret
+	}).(ActionOutput)
+}
+
+func (o ActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Action) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ActionInput is an input type that accepts values of the Action enum
+// A concrete instance of `ActionInput` can be one of the following:
+//
+//	ActionAccept
+//	ActionDrop
+type ActionInput interface {
+	pulumi.Input
+
+	ToActionOutput() ActionOutput
+	ToActionOutputWithContext(context.Context) ActionOutput
+}
+
+var actionPtrType = reflect.TypeOf((**Action)(nil)).Elem()
+
+type ActionPtrInput interface {
+	pulumi.Input
+
+	ToActionPtrOutput() ActionPtrOutput
+	ToActionPtrOutputWithContext(context.Context) ActionPtrOutput
+}
+
+type actionPtr string
+
+func ActionPtr(v string) ActionPtrInput {
+	return (*actionPtr)(&v)
+}
+
+func (*actionPtr) ElementType() reflect.Type {
+	return actionPtrType
+}
+
+func (in *actionPtr) ToActionPtrOutput() ActionPtrOutput {
+	return pulumi.ToOutput(in).(ActionPtrOutput)
+}
+
+func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
+}
+
+type Direction string
+
+const (
+	DirectionInbound  = Direction("inbound")
+	DirectionOutbound = Direction("outbound")
+)
+
+func (Direction) ElementType() reflect.Type {
+	return reflect.TypeOf((*Direction)(nil)).Elem()
+}
+
+func (e Direction) ToDirectionOutput() DirectionOutput {
+	return pulumi.ToOutput(e).(DirectionOutput)
+}
+
+func (e Direction) ToDirectionOutputWithContext(ctx context.Context) DirectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectionOutput)
+}
+
+func (e Direction) ToDirectionPtrOutput() DirectionPtrOutput {
+	return e.ToDirectionPtrOutputWithContext(context.Background())
+}
+
+func (e Direction) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
+	return Direction(e).ToDirectionOutputWithContext(ctx).ToDirectionPtrOutputWithContext(ctx)
+}
+
+func (e Direction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Direction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Direction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Direction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectionOutput struct{ *pulumi.OutputState }
+
+func (DirectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Direction)(nil)).Elem()
+}
+
+func (o DirectionOutput) ToDirectionOutput() DirectionOutput {
+	return o
+}
+
+func (o DirectionOutput) ToDirectionOutputWithContext(ctx context.Context) DirectionOutput {
+	return o
+}
+
+func (o DirectionOutput) ToDirectionPtrOutput() DirectionPtrOutput {
+	return o.ToDirectionPtrOutputWithContext(context.Background())
+}
+
+func (o DirectionOutput) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Direction) *Direction {
+		return &v
+	}).(DirectionPtrOutput)
+}
+
+func (o DirectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Direction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Direction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectionPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Direction)(nil)).Elem()
+}
+
+func (o DirectionPtrOutput) ToDirectionPtrOutput() DirectionPtrOutput {
+	return o
+}
+
+func (o DirectionPtrOutput) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
+	return o
+}
+
+func (o DirectionPtrOutput) Elem() DirectionOutput {
+	return o.ApplyT(func(v *Direction) Direction {
+		if v != nil {
+			return *v
+		}
+		var ret Direction
+		return ret
+	}).(DirectionOutput)
+}
+
+func (o DirectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Direction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectionInput is an input type that accepts values of the Direction enum
+// A concrete instance of `DirectionInput` can be one of the following:
+//
+//	DirectionInbound
+//	DirectionOutbound
+type DirectionInput interface {
+	pulumi.Input
+
+	ToDirectionOutput() DirectionOutput
+	ToDirectionOutputWithContext(context.Context) DirectionOutput
+}
+
+var directionPtrType = reflect.TypeOf((**Direction)(nil)).Elem()
+
+type DirectionPtrInput interface {
+	pulumi.Input
+
+	ToDirectionPtrOutput() DirectionPtrOutput
+	ToDirectionPtrOutputWithContext(context.Context) DirectionPtrOutput
+}
+
+type directionPtr string
+
+func DirectionPtr(v string) DirectionPtrInput {
+	return (*directionPtr)(&v)
+}
+
+func (*directionPtr) ElementType() reflect.Type {
+	return directionPtrType
+}
+
+func (in *directionPtr) ToDirectionPtrOutput() DirectionPtrOutput {
+	return pulumi.ToOutput(in).(DirectionPtrOutput)
+}
+
+func (in *directionPtr) ToDirectionPtrOutputWithContext(ctx context.Context) DirectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectionPtrOutput)
+}
+
+type Protocol string
+
+const (
+	ProtocolTcp  = Protocol("TCP")
+	ProtocolUdp  = Protocol("UDP")
+	ProtocolIcmp = Protocol("ICMP")
+	ProtocolAny  = Protocol("ANY")
+)
+
+func (Protocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*Protocol)(nil)).Elem()
+}
+
+func (e Protocol) ToProtocolOutput() ProtocolOutput {
+	return pulumi.ToOutput(e).(ProtocolOutput)
+}
+
+func (e Protocol) ToProtocolOutputWithContext(ctx context.Context) ProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProtocolOutput)
+}
+
+func (e Protocol) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return e.ToProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e Protocol) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return Protocol(e).ToProtocolOutputWithContext(ctx).ToProtocolPtrOutputWithContext(ctx)
+}
+
+func (e Protocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Protocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Protocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Protocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProtocolOutput struct{ *pulumi.OutputState }
+
+func (ProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Protocol)(nil)).Elem()
+}
+
+func (o ProtocolOutput) ToProtocolOutput() ProtocolOutput {
+	return o
+}
+
+func (o ProtocolOutput) ToProtocolOutputWithContext(ctx context.Context) ProtocolOutput {
+	return o
+}
+
+func (o ProtocolOutput) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return o.ToProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolOutput) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Protocol) *Protocol {
+		return &v
+	}).(ProtocolPtrOutput)
+}
+
+func (o ProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Protocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Protocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Protocol)(nil)).Elem()
+}
+
+func (o ProtocolPtrOutput) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return o
+}
+
+func (o ProtocolPtrOutput) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return o
+}
+
+func (o ProtocolPtrOutput) Elem() ProtocolOutput {
+	return o.ApplyT(func(v *Protocol) Protocol {
+		if v != nil {
+			return *v
+		}
+		var ret Protocol
+		return ret
+	}).(ProtocolOutput)
+}
+
+func (o ProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Protocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProtocolInput is an input type that accepts values of the Protocol enum
+// A concrete instance of `ProtocolInput` can be one of the following:
+//
+//	ProtocolTcp
+//	ProtocolUdp
+//	ProtocolIcmp
+//	ProtocolAny
+type ProtocolInput interface {
+	pulumi.Input
+
+	ToProtocolOutput() ProtocolOutput
+	ToProtocolOutputWithContext(context.Context) ProtocolOutput
+}
+
+var protocolPtrType = reflect.TypeOf((**Protocol)(nil)).Elem()
+
+type ProtocolPtrInput interface {
+	pulumi.Input
+
+	ToProtocolPtrOutput() ProtocolPtrOutput
+	ToProtocolPtrOutputWithContext(context.Context) ProtocolPtrOutput
+}
+
+type protocolPtr string
+
+func ProtocolPtr(v string) ProtocolPtrInput {
+	return (*protocolPtr)(&v)
+}
+
+func (*protocolPtr) ElementType() reflect.Type {
+	return protocolPtrType
+}
+
+func (in *protocolPtr) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ProtocolPtrOutput)
+}
+
+func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProtocolPtrOutput)
+}
+
 type ScalewayInstanceV1SecurityGroupRuleAction string
 
 const (
@@ -282,522 +781,23 @@ func (o ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-type SecurityGroupRuleAction string
-
-const (
-	SecurityGroupRuleActionAccept = SecurityGroupRuleAction("accept")
-	SecurityGroupRuleActionDrop   = SecurityGroupRuleAction("drop")
-)
-
-func (SecurityGroupRuleAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupRuleAction)(nil)).Elem()
-}
-
-func (e SecurityGroupRuleAction) ToSecurityGroupRuleActionOutput() SecurityGroupRuleActionOutput {
-	return pulumi.ToOutput(e).(SecurityGroupRuleActionOutput)
-}
-
-func (e SecurityGroupRuleAction) ToSecurityGroupRuleActionOutputWithContext(ctx context.Context) SecurityGroupRuleActionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SecurityGroupRuleActionOutput)
-}
-
-func (e SecurityGroupRuleAction) ToSecurityGroupRuleActionPtrOutput() SecurityGroupRuleActionPtrOutput {
-	return e.ToSecurityGroupRuleActionPtrOutputWithContext(context.Background())
-}
-
-func (e SecurityGroupRuleAction) ToSecurityGroupRuleActionPtrOutputWithContext(ctx context.Context) SecurityGroupRuleActionPtrOutput {
-	return SecurityGroupRuleAction(e).ToSecurityGroupRuleActionOutputWithContext(ctx).ToSecurityGroupRuleActionPtrOutputWithContext(ctx)
-}
-
-func (e SecurityGroupRuleAction) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SecurityGroupRuleAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SecurityGroupRuleAction) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SecurityGroupRuleAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SecurityGroupRuleActionOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupRuleActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupRuleAction)(nil)).Elem()
-}
-
-func (o SecurityGroupRuleActionOutput) ToSecurityGroupRuleActionOutput() SecurityGroupRuleActionOutput {
-	return o
-}
-
-func (o SecurityGroupRuleActionOutput) ToSecurityGroupRuleActionOutputWithContext(ctx context.Context) SecurityGroupRuleActionOutput {
-	return o
-}
-
-func (o SecurityGroupRuleActionOutput) ToSecurityGroupRuleActionPtrOutput() SecurityGroupRuleActionPtrOutput {
-	return o.ToSecurityGroupRuleActionPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleActionOutput) ToSecurityGroupRuleActionPtrOutputWithContext(ctx context.Context) SecurityGroupRuleActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroupRuleAction) *SecurityGroupRuleAction {
-		return &v
-	}).(SecurityGroupRuleActionPtrOutput)
-}
-
-func (o SecurityGroupRuleActionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupRuleAction) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SecurityGroupRuleActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupRuleAction) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SecurityGroupRuleActionPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupRuleActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityGroupRuleAction)(nil)).Elem()
-}
-
-func (o SecurityGroupRuleActionPtrOutput) ToSecurityGroupRuleActionPtrOutput() SecurityGroupRuleActionPtrOutput {
-	return o
-}
-
-func (o SecurityGroupRuleActionPtrOutput) ToSecurityGroupRuleActionPtrOutputWithContext(ctx context.Context) SecurityGroupRuleActionPtrOutput {
-	return o
-}
-
-func (o SecurityGroupRuleActionPtrOutput) Elem() SecurityGroupRuleActionOutput {
-	return o.ApplyT(func(v *SecurityGroupRuleAction) SecurityGroupRuleAction {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityGroupRuleAction
-		return ret
-	}).(SecurityGroupRuleActionOutput)
-}
-
-func (o SecurityGroupRuleActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityGroupRuleAction) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SecurityGroupRuleActionInput is an input type that accepts values of the SecurityGroupRuleAction enum
-// A concrete instance of `SecurityGroupRuleActionInput` can be one of the following:
-//
-//	SecurityGroupRuleActionAccept
-//	SecurityGroupRuleActionDrop
-type SecurityGroupRuleActionInput interface {
-	pulumi.Input
-
-	ToSecurityGroupRuleActionOutput() SecurityGroupRuleActionOutput
-	ToSecurityGroupRuleActionOutputWithContext(context.Context) SecurityGroupRuleActionOutput
-}
-
-var securityGroupRuleActionPtrType = reflect.TypeOf((**SecurityGroupRuleAction)(nil)).Elem()
-
-type SecurityGroupRuleActionPtrInput interface {
-	pulumi.Input
-
-	ToSecurityGroupRuleActionPtrOutput() SecurityGroupRuleActionPtrOutput
-	ToSecurityGroupRuleActionPtrOutputWithContext(context.Context) SecurityGroupRuleActionPtrOutput
-}
-
-type securityGroupRuleActionPtr string
-
-func SecurityGroupRuleActionPtr(v string) SecurityGroupRuleActionPtrInput {
-	return (*securityGroupRuleActionPtr)(&v)
-}
-
-func (*securityGroupRuleActionPtr) ElementType() reflect.Type {
-	return securityGroupRuleActionPtrType
-}
-
-func (in *securityGroupRuleActionPtr) ToSecurityGroupRuleActionPtrOutput() SecurityGroupRuleActionPtrOutput {
-	return pulumi.ToOutput(in).(SecurityGroupRuleActionPtrOutput)
-}
-
-func (in *securityGroupRuleActionPtr) ToSecurityGroupRuleActionPtrOutputWithContext(ctx context.Context) SecurityGroupRuleActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SecurityGroupRuleActionPtrOutput)
-}
-
-type SecurityGroupRuleDirection string
-
-const (
-	SecurityGroupRuleDirectionInbound  = SecurityGroupRuleDirection("inbound")
-	SecurityGroupRuleDirectionOutbound = SecurityGroupRuleDirection("outbound")
-)
-
-func (SecurityGroupRuleDirection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupRuleDirection)(nil)).Elem()
-}
-
-func (e SecurityGroupRuleDirection) ToSecurityGroupRuleDirectionOutput() SecurityGroupRuleDirectionOutput {
-	return pulumi.ToOutput(e).(SecurityGroupRuleDirectionOutput)
-}
-
-func (e SecurityGroupRuleDirection) ToSecurityGroupRuleDirectionOutputWithContext(ctx context.Context) SecurityGroupRuleDirectionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SecurityGroupRuleDirectionOutput)
-}
-
-func (e SecurityGroupRuleDirection) ToSecurityGroupRuleDirectionPtrOutput() SecurityGroupRuleDirectionPtrOutput {
-	return e.ToSecurityGroupRuleDirectionPtrOutputWithContext(context.Background())
-}
-
-func (e SecurityGroupRuleDirection) ToSecurityGroupRuleDirectionPtrOutputWithContext(ctx context.Context) SecurityGroupRuleDirectionPtrOutput {
-	return SecurityGroupRuleDirection(e).ToSecurityGroupRuleDirectionOutputWithContext(ctx).ToSecurityGroupRuleDirectionPtrOutputWithContext(ctx)
-}
-
-func (e SecurityGroupRuleDirection) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SecurityGroupRuleDirection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SecurityGroupRuleDirection) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SecurityGroupRuleDirection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SecurityGroupRuleDirectionOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupRuleDirectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupRuleDirection)(nil)).Elem()
-}
-
-func (o SecurityGroupRuleDirectionOutput) ToSecurityGroupRuleDirectionOutput() SecurityGroupRuleDirectionOutput {
-	return o
-}
-
-func (o SecurityGroupRuleDirectionOutput) ToSecurityGroupRuleDirectionOutputWithContext(ctx context.Context) SecurityGroupRuleDirectionOutput {
-	return o
-}
-
-func (o SecurityGroupRuleDirectionOutput) ToSecurityGroupRuleDirectionPtrOutput() SecurityGroupRuleDirectionPtrOutput {
-	return o.ToSecurityGroupRuleDirectionPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleDirectionOutput) ToSecurityGroupRuleDirectionPtrOutputWithContext(ctx context.Context) SecurityGroupRuleDirectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroupRuleDirection) *SecurityGroupRuleDirection {
-		return &v
-	}).(SecurityGroupRuleDirectionPtrOutput)
-}
-
-func (o SecurityGroupRuleDirectionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleDirectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupRuleDirection) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SecurityGroupRuleDirectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleDirectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupRuleDirection) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SecurityGroupRuleDirectionPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupRuleDirectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityGroupRuleDirection)(nil)).Elem()
-}
-
-func (o SecurityGroupRuleDirectionPtrOutput) ToSecurityGroupRuleDirectionPtrOutput() SecurityGroupRuleDirectionPtrOutput {
-	return o
-}
-
-func (o SecurityGroupRuleDirectionPtrOutput) ToSecurityGroupRuleDirectionPtrOutputWithContext(ctx context.Context) SecurityGroupRuleDirectionPtrOutput {
-	return o
-}
-
-func (o SecurityGroupRuleDirectionPtrOutput) Elem() SecurityGroupRuleDirectionOutput {
-	return o.ApplyT(func(v *SecurityGroupRuleDirection) SecurityGroupRuleDirection {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityGroupRuleDirection
-		return ret
-	}).(SecurityGroupRuleDirectionOutput)
-}
-
-func (o SecurityGroupRuleDirectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityGroupRuleDirection) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SecurityGroupRuleDirectionInput is an input type that accepts values of the SecurityGroupRuleDirection enum
-// A concrete instance of `SecurityGroupRuleDirectionInput` can be one of the following:
-//
-//	SecurityGroupRuleDirectionInbound
-//	SecurityGroupRuleDirectionOutbound
-type SecurityGroupRuleDirectionInput interface {
-	pulumi.Input
-
-	ToSecurityGroupRuleDirectionOutput() SecurityGroupRuleDirectionOutput
-	ToSecurityGroupRuleDirectionOutputWithContext(context.Context) SecurityGroupRuleDirectionOutput
-}
-
-var securityGroupRuleDirectionPtrType = reflect.TypeOf((**SecurityGroupRuleDirection)(nil)).Elem()
-
-type SecurityGroupRuleDirectionPtrInput interface {
-	pulumi.Input
-
-	ToSecurityGroupRuleDirectionPtrOutput() SecurityGroupRuleDirectionPtrOutput
-	ToSecurityGroupRuleDirectionPtrOutputWithContext(context.Context) SecurityGroupRuleDirectionPtrOutput
-}
-
-type securityGroupRuleDirectionPtr string
-
-func SecurityGroupRuleDirectionPtr(v string) SecurityGroupRuleDirectionPtrInput {
-	return (*securityGroupRuleDirectionPtr)(&v)
-}
-
-func (*securityGroupRuleDirectionPtr) ElementType() reflect.Type {
-	return securityGroupRuleDirectionPtrType
-}
-
-func (in *securityGroupRuleDirectionPtr) ToSecurityGroupRuleDirectionPtrOutput() SecurityGroupRuleDirectionPtrOutput {
-	return pulumi.ToOutput(in).(SecurityGroupRuleDirectionPtrOutput)
-}
-
-func (in *securityGroupRuleDirectionPtr) ToSecurityGroupRuleDirectionPtrOutputWithContext(ctx context.Context) SecurityGroupRuleDirectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SecurityGroupRuleDirectionPtrOutput)
-}
-
-type SecurityGroupRuleProtocol string
-
-const (
-	SecurityGroupRuleProtocolTcp  = SecurityGroupRuleProtocol("TCP")
-	SecurityGroupRuleProtocolUdp  = SecurityGroupRuleProtocol("UDP")
-	SecurityGroupRuleProtocolIcmp = SecurityGroupRuleProtocol("ICMP")
-	SecurityGroupRuleProtocolAny  = SecurityGroupRuleProtocol("ANY")
-)
-
-func (SecurityGroupRuleProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupRuleProtocol)(nil)).Elem()
-}
-
-func (e SecurityGroupRuleProtocol) ToSecurityGroupRuleProtocolOutput() SecurityGroupRuleProtocolOutput {
-	return pulumi.ToOutput(e).(SecurityGroupRuleProtocolOutput)
-}
-
-func (e SecurityGroupRuleProtocol) ToSecurityGroupRuleProtocolOutputWithContext(ctx context.Context) SecurityGroupRuleProtocolOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SecurityGroupRuleProtocolOutput)
-}
-
-func (e SecurityGroupRuleProtocol) ToSecurityGroupRuleProtocolPtrOutput() SecurityGroupRuleProtocolPtrOutput {
-	return e.ToSecurityGroupRuleProtocolPtrOutputWithContext(context.Background())
-}
-
-func (e SecurityGroupRuleProtocol) ToSecurityGroupRuleProtocolPtrOutputWithContext(ctx context.Context) SecurityGroupRuleProtocolPtrOutput {
-	return SecurityGroupRuleProtocol(e).ToSecurityGroupRuleProtocolOutputWithContext(ctx).ToSecurityGroupRuleProtocolPtrOutputWithContext(ctx)
-}
-
-func (e SecurityGroupRuleProtocol) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SecurityGroupRuleProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SecurityGroupRuleProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SecurityGroupRuleProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SecurityGroupRuleProtocolOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupRuleProtocolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupRuleProtocol)(nil)).Elem()
-}
-
-func (o SecurityGroupRuleProtocolOutput) ToSecurityGroupRuleProtocolOutput() SecurityGroupRuleProtocolOutput {
-	return o
-}
-
-func (o SecurityGroupRuleProtocolOutput) ToSecurityGroupRuleProtocolOutputWithContext(ctx context.Context) SecurityGroupRuleProtocolOutput {
-	return o
-}
-
-func (o SecurityGroupRuleProtocolOutput) ToSecurityGroupRuleProtocolPtrOutput() SecurityGroupRuleProtocolPtrOutput {
-	return o.ToSecurityGroupRuleProtocolPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleProtocolOutput) ToSecurityGroupRuleProtocolPtrOutputWithContext(ctx context.Context) SecurityGroupRuleProtocolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroupRuleProtocol) *SecurityGroupRuleProtocol {
-		return &v
-	}).(SecurityGroupRuleProtocolPtrOutput)
-}
-
-func (o SecurityGroupRuleProtocolOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupRuleProtocol) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SecurityGroupRuleProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupRuleProtocol) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SecurityGroupRuleProtocolPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupRuleProtocolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityGroupRuleProtocol)(nil)).Elem()
-}
-
-func (o SecurityGroupRuleProtocolPtrOutput) ToSecurityGroupRuleProtocolPtrOutput() SecurityGroupRuleProtocolPtrOutput {
-	return o
-}
-
-func (o SecurityGroupRuleProtocolPtrOutput) ToSecurityGroupRuleProtocolPtrOutputWithContext(ctx context.Context) SecurityGroupRuleProtocolPtrOutput {
-	return o
-}
-
-func (o SecurityGroupRuleProtocolPtrOutput) Elem() SecurityGroupRuleProtocolOutput {
-	return o.ApplyT(func(v *SecurityGroupRuleProtocol) SecurityGroupRuleProtocol {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityGroupRuleProtocol
-		return ret
-	}).(SecurityGroupRuleProtocolOutput)
-}
-
-func (o SecurityGroupRuleProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupRuleProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityGroupRuleProtocol) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// SecurityGroupRuleProtocolInput is an input type that accepts values of the SecurityGroupRuleProtocol enum
-// A concrete instance of `SecurityGroupRuleProtocolInput` can be one of the following:
-//
-//	SecurityGroupRuleProtocolTcp
-//	SecurityGroupRuleProtocolUdp
-//	SecurityGroupRuleProtocolIcmp
-//	SecurityGroupRuleProtocolAny
-type SecurityGroupRuleProtocolInput interface {
-	pulumi.Input
-
-	ToSecurityGroupRuleProtocolOutput() SecurityGroupRuleProtocolOutput
-	ToSecurityGroupRuleProtocolOutputWithContext(context.Context) SecurityGroupRuleProtocolOutput
-}
-
-var securityGroupRuleProtocolPtrType = reflect.TypeOf((**SecurityGroupRuleProtocol)(nil)).Elem()
-
-type SecurityGroupRuleProtocolPtrInput interface {
-	pulumi.Input
-
-	ToSecurityGroupRuleProtocolPtrOutput() SecurityGroupRuleProtocolPtrOutput
-	ToSecurityGroupRuleProtocolPtrOutputWithContext(context.Context) SecurityGroupRuleProtocolPtrOutput
-}
-
-type securityGroupRuleProtocolPtr string
-
-func SecurityGroupRuleProtocolPtr(v string) SecurityGroupRuleProtocolPtrInput {
-	return (*securityGroupRuleProtocolPtr)(&v)
-}
-
-func (*securityGroupRuleProtocolPtr) ElementType() reflect.Type {
-	return securityGroupRuleProtocolPtrType
-}
-
-func (in *securityGroupRuleProtocolPtr) ToSecurityGroupRuleProtocolPtrOutput() SecurityGroupRuleProtocolPtrOutput {
-	return pulumi.ToOutput(in).(SecurityGroupRuleProtocolPtrOutput)
-}
-
-func (in *securityGroupRuleProtocolPtr) ToSecurityGroupRuleProtocolPtrOutputWithContext(ctx context.Context) SecurityGroupRuleProtocolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SecurityGroupRuleProtocolPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupRuleActionInput)(nil)).Elem(), SecurityGroupRuleAction("accept"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupRuleActionPtrInput)(nil)).Elem(), SecurityGroupRuleAction("accept"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupRuleDirectionInput)(nil)).Elem(), SecurityGroupRuleDirection("inbound"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupRuleDirectionPtrInput)(nil)).Elem(), SecurityGroupRuleDirection("inbound"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupRuleProtocolInput)(nil)).Elem(), SecurityGroupRuleProtocol("TCP"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupRuleProtocolPtrInput)(nil)).Elem(), SecurityGroupRuleProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionInput)(nil)).Elem(), Action("accept"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionPtrInput)(nil)).Elem(), Action("accept"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectionInput)(nil)).Elem(), Direction("inbound"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectionPtrInput)(nil)).Elem(), Direction("inbound"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolInput)(nil)).Elem(), Protocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolPtrInput)(nil)).Elem(), Protocol("TCP"))
+	pulumi.RegisterOutputType(ActionOutput{})
+	pulumi.RegisterOutputType(ActionPtrOutput{})
+	pulumi.RegisterOutputType(DirectionOutput{})
+	pulumi.RegisterOutputType(DirectionPtrOutput{})
+	pulumi.RegisterOutputType(ProtocolOutput{})
+	pulumi.RegisterOutputType(ProtocolPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupRuleActionOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupRuleActionPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupRuleDirectionOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupRuleDirectionPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupRuleProtocolOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SecurityGroupRuleProtocolPtrOutput{})
-	pulumi.RegisterOutputType(SecurityGroupRuleActionOutput{})
-	pulumi.RegisterOutputType(SecurityGroupRuleActionPtrOutput{})
-	pulumi.RegisterOutputType(SecurityGroupRuleDirectionOutput{})
-	pulumi.RegisterOutputType(SecurityGroupRuleDirectionPtrOutput{})
-	pulumi.RegisterOutputType(SecurityGroupRuleProtocolOutput{})
-	pulumi.RegisterOutputType(SecurityGroupRuleProtocolPtrOutput{})
 }

@@ -41,7 +41,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
         /// Disk size of the volume, must be a multiple of 512 (in bytes)
         /// </summary>
         public readonly double? Size;
-        public readonly Pulumi.ScalewayInstances.Servers.ServerScalewayInstanceV1VolumeServerTemplateVolumeType? VolumeType;
+        public readonly Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType? VolumeType;
 
         [OutputConstructor]
         private ScalewayInstanceV1VolumeServerTemplate(
@@ -59,7 +59,7 @@ namespace Pulumi.ScalewayInstances.Servers.Outputs
 
             double? size,
 
-            Pulumi.ScalewayInstances.Servers.ServerScalewayInstanceV1VolumeServerTemplateVolumeType? volumeType)
+            Pulumi.ScalewayInstances.Servers.ScalewayInstanceV1VolumeServerTemplateVolumeType? volumeType)
         {
             BaseSnapshot = baseSnapshot;
             Boot = boot;

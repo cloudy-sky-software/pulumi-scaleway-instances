@@ -10,124 +10,124 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ImageArch string
+type Arch string
 
 const (
-	ImageArchX8664 = ImageArch("x86_64")
-	ImageArchArm   = ImageArch("arm")
+	ArchX8664 = Arch("x86_64")
+	ArchArm   = Arch("arm")
 )
 
-func (ImageArch) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageArch)(nil)).Elem()
+func (Arch) ElementType() reflect.Type {
+	return reflect.TypeOf((*Arch)(nil)).Elem()
 }
 
-func (e ImageArch) ToImageArchOutput() ImageArchOutput {
-	return pulumi.ToOutput(e).(ImageArchOutput)
+func (e Arch) ToArchOutput() ArchOutput {
+	return pulumi.ToOutput(e).(ArchOutput)
 }
 
-func (e ImageArch) ToImageArchOutputWithContext(ctx context.Context) ImageArchOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ImageArchOutput)
+func (e Arch) ToArchOutputWithContext(ctx context.Context) ArchOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ArchOutput)
 }
 
-func (e ImageArch) ToImageArchPtrOutput() ImageArchPtrOutput {
-	return e.ToImageArchPtrOutputWithContext(context.Background())
+func (e Arch) ToArchPtrOutput() ArchPtrOutput {
+	return e.ToArchPtrOutputWithContext(context.Background())
 }
 
-func (e ImageArch) ToImageArchPtrOutputWithContext(ctx context.Context) ImageArchPtrOutput {
-	return ImageArch(e).ToImageArchOutputWithContext(ctx).ToImageArchPtrOutputWithContext(ctx)
+func (e Arch) ToArchPtrOutputWithContext(ctx context.Context) ArchPtrOutput {
+	return Arch(e).ToArchOutputWithContext(ctx).ToArchPtrOutputWithContext(ctx)
 }
 
-func (e ImageArch) ToStringOutput() pulumi.StringOutput {
+func (e Arch) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ImageArch) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e Arch) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ImageArch) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e Arch) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ImageArch) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e Arch) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ImageArchOutput struct{ *pulumi.OutputState }
+type ArchOutput struct{ *pulumi.OutputState }
 
-func (ImageArchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageArch)(nil)).Elem()
+func (ArchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Arch)(nil)).Elem()
 }
 
-func (o ImageArchOutput) ToImageArchOutput() ImageArchOutput {
+func (o ArchOutput) ToArchOutput() ArchOutput {
 	return o
 }
 
-func (o ImageArchOutput) ToImageArchOutputWithContext(ctx context.Context) ImageArchOutput {
+func (o ArchOutput) ToArchOutputWithContext(ctx context.Context) ArchOutput {
 	return o
 }
 
-func (o ImageArchOutput) ToImageArchPtrOutput() ImageArchPtrOutput {
-	return o.ToImageArchPtrOutputWithContext(context.Background())
+func (o ArchOutput) ToArchPtrOutput() ArchPtrOutput {
+	return o.ToArchPtrOutputWithContext(context.Background())
 }
 
-func (o ImageArchOutput) ToImageArchPtrOutputWithContext(ctx context.Context) ImageArchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageArch) *ImageArch {
+func (o ArchOutput) ToArchPtrOutputWithContext(ctx context.Context) ArchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Arch) *Arch {
 		return &v
-	}).(ImageArchPtrOutput)
+	}).(ArchPtrOutput)
 }
 
-func (o ImageArchOutput) ToStringOutput() pulumi.StringOutput {
+func (o ArchOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ImageArchOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageArch) string {
+func (o ArchOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Arch) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ImageArchOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ArchOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ImageArchOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageArch) *string {
+func (o ArchOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Arch) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ImageArchPtrOutput struct{ *pulumi.OutputState }
+type ArchPtrOutput struct{ *pulumi.OutputState }
 
-func (ImageArchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageArch)(nil)).Elem()
+func (ArchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Arch)(nil)).Elem()
 }
 
-func (o ImageArchPtrOutput) ToImageArchPtrOutput() ImageArchPtrOutput {
+func (o ArchPtrOutput) ToArchPtrOutput() ArchPtrOutput {
 	return o
 }
 
-func (o ImageArchPtrOutput) ToImageArchPtrOutputWithContext(ctx context.Context) ImageArchPtrOutput {
+func (o ArchPtrOutput) ToArchPtrOutputWithContext(ctx context.Context) ArchPtrOutput {
 	return o
 }
 
-func (o ImageArchPtrOutput) Elem() ImageArchOutput {
-	return o.ApplyT(func(v *ImageArch) ImageArch {
+func (o ArchPtrOutput) Elem() ArchOutput {
+	return o.ApplyT(func(v *Arch) Arch {
 		if v != nil {
 			return *v
 		}
-		var ret ImageArch
+		var ret Arch
 		return ret
-	}).(ImageArchOutput)
+	}).(ArchOutput)
 }
 
-func (o ImageArchPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ArchPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ImageArchPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageArch) *string {
+func (o ArchPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Arch) *string {
 		if e == nil {
 			return nil
 		}
@@ -136,210 +136,43 @@ func (o ImageArchPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ImageArchInput is an input type that accepts values of the ImageArch enum
-// A concrete instance of `ImageArchInput` can be one of the following:
+// ArchInput is an input type that accepts values of the Arch enum
+// A concrete instance of `ArchInput` can be one of the following:
 //
-//	ImageArchX8664
-//	ImageArchArm
-type ImageArchInput interface {
+//	ArchX8664
+//	ArchArm
+type ArchInput interface {
 	pulumi.Input
 
-	ToImageArchOutput() ImageArchOutput
-	ToImageArchOutputWithContext(context.Context) ImageArchOutput
+	ToArchOutput() ArchOutput
+	ToArchOutputWithContext(context.Context) ArchOutput
 }
 
-var imageArchPtrType = reflect.TypeOf((**ImageArch)(nil)).Elem()
+var archPtrType = reflect.TypeOf((**Arch)(nil)).Elem()
 
-type ImageArchPtrInput interface {
+type ArchPtrInput interface {
 	pulumi.Input
 
-	ToImageArchPtrOutput() ImageArchPtrOutput
-	ToImageArchPtrOutputWithContext(context.Context) ImageArchPtrOutput
+	ToArchPtrOutput() ArchPtrOutput
+	ToArchPtrOutputWithContext(context.Context) ArchPtrOutput
 }
 
-type imageArchPtr string
+type archPtr string
 
-func ImageArchPtr(v string) ImageArchPtrInput {
-	return (*imageArchPtr)(&v)
+func ArchPtr(v string) ArchPtrInput {
+	return (*archPtr)(&v)
 }
 
-func (*imageArchPtr) ElementType() reflect.Type {
-	return imageArchPtrType
+func (*archPtr) ElementType() reflect.Type {
+	return archPtrType
 }
 
-func (in *imageArchPtr) ToImageArchPtrOutput() ImageArchPtrOutput {
-	return pulumi.ToOutput(in).(ImageArchPtrOutput)
+func (in *archPtr) ToArchPtrOutput() ArchPtrOutput {
+	return pulumi.ToOutput(in).(ArchPtrOutput)
 }
 
-func (in *imageArchPtr) ToImageArchPtrOutputWithContext(ctx context.Context) ImageArchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ImageArchPtrOutput)
-}
-
-type ImageStateEnum string
-
-const (
-	ImageStateEnumAvailable = ImageStateEnum("available")
-	ImageStateEnumCreating  = ImageStateEnum("creating")
-	ImageStateEnumError     = ImageStateEnum("error")
-)
-
-func (ImageStateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageStateEnum)(nil)).Elem()
-}
-
-func (e ImageStateEnum) ToImageStateEnumOutput() ImageStateEnumOutput {
-	return pulumi.ToOutput(e).(ImageStateEnumOutput)
-}
-
-func (e ImageStateEnum) ToImageStateEnumOutputWithContext(ctx context.Context) ImageStateEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ImageStateEnumOutput)
-}
-
-func (e ImageStateEnum) ToImageStateEnumPtrOutput() ImageStateEnumPtrOutput {
-	return e.ToImageStateEnumPtrOutputWithContext(context.Background())
-}
-
-func (e ImageStateEnum) ToImageStateEnumPtrOutputWithContext(ctx context.Context) ImageStateEnumPtrOutput {
-	return ImageStateEnum(e).ToImageStateEnumOutputWithContext(ctx).ToImageStateEnumPtrOutputWithContext(ctx)
-}
-
-func (e ImageStateEnum) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ImageStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e ImageStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e ImageStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type ImageStateEnumOutput struct{ *pulumi.OutputState }
-
-func (ImageStateEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageStateEnum)(nil)).Elem()
-}
-
-func (o ImageStateEnumOutput) ToImageStateEnumOutput() ImageStateEnumOutput {
-	return o
-}
-
-func (o ImageStateEnumOutput) ToImageStateEnumOutputWithContext(ctx context.Context) ImageStateEnumOutput {
-	return o
-}
-
-func (o ImageStateEnumOutput) ToImageStateEnumPtrOutput() ImageStateEnumPtrOutput {
-	return o.ToImageStateEnumPtrOutputWithContext(context.Background())
-}
-
-func (o ImageStateEnumOutput) ToImageStateEnumPtrOutputWithContext(ctx context.Context) ImageStateEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageStateEnum) *ImageStateEnum {
-		return &v
-	}).(ImageStateEnumPtrOutput)
-}
-
-func (o ImageStateEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ImageStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageStateEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ImageStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ImageStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageStateEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ImageStateEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (ImageStateEnumPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImageStateEnum)(nil)).Elem()
-}
-
-func (o ImageStateEnumPtrOutput) ToImageStateEnumPtrOutput() ImageStateEnumPtrOutput {
-	return o
-}
-
-func (o ImageStateEnumPtrOutput) ToImageStateEnumPtrOutputWithContext(ctx context.Context) ImageStateEnumPtrOutput {
-	return o
-}
-
-func (o ImageStateEnumPtrOutput) Elem() ImageStateEnumOutput {
-	return o.ApplyT(func(v *ImageStateEnum) ImageStateEnum {
-		if v != nil {
-			return *v
-		}
-		var ret ImageStateEnum
-		return ret
-	}).(ImageStateEnumOutput)
-}
-
-func (o ImageStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ImageStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageStateEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// ImageStateEnumInput is an input type that accepts values of the ImageStateEnum enum
-// A concrete instance of `ImageStateEnumInput` can be one of the following:
-//
-//	ImageStateEnumAvailable
-//	ImageStateEnumCreating
-//	ImageStateEnumError
-type ImageStateEnumInput interface {
-	pulumi.Input
-
-	ToImageStateEnumOutput() ImageStateEnumOutput
-	ToImageStateEnumOutputWithContext(context.Context) ImageStateEnumOutput
-}
-
-var imageStateEnumPtrType = reflect.TypeOf((**ImageStateEnum)(nil)).Elem()
-
-type ImageStateEnumPtrInput interface {
-	pulumi.Input
-
-	ToImageStateEnumPtrOutput() ImageStateEnumPtrOutput
-	ToImageStateEnumPtrOutputWithContext(context.Context) ImageStateEnumPtrOutput
-}
-
-type imageStateEnumPtr string
-
-func ImageStateEnumPtr(v string) ImageStateEnumPtrInput {
-	return (*imageStateEnumPtr)(&v)
-}
-
-func (*imageStateEnumPtr) ElementType() reflect.Type {
-	return imageStateEnumPtrType
-}
-
-func (in *imageStateEnumPtr) ToImageStateEnumPtrOutput() ImageStateEnumPtrOutput {
-	return pulumi.ToOutput(in).(ImageStateEnumPtrOutput)
-}
-
-func (in *imageStateEnumPtr) ToImageStateEnumPtrOutputWithContext(ctx context.Context) ImageStateEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ImageStateEnumPtrOutput)
+func (in *archPtr) ToArchPtrOutputWithContext(ctx context.Context) ArchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ArchPtrOutput)
 }
 
 // The bootscript arch
@@ -1198,11 +1031,176 @@ func (in *scalewayInstanceV1VolumeVolumeTypePtr) ToScalewayInstanceV1VolumeVolum
 	return pulumi.ToOutputWithContext(ctx, in).(ScalewayInstanceV1VolumeVolumeTypePtrOutput)
 }
 
+type State string
+
+const (
+	StateAvailable = State("available")
+	StateCreating  = State("creating")
+	StateError     = State("error")
+)
+
+func (State) ElementType() reflect.Type {
+	return reflect.TypeOf((*State)(nil)).Elem()
+}
+
+func (e State) ToStateOutput() StateOutput {
+	return pulumi.ToOutput(e).(StateOutput)
+}
+
+func (e State) ToStateOutputWithContext(ctx context.Context) StateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StateOutput)
+}
+
+func (e State) ToStatePtrOutput() StatePtrOutput {
+	return e.ToStatePtrOutputWithContext(context.Background())
+}
+
+func (e State) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
+	return State(e).ToStateOutputWithContext(ctx).ToStatePtrOutputWithContext(ctx)
+}
+
+func (e State) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e State) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e State) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e State) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StateOutput struct{ *pulumi.OutputState }
+
+func (StateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*State)(nil)).Elem()
+}
+
+func (o StateOutput) ToStateOutput() StateOutput {
+	return o
+}
+
+func (o StateOutput) ToStateOutputWithContext(ctx context.Context) StateOutput {
+	return o
+}
+
+func (o StateOutput) ToStatePtrOutput() StatePtrOutput {
+	return o.ToStatePtrOutputWithContext(context.Background())
+}
+
+func (o StateOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v State) *State {
+		return &v
+	}).(StatePtrOutput)
+}
+
+func (o StateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StatePtrOutput struct{ *pulumi.OutputState }
+
+func (StatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**State)(nil)).Elem()
+}
+
+func (o StatePtrOutput) ToStatePtrOutput() StatePtrOutput {
+	return o
+}
+
+func (o StatePtrOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
+	return o
+}
+
+func (o StatePtrOutput) Elem() StateOutput {
+	return o.ApplyT(func(v *State) State {
+		if v != nil {
+			return *v
+		}
+		var ret State
+		return ret
+	}).(StateOutput)
+}
+
+func (o StatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *State) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StateInput is an input type that accepts values of the State enum
+// A concrete instance of `StateInput` can be one of the following:
+//
+//	StateAvailable
+//	StateCreating
+//	StateError
+type StateInput interface {
+	pulumi.Input
+
+	ToStateOutput() StateOutput
+	ToStateOutputWithContext(context.Context) StateOutput
+}
+
+var statePtrType = reflect.TypeOf((**State)(nil)).Elem()
+
+type StatePtrInput interface {
+	pulumi.Input
+
+	ToStatePtrOutput() StatePtrOutput
+	ToStatePtrOutputWithContext(context.Context) StatePtrOutput
+}
+
+type statePtr string
+
+func StatePtr(v string) StatePtrInput {
+	return (*statePtr)(&v)
+}
+
+func (*statePtr) ElementType() reflect.Type {
+	return statePtrType
+}
+
+func (in *statePtr) ToStatePtrOutput() StatePtrOutput {
+	return pulumi.ToOutput(in).(StatePtrOutput)
+}
+
+func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
+}
+
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageArchInput)(nil)).Elem(), ImageArch("x86_64"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageArchPtrInput)(nil)).Elem(), ImageArch("x86_64"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageStateEnumInput)(nil)).Elem(), ImageStateEnum("available"))
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageStateEnumPtrInput)(nil)).Elem(), ImageStateEnum("available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ArchInput)(nil)).Elem(), Arch("x86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ArchPtrInput)(nil)).Elem(), Arch("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1BootscriptArchInput)(nil)).Elem(), ScalewayInstanceV1BootscriptArch("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1BootscriptArchPtrInput)(nil)).Elem(), ScalewayInstanceV1BootscriptArch("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1VolumeStateInput)(nil)).Elem(), ScalewayInstanceV1VolumeState("available"))
@@ -1211,10 +1209,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1VolumeSummaryVolumeTypePtrInput)(nil)).Elem(), ScalewayInstanceV1VolumeSummaryVolumeType("l_ssd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1VolumeVolumeTypeInput)(nil)).Elem(), ScalewayInstanceV1VolumeVolumeType("l_ssd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalewayInstanceV1VolumeVolumeTypePtrInput)(nil)).Elem(), ScalewayInstanceV1VolumeVolumeType("l_ssd"))
-	pulumi.RegisterOutputType(ImageArchOutput{})
-	pulumi.RegisterOutputType(ImageArchPtrOutput{})
-	pulumi.RegisterOutputType(ImageStateEnumOutput{})
-	pulumi.RegisterOutputType(ImageStateEnumPtrOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateInput)(nil)).Elem(), State("available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatePtrInput)(nil)).Elem(), State("available"))
+	pulumi.RegisterOutputType(ArchOutput{})
+	pulumi.RegisterOutputType(ArchPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1BootscriptArchOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1BootscriptArchPtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1ImageArchOutput{})
@@ -1227,4 +1225,6 @@ func init() {
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeSummaryVolumeTypePtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeVolumeTypeOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(StateOutput{})
+	pulumi.RegisterOutputType(StatePtrOutput{})
 }

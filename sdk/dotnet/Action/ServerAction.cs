@@ -16,7 +16,7 @@ namespace Pulumi.ScalewayInstances.Action
         /// The action to perform on the server
         /// </summary>
         [Output("action")]
-        public Output<Pulumi.ScalewayInstances.Action.ServerActionAction?> Action { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Action.Action?> Action { get; private set; } = null!;
 
         /// <summary>
         /// The name of the backup you want to create.
@@ -81,7 +81,7 @@ namespace Pulumi.ScalewayInstances.Action
         /// The action to perform on the server
         /// </summary>
         [Input("action")]
-        public Input<Pulumi.ScalewayInstances.Action.ServerActionAction>? Action { get; set; }
+        public Input<Pulumi.ScalewayInstances.Action.Action>? Action { get; set; }
 
         /// <summary>
         /// The name of the backup you want to create.
@@ -112,7 +112,7 @@ namespace Pulumi.ScalewayInstances.Action
 
         public ServerActionArgs()
         {
-            Action = Pulumi.ScalewayInstances.Action.ServerActionAction.Poweron;
+            Action = Pulumi.ScalewayInstances.Action.Action.Poweron;
         }
         public static new ServerActionArgs Empty => new ServerActionArgs();
     }

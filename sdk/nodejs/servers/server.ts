@@ -37,7 +37,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The boot type to use
      */
-    public readonly bootType!: pulumi.Output<enums.servers.ServerBootType | undefined>;
+    public readonly bootType!: pulumi.Output<enums.servers.BootType | undefined>;
     /**
      * The bootscript ID to use when `boot_type` is set to `bootscript`
      */
@@ -148,7 +148,7 @@ export interface ServerArgs {
     /**
      * The boot type to use
      */
-    bootType?: pulumi.Input<enums.servers.ServerBootType>;
+    bootType?: pulumi.Input<enums.servers.BootType>;
     /**
      * The bootscript ID to use when `boot_type` is set to `bootscript`
      */

@@ -5,26 +5,20 @@
 from enum import Enum
 
 __all__ = [
-    'ImageArch',
-    'ImageState',
+    'Arch',
     'ScalewayInstanceV1BootscriptArch',
     'ScalewayInstanceV1ImageArch',
     'ScalewayInstanceV1ImageState',
     'ScalewayInstanceV1VolumeState',
     'ScalewayInstanceV1VolumeSummaryVolumeType',
     'ScalewayInstanceV1VolumeVolumeType',
+    'State',
 ]
 
 
-class ImageArch(str, Enum):
+class Arch(str, Enum):
     X8664 = "x86_64"
     ARM = "arm"
-
-
-class ImageState(str, Enum):
-    AVAILABLE = "available"
-    CREATING = "creating"
-    ERROR = "error"
 
 
 class ScalewayInstanceV1BootscriptArch(str, Enum):
@@ -66,3 +60,9 @@ class ScalewayInstanceV1VolumeVolumeType(str, Enum):
     LSSD = "l_ssd"
     BSSD = "b_ssd"
     UNIFIED = "unified"
+
+
+class State(str, Enum):
+    AVAILABLE = "available"
+    CREATING = "creating"
+    ERROR = "error"

@@ -35,7 +35,7 @@ export class Image extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly Location!: pulumi.Output<string | undefined>;
-    public readonly arch!: pulumi.Output<enums.images.ImageArch | undefined>;
+    public readonly arch!: pulumi.Output<enums.images.Arch | undefined>;
     /**
      * (RFC 3339 format)
      */
@@ -53,7 +53,7 @@ export class Image extends pulumi.CustomResource {
     public readonly project!: pulumi.Output<string>;
     public readonly public!: pulumi.Output<boolean | undefined>;
     public readonly rootVolume!: pulumi.Output<outputs.images.ScalewayInstanceV1VolumeSummary>;
-    public readonly state!: pulumi.Output<enums.images.ImageState | undefined>;
+    public readonly state!: pulumi.Output<enums.images.State | undefined>;
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public readonly zone!: pulumi.Output<string | undefined>;
 
@@ -117,7 +117,7 @@ export class Image extends pulumi.CustomResource {
  * The set of arguments for constructing a Image resource.
  */
 export interface ImageArgs {
-    arch?: pulumi.Input<enums.images.ImageArch>;
+    arch?: pulumi.Input<enums.images.Arch>;
     defaultBootscript?: pulumi.Input<inputs.images.ScalewayInstanceV1BootscriptArgs>;
     extraVolumes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.images.ScalewayInstanceV1VolumeArgs>}>;
     name?: pulumi.Input<string>;
@@ -125,7 +125,7 @@ export interface ImageArgs {
     project: pulumi.Input<string>;
     public?: pulumi.Input<boolean>;
     rootVolume: pulumi.Input<inputs.images.ScalewayInstanceV1VolumeSummaryArgs>;
-    state?: pulumi.Input<enums.images.ImageState>;
+    state?: pulumi.Input<enums.images.State>;
     tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The zone you want to target

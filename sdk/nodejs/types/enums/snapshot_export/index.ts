@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ExportSnapshotScalewayInstanceV1TaskStatus = {
+export const ScalewayInstanceV1TaskStatus = {
     Pending: "pending",
     Started: "started",
     Success: "success",
@@ -13,4 +13,4 @@ export const ExportSnapshotScalewayInstanceV1TaskStatus = {
 /**
  * The task status
  */
-export type ExportSnapshotScalewayInstanceV1TaskStatus = (typeof ExportSnapshotScalewayInstanceV1TaskStatus)[keyof typeof ExportSnapshotScalewayInstanceV1TaskStatus];
+export type ScalewayInstanceV1TaskStatus = (typeof ScalewayInstanceV1TaskStatus)[keyof typeof ScalewayInstanceV1TaskStatus];

@@ -18,7 +18,7 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  commercial_type: pulumi.Input[str],
-                 boot_type: Optional[pulumi.Input['ServerBootType']] = None,
+                 boot_type: Optional[pulumi.Input['BootType']] = None,
                  bootscript: Optional[pulumi.Input[str]] = None,
                  dynamic_ip_required: Optional[pulumi.Input[bool]] = None,
                  enable_ipv6: Optional[pulumi.Input[bool]] = None,
@@ -35,7 +35,7 @@ class ServerArgs:
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] commercial_type: Define the server commercial type (i.e. GP1-S)
-        :param pulumi.Input['ServerBootType'] boot_type: The boot type to use
+        :param pulumi.Input['BootType'] boot_type: The boot type to use
         :param pulumi.Input[str] bootscript: The bootscript ID to use when `boot_type` is set to `bootscript`
         :param pulumi.Input[bool] dynamic_ip_required: Define if a dynamic IP is required for the instance
         :param pulumi.Input[bool] enable_ipv6: True if IPv6 is enabled on the server
@@ -95,14 +95,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="bootType")
-    def boot_type(self) -> Optional[pulumi.Input['ServerBootType']]:
+    def boot_type(self) -> Optional[pulumi.Input['BootType']]:
         """
         The boot type to use
         """
         return pulumi.get(self, "boot_type")
 
     @boot_type.setter
-    def boot_type(self, value: Optional[pulumi.Input['ServerBootType']]):
+    def boot_type(self, value: Optional[pulumi.Input['BootType']]):
         pulumi.set(self, "boot_type", value)
 
     @property
@@ -264,7 +264,7 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 boot_type: Optional[pulumi.Input['ServerBootType']] = None,
+                 boot_type: Optional[pulumi.Input['BootType']] = None,
                  bootscript: Optional[pulumi.Input[str]] = None,
                  commercial_type: Optional[pulumi.Input[str]] = None,
                  dynamic_ip_required: Optional[pulumi.Input[bool]] = None,
@@ -284,7 +284,7 @@ class Server(pulumi.CustomResource):
         Create a Server resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['ServerBootType'] boot_type: The boot type to use
+        :param pulumi.Input['BootType'] boot_type: The boot type to use
         :param pulumi.Input[str] bootscript: The bootscript ID to use when `boot_type` is set to `bootscript`
         :param pulumi.Input[str] commercial_type: Define the server commercial type (i.e. GP1-S)
         :param pulumi.Input[bool] dynamic_ip_required: Define if a dynamic IP is required for the instance
@@ -322,7 +322,7 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 boot_type: Optional[pulumi.Input['ServerBootType']] = None,
+                 boot_type: Optional[pulumi.Input['BootType']] = None,
                  bootscript: Optional[pulumi.Input[str]] = None,
                  commercial_type: Optional[pulumi.Input[str]] = None,
                  dynamic_ip_required: Optional[pulumi.Input[bool]] = None,
@@ -407,7 +407,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bootType")
-    def boot_type(self) -> pulumi.Output[Optional['ServerBootType']]:
+    def boot_type(self) -> pulumi.Output[Optional['BootType']]:
         """
         The boot type to use
         """

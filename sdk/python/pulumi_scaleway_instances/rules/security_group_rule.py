@@ -16,10 +16,10 @@ __all__ = ['SecurityGroupRuleArgs', 'SecurityGroupRule']
 @pulumi.input_type
 class SecurityGroupRuleArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['SecurityGroupRuleAction']] = None,
-                 direction: Optional[pulumi.Input['SecurityGroupRuleDirection']] = None,
+                 action: Optional[pulumi.Input['Action']] = None,
+                 direction: Optional[pulumi.Input['Direction']] = None,
                  ip_range: pulumi.Input[str],
-                 protocol: Optional[pulumi.Input['SecurityGroupRuleProtocol']] = None,
+                 protocol: Optional[pulumi.Input['Protocol']] = None,
                  dest_port_from: Optional[pulumi.Input[float]] = None,
                  dest_port_to: Optional[pulumi.Input[float]] = None,
                  editable: Optional[pulumi.Input[bool]] = None,
@@ -61,20 +61,20 @@ class SecurityGroupRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input['SecurityGroupRuleAction']:
+    def action(self) -> pulumi.Input['Action']:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input['SecurityGroupRuleAction']):
+    def action(self, value: pulumi.Input['Action']):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def direction(self) -> pulumi.Input['SecurityGroupRuleDirection']:
+    def direction(self) -> pulumi.Input['Direction']:
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: pulumi.Input['SecurityGroupRuleDirection']):
+    def direction(self, value: pulumi.Input['Direction']):
         pulumi.set(self, "direction", value)
 
     @property
@@ -91,11 +91,11 @@ class SecurityGroupRuleArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input['SecurityGroupRuleProtocol']:
+    def protocol(self) -> pulumi.Input['Protocol']:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input['SecurityGroupRuleProtocol']):
+    def protocol(self, value: pulumi.Input['Protocol']):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -176,14 +176,14 @@ class SecurityGroupRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input['SecurityGroupRuleAction']] = None,
+                 action: Optional[pulumi.Input['Action']] = None,
                  dest_port_from: Optional[pulumi.Input[float]] = None,
                  dest_port_to: Optional[pulumi.Input[float]] = None,
-                 direction: Optional[pulumi.Input['SecurityGroupRuleDirection']] = None,
+                 direction: Optional[pulumi.Input['Direction']] = None,
                  editable: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[float]] = None,
-                 protocol: Optional[pulumi.Input['SecurityGroupRuleProtocol']] = None,
+                 protocol: Optional[pulumi.Input['Protocol']] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -222,14 +222,14 @@ class SecurityGroupRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input['SecurityGroupRuleAction']] = None,
+                 action: Optional[pulumi.Input['Action']] = None,
                  dest_port_from: Optional[pulumi.Input[float]] = None,
                  dest_port_to: Optional[pulumi.Input[float]] = None,
-                 direction: Optional[pulumi.Input['SecurityGroupRuleDirection']] = None,
+                 direction: Optional[pulumi.Input['Direction']] = None,
                  editable: Optional[pulumi.Input[bool]] = None,
                  ip_range: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[float]] = None,
-                 protocol: Optional[pulumi.Input['SecurityGroupRuleProtocol']] = None,
+                 protocol: Optional[pulumi.Input['Protocol']] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -301,7 +301,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Output['SecurityGroupRuleAction']:
+    def action(self) -> pulumi.Output['Action']:
         return pulumi.get(self, "action")
 
     @property
@@ -322,7 +322,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def direction(self) -> pulumi.Output['SecurityGroupRuleDirection']:
+    def direction(self) -> pulumi.Output['Direction']:
         return pulumi.get(self, "direction")
 
     @property
@@ -351,7 +351,7 @@ class SecurityGroupRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output['SecurityGroupRuleProtocol']:
+    def protocol(self) -> pulumi.Output['Protocol']:
         return pulumi.get(self, "protocol")
 
     @property

@@ -11,91 +11,91 @@ import (
 )
 
 // The task status
-type ExportSnapshotScalewayInstanceV1TaskStatus string
+type ScalewayInstanceV1TaskStatus string
 
 const (
-	ExportSnapshotScalewayInstanceV1TaskStatusPending = ExportSnapshotScalewayInstanceV1TaskStatus("pending")
-	ExportSnapshotScalewayInstanceV1TaskStatusStarted = ExportSnapshotScalewayInstanceV1TaskStatus("started")
-	ExportSnapshotScalewayInstanceV1TaskStatusSuccess = ExportSnapshotScalewayInstanceV1TaskStatus("success")
-	ExportSnapshotScalewayInstanceV1TaskStatusFailure = ExportSnapshotScalewayInstanceV1TaskStatus("failure")
-	ExportSnapshotScalewayInstanceV1TaskStatusRetry   = ExportSnapshotScalewayInstanceV1TaskStatus("retry")
+	ScalewayInstanceV1TaskStatusPending = ScalewayInstanceV1TaskStatus("pending")
+	ScalewayInstanceV1TaskStatusStarted = ScalewayInstanceV1TaskStatus("started")
+	ScalewayInstanceV1TaskStatusSuccess = ScalewayInstanceV1TaskStatus("success")
+	ScalewayInstanceV1TaskStatusFailure = ScalewayInstanceV1TaskStatus("failure")
+	ScalewayInstanceV1TaskStatusRetry   = ScalewayInstanceV1TaskStatus("retry")
 )
 
-type ExportSnapshotScalewayInstanceV1TaskStatusOutput struct{ *pulumi.OutputState }
+type ScalewayInstanceV1TaskStatusOutput struct{ *pulumi.OutputState }
 
-func (ExportSnapshotScalewayInstanceV1TaskStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportSnapshotScalewayInstanceV1TaskStatus)(nil)).Elem()
+func (ScalewayInstanceV1TaskStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalewayInstanceV1TaskStatus)(nil)).Elem()
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusOutput) ToExportSnapshotScalewayInstanceV1TaskStatusOutput() ExportSnapshotScalewayInstanceV1TaskStatusOutput {
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusOutput() ScalewayInstanceV1TaskStatusOutput {
 	return o
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusOutput) ToExportSnapshotScalewayInstanceV1TaskStatusOutputWithContext(ctx context.Context) ExportSnapshotScalewayInstanceV1TaskStatusOutput {
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusOutput {
 	return o
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusOutput) ToExportSnapshotScalewayInstanceV1TaskStatusPtrOutput() ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ToExportSnapshotScalewayInstanceV1TaskStatusPtrOutputWithContext(context.Background())
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOutput() ScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ToScalewayInstanceV1TaskStatusPtrOutputWithContext(context.Background())
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusOutput) ToExportSnapshotScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportSnapshotScalewayInstanceV1TaskStatus) *ExportSnapshotScalewayInstanceV1TaskStatus {
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1TaskStatus) *ScalewayInstanceV1TaskStatus {
 		return &v
-	}).(ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput)
+	}).(ScalewayInstanceV1TaskStatusPtrOutput)
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExportSnapshotScalewayInstanceV1TaskStatus) string {
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1TaskStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExportSnapshotScalewayInstanceV1TaskStatus) *string {
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1TaskStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput struct{ *pulumi.OutputState }
+type ScalewayInstanceV1TaskStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportSnapshotScalewayInstanceV1TaskStatus)(nil)).Elem()
+func (ScalewayInstanceV1TaskStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalewayInstanceV1TaskStatus)(nil)).Elem()
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput) ToExportSnapshotScalewayInstanceV1TaskStatusPtrOutput() ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutput() ScalewayInstanceV1TaskStatusPtrOutput {
 	return o
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput) ToExportSnapshotScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
 	return o
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput) Elem() ExportSnapshotScalewayInstanceV1TaskStatusOutput {
-	return o.ApplyT(func(v *ExportSnapshotScalewayInstanceV1TaskStatus) ExportSnapshotScalewayInstanceV1TaskStatus {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) Elem() ScalewayInstanceV1TaskStatusOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1TaskStatus) ScalewayInstanceV1TaskStatus {
 		if v != nil {
 			return *v
 		}
-		var ret ExportSnapshotScalewayInstanceV1TaskStatus
+		var ret ScalewayInstanceV1TaskStatus
 		return ret
-	}).(ExportSnapshotScalewayInstanceV1TaskStatusOutput)
+	}).(ScalewayInstanceV1TaskStatusOutput)
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExportSnapshotScalewayInstanceV1TaskStatus) *string {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScalewayInstanceV1TaskStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -105,6 +105,6 @@ func (o ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWi
 }
 
 func init() {
-	pulumi.RegisterOutputType(ExportSnapshotScalewayInstanceV1TaskStatusOutput{})
-	pulumi.RegisterOutputType(ExportSnapshotScalewayInstanceV1TaskStatusPtrOutput{})
+	pulumi.RegisterOutputType(ScalewayInstanceV1TaskStatusOutput{})
+	pulumi.RegisterOutputType(ScalewayInstanceV1TaskStatusPtrOutput{})
 }

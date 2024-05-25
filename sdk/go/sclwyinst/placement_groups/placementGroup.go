@@ -20,10 +20,10 @@ type PlacementGroup struct {
 	// The placement group organization ID
 	Organization   pulumi.StringPtrOutput                    `pulumi:"organization"`
 	PlacementGroup ScalewayInstanceV1PlacementGroupPtrOutput `pulumi:"placementGroup"`
-	PolicyMode     PlacementGroupPolicyModePtrOutput         `pulumi:"policyMode"`
+	PolicyMode     PolicyModePtrOutput                       `pulumi:"policyMode"`
 	// Returns true if the policy is respected, false otherwise
-	PolicyRespected pulumi.BoolPtrOutput              `pulumi:"policyRespected"`
-	PolicyType      PlacementGroupPolicyTypePtrOutput `pulumi:"policyType"`
+	PolicyRespected pulumi.BoolPtrOutput `pulumi:"policyRespected"`
+	PolicyType      PolicyTypePtrOutput  `pulumi:"policyType"`
 	// The placement group project ID
 	Project pulumi.StringOutput `pulumi:"project"`
 	// The placement group tags
@@ -43,10 +43,10 @@ func NewPlacementGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
 	if args.PolicyMode == nil {
-		args.PolicyMode = PlacementGroupPolicyMode("optional")
+		args.PolicyMode = PolicyMode("optional")
 	}
 	if args.PolicyType == nil {
-		args.PolicyType = PlacementGroupPolicyType("max_availability")
+		args.PolicyType = PolicyType("max_availability")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlacementGroup
@@ -84,9 +84,9 @@ type placementGroupArgs struct {
 	// The placement group name
 	Name *string `pulumi:"name"`
 	// The placement group organization ID
-	Organization *string                   `pulumi:"organization"`
-	PolicyMode   *PlacementGroupPolicyMode `pulumi:"policyMode"`
-	PolicyType   *PlacementGroupPolicyType `pulumi:"policyType"`
+	Organization *string     `pulumi:"organization"`
+	PolicyMode   *PolicyMode `pulumi:"policyMode"`
+	PolicyType   *PolicyType `pulumi:"policyType"`
 	// The placement group project ID
 	Project string `pulumi:"project"`
 	// The placement group tags
@@ -101,8 +101,8 @@ type PlacementGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The placement group organization ID
 	Organization pulumi.StringPtrInput
-	PolicyMode   PlacementGroupPolicyModePtrInput
-	PolicyType   PlacementGroupPolicyTypePtrInput
+	PolicyMode   PolicyModePtrInput
+	PolicyType   PolicyTypePtrInput
 	// The placement group project ID
 	Project pulumi.StringInput
 	// The placement group tags
@@ -162,8 +162,8 @@ func (o PlacementGroupOutput) PlacementGroup() ScalewayInstanceV1PlacementGroupP
 	return o.ApplyT(func(v *PlacementGroup) ScalewayInstanceV1PlacementGroupPtrOutput { return v.PlacementGroup }).(ScalewayInstanceV1PlacementGroupPtrOutput)
 }
 
-func (o PlacementGroupOutput) PolicyMode() PlacementGroupPolicyModePtrOutput {
-	return o.ApplyT(func(v *PlacementGroup) PlacementGroupPolicyModePtrOutput { return v.PolicyMode }).(PlacementGroupPolicyModePtrOutput)
+func (o PlacementGroupOutput) PolicyMode() PolicyModePtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) PolicyModePtrOutput { return v.PolicyMode }).(PolicyModePtrOutput)
 }
 
 // Returns true if the policy is respected, false otherwise
@@ -171,8 +171,8 @@ func (o PlacementGroupOutput) PolicyRespected() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.BoolPtrOutput { return v.PolicyRespected }).(pulumi.BoolPtrOutput)
 }
 
-func (o PlacementGroupOutput) PolicyType() PlacementGroupPolicyTypePtrOutput {
-	return o.ApplyT(func(v *PlacementGroup) PlacementGroupPolicyTypePtrOutput { return v.PolicyType }).(PlacementGroupPolicyTypePtrOutput)
+func (o PlacementGroupOutput) PolicyType() PolicyTypePtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) PolicyTypePtrOutput { return v.PolicyType }).(PolicyTypePtrOutput)
 }
 
 // The placement group project ID

@@ -15,7 +15,7 @@ type ServerAction struct {
 	pulumi.CustomResourceState
 
 	// The action to perform on the server
-	Action ServerActionActionPtrOutput `pulumi:"action"`
+	Action ActionPtrOutput `pulumi:"action"`
 	// The name of the backup you want to create.
 	// This field should only be specified when performing a backup action.
 	Name    pulumi.StringPtrOutput                                             `pulumi:"name"`
@@ -31,7 +31,7 @@ func NewServerAction(ctx *pulumi.Context,
 	}
 
 	if args.Action == nil {
-		args.Action = ServerActionAction("poweron")
+		args.Action = Action("poweron")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerAction
@@ -67,7 +67,7 @@ func (ServerActionState) ElementType() reflect.Type {
 
 type serverActionArgs struct {
 	// The action to perform on the server
-	Action *ServerActionAction `pulumi:"action"`
+	Action *Action `pulumi:"action"`
 	// The name of the backup you want to create.
 	// This field should only be specified when performing a backup action.
 	Name *string `pulumi:"name"`
@@ -81,7 +81,7 @@ type serverActionArgs struct {
 // The set of arguments for constructing a ServerAction resource.
 type ServerActionArgs struct {
 	// The action to perform on the server
-	Action ServerActionActionPtrInput
+	Action ActionPtrInput
 	// The name of the backup you want to create.
 	// This field should only be specified when performing a backup action.
 	Name pulumi.StringPtrInput
@@ -130,8 +130,8 @@ func (o ServerActionOutput) ToServerActionOutputWithContext(ctx context.Context)
 }
 
 // The action to perform on the server
-func (o ServerActionOutput) Action() ServerActionActionPtrOutput {
-	return o.ApplyT(func(v *ServerAction) ServerActionActionPtrOutput { return v.Action }).(ServerActionActionPtrOutput)
+func (o ServerActionOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v *ServerAction) ActionPtrOutput { return v.Action }).(ActionPtrOutput)
 }
 
 // The name of the backup you want to create.
