@@ -21,7 +21,7 @@ export const ScalewayInstanceV1SnapshotVolumeType = {
 
 export type ScalewayInstanceV1SnapshotVolumeType = (typeof ScalewayInstanceV1SnapshotVolumeType)[keyof typeof ScalewayInstanceV1SnapshotVolumeType];
 
-export const SnapshotScalewayInstanceV1TaskStatus = {
+export const ScalewayInstanceV1TaskStatus = {
     Pending: "pending",
     Started: "started",
     Success: "success",
@@ -32,9 +32,9 @@ export const SnapshotScalewayInstanceV1TaskStatus = {
 /**
  * The task status
  */
-export type SnapshotScalewayInstanceV1TaskStatus = (typeof SnapshotScalewayInstanceV1TaskStatus)[keyof typeof SnapshotScalewayInstanceV1TaskStatus];
+export type ScalewayInstanceV1TaskStatus = (typeof ScalewayInstanceV1TaskStatus)[keyof typeof ScalewayInstanceV1TaskStatus];
 
-export const SnapshotState = {
+export const State = {
     Available: "available",
     Snapshotting: "snapshotting",
     Error: "error",
@@ -43,12 +43,12 @@ export const SnapshotState = {
     Exporting: "exporting",
 } as const;
 
-export type SnapshotState = (typeof SnapshotState)[keyof typeof SnapshotState];
+export type State = (typeof State)[keyof typeof State];
 
-export const SnapshotVolumeType = {
+export const VolumeType = {
     LSsd: "l_ssd",
     BSsd: "b_ssd",
     Unified: "unified",
 } as const;
 
-export type SnapshotVolumeType = (typeof SnapshotVolumeType)[keyof typeof SnapshotVolumeType];
+export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];

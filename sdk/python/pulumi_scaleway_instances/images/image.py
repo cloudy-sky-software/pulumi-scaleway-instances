@@ -19,13 +19,13 @@ class ImageArgs:
     def __init__(__self__, *,
                  project: pulumi.Input[str],
                  root_volume: pulumi.Input['ScalewayInstanceV1VolumeSummaryArgs'],
-                 arch: Optional[pulumi.Input['ImageArch']] = None,
+                 arch: Optional[pulumi.Input['Arch']] = None,
                  default_bootscript: Optional[pulumi.Input['ScalewayInstanceV1BootscriptArgs']] = None,
                  extra_volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input['ScalewayInstanceV1VolumeArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  organization: Optional[pulumi.Input[str]] = None,
                  public: Optional[pulumi.Input[bool]] = None,
-                 state: Optional[pulumi.Input['ImageState']] = None,
+                 state: Optional[pulumi.Input['State']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
         """
@@ -77,11 +77,11 @@ class ImageArgs:
 
     @property
     @pulumi.getter
-    def arch(self) -> Optional[pulumi.Input['ImageArch']]:
+    def arch(self) -> Optional[pulumi.Input['Arch']]:
         return pulumi.get(self, "arch")
 
     @arch.setter
-    def arch(self, value: Optional[pulumi.Input['ImageArch']]):
+    def arch(self, value: Optional[pulumi.Input['Arch']]):
         pulumi.set(self, "arch", value)
 
     @property
@@ -131,11 +131,11 @@ class ImageArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['ImageState']]:
+    def state(self) -> Optional[pulumi.Input['State']]:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['ImageState']]):
+    def state(self, value: Optional[pulumi.Input['State']]):
         pulumi.set(self, "state", value)
 
     @property
@@ -165,7 +165,7 @@ class Image(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arch: Optional[pulumi.Input['ImageArch']] = None,
+                 arch: Optional[pulumi.Input['Arch']] = None,
                  default_bootscript: Optional[pulumi.Input[pulumi.InputType['ScalewayInstanceV1BootscriptArgs']]] = None,
                  extra_volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ScalewayInstanceV1VolumeArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -173,7 +173,7 @@ class Image(pulumi.CustomResource):
                  project: Optional[pulumi.Input[str]] = None,
                  public: Optional[pulumi.Input[bool]] = None,
                  root_volume: Optional[pulumi.Input[pulumi.InputType['ScalewayInstanceV1VolumeSummaryArgs']]] = None,
-                 state: Optional[pulumi.Input['ImageState']] = None,
+                 state: Optional[pulumi.Input['State']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -206,7 +206,7 @@ class Image(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arch: Optional[pulumi.Input['ImageArch']] = None,
+                 arch: Optional[pulumi.Input['Arch']] = None,
                  default_bootscript: Optional[pulumi.Input[pulumi.InputType['ScalewayInstanceV1BootscriptArgs']]] = None,
                  extra_volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ScalewayInstanceV1VolumeArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class Image(pulumi.CustomResource):
                  project: Optional[pulumi.Input[str]] = None,
                  public: Optional[pulumi.Input[bool]] = None,
                  root_volume: Optional[pulumi.Input[pulumi.InputType['ScalewayInstanceV1VolumeSummaryArgs']]] = None,
-                 state: Optional[pulumi.Input['ImageState']] = None,
+                 state: Optional[pulumi.Input['State']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -297,7 +297,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arch(self) -> pulumi.Output[Optional['ImageArch']]:
+    def arch(self) -> pulumi.Output[Optional['Arch']]:
         return pulumi.get(self, "arch")
 
     @property
@@ -363,7 +363,7 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[Optional['ImageState']]:
+    def state(self) -> pulumi.Output[Optional['State']]:
         return pulumi.get(self, "state")
 
     @property

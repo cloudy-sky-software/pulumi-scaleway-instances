@@ -196,93 +196,93 @@ func (o ScalewayInstanceV1VolumeVolumeTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-type VolumeStateEnum string
+type State string
 
 const (
-	VolumeStateEnumAvailable    = VolumeStateEnum("available")
-	VolumeStateEnumSnapshotting = VolumeStateEnum("snapshotting")
-	VolumeStateEnumError        = VolumeStateEnum("error")
-	VolumeStateEnumFetching     = VolumeStateEnum("fetching")
-	VolumeStateEnumResizing     = VolumeStateEnum("resizing")
-	VolumeStateEnumSaving       = VolumeStateEnum("saving")
-	VolumeStateEnumHotsyncing   = VolumeStateEnum("hotsyncing")
+	StateAvailable    = State("available")
+	StateSnapshotting = State("snapshotting")
+	StateError        = State("error")
+	StateFetching     = State("fetching")
+	StateResizing     = State("resizing")
+	StateSaving       = State("saving")
+	StateHotsyncing   = State("hotsyncing")
 )
 
-type VolumeStateEnumOutput struct{ *pulumi.OutputState }
+type StateOutput struct{ *pulumi.OutputState }
 
-func (VolumeStateEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeStateEnum)(nil)).Elem()
+func (StateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*State)(nil)).Elem()
 }
 
-func (o VolumeStateEnumOutput) ToVolumeStateEnumOutput() VolumeStateEnumOutput {
+func (o StateOutput) ToStateOutput() StateOutput {
 	return o
 }
 
-func (o VolumeStateEnumOutput) ToVolumeStateEnumOutputWithContext(ctx context.Context) VolumeStateEnumOutput {
+func (o StateOutput) ToStateOutputWithContext(ctx context.Context) StateOutput {
 	return o
 }
 
-func (o VolumeStateEnumOutput) ToVolumeStateEnumPtrOutput() VolumeStateEnumPtrOutput {
-	return o.ToVolumeStateEnumPtrOutputWithContext(context.Background())
+func (o StateOutput) ToStatePtrOutput() StatePtrOutput {
+	return o.ToStatePtrOutputWithContext(context.Background())
 }
 
-func (o VolumeStateEnumOutput) ToVolumeStateEnumPtrOutputWithContext(ctx context.Context) VolumeStateEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeStateEnum) *VolumeStateEnum {
+func (o StateOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v State) *State {
 		return &v
-	}).(VolumeStateEnumPtrOutput)
+	}).(StatePtrOutput)
 }
 
-func (o VolumeStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+func (o StateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o VolumeStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeStateEnum) string {
+func (o StateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o VolumeStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o VolumeStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeStateEnum) *string {
+func (o StateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type VolumeStateEnumPtrOutput struct{ *pulumi.OutputState }
+type StatePtrOutput struct{ *pulumi.OutputState }
 
-func (VolumeStateEnumPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumeStateEnum)(nil)).Elem()
+func (StatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**State)(nil)).Elem()
 }
 
-func (o VolumeStateEnumPtrOutput) ToVolumeStateEnumPtrOutput() VolumeStateEnumPtrOutput {
+func (o StatePtrOutput) ToStatePtrOutput() StatePtrOutput {
 	return o
 }
 
-func (o VolumeStateEnumPtrOutput) ToVolumeStateEnumPtrOutputWithContext(ctx context.Context) VolumeStateEnumPtrOutput {
+func (o StatePtrOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
 	return o
 }
 
-func (o VolumeStateEnumPtrOutput) Elem() VolumeStateEnumOutput {
-	return o.ApplyT(func(v *VolumeStateEnum) VolumeStateEnum {
+func (o StatePtrOutput) Elem() StateOutput {
+	return o.ApplyT(func(v *State) State {
 		if v != nil {
 			return *v
 		}
-		var ret VolumeStateEnum
+		var ret State
 		return ret
-	}).(VolumeStateEnumOutput)
+	}).(StateOutput)
 }
 
-func (o VolumeStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o VolumeStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VolumeStateEnum) *string {
+func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *State) *string {
 		if e == nil {
 			return nil
 		}
@@ -465,8 +465,8 @@ func init() {
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeStatePtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeVolumeTypeOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1VolumeVolumeTypePtrOutput{})
-	pulumi.RegisterOutputType(VolumeStateEnumOutput{})
-	pulumi.RegisterOutputType(VolumeStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(StateOutput{})
+	pulumi.RegisterOutputType(StatePtrOutput{})
 	pulumi.RegisterOutputType(VolumeTypeOutput{})
 	pulumi.RegisterOutputType(VolumeTypePtrOutput{})
 }

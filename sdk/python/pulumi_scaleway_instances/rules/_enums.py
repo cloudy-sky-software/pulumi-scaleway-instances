@@ -5,13 +5,30 @@
 from enum import Enum
 
 __all__ = [
+    'Action',
+    'Direction',
+    'Protocol',
     'ScalewayInstanceV1SecurityGroupRuleAction',
     'ScalewayInstanceV1SecurityGroupRuleDirection',
     'ScalewayInstanceV1SecurityGroupRuleProtocol',
-    'SecurityGroupRuleAction',
-    'SecurityGroupRuleDirection',
-    'SecurityGroupRuleProtocol',
 ]
+
+
+class Action(str, Enum):
+    ACCEPT = "accept"
+    DROP = "drop"
+
+
+class Direction(str, Enum):
+    INBOUND = "inbound"
+    OUTBOUND = "outbound"
+
+
+class Protocol(str, Enum):
+    TCP = "TCP"
+    UDP = "UDP"
+    ICMP = "ICMP"
+    ANY = "ANY"
 
 
 class ScalewayInstanceV1SecurityGroupRuleAction(str, Enum):
@@ -25,23 +42,6 @@ class ScalewayInstanceV1SecurityGroupRuleDirection(str, Enum):
 
 
 class ScalewayInstanceV1SecurityGroupRuleProtocol(str, Enum):
-    TCP = "TCP"
-    UDP = "UDP"
-    ICMP = "ICMP"
-    ANY = "ANY"
-
-
-class SecurityGroupRuleAction(str, Enum):
-    ACCEPT = "accept"
-    DROP = "drop"
-
-
-class SecurityGroupRuleDirection(str, Enum):
-    INBOUND = "inbound"
-    OUTBOUND = "outbound"
-
-
-class SecurityGroupRuleProtocol(str, Enum):
     TCP = "TCP"
     UDP = "UDP"
     ICMP = "ICMP"

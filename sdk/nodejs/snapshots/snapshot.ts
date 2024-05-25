@@ -67,13 +67,13 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly size!: pulumi.Output<number | undefined>;
     public /*out*/ readonly snapshot!: pulumi.Output<outputs.snapshots.ScalewayInstanceV1Snapshot | undefined>;
-    public readonly state!: pulumi.Output<enums.snapshots.SnapshotState | undefined>;
+    public readonly state!: pulumi.Output<enums.snapshots.State | undefined>;
     /**
      * The snapshot tags
      */
     public readonly tags!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly task!: pulumi.Output<outputs.snapshots.ScalewayInstanceV1Task | undefined>;
-    public readonly volumeType!: pulumi.Output<enums.snapshots.SnapshotVolumeType | undefined>;
+    public readonly volumeType!: pulumi.Output<enums.snapshots.VolumeType | undefined>;
     /**
      * The snapshot zone
      */
@@ -145,12 +145,12 @@ export interface SnapshotArgs {
      * The snapshot size (in bytes)
      */
     size?: pulumi.Input<number>;
-    state?: pulumi.Input<enums.snapshots.SnapshotState>;
+    state?: pulumi.Input<enums.snapshots.State>;
     /**
      * The snapshot tags
      */
     tags?: pulumi.Input<pulumi.Input<string>[]>;
-    volumeType?: pulumi.Input<enums.snapshots.SnapshotVolumeType>;
+    volumeType?: pulumi.Input<enums.snapshots.VolumeType>;
     /**
      * The zone you want to target
      */

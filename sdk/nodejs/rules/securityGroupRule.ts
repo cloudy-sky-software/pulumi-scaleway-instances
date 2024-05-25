@@ -34,7 +34,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroupRule.__pulumiType;
     }
 
-    public readonly action!: pulumi.Output<enums.rules.SecurityGroupRuleAction>;
+    public readonly action!: pulumi.Output<enums.rules.Action>;
     /**
      * The beginning of the range of ports to apply this rule to (inclusive)
      */
@@ -43,7 +43,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      * The end of the range of ports to apply this rule to (inclusive)
      */
     public readonly destPortTo!: pulumi.Output<number | undefined>;
-    public readonly direction!: pulumi.Output<enums.rules.SecurityGroupRuleDirection>;
+    public readonly direction!: pulumi.Output<enums.rules.Direction>;
     /**
      * Indicates if this rule is editable (will be ignored)
      */
@@ -56,7 +56,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      * The position of this rule in the security group rules list
      */
     public readonly position!: pulumi.Output<number | undefined>;
-    public readonly protocol!: pulumi.Output<enums.rules.SecurityGroupRuleProtocol>;
+    public readonly protocol!: pulumi.Output<enums.rules.Protocol>;
     public /*out*/ readonly rule!: pulumi.Output<outputs.rules.ScalewayInstanceV1SecurityGroupRule | undefined>;
 
     /**
@@ -113,7 +113,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
  * The set of arguments for constructing a SecurityGroupRule resource.
  */
 export interface SecurityGroupRuleArgs {
-    action: pulumi.Input<enums.rules.SecurityGroupRuleAction>;
+    action: pulumi.Input<enums.rules.Action>;
     /**
      * The beginning of the range of ports to apply this rule to (inclusive)
      */
@@ -122,7 +122,7 @@ export interface SecurityGroupRuleArgs {
      * The end of the range of ports to apply this rule to (inclusive)
      */
     destPortTo?: pulumi.Input<number>;
-    direction: pulumi.Input<enums.rules.SecurityGroupRuleDirection>;
+    direction: pulumi.Input<enums.rules.Direction>;
     /**
      * Indicates if this rule is editable (will be ignored)
      */
@@ -135,7 +135,7 @@ export interface SecurityGroupRuleArgs {
      * The position of this rule in the security group rules list
      */
     position?: pulumi.Input<number>;
-    protocol: pulumi.Input<enums.rules.SecurityGroupRuleProtocol>;
+    protocol: pulumi.Input<enums.rules.Protocol>;
     /**
      * UUID of the security group
      */

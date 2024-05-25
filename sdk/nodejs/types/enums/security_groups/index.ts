@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const InboundDefaultPolicy = {
+    Accept: "accept",
+    Drop: "drop",
+} as const;
+
+/**
+ * The default inbound policy
+ */
+export type InboundDefaultPolicy = (typeof InboundDefaultPolicy)[keyof typeof InboundDefaultPolicy];
+
+export const OutboundDefaultPolicy = {
+    Accept: "accept",
+    Drop: "drop",
+} as const;
+
+/**
+ * The default outbound policy
+ */
+export type OutboundDefaultPolicy = (typeof OutboundDefaultPolicy)[keyof typeof OutboundDefaultPolicy];
+
 export const ScalewayInstanceV1SecurityGroupInboundDefaultPolicy = {
     Accept: "accept",
     Drop: "drop",
@@ -33,27 +53,7 @@ export const ScalewayInstanceV1SecurityGroupState = {
  */
 export type ScalewayInstanceV1SecurityGroupState = (typeof ScalewayInstanceV1SecurityGroupState)[keyof typeof ScalewayInstanceV1SecurityGroupState];
 
-export const SecurityGroupInboundDefaultPolicy = {
-    Accept: "accept",
-    Drop: "drop",
-} as const;
-
-/**
- * The default inbound policy
- */
-export type SecurityGroupInboundDefaultPolicy = (typeof SecurityGroupInboundDefaultPolicy)[keyof typeof SecurityGroupInboundDefaultPolicy];
-
-export const SecurityGroupOutboundDefaultPolicy = {
-    Accept: "accept",
-    Drop: "drop",
-} as const;
-
-/**
- * The default outbound policy
- */
-export type SecurityGroupOutboundDefaultPolicy = (typeof SecurityGroupOutboundDefaultPolicy)[keyof typeof SecurityGroupOutboundDefaultPolicy];
-
-export const SecurityGroupState = {
+export const State = {
     Available: "available",
     Syncing: "syncing",
     SyncingError: "syncing_error",
@@ -62,4 +62,4 @@ export const SecurityGroupState = {
 /**
  * Security group state
  */
-export type SecurityGroupState = (typeof SecurityGroupState)[keyof typeof SecurityGroupState];
+export type State = (typeof State)[keyof typeof State];

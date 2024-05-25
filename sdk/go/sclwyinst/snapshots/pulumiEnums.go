@@ -196,91 +196,91 @@ func (o ScalewayInstanceV1SnapshotVolumeTypePtrOutput) ToStringPtrOutputWithCont
 }
 
 // The task status
-type SnapshotScalewayInstanceV1TaskStatus string
+type ScalewayInstanceV1TaskStatus string
 
 const (
-	SnapshotScalewayInstanceV1TaskStatusPending = SnapshotScalewayInstanceV1TaskStatus("pending")
-	SnapshotScalewayInstanceV1TaskStatusStarted = SnapshotScalewayInstanceV1TaskStatus("started")
-	SnapshotScalewayInstanceV1TaskStatusSuccess = SnapshotScalewayInstanceV1TaskStatus("success")
-	SnapshotScalewayInstanceV1TaskStatusFailure = SnapshotScalewayInstanceV1TaskStatus("failure")
-	SnapshotScalewayInstanceV1TaskStatusRetry   = SnapshotScalewayInstanceV1TaskStatus("retry")
+	ScalewayInstanceV1TaskStatusPending = ScalewayInstanceV1TaskStatus("pending")
+	ScalewayInstanceV1TaskStatusStarted = ScalewayInstanceV1TaskStatus("started")
+	ScalewayInstanceV1TaskStatusSuccess = ScalewayInstanceV1TaskStatus("success")
+	ScalewayInstanceV1TaskStatusFailure = ScalewayInstanceV1TaskStatus("failure")
+	ScalewayInstanceV1TaskStatusRetry   = ScalewayInstanceV1TaskStatus("retry")
 )
 
-type SnapshotScalewayInstanceV1TaskStatusOutput struct{ *pulumi.OutputState }
+type ScalewayInstanceV1TaskStatusOutput struct{ *pulumi.OutputState }
 
-func (SnapshotScalewayInstanceV1TaskStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotScalewayInstanceV1TaskStatus)(nil)).Elem()
+func (ScalewayInstanceV1TaskStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalewayInstanceV1TaskStatus)(nil)).Elem()
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusOutput) ToSnapshotScalewayInstanceV1TaskStatusOutput() SnapshotScalewayInstanceV1TaskStatusOutput {
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusOutput() ScalewayInstanceV1TaskStatusOutput {
 	return o
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusOutput) ToSnapshotScalewayInstanceV1TaskStatusOutputWithContext(ctx context.Context) SnapshotScalewayInstanceV1TaskStatusOutput {
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusOutput {
 	return o
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusOutput) ToSnapshotScalewayInstanceV1TaskStatusPtrOutput() SnapshotScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ToSnapshotScalewayInstanceV1TaskStatusPtrOutputWithContext(context.Background())
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOutput() ScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ToScalewayInstanceV1TaskStatusPtrOutputWithContext(context.Background())
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusOutput) ToSnapshotScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) SnapshotScalewayInstanceV1TaskStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotScalewayInstanceV1TaskStatus) *SnapshotScalewayInstanceV1TaskStatus {
+func (o ScalewayInstanceV1TaskStatusOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalewayInstanceV1TaskStatus) *ScalewayInstanceV1TaskStatus {
 		return &v
-	}).(SnapshotScalewayInstanceV1TaskStatusPtrOutput)
+	}).(ScalewayInstanceV1TaskStatusPtrOutput)
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotScalewayInstanceV1TaskStatus) string {
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1TaskStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotScalewayInstanceV1TaskStatus) *string {
+func (o ScalewayInstanceV1TaskStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScalewayInstanceV1TaskStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type SnapshotScalewayInstanceV1TaskStatusPtrOutput struct{ *pulumi.OutputState }
+type ScalewayInstanceV1TaskStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (SnapshotScalewayInstanceV1TaskStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotScalewayInstanceV1TaskStatus)(nil)).Elem()
+func (ScalewayInstanceV1TaskStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalewayInstanceV1TaskStatus)(nil)).Elem()
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusPtrOutput) ToSnapshotScalewayInstanceV1TaskStatusPtrOutput() SnapshotScalewayInstanceV1TaskStatusPtrOutput {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutput() ScalewayInstanceV1TaskStatusPtrOutput {
 	return o
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusPtrOutput) ToSnapshotScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) SnapshotScalewayInstanceV1TaskStatusPtrOutput {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToScalewayInstanceV1TaskStatusPtrOutputWithContext(ctx context.Context) ScalewayInstanceV1TaskStatusPtrOutput {
 	return o
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusPtrOutput) Elem() SnapshotScalewayInstanceV1TaskStatusOutput {
-	return o.ApplyT(func(v *SnapshotScalewayInstanceV1TaskStatus) SnapshotScalewayInstanceV1TaskStatus {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) Elem() ScalewayInstanceV1TaskStatusOutput {
+	return o.ApplyT(func(v *ScalewayInstanceV1TaskStatus) ScalewayInstanceV1TaskStatus {
 		if v != nil {
 			return *v
 		}
-		var ret SnapshotScalewayInstanceV1TaskStatus
+		var ret ScalewayInstanceV1TaskStatus
 		return ret
-	}).(SnapshotScalewayInstanceV1TaskStatusOutput)
+	}).(ScalewayInstanceV1TaskStatusOutput)
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o SnapshotScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotScalewayInstanceV1TaskStatus) *string {
+func (o ScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScalewayInstanceV1TaskStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -289,128 +289,128 @@ func (o SnapshotScalewayInstanceV1TaskStatusPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-type SnapshotStateEnum string
+type State string
 
 const (
-	SnapshotStateEnumAvailable    = SnapshotStateEnum("available")
-	SnapshotStateEnumSnapshotting = SnapshotStateEnum("snapshotting")
-	SnapshotStateEnumError        = SnapshotStateEnum("error")
-	SnapshotStateEnumInvalidData  = SnapshotStateEnum("invalid_data")
-	SnapshotStateEnumImporting    = SnapshotStateEnum("importing")
-	SnapshotStateEnumExporting    = SnapshotStateEnum("exporting")
+	StateAvailable    = State("available")
+	StateSnapshotting = State("snapshotting")
+	StateError        = State("error")
+	StateInvalidData  = State("invalid_data")
+	StateImporting    = State("importing")
+	StateExporting    = State("exporting")
 )
 
-func (SnapshotStateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotStateEnum)(nil)).Elem()
+func (State) ElementType() reflect.Type {
+	return reflect.TypeOf((*State)(nil)).Elem()
 }
 
-func (e SnapshotStateEnum) ToSnapshotStateEnumOutput() SnapshotStateEnumOutput {
-	return pulumi.ToOutput(e).(SnapshotStateEnumOutput)
+func (e State) ToStateOutput() StateOutput {
+	return pulumi.ToOutput(e).(StateOutput)
 }
 
-func (e SnapshotStateEnum) ToSnapshotStateEnumOutputWithContext(ctx context.Context) SnapshotStateEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SnapshotStateEnumOutput)
+func (e State) ToStateOutputWithContext(ctx context.Context) StateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StateOutput)
 }
 
-func (e SnapshotStateEnum) ToSnapshotStateEnumPtrOutput() SnapshotStateEnumPtrOutput {
-	return e.ToSnapshotStateEnumPtrOutputWithContext(context.Background())
+func (e State) ToStatePtrOutput() StatePtrOutput {
+	return e.ToStatePtrOutputWithContext(context.Background())
 }
 
-func (e SnapshotStateEnum) ToSnapshotStateEnumPtrOutputWithContext(ctx context.Context) SnapshotStateEnumPtrOutput {
-	return SnapshotStateEnum(e).ToSnapshotStateEnumOutputWithContext(ctx).ToSnapshotStateEnumPtrOutputWithContext(ctx)
+func (e State) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
+	return State(e).ToStateOutputWithContext(ctx).ToStatePtrOutputWithContext(ctx)
 }
 
-func (e SnapshotStateEnum) ToStringOutput() pulumi.StringOutput {
+func (e State) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SnapshotStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e State) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SnapshotStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e State) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SnapshotStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e State) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SnapshotStateEnumOutput struct{ *pulumi.OutputState }
+type StateOutput struct{ *pulumi.OutputState }
 
-func (SnapshotStateEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotStateEnum)(nil)).Elem()
+func (StateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*State)(nil)).Elem()
 }
 
-func (o SnapshotStateEnumOutput) ToSnapshotStateEnumOutput() SnapshotStateEnumOutput {
+func (o StateOutput) ToStateOutput() StateOutput {
 	return o
 }
 
-func (o SnapshotStateEnumOutput) ToSnapshotStateEnumOutputWithContext(ctx context.Context) SnapshotStateEnumOutput {
+func (o StateOutput) ToStateOutputWithContext(ctx context.Context) StateOutput {
 	return o
 }
 
-func (o SnapshotStateEnumOutput) ToSnapshotStateEnumPtrOutput() SnapshotStateEnumPtrOutput {
-	return o.ToSnapshotStateEnumPtrOutputWithContext(context.Background())
+func (o StateOutput) ToStatePtrOutput() StatePtrOutput {
+	return o.ToStatePtrOutputWithContext(context.Background())
 }
 
-func (o SnapshotStateEnumOutput) ToSnapshotStateEnumPtrOutputWithContext(ctx context.Context) SnapshotStateEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotStateEnum) *SnapshotStateEnum {
+func (o StateOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v State) *State {
 		return &v
-	}).(SnapshotStateEnumPtrOutput)
+	}).(StatePtrOutput)
 }
 
-func (o SnapshotStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+func (o StateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o SnapshotStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStateEnum) string {
+func (o StateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o SnapshotStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o SnapshotStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotStateEnum) *string {
+func (o StateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type SnapshotStateEnumPtrOutput struct{ *pulumi.OutputState }
+type StatePtrOutput struct{ *pulumi.OutputState }
 
-func (SnapshotStateEnumPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotStateEnum)(nil)).Elem()
+func (StatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**State)(nil)).Elem()
 }
 
-func (o SnapshotStateEnumPtrOutput) ToSnapshotStateEnumPtrOutput() SnapshotStateEnumPtrOutput {
+func (o StatePtrOutput) ToStatePtrOutput() StatePtrOutput {
 	return o
 }
 
-func (o SnapshotStateEnumPtrOutput) ToSnapshotStateEnumPtrOutputWithContext(ctx context.Context) SnapshotStateEnumPtrOutput {
+func (o StatePtrOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
 	return o
 }
 
-func (o SnapshotStateEnumPtrOutput) Elem() SnapshotStateEnumOutput {
-	return o.ApplyT(func(v *SnapshotStateEnum) SnapshotStateEnum {
+func (o StatePtrOutput) Elem() StateOutput {
+	return o.ApplyT(func(v *State) State {
 		if v != nil {
 			return *v
 		}
-		var ret SnapshotStateEnum
+		var ret State
 		return ret
-	}).(SnapshotStateEnumOutput)
+	}).(StateOutput)
 }
 
-func (o SnapshotStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o StatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o SnapshotStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotStateEnum) *string {
+func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *State) *string {
 		if e == nil {
 			return nil
 		}
@@ -419,168 +419,168 @@ func (o SnapshotStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// SnapshotStateEnumInput is an input type that accepts values of the SnapshotStateEnum enum
-// A concrete instance of `SnapshotStateEnumInput` can be one of the following:
+// StateInput is an input type that accepts values of the State enum
+// A concrete instance of `StateInput` can be one of the following:
 //
-//	SnapshotStateEnumAvailable
-//	SnapshotStateEnumSnapshotting
-//	SnapshotStateEnumError
-//	SnapshotStateEnumInvalidData
-//	SnapshotStateEnumImporting
-//	SnapshotStateEnumExporting
-type SnapshotStateEnumInput interface {
+//	StateAvailable
+//	StateSnapshotting
+//	StateError
+//	StateInvalidData
+//	StateImporting
+//	StateExporting
+type StateInput interface {
 	pulumi.Input
 
-	ToSnapshotStateEnumOutput() SnapshotStateEnumOutput
-	ToSnapshotStateEnumOutputWithContext(context.Context) SnapshotStateEnumOutput
+	ToStateOutput() StateOutput
+	ToStateOutputWithContext(context.Context) StateOutput
 }
 
-var snapshotStateEnumPtrType = reflect.TypeOf((**SnapshotStateEnum)(nil)).Elem()
+var statePtrType = reflect.TypeOf((**State)(nil)).Elem()
 
-type SnapshotStateEnumPtrInput interface {
+type StatePtrInput interface {
 	pulumi.Input
 
-	ToSnapshotStateEnumPtrOutput() SnapshotStateEnumPtrOutput
-	ToSnapshotStateEnumPtrOutputWithContext(context.Context) SnapshotStateEnumPtrOutput
+	ToStatePtrOutput() StatePtrOutput
+	ToStatePtrOutputWithContext(context.Context) StatePtrOutput
 }
 
-type snapshotStateEnumPtr string
+type statePtr string
 
-func SnapshotStateEnumPtr(v string) SnapshotStateEnumPtrInput {
-	return (*snapshotStateEnumPtr)(&v)
+func StatePtr(v string) StatePtrInput {
+	return (*statePtr)(&v)
 }
 
-func (*snapshotStateEnumPtr) ElementType() reflect.Type {
-	return snapshotStateEnumPtrType
+func (*statePtr) ElementType() reflect.Type {
+	return statePtrType
 }
 
-func (in *snapshotStateEnumPtr) ToSnapshotStateEnumPtrOutput() SnapshotStateEnumPtrOutput {
-	return pulumi.ToOutput(in).(SnapshotStateEnumPtrOutput)
+func (in *statePtr) ToStatePtrOutput() StatePtrOutput {
+	return pulumi.ToOutput(in).(StatePtrOutput)
 }
 
-func (in *snapshotStateEnumPtr) ToSnapshotStateEnumPtrOutputWithContext(ctx context.Context) SnapshotStateEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SnapshotStateEnumPtrOutput)
+func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
 }
 
-type SnapshotVolumeType string
+type VolumeType string
 
 const (
-	SnapshotVolumeTypeLSsd    = SnapshotVolumeType("l_ssd")
-	SnapshotVolumeTypeBSsd    = SnapshotVolumeType("b_ssd")
-	SnapshotVolumeTypeUnified = SnapshotVolumeType("unified")
+	VolumeTypeLSsd    = VolumeType("l_ssd")
+	VolumeTypeBSsd    = VolumeType("b_ssd")
+	VolumeTypeUnified = VolumeType("unified")
 )
 
-func (SnapshotVolumeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotVolumeType)(nil)).Elem()
+func (VolumeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeType)(nil)).Elem()
 }
 
-func (e SnapshotVolumeType) ToSnapshotVolumeTypeOutput() SnapshotVolumeTypeOutput {
-	return pulumi.ToOutput(e).(SnapshotVolumeTypeOutput)
+func (e VolumeType) ToVolumeTypeOutput() VolumeTypeOutput {
+	return pulumi.ToOutput(e).(VolumeTypeOutput)
 }
 
-func (e SnapshotVolumeType) ToSnapshotVolumeTypeOutputWithContext(ctx context.Context) SnapshotVolumeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SnapshotVolumeTypeOutput)
+func (e VolumeType) ToVolumeTypeOutputWithContext(ctx context.Context) VolumeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VolumeTypeOutput)
 }
 
-func (e SnapshotVolumeType) ToSnapshotVolumeTypePtrOutput() SnapshotVolumeTypePtrOutput {
-	return e.ToSnapshotVolumeTypePtrOutputWithContext(context.Background())
+func (e VolumeType) ToVolumeTypePtrOutput() VolumeTypePtrOutput {
+	return e.ToVolumeTypePtrOutputWithContext(context.Background())
 }
 
-func (e SnapshotVolumeType) ToSnapshotVolumeTypePtrOutputWithContext(ctx context.Context) SnapshotVolumeTypePtrOutput {
-	return SnapshotVolumeType(e).ToSnapshotVolumeTypeOutputWithContext(ctx).ToSnapshotVolumeTypePtrOutputWithContext(ctx)
+func (e VolumeType) ToVolumeTypePtrOutputWithContext(ctx context.Context) VolumeTypePtrOutput {
+	return VolumeType(e).ToVolumeTypeOutputWithContext(ctx).ToVolumeTypePtrOutputWithContext(ctx)
 }
 
-func (e SnapshotVolumeType) ToStringOutput() pulumi.StringOutput {
+func (e VolumeType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SnapshotVolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e VolumeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e SnapshotVolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e VolumeType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e SnapshotVolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e VolumeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SnapshotVolumeTypeOutput struct{ *pulumi.OutputState }
+type VolumeTypeOutput struct{ *pulumi.OutputState }
 
-func (SnapshotVolumeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotVolumeType)(nil)).Elem()
+func (VolumeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeType)(nil)).Elem()
 }
 
-func (o SnapshotVolumeTypeOutput) ToSnapshotVolumeTypeOutput() SnapshotVolumeTypeOutput {
+func (o VolumeTypeOutput) ToVolumeTypeOutput() VolumeTypeOutput {
 	return o
 }
 
-func (o SnapshotVolumeTypeOutput) ToSnapshotVolumeTypeOutputWithContext(ctx context.Context) SnapshotVolumeTypeOutput {
+func (o VolumeTypeOutput) ToVolumeTypeOutputWithContext(ctx context.Context) VolumeTypeOutput {
 	return o
 }
 
-func (o SnapshotVolumeTypeOutput) ToSnapshotVolumeTypePtrOutput() SnapshotVolumeTypePtrOutput {
-	return o.ToSnapshotVolumeTypePtrOutputWithContext(context.Background())
+func (o VolumeTypeOutput) ToVolumeTypePtrOutput() VolumeTypePtrOutput {
+	return o.ToVolumeTypePtrOutputWithContext(context.Background())
 }
 
-func (o SnapshotVolumeTypeOutput) ToSnapshotVolumeTypePtrOutputWithContext(ctx context.Context) SnapshotVolumeTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotVolumeType) *SnapshotVolumeType {
+func (o VolumeTypeOutput) ToVolumeTypePtrOutputWithContext(ctx context.Context) VolumeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeType) *VolumeType {
 		return &v
-	}).(SnapshotVolumeTypePtrOutput)
+	}).(VolumeTypePtrOutput)
 }
 
-func (o SnapshotVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o VolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o SnapshotVolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotVolumeType) string {
+func (o VolumeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o SnapshotVolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o VolumeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o SnapshotVolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotVolumeType) *string {
+func (o VolumeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VolumeType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type SnapshotVolumeTypePtrOutput struct{ *pulumi.OutputState }
+type VolumeTypePtrOutput struct{ *pulumi.OutputState }
 
-func (SnapshotVolumeTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotVolumeType)(nil)).Elem()
+func (VolumeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeType)(nil)).Elem()
 }
 
-func (o SnapshotVolumeTypePtrOutput) ToSnapshotVolumeTypePtrOutput() SnapshotVolumeTypePtrOutput {
+func (o VolumeTypePtrOutput) ToVolumeTypePtrOutput() VolumeTypePtrOutput {
 	return o
 }
 
-func (o SnapshotVolumeTypePtrOutput) ToSnapshotVolumeTypePtrOutputWithContext(ctx context.Context) SnapshotVolumeTypePtrOutput {
+func (o VolumeTypePtrOutput) ToVolumeTypePtrOutputWithContext(ctx context.Context) VolumeTypePtrOutput {
 	return o
 }
 
-func (o SnapshotVolumeTypePtrOutput) Elem() SnapshotVolumeTypeOutput {
-	return o.ApplyT(func(v *SnapshotVolumeType) SnapshotVolumeType {
+func (o VolumeTypePtrOutput) Elem() VolumeTypeOutput {
+	return o.ApplyT(func(v *VolumeType) VolumeType {
 		if v != nil {
 			return *v
 		}
-		var ret SnapshotVolumeType
+		var ret VolumeType
 		return ret
-	}).(SnapshotVolumeTypeOutput)
+	}).(VolumeTypeOutput)
 }
 
-func (o SnapshotVolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o VolumeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o SnapshotVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotVolumeType) *string {
+func (o VolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VolumeType) *string {
 		if e == nil {
 			return nil
 		}
@@ -589,59 +589,59 @@ func (o SnapshotVolumeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// SnapshotVolumeTypeInput is an input type that accepts values of the SnapshotVolumeType enum
-// A concrete instance of `SnapshotVolumeTypeInput` can be one of the following:
+// VolumeTypeInput is an input type that accepts values of the VolumeType enum
+// A concrete instance of `VolumeTypeInput` can be one of the following:
 //
-//	SnapshotVolumeTypeLSsd
-//	SnapshotVolumeTypeBSsd
-//	SnapshotVolumeTypeUnified
-type SnapshotVolumeTypeInput interface {
+//	VolumeTypeLSsd
+//	VolumeTypeBSsd
+//	VolumeTypeUnified
+type VolumeTypeInput interface {
 	pulumi.Input
 
-	ToSnapshotVolumeTypeOutput() SnapshotVolumeTypeOutput
-	ToSnapshotVolumeTypeOutputWithContext(context.Context) SnapshotVolumeTypeOutput
+	ToVolumeTypeOutput() VolumeTypeOutput
+	ToVolumeTypeOutputWithContext(context.Context) VolumeTypeOutput
 }
 
-var snapshotVolumeTypePtrType = reflect.TypeOf((**SnapshotVolumeType)(nil)).Elem()
+var volumeTypePtrType = reflect.TypeOf((**VolumeType)(nil)).Elem()
 
-type SnapshotVolumeTypePtrInput interface {
+type VolumeTypePtrInput interface {
 	pulumi.Input
 
-	ToSnapshotVolumeTypePtrOutput() SnapshotVolumeTypePtrOutput
-	ToSnapshotVolumeTypePtrOutputWithContext(context.Context) SnapshotVolumeTypePtrOutput
+	ToVolumeTypePtrOutput() VolumeTypePtrOutput
+	ToVolumeTypePtrOutputWithContext(context.Context) VolumeTypePtrOutput
 }
 
-type snapshotVolumeTypePtr string
+type volumeTypePtr string
 
-func SnapshotVolumeTypePtr(v string) SnapshotVolumeTypePtrInput {
-	return (*snapshotVolumeTypePtr)(&v)
+func VolumeTypePtr(v string) VolumeTypePtrInput {
+	return (*volumeTypePtr)(&v)
 }
 
-func (*snapshotVolumeTypePtr) ElementType() reflect.Type {
-	return snapshotVolumeTypePtrType
+func (*volumeTypePtr) ElementType() reflect.Type {
+	return volumeTypePtrType
 }
 
-func (in *snapshotVolumeTypePtr) ToSnapshotVolumeTypePtrOutput() SnapshotVolumeTypePtrOutput {
-	return pulumi.ToOutput(in).(SnapshotVolumeTypePtrOutput)
+func (in *volumeTypePtr) ToVolumeTypePtrOutput() VolumeTypePtrOutput {
+	return pulumi.ToOutput(in).(VolumeTypePtrOutput)
 }
 
-func (in *snapshotVolumeTypePtr) ToSnapshotVolumeTypePtrOutputWithContext(ctx context.Context) SnapshotVolumeTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SnapshotVolumeTypePtrOutput)
+func (in *volumeTypePtr) ToVolumeTypePtrOutputWithContext(ctx context.Context) VolumeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VolumeTypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotStateEnumInput)(nil)).Elem(), SnapshotStateEnum("available"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotStateEnumPtrInput)(nil)).Elem(), SnapshotStateEnum("available"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotVolumeTypeInput)(nil)).Elem(), SnapshotVolumeType("l_ssd"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotVolumeTypePtrInput)(nil)).Elem(), SnapshotVolumeType("l_ssd"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StateInput)(nil)).Elem(), State("available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StatePtrInput)(nil)).Elem(), State("available"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTypeInput)(nil)).Elem(), VolumeType("l_ssd"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTypePtrInput)(nil)).Elem(), VolumeType("l_ssd"))
 	pulumi.RegisterOutputType(ScalewayInstanceV1SnapshotStateOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SnapshotStatePtrOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SnapshotVolumeTypeOutput{})
 	pulumi.RegisterOutputType(ScalewayInstanceV1SnapshotVolumeTypePtrOutput{})
-	pulumi.RegisterOutputType(SnapshotScalewayInstanceV1TaskStatusOutput{})
-	pulumi.RegisterOutputType(SnapshotScalewayInstanceV1TaskStatusPtrOutput{})
-	pulumi.RegisterOutputType(SnapshotStateEnumOutput{})
-	pulumi.RegisterOutputType(SnapshotStateEnumPtrOutput{})
-	pulumi.RegisterOutputType(SnapshotVolumeTypeOutput{})
-	pulumi.RegisterOutputType(SnapshotVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(ScalewayInstanceV1TaskStatusOutput{})
+	pulumi.RegisterOutputType(ScalewayInstanceV1TaskStatusPtrOutput{})
+	pulumi.RegisterOutputType(StateOutput{})
+	pulumi.RegisterOutputType(StatePtrOutput{})
+	pulumi.RegisterOutputType(VolumeTypeOutput{})
+	pulumi.RegisterOutputType(VolumeTypePtrOutput{})
 }

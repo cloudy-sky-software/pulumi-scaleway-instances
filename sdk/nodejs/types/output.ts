@@ -14,7 +14,7 @@ export namespace action {
     }
 
     export interface ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate {
-        volumeType?: enums.action.ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType;
+        volumeType?: enums.action.ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType;
     }
     /**
      * scalewayInstanceV1ServerActionRequestVolumeBackupTemplateProvideDefaults sets the appropriate defaults for ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate
@@ -48,7 +48,7 @@ export namespace action {
         /**
          * The task status
          */
-        status?: enums.action.ServerActionScalewayInstanceV1TaskStatus;
+        status?: enums.action.ScalewayInstanceV1TaskStatus;
         /**
          * The task end date (RFC 3339 format)
          */
@@ -1366,7 +1366,7 @@ export namespace servers {
          * Disk size of the volume, must be a multiple of 512 (in bytes)
          */
         size?: number;
-        volumeType?: enums.servers.ServerScalewayInstanceV1VolumeServerTemplateVolumeType;
+        volumeType?: enums.servers.ScalewayInstanceV1VolumeServerTemplateVolumeType;
     }
     /**
      * scalewayInstanceV1VolumeServerTemplateProvideDefaults sets the appropriate defaults for ScalewayInstanceV1VolumeServerTemplate
@@ -1423,7 +1423,7 @@ export namespace snapshot_export {
         /**
          * The task status
          */
-        status?: enums.snapshot_export.ExportSnapshotScalewayInstanceV1TaskStatus;
+        status?: enums.snapshot_export.ScalewayInstanceV1TaskStatus;
         /**
          * The task end date (RFC 3339 format)
          */
@@ -1572,7 +1572,7 @@ export namespace snapshots {
         /**
          * The task status
          */
-        status?: enums.snapshots.SnapshotScalewayInstanceV1TaskStatus;
+        status?: enums.snapshots.ScalewayInstanceV1TaskStatus;
         /**
          * The task end date (RFC 3339 format)
          */

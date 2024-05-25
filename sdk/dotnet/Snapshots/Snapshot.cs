@@ -64,7 +64,7 @@ namespace Pulumi.ScalewayInstances.Snapshots
         public Output<Outputs.ScalewayInstanceV1Snapshot?> SnapshotValue { get; private set; } = null!;
 
         [Output("state")]
-        public Output<Pulumi.ScalewayInstances.Snapshots.SnapshotState?> State { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Snapshots.State?> State { get; private set; } = null!;
 
         /// <summary>
         /// The snapshot tags
@@ -76,7 +76,7 @@ namespace Pulumi.ScalewayInstances.Snapshots
         public Output<Outputs.ScalewayInstanceV1Task?> Task { get; private set; } = null!;
 
         [Output("volumeType")]
-        public Output<Pulumi.ScalewayInstances.Snapshots.SnapshotVolumeType?> VolumeType { get; private set; } = null!;
+        public Output<Pulumi.ScalewayInstances.Snapshots.VolumeType?> VolumeType { get; private set; } = null!;
 
         /// <summary>
         /// The snapshot zone
@@ -155,7 +155,7 @@ namespace Pulumi.ScalewayInstances.Snapshots
         public Input<double>? Size { get; set; }
 
         [Input("state")]
-        public Input<Pulumi.ScalewayInstances.Snapshots.SnapshotState>? State { get; set; }
+        public Input<Pulumi.ScalewayInstances.Snapshots.State>? State { get; set; }
 
         [Input("tags")]
         private InputList<string>? _tags;
@@ -170,7 +170,7 @@ namespace Pulumi.ScalewayInstances.Snapshots
         }
 
         [Input("volumeType")]
-        public Input<Pulumi.ScalewayInstances.Snapshots.SnapshotVolumeType>? VolumeType { get; set; }
+        public Input<Pulumi.ScalewayInstances.Snapshots.VolumeType>? VolumeType { get; set; }
 
         /// <summary>
         /// The zone you want to target
@@ -180,8 +180,8 @@ namespace Pulumi.ScalewayInstances.Snapshots
 
         public SnapshotArgs()
         {
-            State = Pulumi.ScalewayInstances.Snapshots.SnapshotState.Available;
-            VolumeType = Pulumi.ScalewayInstances.Snapshots.SnapshotVolumeType.LSsd;
+            State = Pulumi.ScalewayInstances.Snapshots.State.Available;
+            VolumeType = Pulumi.ScalewayInstances.Snapshots.VolumeType.LSsd;
         }
         public static new SnapshotArgs Empty => new SnapshotArgs();
     }

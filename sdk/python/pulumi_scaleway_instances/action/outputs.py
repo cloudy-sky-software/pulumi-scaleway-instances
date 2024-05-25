@@ -49,7 +49,7 @@ class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 volume_type: Optional['ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType'] = None):
+                 volume_type: Optional['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType'] = None):
         if volume_type is None:
             volume_type = 'l_ssd'
         if volume_type is not None:
@@ -57,7 +57,7 @@ class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional['ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']:
+    def volume_type(self) -> Optional['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']:
         return pulumi.get(self, "volume_type")
 
 
@@ -93,7 +93,7 @@ class ScalewayInstanceV1Task(dict):
                  id: Optional[str] = None,
                  progress: Optional[float] = None,
                  started_at: Optional[str] = None,
-                 status: Optional['ServerActionScalewayInstanceV1TaskStatus'] = None,
+                 status: Optional['ScalewayInstanceV1TaskStatus'] = None,
                  terminated_at: Optional[str] = None,
                  zone: Optional[str] = None):
         """
@@ -101,7 +101,7 @@ class ScalewayInstanceV1Task(dict):
         :param str id: The unique ID of the task
         :param float progress: The progress of the task in percent
         :param str started_at: The task start date (RFC 3339 format)
-        :param 'ServerActionScalewayInstanceV1TaskStatus' status: The task status
+        :param 'ScalewayInstanceV1TaskStatus' status: The task status
         :param str terminated_at: The task end date (RFC 3339 format)
         :param str zone: The zone in which is the task
         """
@@ -170,7 +170,7 @@ class ScalewayInstanceV1Task(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional['ServerActionScalewayInstanceV1TaskStatus']:
+    def status(self) -> Optional['ScalewayInstanceV1TaskStatus']:
         """
         The task status
         """

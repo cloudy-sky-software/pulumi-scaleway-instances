@@ -7,9 +7,9 @@ from enum import Enum
 __all__ = [
     'ScalewayInstanceV1SnapshotState',
     'ScalewayInstanceV1SnapshotVolumeType',
-    'SnapshotScalewayInstanceV1TaskStatus',
-    'SnapshotState',
-    'SnapshotVolumeType',
+    'ScalewayInstanceV1TaskStatus',
+    'State',
+    'VolumeType',
 ]
 
 
@@ -28,7 +28,7 @@ class ScalewayInstanceV1SnapshotVolumeType(str, Enum):
     UNIFIED = "unified"
 
 
-class SnapshotScalewayInstanceV1TaskStatus(str, Enum):
+class ScalewayInstanceV1TaskStatus(str, Enum):
     """
     The task status
     """
@@ -39,7 +39,7 @@ class SnapshotScalewayInstanceV1TaskStatus(str, Enum):
     RETRY = "retry"
 
 
-class SnapshotState(str, Enum):
+class State(str, Enum):
     AVAILABLE = "available"
     SNAPSHOTTING = "snapshotting"
     ERROR = "error"
@@ -48,7 +48,7 @@ class SnapshotState(str, Enum):
     EXPORTING = "exporting"
 
 
-class SnapshotVolumeType(str, Enum):
+class VolumeType(str, Enum):
     LSSD = "l_ssd"
     BSSD = "b_ssd"
     UNIFIED = "unified"

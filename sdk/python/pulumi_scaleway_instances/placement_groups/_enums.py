@@ -5,19 +5,19 @@
 from enum import Enum
 
 __all__ = [
-    'PlacementGroupPolicyMode',
-    'PlacementGroupPolicyType',
+    'PolicyMode',
+    'PolicyType',
     'ScalewayInstanceV1PlacementGroupPolicyMode',
     'ScalewayInstanceV1PlacementGroupPolicyType',
 ]
 
 
-class PlacementGroupPolicyMode(str, Enum):
+class PolicyMode(str, Enum):
     OPTIONAL = "optional"
     ENFORCED = "enforced"
 
 
-class PlacementGroupPolicyType(str, Enum):
+class PolicyType(str, Enum):
     MAX_AVAILABILITY = "max_availability"
     LOW_LATENCY = "low_latency"
 

@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.ScalewayInstances.Servers
 {
     /// <summary>
+    /// The boot type to use
+    /// </summary>
+    [EnumType]
+    public readonly struct BootType : IEquatable<BootType>
+    {
+        private readonly string _value;
+
+        private BootType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BootType Local { get; } = new BootType("local");
+        public static BootType Bootscript { get; } = new BootType("bootscript");
+        public static BootType Rescue { get; } = new BootType("rescue");
+
+        public static bool operator ==(BootType left, BootType right) => left.Equals(right);
+        public static bool operator !=(BootType left, BootType right) => !left.Equals(right);
+
+        public static explicit operator string(BootType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BootType other && Equals(other);
+        public bool Equals(BootType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The bootscript arch
     /// </summary>
     [EnumType]
@@ -404,6 +436,34 @@ namespace Pulumi.ScalewayInstances.Servers
     }
 
     [EnumType]
+    public readonly struct ScalewayInstanceV1VolumeServerTemplateVolumeType : IEquatable<ScalewayInstanceV1VolumeServerTemplateVolumeType>
+    {
+        private readonly string _value;
+
+        private ScalewayInstanceV1VolumeServerTemplateVolumeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScalewayInstanceV1VolumeServerTemplateVolumeType LSsd { get; } = new ScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd");
+        public static ScalewayInstanceV1VolumeServerTemplateVolumeType BSsd { get; } = new ScalewayInstanceV1VolumeServerTemplateVolumeType("b_ssd");
+
+        public static bool operator ==(ScalewayInstanceV1VolumeServerTemplateVolumeType left, ScalewayInstanceV1VolumeServerTemplateVolumeType right) => left.Equals(right);
+        public static bool operator !=(ScalewayInstanceV1VolumeServerTemplateVolumeType left, ScalewayInstanceV1VolumeServerTemplateVolumeType right) => !left.Equals(right);
+
+        public static explicit operator string(ScalewayInstanceV1VolumeServerTemplateVolumeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScalewayInstanceV1VolumeServerTemplateVolumeType other && Equals(other);
+        public bool Equals(ScalewayInstanceV1VolumeServerTemplateVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ScalewayInstanceV1VolumeServerVolumeType : IEquatable<ScalewayInstanceV1VolumeServerVolumeType>
     {
         private readonly string _value;
@@ -515,66 +575,6 @@ namespace Pulumi.ScalewayInstances.Servers
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScalewayInstanceV1VolumeVolumeType other && Equals(other);
         public bool Equals(ScalewayInstanceV1VolumeVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The boot type to use
-    /// </summary>
-    [EnumType]
-    public readonly struct ServerBootType : IEquatable<ServerBootType>
-    {
-        private readonly string _value;
-
-        private ServerBootType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServerBootType Local { get; } = new ServerBootType("local");
-        public static ServerBootType Bootscript { get; } = new ServerBootType("bootscript");
-        public static ServerBootType Rescue { get; } = new ServerBootType("rescue");
-
-        public static bool operator ==(ServerBootType left, ServerBootType right) => left.Equals(right);
-        public static bool operator !=(ServerBootType left, ServerBootType right) => !left.Equals(right);
-
-        public static explicit operator string(ServerBootType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerBootType other && Equals(other);
-        public bool Equals(ServerBootType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct ServerScalewayInstanceV1VolumeServerTemplateVolumeType : IEquatable<ServerScalewayInstanceV1VolumeServerTemplateVolumeType>
-    {
-        private readonly string _value;
-
-        private ServerScalewayInstanceV1VolumeServerTemplateVolumeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServerScalewayInstanceV1VolumeServerTemplateVolumeType LSsd { get; } = new ServerScalewayInstanceV1VolumeServerTemplateVolumeType("l_ssd");
-        public static ServerScalewayInstanceV1VolumeServerTemplateVolumeType BSsd { get; } = new ServerScalewayInstanceV1VolumeServerTemplateVolumeType("b_ssd");
-
-        public static bool operator ==(ServerScalewayInstanceV1VolumeServerTemplateVolumeType left, ServerScalewayInstanceV1VolumeServerTemplateVolumeType right) => left.Equals(right);
-        public static bool operator !=(ServerScalewayInstanceV1VolumeServerTemplateVolumeType left, ServerScalewayInstanceV1VolumeServerTemplateVolumeType right) => !left.Equals(right);
-
-        public static explicit operator string(ServerScalewayInstanceV1VolumeServerTemplateVolumeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerScalewayInstanceV1VolumeServerTemplateVolumeType other && Equals(other);
-        public bool Equals(ServerScalewayInstanceV1VolumeServerTemplateVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

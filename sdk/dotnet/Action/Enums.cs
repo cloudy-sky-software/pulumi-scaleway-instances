@@ -7,6 +7,41 @@ using Pulumi;
 
 namespace Pulumi.ScalewayInstances.Action
 {
+    /// <summary>
+    /// The action to perform on the server
+    /// </summary>
+    [EnumType]
+    public readonly struct Action : IEquatable<Action>
+    {
+        private readonly string _value;
+
+        private Action(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Action Poweron { get; } = new Action("poweron");
+        public static Action Backup { get; } = new Action("backup");
+        public static Action StopInPlace { get; } = new Action("stop_in_place");
+        public static Action Poweroff { get; } = new Action("poweroff");
+        public static Action Terminate { get; } = new Action("terminate");
+        public static Action Reboot { get; } = new Action("reboot");
+
+        public static bool operator ==(Action left, Action right) => left.Equals(right);
+        public static bool operator !=(Action left, Action right) => !left.Equals(right);
+
+        public static explicit operator string(Action value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Action other && Equals(other);
+        public bool Equals(Action other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct ScalewayInstanceV1ListServerActionsResponseActionsItem : IEquatable<ScalewayInstanceV1ListServerActionsResponseActionsItem>
     {
@@ -39,63 +74,28 @@ namespace Pulumi.ScalewayInstances.Action
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The action to perform on the server
-    /// </summary>
     [EnumType]
-    public readonly struct ServerActionAction : IEquatable<ServerActionAction>
+    public readonly struct ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType : IEquatable<ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType>
     {
         private readonly string _value;
 
-        private ServerActionAction(string value)
+        private ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerActionAction Poweron { get; } = new ServerActionAction("poweron");
-        public static ServerActionAction Backup { get; } = new ServerActionAction("backup");
-        public static ServerActionAction StopInPlace { get; } = new ServerActionAction("stop_in_place");
-        public static ServerActionAction Poweroff { get; } = new ServerActionAction("poweroff");
-        public static ServerActionAction Terminate { get; } = new ServerActionAction("terminate");
-        public static ServerActionAction Reboot { get; } = new ServerActionAction("reboot");
+        public static ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType LSsd { get; } = new ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd");
+        public static ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType BSsd { get; } = new ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("b_ssd");
+        public static ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType Unified { get; } = new ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("unified");
 
-        public static bool operator ==(ServerActionAction left, ServerActionAction right) => left.Equals(right);
-        public static bool operator !=(ServerActionAction left, ServerActionAction right) => !left.Equals(right);
+        public static bool operator ==(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType left, ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType right) => left.Equals(right);
+        public static bool operator !=(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType left, ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType right) => !left.Equals(right);
 
-        public static explicit operator string(ServerActionAction value) => value._value;
+        public static explicit operator string(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerActionAction other && Equals(other);
-        public bool Equals(ServerActionAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType : IEquatable<ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType>
-    {
-        private readonly string _value;
-
-        private ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType LSsd { get; } = new ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("l_ssd");
-        public static ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType BSsd { get; } = new ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("b_ssd");
-        public static ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType Unified { get; } = new ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType("unified");
-
-        public static bool operator ==(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType left, ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType right) => left.Equals(right);
-        public static bool operator !=(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType left, ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType right) => !left.Equals(right);
-
-        public static explicit operator string(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType other && Equals(other);
-        public bool Equals(ServerActionScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType other && Equals(other);
+        public bool Equals(ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -107,29 +107,29 @@ namespace Pulumi.ScalewayInstances.Action
     /// The task status
     /// </summary>
     [EnumType]
-    public readonly struct ServerActionScalewayInstanceV1TaskStatus : IEquatable<ServerActionScalewayInstanceV1TaskStatus>
+    public readonly struct ScalewayInstanceV1TaskStatus : IEquatable<ScalewayInstanceV1TaskStatus>
     {
         private readonly string _value;
 
-        private ServerActionScalewayInstanceV1TaskStatus(string value)
+        private ScalewayInstanceV1TaskStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerActionScalewayInstanceV1TaskStatus Pending { get; } = new ServerActionScalewayInstanceV1TaskStatus("pending");
-        public static ServerActionScalewayInstanceV1TaskStatus Started { get; } = new ServerActionScalewayInstanceV1TaskStatus("started");
-        public static ServerActionScalewayInstanceV1TaskStatus Success { get; } = new ServerActionScalewayInstanceV1TaskStatus("success");
-        public static ServerActionScalewayInstanceV1TaskStatus Failure { get; } = new ServerActionScalewayInstanceV1TaskStatus("failure");
-        public static ServerActionScalewayInstanceV1TaskStatus Retry { get; } = new ServerActionScalewayInstanceV1TaskStatus("retry");
+        public static ScalewayInstanceV1TaskStatus Pending { get; } = new ScalewayInstanceV1TaskStatus("pending");
+        public static ScalewayInstanceV1TaskStatus Started { get; } = new ScalewayInstanceV1TaskStatus("started");
+        public static ScalewayInstanceV1TaskStatus Success { get; } = new ScalewayInstanceV1TaskStatus("success");
+        public static ScalewayInstanceV1TaskStatus Failure { get; } = new ScalewayInstanceV1TaskStatus("failure");
+        public static ScalewayInstanceV1TaskStatus Retry { get; } = new ScalewayInstanceV1TaskStatus("retry");
 
-        public static bool operator ==(ServerActionScalewayInstanceV1TaskStatus left, ServerActionScalewayInstanceV1TaskStatus right) => left.Equals(right);
-        public static bool operator !=(ServerActionScalewayInstanceV1TaskStatus left, ServerActionScalewayInstanceV1TaskStatus right) => !left.Equals(right);
+        public static bool operator ==(ScalewayInstanceV1TaskStatus left, ScalewayInstanceV1TaskStatus right) => left.Equals(right);
+        public static bool operator !=(ScalewayInstanceV1TaskStatus left, ScalewayInstanceV1TaskStatus right) => !left.Equals(right);
 
-        public static explicit operator string(ServerActionScalewayInstanceV1TaskStatus value) => value._value;
+        public static explicit operator string(ScalewayInstanceV1TaskStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerActionScalewayInstanceV1TaskStatus other && Equals(other);
-        public bool Equals(ServerActionScalewayInstanceV1TaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ScalewayInstanceV1TaskStatus other && Equals(other);
+        public bool Equals(ScalewayInstanceV1TaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

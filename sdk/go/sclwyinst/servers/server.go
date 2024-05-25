@@ -16,7 +16,7 @@ type Server struct {
 	pulumi.CustomResourceState
 
 	// The boot type to use
-	BootType ServerBootTypePtrOutput `pulumi:"bootType"`
+	BootType BootTypePtrOutput `pulumi:"bootType"`
 	// The bootscript ID to use when `boot_type` is set to `bootscript`
 	Bootscript pulumi.StringPtrOutput `pulumi:"bootscript"`
 	// Define the server commercial type (i.e. GP1-S)
@@ -56,7 +56,7 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'CommercialType'")
 	}
 	if args.BootType == nil {
-		args.BootType = ServerBootType("local")
+		args.BootType = BootType("local")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Server
@@ -92,7 +92,7 @@ func (ServerState) ElementType() reflect.Type {
 
 type serverArgs struct {
 	// The boot type to use
-	BootType *ServerBootType `pulumi:"bootType"`
+	BootType *BootType `pulumi:"bootType"`
 	// The bootscript ID to use when `boot_type` is set to `bootscript`
 	Bootscript *string `pulumi:"bootscript"`
 	// Define the server commercial type (i.e. GP1-S)
@@ -125,7 +125,7 @@ type serverArgs struct {
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
 	// The boot type to use
-	BootType ServerBootTypePtrInput
+	BootType BootTypePtrInput
 	// The bootscript ID to use when `boot_type` is set to `bootscript`
 	Bootscript pulumi.StringPtrInput
 	// Define the server commercial type (i.e. GP1-S)
@@ -193,8 +193,8 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 }
 
 // The boot type to use
-func (o ServerOutput) BootType() ServerBootTypePtrOutput {
-	return o.ApplyT(func(v *Server) ServerBootTypePtrOutput { return v.BootType }).(ServerBootTypePtrOutput)
+func (o ServerOutput) BootType() BootTypePtrOutput {
+	return o.ApplyT(func(v *Server) BootTypePtrOutput { return v.BootType }).(BootTypePtrOutput)
 }
 
 // The bootscript ID to use when `boot_type` is set to `bootscript`

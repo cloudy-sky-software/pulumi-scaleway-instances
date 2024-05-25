@@ -11,29 +11,29 @@ namespace Pulumi.ScalewayInstances.Export
     /// The task status
     /// </summary>
     [EnumType]
-    public readonly struct ExportSnapshotScalewayInstanceV1TaskStatus : IEquatable<ExportSnapshotScalewayInstanceV1TaskStatus>
+    public readonly struct ScalewayInstanceV1TaskStatus : IEquatable<ScalewayInstanceV1TaskStatus>
     {
         private readonly string _value;
 
-        private ExportSnapshotScalewayInstanceV1TaskStatus(string value)
+        private ScalewayInstanceV1TaskStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ExportSnapshotScalewayInstanceV1TaskStatus Pending { get; } = new ExportSnapshotScalewayInstanceV1TaskStatus("pending");
-        public static ExportSnapshotScalewayInstanceV1TaskStatus Started { get; } = new ExportSnapshotScalewayInstanceV1TaskStatus("started");
-        public static ExportSnapshotScalewayInstanceV1TaskStatus Success { get; } = new ExportSnapshotScalewayInstanceV1TaskStatus("success");
-        public static ExportSnapshotScalewayInstanceV1TaskStatus Failure { get; } = new ExportSnapshotScalewayInstanceV1TaskStatus("failure");
-        public static ExportSnapshotScalewayInstanceV1TaskStatus Retry { get; } = new ExportSnapshotScalewayInstanceV1TaskStatus("retry");
+        public static ScalewayInstanceV1TaskStatus Pending { get; } = new ScalewayInstanceV1TaskStatus("pending");
+        public static ScalewayInstanceV1TaskStatus Started { get; } = new ScalewayInstanceV1TaskStatus("started");
+        public static ScalewayInstanceV1TaskStatus Success { get; } = new ScalewayInstanceV1TaskStatus("success");
+        public static ScalewayInstanceV1TaskStatus Failure { get; } = new ScalewayInstanceV1TaskStatus("failure");
+        public static ScalewayInstanceV1TaskStatus Retry { get; } = new ScalewayInstanceV1TaskStatus("retry");
 
-        public static bool operator ==(ExportSnapshotScalewayInstanceV1TaskStatus left, ExportSnapshotScalewayInstanceV1TaskStatus right) => left.Equals(right);
-        public static bool operator !=(ExportSnapshotScalewayInstanceV1TaskStatus left, ExportSnapshotScalewayInstanceV1TaskStatus right) => !left.Equals(right);
+        public static bool operator ==(ScalewayInstanceV1TaskStatus left, ScalewayInstanceV1TaskStatus right) => left.Equals(right);
+        public static bool operator !=(ScalewayInstanceV1TaskStatus left, ScalewayInstanceV1TaskStatus right) => !left.Equals(right);
 
-        public static explicit operator string(ExportSnapshotScalewayInstanceV1TaskStatus value) => value._value;
+        public static explicit operator string(ScalewayInstanceV1TaskStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ExportSnapshotScalewayInstanceV1TaskStatus other && Equals(other);
-        public bool Equals(ExportSnapshotScalewayInstanceV1TaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ScalewayInstanceV1TaskStatus other && Equals(other);
+        public bool Equals(ScalewayInstanceV1TaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

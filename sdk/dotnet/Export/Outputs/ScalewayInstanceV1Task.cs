@@ -34,7 +34,7 @@ namespace Pulumi.ScalewayInstances.Export.Outputs
         /// <summary>
         /// The task status
         /// </summary>
-        public readonly Pulumi.ScalewayInstances.Export.ExportSnapshotScalewayInstanceV1TaskStatus? Status;
+        public readonly Pulumi.ScalewayInstances.Export.ScalewayInstanceV1TaskStatus? Status;
         /// <summary>
         /// The task end date (RFC 3339 format)
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.ScalewayInstances.Export.Outputs
 
             string? startedAt,
 
-            Pulumi.ScalewayInstances.Export.ExportSnapshotScalewayInstanceV1TaskStatus? status,
+            Pulumi.ScalewayInstances.Export.ScalewayInstanceV1TaskStatus? status,
 
             string? terminatedAt,
 

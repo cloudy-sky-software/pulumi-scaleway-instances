@@ -72,29 +72,29 @@ namespace Pulumi.ScalewayInstances.Snapshots
     /// The task status
     /// </summary>
     [EnumType]
-    public readonly struct SnapshotScalewayInstanceV1TaskStatus : IEquatable<SnapshotScalewayInstanceV1TaskStatus>
+    public readonly struct ScalewayInstanceV1TaskStatus : IEquatable<ScalewayInstanceV1TaskStatus>
     {
         private readonly string _value;
 
-        private SnapshotScalewayInstanceV1TaskStatus(string value)
+        private ScalewayInstanceV1TaskStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SnapshotScalewayInstanceV1TaskStatus Pending { get; } = new SnapshotScalewayInstanceV1TaskStatus("pending");
-        public static SnapshotScalewayInstanceV1TaskStatus Started { get; } = new SnapshotScalewayInstanceV1TaskStatus("started");
-        public static SnapshotScalewayInstanceV1TaskStatus Success { get; } = new SnapshotScalewayInstanceV1TaskStatus("success");
-        public static SnapshotScalewayInstanceV1TaskStatus Failure { get; } = new SnapshotScalewayInstanceV1TaskStatus("failure");
-        public static SnapshotScalewayInstanceV1TaskStatus Retry { get; } = new SnapshotScalewayInstanceV1TaskStatus("retry");
+        public static ScalewayInstanceV1TaskStatus Pending { get; } = new ScalewayInstanceV1TaskStatus("pending");
+        public static ScalewayInstanceV1TaskStatus Started { get; } = new ScalewayInstanceV1TaskStatus("started");
+        public static ScalewayInstanceV1TaskStatus Success { get; } = new ScalewayInstanceV1TaskStatus("success");
+        public static ScalewayInstanceV1TaskStatus Failure { get; } = new ScalewayInstanceV1TaskStatus("failure");
+        public static ScalewayInstanceV1TaskStatus Retry { get; } = new ScalewayInstanceV1TaskStatus("retry");
 
-        public static bool operator ==(SnapshotScalewayInstanceV1TaskStatus left, SnapshotScalewayInstanceV1TaskStatus right) => left.Equals(right);
-        public static bool operator !=(SnapshotScalewayInstanceV1TaskStatus left, SnapshotScalewayInstanceV1TaskStatus right) => !left.Equals(right);
+        public static bool operator ==(ScalewayInstanceV1TaskStatus left, ScalewayInstanceV1TaskStatus right) => left.Equals(right);
+        public static bool operator !=(ScalewayInstanceV1TaskStatus left, ScalewayInstanceV1TaskStatus right) => !left.Equals(right);
 
-        public static explicit operator string(SnapshotScalewayInstanceV1TaskStatus value) => value._value;
+        public static explicit operator string(ScalewayInstanceV1TaskStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SnapshotScalewayInstanceV1TaskStatus other && Equals(other);
-        public bool Equals(SnapshotScalewayInstanceV1TaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ScalewayInstanceV1TaskStatus other && Equals(other);
+        public bool Equals(ScalewayInstanceV1TaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -103,30 +103,30 @@ namespace Pulumi.ScalewayInstances.Snapshots
     }
 
     [EnumType]
-    public readonly struct SnapshotState : IEquatable<SnapshotState>
+    public readonly struct State : IEquatable<State>
     {
         private readonly string _value;
 
-        private SnapshotState(string value)
+        private State(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SnapshotState Available { get; } = new SnapshotState("available");
-        public static SnapshotState Snapshotting { get; } = new SnapshotState("snapshotting");
-        public static SnapshotState Error { get; } = new SnapshotState("error");
-        public static SnapshotState InvalidData { get; } = new SnapshotState("invalid_data");
-        public static SnapshotState Importing { get; } = new SnapshotState("importing");
-        public static SnapshotState Exporting { get; } = new SnapshotState("exporting");
+        public static State Available { get; } = new State("available");
+        public static State Snapshotting { get; } = new State("snapshotting");
+        public static State Error { get; } = new State("error");
+        public static State InvalidData { get; } = new State("invalid_data");
+        public static State Importing { get; } = new State("importing");
+        public static State Exporting { get; } = new State("exporting");
 
-        public static bool operator ==(SnapshotState left, SnapshotState right) => left.Equals(right);
-        public static bool operator !=(SnapshotState left, SnapshotState right) => !left.Equals(right);
+        public static bool operator ==(State left, State right) => left.Equals(right);
+        public static bool operator !=(State left, State right) => !left.Equals(right);
 
-        public static explicit operator string(SnapshotState value) => value._value;
+        public static explicit operator string(State value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SnapshotState other && Equals(other);
-        public bool Equals(SnapshotState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is State other && Equals(other);
+        public bool Equals(State other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -135,27 +135,27 @@ namespace Pulumi.ScalewayInstances.Snapshots
     }
 
     [EnumType]
-    public readonly struct SnapshotVolumeType : IEquatable<SnapshotVolumeType>
+    public readonly struct VolumeType : IEquatable<VolumeType>
     {
         private readonly string _value;
 
-        private SnapshotVolumeType(string value)
+        private VolumeType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SnapshotVolumeType LSsd { get; } = new SnapshotVolumeType("l_ssd");
-        public static SnapshotVolumeType BSsd { get; } = new SnapshotVolumeType("b_ssd");
-        public static SnapshotVolumeType Unified { get; } = new SnapshotVolumeType("unified");
+        public static VolumeType LSsd { get; } = new VolumeType("l_ssd");
+        public static VolumeType BSsd { get; } = new VolumeType("b_ssd");
+        public static VolumeType Unified { get; } = new VolumeType("unified");
 
-        public static bool operator ==(SnapshotVolumeType left, SnapshotVolumeType right) => left.Equals(right);
-        public static bool operator !=(SnapshotVolumeType left, SnapshotVolumeType right) => !left.Equals(right);
+        public static bool operator ==(VolumeType left, VolumeType right) => left.Equals(right);
+        public static bool operator !=(VolumeType left, VolumeType right) => !left.Equals(right);
 
-        public static explicit operator string(SnapshotVolumeType value) => value._value;
+        public static explicit operator string(VolumeType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SnapshotVolumeType other && Equals(other);
-        public bool Equals(SnapshotVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is VolumeType other && Equals(other);
+        public bool Equals(VolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

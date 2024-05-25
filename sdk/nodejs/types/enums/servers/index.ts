@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BootType = {
+    Local: "local",
+    Bootscript: "bootscript",
+    Rescue: "rescue",
+} as const;
+
+/**
+ * The boot type to use
+ */
+export type BootType = (typeof BootType)[keyof typeof BootType];
+
 export const ScalewayInstanceV1BootscriptArch = {
     X8664: "x86_64",
     Arm: "arm",
@@ -125,6 +136,13 @@ export const ScalewayInstanceV1VolumeServerState = {
 
 export type ScalewayInstanceV1VolumeServerState = (typeof ScalewayInstanceV1VolumeServerState)[keyof typeof ScalewayInstanceV1VolumeServerState];
 
+export const ScalewayInstanceV1VolumeServerTemplateVolumeType = {
+    LSsd: "l_ssd",
+    BSsd: "b_ssd",
+} as const;
+
+export type ScalewayInstanceV1VolumeServerTemplateVolumeType = (typeof ScalewayInstanceV1VolumeServerTemplateVolumeType)[keyof typeof ScalewayInstanceV1VolumeServerTemplateVolumeType];
+
 export const ScalewayInstanceV1VolumeServerVolumeType = {
     LSsd: "l_ssd",
     BSsd: "b_ssd",
@@ -159,21 +177,3 @@ export const ScalewayInstanceV1VolumeVolumeType = {
 } as const;
 
 export type ScalewayInstanceV1VolumeVolumeType = (typeof ScalewayInstanceV1VolumeVolumeType)[keyof typeof ScalewayInstanceV1VolumeVolumeType];
-
-export const ServerBootType = {
-    Local: "local",
-    Bootscript: "bootscript",
-    Rescue: "rescue",
-} as const;
-
-/**
- * The boot type to use
- */
-export type ServerBootType = (typeof ServerBootType)[keyof typeof ServerBootType];
-
-export const ServerScalewayInstanceV1VolumeServerTemplateVolumeType = {
-    LSsd: "l_ssd",
-    BSsd: "b_ssd",
-} as const;
-
-export type ServerScalewayInstanceV1VolumeServerTemplateVolumeType = (typeof ServerScalewayInstanceV1VolumeServerTemplateVolumeType)[keyof typeof ServerScalewayInstanceV1VolumeServerTemplateVolumeType];
