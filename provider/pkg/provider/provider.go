@@ -117,7 +117,7 @@ func (p *scalewayInstancesProvider) OnPreRead(_ context.Context, _ *pulumirpc.Re
 	return nil
 }
 
-func (p *scalewayInstancesProvider) OnPostRead(_ context.Context, _ *pulumirpc.ReadRequest, outputs map[string]interface{}) (map[string]interface{}, error) {
+func (p *scalewayInstancesProvider) OnPostRead(_ context.Context, _ *pulumirpc.ReadRequest, outputs interface{}) (map[string]interface{}, error) {
 	return extractOutput(outputs)
 }
 

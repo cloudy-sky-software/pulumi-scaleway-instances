@@ -50,6 +50,9 @@
         },
         "python": {
             "packageName": "pulumi_scaleway_instances",
+            "pyproject": {
+                "enabled": true
+            },
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }
@@ -3821,7 +3824,7 @@
                 "project"
             ]
         },
-        "scaleway-instances:servers:PlacementGroupServers": {
+        "scaleway-instances:servers:PlacementGroupServer": {
             "properties": {
                 "servers": {
                     "type": "array",
