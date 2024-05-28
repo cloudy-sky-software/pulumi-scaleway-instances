@@ -3824,7 +3824,7 @@
                 "project"
             ]
         },
-        "scaleway-instances:servers:PlacementGroupServer": {
+        "scaleway-instances:servers:PlacementGroupServers": {
             "properties": {
                 "servers": {
                     "type": "array",

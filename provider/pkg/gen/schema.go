@@ -93,6 +93,7 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 		Pkg:                       &pkg,
 		ExcludedPaths:             []string{},
 		UseParentResourceAsModule: true,
+		AllowedPluralResources:    []string{"PlacementGroupServers"},
 	}
 
 	providerMetadata, updatedOpenAPIDoc, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
