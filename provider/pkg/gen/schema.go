@@ -93,6 +93,7 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 		Pkg:                       &pkg,
 		ExcludedPaths:             []string{},
 		UseParentResourceAsModule: true,
+		AllowedPluralResources:    []string{"PlacementGroupServers"},
 	}
 
 	providerMetadata, updatedOpenAPIDoc, err := openAPICtx.GatherResourcesFromAPI(csharpNamespaces)
@@ -133,6 +134,9 @@ func PulumiSchema(openapiDoc openapi3.T) (pschema.PackageSpec, openapigen.Provid
 		"packageName": "pulumi_scaleway_instances",
 		"requires": map[string]string{
 			"pulumi": ">=3.0.0,<4.0.0",
+		},
+		"pyproject": map[string]bool{
+			"enabled": true,
 		},
 	})
 
