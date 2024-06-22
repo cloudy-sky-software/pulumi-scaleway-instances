@@ -2,125 +2,159 @@ openapi: 3.0.0
 components:
   schemas:
     google.protobuf.BoolValue:
+      nullable: true
       type: boolean
-      nullable: true
     google.protobuf.StringValue:
-      type: string
       nullable: true
+      type: string
     google.protobuf.UInt32Value:
-      type: number
       nullable: true
+      type: number
     scaleway.instance.v1.Arch:
-      type: string
+      default: x86_64
       enum:
         - x86_64
         - arm
-      default: x86_64
-    scaleway.instance.v1.BootType:
       type: string
+    scaleway.instance.v1.BootType:
+      default: local
       enum:
         - local
         - bootscript
         - rescue
-      default: local
+      type: string
     scaleway.instance.v1.Bootscript:
-      type: object
       properties:
         arch:
-          type: string
+          default: x86_64
           description: The bootscript arch
           enum:
             - x86_64
             - arm
-          default: x86_64
+          type: string
         bootcmdargs:
-          type: string
           description: The bootscript arguments
+          type: string
         default:
-          type: boolean
           description: Dispmay if the bootscript is the default bootscript if no other boot option is configured
-        dtb:
-          type: string
-          description: Provide information regarding a Device Tree Binary (dtb) for use with C1 servers
-        id:
-          type: string
-          description: The bootscript ID
-        initrd:
-          type: string
-          description: The initrd (initial ramdisk) configuration
-        kernel:
-          type: string
-          description: The server kernel version
-        organization:
-          type: string
-          description: The bootscript organization ID
-        project:
-          type: string
-          description: The bootscript project ID
-        public:
           type: boolean
+        dtb:
+          description: Provide information regarding a Device Tree Binary (dtb) for use with C1 servers
+          type: string
+        id:
+          description: The bootscript ID
+          type: string
+        initrd:
+          description: The initrd (initial ramdisk) configuration
+          type: string
+        kernel:
+          description: The server kernel version
+          type: string
+        organization:
+          description: The bootscript organization ID
+          type: string
+        project:
+          description: The bootscript project ID
+          type: string
+        public:
           description: Provide information if the bootscript is public
+          type: boolean
         title:
-          type: string
           description: The bootscript title
-        zone:
           type: string
+        zone:
           description: The zone in which is the bootscript
-    scaleway.instance.v1.CreateImageResponse:
+          type: string
       type: object
+      x-properties-order:
+        - bootcmdargs
+        - default
+        - dtb
+        - id
+        - initrd
+        - kernel
+        - organization
+        - project
+        - public
+        - title
+        - arch
+        - zone
+    scaleway.instance.v1.CreateImageResponse:
       properties:
         Location:
           type: string
         image:
           $ref: '#/components/schemas/scaleway.instance.v1.Image'
-    scaleway.instance.v1.CreateIpResponse:
       type: object
+      x-properties-order:
+        - image
+        - Location
+    scaleway.instance.v1.CreateIpResponse:
       properties:
         Location:
           type: string
         ip:
           $ref: '#/components/schemas/scaleway.instance.v1.Ip'
-    scaleway.instance.v1.CreatePlacementGroupResponse:
       type: object
+      x-properties-order:
+        - ip
+        - Location
+    scaleway.instance.v1.CreatePlacementGroupResponse:
       properties:
         placement_group:
           $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup'
-    scaleway.instance.v1.CreatePrivateNICResponse:
       type: object
+      x-properties-order:
+        - placement_group
+    scaleway.instance.v1.CreatePrivateNICResponse:
       properties:
         private_nic:
           $ref: '#/components/schemas/scaleway.instance.v1.PrivateNIC'
-    scaleway.instance.v1.CreateSecurityGroupResponse:
       type: object
+      x-properties-order:
+        - private_nic
+    scaleway.instance.v1.CreateSecurityGroupResponse:
       properties:
         security_group:
           $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroup'
-    scaleway.instance.v1.CreateSecurityGroupRuleResponse:
       type: object
+      x-properties-order:
+        - security_group
+    scaleway.instance.v1.CreateSecurityGroupRuleResponse:
       properties:
         rule:
           $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule'
-    scaleway.instance.v1.CreateServerResponse:
       type: object
+      x-properties-order:
+        - rule
+    scaleway.instance.v1.CreateServerResponse:
       properties:
         server:
           $ref: '#/components/schemas/scaleway.instance.v1.Server'
-    scaleway.instance.v1.CreateSnapshotResponse:
       type: object
+      x-properties-order:
+        - server
+    scaleway.instance.v1.CreateSnapshotResponse:
       properties:
         snapshot:
           $ref: '#/components/schemas/scaleway.instance.v1.Snapshot'
         task:
           $ref: '#/components/schemas/scaleway.instance.v1.Task'
-    scaleway.instance.v1.CreateVolumeResponse:
       type: object
+      x-properties-order:
+        - snapshot
+        - task
+    scaleway.instance.v1.CreateVolumeResponse:
       properties:
         Location:
           type: string
         volume:
           $ref: '#/components/schemas/scaleway.instance.v1.Volume'
-    scaleway.instance.v1.Dashboard:
       type: object
+      x-properties-order:
+        - volume
+        - Location
+    scaleway.instance.v1.Dashboard:
       properties:
         images_count:
           type: number
@@ -137,11 +171,11 @@ components:
         security_groups_count:
           type: number
         servers_by_types:
-          type: object
+          additionalProperties: true
           properties:
             <servers_by_typeKey>:
               type: number
-          additionalProperties: true
+          type: object
         servers_count:
           type: number
         snapshots_count:
@@ -156,127 +190,169 @@ components:
           type: number
         volumes_l_ssd_total_size:
           type: number
-    scaleway.instance.v1.ExportSnapshotResponse:
       type: object
+      x-properties-order:
+        - volumes_count
+        - running_servers_count
+        - servers_by_types
+        - images_count
+        - snapshots_count
+        - servers_count
+        - ips_count
+        - security_groups_count
+        - ips_unused
+        - volumes_l_ssd_count
+        - volumes_b_ssd_count
+        - volumes_l_ssd_total_size
+        - volumes_b_ssd_total_size
+        - private_nics_count
+        - placement_groups_count
+    scaleway.instance.v1.ExportSnapshotResponse:
       properties:
         task:
           $ref: '#/components/schemas/scaleway.instance.v1.Task'
-    scaleway.instance.v1.GetBootscriptResponse:
       type: object
+      x-properties-order:
+        - task
+    scaleway.instance.v1.GetBootscriptResponse:
       properties:
         bootscript:
           $ref: '#/components/schemas/scaleway.instance.v1.Bootscript'
-    scaleway.instance.v1.GetDashboardResponse:
       type: object
+      x-properties-order:
+        - bootscript
+    scaleway.instance.v1.GetDashboardResponse:
       properties:
         dashboard:
           $ref: '#/components/schemas/scaleway.instance.v1.Dashboard'
-    scaleway.instance.v1.GetImageResponse:
       type: object
+      x-properties-order:
+        - dashboard
+    scaleway.instance.v1.GetImageResponse:
       properties:
         image:
           $ref: '#/components/schemas/scaleway.instance.v1.Image'
-    scaleway.instance.v1.GetIpResponse:
       type: object
+      x-properties-order:
+        - image
+    scaleway.instance.v1.GetIpResponse:
       properties:
         ip:
           $ref: '#/components/schemas/scaleway.instance.v1.Ip'
-    scaleway.instance.v1.GetPlacementGroupResponse:
       type: object
+      x-properties-order:
+        - ip
+    scaleway.instance.v1.GetPlacementGroupResponse:
       properties:
         placement_group:
           $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup'
-    scaleway.instance.v1.GetPlacementGroupServersResponse:
       type: object
+      x-properties-order:
+        - placement_group
+    scaleway.instance.v1.GetPlacementGroupServersResponse:
       properties:
         servers:
-          type: array
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroupServer'
-    scaleway.instance.v1.GetPrivateNICResponse:
+          type: array
       type: object
+      x-properties-order:
+        - servers
+    scaleway.instance.v1.GetPrivateNICResponse:
       properties:
         private_nic:
           $ref: '#/components/schemas/scaleway.instance.v1.PrivateNIC'
-    scaleway.instance.v1.GetSecurityGroupResponse:
       type: object
+      x-properties-order:
+        - private_nic
+    scaleway.instance.v1.GetSecurityGroupResponse:
       properties:
         security_group:
           $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroup'
-    scaleway.instance.v1.GetSecurityGroupRuleResponse:
       type: object
+      x-properties-order:
+        - security_group
+    scaleway.instance.v1.GetSecurityGroupRuleResponse:
       properties:
         rule:
           $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule'
-    scaleway.instance.v1.GetServerResponse:
       type: object
+      x-properties-order:
+        - rule
+    scaleway.instance.v1.GetServerResponse:
       properties:
         server:
           $ref: '#/components/schemas/scaleway.instance.v1.Server'
-    scaleway.instance.v1.GetServerTypesAvailabilityResponse:
       type: object
+      x-properties-order:
+        - server
+    scaleway.instance.v1.GetServerTypesAvailabilityResponse:
       properties:
         servers:
-          type: object
+          additionalProperties: true
           properties:
             <serverKey>:
               $ref: '#/components/schemas/scaleway.instance.v1.GetServerTypesAvailabilityResponse.Availability'
-          additionalProperties: true
-    scaleway.instance.v1.GetServerTypesAvailabilityResponse.Availability:
+          type: object
       type: object
+      x-properties-order:
+        - servers
+    scaleway.instance.v1.GetServerTypesAvailabilityResponse.Availability:
       properties:
         availability:
           $ref: '#/components/schemas/scaleway.instance.v1.ServerTypesAvailability'
-    scaleway.instance.v1.GetSnapshotResponse:
       type: object
+      x-properties-order:
+        - availability
+    scaleway.instance.v1.GetSnapshotResponse:
       properties:
         snapshot:
           $ref: '#/components/schemas/scaleway.instance.v1.Snapshot'
-    scaleway.instance.v1.GetVolumeResponse:
       type: object
+      x-properties-order:
+        - snapshot
+    scaleway.instance.v1.GetVolumeResponse:
       properties:
         volume:
           $ref: '#/components/schemas/scaleway.instance.v1.Volume'
-    scaleway.instance.v1.Image:
       type: object
-      required:
-        - name
-        - root_volume
-        - project
+      x-properties-order:
+        - volume
+    scaleway.instance.v1.Image:
       properties:
         arch:
           $ref: '#/components/schemas/scaleway.instance.v1.Arch'
         creation_date:
-          type: string
-          format: date-time
           description: (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
           readOnly: true
+          type: string
         default_bootscript:
           $ref: '#/components/schemas/scaleway.instance.v1.Bootscript'
         extra_volumes:
-          type: object
+          additionalProperties: true
           properties:
             <extra_volumeKey>:
               $ref: '#/components/schemas/scaleway.instance.v1.Volume'
-          additionalProperties: true
+          type: object
         from_server:
-          type: string
           readOnly: true
+          type: string
         id:
-          type: string
           readOnly: true
-        modification_date:
           type: string
-          format: date-time
+        modification_date:
           description: (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
           readOnly: true
+          type: string
         name:
           type: string
         organization:
-          type: string
           deprecated: true
+          type: string
         project:
           type: string
         public:
@@ -286,35 +362,53 @@ components:
         state:
           $ref: '#/components/schemas/scaleway.instance.v1.Image.State'
         tags:
-          type: array
           items:
             type: string
+          type: array
         zone:
-          type: string
           readOnly: true
+          type: string
+      required:
+        - name
+        - root_volume
+        - project
+      type: object
+      x-properties-order:
+        - id
+        - name
+        - arch
+        - creation_date
+        - modification_date
+        - default_bootscript
+        - extra_volumes
+        - from_server
+        - organization
+        - public
+        - root_volume
+        - state
+        - project
+        - tags
+        - zone
     scaleway.instance.v1.Image.State:
-      type: string
+      default: available
       enum:
         - available
         - creating
         - error
-      default: available
+      type: string
     scaleway.instance.v1.Ip:
-      type: object
-      required:
-        - project
       properties:
         address:
-          type: string
           description: (IPv4 address)
           example: 1.2.3.4
           readOnly: true
+          type: string
         id:
-          type: string
           readOnly: true
-        organization:
           type: string
+        organization:
           deprecated: true
+          type: string
         project:
           type: string
         reverse:
@@ -322,179 +416,229 @@ components:
         server:
           $ref: '#/components/schemas/scaleway.instance.v1.ServerSummary'
         tags:
-          type: array
           items:
             type: string
+          type: array
         zone:
-          type: string
           readOnly: true
-    scaleway.instance.v1.ListBootscriptsResponse:
+          type: string
+      required:
+        - project
       type: object
+      x-properties-order:
+        - id
+        - address
+        - reverse
+        - server
+        - organization
+        - tags
+        - project
+        - zone
+    scaleway.instance.v1.ListBootscriptsResponse:
       properties:
         bootscripts:
-          type: array
           description: List of bootscripts
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.Bootscript'
-    scaleway.instance.v1.ListImagesResponse:
+          type: array
       type: object
+      x-properties-order:
+        - bootscripts
+    scaleway.instance.v1.ListImagesResponse:
       properties:
         images:
-          type: array
           description: List of images
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.Image'
-    scaleway.instance.v1.ListIpsResponse:
+          type: array
       type: object
+      x-properties-order:
+        - images
+    scaleway.instance.v1.ListIpsResponse:
       properties:
         ips:
-          type: array
           description: List of ips
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.Ip'
-    scaleway.instance.v1.ListPlacementGroupsResponse:
+          type: array
       type: object
+      x-properties-order:
+        - ips
+    scaleway.instance.v1.ListPlacementGroupsResponse:
       properties:
         placement_groups:
-          type: array
           description: List of placement groups
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup'
-    scaleway.instance.v1.ListPrivateNICsResponse:
+          type: array
       type: object
+      x-properties-order:
+        - placement_groups
+    scaleway.instance.v1.ListPrivateNICsResponse:
       properties:
         private_nics:
-          type: array
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.PrivateNIC'
-    scaleway.instance.v1.ListSecurityGroupRulesResponse:
+          type: array
       type: object
+      x-properties-order:
+        - private_nics
+    scaleway.instance.v1.ListSecurityGroupRulesResponse:
       properties:
         rules:
-          type: array
           description: List of security rules
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule'
-    scaleway.instance.v1.ListSecurityGroupsResponse:
+          type: array
       type: object
+      x-properties-order:
+        - rules
+    scaleway.instance.v1.ListSecurityGroupsResponse:
       properties:
         security_groups:
-          type: array
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroup'
+          type: array
         total_count:
           type: number
-    scaleway.instance.v1.ListServerActionsResponse:
       type: object
+      x-properties-order:
+        - security_groups
+        - total_count
+    scaleway.instance.v1.ListServerActionsResponse:
       properties:
         actions:
-          type: array
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.Server.Action'
-    scaleway.instance.v1.ListServerUserDataResponse:
+          type: array
       type: object
+      x-properties-order:
+        - actions
+    scaleway.instance.v1.ListServerUserDataResponse:
       properties:
         user_data:
-          type: array
           items:
             type: string
-    scaleway.instance.v1.ListServersResponse:
+          type: array
       type: object
+      x-properties-order:
+        - user_data
+    scaleway.instance.v1.ListServersResponse:
       properties:
         servers:
-          type: array
           description: List of servers
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.Server'
-    scaleway.instance.v1.ListServersTypesResponse:
+          type: array
       type: object
+      x-properties-order:
+        - servers
+    scaleway.instance.v1.ListServersTypesResponse:
       properties:
         servers:
-          type: object
+          additionalProperties: true
           description: List of server types
           properties:
             <serverKey>:
               $ref: '#/components/schemas/scaleway.instance.v1.ServerType'
-          additionalProperties: true
-    scaleway.instance.v1.ListSnapshotsResponse:
+          type: object
       type: object
+      x-properties-order:
+        - servers
+    scaleway.instance.v1.ListSnapshotsResponse:
       properties:
         snapshots:
-          type: array
           description: List of snapshots
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.Snapshot'
-    scaleway.instance.v1.ListVolumesResponse:
+          type: array
       type: object
+      x-properties-order:
+        - snapshots
+    scaleway.instance.v1.ListVolumesResponse:
       properties:
         volumes:
-          type: array
           description: List of volumes
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.Volume'
-    scaleway.instance.v1.ListVolumesTypesResponse:
+          type: array
       type: object
+      x-properties-order:
+        - volumes
+    scaleway.instance.v1.ListVolumesTypesResponse:
       properties:
         volumes:
-          type: object
+          additionalProperties: true
           description: Map of volume types
           properties:
             <volumeKey>:
               $ref: '#/components/schemas/scaleway.instance.v1.VolumeType'
-          additionalProperties: true
-    scaleway.instance.v1.NullableStringValue:
-      type: string
-      nullable: true
-    scaleway.instance.v1.PlacementGroup:
+          type: object
       type: object
-      required:
-        - name
-        - project
+      x-properties-order:
+        - volumes
+    scaleway.instance.v1.NullableStringValue:
+      nullable: true
+      type: string
+    scaleway.instance.v1.PlacementGroup:
       properties:
         id:
-          type: string
           readOnly: true
+          type: string
         name:
-          type: string
           description: The placement group name
-        organization:
           type: string
-          description: The placement group organization ID
+        organization:
           deprecated: true
+          description: The placement group organization ID
+          type: string
         policy_mode:
           $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyMode'
         policy_respected:
-          type: boolean
           description: Returns true if the policy is respected, false otherwise
           readOnly: true
+          type: boolean
         policy_type:
           $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyType'
         project:
-          type: string
           description: The placement group project ID
+          type: string
         tags:
-          type: array
           description: The placement group tags
           items:
             type: string
+          type: array
         zone:
-          type: string
           description: The zone in which is the placement group
           readOnly: true
+          type: string
+      required:
+        - name
+        - project
+      type: object
+      x-properties-order:
+        - id
+        - name
+        - organization
+        - project
+        - tags
+        - policy_mode
+        - policy_type
+        - policy_respected
+        - zone
     scaleway.instance.v1.PlacementGroup.PolicyMode:
-      type: string
+      default: optional
       enum:
         - optional
         - enforced
-      default: optional
-    scaleway.instance.v1.PlacementGroup.PolicyType:
       type: string
+    scaleway.instance.v1.PlacementGroup.PolicyType:
+      default: max_availability
       enum:
         - max_availability
         - low_latency
-      default: max_availability
+      type: string
     scaleway.instance.v1.PlacementGroupServer:
-      type: object
       properties:
         id:
           type: string
@@ -502,116 +646,144 @@ components:
           type: string
         policy_respected:
           type: boolean
-    scaleway.instance.v1.PrivateNIC:
       type: object
+      x-properties-order:
+        - id
+        - name
+        - policy_respected
+    scaleway.instance.v1.PrivateNIC:
       properties:
         id:
-          type: string
           description: The private NIC unique ID
+          type: string
         mac_address:
-          type: string
           description: The private NIC MAC address
+          type: string
         private_network_id:
-          type: string
           description: The private network where the private NIC is attached
+          type: string
         server_id:
-          type: string
           description: The server the private NIC is attached to
-        state:
           type: string
+        state:
+          default: available
           description: The private NIC state
           enum:
             - available
             - syncing
             - syncing_error
-          default: available
-    scaleway.instance.v1.SecurityGroup:
+          type: string
       type: object
-      required:
-        - name
-        - project
+      x-properties-order:
+        - id
+        - server_id
+        - private_network_id
+        - mac_address
+        - state
+    scaleway.instance.v1.SecurityGroup:
       properties:
         creation_date:
-          type: string
-          format: date-time
           description: The security group creation date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
           readOnly: true
+          type: string
         description:
-          type: string
           description: The security groups description
+          type: string
         enable_default_security:
-          type: boolean
           description: True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a ticket if you need to make it configurable.
+          type: boolean
         id:
-          type: string
           readOnly: true
-        inbound_default_policy:
           type: string
+        inbound_default_policy:
+          default: accept
           description: The default inbound policy
           enum:
             - accept
             - drop
-          default: accept
-        modification_date:
           type: string
-          format: date-time
+        modification_date:
           description: The security group modification date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
           readOnly: true
+          type: string
         name:
-          type: string
           description: The security groups name
+          type: string
         organization:
-          type: string
+          deprecated: true
           description: The security groups organization ID
-          deprecated: true
-        organization_default:
-          type: boolean
-          description: True if it is your default security group for this organization ID
-          deprecated: true
-        outbound_default_policy:
           type: string
+        organization_default:
+          deprecated: true
+          description: True if it is your default security group for this organization ID
+          type: boolean
+        outbound_default_policy:
+          default: accept
           description: The default outbound policy
           enum:
             - accept
             - drop
-          default: accept
-        project:
           type: string
+        project:
           description: The security group project ID
+          type: string
         project_default:
-          type: boolean
           description: True if it is your default security group for this project ID
+          type: boolean
         servers:
-          type: array
           description: List of servers attached to this security group
-          readOnly: true
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.ServerSummary'
+          readOnly: true
+          type: array
         state:
-          type: string
+          default: available
           description: Security group state
           enum:
             - available
             - syncing
             - syncing_error
-          default: available
           readOnly: true
+          type: string
         stateful:
-          type: boolean
           description: True if the security group is stateful
+          type: boolean
         tags:
-          type: array
           description: The security group tags
           items:
             type: string
+          type: array
         zone:
-          type: string
           description: The zone in which is the security group
           readOnly: true
-    scaleway.instance.v1.SecurityGroupRule:
+          type: string
+      required:
+        - name
+        - project
       type: object
+      x-properties-order:
+        - id
+        - name
+        - description
+        - enable_default_security
+        - inbound_default_policy
+        - outbound_default_policy
+        - organization
+        - project
+        - tags
+        - organization_default
+        - project_default
+        - creation_date
+        - modification_date
+        - servers
+        - stateful
+        - state
+        - zone
+    scaleway.instance.v1.SecurityGroupRule:
       properties:
         action:
           $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Action'
@@ -626,101 +798,118 @@ components:
         id:
           type: string
         ip_range:
-          type: string
           description: (IP network)
           example: 1.2.3.4/32
+          type: string
         position:
           type: number
         protocol:
           $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Protocol'
         zone:
           type: string
+      type: object
+      x-properties-order:
+        - id
+        - protocol
+        - direction
+        - action
+        - ip_range
+        - dest_port_from
+        - dest_port_to
+        - position
+        - editable
+        - zone
     scaleway.instance.v1.SecurityGroupRule.Action:
-      type: string
+      default: accept
       enum:
         - accept
         - drop
-      default: accept
-    scaleway.instance.v1.SecurityGroupRule.Direction:
       type: string
+    scaleway.instance.v1.SecurityGroupRule.Direction:
+      default: inbound
       enum:
         - inbound
         - outbound
-      default: inbound
-    scaleway.instance.v1.SecurityGroupRule.Protocol:
       type: string
+    scaleway.instance.v1.SecurityGroupRule.Protocol:
+      default: TCP
       enum:
         - TCP
         - UDP
         - ICMP
         - ANY
-      default: TCP
+      type: string
     scaleway.instance.v1.SecurityGroupTemplate:
-      type: object
       properties:
         id:
           type: string
         name:
           type: string
-    scaleway.instance.v1.Server:
       type: object
+      x-properties-order:
+        - id
+        - name
+    scaleway.instance.v1.Server:
       properties:
         allowed_actions:
-          type: array
           description: Provide as list of allowed actions on the server
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.Server.Action'
+          type: array
         arch:
-          type: string
+          default: x86_64
           description: The server arch
           enum:
             - x86_64
             - arm
-          default: x86_64
+          type: string
         boot_type:
           $ref: '#/components/schemas/scaleway.instance.v1.BootType'
         bootscript:
           $ref: '#/components/schemas/scaleway.instance.v1.Bootscript'
         commercial_type:
-          type: string
           description: The server commercial type (eg. GP1-M)
-        creation_date:
           type: string
-          format: date-time
+        creation_date:
           description: The server creation date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
+          type: string
         dynamic_ip_required:
-          type: boolean
           description: True if a dynamic IP is required
-        enable_ipv6:
           type: boolean
+        enable_ipv6:
           description: True if IPv6 is enabled
+          type: boolean
         hostname:
-          type: string
           description: The server host name
-        id:
           type: string
+        id:
           description: The server unique ID
           readOnly: true
+          type: string
         image:
           $ref: '#/components/schemas/scaleway.instance.v1.Image'
         ipv6:
-          type: object
           description: The server IPv6 address
           properties:
             address:
-              type: string
               description: The server IPv6 IP-Address (IPv6 address)
               example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-            gateway:
               type: string
+            gateway:
               description: The IPv6 IP-addresses gateway (IPv6 address)
               example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
-            netmask:
               type: string
+            netmask:
               description: The IPv6 IP-addresses CIDR netmask
-        location:
+              type: string
           type: object
+          x-properties-order:
+            - address
+            - gateway
+            - netmask
+        location:
           description: The server location
           properties:
             cluster_id:
@@ -733,63 +922,77 @@ components:
               type: string
             zone_id:
               type: string
+          type: object
+          x-properties-order:
+            - cluster_id
+            - hypervisor_id
+            - node_id
+            - platform_id
+            - zone_id
         maintenances:
-          type: array
           description: The server planned maintenances
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.Server.Maintenance'
+          type: array
         modification_date:
-          type: string
-          format: date-time
           description: The server modification date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
+          type: string
         name:
-          type: string
           description: The server name
-        organization:
           type: string
+        organization:
           description: The server organization ID
+          type: string
         placement_group:
           $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup'
         private_ip:
-          type: string
           description: The server private IP address
           nullable: true
+          type: string
         private_nics:
-          type: array
           description: The server private NICs
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.PrivateNIC'
+          type: array
         project:
-          type: string
           description: The server project ID
+          type: string
         protected:
-          type: boolean
           description: The server protection option is activated
+          type: boolean
         public_ip:
-          type: object
           description: Information about the public IP
           properties:
             address:
-              type: string
               description: The server public IPv4 IP-Address (IPv4 address)
               example: 1.2.3.4
-            dynamic:
-              type: boolean
-              description: True if the IP address is dynamic
-            id:
               type: string
+            dynamic:
+              description: True if the IP address is dynamic
+              type: boolean
+            id:
               description: The unique ID of the IP address
-        security_group:
+              type: string
           type: object
+          x-properties-order:
+            - id
+            - address
+            - dynamic
+        security_group:
           description: The server security group
           properties:
             id:
               type: string
             name:
               type: string
+          type: object
+          x-properties-order:
+            - id
+            - name
         state:
-          type: string
+          default: running
           description: The server state
           enum:
             - running
@@ -798,27 +1001,58 @@ components:
             - starting
             - stopping
             - locked
-          default: running
-        state_detail:
           type: string
+        state_detail:
           description: The server state_detail
+          type: string
         tags:
-          type: array
           description: The server associated tags
           items:
             type: string
+          type: array
         volumes:
-          type: object
+          additionalProperties: true
           description: The server volumes
           properties:
             <volumeKey>:
               $ref: '#/components/schemas/scaleway.instance.v1.VolumeServer'
-          additionalProperties: true
+          type: object
         zone:
-          type: string
           description: The zone in which is the server
+          type: string
+      type: object
+      x-properties-order:
+        - id
+        - name
+        - organization
+        - project
+        - allowed_actions
+        - tags
+        - commercial_type
+        - creation_date
+        - dynamic_ip_required
+        - enable_ipv6
+        - hostname
+        - image
+        - protected
+        - private_ip
+        - public_ip
+        - modification_date
+        - state
+        - location
+        - ipv6
+        - bootscript
+        - boot_type
+        - volumes
+        - security_group
+        - maintenances
+        - state_detail
+        - arch
+        - placement_group
+        - private_nics
+        - zone
     scaleway.instance.v1.Server.Action:
-      type: string
+      default: poweron
       enum:
         - poweron
         - backup
@@ -826,312 +1060,398 @@ components:
         - poweroff
         - terminate
         - reboot
-      default: poweron
+      type: string
     scaleway.instance.v1.Server.Maintenance:
       type: object
     scaleway.instance.v1.ServerAction.VolumesProperties:
-      type: object
+      additionalProperties: true
       description: |
         For each volume UUID, the snapshot parameters of the volume.
         This field should only be specified when performing a backup action.
       properties:
         <volumeKey>:
           $ref: '#/components/schemas/scaleway.instance.v1.ServerActionRequest.VolumeBackupTemplate'
-      additionalProperties: true
-    scaleway.instance.v1.ServerActionRequest.VolumeBackupTemplate:
       type: object
+    scaleway.instance.v1.ServerActionRequest.VolumeBackupTemplate:
       properties:
         volume_type:
           $ref: '#/components/schemas/scaleway.instance.v1.Volume.VolumeType'
-    scaleway.instance.v1.ServerActionResponse:
       type: object
+      x-properties-order:
+        - volume_type
+    scaleway.instance.v1.ServerActionResponse:
       properties:
         task:
           $ref: '#/components/schemas/scaleway.instance.v1.Task'
-    scaleway.instance.v1.ServerSummary:
       type: object
+      x-properties-order:
+        - task
+    scaleway.instance.v1.ServerSummary:
       properties:
         id:
           type: string
         name:
           type: string
-    scaleway.instance.v1.ServerType:
       type: object
+      x-properties-order:
+        - id
+        - name
+    scaleway.instance.v1.ServerType:
       properties:
         alt_names:
-          type: array
           description: Alternative instance name if any
           items:
             type: string
+          type: array
         arch:
-          type: string
+          default: x86_64
           description: CPU architecture
           enum:
             - x86_64
             - arm
-          default: x86_64
+          type: string
         baremetal:
-          type: boolean
           description: True if it is a baremetal instance
+          type: boolean
         capabilities:
-          type: object
           description: Capabilities
           properties:
             block_storage:
-              type: boolean
               description: True if server supports block storage
               nullable: true
+              type: boolean
             boot_types:
-              type: array
               description: List of supported boot types
               items:
                 $ref: '#/components/schemas/scaleway.instance.v1.BootType'
+              type: array
+          type: object
+          x-properties-order:
+            - block_storage
+            - boot_types
         gpu:
-          type: number
           description: Number of GPU
           nullable: true
+          type: number
         hourly_price:
-          type: number
           description: Hourly price in Euro
+          type: number
         monthly_price:
-          type: number
-          description: Estimated monthly price, for a 30 days month, in Euro
           deprecated: true
-        ncpus:
+          description: Estimated monthly price, for a 30 days month, in Euro
           type: number
+        ncpus:
           description: Number of CPU
+          type: number
         network:
-          type: object
           description: Network available for the instance
           properties:
             interfaces:
-              type: array
               description: List of available network interfaces
               items:
                 $ref: '#/components/schemas/scaleway.instance.v1.ServerType.Network.Interface'
+              type: array
             ipv6_support:
-              type: boolean
               description: True if IPv6 is enabled
+              type: boolean
             sum_internal_bandwidth:
-              type: number
               description: Total maximum internal bandwidth in bits per seconds
               nullable: true
-            sum_internet_bandwidth:
               type: number
+            sum_internet_bandwidth:
               description: Total maximum internet bandwidth in bits per seconds
               nullable: true
-        per_volume_constraint:
+              type: number
           type: object
+          x-properties-order:
+            - interfaces
+            - sum_internal_bandwidth
+            - sum_internet_bandwidth
+            - ipv6_support
+        per_volume_constraint:
           description: Additional volume constraints
           properties:
             l_ssd:
-              type: object
               description: Local SSD volumes
               properties:
                 max_size:
-                  type: number
                   description: Maximum volume size in bytes (in bytes)
-                min_size:
                   type: number
+                min_size:
                   description: Minimum volume size in bytes (in bytes)
-        ram:
-          type: number
-          description: Available RAM in bytes
-        volumes_constraint:
+                  type: number
+              type: object
+              x-properties-order:
+                - min_size
+                - max_size
           type: object
+          x-properties-order:
+            - l_ssd
+        ram:
+          description: Available RAM in bytes
+          type: number
+        volumes_constraint:
           description: Initial volume constraints
           properties:
             max_size:
-              type: number
               description: Maximum volume size in bytes (in bytes)
-            min_size:
               type: number
+            min_size:
               description: Minimum volume size in bytes (in bytes)
-    scaleway.instance.v1.ServerType.Network.Interface:
+              type: number
+          type: object
+          x-properties-order:
+            - min_size
+            - max_size
       type: object
+      x-properties-order:
+        - monthly_price
+        - hourly_price
+        - alt_names
+        - per_volume_constraint
+        - volumes_constraint
+        - ncpus
+        - gpu
+        - ram
+        - arch
+        - baremetal
+        - network
+        - capabilities
+    scaleway.instance.v1.ServerType.Network.Interface:
       properties:
         internal_bandwidth:
-          type: number
           description: Maximum internal bandwidth in bits per seconds
           nullable: true
-        internet_bandwidth:
           type: number
+        internet_bandwidth:
           description: Maximum internet bandwidth in bits per seconds
           nullable: true
+          type: number
+      type: object
+      x-properties-order:
+        - internal_bandwidth
+        - internet_bandwidth
     scaleway.instance.v1.ServerTypesAvailability:
-      type: string
+      default: available
       enum:
         - available
         - scarce
         - shortage
-      default: available
+      type: string
     scaleway.instance.v1.SetImageResponse:
-      type: object
       properties:
         image:
           $ref: '#/components/schemas/scaleway.instance.v1.Image'
-    scaleway.instance.v1.SetPlacementGroupResponse:
       type: object
+      x-properties-order:
+        - image
+    scaleway.instance.v1.SetPlacementGroupResponse:
       properties:
         placement_group:
           $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup'
-    scaleway.instance.v1.SetPlacementGroupServersResponse:
       type: object
+      x-properties-order:
+        - placement_group
+    scaleway.instance.v1.SetPlacementGroupServersResponse:
       properties:
         servers:
-          type: array
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroupServer'
-    scaleway.instance.v1.SetSecurityGroupResponse:
+          type: array
       type: object
+      x-properties-order:
+        - servers
+    scaleway.instance.v1.SetSecurityGroupResponse:
       properties:
         security_group:
           $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroup'
-    scaleway.instance.v1.SetSecurityGroupRuleResponse:
       type: object
+      x-properties-order:
+        - security_group
+    scaleway.instance.v1.SetSecurityGroupRuleResponse:
       properties:
         rule:
           $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule'
-    scaleway.instance.v1.SetSecurityGroupRulesRequest.Rule:
       type: object
+      x-properties-order:
+        - rule
+    scaleway.instance.v1.SetSecurityGroupRulesRequest.Rule:
       properties:
         action:
-          type: string
+          default: accept
           description: Action to apply when the rule matches a packet
           enum:
             - accept
             - drop
-          default: accept
+          type: string
         dest_port_from:
-          type: number
           description: Beginning of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY
           nullable: true
-        dest_port_to:
           type: number
+        dest_port_to:
           description: End of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY, or if it is equal to dest_port_from
           nullable: true
+          type: number
         direction:
-          type: string
+          default: inbound
           description: Direction the rule applies to
           enum:
             - inbound
             - outbound
-          default: inbound
+          type: string
         editable:
-          type: boolean
           description: Indicates if this rule is editable. Rules with the value false will be ignored
           nullable: true
+          type: boolean
         id:
-          type: string
           description: UUID of the security rule to update. If no value is provided, a new rule will be created
           nullable: true
-        ip_range:
           type: string
+        ip_range:
           description: The range of IP address this rules applies to (IP network)
           example: 1.2.3.4/32
-        position:
-          type: number
-          description: Position of this rule in the security group rules list. If several rules are passed with the same position, the resulting order is undefined
-        protocol:
           type: string
+        position:
+          description: Position of this rule in the security group rules list. If several rules are passed with the same position, the resulting order is undefined
+          type: number
+        protocol:
+          default: TCP
           description: Protocol family this rule applies to
           enum:
             - TCP
             - UDP
             - ICMP
             - ANY
-          default: TCP
-        zone:
           type: string
+        zone:
           description: Zone of the rule. This field is ignored
           nullable: true
-    scaleway.instance.v1.SetSecurityGroupRulesResponse:
+          type: string
       type: object
+      x-properties-order:
+        - id
+        - action
+        - protocol
+        - direction
+        - ip_range
+        - dest_port_from
+        - dest_port_to
+        - position
+        - editable
+        - zone
+    scaleway.instance.v1.SetSecurityGroupRulesResponse:
       properties:
         rules:
-          type: array
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule'
-    scaleway.instance.v1.SetSnapshotResponse:
+          type: array
       type: object
+      x-properties-order:
+        - rules
+    scaleway.instance.v1.SetSnapshotResponse:
       properties:
         snapshot:
           $ref: '#/components/schemas/scaleway.instance.v1.Snapshot'
-    scaleway.instance.v1.SetVolumeResponse:
       type: object
+      x-properties-order:
+        - snapshot
+    scaleway.instance.v1.SetVolumeResponse:
       properties:
         volume:
           $ref: '#/components/schemas/scaleway.instance.v1.Volume'
-    scaleway.instance.v1.Snapshot:
       type: object
+      x-properties-order:
+        - volume
+    scaleway.instance.v1.Snapshot:
       properties:
         base_volume:
-          type: object
           description: The volume on which the snapshot is based on
-          readOnly: true
           properties:
             id:
-              type: string
               description: The volume ID on which the snapshot is based on
-            name:
               type: string
+            name:
               description: The volume name on which the snapshot is based on
+              type: string
+          readOnly: true
+          type: object
+          x-properties-order:
+            - id
+            - name
         creation_date:
-          type: string
-          format: date-time
           description: The snapshot creation date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
           readOnly: true
-        error_reason:
           type: string
+        error_reason:
           description: The reason for the failed snapshot import
           nullable: true
           readOnly: true
+          type: string
         id:
-          type: string
           readOnly: true
-        modification_date:
           type: string
-          format: date-time
+        modification_date:
           description: The snapshot modification date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
           readOnly: true
+          type: string
         name:
-          type: string
           description: The snapshot name
+          type: string
         organization:
-          type: string
           description: The snapshot organization ID
-        project:
           type: string
+        project:
           description: The snapshot project ID
+          type: string
         size:
-          type: number
           description: The snapshot size (in bytes)
+          type: number
         state:
           $ref: '#/components/schemas/scaleway.instance.v1.Snapshot.State'
         tags:
-          type: array
           description: The snapshot tags
           items:
             type: string
+          type: array
         volume_type:
           $ref: '#/components/schemas/scaleway.instance.v1.Volume.VolumeType'
         zone:
-          type: string
           description: The snapshot zone
           readOnly: true
-    scaleway.instance.v1.Snapshot.BaseVolume:
+          type: string
       type: object
+      x-properties-order:
+        - id
+        - name
+        - organization
+        - project
+        - tags
+        - volume_type
+        - size
+        - state
+        - base_volume
+        - creation_date
+        - modification_date
+        - zone
+        - error_reason
+    scaleway.instance.v1.Snapshot.BaseVolume:
       properties:
         id:
-          type: string
           description: The volume ID on which the snapshot is based on
-        name:
           type: string
+        name:
           description: The volume name on which the snapshot is based on
+          type: string
+      type: object
+      x-properties-order:
+        - id
+        - name
     scaleway.instance.v1.Snapshot.State:
-      type: string
+      default: available
       enum:
         - available
         - snapshotting
@@ -1139,30 +1459,29 @@ components:
         - invalid_data
         - importing
         - exporting
-      default: available
+      type: string
     scaleway.instance.v1.Task:
-      type: object
       properties:
         description:
-          type: string
           description: The description of the task
+          type: string
         href_from:
           type: string
         href_result:
           type: string
         id:
-          type: string
           description: The unique ID of the task
-        progress:
-          type: number
-          description: The progress of the task in percent
-        started_at:
           type: string
-          format: date-time
+        progress:
+          description: The progress of the task in percent
+          type: number
+        started_at:
           description: The task start date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
-        status:
+          format: date-time
           type: string
+        status:
+          default: pending
           description: The task status
           enum:
             - pending
@@ -1170,129 +1489,166 @@ components:
             - success
             - failure
             - retry
-          default: pending
-        terminated_at:
           type: string
-          format: date-time
+        terminated_at:
           description: The task end date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
-        zone:
+          format: date-time
           type: string
+        zone:
           description: The zone in which is the task
-    scaleway.instance.v1.UpdateIpResponse:
+          type: string
       type: object
+      x-properties-order:
+        - id
+        - description
+        - progress
+        - started_at
+        - terminated_at
+        - status
+        - href_from
+        - href_result
+        - zone
+    scaleway.instance.v1.UpdateIpResponse:
       properties:
         ip:
           $ref: '#/components/schemas/scaleway.instance.v1.Ip'
-    scaleway.instance.v1.UpdatePlacementGroupResponse:
       type: object
+      x-properties-order:
+        - ip
+    scaleway.instance.v1.UpdatePlacementGroupResponse:
       properties:
         placement_group:
           $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup'
-    scaleway.instance.v1.UpdatePlacementGroupServersResponse:
       type: object
+      x-properties-order:
+        - placement_group
+    scaleway.instance.v1.UpdatePlacementGroupServersResponse:
       properties:
         servers:
-          type: array
           items:
             $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroupServer'
-    scaleway.instance.v1.UpdateServerResponse:
+          type: array
       type: object
+      x-properties-order:
+        - servers
+    scaleway.instance.v1.UpdateServerResponse:
       properties:
         server:
           $ref: '#/components/schemas/scaleway.instance.v1.Server'
-    scaleway.instance.v1.UpdateVolumeResponse:
       type: object
+      x-properties-order:
+        - server
+    scaleway.instance.v1.UpdateVolumeResponse:
       properties:
         volume:
           $ref: '#/components/schemas/scaleway.instance.v1.Volume'
-    scaleway.instance.v1.Volume:
       type: object
-      required:
-        - name
-        - project
+      x-properties-order:
+        - volume
+    scaleway.instance.v1.Volume:
       properties:
         creation_date:
-          type: string
-          format: date-time
           description: The volume creation date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
           readOnly: true
-        export_uri:
           type: string
+        export_uri:
+          deprecated: true
           description: Show the volume NBD export URI
           readOnly: true
-          deprecated: true
+          type: string
         id:
-          type: string
           readOnly: true
-        modification_date:
           type: string
-          format: date-time
+        modification_date:
           description: The volume modification date (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
           readOnly: true
+          type: string
         name:
-          type: string
           description: The volume name
+          type: string
         organization:
-          type: string
-          description: The volume organization ID
           deprecated: true
-        project:
+          description: The volume organization ID
           type: string
+        project:
           description: The volume project ID
+          type: string
         server:
-          type: object
           description: The server attached to the volume
-          readOnly: true
           properties:
             id:
               type: string
             name:
               type: string
+          readOnly: true
+          type: object
+          x-properties-order:
+            - id
+            - name
         size:
-          type: number
           description: The volume disk size (in bytes)
+          type: number
         state:
           $ref: '#/components/schemas/scaleway.instance.v1.VolumeServer.State'
         tags:
-          type: array
           description: The volume tags
           items:
             type: string
+          type: array
         volume_type:
           $ref: '#/components/schemas/scaleway.instance.v1.Volume.VolumeType'
         zone:
-          type: string
           description: The zone in which is the volume
           readOnly: true
+          type: string
+      required:
+        - name
+        - project
+      type: object
+      x-properties-order:
+        - id
+        - name
+        - export_uri
+        - size
+        - volume_type
+        - creation_date
+        - modification_date
+        - organization
+        - project
+        - tags
+        - server
+        - state
+        - zone
     scaleway.instance.v1.Volume.VolumeType:
-      type: string
+      default: l_ssd
       enum:
         - l_ssd
         - b_ssd
         - unified
-      default: l_ssd
+      type: string
     scaleway.instance.v1.VolumeServer:
-      type: object
       properties:
         boot:
           type: boolean
         creation_date:
-          type: string
-          format: date-time
           description: (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
+          type: string
         export_uri:
           type: string
         id:
           type: string
         modification_date:
-          type: string
-          format: date-time
           description: (RFC 3339 format)
           example: "2022-03-22T12:34:56.123456Z"
+          format: date-time
+          type: string
         name:
           type: string
         organization:
@@ -1302,16 +1658,31 @@ components:
         server:
           $ref: '#/components/schemas/scaleway.instance.v1.ServerSummary'
         size:
-          type: number
           description: (in bytes)
+          type: number
         state:
           $ref: '#/components/schemas/scaleway.instance.v1.VolumeServer.State'
         volume_type:
           $ref: '#/components/schemas/scaleway.instance.v1.VolumeServer.VolumeType'
         zone:
           type: string
+      type: object
+      x-properties-order:
+        - id
+        - name
+        - export_uri
+        - organization
+        - server
+        - size
+        - volume_type
+        - creation_date
+        - modification_date
+        - state
+        - project
+        - boot
+        - zone
     scaleway.instance.v1.VolumeServer.State:
-      type: string
+      default: available
       enum:
         - available
         - snapshotting
@@ -1320,76 +1691,98 @@ components:
         - resizing
         - saving
         - hotsyncing
-      default: available
       readOnly: true
-    scaleway.instance.v1.VolumeServer.VolumeType:
       type: string
+    scaleway.instance.v1.VolumeServer.VolumeType:
+      default: l_ssd
       enum:
         - l_ssd
         - b_ssd
-      default: l_ssd
+      type: string
     scaleway.instance.v1.VolumeServerTemplate:
-      type: object
       properties:
         base_snapshot:
-          type: string
           description: The ID of the snapshot on which this volume will be based
+          type: string
         boot:
-          type: boolean
-          description: Force the server to boot on this volume
           default: false
+          description: Force the server to boot on this volume
+          type: boolean
         id:
-          type: string
           description: UUID of the volume
+          type: string
         name:
-          type: string
           description: Name of the volume
+          type: string
         organization:
-          type: string
           description: Organization ID of the volume
-        project:
           type: string
+        project:
           description: Project ID of the volume
+          type: string
         size:
-          type: number
           description: Disk size of the volume, must be a multiple of 512 (in bytes)
+          type: number
         volume_type:
           $ref: '#/components/schemas/scaleway.instance.v1.VolumeServer.VolumeType'
+      type: object
+      x-properties-order:
+        - id
+        - boot
+        - name
+        - size
+        - volume_type
+        - base_snapshot
+        - organization
+        - project
     scaleway.instance.v1.VolumeSummary:
-      type: object
       properties:
         id:
           type: string
         name:
           type: string
         size:
-          type: number
           description: (in bytes)
+          type: number
         volume_type:
           $ref: '#/components/schemas/scaleway.instance.v1.Volume.VolumeType'
-    scaleway.instance.v1.VolumeTemplate:
       type: object
+      x-properties-order:
+        - id
+        - name
+        - size
+        - volume_type
+    scaleway.instance.v1.VolumeTemplate:
       properties:
         id:
-          type: string
           description: UUID of the volume
+          type: string
         name:
-          type: string
           description: Name of the volume
+          type: string
         organization:
-          type: string
-          description: Organization ID of the volume
           deprecated: true
-        project:
+          description: Organization ID of the volume
           type: string
+          x-one-of: ProjectIdentifier
+        project:
           description: Project ID of the volume
+          type: string
+          x-one-of: ProjectIdentifier
         size:
-          type: number
           description: Disk size of the volume, must be a multiple of 512 (in bytes)
+          type: number
         volume_type:
           $ref: '#/components/schemas/scaleway.instance.v1.Volume.VolumeType'
-    scaleway.instance.v1.VolumeType:
       type: object
+      x-properties-order:
+        - id
+        - name
+        - size
+        - volume_type
+        - organization
+        - project
+    scaleway.instance.v1.VolumeType:
       properties:
         capabilities:
           $ref: '#/components/schemas/scaleway.instance.v1.VolumeType.Capabilities'
@@ -1397,22 +1790,31 @@ components:
           $ref: '#/components/schemas/scaleway.instance.v1.VolumeType.Constraints'
         display_name:
           type: string
-    scaleway.instance.v1.VolumeType.Capabilities:
       type: object
+      x-properties-order:
+        - display_name
+        - capabilities
+        - constraints
+    scaleway.instance.v1.VolumeType.Capabilities:
       properties:
         snapshot:
           type: boolean
-    scaleway.instance.v1.VolumeType.Constraints:
       type: object
+      x-properties-order:
+        - snapshot
+    scaleway.instance.v1.VolumeType.Constraints:
       properties:
         max:
-          type: number
           description: (in bytes)
+          type: number
         min:
-          type: number
           description: (in bytes)
-    scaleway.std.File:
+          type: number
       type: object
+      x-properties-order:
+        - min
+        - max
+    scaleway.std.File:
       properties:
         content:
           type: string
@@ -1420,18 +1822,22 @@ components:
           type: string
         name:
           type: string
+      type: object
+      x-properties-order:
+        - name
+        - content_type
+        - content
     scaleway.std.StringsValue:
-      type: array
-      nullable: true
       items:
         type: string
+      nullable: true
+      type: array
   securitySchemes:
     scaleway:
-      type: apiKey
-      name: X-Auth-Token
       in: header
+      name: X-Auth-Token
+      type: apiKey
 info:
-  title: Instance API
   description: |
     # Introduction
 
@@ -1516,21 +1922,18 @@ info:
     ```
 
     The `X-Total-Count` header contains the total number of items for the resource.
+  title: Instance API
   version: v1
 paths:
   /instance/v1/zones/{zone}/bootscripts:
     get:
-      tags:
-        - Bootscripts
-      summary: List bootscripts
       operationId: ListBootscripts
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1539,56 +1942,56 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: arch
-          in: query
+            type: string
+        - in: query
+          name: arch
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: title
-          in: query
+        - in: query
+          name: title
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: default
-          in: query
+        - in: query
+          name: default
           schema:
             $ref: '#/components/schemas/google.protobuf.BoolValue'
-        - name: public
-          in: query
+        - in: query
+          name: public
           schema:
             $ref: '#/components/schemas/google.protobuf.BoolValue'
-        - name: per_page
-          in: query
+        - in: query
+          name: per_page
           schema:
             $ref: '#/components/schemas/google.protobuf.UInt32Value'
-        - name: page
+        - description: Page number
           in: query
-          description: Page number
+          name: page
           schema:
-            type: number
-            description: Page number
             default: 1
+            description: Page number
+            type: number
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListBootscriptsResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/bootscripts/{id}:
-    get:
+      summary: List bootscripts
       tags:
         - Bootscripts
-      summary: Get bootscripts
+  /instance/v1/zones/{zone}/bootscripts/{id}:
+    get:
       description: Get details of a bootscript with the given ID.
       operationId: GetBootscript
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1597,30 +2000,33 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
-          in: path
+            type: string
+        - in: path
+          name: id
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetBootscriptResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Get bootscripts
+      tags:
+        - Bootscripts
   /instance/v1/zones/{zone}/dashboard:
     get:
       operationId: GetDashboard
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1629,37 +2035,34 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: organization
-          in: query
+            type: string
+        - in: query
+          name: organization
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: project
-          in: query
+        - in: query
+          name: project
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetDashboardResponse'
+          description: ""
       security:
         - scaleway: []
   /instance/v1/zones/{zone}/images:
     get:
-      tags:
-        - Images
-      summary: List instance images
       description: List all images available in an account.
       operationId: ListImages
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1668,62 +2071,62 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: organization
-          in: query
+            type: string
+        - in: query
+          name: organization
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: per_page
-          in: query
+        - in: query
+          name: per_page
           schema:
             $ref: '#/components/schemas/google.protobuf.UInt32Value'
-        - name: page
+        - description: Page number
           in: query
-          description: Page number
+          name: page
           schema:
-            type: number
-            description: Page number
             default: 1
-        - name: name
-          in: query
+            description: Page number
+            type: number
+        - in: query
+          name: name
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: public
-          in: query
+        - in: query
+          name: public
           schema:
             $ref: '#/components/schemas/google.protobuf.BoolValue'
-        - name: arch
-          in: query
+        - in: query
+          name: arch
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: project
-          in: query
+        - in: query
+          name: project
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: tags
-          in: query
+        - in: query
+          name: tags
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListImagesResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List instance images
       tags:
         - Images
-      summary: Create an instance image
+    post:
       operationId: CreateImage
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1732,35 +2135,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.Image'
+        required: true
       responses:
         "201":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.CreateImageResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/images/{id}:
-    delete:
+      summary: Create an instance image
       tags:
         - Images
-      summary: Delete an instance image
+  /instance/v1/zones/{zone}/images/{id}:
+    delete:
       description: Delete the image with the given ID.
       operationId: DeleteImage
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1769,31 +2172,31 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the image you want to delete
           in: path
-          description: UUID of the image you want to delete
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the image you want to delete
+            type: string
       responses:
         "204":
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete an instance image
       tags:
         - Images
-      summary: Get an instance image
+    get:
       description: Get details of an image with the given ID.
       operationId: GetImage
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1802,35 +2205,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the image you want to get
           in: path
-          description: UUID of the image you want to get
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the image you want to get
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetImageResponse'
+          description: ""
       security:
         - scaleway: []
-    put:
+      summary: Get an instance image
       tags:
         - Images
-      summary: Update image
+    put:
       description: Replace all image properties with an image message.
       operationId: SetImage
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1839,40 +2242,39 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
-          in: path
+            type: string
+        - in: path
+          name: id
           required: true
           schema:
             type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 arch:
                   $ref: '#/components/schemas/scaleway.instance.v1.Arch'
                 creation_date:
-                  type: string
-                  format: date-time
                   description: (RFC 3339 format)
                   example: "2022-03-22T12:34:56.123456Z"
+                  format: date-time
+                  type: string
                 default_bootscript:
                   $ref: '#/components/schemas/scaleway.instance.v1.Bootscript'
                 extra_volumes:
-                  type: object
+                  additionalProperties: true
                   properties:
                     <extra_volumeKey>:
                       $ref: '#/components/schemas/scaleway.instance.v1.Volume'
-                  additionalProperties: true
+                  type: object
                 from_server:
                   type: string
                 modification_date:
-                  type: string
-                  format: date-time
                   description: (RFC 3339 format)
                   example: "2022-03-22T12:34:56.123456Z"
+                  format: date-time
+                  type: string
                 name:
                   type: string
                 organization:
@@ -1887,28 +2289,43 @@ paths:
                   $ref: '#/components/schemas/scaleway.instance.v1.Image.State'
                 tags:
                   $ref: '#/components/schemas/scaleway.std.StringsValue'
+              type: object
+              x-properties-order:
+                - name
+                - arch
+                - creation_date
+                - modification_date
+                - default_bootscript
+                - extra_volumes
+                - from_server
+                - organization
+                - public
+                - root_volume
+                - state
+                - project
+                - tags
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.SetImageResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Update image
+      tags:
+        - Images
   /instance/v1/zones/{zone}/ips:
     get:
-      tags:
-        - IPs
-      summary: List all flexible IPs
       operationId: ListIps
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1917,70 +2334,70 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: project
-          in: query
-          description: The project ID the IPs are reserved in
-          schema:
             type: string
+        - description: The project ID the IPs are reserved in
+          in: query
+          name: project
+          schema:
             description: The project ID the IPs are reserved in
             nullable: true
-        - name: organization
-          in: query
-          description: The organization ID the IPs are reserved in
-          schema:
             type: string
+        - description: The organization ID the IPs are reserved in
+          in: query
+          name: organization
+          schema:
             description: The organization ID the IPs are reserved in
             nullable: true
-        - name: tags
-          in: query
-          description: Filter IPs with these exact tags (to filter with several tags, use commas to separate them)
-          schema:
             type: string
+        - description: Filter IPs with these exact tags (to filter with several tags, use commas to separate them)
+          in: query
+          name: tags
+          schema:
             description: Filter IPs with these exact tags (to filter with several tags, use commas to separate them)
             nullable: true
-        - name: name
-          in: query
-          description: Filter on the IP address (Works as a LIKE operation on the IP address)
-          schema:
             type: string
+        - description: Filter on the IP address (Works as a LIKE operation on the IP address)
+          in: query
+          name: name
+          schema:
             description: Filter on the IP address (Works as a LIKE operation on the IP address)
             nullable: true
-        - name: per_page
+            type: string
+        - description: A positive integer lower or equal to 100 to select the number of items to return
           in: query
-          description: A positive integer lower or equal to 100 to select the number of items to return
+          name: per_page
           schema:
-            type: number
-            description: A positive integer lower or equal to 100 to select the number of items to return
             default: 50
+            description: A positive integer lower or equal to 100 to select the number of items to return
             nullable: true
-        - name: page
-          in: query
-          description: A positive integer to choose the page to return
-          schema:
             type: number
-            description: A positive integer to choose the page to return
+        - description: A positive integer to choose the page to return
+          in: query
+          name: page
+          schema:
             default: 1
+            description: A positive integer to choose the page to return
+            type: number
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListIpsResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List all flexible IPs
       tags:
         - IPs
-      summary: Reserve a flexible IP
+    post:
       operationId: CreateIp
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -1989,35 +2406,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.Ip'
+        required: true
       responses:
         "201":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.CreateIpResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/ips/{id}:
-    delete:
+      summary: Reserve a flexible IP
       tags:
         - IPs
-      summary: Delete a flexible IP
+  /instance/v1/zones/{zone}/ips/{id}:
+    delete:
       description: Delete the IP with the given ID.
       operationId: DeleteIp
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2026,31 +2443,31 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: The ID or the address of the IP to delete
           in: path
-          description: The ID or the address of the IP to delete
+          name: id
           required: true
           schema:
-            type: string
             description: The ID or the address of the IP to delete
+            type: string
       responses:
         "204":
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete a flexible IP
       tags:
         - IPs
-      summary: Get a flexible IP
+    get:
       description: Get details of an IP with the given ID or address.
       operationId: GetIp
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2059,34 +2476,34 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: The IP ID or address to get
           in: path
-          description: The IP ID or address to get
+          name: id
           required: true
           schema:
-            type: string
             description: The IP ID or address to get
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetIpResponse'
+          description: ""
       security:
         - scaleway: []
-    patch:
+      summary: Get a flexible IP
       tags:
         - IPs
-      summary: Update a flexible IP
+    patch:
       operationId: UpdateIp
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2095,55 +2512,59 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: IP ID or IP address
           in: path
-          description: IP ID or IP address
+          name: id
           required: true
           schema:
-            type: string
             description: IP ID or IP address
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 reverse:
-                  type: string
                   description: Reverse domain name
                   nullable: true
+                  type: string
                 server:
                   $ref: '#/components/schemas/scaleway.instance.v1.NullableStringValue'
                 tags:
-                  type: array
                   description: An array of keywords you want to tag this IP with
-                  nullable: true
                   items:
                     type: string
+                  nullable: true
+                  type: array
+              type: object
+              x-properties-order:
+                - reverse
+                - tags
+                - server
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.UpdateIpResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Update a flexible IP
+      tags:
+        - IPs
   /instance/v1/zones/{zone}/placement_groups:
     get:
-      tags:
-        - Placement Groups
-      summary: List placement groups
       description: List all placement groups.
       operationId: ListPlacementGroups
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2152,71 +2573,71 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: per_page
-          in: query
-          description: A positive integer lower or equal to 100 to select the number of items to return
-          schema:
-            type: number
-            description: A positive integer lower or equal to 100 to select the number of items to return
-            default: 50
-            nullable: true
-        - name: page
-          in: query
-          description: A positive integer to choose the page to return
-          schema:
-            type: number
-            description: A positive integer to choose the page to return
-            default: 1
-        - name: organization
-          in: query
-          description: List only placement groups of this organization ID
-          schema:
             type: string
+        - description: A positive integer lower or equal to 100 to select the number of items to return
+          in: query
+          name: per_page
+          schema:
+            default: 50
+            description: A positive integer lower or equal to 100 to select the number of items to return
+            nullable: true
+            type: number
+        - description: A positive integer to choose the page to return
+          in: query
+          name: page
+          schema:
+            default: 1
+            description: A positive integer to choose the page to return
+            type: number
+        - description: List only placement groups of this organization ID
+          in: query
+          name: organization
+          schema:
             description: List only placement groups of this organization ID
             nullable: true
-        - name: project
-          in: query
-          description: List only placement groups of this project ID
-          schema:
             type: string
+        - description: List only placement groups of this project ID
+          in: query
+          name: project
+          schema:
             description: List only placement groups of this project ID
             nullable: true
-        - name: tags
-          in: query
-          description: List placement groups with these exact tags (to filter with several tags, use commas to separate them)
-          schema:
             type: string
+        - description: List placement groups with these exact tags (to filter with several tags, use commas to separate them)
+          in: query
+          name: tags
+          schema:
             description: List placement groups with these exact tags (to filter with several tags, use commas to separate them)
             nullable: true
-        - name: name
-          in: query
-          description: Filter placement groups by name (for eg. "cluster1" will return "cluster100" and "cluster1" but not "foo")
-          schema:
             type: string
+        - description: Filter placement groups by name (for eg. "cluster1" will return "cluster100" and "cluster1" but not "foo")
+          in: query
+          name: name
+          schema:
             description: Filter placement groups by name (for eg. "cluster1" will return "cluster100" and "cluster1" but not "foo")
             nullable: true
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListPlacementGroupsResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List placement groups
       tags:
         - Placement Groups
-      summary: Create a placement group
+    post:
       description: Create a new placement group.
       operationId: CreatePlacementGroup
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2225,35 +2646,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup'
+        required: true
       responses:
         "201":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.CreatePlacementGroupResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/placement_groups/{id}:
-    delete:
+      summary: Create a placement group
       tags:
         - Placement Groups
-      summary: Delete the given placement group
+  /instance/v1/zones/{zone}/placement_groups/{id}:
+    delete:
       description: Delete the given placement group.
       operationId: DeletePlacementGroup
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2262,31 +2683,31 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the placement group you want to delete
           in: path
-          description: UUID of the placement group you want to delete
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the placement group you want to delete
+            type: string
       responses:
         "204":
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete the given placement group
       tags:
         - Placement Groups
-      summary: Get a placement group
+    get:
       description: Get the given placement group.
       operationId: GetPlacementGroup
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2295,35 +2716,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the placement group you want to get
           in: path
-          description: UUID of the placement group you want to get
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the placement group you want to get
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetPlacementGroupResponse'
+          description: ""
       security:
         - scaleway: []
-    patch:
+      summary: Get a placement group
       tags:
         - Placement Groups
-      summary: Update a placement group
+    patch:
       description: Update one or more parameter of the given placement group.
       operationId: UpdatePlacementGroup
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2332,56 +2753,61 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the placement group
           in: path
-          description: UUID of the placement group
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the placement group
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 name:
-                  type: string
                   description: Name of the placement group
                   nullable: true
+                  type: string
                 policy_mode:
                   $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyMode'
                 policy_type:
                   $ref: '#/components/schemas/scaleway.instance.v1.PlacementGroup.PolicyType'
                 tags:
-                  type: array
                   description: The tags of the placement group
-                  nullable: true
                   items:
                     type: string
+                  nullable: true
+                  type: array
+              type: object
+              x-properties-order:
+                - name
+                - tags
+                - policy_mode
+                - policy_type
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.UpdatePlacementGroupResponse'
+          description: ""
       security:
         - scaleway: []
-    put:
+      summary: Update a placement group
       tags:
         - Placement Groups
-      summary: Set placement group
+    put:
       description: Set all parameters of the given placement group.
       operationId: SetPlacementGroup
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2390,19 +2816,18 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the placement group
           in: path
-          description: UUID of the placement group
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the placement group
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 name:
                   type: string
@@ -2416,29 +2841,37 @@ paths:
                   type: string
                 tags:
                   $ref: '#/components/schemas/scaleway.std.StringsValue'
+              type: object
+              x-properties-order:
+                - name
+                - organization
+                - policy_mode
+                - policy_type
+                - project
+                - tags
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.SetPlacementGroupResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/placement_groups/{placement_group_id}/servers:
-    get:
+      summary: Set placement group
       tags:
         - Placement Groups
-      summary: Get placement group servers
+  /instance/v1/zones/{zone}/placement_groups/{placement_group_id}/servers:
+    get:
       description: Get all servers belonging to the given placement group.
       operationId: GetPlacementGroupServers
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2447,35 +2880,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: placement_group_id
+            type: string
+        - description: UUID of the placement group
           in: path
-          description: UUID of the placement group
+          name: placement_group_id
           required: true
           schema:
-            type: string
             description: UUID of the placement group
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetPlacementGroupServersResponse'
+          description: ""
       security:
         - scaleway: []
-    patch:
+      summary: Get placement group servers
       tags:
         - Placement Groups
-      summary: Update placement group servers
+    patch:
       description: Update all servers belonging to the given placement group.
       operationId: UpdatePlacementGroupServers
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2484,48 +2917,50 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: placement_group_id
+            type: string
+        - description: UUID of the placement group
           in: path
-          description: UUID of the placement group
+          name: placement_group_id
           required: true
           schema:
-            type: string
             description: UUID of the placement group
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - servers
               properties:
                 servers:
-                  type: array
                   items:
                     type: string
+                  type: array
+              required:
+                - servers
+              type: object
+              x-properties-order:
+                - servers
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.UpdatePlacementGroupServersResponse'
+          description: ""
       security:
         - scaleway: []
-    put:
+      summary: Update placement group servers
       tags:
         - Placement Groups
-      summary: Set placement group servers
+    put:
       description: Set all servers belonging to the given placement group.
       operationId: SetPlacementGroupServers
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2534,47 +2969,49 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: placement_group_id
+            type: string
+        - description: UUID of the placement group
           in: path
-          description: UUID of the placement group
+          name: placement_group_id
           required: true
           schema:
-            type: string
             description: UUID of the placement group
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 servers:
-                  type: array
                   items:
                     type: string
+                  type: array
+              type: object
+              x-properties-order:
+                - servers
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.SetPlacementGroupServersResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Set placement group servers
+      tags:
+        - Placement Groups
   /instance/v1/zones/{zone}/products/servers:
     get:
-      tags:
-        - Server types
-      summary: List server types
       description: Get server types technical details.
       operationId: ListServersTypes
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2583,40 +3020,40 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: per_page
-          in: query
+            type: string
+        - in: query
+          name: per_page
           schema:
             $ref: '#/components/schemas/google.protobuf.UInt32Value'
-        - name: page
+        - description: Page number
           in: query
-          description: Page number
+          name: page
           schema:
-            type: number
-            description: Page number
             default: 1
+            description: Page number
+            type: number
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListServersTypesResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/products/servers/availability:
-    get:
+      summary: List server types
       tags:
         - Server types
-      summary: Get availability
+  /instance/v1/zones/{zone}/products/servers/availability:
+    get:
       description: Get availability for all server types.
       operationId: GetServerTypesAvailability
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2625,40 +3062,40 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: per_page
-          in: query
+            type: string
+        - in: query
+          name: per_page
           schema:
             $ref: '#/components/schemas/google.protobuf.UInt32Value'
-        - name: page
+        - description: Page number
           in: query
-          description: Page number
+          name: page
           schema:
-            type: number
-            description: Page number
             default: 1
+            description: Page number
+            type: number
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetServerTypesAvailabilityResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Get availability
+      tags:
+        - Server types
   /instance/v1/zones/{zone}/products/volumes:
     get:
-      tags:
-        - Volume types
-      summary: List volumes types
       description: Get volumes technical details.
       operationId: ListVolumesTypes
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2667,40 +3104,40 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: per_page
-          in: query
+            type: string
+        - in: query
+          name: per_page
           schema:
             $ref: '#/components/schemas/google.protobuf.UInt32Value'
-        - name: page
+        - description: Page number
           in: query
-          description: Page number
+          name: page
           schema:
-            type: number
-            description: Page number
             default: 1
+            description: Page number
+            type: number
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListVolumesTypesResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: List volumes types
+      tags:
+        - Volume types
   /instance/v1/zones/{zone}/security_groups:
     get:
-      tags:
-        - Security Groups
-      summary: List security groups
       description: List all security groups available in an account.
       operationId: ListSecurityGroups
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2709,77 +3146,77 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: name
-          in: query
-          description: Name of the security group
-          schema:
             type: string
+        - description: Name of the security group
+          in: query
+          name: name
+          schema:
             description: Name of the security group
             nullable: true
-        - name: organization
-          in: query
-          description: The security group organization ID
-          schema:
             type: string
+        - description: The security group organization ID
+          in: query
+          name: organization
+          schema:
             description: The security group organization ID
             nullable: true
-        - name: project
-          in: query
-          description: The security group project ID
-          schema:
             type: string
+        - description: The security group project ID
+          in: query
+          name: project
+          schema:
             description: The security group project ID
             nullable: true
-        - name: tags
-          in: query
-          description: List security groups with these exact tags (to filter with several tags, use commas to separate them)
-          schema:
             type: string
+        - description: List security groups with these exact tags (to filter with several tags, use commas to separate them)
+          in: query
+          name: tags
+          schema:
             description: List security groups with these exact tags (to filter with several tags, use commas to separate them)
             nullable: true
-        - name: project_default
+            type: string
+        - description: Filter security groups with this value for project_default
           in: query
-          description: Filter security groups with this value for project_default
+          name: project_default
           schema:
-            type: boolean
             description: Filter security groups with this value for project_default
             nullable: true
-        - name: per_page
+            type: boolean
+        - description: A positive integer lower or equal to 100 to select the number of items to return
           in: query
-          description: A positive integer lower or equal to 100 to select the number of items to return
+          name: per_page
           schema:
-            type: number
-            description: A positive integer lower or equal to 100 to select the number of items to return
             default: 50
+            description: A positive integer lower or equal to 100 to select the number of items to return
             nullable: true
-        - name: page
-          in: query
-          description: A positive integer to choose the page to return
-          schema:
             type: number
-            description: A positive integer to choose the page to return
+        - description: A positive integer to choose the page to return
+          in: query
+          name: page
+          schema:
             default: 1
+            description: A positive integer to choose the page to return
+            type: number
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListSecurityGroupsResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List security groups
       tags:
         - Security Groups
-      summary: Create a security group
+    post:
       operationId: CreateSecurityGroup
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2788,34 +3225,34 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroup'
+        required: true
       responses:
         "201":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.CreateSecurityGroupResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/security_groups/{id}:
-    delete:
+      summary: Create a security group
       tags:
         - Security Groups
-      summary: Delete a security group
+  /instance/v1/zones/{zone}/security_groups/{id}:
+    delete:
       operationId: DeleteSecurityGroup
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2824,31 +3261,31 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: security_group_id
+            type: string
+        - description: UUID of the security group you want to delete
           in: path
-          description: UUID of the security group you want to delete
+          name: security_group_id
           required: true
           schema:
-            type: string
             description: UUID of the security group you want to delete
+            type: string
       responses:
         "204":
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete a security group
       tags:
         - Security Groups
-      summary: Get a security group
+    get:
       description: Get the details of a Security Group with the given ID.
       operationId: GetSecurityGroup
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2857,35 +3294,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: security_group_id
+            type: string
+        - description: UUID of the security group you want to get
           in: path
-          description: UUID of the security group you want to get
+          name: security_group_id
           required: true
           schema:
-            type: string
             description: UUID of the security group you want to get
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetSecurityGroupResponse'
+          description: ""
       security:
         - scaleway: []
-    put:
+      summary: Get a security group
       tags:
         - Security Groups
-      summary: Update a security group
+    put:
       description: Replace all security group properties with a security group message.
       operationId: SetSecurityGroup
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2894,41 +3331,41 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: The ID of the security group (will be ignored)
           in: path
-          description: The ID of the security group (will be ignored)
+          name: id
           required: true
           schema:
-            type: string
             description: The ID of the security group (will be ignored)
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroup'
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.SetSecurityGroupResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/security_groups/{security_group_id}/rules:
-    get:
+      summary: Update a security group
       tags:
         - Security Groups
-      summary: List rules
+  /instance/v1/zones/{zone}/security_groups/{security_group_id}/rules:
+    get:
       operationId: ListSecurityGroupRules
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2937,49 +3374,49 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: security_group_id
+            type: string
+        - description: UUID of the security group
           in: path
-          description: UUID of the security group
+          name: security_group_id
           required: true
           schema:
-            type: string
             description: UUID of the security group
-        - name: per_page
+            type: string
+        - description: A positive integer lower or equal to 100 to select the number of items to return
           in: query
-          description: A positive integer lower or equal to 100 to select the number of items to return
+          name: per_page
           schema:
-            type: number
-            description: A positive integer lower or equal to 100 to select the number of items to return
             default: 50
+            description: A positive integer lower or equal to 100 to select the number of items to return
             nullable: true
-        - name: page
-          in: query
-          description: A positive integer to choose the page to return
-          schema:
             type: number
-            description: A positive integer to choose the page to return
+        - description: A positive integer to choose the page to return
+          in: query
+          name: page
+          schema:
             default: 1
+            description: A positive integer to choose the page to return
+            type: number
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListSecurityGroupRulesResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List rules
       tags:
         - Security Groups
-      summary: Create rule
+    post:
       operationId: CreateSecurityGroupRule
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -2988,71 +3425,80 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: security_group_id
+            type: string
+        - description: UUID of the security group
           in: path
-          description: UUID of the security group
+          name: security_group_id
           required: true
           schema:
-            type: string
             description: UUID of the security group
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
+              properties:
+                action:
+                  $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Action'
+                dest_port_from:
+                  description: The beginning of the range of ports to apply this rule to (inclusive)
+                  nullable: true
+                  type: number
+                dest_port_to:
+                  description: The end of the range of ports to apply this rule to (inclusive)
+                  nullable: true
+                  type: number
+                direction:
+                  $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Direction'
+                editable:
+                  description: Indicates if this rule is editable (will be ignored)
+                  type: boolean
+                ip_range:
+                  description: (IP network)
+                  example: 1.2.3.4/32
+                  type: string
+                position:
+                  description: The position of this rule in the security group rules list
+                  type: number
+                protocol:
+                  $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Protocol'
               required:
                 - protocol
                 - direction
                 - action
                 - ip_range
-              properties:
-                action:
-                  $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Action'
-                dest_port_from:
-                  type: number
-                  description: The beginning of the range of ports to apply this rule to (inclusive)
-                  nullable: true
-                dest_port_to:
-                  type: number
-                  description: The end of the range of ports to apply this rule to (inclusive)
-                  nullable: true
-                direction:
-                  $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Direction'
-                editable:
-                  type: boolean
-                  description: Indicates if this rule is editable (will be ignored)
-                ip_range:
-                  type: string
-                  description: (IP network)
-                  example: 1.2.3.4/32
-                position:
-                  type: number
-                  description: The position of this rule in the security group rules list
-                protocol:
-                  $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule.Protocol'
+              type: object
+              x-properties-order:
+                - protocol
+                - direction
+                - action
+                - ip_range
+                - dest_port_from
+                - dest_port_to
+                - position
+                - editable
+        required: true
       responses:
         "201":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.CreateSecurityGroupRuleResponse'
+          description: ""
       security:
         - scaleway: []
-    put:
+      summary: Create rule
       tags:
         - Security Groups
-      summary: Update all the rules of a security group
+    put:
       description: Replaces the rules of the security group with the rules provided. This endpoint supports the update of existing rules, creation of new rules and deletion of existing rules when they are not passed in the request.
       operationId: SetSecurityGroupRules
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3061,48 +3507,50 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: security_group_id
+            type: string
+        - description: UUID of the security group to update the rules on
           in: path
-          description: UUID of the security group to update the rules on
+          name: security_group_id
           required: true
           schema:
-            type: string
             description: UUID of the security group to update the rules on
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 rules:
-                  type: array
                   description: List of rules to update in the security group
                   items:
                     $ref: '#/components/schemas/scaleway.instance.v1.SetSecurityGroupRulesRequest.Rule'
+                  type: array
+              type: object
+              x-properties-order:
+                - rules
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.SetSecurityGroupRulesResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/security_groups/{security_group_id}/rules/{id}:
-    delete:
+      summary: Update all the rules of a security group
       tags:
         - Security Groups
-      summary: Delete rule
+  /instance/v1/zones/{zone}/security_groups/{security_group_id}/rules/{id}:
+    delete:
       description: Delete a security group rule with the given ID.
       operationId: DeleteSecurityGroupRule
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3111,13 +3559,14 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: security_group_id
-          in: path
+            type: string
+        - in: path
+          name: security_group_id
           required: true
           schema:
             type: string
-        - name: id
-          in: path
+        - in: path
+          name: id
           required: true
           schema:
             type: string
@@ -3126,19 +3575,18 @@ paths:
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete rule
       tags:
         - Security Groups
-      summary: Get rule
+    get:
       description: Get details of a security group rule with the given ID.
       operationId: GetSecurityGroupRule
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3147,37 +3595,37 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: security_group_id
-          in: path
+            type: string
+        - in: path
+          name: security_group_id
           required: true
           schema:
             type: string
-        - name: id
-          in: path
+        - in: path
+          name: id
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetSecurityGroupRuleResponse'
+          description: ""
       security:
         - scaleway: []
-    put:
+      summary: Get rule
       tags:
         - Security Groups
-      summary: Update security group rule
+    put:
       operationId: SetSecurityGroupRule
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3186,45 +3634,45 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: security_group_id
-          in: path
+            type: string
+        - in: path
+          name: security_group_id
           required: true
           schema:
             type: string
-        - name: id
-          in: path
+        - in: path
+          name: id
           required: true
           schema:
             type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupRule'
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.SetSecurityGroupRuleResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/security_groups/default/rules:
-    get:
+      summary: Update security group rule
       tags:
         - Security Groups
-      summary: Get default rules
+  /instance/v1/zones/{zone}/security_groups/default/rules:
+    get:
       description: Lists the default rules applied to all the security groups.
       operationId: ListDefaultSecurityGroupRules
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3233,28 +3681,28 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListSecurityGroupRulesResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Get default rules
+      tags:
+        - Security Groups
   /instance/v1/zones/{zone}/servers:
     get:
-      tags:
-        - Servers
-      summary: List all servers
       operationId: ListServers
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3263,69 +3711,70 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: per_page
-          in: query
-          description: A positive integer lower or equal to 100 to select the number of items to return
-          schema:
-            type: number
-            description: A positive integer lower or equal to 100 to select the number of items to return
-            default: 50
-            nullable: true
-        - name: page
-          in: query
-          description: A positive integer to choose the page to return
-          schema:
-            type: number
-            description: A positive integer to choose the page to return
-            default: 1
-        - name: organization
-          in: query
-          description: List only servers of this organization ID
-          schema:
             type: string
+        - description: A positive integer lower or equal to 100 to select the number of items to return
+          in: query
+          name: per_page
+          schema:
+            default: 50
+            description: A positive integer lower or equal to 100 to select the number of items to return
+            nullable: true
+            type: number
+        - description: A positive integer to choose the page to return
+          in: query
+          name: page
+          schema:
+            default: 1
+            description: A positive integer to choose the page to return
+            type: number
+        - description: List only servers of this organization ID
+          in: query
+          name: organization
+          schema:
             description: List only servers of this organization ID
             nullable: true
-        - name: project
-          in: query
-          description: List only servers of this project ID
-          schema:
             type: string
+        - description: List only servers of this project ID
+          in: query
+          name: project
+          schema:
             description: List only servers of this project ID
             nullable: true
-        - name: name
-          in: query
-          description: Filter servers by name (for eg. "server1" will return "server100" and "server1" but not "foo")
-          schema:
             type: string
+        - description: Filter servers by name (for eg. "server1" will return "server100" and "server1" but not "foo")
+          in: query
+          name: name
+          schema:
             description: Filter servers by name (for eg. "server1" will return "server100" and "server1" but not "foo")
             nullable: true
-        - name: private_ip
-          in: query
-          description: List servers by private_ip (IP address)
-          schema:
             type: string
+        - description: List servers by private_ip (IP address)
+          in: query
+          name: private_ip
+          schema:
             description: List servers by private_ip (IP address)
             example: 1.2.3.4
             nullable: true
-        - name: without_ip
+            type: string
+        - description: List servers that are not attached to a public IP
           in: query
-          description: List servers that are not attached to a public IP
+          name: without_ip
           schema:
-            type: boolean
             description: List servers that are not attached to a public IP
             nullable: true
-        - name: commercial_type
+            type: boolean
+        - description: List servers of this commercial type
           in: query
-          description: List servers of this commercial type
+          name: commercial_type
           schema:
-            type: string
             description: List servers of this commercial type
             nullable: true
-        - name: state
-          in: query
-          description: List servers in this state
-          schema:
             type: string
+        - description: List servers in this state
+          in: query
+          name: state
+          schema:
+            default: running
             description: List servers in this state
             enum:
               - running
@@ -3334,46 +3783,46 @@ paths:
               - starting
               - stopping
               - locked
-            default: running
-        - name: tags
-          in: query
-          description: List servers with these exact tags (to filter with several tags, use commas to separate them)
-          schema:
             type: string
+        - description: List servers with these exact tags (to filter with several tags, use commas to separate them)
+          in: query
+          name: tags
+          schema:
             description: List servers with these exact tags (to filter with several tags, use commas to separate them)
             nullable: true
-        - name: private_network
-          in: query
-          description: List servers in this Private Network
-          schema:
             type: string
+        - description: List servers in this Private Network
+          in: query
+          name: private_network
+          schema:
             description: List servers in this Private Network
             nullable: true
-        - name: order
-          in: query
-          description: Define the order of the returned servers
-          schema:
             type: string
+        - description: Define the order of the returned servers
+          in: query
+          name: order
+          schema:
+            default: creation_date_desc
             description: Define the order of the returned servers
             enum:
               - creation_date_desc
               - creation_date_asc
               - modification_date_desc
               - modification_date_asc
-            default: creation_date_desc
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListServersResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List all servers
       tags:
         - Servers
-      summary: Create a server
+    post:
       description: |
         The `volumes` key is a dictionary composed of the volume position as key and the volume parameters as value.
         Depending of the volume parameters, you can achieve different behaviours :
@@ -3395,12 +3844,11 @@ paths:
         Optional : `organization`, `project`, `boot`.
       operationId: CreateServer
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3409,98 +3857,115 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - name
-                - commercial_type
               properties:
                 boot_type:
-                  type: string
+                  default: local
                   description: The boot type to use
                   enum:
                     - local
                     - bootscript
                     - rescue
-                  default: local
-                bootscript:
                   type: string
+                bootscript:
                   description: The bootscript ID to use when `boot_type` is set to `bootscript`
                   nullable: true
-                commercial_type:
                   type: string
+                commercial_type:
                   description: Define the server commercial type (i.e. GP1-S)
+                  type: string
                 dynamic_ip_required:
-                  type: boolean
                   description: Define if a dynamic IP is required for the instance
                   nullable: true
-                enable_ipv6:
                   type: boolean
+                enable_ipv6:
                   description: True if IPv6 is enabled on the server
+                  type: boolean
                 image:
-                  type: string
                   description: The server image ID
+                  type: string
                 name:
-                  type: string
                   description: The server name
+                  type: string
                 organization:
-                  type: string
-                  description: The server organization ID
                   deprecated: true
-                placement_group:
+                  description: The server organization ID
                   type: string
+                  x-one-of: ProjectIdentifier
+                placement_group:
                   description: Placement group ID if server must be part of a placement group
                   nullable: true
+                  type: string
                 project:
-                  type: string
                   description: The server project ID
-                public_ip:
                   type: string
+                  x-one-of: ProjectIdentifier
+                public_ip:
                   description: The ID of the reserved IP to attach to the server
                   nullable: true
-                security_group:
                   type: string
+                security_group:
                   description: The security group ID
                   nullable: true
+                  type: string
                 tags:
-                  type: array
                   description: The server tags
                   items:
                     type: string
+                  type: array
                 volumes:
-                  type: object
+                  additionalProperties: true
                   description: The volumes attached to the server
                   properties:
                     <volumeKey>:
                       $ref: '#/components/schemas/scaleway.instance.v1.VolumeServerTemplate'
-                  additionalProperties: true
+                  type: object
+              required:
+                - name
+                - commercial_type
+              type: object
+              x-properties-order:
+                - name
+                - dynamic_ip_required
+                - commercial_type
+                - image
+                - volumes
+                - enable_ipv6
+                - public_ip
+                - boot_type
+                - bootscript
+                - organization
+                - project
+                - tags
+                - security_group
+                - placement_group
+        required: true
       responses:
         "201":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.CreateServerResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/servers/{id}:
-    delete:
+      summary: Create a server
       tags:
         - Servers
-      summary: Delete a server
+  /instance/v1/zones/{zone}/servers/{id}:
+    delete:
       description: Delete a server with the given ID.
       operationId: DeleteServer
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3509,8 +3974,9 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
-          in: path
+            type: string
+        - in: path
+          name: id
           required: true
           schema:
             type: string
@@ -3519,19 +3985,18 @@ paths:
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete a server
       tags:
         - Servers
-      summary: Get a server
+    get:
       description: Get the details of a specified Server.
       operationId: GetServer
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3540,34 +4005,34 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the server you want to get
           in: path
-          description: UUID of the server you want to get
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the server you want to get
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetServerResponse'
+          description: ""
       security:
         - scaleway: []
-    patch:
+      summary: Get a server
       tags:
         - Servers
-      summary: Update a server
+    patch:
       operationId: UpdateServer
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3576,19 +4041,18 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the server
           in: path
-          description: UUID of the server
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the server
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 boot_type:
                   $ref: '#/components/schemas/scaleway.instance.v1.BootType'
@@ -3599,57 +4063,70 @@ paths:
                 enable_ipv6:
                   $ref: '#/components/schemas/google.protobuf.BoolValue'
                 name:
-                  type: string
                   description: Name of the server
                   nullable: true
-                placement_group:
                   type: string
+                placement_group:
                   description: Placement group ID if server must be part of a placement group
                   nullable: true
+                  type: string
                 private_nics:
-                  type: array
                   description: The server private NICs
                   items:
                     $ref: '#/components/schemas/scaleway.instance.v1.PrivateNIC'
+                  type: array
                 protected:
                   $ref: '#/components/schemas/google.protobuf.BoolValue'
                 security_group:
                   $ref: '#/components/schemas/scaleway.instance.v1.SecurityGroupTemplate'
                 tags:
-                  type: array
                   description: Tags of the server
-                  nullable: true
                   items:
                     type: string
+                  nullable: true
+                  type: array
                 volumes:
-                  type: object
+                  additionalProperties: true
                   properties:
                     <volumeKey>:
                       $ref: '#/components/schemas/scaleway.instance.v1.VolumeServerTemplate'
-                  additionalProperties: true
+                  type: object
+              type: object
+              x-properties-order:
+                - name
+                - boot_type
+                - tags
+                - volumes
+                - bootscript
+                - dynamic_ip_required
+                - enable_ipv6
+                - protected
+                - security_group
+                - placement_group
+                - private_nics
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.UpdateServerResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/servers/{server_id}/action:
-    get:
+      summary: Update a server
       tags:
         - Servers
-      summary: List server actions
+  /instance/v1/zones/{zone}/servers/{server_id}/action:
+    get:
       description: List all actions that can currently be performed on a server.
       operationId: ListServerActions
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3658,33 +4135,33 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
-          in: path
+            type: string
+        - in: path
+          name: server_id
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListServerActionsResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List server actions
       tags:
         - Servers
-      summary: Perform action
+    post:
       description: Perform power related actions on a server. Be wary that when terminating a server, all the attached volumes (local *and* block storage) are deleted. So, if you want to keep your local volumes, you must use the `archive` action instead of `terminate`. And if you want to keep block-storage volumes, **you must** detach it beforehand you issue the `terminate` call.  For more information, read the [Volumes](#volumes-7e8a39) documentation.
       operationId: ServerAction
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3693,22 +4170,21 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
+            type: string
+        - description: UUID of the server
           in: path
-          description: UUID of the server
+          name: server_id
           required: true
           schema:
-            type: string
             description: UUID of the server
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 action:
-                  type: string
+                  default: poweron
                   description: The action to perform on the server
                   enum:
                     - poweron
@@ -3717,38 +4193,43 @@ paths:
                     - poweroff
                     - terminate
                     - reboot
-                  default: poweron
-                name:
                   type: string
+                name:
                   description: |
                     The name of the backup you want to create.
                     This field should only be specified when performing a backup action.
                   nullable: true
+                  type: string
                 volumes:
                   $ref: '#/components/schemas/scaleway.instance.v1.ServerAction.VolumesProperties'
+              type: object
+              x-properties-order:
+                - action
+                - name
+                - volumes
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ServerActionResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Perform action
+      tags:
+        - Servers
   /instance/v1/zones/{zone}/servers/{server_id}/private_nics:
     get:
-      tags:
-        - Private NICs
-      summary: List all private NICs
       description: List all private NICs of a given server.
       operationId: ListPrivateNICs
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3757,33 +4238,33 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
-          in: path
+            type: string
+        - in: path
+          name: server_id
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListPrivateNICsResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List all private NICs
       tags:
         - Private NICs
-      summary: Create a private NIC connecting a server to a private network
+    post:
       description: Create a private NIC connecting a server to a private network.
       operationId: CreatePrivateNIC
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3792,45 +4273,47 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
-          in: path
+            type: string
+        - in: path
+          name: server_id
           required: true
           schema:
             type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - private_network_id
               properties:
                 private_network_id:
                   type: string
+              required:
+                - private_network_id
+              type: object
+              x-properties-order:
+                - private_network_id
+        required: true
       responses:
         "201":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.CreatePrivateNICResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/servers/{server_id}/private_nics/{id}:
-    delete:
+      summary: Create a private NIC connecting a server to a private network
       tags:
         - Private NICs
-      summary: Delete a private NIC
+  /instance/v1/zones/{zone}/servers/{server_id}/private_nics/{id}:
+    delete:
       description: Delete a private NIC.
       operationId: DeletePrivateNIC
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3839,13 +4322,14 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
-          in: path
+            type: string
+        - in: path
+          name: server_id
           required: true
           schema:
             type: string
-        - name: id
-          in: path
+        - in: path
+          name: id
           required: true
           schema:
             type: string
@@ -3854,19 +4338,18 @@ paths:
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete a private NIC
       tags:
         - Private NICs
-      summary: Get a private NIC
+    get:
       description: Get private NIC properties.
       operationId: GetPrivateNIC
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3875,39 +4358,39 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
-          in: path
+            type: string
+        - in: path
+          name: server_id
           required: true
           schema:
             type: string
-        - name: id
-          in: path
+        - in: path
+          name: id
           required: true
           schema:
             type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetPrivateNICResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Get a private NIC
+      tags:
+        - Private NICs
   /instance/v1/zones/{zone}/servers/{server_id}/user_data:
     get:
-      tags:
-        - User-Data
-      summary: List user data
       description: List all user data keys registered on a given server.
       operationId: ListServerUserData
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3916,36 +4399,36 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
+            type: string
+        - description: UUID of the server
           in: path
-          description: UUID of the server
+          name: server_id
           required: true
           schema:
-            type: string
             description: UUID of the server
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListServerUserDataResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/servers/{server_id}/user_data/{key}:
-    delete:
+      summary: List user data
       tags:
         - User-Data
-      summary: Delete user data
+  /instance/v1/zones/{zone}/servers/{server_id}/user_data/{key}:
+    delete:
       description: Delete the given key from a server user data.
       operationId: DeleteServerUserData
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3954,38 +4437,38 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
+            type: string
+        - description: UUID of the server
           in: path
-          description: UUID of the server
+          name: server_id
           required: true
           schema:
-            type: string
             description: UUID of the server
-        - name: key
+            type: string
+        - description: Key of the user data to delete
           in: path
-          description: Key of the user data to delete
+          name: key
           required: true
           schema:
-            type: string
             description: Key of the user data to delete
+            type: string
       responses:
         "204":
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete user data
       tags:
         - User-Data
-      summary: Get user data
+    get:
       description: Get the content of a user data with the given key on a server.
       operationId: GetServerUserData
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -3994,42 +4477,42 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
+            type: string
+        - description: UUID of the server
           in: path
-          description: UUID of the server
+          name: server_id
           required: true
           schema:
-            type: string
             description: UUID of the server
-        - name: key
+            type: string
+        - description: Key of the user data to get
           in: path
-          description: Key of the user data to get
+          name: key
           required: true
           schema:
-            type: string
             description: Key of the user data to get
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.std.File'
+          description: ""
       security:
         - scaleway: []
-    patch:
+      summary: Get user data
       tags:
         - User-Data
-      summary: Add/Set user data
+    patch:
       description: Add or update a user data with the given key on a server.
       operationId: SetServerUserData
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4038,45 +4521,45 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: server_id
+            type: string
+        - description: UUID of the server
           in: path
-          description: UUID of the server
+          name: server_id
           required: true
           schema:
-            type: string
             description: UUID of the server
-        - name: key
+            type: string
+        - description: Key of the user data to set
           in: path
-          description: Key of the user data to set
+          name: key
           required: true
           schema:
-            type: string
             description: Key of the user data to set
+            type: string
       requestBody:
-        required: true
         content:
           '*/*':
             schema:
-              type: string
               format: binary
+              type: string
+        required: true
       responses:
         "204":
           description: ""
       security:
         - scaleway: []
+      summary: Add/Set user data
+      tags:
+        - User-Data
   /instance/v1/zones/{zone}/snapshots:
     get:
-      tags:
-        - Snapshots
-      summary: List snapshots
       operationId: ListSnapshots
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4085,54 +4568,54 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: organization
-          in: query
+            type: string
+        - in: query
+          name: organization
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: per_page
-          in: query
+        - in: query
+          name: per_page
           schema:
             $ref: '#/components/schemas/google.protobuf.UInt32Value'
-        - name: page
+        - description: Page number
           in: query
-          description: Page number
+          name: page
           schema:
-            type: number
-            description: Page number
             default: 1
-        - name: name
-          in: query
+            description: Page number
+            type: number
+        - in: query
+          name: name
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: project
-          in: query
+        - in: query
+          name: project
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
-        - name: tags
-          in: query
+        - in: query
+          name: tags
           schema:
             $ref: '#/components/schemas/google.protobuf.StringValue'
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListSnapshotsResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List snapshots
       tags:
         - Snapshots
-      summary: Create a snapshot from a given volume or from a QCOW2 file
+    post:
       operationId: CreateSnapshot
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4141,35 +4624,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.Snapshot'
+        required: true
       responses:
         "201":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.CreateSnapshotResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/snapshots/{id}:
-    delete:
+      summary: Create a snapshot from a given volume or from a QCOW2 file
       tags:
         - Snapshots
-      summary: Delete a snapshot
+  /instance/v1/zones/{zone}/snapshots/{id}:
+    delete:
       description: Delete the snapshot with the given ID.
       operationId: DeleteSnapshot
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4178,31 +4661,31 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: snapshot_id
+            type: string
+        - description: UUID of the snapshot you want to delete
           in: path
-          description: UUID of the snapshot you want to delete
+          name: snapshot_id
           required: true
           schema:
-            type: string
             description: UUID of the snapshot you want to delete
+            type: string
       responses:
         "204":
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete a snapshot
       tags:
         - Snapshots
-      summary: Get a snapshot
+    get:
       description: Get details of a snapshot with the given ID.
       operationId: GetSnapshot
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4211,35 +4694,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the snapshot you want to get
           in: path
-          description: UUID of the snapshot you want to get
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the snapshot you want to get
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetSnapshotResponse'
+          description: ""
       security:
         - scaleway: []
-    put:
+      summary: Get a snapshot
       tags:
         - Snapshots
-      summary: Update snapshot
+    put:
       description: Replace all snapshot properties with a snapshot message.
       operationId: SetSnapshot
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4248,40 +4731,40 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
-          in: path
+            type: string
+        - in: path
+          name: id
           required: true
           schema:
             type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.Snapshot'
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.SetSnapshotResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/snapshots/{snapshot_id}/export:
-    post:
+      summary: Update snapshot
       tags:
         - Snapshots
-      summary: Export a snapshot
+  /instance/v1/zones/{zone}/snapshots/{snapshot_id}/export:
+    post:
       description: Export a snapshot to a given S3 bucket in the same region.
       operationId: ExportSnapshot
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4290,48 +4773,51 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: snapshot_id
+            type: string
+        - description: The snapshot ID
           in: path
-          description: The snapshot ID
+          name: snapshot_id
           required: true
           schema:
-            type: string
             description: The snapshot ID
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 bucket:
-                  type: string
                   description: S3 bucket name
-                key:
                   type: string
+                key:
                   description: S3 object key
+                  type: string
+              type: object
+              x-properties-order:
+                - bucket
+                - key
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ExportSnapshotResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Export a snapshot
+      tags:
+        - Snapshots
   /instance/v1/zones/{zone}/volumes:
     get:
-      tags:
-        - Volumes
-      summary: List volumes
       operationId: ListVolumes
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4340,81 +4826,81 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: volume_type
-          in: query
-          description: Filter by volume type
-          schema:
             type: string
+        - description: Filter by volume type
+          in: query
+          name: volume_type
+          schema:
+            default: l_ssd
             description: Filter by volume type
             enum:
               - l_ssd
               - b_ssd
               - unified
-            default: l_ssd
-        - name: per_page
-          in: query
-          description: A positive integer lower or equal to 100 to select the number of items to return
-          schema:
-            type: number
-            description: A positive integer lower or equal to 100 to select the number of items to return
-            default: 50
-            nullable: true
-        - name: page
-          in: query
-          description: A positive integer to choose the page to return
-          schema:
-            type: number
-            description: A positive integer to choose the page to return
-            default: 1
-        - name: organization
-          in: query
-          description: Filter volume by organization ID
-          schema:
             type: string
+        - description: A positive integer lower or equal to 100 to select the number of items to return
+          in: query
+          name: per_page
+          schema:
+            default: 50
+            description: A positive integer lower or equal to 100 to select the number of items to return
+            nullable: true
+            type: number
+        - description: A positive integer to choose the page to return
+          in: query
+          name: page
+          schema:
+            default: 1
+            description: A positive integer to choose the page to return
+            type: number
+        - description: Filter volume by organization ID
+          in: query
+          name: organization
+          schema:
             description: Filter volume by organization ID
             nullable: true
-        - name: project
-          in: query
-          description: Filter volume by project ID
-          schema:
             type: string
+        - description: Filter volume by project ID
+          in: query
+          name: project
+          schema:
             description: Filter volume by project ID
             nullable: true
-        - name: tags
-          in: query
-          description: Filter volumes with these exact tags (to filter with several tags, use commas to separate them)
-          schema:
             type: string
+        - description: Filter volumes with these exact tags (to filter with several tags, use commas to separate them)
+          in: query
+          name: tags
+          schema:
             description: Filter volumes with these exact tags (to filter with several tags, use commas to separate them)
             nullable: true
-        - name: name
-          in: query
-          description: Filter volume by name (for eg. "vol" will return "myvolume" but not "data")
-          schema:
             type: string
+        - description: Filter volume by name (for eg. "vol" will return "myvolume" but not "data")
+          in: query
+          name: name
+          schema:
             description: Filter volume by name (for eg. "vol" will return "myvolume" but not "data")
             nullable: true
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.ListVolumesResponse'
+          description: ""
       security:
         - scaleway: []
-    post:
+      summary: List volumes
       tags:
         - Volumes
-      summary: Create a volume
+    post:
       operationId: CreateVolume
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4423,35 +4909,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.Volume'
+        required: true
       responses:
         "201":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.CreateVolumeResponse'
+          description: ""
       security:
         - scaleway: []
-  /instance/v1/zones/{zone}/volumes/{id}:
-    delete:
+      summary: Create a volume
       tags:
         - Volumes
-      summary: Delete a volume
+  /instance/v1/zones/{zone}/volumes/{id}:
+    delete:
       description: Delete the volume with the given ID.
       operationId: DeleteVolume
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4460,31 +4946,31 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the volume you want to delete
           in: path
-          description: UUID of the volume you want to delete
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the volume you want to delete
+            type: string
       responses:
         "204":
           description: ""
       security:
         - scaleway: []
-    get:
+      summary: Delete a volume
       tags:
         - Volumes
-      summary: Get a volume
+    get:
       description: Get details of a volume with the given ID.
       operationId: GetVolume
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4493,35 +4979,35 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the volume you want to get
           in: path
-          description: UUID of the volume you want to get
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the volume you want to get
+            type: string
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.GetVolumeResponse'
+          description: ""
       security:
         - scaleway: []
-    patch:
+      summary: Get a volume
       tags:
         - Volumes
-      summary: Update a volume
+    patch:
       description: Replace name and/or size properties of given ID volume with the given value(s). Any volume name can be changed while, for now, only `b_ssd` volume growing is supported.
       operationId: UpdateVolume
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4530,56 +5016,60 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the volume
           in: path
-          description: UUID of the volume
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the volume
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
-              type: object
               properties:
                 name:
-                  type: string
                   description: The volume name
                   nullable: true
+                  type: string
                 size:
-                  type: number
                   description: The volume disk size, must be a multiple of 512 (in bytes)
                   nullable: true
+                  type: number
                 tags:
-                  type: array
                   description: The tags of the volume
-                  nullable: true
                   items:
                     type: string
+                  nullable: true
+                  type: array
+              type: object
+              x-properties-order:
+                - name
+                - tags
+                - size
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.UpdateVolumeResponse'
+          description: ""
       security:
         - scaleway: []
-    put:
+      summary: Update a volume
       tags:
         - Volumes
-      summary: Update volume
+    put:
       description: Replace all volume properties with a volume message.
       operationId: SetVolume
       parameters:
-        - name: zone
+        - description: The zone you want to target
           in: path
-          description: The zone you want to target
+          name: zone
           required: true
           schema:
-            type: string
             description: The zone you want to target
             enum:
               - fr-par-1
@@ -4588,33 +5078,36 @@ paths:
               - nl-ams-1
               - nl-ams-2
               - pl-waw-1
-        - name: id
+            type: string
+        - description: UUID of the volume you want to update
           in: path
-          description: UUID of the volume you want to update
+          name: id
           required: true
           schema:
-            type: string
             description: UUID of the volume you want to update
+            type: string
       requestBody:
-        required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/scaleway.instance.v1.Volume'
+        required: true
       responses:
         "200":
-          description: ""
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/scaleway.instance.v1.SetVolumeResponse'
+          description: ""
       security:
         - scaleway: []
+      summary: Update volume
+      tags:
+        - Volumes
 servers:
   - url: https://api.scaleway.com
 tags:
-  - name: Servers
-    description: |
+  - description: |
       Server types are denomination of the different instances we provide.
       Scaleway offers **Virtual Cloud** and **dedicated GPU** instances.
 
@@ -4645,21 +5138,21 @@ tags:
       intelligence, rendering and video encoding. The GPU is dedicated to each instance and
       directly exposed through PCI-e. For more information, refer to the
       [GPU Instances Developper Documentation](https://www.scaleway.com/en/docs/compute/gpu/quickstart/).
-  - name: Images
-    description: |
+    name: Servers
+  - description: |
       Images are backups of your instances.
       You can reuse that image to restore your data or create a series of instances with a predefined configuration.
 
       An image is a complete backup of your server including all volumes.
-  - name: Security Groups
-    description: |
+    name: Images
+  - description: |
       A security group is a set of firewall rules on a set of instances.
       Security groups enable to create rules that either drop or allow incoming traffic from certain ports of your instances.
 
       Security Groups are stateful by default which means return traffic is automatically allowed, regardless of any rules.
       As a contrary, you have to switch in a stateless mode to define explicitly allowed.
-  - name: User-Data
-    description: |
+    name: Security Groups
+  - description: |
       User data is a key value store API you can use to provide data from and to your server without authentication.
 
       As an example of use, Scaleway images contain the script scw-generate-ssh-keys which generates SSH server’s host keys then stores their fingerprints as user data under the key “ssh-host-fingerprints”.
@@ -4671,22 +5164,22 @@ tags:
          To know if the query is issued by the root user, we only accept queries made from a local port below 1024 (by default, non-root users can’t bind ports below 1024).
          To specify the local port with cURL, use `curl --local-port 1-1024 http://169.254.42.42/user_data`
        - **From the instance API** at using methods described bellow.
-  - name: Server types
-    description: |
+    name: User-Data
+  - description: |
       Server types will answer with all instance types available in a given zone.
       Each of these types will contains all the features of the instance (CPU, RAM, Storage) with their associated pricing.
-  - name: Volume types
-    description: |
+    name: Server types
+  - description: |
       Volume types will answer with all volume types available in a given zone.
       Each of these types will contains all the capabilities and constraints of the volume (min size, max size, snapshot).
-  - name: IPs
-    description: |
+    name: Volume types
+  - description: |
       A flexible IP address is an IP address which you hold independently of any server.
       You can attach it to any of your servers and do live migration of the IP address between your servers.
 
       Be aware that attaching a flexible IP address to a server will remove the previous public IP address of the server and cut any ongoing public connection to the server.
-  - name: Volumes
-    description: |
+    name: IPs
+  - description: |
       A volume is where you store your data inside your instance. It
       appears as a block device on Linux that you can use to create
       a filesystem and mount it.
@@ -4720,8 +5213,8 @@ tags:
       using their UUID instead of their device name. A device name is
       subject to change depending on the volumes order. Block devices
       UUIDs can be found in `/dev/disk/by-id/`.
-  - name: Snapshots
-    description: |
+    name: Volumes
+  - description: |
       Snapshots contain the data of a specific volume at a particular point in time.
       The data can include the instance's operating system,
       configuration information or files stored on the volume.
@@ -4737,8 +5230,8 @@ tags:
       to a `b_ssd` volume, one can create a `unified` snapshot from the original volume
       and a new `b_ssd` volume from this snapshot. The newly created volume will hold a copy
       of the data of the original volume.
-  - name: Bootscripts
-    description: |
+    name: Snapshots
+  - description: |
       Bootscripts are a combination of a [Kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system)) and of an [initrd](https://en.wikipedia.org/wiki/Initial_ramdisk).
       They tell to the instance how to start and configure its starting process and settings.
 
@@ -4748,8 +5241,8 @@ tags:
       It gives you full control over the booting process of your instance.
 
       Scaleway also provides a "rescue" bootscript that can be used when your instance gets a failure and if you need a clean operating system to access your data.
-  - name: Placement Groups
-    description: |
+    name: Bootscripts
+  - description: |
       Placement groups allow the user to express a preference regarding
       the physical position of a group of instances. It'll let the user
       choose to either group instances on the same physical hardware for
@@ -4768,8 +5261,9 @@ tags:
         - `enforced` guarantee that if the instance starts, the constraint is respected
 
       The `policy_mode` is set by default to `optional`.
-  - name: Private NICs
-    description: |
+    name: Placement Groups
+  - description: |
       A Private NIC is the network interface that connects a server to a
       Private Network. There can be at most one Private NIC connecting a
       server to a network.
+    name: Private NICs
