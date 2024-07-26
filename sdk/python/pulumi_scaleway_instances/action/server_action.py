@@ -110,7 +110,7 @@ class ServerAction(pulumi.CustomResource):
                  action: Optional[pulumi.Input['Action']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs', 'ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgsDict']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -149,7 +149,7 @@ class ServerAction(pulumi.CustomResource):
                  action: Optional[pulumi.Input['Action']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs', 'ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgsDict']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

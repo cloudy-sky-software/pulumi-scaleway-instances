@@ -104,7 +104,7 @@ class Ip(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
-                 server: Optional[pulumi.Input[pulumi.InputType['ScalewayInstanceV1ServerSummaryArgs']]] = None,
+                 server: Optional[pulumi.Input[Union['ScalewayInstanceV1ServerSummaryArgs', 'ScalewayInstanceV1ServerSummaryArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -140,7 +140,7 @@ class Ip(pulumi.CustomResource):
                  organization: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
-                 server: Optional[pulumi.Input[pulumi.InputType['ScalewayInstanceV1ServerSummaryArgs']]] = None,
+                 server: Optional[pulumi.Input[Union['ScalewayInstanceV1ServerSummaryArgs', 'ScalewayInstanceV1ServerSummaryArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
