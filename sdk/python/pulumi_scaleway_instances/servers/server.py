@@ -277,7 +277,7 @@ class Server(pulumi.CustomResource):
                  public_ip: Optional[pulumi.Input[str]] = None,
                  security_group: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ScalewayInstanceV1VolumeServerTemplateArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ScalewayInstanceV1VolumeServerTemplateArgs', 'ScalewayInstanceV1VolumeServerTemplateArgsDict']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -335,7 +335,7 @@ class Server(pulumi.CustomResource):
                  public_ip: Optional[pulumi.Input[str]] = None,
                  security_group: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ScalewayInstanceV1VolumeServerTemplateArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ScalewayInstanceV1VolumeServerTemplateArgs', 'ScalewayInstanceV1VolumeServerTemplateArgsDict']]]]] = None,
                  zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
