@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetPlacementGroupServerResult',
-    'AwaitableGetPlacementGroupServerResult',
-    'get_placement_group_server',
-    'get_placement_group_server_output',
+    'GetPlacementGroupServersResult',
+    'AwaitableGetPlacementGroupServersResult',
+    'get_placement_group_servers',
+    'get_placement_group_servers_output',
 ]
 
 @pulumi.output_type
-class GetPlacementGroupServerResult:
+class GetPlacementGroupServersResult:
     def __init__(__self__, items=None):
         if items and not isinstance(items, dict):
             raise TypeError("Expected argument 'items' to be a dict")
@@ -30,18 +30,18 @@ class GetPlacementGroupServerResult:
         return pulumi.get(self, "items")
 
 
-class AwaitableGetPlacementGroupServerResult(GetPlacementGroupServerResult):
+class AwaitableGetPlacementGroupServersResult(GetPlacementGroupServersResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetPlacementGroupServerResult(
+        return GetPlacementGroupServersResult(
             items=self.items)
 
 
-def get_placement_group_server(placement_group_id: Optional[str] = None,
-                               zone: Optional[str] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlacementGroupServerResult:
+def get_placement_group_servers(placement_group_id: Optional[str] = None,
+                                zone: Optional[str] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlacementGroupServersResult:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,16 +52,16 @@ def get_placement_group_server(placement_group_id: Optional[str] = None,
     __args__['placementGroupId'] = placement_group_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:servers:getPlacementGroupServer', __args__, opts=opts, typ=GetPlacementGroupServerResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:servers:getPlacementGroupServers', __args__, opts=opts, typ=GetPlacementGroupServersResult).value
 
-    return AwaitableGetPlacementGroupServerResult(
+    return AwaitableGetPlacementGroupServersResult(
         items=pulumi.get(__ret__, 'items'))
 
 
-@_utilities.lift_output_func(get_placement_group_server)
-def get_placement_group_server_output(placement_group_id: Optional[pulumi.Input[str]] = None,
-                                      zone: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupServerResult]:
+@_utilities.lift_output_func(get_placement_group_servers)
+def get_placement_group_servers_output(placement_group_id: Optional[pulumi.Input[str]] = None,
+                                       zone: Optional[pulumi.Input[str]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementGroupServersResult]:
     """
     Use this data source to access information about an existing resource.
 
