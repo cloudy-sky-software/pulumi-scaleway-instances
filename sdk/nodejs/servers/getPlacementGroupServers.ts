@@ -7,16 +7,16 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getPlacementGroupServer(args: GetPlacementGroupServerArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupServerResult> {
+export function getPlacementGroupServers(args: GetPlacementGroupServersArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupServersResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("scaleway-instances:servers:getPlacementGroupServer", {
+    return pulumi.runtime.invoke("scaleway-instances:servers:getPlacementGroupServers", {
         "placementGroupId": args.placementGroupId,
         "zone": args.zone,
     }, opts);
 }
 
-export interface GetPlacementGroupServerArgs {
+export interface GetPlacementGroupServersArgs {
     /**
      * UUID of the placement group
      */
@@ -27,14 +27,14 @@ export interface GetPlacementGroupServerArgs {
     zone: string;
 }
 
-export interface GetPlacementGroupServerResult {
+export interface GetPlacementGroupServersResult {
     readonly items: outputs.servers.ScalewayInstanceV1GetPlacementGroupServersResponse;
 }
-export function getPlacementGroupServerOutput(args: GetPlacementGroupServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupServerResult> {
-    return pulumi.output(args).apply((a: any) => getPlacementGroupServer(a, opts))
+export function getPlacementGroupServersOutput(args: GetPlacementGroupServersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupServersResult> {
+    return pulumi.output(args).apply((a: any) => getPlacementGroupServers(a, opts))
 }
 
-export interface GetPlacementGroupServerOutputArgs {
+export interface GetPlacementGroupServersOutputArgs {
     /**
      * UUID of the placement group
      */

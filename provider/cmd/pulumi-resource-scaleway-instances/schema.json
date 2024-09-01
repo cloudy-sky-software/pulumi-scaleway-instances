@@ -4681,7 +4681,7 @@
                 ]
             }
         },
-        "scaleway-instances:servers:getPlacementGroupServer": {
+        "scaleway-instances:servers:getPlacementGroupServers": {
             "inputs": {
                 "properties": {
                     "placementGroupId": {

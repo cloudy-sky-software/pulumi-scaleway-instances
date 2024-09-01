@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetPlacementGroupServerArgs, GetPlacementGroupServerResult, GetPlacementGroupServerOutputArgs } from "./getPlacementGroupServer";
-export const getPlacementGroupServer: typeof import("./getPlacementGroupServer").getPlacementGroupServer = null as any;
-export const getPlacementGroupServerOutput: typeof import("./getPlacementGroupServer").getPlacementGroupServerOutput = null as any;
-utilities.lazyLoad(exports, ["getPlacementGroupServer","getPlacementGroupServerOutput"], () => require("./getPlacementGroupServer"));
+export { GetPlacementGroupServersArgs, GetPlacementGroupServersResult, GetPlacementGroupServersOutputArgs } from "./getPlacementGroupServers";
+export const getPlacementGroupServers: typeof import("./getPlacementGroupServers").getPlacementGroupServers = null as any;
+export const getPlacementGroupServersOutput: typeof import("./getPlacementGroupServers").getPlacementGroupServersOutput = null as any;
+utilities.lazyLoad(exports, ["getPlacementGroupServers","getPlacementGroupServersOutput"], () => require("./getPlacementGroupServers"));
 
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
