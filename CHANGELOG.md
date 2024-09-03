@@ -1,3 +1,7 @@
+## 0.1.0
+
+`servers.getPlacementGroupServer` was renamed to `servers.getPlacementGroupServers`.
+
 ## 0.0.7
 
 - Prepare for public release.
