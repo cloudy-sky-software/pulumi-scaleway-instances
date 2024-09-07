@@ -1,3 +1,7 @@
+## 0.1.1
+
+Upgrade pulumi-provider-framework to fix a bug with validating response codes for DELETE calls.
+
 ## 0.1.0
 
 `servers.getPlacementGroupServer` was renamed to `servers.getPlacementGroupServers`.
