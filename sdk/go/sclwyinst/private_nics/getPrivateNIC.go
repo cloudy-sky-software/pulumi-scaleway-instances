@@ -29,7 +29,7 @@ type LookupPrivateNICArgs struct {
 }
 
 type LookupPrivateNICResult struct {
-	Items ScalewayInstanceV1GetPrivateNICResponse `pulumi:"items"`
+	PrivateNic *ScalewayInstanceV1PrivateNIC `pulumi:"privateNic"`
 }
 
 // Defaults sets the appropriate defaults for LookupPrivateNICResult
@@ -38,7 +38,7 @@ func (val *LookupPrivateNICResult) Defaults() *LookupPrivateNICResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.PrivateNic = tmp.PrivateNic.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o LookupPrivateNICResultOutput) ToLookupPrivateNICResultOutputWithContext(
 	return o
 }
 
-func (o LookupPrivateNICResultOutput) Items() ScalewayInstanceV1GetPrivateNICResponseOutput {
-	return o.ApplyT(func(v LookupPrivateNICResult) ScalewayInstanceV1GetPrivateNICResponse { return v.Items }).(ScalewayInstanceV1GetPrivateNICResponseOutput)
+func (o LookupPrivateNICResultOutput) PrivateNic() ScalewayInstanceV1PrivateNICPtrOutput {
+	return o.ApplyT(func(v LookupPrivateNICResult) *ScalewayInstanceV1PrivateNIC { return v.PrivateNic }).(ScalewayInstanceV1PrivateNICPtrOutput)
 }
 
 func init() {

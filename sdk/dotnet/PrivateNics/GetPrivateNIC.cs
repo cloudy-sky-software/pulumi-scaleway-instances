@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.PrivateNics
 {
     public static class GetPrivateNIC
     {
-        public static Task<GetPrivateNICResult> InvokeAsync(GetPrivateNICArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateNICResult>("scaleway-instances:private_nics:getPrivateNIC", args ?? new GetPrivateNICArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetPrivateNICResponse> InvokeAsync(GetPrivateNICArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetPrivateNICResponse>("scaleway-instances:private_nics:getPrivateNIC", args ?? new GetPrivateNICArgs(), options.WithDefaults());
 
-        public static Output<GetPrivateNICResult> Invoke(GetPrivateNICInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateNICResult>("scaleway-instances:private_nics:getPrivateNIC", args ?? new GetPrivateNICInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetPrivateNICResponse> Invoke(GetPrivateNICInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetPrivateNICResponse>("scaleway-instances:private_nics:getPrivateNIC", args ?? new GetPrivateNICInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.PrivateNics
         {
         }
         public static new GetPrivateNICInvokeArgs Empty => new GetPrivateNICInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetPrivateNICResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetPrivateNICResponse Items;
-
-        [OutputConstructor]
-        private GetPrivateNICResult(Outputs.ScalewayInstanceV1GetPrivateNICResponse items)
-        {
-            Items = items;
-        }
     }
 }

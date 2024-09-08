@@ -6,43 +6,43 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetSnapshotResult',
-    'AwaitableGetSnapshotResult',
+    'ScalewayInstanceV1GetSnapshotResponse',
+    'AwaitableScalewayInstanceV1GetSnapshotResponse',
     'get_snapshot',
     'get_snapshot_output',
 ]
 
 @pulumi.output_type
-class GetSnapshotResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1GetSnapshotResponse:
+    def __init__(__self__, snapshot=None):
+        if snapshot and not isinstance(snapshot, dict):
+            raise TypeError("Expected argument 'snapshot' to be a dict")
+        pulumi.set(__self__, "snapshot", snapshot)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1GetSnapshotResponse':
-        return pulumi.get(self, "items")
+    def snapshot(self) -> Optional['outputs.ScalewayInstanceV1Snapshot']:
+        return pulumi.get(self, "snapshot")
 
 
-class AwaitableGetSnapshotResult(GetSnapshotResult):
+class AwaitableScalewayInstanceV1GetSnapshotResponse(ScalewayInstanceV1GetSnapshotResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSnapshotResult(
-            items=self.items)
+        return ScalewayInstanceV1GetSnapshotResponse(
+            snapshot=self.snapshot)
 
 
 def get_snapshot(id: Optional[str] = None,
                  zone: Optional[str] = None,
-                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1GetSnapshotResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -53,16 +53,16 @@ def get_snapshot(id: Optional[str] = None,
     __args__['id'] = id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:snapshots:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:snapshots:getSnapshot', __args__, opts=opts, typ=ScalewayInstanceV1GetSnapshotResponse).value
 
-    return AwaitableGetSnapshotResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1GetSnapshotResponse(
+        snapshot=pulumi.get(__ret__, 'snapshot'))
 
 
 @_utilities.lift_output_func(get_snapshot)
 def get_snapshot_output(id: Optional[pulumi.Input[str]] = None,
                         zone: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetSnapshotResponse]:
     """
     Use this data source to access information about an existing resource.
 

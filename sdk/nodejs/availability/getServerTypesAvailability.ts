@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getServerTypesAvailability(args: GetServerTypesAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<GetServerTypesAvailabilityResult> {
+export function getServerTypesAvailability(args: GetServerTypesAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<outputs.availability.ScalewayInstanceV1GetServerTypesAvailabilityResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:availability:getServerTypesAvailability", {
@@ -21,11 +21,7 @@ export interface GetServerTypesAvailabilityArgs {
      */
     zone: string;
 }
-
-export interface GetServerTypesAvailabilityResult {
-    readonly items: outputs.availability.ScalewayInstanceV1GetServerTypesAvailabilityResponse;
-}
-export function getServerTypesAvailabilityOutput(args: GetServerTypesAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTypesAvailabilityResult> {
+export function getServerTypesAvailabilityOutput(args: GetServerTypesAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.availability.ScalewayInstanceV1GetServerTypesAvailabilityResponse> {
     return pulumi.output(args).apply((a: any) => getServerTypesAvailability(a, opts))
 }
 

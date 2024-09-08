@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Action
 {
     public static class ListServerActions
     {
-        public static Task<ListServerActionsResult> InvokeAsync(ListServerActionsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListServerActionsResult>("scaleway-instances:action:listServerActions", args ?? new ListServerActionsArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1ListServerActionsResponse> InvokeAsync(ListServerActionsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1ListServerActionsResponse>("scaleway-instances:action:listServerActions", args ?? new ListServerActionsArgs(), options.WithDefaults());
 
-        public static Output<ListServerActionsResult> Invoke(ListServerActionsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListServerActionsResult>("scaleway-instances:action:listServerActions", args ?? new ListServerActionsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1ListServerActionsResponse> Invoke(ListServerActionsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListServerActionsResponse>("scaleway-instances:action:listServerActions", args ?? new ListServerActionsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -51,18 +51,5 @@ namespace Pulumi.ScalewayInstances.Action
         {
         }
         public static new ListServerActionsInvokeArgs Empty => new ListServerActionsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListServerActionsResult
-    {
-        public readonly Outputs.ScalewayInstanceV1ListServerActionsResponse Items;
-
-        [OutputConstructor]
-        private ListServerActionsResult(Outputs.ScalewayInstanceV1ListServerActionsResponse items)
-        {
-            Items = items;
-        }
     }
 }

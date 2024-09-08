@@ -28,7 +28,7 @@ type GetBootscriptArgs struct {
 }
 
 type GetBootscriptResult struct {
-	Items ScalewayInstanceV1GetBootscriptResponse `pulumi:"items"`
+	Bootscript *ScalewayInstanceV1Bootscript `pulumi:"bootscript"`
 }
 
 // Defaults sets the appropriate defaults for GetBootscriptResult
@@ -37,7 +37,7 @@ func (val *GetBootscriptResult) Defaults() *GetBootscriptResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Bootscript = tmp.Bootscript.Defaults()
 
 	return &tmp
 }
@@ -79,8 +79,8 @@ func (o GetBootscriptResultOutput) ToGetBootscriptResultOutputWithContext(ctx co
 	return o
 }
 
-func (o GetBootscriptResultOutput) Items() ScalewayInstanceV1GetBootscriptResponseOutput {
-	return o.ApplyT(func(v GetBootscriptResult) ScalewayInstanceV1GetBootscriptResponse { return v.Items }).(ScalewayInstanceV1GetBootscriptResponseOutput)
+func (o GetBootscriptResultOutput) Bootscript() ScalewayInstanceV1BootscriptPtrOutput {
+	return o.ApplyT(func(v GetBootscriptResult) *ScalewayInstanceV1Bootscript { return v.Bootscript }).(ScalewayInstanceV1BootscriptPtrOutput)
 }
 
 func init() {

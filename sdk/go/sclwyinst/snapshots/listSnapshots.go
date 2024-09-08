@@ -27,7 +27,8 @@ type ListSnapshotsArgs struct {
 }
 
 type ListSnapshotsResult struct {
-	Items ScalewayInstanceV1ListSnapshotsResponse `pulumi:"items"`
+	// List of snapshots
+	Snapshots []ScalewayInstanceV1Snapshot `pulumi:"snapshots"`
 }
 
 func ListSnapshotsOutput(ctx *pulumi.Context, args ListSnapshotsOutputArgs, opts ...pulumi.InvokeOption) ListSnapshotsResultOutput {
@@ -66,8 +67,9 @@ func (o ListSnapshotsResultOutput) ToListSnapshotsResultOutputWithContext(ctx co
 	return o
 }
 
-func (o ListSnapshotsResultOutput) Items() ScalewayInstanceV1ListSnapshotsResponseOutput {
-	return o.ApplyT(func(v ListSnapshotsResult) ScalewayInstanceV1ListSnapshotsResponse { return v.Items }).(ScalewayInstanceV1ListSnapshotsResponseOutput)
+// List of snapshots
+func (o ListSnapshotsResultOutput) Snapshots() ScalewayInstanceV1SnapshotArrayOutput {
+	return o.ApplyT(func(v ListSnapshotsResult) []ScalewayInstanceV1Snapshot { return v.Snapshots }).(ScalewayInstanceV1SnapshotArrayOutput)
 }
 
 func init() {

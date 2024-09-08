@@ -27,7 +27,8 @@ type ListImagesArgs struct {
 }
 
 type ListImagesResult struct {
-	Items ScalewayInstanceV1ListImagesResponse `pulumi:"items"`
+	// List of images
+	Images []ScalewayInstanceV1Image `pulumi:"images"`
 }
 
 func ListImagesOutput(ctx *pulumi.Context, args ListImagesOutputArgs, opts ...pulumi.InvokeOption) ListImagesResultOutput {
@@ -66,8 +67,9 @@ func (o ListImagesResultOutput) ToListImagesResultOutputWithContext(ctx context.
 	return o
 }
 
-func (o ListImagesResultOutput) Items() ScalewayInstanceV1ListImagesResponseOutput {
-	return o.ApplyT(func(v ListImagesResult) ScalewayInstanceV1ListImagesResponse { return v.Items }).(ScalewayInstanceV1ListImagesResponseOutput)
+// List of images
+func (o ListImagesResultOutput) Images() ScalewayInstanceV1ImageArrayOutput {
+	return o.ApplyT(func(v ListImagesResult) []ScalewayInstanceV1Image { return v.Images }).(ScalewayInstanceV1ImageArrayOutput)
 }
 
 func init() {

@@ -27,7 +27,8 @@ type ListDefaultSecurityGroupRulesArgs struct {
 }
 
 type ListDefaultSecurityGroupRulesResult struct {
-	Items ScalewayInstanceV1ListSecurityGroupRulesResponse `pulumi:"items"`
+	// List of security rules
+	Rules []ScalewayInstanceV1SecurityGroupRule `pulumi:"rules"`
 }
 
 func ListDefaultSecurityGroupRulesOutput(ctx *pulumi.Context, args ListDefaultSecurityGroupRulesOutputArgs, opts ...pulumi.InvokeOption) ListDefaultSecurityGroupRulesResultOutput {
@@ -66,10 +67,9 @@ func (o ListDefaultSecurityGroupRulesResultOutput) ToListDefaultSecurityGroupRul
 	return o
 }
 
-func (o ListDefaultSecurityGroupRulesResultOutput) Items() ScalewayInstanceV1ListSecurityGroupRulesResponseOutput {
-	return o.ApplyT(func(v ListDefaultSecurityGroupRulesResult) ScalewayInstanceV1ListSecurityGroupRulesResponse {
-		return v.Items
-	}).(ScalewayInstanceV1ListSecurityGroupRulesResponseOutput)
+// List of security rules
+func (o ListDefaultSecurityGroupRulesResultOutput) Rules() ScalewayInstanceV1SecurityGroupRuleArrayOutput {
+	return o.ApplyT(func(v ListDefaultSecurityGroupRulesResult) []ScalewayInstanceV1SecurityGroupRule { return v.Rules }).(ScalewayInstanceV1SecurityGroupRuleArrayOutput)
 }
 
 func init() {

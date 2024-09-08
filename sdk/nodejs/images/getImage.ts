@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
+export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<outputs.images.ScalewayInstanceV1GetImageResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:images:getImage", {
@@ -26,11 +26,7 @@ export interface GetImageArgs {
      */
     zone: string;
 }
-
-export interface GetImageResult {
-    readonly items: outputs.images.ScalewayInstanceV1GetImageResponse;
-}
-export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
+export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.ScalewayInstanceV1GetImageResponse> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }
 

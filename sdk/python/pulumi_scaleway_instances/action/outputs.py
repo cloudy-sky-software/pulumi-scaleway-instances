@@ -11,23 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ScalewayInstanceV1ListServerActionsResponse',
     'ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate',
     'ScalewayInstanceV1Task',
 ]
-
-@pulumi.output_type
-class ScalewayInstanceV1ListServerActionsResponse(dict):
-    def __init__(__self__, *,
-                 actions: Optional[Sequence['ScalewayInstanceV1ListServerActionsResponseActionsItem']] = None):
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Optional[Sequence['ScalewayInstanceV1ListServerActionsResponseActionsItem']]:
-        return pulumi.get(self, "actions")
-
 
 @pulumi.output_type
 class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplate(dict):

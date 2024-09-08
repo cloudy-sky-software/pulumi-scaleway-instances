@@ -8,40 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ScalewayInstanceV1GetPrivateNICResponse',
-    'ScalewayInstanceV1ListPrivateNICsResponse',
     'ScalewayInstanceV1PrivateNIC',
 ]
-
-@pulumi.output_type
-class ScalewayInstanceV1GetPrivateNICResponse(dict):
-    def __init__(__self__, *,
-                 private_nic: Optional['outputs.ScalewayInstanceV1PrivateNIC'] = None):
-        if private_nic is not None:
-            pulumi.set(__self__, "private_nic", private_nic)
-
-    @property
-    @pulumi.getter(name="privateNic")
-    def private_nic(self) -> Optional['outputs.ScalewayInstanceV1PrivateNIC']:
-        return pulumi.get(self, "private_nic")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListPrivateNICsResponse(dict):
-    def __init__(__self__, *,
-                 private_nics: Optional[Sequence['outputs.ScalewayInstanceV1PrivateNIC']] = None):
-        if private_nics is not None:
-            pulumi.set(__self__, "private_nics", private_nics)
-
-    @property
-    @pulumi.getter(name="privateNics")
-    def private_nics(self) -> Optional[Sequence['outputs.ScalewayInstanceV1PrivateNIC']]:
-        return pulumi.get(self, "private_nics")
-
 
 @pulumi.output_type
 class ScalewayInstanceV1PrivateNIC(dict):

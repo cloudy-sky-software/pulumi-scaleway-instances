@@ -29,7 +29,7 @@ type ListServerUserDataArgs struct {
 }
 
 type ListServerUserDataResult struct {
-	Items ScalewayInstanceV1ListServerUserDataResponse `pulumi:"items"`
+	UserData []string `pulumi:"userData"`
 }
 
 func ListServerUserDataOutput(ctx *pulumi.Context, args ListServerUserDataOutputArgs, opts ...pulumi.InvokeOption) ListServerUserDataResultOutput {
@@ -70,8 +70,8 @@ func (o ListServerUserDataResultOutput) ToListServerUserDataResultOutputWithCont
 	return o
 }
 
-func (o ListServerUserDataResultOutput) Items() ScalewayInstanceV1ListServerUserDataResponseOutput {
-	return o.ApplyT(func(v ListServerUserDataResult) ScalewayInstanceV1ListServerUserDataResponse { return v.Items }).(ScalewayInstanceV1ListServerUserDataResponseOutput)
+func (o ListServerUserDataResultOutput) UserData() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ListServerUserDataResult) []string { return v.UserData }).(pulumi.StringArrayOutput)
 }
 
 func init() {

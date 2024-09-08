@@ -29,7 +29,7 @@ type LookupImageArgs struct {
 }
 
 type LookupImageResult struct {
-	Items ScalewayInstanceV1GetImageResponse `pulumi:"items"`
+	Image *ScalewayInstanceV1Image `pulumi:"image"`
 }
 
 // Defaults sets the appropriate defaults for LookupImageResult
@@ -38,7 +38,7 @@ func (val *LookupImageResult) Defaults() *LookupImageResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Image = tmp.Image.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o LookupImageResultOutput) ToLookupImageResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o LookupImageResultOutput) Items() ScalewayInstanceV1GetImageResponseOutput {
-	return o.ApplyT(func(v LookupImageResult) ScalewayInstanceV1GetImageResponse { return v.Items }).(ScalewayInstanceV1GetImageResponseOutput)
+func (o LookupImageResultOutput) Image() ScalewayInstanceV1ImagePtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *ScalewayInstanceV1Image { return v.Image }).(ScalewayInstanceV1ImagePtrOutput)
 }
 
 func init() {

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function listIps(args: ListIpsArgs, opts?: pulumi.InvokeOptions): Promise<ListIpsResult> {
+export function listIps(args: ListIpsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.ips.ScalewayInstanceV1ListIpsResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:ips:listIps", {
@@ -21,11 +21,7 @@ export interface ListIpsArgs {
      */
     zone: string;
 }
-
-export interface ListIpsResult {
-    readonly items: outputs.ips.ScalewayInstanceV1ListIpsResponse;
-}
-export function listIpsOutput(args: ListIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIpsResult> {
+export function listIpsOutput(args: ListIpsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.ips.ScalewayInstanceV1ListIpsResponse> {
     return pulumi.output(args).apply((a: any) => listIps(a, opts))
 }
 

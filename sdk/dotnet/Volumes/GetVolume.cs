@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Volumes
 {
     public static class GetVolume
     {
-        public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("scaleway-instances:volumes:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetVolumeResponse> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetVolumeResponse>("scaleway-instances:volumes:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
-        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("scaleway-instances:volumes:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetVolumeResponse> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetVolumeResponse>("scaleway-instances:volumes:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.Volumes
         {
         }
         public static new GetVolumeInvokeArgs Empty => new GetVolumeInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetVolumeResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetVolumeResponse Items;
-
-        [OutputConstructor]
-        private GetVolumeResult(Outputs.ScalewayInstanceV1GetVolumeResponse items)
-        {
-            Items = items;
-        }
     }
 }

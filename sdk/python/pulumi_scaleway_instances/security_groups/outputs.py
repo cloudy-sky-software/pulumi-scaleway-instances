@@ -12,45 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ScalewayInstanceV1GetSecurityGroupResponse',
-    'ScalewayInstanceV1ListSecurityGroupsResponse',
     'ScalewayInstanceV1SecurityGroup',
     'ScalewayInstanceV1ServerSummary',
 ]
-
-@pulumi.output_type
-class ScalewayInstanceV1GetSecurityGroupResponse(dict):
-    def __init__(__self__, *,
-                 security_group: Optional['outputs.ScalewayInstanceV1SecurityGroup'] = None):
-        if security_group is not None:
-            pulumi.set(__self__, "security_group", security_group)
-
-    @property
-    @pulumi.getter(name="securityGroup")
-    def security_group(self) -> Optional['outputs.ScalewayInstanceV1SecurityGroup']:
-        return pulumi.get(self, "security_group")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListSecurityGroupsResponse(dict):
-    def __init__(__self__, *,
-                 security_groups: Optional[Sequence['outputs.ScalewayInstanceV1SecurityGroup']] = None,
-                 total_count: Optional[float] = None):
-        if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
-        if total_count is not None:
-            pulumi.set(__self__, "total_count", total_count)
-
-    @property
-    @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[Sequence['outputs.ScalewayInstanceV1SecurityGroup']]:
-        return pulumi.get(self, "security_groups")
-
-    @property
-    @pulumi.getter(name="totalCount")
-    def total_count(self) -> Optional[float]:
-        return pulumi.get(self, "total_count")
-
 
 @pulumi.output_type
 class ScalewayInstanceV1SecurityGroup(dict):

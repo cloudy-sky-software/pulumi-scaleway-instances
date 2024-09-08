@@ -8,13 +8,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
     'ScalewayInstanceV1Bootscript',
-    'ScalewayInstanceV1GetBootscriptResponse',
-    'ScalewayInstanceV1ListBootscriptsResponse',
 ]
 
 @pulumi.output_type
@@ -168,37 +165,5 @@ class ScalewayInstanceV1Bootscript(dict):
         The zone in which is the bootscript
         """
         return pulumi.get(self, "zone")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1GetBootscriptResponse(dict):
-    def __init__(__self__, *,
-                 bootscript: Optional['outputs.ScalewayInstanceV1Bootscript'] = None):
-        if bootscript is not None:
-            pulumi.set(__self__, "bootscript", bootscript)
-
-    @property
-    @pulumi.getter
-    def bootscript(self) -> Optional['outputs.ScalewayInstanceV1Bootscript']:
-        return pulumi.get(self, "bootscript")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListBootscriptsResponse(dict):
-    def __init__(__self__, *,
-                 bootscripts: Optional[Sequence['outputs.ScalewayInstanceV1Bootscript']] = None):
-        """
-        :param Sequence['ScalewayInstanceV1Bootscript'] bootscripts: List of bootscripts
-        """
-        if bootscripts is not None:
-            pulumi.set(__self__, "bootscripts", bootscripts)
-
-    @property
-    @pulumi.getter
-    def bootscripts(self) -> Optional[Sequence['outputs.ScalewayInstanceV1Bootscript']]:
-        """
-        List of bootscripts
-        """
-        return pulumi.get(self, "bootscripts")
 
 

@@ -8,46 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ScalewayInstanceV1GetSecurityGroupRuleResponse',
-    'ScalewayInstanceV1ListSecurityGroupRulesResponse',
     'ScalewayInstanceV1SecurityGroupRule',
 ]
-
-@pulumi.output_type
-class ScalewayInstanceV1GetSecurityGroupRuleResponse(dict):
-    def __init__(__self__, *,
-                 rule: Optional['outputs.ScalewayInstanceV1SecurityGroupRule'] = None):
-        if rule is not None:
-            pulumi.set(__self__, "rule", rule)
-
-    @property
-    @pulumi.getter
-    def rule(self) -> Optional['outputs.ScalewayInstanceV1SecurityGroupRule']:
-        return pulumi.get(self, "rule")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListSecurityGroupRulesResponse(dict):
-    def __init__(__self__, *,
-                 rules: Optional[Sequence['outputs.ScalewayInstanceV1SecurityGroupRule']] = None):
-        """
-        :param Sequence['ScalewayInstanceV1SecurityGroupRule'] rules: List of security rules
-        """
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.ScalewayInstanceV1SecurityGroupRule']]:
-        """
-        List of security rules
-        """
-        return pulumi.get(self, "rules")
-
 
 @pulumi.output_type
 class ScalewayInstanceV1SecurityGroupRule(dict):

@@ -29,7 +29,7 @@ type LookupSecurityGroupRuleArgs struct {
 }
 
 type LookupSecurityGroupRuleResult struct {
-	Items ScalewayInstanceV1GetSecurityGroupRuleResponse `pulumi:"items"`
+	Rule *ScalewayInstanceV1SecurityGroupRule `pulumi:"rule"`
 }
 
 // Defaults sets the appropriate defaults for LookupSecurityGroupRuleResult
@@ -38,7 +38,7 @@ func (val *LookupSecurityGroupRuleResult) Defaults() *LookupSecurityGroupRuleRes
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Rule = tmp.Rule.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o LookupSecurityGroupRuleResultOutput) ToLookupSecurityGroupRuleResultOutp
 	return o
 }
 
-func (o LookupSecurityGroupRuleResultOutput) Items() ScalewayInstanceV1GetSecurityGroupRuleResponseOutput {
-	return o.ApplyT(func(v LookupSecurityGroupRuleResult) ScalewayInstanceV1GetSecurityGroupRuleResponse { return v.Items }).(ScalewayInstanceV1GetSecurityGroupRuleResponseOutput)
+func (o LookupSecurityGroupRuleResultOutput) Rule() ScalewayInstanceV1SecurityGroupRulePtrOutput {
+	return o.ApplyT(func(v LookupSecurityGroupRuleResult) *ScalewayInstanceV1SecurityGroupRule { return v.Rule }).(ScalewayInstanceV1SecurityGroupRulePtrOutput)
 }
 
 func init() {

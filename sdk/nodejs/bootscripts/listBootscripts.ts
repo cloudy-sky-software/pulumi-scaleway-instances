@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function listBootscripts(args: ListBootscriptsArgs, opts?: pulumi.InvokeOptions): Promise<ListBootscriptsResult> {
+export function listBootscripts(args: ListBootscriptsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.bootscripts.ScalewayInstanceV1ListBootscriptsResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:bootscripts:listBootscripts", {
@@ -21,11 +21,7 @@ export interface ListBootscriptsArgs {
      */
     zone: string;
 }
-
-export interface ListBootscriptsResult {
-    readonly items: outputs.bootscripts.ScalewayInstanceV1ListBootscriptsResponse;
-}
-export function listBootscriptsOutput(args: ListBootscriptsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBootscriptsResult> {
+export function listBootscriptsOutput(args: ListBootscriptsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.bootscripts.ScalewayInstanceV1ListBootscriptsResponse> {
     return pulumi.output(args).apply((a: any) => listBootscripts(a, opts))
 }
 

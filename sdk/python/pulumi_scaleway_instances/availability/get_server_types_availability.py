@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetServerTypesAvailabilityResult',
-    'AwaitableGetServerTypesAvailabilityResult',
+    'ScalewayInstanceV1GetServerTypesAvailabilityResponse',
+    'AwaitableScalewayInstanceV1GetServerTypesAvailabilityResponse',
     'get_server_types_availability',
     'get_server_types_availability_output',
 ]
 
 @pulumi.output_type
-class GetServerTypesAvailabilityResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1GetServerTypesAvailabilityResponse:
+    def __init__(__self__, servers=None):
+        if servers and not isinstance(servers, dict):
+            raise TypeError("Expected argument 'servers' to be a dict")
+        pulumi.set(__self__, "servers", servers)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse':
-        return pulumi.get(self, "items")
+    def servers(self) -> Optional[Mapping[str, 'outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability']]:
+        return pulumi.get(self, "servers")
 
 
-class AwaitableGetServerTypesAvailabilityResult(GetServerTypesAvailabilityResult):
+class AwaitableScalewayInstanceV1GetServerTypesAvailabilityResponse(ScalewayInstanceV1GetServerTypesAvailabilityResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetServerTypesAvailabilityResult(
-            items=self.items)
+        return ScalewayInstanceV1GetServerTypesAvailabilityResponse(
+            servers=self.servers)
 
 
 def get_server_types_availability(zone: Optional[str] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerTypesAvailabilityResult:
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1GetServerTypesAvailabilityResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +50,15 @@ def get_server_types_availability(zone: Optional[str] = None,
     __args__ = dict()
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:availability:getServerTypesAvailability', __args__, opts=opts, typ=GetServerTypesAvailabilityResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:availability:getServerTypesAvailability', __args__, opts=opts, typ=ScalewayInstanceV1GetServerTypesAvailabilityResponse).value
 
-    return AwaitableGetServerTypesAvailabilityResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1GetServerTypesAvailabilityResponse(
+        servers=pulumi.get(__ret__, 'servers'))
 
 
 @_utilities.lift_output_func(get_server_types_availability)
 def get_server_types_availability_output(zone: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTypesAvailabilityResult]:
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetServerTypesAvailabilityResponse]:
     """
     Use this data source to access information about an existing resource.
 

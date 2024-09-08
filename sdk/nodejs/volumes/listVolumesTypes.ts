@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function listVolumesTypes(args: ListVolumesTypesArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumesTypesResult> {
+export function listVolumesTypes(args: ListVolumesTypesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.volumes.ScalewayInstanceV1ListVolumesTypesResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:volumes:listVolumesTypes", {
@@ -21,11 +21,7 @@ export interface ListVolumesTypesArgs {
      */
     zone: string;
 }
-
-export interface ListVolumesTypesResult {
-    readonly items: outputs.volumes.ScalewayInstanceV1ListVolumesTypesResponse;
-}
-export function listVolumesTypesOutput(args: ListVolumesTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumesTypesResult> {
+export function listVolumesTypesOutput(args: ListVolumesTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.ScalewayInstanceV1ListVolumesTypesResponse> {
     return pulumi.output(args).apply((a: any) => listVolumesTypes(a, opts))
 }
 

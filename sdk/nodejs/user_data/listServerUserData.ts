@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function listServerUserData(args: ListServerUserDataArgs, opts?: pulumi.InvokeOptions): Promise<ListServerUserDataResult> {
+export function listServerUserData(args: ListServerUserDataArgs, opts?: pulumi.InvokeOptions): Promise<outputs.user_data.ScalewayInstanceV1ListServerUserDataResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:user_data:listServerUserData", {
@@ -26,11 +26,7 @@ export interface ListServerUserDataArgs {
      */
     zone: string;
 }
-
-export interface ListServerUserDataResult {
-    readonly items: outputs.user_data.ScalewayInstanceV1ListServerUserDataResponse;
-}
-export function listServerUserDataOutput(args: ListServerUserDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerUserDataResult> {
+export function listServerUserDataOutput(args: ListServerUserDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.user_data.ScalewayInstanceV1ListServerUserDataResponse> {
     return pulumi.output(args).apply((a: any) => listServerUserData(a, opts))
 }
 

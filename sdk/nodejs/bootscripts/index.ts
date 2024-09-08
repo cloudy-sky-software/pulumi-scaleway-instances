@@ -4,12 +4,12 @@
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetBootscriptArgs, GetBootscriptResult, GetBootscriptOutputArgs } from "./getBootscript";
+export { GetBootscriptArgs, GetBootscriptOutputArgs } from "./getBootscript";
 export const getBootscript: typeof import("./getBootscript").getBootscript = null as any;
 export const getBootscriptOutput: typeof import("./getBootscript").getBootscriptOutput = null as any;
 utilities.lazyLoad(exports, ["getBootscript","getBootscriptOutput"], () => require("./getBootscript"));
 
-export { ListBootscriptsArgs, ListBootscriptsResult, ListBootscriptsOutputArgs } from "./listBootscripts";
+export { ListBootscriptsArgs, ListBootscriptsOutputArgs } from "./listBootscripts";
 export const listBootscripts: typeof import("./listBootscripts").listBootscripts = null as any;
 export const listBootscriptsOutput: typeof import("./listBootscripts").listBootscriptsOutput = null as any;
 utilities.lazyLoad(exports, ["listBootscripts","listBootscriptsOutput"], () => require("./listBootscripts"));

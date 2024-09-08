@@ -13,9 +13,7 @@ from ._enums import *
 
 __all__ = [
     'ScalewayInstanceV1Bootscript',
-    'ScalewayInstanceV1GetImageResponse',
     'ScalewayInstanceV1Image',
-    'ScalewayInstanceV1ListImagesResponse',
     'ScalewayInstanceV1Volume',
     'ScalewayInstanceV1VolumeServerProperties',
     'ScalewayInstanceV1VolumeSummary',
@@ -172,19 +170,6 @@ class ScalewayInstanceV1Bootscript(dict):
         The zone in which is the bootscript
         """
         return pulumi.get(self, "zone")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1GetImageResponse(dict):
-    def __init__(__self__, *,
-                 image: Optional['outputs.ScalewayInstanceV1Image'] = None):
-        if image is not None:
-            pulumi.set(__self__, "image", image)
-
-    @property
-    @pulumi.getter
-    def image(self) -> Optional['outputs.ScalewayInstanceV1Image']:
-        return pulumi.get(self, "image")
 
 
 @pulumi.output_type
@@ -348,25 +333,6 @@ class ScalewayInstanceV1Image(dict):
     @pulumi.getter
     def zone(self) -> Optional[str]:
         return pulumi.get(self, "zone")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListImagesResponse(dict):
-    def __init__(__self__, *,
-                 images: Optional[Sequence['outputs.ScalewayInstanceV1Image']] = None):
-        """
-        :param Sequence['ScalewayInstanceV1Image'] images: List of images
-        """
-        if images is not None:
-            pulumi.set(__self__, "images", images)
-
-    @property
-    @pulumi.getter
-    def images(self) -> Optional[Sequence['outputs.ScalewayInstanceV1Image']]:
-        """
-        List of images
-        """
-        return pulumi.get(self, "images")
 
 
 @pulumi.output_type

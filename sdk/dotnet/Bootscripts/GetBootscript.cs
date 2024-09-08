@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Bootscripts
 {
     public static class GetBootscript
     {
-        public static Task<GetBootscriptResult> InvokeAsync(GetBootscriptArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBootscriptResult>("scaleway-instances:bootscripts:getBootscript", args ?? new GetBootscriptArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetBootscriptResponse> InvokeAsync(GetBootscriptArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetBootscriptResponse>("scaleway-instances:bootscripts:getBootscript", args ?? new GetBootscriptArgs(), options.WithDefaults());
 
-        public static Output<GetBootscriptResult> Invoke(GetBootscriptInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetBootscriptResult>("scaleway-instances:bootscripts:getBootscript", args ?? new GetBootscriptInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetBootscriptResponse> Invoke(GetBootscriptInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetBootscriptResponse>("scaleway-instances:bootscripts:getBootscript", args ?? new GetBootscriptInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -51,18 +51,5 @@ namespace Pulumi.ScalewayInstances.Bootscripts
         {
         }
         public static new GetBootscriptInvokeArgs Empty => new GetBootscriptInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetBootscriptResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetBootscriptResponse Items;
-
-        [OutputConstructor]
-        private GetBootscriptResult(Outputs.ScalewayInstanceV1GetBootscriptResponse items)
-        {
-            Items = items;
-        }
     }
 }

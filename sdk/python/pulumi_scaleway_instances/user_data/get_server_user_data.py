@@ -6,43 +6,60 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
-from . import outputs
 
 __all__ = [
-    'GetServerUserDataResult',
-    'AwaitableGetServerUserDataResult',
+    'ScalewayStdFile',
+    'AwaitableScalewayStdFile',
     'get_server_user_data',
     'get_server_user_data_output',
 ]
 
 @pulumi.output_type
-class GetServerUserDataResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayStdFile:
+    def __init__(__self__, content=None, content_type=None, name=None):
+        if content and not isinstance(content, str):
+            raise TypeError("Expected argument 'content' to be a str")
+        pulumi.set(__self__, "content", content)
+        if content_type and not isinstance(content_type, str):
+            raise TypeError("Expected argument 'content_type' to be a str")
+        pulumi.set(__self__, "content_type", content_type)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayStdFile':
-        return pulumi.get(self, "items")
+    def content(self) -> Optional[str]:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 
-class AwaitableGetServerUserDataResult(GetServerUserDataResult):
+class AwaitableScalewayStdFile(ScalewayStdFile):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetServerUserDataResult(
-            items=self.items)
+        return ScalewayStdFile(
+            content=self.content,
+            content_type=self.content_type,
+            name=self.name)
 
 
 def get_server_user_data(key: Optional[str] = None,
                          server_id: Optional[str] = None,
                          zone: Optional[str] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerUserDataResult:
+                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayStdFile:
     """
     Use this data source to access information about an existing resource.
 
@@ -55,17 +72,19 @@ def get_server_user_data(key: Optional[str] = None,
     __args__['serverId'] = server_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:user_data:getServerUserData', __args__, opts=opts, typ=GetServerUserDataResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:user_data:getServerUserData', __args__, opts=opts, typ=ScalewayStdFile).value
 
-    return AwaitableGetServerUserDataResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayStdFile(
+        content=pulumi.get(__ret__, 'content'),
+        content_type=pulumi.get(__ret__, 'content_type'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_server_user_data)
 def get_server_user_data_output(key: Optional[pulumi.Input[str]] = None,
                                 server_id: Optional[pulumi.Input[str]] = None,
                                 zone: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerUserDataResult]:
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayStdFile]:
     """
     Use this data source to access information about an existing resource.
 

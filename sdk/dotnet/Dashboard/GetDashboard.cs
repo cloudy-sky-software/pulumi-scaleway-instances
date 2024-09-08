@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Dashboard
 {
     public static class GetDashboard
     {
-        public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("scaleway-instances:dashboard:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetDashboardResponse> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetDashboardResponse>("scaleway-instances:dashboard:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
 
-        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("scaleway-instances:dashboard:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetDashboardResponse> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetDashboardResponse>("scaleway-instances:dashboard:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -45,18 +45,5 @@ namespace Pulumi.ScalewayInstances.Dashboard
         {
         }
         public static new GetDashboardInvokeArgs Empty => new GetDashboardInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetDashboardResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetDashboardResponse Items;
-
-        [OutputConstructor]
-        private GetDashboardResult(Outputs.ScalewayInstanceV1GetDashboardResponse items)
-        {
-            Items = items;
-        }
     }
 }

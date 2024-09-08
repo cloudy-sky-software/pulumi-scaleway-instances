@@ -8,26 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ScalewayInstanceV1GetServerTypesAvailabilityResponse',
     'ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability',
 ]
-
-@pulumi.output_type
-class ScalewayInstanceV1GetServerTypesAvailabilityResponse(dict):
-    def __init__(__self__, *,
-                 servers: Optional[Mapping[str, 'outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability']] = None):
-        if servers is not None:
-            pulumi.set(__self__, "servers", servers)
-
-    @property
-    @pulumi.getter
-    def servers(self) -> Optional[Mapping[str, 'outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability']]:
-        return pulumi.get(self, "servers")
-
 
 @pulumi.output_type
 class ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability(dict):

@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetPrivateNICArgs, GetPrivateNICResult, GetPrivateNICOutputArgs } from "./getPrivateNIC";
+export { GetPrivateNICArgs, GetPrivateNICOutputArgs } from "./getPrivateNIC";
 export const getPrivateNIC: typeof import("./getPrivateNIC").getPrivateNIC = null as any;
 export const getPrivateNICOutput: typeof import("./getPrivateNIC").getPrivateNICOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateNIC","getPrivateNICOutput"], () => require("./getPrivateNIC"));
 
-export { ListPrivateNICsArgs, ListPrivateNICsResult, ListPrivateNICsOutputArgs } from "./listPrivateNICs";
+export { ListPrivateNICsArgs, ListPrivateNICsOutputArgs } from "./listPrivateNICs";
 export const listPrivateNICs: typeof import("./listPrivateNICs").listPrivateNICs = null as any;
 export const listPrivateNICsOutput: typeof import("./listPrivateNICs").listPrivateNICsOutput = null as any;
 utilities.lazyLoad(exports, ["listPrivateNICs","listPrivateNICsOutput"], () => require("./listPrivateNICs"));

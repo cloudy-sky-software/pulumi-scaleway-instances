@@ -6,42 +6,42 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetIpResult',
-    'AwaitableGetIpResult',
+    'ScalewayInstanceV1GetIpResponse',
+    'AwaitableScalewayInstanceV1GetIpResponse',
     'get_ip',
     'get_ip_output',
 ]
 
 @pulumi.output_type
-class GetIpResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1GetIpResponse:
+    def __init__(__self__, ip=None):
+        if ip and not isinstance(ip, dict):
+            raise TypeError("Expected argument 'ip' to be a dict")
+        pulumi.set(__self__, "ip", ip)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1GetIpResponse':
-        return pulumi.get(self, "items")
+    def ip(self) -> Optional['outputs.ScalewayInstanceV1Ip']:
+        return pulumi.get(self, "ip")
 
 
-class AwaitableGetIpResult(GetIpResult):
+class AwaitableScalewayInstanceV1GetIpResponse(ScalewayInstanceV1GetIpResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetIpResult(
-            items=self.items)
+        return ScalewayInstanceV1GetIpResponse(
+            ip=self.ip)
 
 
 def get_ip(id: Optional[str] = None,
            zone: Optional[str] = None,
-           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpResult:
+           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1GetIpResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,16 +52,16 @@ def get_ip(id: Optional[str] = None,
     __args__['id'] = id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:ips:getIp', __args__, opts=opts, typ=GetIpResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:ips:getIp', __args__, opts=opts, typ=ScalewayInstanceV1GetIpResponse).value
 
-    return AwaitableGetIpResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1GetIpResponse(
+        ip=pulumi.get(__ret__, 'ip'))
 
 
 @_utilities.lift_output_func(get_ip)
 def get_ip_output(id: Optional[pulumi.Input[str]] = None,
                   zone: Optional[pulumi.Input[str]] = None,
-                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpResult]:
+                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetIpResponse]:
     """
     Use this data source to access information about an existing resource.
 

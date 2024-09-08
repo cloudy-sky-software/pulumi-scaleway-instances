@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetIpArgs, GetIpResult, GetIpOutputArgs } from "./getIp";
+export { GetIpArgs, GetIpOutputArgs } from "./getIp";
 export const getIp: typeof import("./getIp").getIp = null as any;
 export const getIpOutput: typeof import("./getIp").getIpOutput = null as any;
 utilities.lazyLoad(exports, ["getIp","getIpOutput"], () => require("./getIp"));
@@ -15,7 +15,7 @@ export type Ip = import("./ip").Ip;
 export const Ip: typeof import("./ip").Ip = null as any;
 utilities.lazyLoad(exports, ["Ip"], () => require("./ip"));
 
-export { ListIpsArgs, ListIpsResult, ListIpsOutputArgs } from "./listIps";
+export { ListIpsArgs, ListIpsOutputArgs } from "./listIps";
 export const listIps: typeof import("./listIps").listIps = null as any;
 export const listIpsOutput: typeof import("./listIps").listIpsOutput = null as any;
 utilities.lazyLoad(exports, ["listIps","listIpsOutput"], () => require("./listIps"));

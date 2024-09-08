@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Ips
 {
     public static class GetIp
     {
-        public static Task<GetIpResult> InvokeAsync(GetIpArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpResult>("scaleway-instances:ips:getIp", args ?? new GetIpArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetIpResponse> InvokeAsync(GetIpArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetIpResponse>("scaleway-instances:ips:getIp", args ?? new GetIpArgs(), options.WithDefaults());
 
-        public static Output<GetIpResult> Invoke(GetIpInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetIpResult>("scaleway-instances:ips:getIp", args ?? new GetIpInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetIpResponse> Invoke(GetIpInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetIpResponse>("scaleway-instances:ips:getIp", args ?? new GetIpInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.Ips
         {
         }
         public static new GetIpInvokeArgs Empty => new GetIpInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetIpResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetIpResponse Items;
-
-        [OutputConstructor]
-        private GetIpResult(Outputs.ScalewayInstanceV1GetIpResponse items)
-        {
-            Items = items;
-        }
     }
 }

@@ -29,7 +29,7 @@ type LookupServerArgs struct {
 }
 
 type LookupServerResult struct {
-	Items ScalewayInstanceV1GetServerResponse `pulumi:"items"`
+	Server *ScalewayInstanceV1Server `pulumi:"server"`
 }
 
 // Defaults sets the appropriate defaults for LookupServerResult
@@ -38,7 +38,7 @@ func (val *LookupServerResult) Defaults() *LookupServerResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Server = tmp.Server.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o LookupServerResultOutput) Items() ScalewayInstanceV1GetServerResponseOutput {
-	return o.ApplyT(func(v LookupServerResult) ScalewayInstanceV1GetServerResponse { return v.Items }).(ScalewayInstanceV1GetServerResponseOutput)
+func (o LookupServerResultOutput) Server() ScalewayInstanceV1ServerPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *ScalewayInstanceV1Server { return v.Server }).(ScalewayInstanceV1ServerPtrOutput)
 }
 
 func init() {

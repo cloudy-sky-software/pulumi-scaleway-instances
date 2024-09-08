@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
 {
     public static class ListSecurityGroups
     {
-        public static Task<ListSecurityGroupsResult> InvokeAsync(ListSecurityGroupsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSecurityGroupsResult>("scaleway-instances:security_groups:listSecurityGroups", args ?? new ListSecurityGroupsArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1ListSecurityGroupsResponse> InvokeAsync(ListSecurityGroupsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1ListSecurityGroupsResponse>("scaleway-instances:security_groups:listSecurityGroups", args ?? new ListSecurityGroupsArgs(), options.WithDefaults());
 
-        public static Output<ListSecurityGroupsResult> Invoke(ListSecurityGroupsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListSecurityGroupsResult>("scaleway-instances:security_groups:listSecurityGroups", args ?? new ListSecurityGroupsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1ListSecurityGroupsResponse> Invoke(ListSecurityGroupsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListSecurityGroupsResponse>("scaleway-instances:security_groups:listSecurityGroups", args ?? new ListSecurityGroupsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -45,18 +45,5 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         {
         }
         public static new ListSecurityGroupsInvokeArgs Empty => new ListSecurityGroupsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListSecurityGroupsResult
-    {
-        public readonly Outputs.ScalewayInstanceV1ListSecurityGroupsResponse Items;
-
-        [OutputConstructor]
-        private ListSecurityGroupsResult(Outputs.ScalewayInstanceV1ListSecurityGroupsResponse items)
-        {
-            Items = items;
-        }
     }
 }

@@ -6,43 +6,43 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetServerResult',
-    'AwaitableGetServerResult',
+    'ScalewayInstanceV1GetServerResponse',
+    'AwaitableScalewayInstanceV1GetServerResponse',
     'get_server',
     'get_server_output',
 ]
 
 @pulumi.output_type
-class GetServerResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1GetServerResponse:
+    def __init__(__self__, server=None):
+        if server and not isinstance(server, dict):
+            raise TypeError("Expected argument 'server' to be a dict")
+        pulumi.set(__self__, "server", server)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1GetServerResponse':
-        return pulumi.get(self, "items")
+    def server(self) -> Optional['outputs.ScalewayInstanceV1Server']:
+        return pulumi.get(self, "server")
 
 
-class AwaitableGetServerResult(GetServerResult):
+class AwaitableScalewayInstanceV1GetServerResponse(ScalewayInstanceV1GetServerResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetServerResult(
-            items=self.items)
+        return ScalewayInstanceV1GetServerResponse(
+            server=self.server)
 
 
 def get_server(id: Optional[str] = None,
                zone: Optional[str] = None,
-               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1GetServerResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -53,16 +53,16 @@ def get_server(id: Optional[str] = None,
     __args__['id'] = id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:servers:getServer', __args__, opts=opts, typ=GetServerResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:servers:getServer', __args__, opts=opts, typ=ScalewayInstanceV1GetServerResponse).value
 
-    return AwaitableGetServerResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1GetServerResponse(
+        server=pulumi.get(__ret__, 'server'))
 
 
 @_utilities.lift_output_func(get_server)
 def get_server_output(id: Optional[pulumi.Input[str]] = None,
                       zone: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetServerResponse]:
     """
     Use this data source to access information about an existing resource.
 

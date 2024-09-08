@@ -29,7 +29,7 @@ type LookupIpArgs struct {
 }
 
 type LookupIpResult struct {
-	Items ScalewayInstanceV1GetIpResponse `pulumi:"items"`
+	Ip *ScalewayInstanceV1Ip `pulumi:"ip"`
 }
 
 func LookupIpOutput(ctx *pulumi.Context, args LookupIpOutputArgs, opts ...pulumi.InvokeOption) LookupIpResultOutput {
@@ -70,8 +70,8 @@ func (o LookupIpResultOutput) ToLookupIpResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o LookupIpResultOutput) Items() ScalewayInstanceV1GetIpResponseOutput {
-	return o.ApplyT(func(v LookupIpResult) ScalewayInstanceV1GetIpResponse { return v.Items }).(ScalewayInstanceV1GetIpResponseOutput)
+func (o LookupIpResultOutput) Ip() ScalewayInstanceV1IpPtrOutput {
+	return o.ApplyT(func(v LookupIpResult) *ScalewayInstanceV1Ip { return v.Ip }).(ScalewayInstanceV1IpPtrOutput)
 }
 
 func init() {

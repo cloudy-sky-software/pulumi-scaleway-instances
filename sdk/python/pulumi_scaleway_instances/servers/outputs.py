@@ -13,11 +13,7 @@ from ._enums import *
 
 __all__ = [
     'ScalewayInstanceV1Bootscript',
-    'ScalewayInstanceV1GetPlacementGroupServersResponse',
-    'ScalewayInstanceV1GetServerResponse',
     'ScalewayInstanceV1Image',
-    'ScalewayInstanceV1ListServersResponse',
-    'ScalewayInstanceV1ListServersTypesResponse',
     'ScalewayInstanceV1PlacementGroup',
     'ScalewayInstanceV1PlacementGroupServer',
     'ScalewayInstanceV1PrivateNIC',
@@ -196,32 +192,6 @@ class ScalewayInstanceV1Bootscript(dict):
 
 
 @pulumi.output_type
-class ScalewayInstanceV1GetPlacementGroupServersResponse(dict):
-    def __init__(__self__, *,
-                 servers: Optional[Sequence['outputs.ScalewayInstanceV1PlacementGroupServer']] = None):
-        if servers is not None:
-            pulumi.set(__self__, "servers", servers)
-
-    @property
-    @pulumi.getter
-    def servers(self) -> Optional[Sequence['outputs.ScalewayInstanceV1PlacementGroupServer']]:
-        return pulumi.get(self, "servers")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1GetServerResponse(dict):
-    def __init__(__self__, *,
-                 server: Optional['outputs.ScalewayInstanceV1Server'] = None):
-        if server is not None:
-            pulumi.set(__self__, "server", server)
-
-    @property
-    @pulumi.getter
-    def server(self) -> Optional['outputs.ScalewayInstanceV1Server']:
-        return pulumi.get(self, "server")
-
-
-@pulumi.output_type
 class ScalewayInstanceV1Image(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -382,44 +352,6 @@ class ScalewayInstanceV1Image(dict):
     @pulumi.getter
     def zone(self) -> Optional[str]:
         return pulumi.get(self, "zone")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListServersResponse(dict):
-    def __init__(__self__, *,
-                 servers: Optional[Sequence['outputs.ScalewayInstanceV1Server']] = None):
-        """
-        :param Sequence['ScalewayInstanceV1Server'] servers: List of servers
-        """
-        if servers is not None:
-            pulumi.set(__self__, "servers", servers)
-
-    @property
-    @pulumi.getter
-    def servers(self) -> Optional[Sequence['outputs.ScalewayInstanceV1Server']]:
-        """
-        List of servers
-        """
-        return pulumi.get(self, "servers")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListServersTypesResponse(dict):
-    def __init__(__self__, *,
-                 servers: Optional[Mapping[str, 'outputs.ScalewayInstanceV1ServerType']] = None):
-        """
-        :param Mapping[str, 'ScalewayInstanceV1ServerType'] servers: List of server types
-        """
-        if servers is not None:
-            pulumi.set(__self__, "servers", servers)
-
-    @property
-    @pulumi.getter
-    def servers(self) -> Optional[Mapping[str, 'outputs.ScalewayInstanceV1ServerType']]:
-        """
-        List of server types
-        """
-        return pulumi.get(self, "servers")
 
 
 @pulumi.output_type

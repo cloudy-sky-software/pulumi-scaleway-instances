@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Availability
 {
     public static class GetServerTypesAvailability
     {
-        public static Task<GetServerTypesAvailabilityResult> InvokeAsync(GetServerTypesAvailabilityArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerTypesAvailabilityResult>("scaleway-instances:availability:getServerTypesAvailability", args ?? new GetServerTypesAvailabilityArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse> InvokeAsync(GetServerTypesAvailabilityArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse>("scaleway-instances:availability:getServerTypesAvailability", args ?? new GetServerTypesAvailabilityArgs(), options.WithDefaults());
 
-        public static Output<GetServerTypesAvailabilityResult> Invoke(GetServerTypesAvailabilityInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetServerTypesAvailabilityResult>("scaleway-instances:availability:getServerTypesAvailability", args ?? new GetServerTypesAvailabilityInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse> Invoke(GetServerTypesAvailabilityInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse>("scaleway-instances:availability:getServerTypesAvailability", args ?? new GetServerTypesAvailabilityInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -45,18 +45,5 @@ namespace Pulumi.ScalewayInstances.Availability
         {
         }
         public static new GetServerTypesAvailabilityInvokeArgs Empty => new GetServerTypesAvailabilityInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetServerTypesAvailabilityResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse Items;
-
-        [OutputConstructor]
-        private GetServerTypesAvailabilityResult(Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse items)
-        {
-            Items = items;
-        }
     }
 }

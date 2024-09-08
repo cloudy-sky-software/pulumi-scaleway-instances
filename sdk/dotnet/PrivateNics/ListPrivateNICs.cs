@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.PrivateNics
 {
     public static class ListPrivateNICs
     {
-        public static Task<ListPrivateNICsResult> InvokeAsync(ListPrivateNICsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListPrivateNICsResult>("scaleway-instances:private_nics:listPrivateNICs", args ?? new ListPrivateNICsArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1ListPrivateNICsResponse> InvokeAsync(ListPrivateNICsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1ListPrivateNICsResponse>("scaleway-instances:private_nics:listPrivateNICs", args ?? new ListPrivateNICsArgs(), options.WithDefaults());
 
-        public static Output<ListPrivateNICsResult> Invoke(ListPrivateNICsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListPrivateNICsResult>("scaleway-instances:private_nics:listPrivateNICs", args ?? new ListPrivateNICsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1ListPrivateNICsResponse> Invoke(ListPrivateNICsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListPrivateNICsResponse>("scaleway-instances:private_nics:listPrivateNICs", args ?? new ListPrivateNICsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -51,18 +51,5 @@ namespace Pulumi.ScalewayInstances.PrivateNics
         {
         }
         public static new ListPrivateNICsInvokeArgs Empty => new ListPrivateNICsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListPrivateNICsResult
-    {
-        public readonly Outputs.ScalewayInstanceV1ListPrivateNICsResponse Items;
-
-        [OutputConstructor]
-        private ListPrivateNICsResult(Outputs.ScalewayInstanceV1ListPrivateNICsResponse items)
-        {
-            Items = items;
-        }
     }
 }

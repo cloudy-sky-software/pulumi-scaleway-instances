@@ -12,9 +12,6 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ScalewayInstanceV1GetVolumeResponse',
-    'ScalewayInstanceV1ListVolumesResponse',
-    'ScalewayInstanceV1ListVolumesTypesResponse',
     'ScalewayInstanceV1Volume',
     'ScalewayInstanceV1VolumeServerProperties',
     'ScalewayInstanceV1VolumeType',
@@ -22,57 +19,6 @@ __all__ = [
     'ScalewayInstanceV1VolumeTypeConstraints',
     'ServerProperties',
 ]
-
-@pulumi.output_type
-class ScalewayInstanceV1GetVolumeResponse(dict):
-    def __init__(__self__, *,
-                 volume: Optional['outputs.ScalewayInstanceV1Volume'] = None):
-        if volume is not None:
-            pulumi.set(__self__, "volume", volume)
-
-    @property
-    @pulumi.getter
-    def volume(self) -> Optional['outputs.ScalewayInstanceV1Volume']:
-        return pulumi.get(self, "volume")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListVolumesResponse(dict):
-    def __init__(__self__, *,
-                 volumes: Optional[Sequence['outputs.ScalewayInstanceV1Volume']] = None):
-        """
-        :param Sequence['ScalewayInstanceV1Volume'] volumes: List of volumes
-        """
-        if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
-
-    @property
-    @pulumi.getter
-    def volumes(self) -> Optional[Sequence['outputs.ScalewayInstanceV1Volume']]:
-        """
-        List of volumes
-        """
-        return pulumi.get(self, "volumes")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListVolumesTypesResponse(dict):
-    def __init__(__self__, *,
-                 volumes: Optional[Mapping[str, 'outputs.ScalewayInstanceV1VolumeType']] = None):
-        """
-        :param Mapping[str, 'ScalewayInstanceV1VolumeType'] volumes: Map of volume types
-        """
-        if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
-
-    @property
-    @pulumi.getter
-    def volumes(self) -> Optional[Mapping[str, 'outputs.ScalewayInstanceV1VolumeType']]:
-        """
-        Map of volume types
-        """
-        return pulumi.get(self, "volumes")
-
 
 @pulumi.output_type
 class ScalewayInstanceV1Volume(dict):

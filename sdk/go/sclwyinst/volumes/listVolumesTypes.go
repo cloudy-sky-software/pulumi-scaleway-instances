@@ -27,7 +27,8 @@ type ListVolumesTypesArgs struct {
 }
 
 type ListVolumesTypesResult struct {
-	Items ScalewayInstanceV1ListVolumesTypesResponse `pulumi:"items"`
+	// Map of volume types
+	Volumes map[string]ScalewayInstanceV1VolumeType `pulumi:"volumes"`
 }
 
 func ListVolumesTypesOutput(ctx *pulumi.Context, args ListVolumesTypesOutputArgs, opts ...pulumi.InvokeOption) ListVolumesTypesResultOutput {
@@ -66,8 +67,9 @@ func (o ListVolumesTypesResultOutput) ToListVolumesTypesResultOutputWithContext(
 	return o
 }
 
-func (o ListVolumesTypesResultOutput) Items() ScalewayInstanceV1ListVolumesTypesResponseOutput {
-	return o.ApplyT(func(v ListVolumesTypesResult) ScalewayInstanceV1ListVolumesTypesResponse { return v.Items }).(ScalewayInstanceV1ListVolumesTypesResponseOutput)
+// Map of volume types
+func (o ListVolumesTypesResultOutput) Volumes() ScalewayInstanceV1VolumeTypeMapOutput {
+	return o.ApplyT(func(v ListVolumesTypesResult) map[string]ScalewayInstanceV1VolumeType { return v.Volumes }).(ScalewayInstanceV1VolumeTypeMapOutput)
 }
 
 func init() {

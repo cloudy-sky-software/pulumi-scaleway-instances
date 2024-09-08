@@ -6,44 +6,44 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetPrivateNICResult',
-    'AwaitableGetPrivateNICResult',
+    'ScalewayInstanceV1GetPrivateNICResponse',
+    'AwaitableScalewayInstanceV1GetPrivateNICResponse',
     'get_private_nic',
     'get_private_nic_output',
 ]
 
 @pulumi.output_type
-class GetPrivateNICResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1GetPrivateNICResponse:
+    def __init__(__self__, private_nic=None):
+        if private_nic and not isinstance(private_nic, dict):
+            raise TypeError("Expected argument 'private_nic' to be a dict")
+        pulumi.set(__self__, "private_nic", private_nic)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1GetPrivateNICResponse':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="privateNic")
+    def private_nic(self) -> Optional['outputs.ScalewayInstanceV1PrivateNIC']:
+        return pulumi.get(self, "private_nic")
 
 
-class AwaitableGetPrivateNICResult(GetPrivateNICResult):
+class AwaitableScalewayInstanceV1GetPrivateNICResponse(ScalewayInstanceV1GetPrivateNICResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetPrivateNICResult(
-            items=self.items)
+        return ScalewayInstanceV1GetPrivateNICResponse(
+            private_nic=self.private_nic)
 
 
 def get_private_nic(id: Optional[str] = None,
                     server_id: Optional[str] = None,
                     zone: Optional[str] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateNICResult:
+                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1GetPrivateNICResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -54,17 +54,17 @@ def get_private_nic(id: Optional[str] = None,
     __args__['serverId'] = server_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:private_nics:getPrivateNIC', __args__, opts=opts, typ=GetPrivateNICResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:private_nics:getPrivateNIC', __args__, opts=opts, typ=ScalewayInstanceV1GetPrivateNICResponse).value
 
-    return AwaitableGetPrivateNICResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1GetPrivateNICResponse(
+        private_nic=pulumi.get(__ret__, 'private_nic'))
 
 
 @_utilities.lift_output_func(get_private_nic)
 def get_private_nic_output(id: Optional[pulumi.Input[str]] = None,
                            server_id: Optional[pulumi.Input[str]] = None,
                            zone: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateNICResult]:
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetPrivateNICResponse]:
     """
     Use this data source to access information about an existing resource.
 

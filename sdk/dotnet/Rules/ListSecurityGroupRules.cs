@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Rules
 {
     public static class ListSecurityGroupRules
     {
-        public static Task<ListSecurityGroupRulesResult> InvokeAsync(ListSecurityGroupRulesArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListSecurityGroupRulesResult>("scaleway-instances:rules:listSecurityGroupRules", args ?? new ListSecurityGroupRulesArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse> InvokeAsync(ListSecurityGroupRulesArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse>("scaleway-instances:rules:listSecurityGroupRules", args ?? new ListSecurityGroupRulesArgs(), options.WithDefaults());
 
-        public static Output<ListSecurityGroupRulesResult> Invoke(ListSecurityGroupRulesInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListSecurityGroupRulesResult>("scaleway-instances:rules:listSecurityGroupRules", args ?? new ListSecurityGroupRulesInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse> Invoke(ListSecurityGroupRulesInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse>("scaleway-instances:rules:listSecurityGroupRules", args ?? new ListSecurityGroupRulesInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.Rules
         {
         }
         public static new ListSecurityGroupRulesInvokeArgs Empty => new ListSecurityGroupRulesInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListSecurityGroupRulesResult
-    {
-        public readonly Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse Items;
-
-        [OutputConstructor]
-        private ListSecurityGroupRulesResult(Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse items)
-        {
-            Items = items;
-        }
     }
 }

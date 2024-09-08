@@ -4,7 +4,7 @@
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetServerTypesAvailabilityArgs, GetServerTypesAvailabilityResult, GetServerTypesAvailabilityOutputArgs } from "./getServerTypesAvailability";
+export { GetServerTypesAvailabilityArgs, GetServerTypesAvailabilityOutputArgs } from "./getServerTypesAvailability";
 export const getServerTypesAvailability: typeof import("./getServerTypesAvailability").getServerTypesAvailability = null as any;
 export const getServerTypesAvailabilityOutput: typeof import("./getServerTypesAvailability").getServerTypesAvailabilityOutput = null as any;
 utilities.lazyLoad(exports, ["getServerTypesAvailability","getServerTypesAvailabilityOutput"], () => require("./getServerTypesAvailability"));

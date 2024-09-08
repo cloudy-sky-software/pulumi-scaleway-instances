@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.UserData
 {
     public static class ListServerUserData
     {
-        public static Task<ListServerUserDataResult> InvokeAsync(ListServerUserDataArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListServerUserDataResult>("scaleway-instances:user_data:listServerUserData", args ?? new ListServerUserDataArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1ListServerUserDataResponse> InvokeAsync(ListServerUserDataArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1ListServerUserDataResponse>("scaleway-instances:user_data:listServerUserData", args ?? new ListServerUserDataArgs(), options.WithDefaults());
 
-        public static Output<ListServerUserDataResult> Invoke(ListServerUserDataInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListServerUserDataResult>("scaleway-instances:user_data:listServerUserData", args ?? new ListServerUserDataInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1ListServerUserDataResponse> Invoke(ListServerUserDataInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListServerUserDataResponse>("scaleway-instances:user_data:listServerUserData", args ?? new ListServerUserDataInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.UserData
         {
         }
         public static new ListServerUserDataInvokeArgs Empty => new ListServerUserDataInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListServerUserDataResult
-    {
-        public readonly Outputs.ScalewayInstanceV1ListServerUserDataResponse Items;
-
-        [OutputConstructor]
-        private ListServerUserDataResult(Outputs.ScalewayInstanceV1ListServerUserDataResponse items)
-        {
-            Items = items;
-        }
     }
 }

@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Servers
 {
     public static class GetServer
     {
-        public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("scaleway-instances:servers:getServer", args ?? new GetServerArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetServerResponse> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetServerResponse>("scaleway-instances:servers:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
-        public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("scaleway-instances:servers:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetServerResponse> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetServerResponse>("scaleway-instances:servers:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.Servers
         {
         }
         public static new GetServerInvokeArgs Empty => new GetServerInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetServerResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetServerResponse Items;
-
-        [OutputConstructor]
-        private GetServerResult(Outputs.ScalewayInstanceV1GetServerResponse items)
-        {
-            Items = items;
-        }
     }
 }

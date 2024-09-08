@@ -6,43 +6,46 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListSecurityGroupRulesResult',
-    'AwaitableListSecurityGroupRulesResult',
+    'ScalewayInstanceV1ListSecurityGroupRulesResponse',
+    'AwaitableScalewayInstanceV1ListSecurityGroupRulesResponse',
     'list_security_group_rules',
     'list_security_group_rules_output',
 ]
 
 @pulumi.output_type
-class ListSecurityGroupRulesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1ListSecurityGroupRulesResponse:
+    def __init__(__self__, rules=None):
+        if rules and not isinstance(rules, list):
+            raise TypeError("Expected argument 'rules' to be a list")
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse':
-        return pulumi.get(self, "items")
+    def rules(self) -> Optional[Sequence['outputs.ScalewayInstanceV1SecurityGroupRule']]:
+        """
+        List of security rules
+        """
+        return pulumi.get(self, "rules")
 
 
-class AwaitableListSecurityGroupRulesResult(ListSecurityGroupRulesResult):
+class AwaitableScalewayInstanceV1ListSecurityGroupRulesResponse(ScalewayInstanceV1ListSecurityGroupRulesResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListSecurityGroupRulesResult(
-            items=self.items)
+        return ScalewayInstanceV1ListSecurityGroupRulesResponse(
+            rules=self.rules)
 
 
 def list_security_group_rules(security_group_id: Optional[str] = None,
                               zone: Optional[str] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSecurityGroupRulesResult:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1ListSecurityGroupRulesResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -53,16 +56,16 @@ def list_security_group_rules(security_group_id: Optional[str] = None,
     __args__['securityGroupId'] = security_group_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:rules:listSecurityGroupRules', __args__, opts=opts, typ=ListSecurityGroupRulesResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:rules:listSecurityGroupRules', __args__, opts=opts, typ=ScalewayInstanceV1ListSecurityGroupRulesResponse).value
 
-    return AwaitableListSecurityGroupRulesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1ListSecurityGroupRulesResponse(
+        rules=pulumi.get(__ret__, 'rules'))
 
 
 @_utilities.lift_output_func(list_security_group_rules)
 def list_security_group_rules_output(security_group_id: Optional[pulumi.Input[str]] = None,
                                      zone: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSecurityGroupRulesResult]:
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListSecurityGroupRulesResponse]:
     """
     Use this data source to access information about an existing resource.
 

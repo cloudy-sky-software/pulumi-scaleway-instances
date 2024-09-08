@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Images
 {
     public static class GetImage
     {
-        public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("scaleway-instances:images:getImage", args ?? new GetImageArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetImageResponse> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetImageResponse>("scaleway-instances:images:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
-        public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("scaleway-instances:images:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetImageResponse> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetImageResponse>("scaleway-instances:images:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.Images
         {
         }
         public static new GetImageInvokeArgs Empty => new GetImageInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetImageResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetImageResponse Items;
-
-        [OutputConstructor]
-        private GetImageResult(Outputs.ScalewayInstanceV1GetImageResponse items)
-        {
-            Items = items;
-        }
     }
 }
