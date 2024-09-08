@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Rules
 {
     public static class GetSecurityGroupRule
     {
-        public static Task<GetSecurityGroupRuleResult> InvokeAsync(GetSecurityGroupRuleArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupRuleResult>("scaleway-instances:rules:getSecurityGroupRule", args ?? new GetSecurityGroupRuleArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetSecurityGroupRuleResponse> InvokeAsync(GetSecurityGroupRuleArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetSecurityGroupRuleResponse>("scaleway-instances:rules:getSecurityGroupRule", args ?? new GetSecurityGroupRuleArgs(), options.WithDefaults());
 
-        public static Output<GetSecurityGroupRuleResult> Invoke(GetSecurityGroupRuleInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupRuleResult>("scaleway-instances:rules:getSecurityGroupRule", args ?? new GetSecurityGroupRuleInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetSecurityGroupRuleResponse> Invoke(GetSecurityGroupRuleInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetSecurityGroupRuleResponse>("scaleway-instances:rules:getSecurityGroupRule", args ?? new GetSecurityGroupRuleInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.Rules
         {
         }
         public static new GetSecurityGroupRuleInvokeArgs Empty => new GetSecurityGroupRuleInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetSecurityGroupRuleResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetSecurityGroupRuleResponse Items;
-
-        [OutputConstructor]
-        private GetSecurityGroupRuleResult(Outputs.ScalewayInstanceV1GetSecurityGroupRuleResponse items)
-        {
-            Items = items;
-        }
     }
 }

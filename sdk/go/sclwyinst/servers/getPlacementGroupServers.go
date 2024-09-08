@@ -29,7 +29,7 @@ type LookupPlacementGroupServersArgs struct {
 }
 
 type LookupPlacementGroupServersResult struct {
-	Items ScalewayInstanceV1GetPlacementGroupServersResponse `pulumi:"items"`
+	Servers []ScalewayInstanceV1PlacementGroupServer `pulumi:"servers"`
 }
 
 func LookupPlacementGroupServersOutput(ctx *pulumi.Context, args LookupPlacementGroupServersOutputArgs, opts ...pulumi.InvokeOption) LookupPlacementGroupServersResultOutput {
@@ -70,10 +70,8 @@ func (o LookupPlacementGroupServersResultOutput) ToLookupPlacementGroupServersRe
 	return o
 }
 
-func (o LookupPlacementGroupServersResultOutput) Items() ScalewayInstanceV1GetPlacementGroupServersResponseOutput {
-	return o.ApplyT(func(v LookupPlacementGroupServersResult) ScalewayInstanceV1GetPlacementGroupServersResponse {
-		return v.Items
-	}).(ScalewayInstanceV1GetPlacementGroupServersResponseOutput)
+func (o LookupPlacementGroupServersResultOutput) Servers() ScalewayInstanceV1PlacementGroupServerArrayOutput {
+	return o.ApplyT(func(v LookupPlacementGroupServersResult) []ScalewayInstanceV1PlacementGroupServer { return v.Servers }).(ScalewayInstanceV1PlacementGroupServerArrayOutput)
 }
 
 func init() {

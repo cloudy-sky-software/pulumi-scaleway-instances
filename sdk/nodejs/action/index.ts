@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ListServerActionsArgs, ListServerActionsResult, ListServerActionsOutputArgs } from "./listServerActions";
+export { ListServerActionsArgs, ListServerActionsOutputArgs } from "./listServerActions";
 export const listServerActions: typeof import("./listServerActions").listServerActions = null as any;
 export const listServerActionsOutput: typeof import("./listServerActions").listServerActionsOutput = null as any;
 utilities.lazyLoad(exports, ["listServerActions","listServerActionsOutput"], () => require("./listServerActions"));

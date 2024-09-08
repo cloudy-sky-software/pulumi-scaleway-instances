@@ -6,42 +6,41 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
-from . import outputs
 
 __all__ = [
-    'ListServerUserDataResult',
-    'AwaitableListServerUserDataResult',
+    'ScalewayInstanceV1ListServerUserDataResponse',
+    'AwaitableScalewayInstanceV1ListServerUserDataResponse',
     'list_server_user_data',
     'list_server_user_data_output',
 ]
 
 @pulumi.output_type
-class ListServerUserDataResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1ListServerUserDataResponse:
+    def __init__(__self__, user_data=None):
+        if user_data and not isinstance(user_data, list):
+            raise TypeError("Expected argument 'user_data' to be a list")
+        pulumi.set(__self__, "user_data", user_data)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1ListServerUserDataResponse':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "user_data")
 
 
-class AwaitableListServerUserDataResult(ListServerUserDataResult):
+class AwaitableScalewayInstanceV1ListServerUserDataResponse(ScalewayInstanceV1ListServerUserDataResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListServerUserDataResult(
-            items=self.items)
+        return ScalewayInstanceV1ListServerUserDataResponse(
+            user_data=self.user_data)
 
 
 def list_server_user_data(server_id: Optional[str] = None,
                           zone: Optional[str] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListServerUserDataResult:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1ListServerUserDataResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,16 +51,16 @@ def list_server_user_data(server_id: Optional[str] = None,
     __args__['serverId'] = server_id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:user_data:listServerUserData', __args__, opts=opts, typ=ListServerUserDataResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:user_data:listServerUserData', __args__, opts=opts, typ=ScalewayInstanceV1ListServerUserDataResponse).value
 
-    return AwaitableListServerUserDataResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1ListServerUserDataResponse(
+        user_data=pulumi.get(__ret__, 'user_data'))
 
 
 @_utilities.lift_output_func(list_server_user_data)
 def list_server_user_data_output(server_id: Optional[pulumi.Input[str]] = None,
                                  zone: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServerUserDataResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListServerUserDataResponse]:
     """
     Use this data source to access information about an existing resource.
 

@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Servers
 {
     public static class ListServersTypes
     {
-        public static Task<ListServersTypesResult> InvokeAsync(ListServersTypesArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListServersTypesResult>("scaleway-instances:servers:listServersTypes", args ?? new ListServersTypesArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1ListServersTypesResponse> InvokeAsync(ListServersTypesArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1ListServersTypesResponse>("scaleway-instances:servers:listServersTypes", args ?? new ListServersTypesArgs(), options.WithDefaults());
 
-        public static Output<ListServersTypesResult> Invoke(ListServersTypesInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListServersTypesResult>("scaleway-instances:servers:listServersTypes", args ?? new ListServersTypesInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1ListServersTypesResponse> Invoke(ListServersTypesInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListServersTypesResponse>("scaleway-instances:servers:listServersTypes", args ?? new ListServersTypesInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -45,18 +45,5 @@ namespace Pulumi.ScalewayInstances.Servers
         {
         }
         public static new ListServersTypesInvokeArgs Empty => new ListServersTypesInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListServersTypesResult
-    {
-        public readonly Outputs.ScalewayInstanceV1ListServersTypesResponse Items;
-
-        [OutputConstructor]
-        private ListServersTypesResult(Outputs.ScalewayInstanceV1ListServersTypesResponse items)
-        {
-            Items = items;
-        }
     }
 }

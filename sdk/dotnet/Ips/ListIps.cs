@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Ips
 {
     public static class ListIps
     {
-        public static Task<ListIpsResult> InvokeAsync(ListIpsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListIpsResult>("scaleway-instances:ips:listIps", args ?? new ListIpsArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1ListIpsResponse> InvokeAsync(ListIpsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1ListIpsResponse>("scaleway-instances:ips:listIps", args ?? new ListIpsArgs(), options.WithDefaults());
 
-        public static Output<ListIpsResult> Invoke(ListIpsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListIpsResult>("scaleway-instances:ips:listIps", args ?? new ListIpsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1ListIpsResponse> Invoke(ListIpsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListIpsResponse>("scaleway-instances:ips:listIps", args ?? new ListIpsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -45,18 +45,5 @@ namespace Pulumi.ScalewayInstances.Ips
         {
         }
         public static new ListIpsInvokeArgs Empty => new ListIpsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListIpsResult
-    {
-        public readonly Outputs.ScalewayInstanceV1ListIpsResponse Items;
-
-        [OutputConstructor]
-        private ListIpsResult(Outputs.ScalewayInstanceV1ListIpsResponse items)
-        {
-            Items = items;
-        }
     }
 }

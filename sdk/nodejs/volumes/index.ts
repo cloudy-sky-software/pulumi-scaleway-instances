@@ -5,17 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
+export { GetVolumeArgs, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
 
-export { ListVolumesArgs, ListVolumesResult, ListVolumesOutputArgs } from "./listVolumes";
+export { ListVolumesArgs, ListVolumesOutputArgs } from "./listVolumes";
 export const listVolumes: typeof import("./listVolumes").listVolumes = null as any;
 export const listVolumesOutput: typeof import("./listVolumes").listVolumesOutput = null as any;
 utilities.lazyLoad(exports, ["listVolumes","listVolumesOutput"], () => require("./listVolumes"));
 
-export { ListVolumesTypesArgs, ListVolumesTypesResult, ListVolumesTypesOutputArgs } from "./listVolumesTypes";
+export { ListVolumesTypesArgs, ListVolumesTypesOutputArgs } from "./listVolumesTypes";
 export const listVolumesTypes: typeof import("./listVolumesTypes").listVolumesTypes = null as any;
 export const listVolumesTypesOutput: typeof import("./listVolumesTypes").listVolumesTypesOutput = null as any;
 utilities.lazyLoad(exports, ["listVolumesTypes","listVolumesTypesOutput"], () => require("./listVolumesTypes"));

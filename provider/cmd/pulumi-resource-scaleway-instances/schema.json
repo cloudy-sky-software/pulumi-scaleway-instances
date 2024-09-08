@@ -4231,14 +4231,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:action:ScalewayInstanceV1ListServerActionsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:action:ScalewayInstanceV1ListServerActionsResponse"
             }
         },
         "scaleway-instances:availability:getServerTypesAvailability": {
@@ -4254,14 +4247,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:availability:ScalewayInstanceV1GetServerTypesAvailabilityResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:availability:ScalewayInstanceV1GetServerTypesAvailabilityResponse"
             }
         },
         "scaleway-instances:bootscripts:getBootscript": {
@@ -4281,14 +4267,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:bootscripts:ScalewayInstanceV1GetBootscriptResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:bootscripts:ScalewayInstanceV1GetBootscriptResponse"
             }
         },
         "scaleway-instances:bootscripts:listBootscripts": {
@@ -4304,14 +4283,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:bootscripts:ScalewayInstanceV1ListBootscriptsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:bootscripts:ScalewayInstanceV1ListBootscriptsResponse"
             }
         },
         "scaleway-instances:dashboard:getDashboard": {
@@ -4327,14 +4299,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:dashboard:ScalewayInstanceV1GetDashboardResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:dashboard:ScalewayInstanceV1GetDashboardResponse"
             }
         },
         "scaleway-instances:images:getImage": {
@@ -4355,14 +4320,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1GetImageResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1GetImageResponse"
             }
         },
         "scaleway-instances:images:listImages": {
@@ -4378,14 +4336,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1ListImagesResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:images:ScalewayInstanceV1ListImagesResponse"
             }
         },
         "scaleway-instances:ips:getIp": {
@@ -4406,14 +4357,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:ips:ScalewayInstanceV1GetIpResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:ips:ScalewayInstanceV1GetIpResponse"
             }
         },
         "scaleway-instances:ips:listIps": {
@@ -4429,14 +4373,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:ips:ScalewayInstanceV1ListIpsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:ips:ScalewayInstanceV1ListIpsResponse"
             }
         },
         "scaleway-instances:placement_groups:getPlacementGroup": {
@@ -4457,14 +4394,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1GetPlacementGroupResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1GetPlacementGroupResponse"
             }
         },
         "scaleway-instances:placement_groups:listPlacementGroups": {
@@ -4480,14 +4410,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1ListPlacementGroupsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:placement_groups:ScalewayInstanceV1ListPlacementGroupsResponse"
             }
         },
         "scaleway-instances:private_nics:getPrivateNIC": {
@@ -4511,14 +4434,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:private_nics:ScalewayInstanceV1GetPrivateNICResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:private_nics:ScalewayInstanceV1GetPrivateNICResponse"
             }
         },
         "scaleway-instances:private_nics:listPrivateNICs": {
@@ -4538,14 +4454,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:private_nics:ScalewayInstanceV1ListPrivateNICsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:private_nics:ScalewayInstanceV1ListPrivateNICsResponse"
             }
         },
         "scaleway-instances:rules:getSecurityGroupRule": {
@@ -4569,14 +4478,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1GetSecurityGroupRuleResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1GetSecurityGroupRuleResponse"
             }
         },
         "scaleway-instances:rules:listDefaultSecurityGroupRules": {
@@ -4592,14 +4494,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1ListSecurityGroupRulesResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1ListSecurityGroupRulesResponse"
             }
         },
         "scaleway-instances:rules:listSecurityGroupRules": {
@@ -4620,14 +4515,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1ListSecurityGroupRulesResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:rules:ScalewayInstanceV1ListSecurityGroupRulesResponse"
             }
         },
         "scaleway-instances:security_groups:getSecurityGroup": {
@@ -4648,14 +4536,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1GetSecurityGroupResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1GetSecurityGroupResponse"
             }
         },
         "scaleway-instances:security_groups:listSecurityGroups": {
@@ -4671,14 +4552,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1ListSecurityGroupsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:security_groups:ScalewayInstanceV1ListSecurityGroupsResponse"
             }
         },
         "scaleway-instances:servers:getPlacementGroupServers": {
@@ -4699,14 +4573,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1GetPlacementGroupServersResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1GetPlacementGroupServersResponse"
             }
         },
         "scaleway-instances:servers:getServer": {
@@ -4727,14 +4594,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1GetServerResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1GetServerResponse"
             }
         },
         "scaleway-instances:servers:listServers": {
@@ -4750,14 +4610,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ListServersResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ListServersResponse"
             }
         },
         "scaleway-instances:servers:listServersTypes": {
@@ -4773,14 +4626,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ListServersTypesResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1ListServersTypesResponse"
             }
         },
         "scaleway-instances:snapshots:getSnapshot": {
@@ -4801,14 +4647,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1GetSnapshotResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1GetSnapshotResponse"
             }
         },
         "scaleway-instances:snapshots:listSnapshots": {
@@ -4824,14 +4663,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1ListSnapshotsResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:snapshots:ScalewayInstanceV1ListSnapshotsResponse"
             }
         },
         "scaleway-instances:user_data:getServerUserData": {
@@ -4857,14 +4689,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:user_data:ScalewayStdFile"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:user_data:ScalewayStdFile"
             }
         },
         "scaleway-instances:user_data:listServerUserData": {
@@ -4885,14 +4710,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:user_data:ScalewayInstanceV1ListServerUserDataResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:user_data:ScalewayInstanceV1ListServerUserDataResponse"
             }
         },
         "scaleway-instances:volumes:getVolume": {
@@ -4913,14 +4731,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1GetVolumeResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1GetVolumeResponse"
             }
         },
         "scaleway-instances:volumes:listVolumes": {
@@ -4936,14 +4747,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1ListVolumesResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1ListVolumesResponse"
             }
         },
         "scaleway-instances:volumes:listVolumesTypes": {
@@ -4959,14 +4763,7 @@
                 ]
             },
             "outputs": {
-                "properties": {
-                    "items": {
-                        "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1ListVolumesTypesResponse"
-                    }
-                },
-                "required": [
-                    "items"
-                ]
+                "$ref": "#/types/scaleway-instances:volumes:ScalewayInstanceV1ListVolumesTypesResponse"
             }
         }
     }

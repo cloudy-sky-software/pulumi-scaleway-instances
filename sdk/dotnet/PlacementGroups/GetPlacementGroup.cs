@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
 {
     public static class GetPlacementGroup
     {
-        public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("scaleway-instances:placement_groups:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetPlacementGroupResponse> InvokeAsync(GetPlacementGroupArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetPlacementGroupResponse>("scaleway-instances:placement_groups:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithDefaults());
 
-        public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("scaleway-instances:placement_groups:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetPlacementGroupResponse> Invoke(GetPlacementGroupInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetPlacementGroupResponse>("scaleway-instances:placement_groups:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         {
         }
         public static new GetPlacementGroupInvokeArgs Empty => new GetPlacementGroupInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetPlacementGroupResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetPlacementGroupResponse Items;
-
-        [OutputConstructor]
-        private GetPlacementGroupResult(Outputs.ScalewayInstanceV1GetPlacementGroupResponse items)
-        {
-            Items = items;
-        }
     }
 }

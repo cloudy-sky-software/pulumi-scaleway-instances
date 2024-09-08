@@ -13,8 +13,6 @@ from ._enums import *
 
 __all__ = [
     'BaseVolumeProperties',
-    'ScalewayInstanceV1GetSnapshotResponse',
-    'ScalewayInstanceV1ListSnapshotsResponse',
     'ScalewayInstanceV1Snapshot',
     'ScalewayInstanceV1SnapshotBaseVolumeProperties',
     'ScalewayInstanceV1Task',
@@ -53,38 +51,6 @@ class BaseVolumeProperties(dict):
         The volume name on which the snapshot is based on
         """
         return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1GetSnapshotResponse(dict):
-    def __init__(__self__, *,
-                 snapshot: Optional['outputs.ScalewayInstanceV1Snapshot'] = None):
-        if snapshot is not None:
-            pulumi.set(__self__, "snapshot", snapshot)
-
-    @property
-    @pulumi.getter
-    def snapshot(self) -> Optional['outputs.ScalewayInstanceV1Snapshot']:
-        return pulumi.get(self, "snapshot")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListSnapshotsResponse(dict):
-    def __init__(__self__, *,
-                 snapshots: Optional[Sequence['outputs.ScalewayInstanceV1Snapshot']] = None):
-        """
-        :param Sequence['ScalewayInstanceV1Snapshot'] snapshots: List of snapshots
-        """
-        if snapshots is not None:
-            pulumi.set(__self__, "snapshots", snapshots)
-
-    @property
-    @pulumi.getter
-    def snapshots(self) -> Optional[Sequence['outputs.ScalewayInstanceV1Snapshot']]:
-        """
-        List of snapshots
-        """
-        return pulumi.get(self, "snapshots")
 
 
 @pulumi.output_type

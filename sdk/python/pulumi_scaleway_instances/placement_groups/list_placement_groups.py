@@ -6,42 +6,45 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListPlacementGroupsResult',
-    'AwaitableListPlacementGroupsResult',
+    'ScalewayInstanceV1ListPlacementGroupsResponse',
+    'AwaitableScalewayInstanceV1ListPlacementGroupsResponse',
     'list_placement_groups',
     'list_placement_groups_output',
 ]
 
 @pulumi.output_type
-class ListPlacementGroupsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1ListPlacementGroupsResponse:
+    def __init__(__self__, placement_groups=None):
+        if placement_groups and not isinstance(placement_groups, list):
+            raise TypeError("Expected argument 'placement_groups' to be a list")
+        pulumi.set(__self__, "placement_groups", placement_groups)
 
     @property
-    @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1ListPlacementGroupsResponse':
-        return pulumi.get(self, "items")
+    @pulumi.getter(name="placementGroups")
+    def placement_groups(self) -> Optional[Sequence['outputs.ScalewayInstanceV1PlacementGroup']]:
+        """
+        List of placement groups
+        """
+        return pulumi.get(self, "placement_groups")
 
 
-class AwaitableListPlacementGroupsResult(ListPlacementGroupsResult):
+class AwaitableScalewayInstanceV1ListPlacementGroupsResponse(ScalewayInstanceV1ListPlacementGroupsResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListPlacementGroupsResult(
-            items=self.items)
+        return ScalewayInstanceV1ListPlacementGroupsResponse(
+            placement_groups=self.placement_groups)
 
 
 def list_placement_groups(zone: Optional[str] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPlacementGroupsResult:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1ListPlacementGroupsResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +53,15 @@ def list_placement_groups(zone: Optional[str] = None,
     __args__ = dict()
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:placement_groups:listPlacementGroups', __args__, opts=opts, typ=ListPlacementGroupsResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:placement_groups:listPlacementGroups', __args__, opts=opts, typ=ScalewayInstanceV1ListPlacementGroupsResponse).value
 
-    return AwaitableListPlacementGroupsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1ListPlacementGroupsResponse(
+        placement_groups=pulumi.get(__ret__, 'placement_groups'))
 
 
 @_utilities.lift_output_func(list_placement_groups)
 def list_placement_groups_output(zone: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPlacementGroupsResult]:
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListPlacementGroupsResponse]:
     """
     Use this data source to access information about an existing resource.
 

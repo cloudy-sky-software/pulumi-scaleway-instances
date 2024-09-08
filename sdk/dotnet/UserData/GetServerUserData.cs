@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.UserData
 {
     public static class GetServerUserData
     {
-        public static Task<GetServerUserDataResult> InvokeAsync(GetServerUserDataArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerUserDataResult>("scaleway-instances:user_data:getServerUserData", args ?? new GetServerUserDataArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayStdFile> InvokeAsync(GetServerUserDataArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayStdFile>("scaleway-instances:user_data:getServerUserData", args ?? new GetServerUserDataArgs(), options.WithDefaults());
 
-        public static Output<GetServerUserDataResult> Invoke(GetServerUserDataInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetServerUserDataResult>("scaleway-instances:user_data:getServerUserData", args ?? new GetServerUserDataInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayStdFile> Invoke(GetServerUserDataInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayStdFile>("scaleway-instances:user_data:getServerUserData", args ?? new GetServerUserDataInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -69,18 +69,5 @@ namespace Pulumi.ScalewayInstances.UserData
         {
         }
         public static new GetServerUserDataInvokeArgs Empty => new GetServerUserDataInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetServerUserDataResult
-    {
-        public readonly Outputs.ScalewayStdFile Items;
-
-        [OutputConstructor]
-        private GetServerUserDataResult(Outputs.ScalewayStdFile items)
-        {
-            Items = items;
-        }
     }
 }

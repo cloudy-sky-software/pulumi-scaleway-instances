@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getPrivateNIC(args: GetPrivateNICArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateNICResult> {
+export function getPrivateNIC(args: GetPrivateNICArgs, opts?: pulumi.InvokeOptions): Promise<outputs.private_nics.ScalewayInstanceV1GetPrivateNICResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:private_nics:getPrivateNIC", {
@@ -25,11 +25,7 @@ export interface GetPrivateNICArgs {
      */
     zone: string;
 }
-
-export interface GetPrivateNICResult {
-    readonly items: outputs.private_nics.ScalewayInstanceV1GetPrivateNICResponse;
-}
-export function getPrivateNICOutput(args: GetPrivateNICOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateNICResult> {
+export function getPrivateNICOutput(args: GetPrivateNICOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.private_nics.ScalewayInstanceV1GetPrivateNICResponse> {
     return pulumi.output(args).apply((a: any) => getPrivateNIC(a, opts))
 }
 

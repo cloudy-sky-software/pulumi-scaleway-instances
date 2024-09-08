@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Snapshots
 {
     public static class GetSnapshot
     {
-        public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("scaleway-instances:snapshots:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetSnapshotResponse> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetSnapshotResponse>("scaleway-instances:snapshots:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
-        public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("scaleway-instances:snapshots:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetSnapshotResponse> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetSnapshotResponse>("scaleway-instances:snapshots:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.Snapshots
         {
         }
         public static new GetSnapshotInvokeArgs Empty => new GetSnapshotInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetSnapshotResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetSnapshotResponse Items;
-
-        [OutputConstructor]
-        private GetSnapshotResult(Outputs.ScalewayInstanceV1GetSnapshotResponse items)
-        {
-            Items = items;
-        }
     }
 }

@@ -27,7 +27,7 @@ type GetServerTypesAvailabilityArgs struct {
 }
 
 type GetServerTypesAvailabilityResult struct {
-	Items ScalewayInstanceV1GetServerTypesAvailabilityResponse `pulumi:"items"`
+	Servers map[string]ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability `pulumi:"servers"`
 }
 
 func GetServerTypesAvailabilityOutput(ctx *pulumi.Context, args GetServerTypesAvailabilityOutputArgs, opts ...pulumi.InvokeOption) GetServerTypesAvailabilityResultOutput {
@@ -66,10 +66,10 @@ func (o GetServerTypesAvailabilityResultOutput) ToGetServerTypesAvailabilityResu
 	return o
 }
 
-func (o GetServerTypesAvailabilityResultOutput) Items() ScalewayInstanceV1GetServerTypesAvailabilityResponseOutput {
-	return o.ApplyT(func(v GetServerTypesAvailabilityResult) ScalewayInstanceV1GetServerTypesAvailabilityResponse {
-		return v.Items
-	}).(ScalewayInstanceV1GetServerTypesAvailabilityResponseOutput)
+func (o GetServerTypesAvailabilityResultOutput) Servers() ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityMapOutput {
+	return o.ApplyT(func(v GetServerTypesAvailabilityResult) map[string]ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailability {
+		return v.Servers
+	}).(ScalewayInstanceV1GetServerTypesAvailabilityResponseAvailabilityMapOutput)
 }
 
 func init() {

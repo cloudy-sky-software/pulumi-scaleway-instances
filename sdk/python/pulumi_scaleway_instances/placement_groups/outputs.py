@@ -8,46 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ScalewayInstanceV1GetPlacementGroupResponse',
-    'ScalewayInstanceV1ListPlacementGroupsResponse',
     'ScalewayInstanceV1PlacementGroup',
 ]
-
-@pulumi.output_type
-class ScalewayInstanceV1GetPlacementGroupResponse(dict):
-    def __init__(__self__, *,
-                 placement_group: Optional['outputs.ScalewayInstanceV1PlacementGroup'] = None):
-        if placement_group is not None:
-            pulumi.set(__self__, "placement_group", placement_group)
-
-    @property
-    @pulumi.getter(name="placementGroup")
-    def placement_group(self) -> Optional['outputs.ScalewayInstanceV1PlacementGroup']:
-        return pulumi.get(self, "placement_group")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListPlacementGroupsResponse(dict):
-    def __init__(__self__, *,
-                 placement_groups: Optional[Sequence['outputs.ScalewayInstanceV1PlacementGroup']] = None):
-        """
-        :param Sequence['ScalewayInstanceV1PlacementGroup'] placement_groups: List of placement groups
-        """
-        if placement_groups is not None:
-            pulumi.set(__self__, "placement_groups", placement_groups)
-
-    @property
-    @pulumi.getter(name="placementGroups")
-    def placement_groups(self) -> Optional[Sequence['outputs.ScalewayInstanceV1PlacementGroup']]:
-        """
-        List of placement groups
-        """
-        return pulumi.get(self, "placement_groups")
-
 
 @pulumi.output_type
 class ScalewayInstanceV1PlacementGroup(dict):

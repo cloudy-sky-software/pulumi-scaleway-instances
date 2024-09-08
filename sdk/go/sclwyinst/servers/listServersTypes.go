@@ -27,7 +27,8 @@ type ListServersTypesArgs struct {
 }
 
 type ListServersTypesResult struct {
-	Items ScalewayInstanceV1ListServersTypesResponse `pulumi:"items"`
+	// List of server types
+	Servers map[string]ScalewayInstanceV1ServerType `pulumi:"servers"`
 }
 
 func ListServersTypesOutput(ctx *pulumi.Context, args ListServersTypesOutputArgs, opts ...pulumi.InvokeOption) ListServersTypesResultOutput {
@@ -66,8 +67,9 @@ func (o ListServersTypesResultOutput) ToListServersTypesResultOutputWithContext(
 	return o
 }
 
-func (o ListServersTypesResultOutput) Items() ScalewayInstanceV1ListServersTypesResponseOutput {
-	return o.ApplyT(func(v ListServersTypesResult) ScalewayInstanceV1ListServersTypesResponse { return v.Items }).(ScalewayInstanceV1ListServersTypesResponseOutput)
+// List of server types
+func (o ListServersTypesResultOutput) Servers() ScalewayInstanceV1ServerTypeMapOutput {
+	return o.ApplyT(func(v ListServersTypesResult) map[string]ScalewayInstanceV1ServerType { return v.Servers }).(ScalewayInstanceV1ServerTypeMapOutput)
 }
 
 func init() {

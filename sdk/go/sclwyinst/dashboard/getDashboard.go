@@ -27,7 +27,7 @@ type GetDashboardArgs struct {
 }
 
 type GetDashboardResult struct {
-	Items ScalewayInstanceV1GetDashboardResponse `pulumi:"items"`
+	Dashboard *ScalewayInstanceV1Dashboard `pulumi:"dashboard"`
 }
 
 func GetDashboardOutput(ctx *pulumi.Context, args GetDashboardOutputArgs, opts ...pulumi.InvokeOption) GetDashboardResultOutput {
@@ -66,8 +66,8 @@ func (o GetDashboardResultOutput) ToGetDashboardResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o GetDashboardResultOutput) Items() ScalewayInstanceV1GetDashboardResponseOutput {
-	return o.ApplyT(func(v GetDashboardResult) ScalewayInstanceV1GetDashboardResponse { return v.Items }).(ScalewayInstanceV1GetDashboardResponseOutput)
+func (o GetDashboardResultOutput) Dashboard() ScalewayInstanceV1DashboardPtrOutput {
+	return o.ApplyT(func(v GetDashboardResult) *ScalewayInstanceV1Dashboard { return v.Dashboard }).(ScalewayInstanceV1DashboardPtrOutput)
 }
 
 func init() {

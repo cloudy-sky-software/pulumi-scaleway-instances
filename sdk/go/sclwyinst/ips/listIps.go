@@ -27,7 +27,8 @@ type ListIpsArgs struct {
 }
 
 type ListIpsResult struct {
-	Items ScalewayInstanceV1ListIpsResponse `pulumi:"items"`
+	// List of ips
+	Ips []ScalewayInstanceV1Ip `pulumi:"ips"`
 }
 
 func ListIpsOutput(ctx *pulumi.Context, args ListIpsOutputArgs, opts ...pulumi.InvokeOption) ListIpsResultOutput {
@@ -66,8 +67,9 @@ func (o ListIpsResultOutput) ToListIpsResultOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o ListIpsResultOutput) Items() ScalewayInstanceV1ListIpsResponseOutput {
-	return o.ApplyT(func(v ListIpsResult) ScalewayInstanceV1ListIpsResponse { return v.Items }).(ScalewayInstanceV1ListIpsResponseOutput)
+// List of ips
+func (o ListIpsResultOutput) Ips() ScalewayInstanceV1IpArrayOutput {
+	return o.ApplyT(func(v ListIpsResult) []ScalewayInstanceV1Ip { return v.Ips }).(ScalewayInstanceV1IpArrayOutput)
 }
 
 func init() {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
+export { GetImageArgs, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
 utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
@@ -15,7 +15,7 @@ export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
 utilities.lazyLoad(exports, ["Image"], () => require("./image"));
 
-export { ListImagesArgs, ListImagesResult, ListImagesOutputArgs } from "./listImages";
+export { ListImagesArgs, ListImagesOutputArgs } from "./listImages";
 export const listImages: typeof import("./listImages").listImages = null as any;
 export const listImagesOutput: typeof import("./listImages").listImagesOutput = null as any;
 utilities.lazyLoad(exports, ["listImages","listImagesOutput"], () => require("./listImages"));

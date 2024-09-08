@@ -31,7 +31,9 @@ type GetServerUserDataArgs struct {
 }
 
 type GetServerUserDataResult struct {
-	Items ScalewayStdFile `pulumi:"items"`
+	Content     *string `pulumi:"content"`
+	ContentType *string `pulumi:"contentType"`
+	Name        *string `pulumi:"name"`
 }
 
 func GetServerUserDataOutput(ctx *pulumi.Context, args GetServerUserDataOutputArgs, opts ...pulumi.InvokeOption) GetServerUserDataResultOutput {
@@ -74,8 +76,16 @@ func (o GetServerUserDataResultOutput) ToGetServerUserDataResultOutputWithContex
 	return o
 }
 
-func (o GetServerUserDataResultOutput) Items() ScalewayStdFileOutput {
-	return o.ApplyT(func(v GetServerUserDataResult) ScalewayStdFile { return v.Items }).(ScalewayStdFileOutput)
+func (o GetServerUserDataResultOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServerUserDataResult) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+func (o GetServerUserDataResultOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServerUserDataResult) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+func (o GetServerUserDataResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServerUserDataResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func init() {

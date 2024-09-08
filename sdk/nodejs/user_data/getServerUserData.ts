@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getServerUserData(args: GetServerUserDataArgs, opts?: pulumi.InvokeOptions): Promise<GetServerUserDataResult> {
+export function getServerUserData(args: GetServerUserDataArgs, opts?: pulumi.InvokeOptions): Promise<outputs.user_data.ScalewayStdFile> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:user_data:getServerUserData", {
@@ -31,11 +31,7 @@ export interface GetServerUserDataArgs {
      */
     zone: string;
 }
-
-export interface GetServerUserDataResult {
-    readonly items: outputs.user_data.ScalewayStdFile;
-}
-export function getServerUserDataOutput(args: GetServerUserDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerUserDataResult> {
+export function getServerUserDataOutput(args: GetServerUserDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.user_data.ScalewayStdFile> {
     return pulumi.output(args).apply((a: any) => getServerUserData(a, opts))
 }
 

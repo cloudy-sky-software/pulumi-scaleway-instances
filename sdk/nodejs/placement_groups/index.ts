@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetPlacementGroupArgs, GetPlacementGroupResult, GetPlacementGroupOutputArgs } from "./getPlacementGroup";
+export { GetPlacementGroupArgs, GetPlacementGroupOutputArgs } from "./getPlacementGroup";
 export const getPlacementGroup: typeof import("./getPlacementGroup").getPlacementGroup = null as any;
 export const getPlacementGroupOutput: typeof import("./getPlacementGroup").getPlacementGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getPlacementGroup","getPlacementGroupOutput"], () => require("./getPlacementGroup"));
 
-export { ListPlacementGroupsArgs, ListPlacementGroupsResult, ListPlacementGroupsOutputArgs } from "./listPlacementGroups";
+export { ListPlacementGroupsArgs, ListPlacementGroupsOutputArgs } from "./listPlacementGroups";
 export const listPlacementGroups: typeof import("./listPlacementGroups").listPlacementGroups = null as any;
 export const listPlacementGroupsOutput: typeof import("./listPlacementGroups").listPlacementGroupsOutput = null as any;
 utilities.lazyLoad(exports, ["listPlacementGroups","listPlacementGroupsOutput"], () => require("./listPlacementGroups"));

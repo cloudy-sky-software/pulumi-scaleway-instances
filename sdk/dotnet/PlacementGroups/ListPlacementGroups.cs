@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
 {
     public static class ListPlacementGroups
     {
-        public static Task<ListPlacementGroupsResult> InvokeAsync(ListPlacementGroupsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListPlacementGroupsResult>("scaleway-instances:placement_groups:listPlacementGroups", args ?? new ListPlacementGroupsArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1ListPlacementGroupsResponse> InvokeAsync(ListPlacementGroupsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1ListPlacementGroupsResponse>("scaleway-instances:placement_groups:listPlacementGroups", args ?? new ListPlacementGroupsArgs(), options.WithDefaults());
 
-        public static Output<ListPlacementGroupsResult> Invoke(ListPlacementGroupsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListPlacementGroupsResult>("scaleway-instances:placement_groups:listPlacementGroups", args ?? new ListPlacementGroupsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1ListPlacementGroupsResponse> Invoke(ListPlacementGroupsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListPlacementGroupsResponse>("scaleway-instances:placement_groups:listPlacementGroups", args ?? new ListPlacementGroupsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -45,18 +45,5 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
         {
         }
         public static new ListPlacementGroupsInvokeArgs Empty => new ListPlacementGroupsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListPlacementGroupsResult
-    {
-        public readonly Outputs.ScalewayInstanceV1ListPlacementGroupsResponse Items;
-
-        [OutputConstructor]
-        private ListPlacementGroupsResult(Outputs.ScalewayInstanceV1ListPlacementGroupsResponse items)
-        {
-            Items = items;
-        }
     }
 }

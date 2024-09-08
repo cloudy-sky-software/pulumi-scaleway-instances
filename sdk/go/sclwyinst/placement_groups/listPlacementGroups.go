@@ -27,7 +27,8 @@ type ListPlacementGroupsArgs struct {
 }
 
 type ListPlacementGroupsResult struct {
-	Items ScalewayInstanceV1ListPlacementGroupsResponse `pulumi:"items"`
+	// List of placement groups
+	PlacementGroups []ScalewayInstanceV1PlacementGroup `pulumi:"placementGroups"`
 }
 
 func ListPlacementGroupsOutput(ctx *pulumi.Context, args ListPlacementGroupsOutputArgs, opts ...pulumi.InvokeOption) ListPlacementGroupsResultOutput {
@@ -66,8 +67,9 @@ func (o ListPlacementGroupsResultOutput) ToListPlacementGroupsResultOutputWithCo
 	return o
 }
 
-func (o ListPlacementGroupsResultOutput) Items() ScalewayInstanceV1ListPlacementGroupsResponseOutput {
-	return o.ApplyT(func(v ListPlacementGroupsResult) ScalewayInstanceV1ListPlacementGroupsResponse { return v.Items }).(ScalewayInstanceV1ListPlacementGroupsResponseOutput)
+// List of placement groups
+func (o ListPlacementGroupsResultOutput) PlacementGroups() ScalewayInstanceV1PlacementGroupArrayOutput {
+	return o.ApplyT(func(v ListPlacementGroupsResult) []ScalewayInstanceV1PlacementGroup { return v.PlacementGroups }).(ScalewayInstanceV1PlacementGroupArrayOutput)
 }
 
 func init() {

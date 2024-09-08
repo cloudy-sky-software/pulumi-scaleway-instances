@@ -4,7 +4,7 @@
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
+export { GetDashboardArgs, GetDashboardOutputArgs } from "./getDashboard";
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));

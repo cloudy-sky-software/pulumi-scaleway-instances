@@ -27,7 +27,8 @@ type ListBootscriptsArgs struct {
 }
 
 type ListBootscriptsResult struct {
-	Items ScalewayInstanceV1ListBootscriptsResponse `pulumi:"items"`
+	// List of bootscripts
+	Bootscripts []ScalewayInstanceV1Bootscript `pulumi:"bootscripts"`
 }
 
 func ListBootscriptsOutput(ctx *pulumi.Context, args ListBootscriptsOutputArgs, opts ...pulumi.InvokeOption) ListBootscriptsResultOutput {
@@ -66,8 +67,9 @@ func (o ListBootscriptsResultOutput) ToListBootscriptsResultOutputWithContext(ct
 	return o
 }
 
-func (o ListBootscriptsResultOutput) Items() ScalewayInstanceV1ListBootscriptsResponseOutput {
-	return o.ApplyT(func(v ListBootscriptsResult) ScalewayInstanceV1ListBootscriptsResponse { return v.Items }).(ScalewayInstanceV1ListBootscriptsResponseOutput)
+// List of bootscripts
+func (o ListBootscriptsResultOutput) Bootscripts() ScalewayInstanceV1BootscriptArrayOutput {
+	return o.ApplyT(func(v ListBootscriptsResult) []ScalewayInstanceV1Bootscript { return v.Bootscripts }).(ScalewayInstanceV1BootscriptArrayOutput)
 }
 
 func init() {

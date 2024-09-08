@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Bootscripts
 {
     public static class ListBootscripts
     {
-        public static Task<ListBootscriptsResult> InvokeAsync(ListBootscriptsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListBootscriptsResult>("scaleway-instances:bootscripts:listBootscripts", args ?? new ListBootscriptsArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1ListBootscriptsResponse> InvokeAsync(ListBootscriptsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1ListBootscriptsResponse>("scaleway-instances:bootscripts:listBootscripts", args ?? new ListBootscriptsArgs(), options.WithDefaults());
 
-        public static Output<ListBootscriptsResult> Invoke(ListBootscriptsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListBootscriptsResult>("scaleway-instances:bootscripts:listBootscripts", args ?? new ListBootscriptsInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1ListBootscriptsResponse> Invoke(ListBootscriptsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListBootscriptsResponse>("scaleway-instances:bootscripts:listBootscripts", args ?? new ListBootscriptsInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -45,18 +45,5 @@ namespace Pulumi.ScalewayInstances.Bootscripts
         {
         }
         public static new ListBootscriptsInvokeArgs Empty => new ListBootscriptsInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class ListBootscriptsResult
-    {
-        public readonly Outputs.ScalewayInstanceV1ListBootscriptsResponse Items;
-
-        [OutputConstructor]
-        private ListBootscriptsResult(Outputs.ScalewayInstanceV1ListBootscriptsResponse items)
-        {
-            Items = items;
-        }
     }
 }

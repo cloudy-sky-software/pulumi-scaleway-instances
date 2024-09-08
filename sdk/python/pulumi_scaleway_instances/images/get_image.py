@@ -6,43 +6,43 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetImageResult',
-    'AwaitableGetImageResult',
+    'ScalewayInstanceV1GetImageResponse',
+    'AwaitableScalewayInstanceV1GetImageResponse',
     'get_image',
     'get_image_output',
 ]
 
 @pulumi.output_type
-class GetImageResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1GetImageResponse:
+    def __init__(__self__, image=None):
+        if image and not isinstance(image, dict):
+            raise TypeError("Expected argument 'image' to be a dict")
+        pulumi.set(__self__, "image", image)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1GetImageResponse':
-        return pulumi.get(self, "items")
+    def image(self) -> Optional['outputs.ScalewayInstanceV1Image']:
+        return pulumi.get(self, "image")
 
 
-class AwaitableGetImageResult(GetImageResult):
+class AwaitableScalewayInstanceV1GetImageResponse(ScalewayInstanceV1GetImageResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetImageResult(
-            items=self.items)
+        return ScalewayInstanceV1GetImageResponse(
+            image=self.image)
 
 
 def get_image(id: Optional[str] = None,
               zone: Optional[str] = None,
-              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1GetImageResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -53,16 +53,16 @@ def get_image(id: Optional[str] = None,
     __args__['id'] = id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:images:getImage', __args__, opts=opts, typ=GetImageResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:images:getImage', __args__, opts=opts, typ=ScalewayInstanceV1GetImageResponse).value
 
-    return AwaitableGetImageResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1GetImageResponse(
+        image=pulumi.get(__ret__, 'image'))
 
 
 @_utilities.lift_output_func(get_image)
 def get_image_output(id: Optional[pulumi.Input[str]] = None,
                      zone: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetImageResponse]:
     """
     Use this data source to access information about an existing resource.
 

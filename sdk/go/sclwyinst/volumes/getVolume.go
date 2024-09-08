@@ -29,7 +29,7 @@ type LookupVolumeArgs struct {
 }
 
 type LookupVolumeResult struct {
-	Items ScalewayInstanceV1GetVolumeResponse `pulumi:"items"`
+	Volume *ScalewayInstanceV1Volume `pulumi:"volume"`
 }
 
 // Defaults sets the appropriate defaults for LookupVolumeResult
@@ -38,7 +38,7 @@ func (val *LookupVolumeResult) Defaults() *LookupVolumeResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Volume = tmp.Volume.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o LookupVolumeResultOutput) ToLookupVolumeResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o LookupVolumeResultOutput) Items() ScalewayInstanceV1GetVolumeResponseOutput {
-	return o.ApplyT(func(v LookupVolumeResult) ScalewayInstanceV1GetVolumeResponse { return v.Items }).(ScalewayInstanceV1GetVolumeResponseOutput)
+func (o LookupVolumeResultOutput) Volume() ScalewayInstanceV1VolumePtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *ScalewayInstanceV1Volume { return v.Volume }).(ScalewayInstanceV1VolumePtrOutput)
 }
 
 func init() {

@@ -29,7 +29,7 @@ type LookupPlacementGroupArgs struct {
 }
 
 type LookupPlacementGroupResult struct {
-	Items ScalewayInstanceV1GetPlacementGroupResponse `pulumi:"items"`
+	PlacementGroup *ScalewayInstanceV1PlacementGroup `pulumi:"placementGroup"`
 }
 
 // Defaults sets the appropriate defaults for LookupPlacementGroupResult
@@ -38,7 +38,7 @@ func (val *LookupPlacementGroupResult) Defaults() *LookupPlacementGroupResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.PlacementGroup = tmp.PlacementGroup.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutputWith
 	return o
 }
 
-func (o LookupPlacementGroupResultOutput) Items() ScalewayInstanceV1GetPlacementGroupResponseOutput {
-	return o.ApplyT(func(v LookupPlacementGroupResult) ScalewayInstanceV1GetPlacementGroupResponse { return v.Items }).(ScalewayInstanceV1GetPlacementGroupResponseOutput)
+func (o LookupPlacementGroupResultOutput) PlacementGroup() ScalewayInstanceV1PlacementGroupPtrOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) *ScalewayInstanceV1PlacementGroup { return v.PlacementGroup }).(ScalewayInstanceV1PlacementGroupPtrOutput)
 }
 
 func init() {

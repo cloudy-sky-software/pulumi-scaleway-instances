@@ -11,24 +11,9 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'ScalewayInstanceV1GetIpResponse',
     'ScalewayInstanceV1Ip',
-    'ScalewayInstanceV1ListIpsResponse',
     'ScalewayInstanceV1ServerSummary',
 ]
-
-@pulumi.output_type
-class ScalewayInstanceV1GetIpResponse(dict):
-    def __init__(__self__, *,
-                 ip: Optional['outputs.ScalewayInstanceV1Ip'] = None):
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional['outputs.ScalewayInstanceV1Ip']:
-        return pulumi.get(self, "ip")
-
 
 @pulumi.output_type
 class ScalewayInstanceV1Ip(dict):
@@ -102,25 +87,6 @@ class ScalewayInstanceV1Ip(dict):
     @pulumi.getter
     def zone(self) -> Optional[str]:
         return pulumi.get(self, "zone")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1ListIpsResponse(dict):
-    def __init__(__self__, *,
-                 ips: Optional[Sequence['outputs.ScalewayInstanceV1Ip']] = None):
-        """
-        :param Sequence['ScalewayInstanceV1Ip'] ips: List of ips
-        """
-        if ips is not None:
-            pulumi.set(__self__, "ips", ips)
-
-    @property
-    @pulumi.getter
-    def ips(self) -> Optional[Sequence['outputs.ScalewayInstanceV1Ip']]:
-        """
-        List of ips
-        """
-        return pulumi.get(self, "ips")
 
 
 @pulumi.output_type

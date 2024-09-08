@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
 {
     public static class GetSecurityGroup
     {
-        public static Task<GetSecurityGroupResult> InvokeAsync(GetSecurityGroupArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupResult>("scaleway-instances:security_groups:getSecurityGroup", args ?? new GetSecurityGroupArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetSecurityGroupResponse> InvokeAsync(GetSecurityGroupArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetSecurityGroupResponse>("scaleway-instances:security_groups:getSecurityGroup", args ?? new GetSecurityGroupArgs(), options.WithDefaults());
 
-        public static Output<GetSecurityGroupResult> Invoke(GetSecurityGroupInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupResult>("scaleway-instances:security_groups:getSecurityGroup", args ?? new GetSecurityGroupInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetSecurityGroupResponse> Invoke(GetSecurityGroupInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetSecurityGroupResponse>("scaleway-instances:security_groups:getSecurityGroup", args ?? new GetSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
         {
         }
         public static new GetSecurityGroupInvokeArgs Empty => new GetSecurityGroupInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetSecurityGroupResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetSecurityGroupResponse Items;
-
-        [OutputConstructor]
-        private GetSecurityGroupResult(Outputs.ScalewayInstanceV1GetSecurityGroupResponse items)
-        {
-            Items = items;
-        }
     }
 }

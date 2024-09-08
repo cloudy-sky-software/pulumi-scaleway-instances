@@ -5,17 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetSecurityGroupRuleArgs, GetSecurityGroupRuleResult, GetSecurityGroupRuleOutputArgs } from "./getSecurityGroupRule";
+export { GetSecurityGroupRuleArgs, GetSecurityGroupRuleOutputArgs } from "./getSecurityGroupRule";
 export const getSecurityGroupRule: typeof import("./getSecurityGroupRule").getSecurityGroupRule = null as any;
 export const getSecurityGroupRuleOutput: typeof import("./getSecurityGroupRule").getSecurityGroupRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroupRule","getSecurityGroupRuleOutput"], () => require("./getSecurityGroupRule"));
 
-export { ListDefaultSecurityGroupRulesArgs, ListDefaultSecurityGroupRulesResult, ListDefaultSecurityGroupRulesOutputArgs } from "./listDefaultSecurityGroupRules";
+export { ListDefaultSecurityGroupRulesArgs, ListDefaultSecurityGroupRulesOutputArgs } from "./listDefaultSecurityGroupRules";
 export const listDefaultSecurityGroupRules: typeof import("./listDefaultSecurityGroupRules").listDefaultSecurityGroupRules = null as any;
 export const listDefaultSecurityGroupRulesOutput: typeof import("./listDefaultSecurityGroupRules").listDefaultSecurityGroupRulesOutput = null as any;
 utilities.lazyLoad(exports, ["listDefaultSecurityGroupRules","listDefaultSecurityGroupRulesOutput"], () => require("./listDefaultSecurityGroupRules"));
 
-export { ListSecurityGroupRulesArgs, ListSecurityGroupRulesResult, ListSecurityGroupRulesOutputArgs } from "./listSecurityGroupRules";
+export { ListSecurityGroupRulesArgs, ListSecurityGroupRulesOutputArgs } from "./listSecurityGroupRules";
 export const listSecurityGroupRules: typeof import("./listSecurityGroupRules").listSecurityGroupRules = null as any;
 export const listSecurityGroupRulesOutput: typeof import("./listSecurityGroupRules").listSecurityGroupRulesOutput = null as any;
 utilities.lazyLoad(exports, ["listSecurityGroupRules","listSecurityGroupRulesOutput"], () => require("./listSecurityGroupRules"));

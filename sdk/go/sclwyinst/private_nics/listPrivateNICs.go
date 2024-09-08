@@ -28,7 +28,7 @@ type ListPrivateNICsArgs struct {
 }
 
 type ListPrivateNICsResult struct {
-	Items ScalewayInstanceV1ListPrivateNICsResponse `pulumi:"items"`
+	PrivateNics []ScalewayInstanceV1PrivateNIC `pulumi:"privateNics"`
 }
 
 func ListPrivateNICsOutput(ctx *pulumi.Context, args ListPrivateNICsOutputArgs, opts ...pulumi.InvokeOption) ListPrivateNICsResultOutput {
@@ -68,8 +68,8 @@ func (o ListPrivateNICsResultOutput) ToListPrivateNICsResultOutputWithContext(ct
 	return o
 }
 
-func (o ListPrivateNICsResultOutput) Items() ScalewayInstanceV1ListPrivateNICsResponseOutput {
-	return o.ApplyT(func(v ListPrivateNICsResult) ScalewayInstanceV1ListPrivateNICsResponse { return v.Items }).(ScalewayInstanceV1ListPrivateNICsResponseOutput)
+func (o ListPrivateNICsResultOutput) PrivateNics() ScalewayInstanceV1PrivateNICArrayOutput {
+	return o.ApplyT(func(v ListPrivateNICsResult) []ScalewayInstanceV1PrivateNIC { return v.PrivateNics }).(ScalewayInstanceV1PrivateNICArrayOutput)
 }
 
 func init() {

@@ -6,43 +6,43 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GetBootscriptResult',
-    'AwaitableGetBootscriptResult',
+    'ScalewayInstanceV1GetBootscriptResponse',
+    'AwaitableScalewayInstanceV1GetBootscriptResponse',
     'get_bootscript',
     'get_bootscript_output',
 ]
 
 @pulumi.output_type
-class GetBootscriptResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1GetBootscriptResponse:
+    def __init__(__self__, bootscript=None):
+        if bootscript and not isinstance(bootscript, dict):
+            raise TypeError("Expected argument 'bootscript' to be a dict")
+        pulumi.set(__self__, "bootscript", bootscript)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1GetBootscriptResponse':
-        return pulumi.get(self, "items")
+    def bootscript(self) -> Optional['outputs.ScalewayInstanceV1Bootscript']:
+        return pulumi.get(self, "bootscript")
 
 
-class AwaitableGetBootscriptResult(GetBootscriptResult):
+class AwaitableScalewayInstanceV1GetBootscriptResponse(ScalewayInstanceV1GetBootscriptResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetBootscriptResult(
-            items=self.items)
+        return ScalewayInstanceV1GetBootscriptResponse(
+            bootscript=self.bootscript)
 
 
 def get_bootscript(id: Optional[str] = None,
                    zone: Optional[str] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBootscriptResult:
+                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1GetBootscriptResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -52,16 +52,16 @@ def get_bootscript(id: Optional[str] = None,
     __args__['id'] = id
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:bootscripts:getBootscript', __args__, opts=opts, typ=GetBootscriptResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:bootscripts:getBootscript', __args__, opts=opts, typ=ScalewayInstanceV1GetBootscriptResponse).value
 
-    return AwaitableGetBootscriptResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1GetBootscriptResponse(
+        bootscript=pulumi.get(__ret__, 'bootscript'))
 
 
 @_utilities.lift_output_func(get_bootscript)
 def get_bootscript_output(id: Optional[pulumi.Input[str]] = None,
                           zone: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBootscriptResult]:
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetBootscriptResponse]:
     """
     Use this data source to access information about an existing resource.
 

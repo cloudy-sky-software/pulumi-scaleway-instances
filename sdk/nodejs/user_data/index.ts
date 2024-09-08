@@ -4,12 +4,12 @@
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetServerUserDataArgs, GetServerUserDataResult, GetServerUserDataOutputArgs } from "./getServerUserData";
+export { GetServerUserDataArgs, GetServerUserDataOutputArgs } from "./getServerUserData";
 export const getServerUserData: typeof import("./getServerUserData").getServerUserData = null as any;
 export const getServerUserDataOutput: typeof import("./getServerUserData").getServerUserDataOutput = null as any;
 utilities.lazyLoad(exports, ["getServerUserData","getServerUserDataOutput"], () => require("./getServerUserData"));
 
-export { ListServerUserDataArgs, ListServerUserDataResult, ListServerUserDataOutputArgs } from "./listServerUserData";
+export { ListServerUserDataArgs, ListServerUserDataOutputArgs } from "./listServerUserData";
 export const listServerUserData: typeof import("./listServerUserData").listServerUserData = null as any;
 export const listServerUserDataOutput: typeof import("./listServerUserData").listServerUserDataOutput = null as any;
 utilities.lazyLoad(exports, ["listServerUserData","listServerUserDataOutput"], () => require("./listServerUserData"));

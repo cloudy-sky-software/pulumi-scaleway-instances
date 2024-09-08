@@ -29,7 +29,7 @@ type LookupSnapshotArgs struct {
 }
 
 type LookupSnapshotResult struct {
-	Items ScalewayInstanceV1GetSnapshotResponse `pulumi:"items"`
+	Snapshot *ScalewayInstanceV1Snapshot `pulumi:"snapshot"`
 }
 
 // Defaults sets the appropriate defaults for LookupSnapshotResult
@@ -38,7 +38,7 @@ func (val *LookupSnapshotResult) Defaults() *LookupSnapshotResult {
 		return nil
 	}
 	tmp := *val
-	tmp.Items = *tmp.Items.Defaults()
+	tmp.Snapshot = tmp.Snapshot.Defaults()
 
 	return &tmp
 }
@@ -81,8 +81,8 @@ func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx 
 	return o
 }
 
-func (o LookupSnapshotResultOutput) Items() ScalewayInstanceV1GetSnapshotResponseOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) ScalewayInstanceV1GetSnapshotResponse { return v.Items }).(ScalewayInstanceV1GetSnapshotResponseOutput)
+func (o LookupSnapshotResultOutput) Snapshot() ScalewayInstanceV1SnapshotPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *ScalewayInstanceV1Snapshot { return v.Snapshot }).(ScalewayInstanceV1SnapshotPtrOutput)
 }
 
 func init() {

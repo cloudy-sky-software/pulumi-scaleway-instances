@@ -6,42 +6,45 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ListBootscriptsResult',
-    'AwaitableListBootscriptsResult',
+    'ScalewayInstanceV1ListBootscriptsResponse',
+    'AwaitableScalewayInstanceV1ListBootscriptsResponse',
     'list_bootscripts',
     'list_bootscripts_output',
 ]
 
 @pulumi.output_type
-class ListBootscriptsResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1ListBootscriptsResponse:
+    def __init__(__self__, bootscripts=None):
+        if bootscripts and not isinstance(bootscripts, list):
+            raise TypeError("Expected argument 'bootscripts' to be a list")
+        pulumi.set(__self__, "bootscripts", bootscripts)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1ListBootscriptsResponse':
-        return pulumi.get(self, "items")
+    def bootscripts(self) -> Optional[Sequence['outputs.ScalewayInstanceV1Bootscript']]:
+        """
+        List of bootscripts
+        """
+        return pulumi.get(self, "bootscripts")
 
 
-class AwaitableListBootscriptsResult(ListBootscriptsResult):
+class AwaitableScalewayInstanceV1ListBootscriptsResponse(ScalewayInstanceV1ListBootscriptsResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListBootscriptsResult(
-            items=self.items)
+        return ScalewayInstanceV1ListBootscriptsResponse(
+            bootscripts=self.bootscripts)
 
 
 def list_bootscripts(zone: Optional[str] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBootscriptsResult:
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1ListBootscriptsResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -50,15 +53,15 @@ def list_bootscripts(zone: Optional[str] = None,
     __args__ = dict()
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:bootscripts:listBootscripts', __args__, opts=opts, typ=ListBootscriptsResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:bootscripts:listBootscripts', __args__, opts=opts, typ=ScalewayInstanceV1ListBootscriptsResponse).value
 
-    return AwaitableListBootscriptsResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1ListBootscriptsResponse(
+        bootscripts=pulumi.get(__ret__, 'bootscripts'))
 
 
 @_utilities.lift_output_func(list_bootscripts)
 def list_bootscripts_output(zone: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBootscriptsResult]:
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListBootscriptsResponse]:
     """
     Use this data source to access information about an existing resource.
 

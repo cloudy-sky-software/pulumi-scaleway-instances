@@ -27,7 +27,8 @@ type ListSecurityGroupsArgs struct {
 }
 
 type ListSecurityGroupsResult struct {
-	Items ScalewayInstanceV1ListSecurityGroupsResponse `pulumi:"items"`
+	SecurityGroups []ScalewayInstanceV1SecurityGroup `pulumi:"securityGroups"`
+	TotalCount     *float64                          `pulumi:"totalCount"`
 }
 
 func ListSecurityGroupsOutput(ctx *pulumi.Context, args ListSecurityGroupsOutputArgs, opts ...pulumi.InvokeOption) ListSecurityGroupsResultOutput {
@@ -66,8 +67,12 @@ func (o ListSecurityGroupsResultOutput) ToListSecurityGroupsResultOutputWithCont
 	return o
 }
 
-func (o ListSecurityGroupsResultOutput) Items() ScalewayInstanceV1ListSecurityGroupsResponseOutput {
-	return o.ApplyT(func(v ListSecurityGroupsResult) ScalewayInstanceV1ListSecurityGroupsResponse { return v.Items }).(ScalewayInstanceV1ListSecurityGroupsResponseOutput)
+func (o ListSecurityGroupsResultOutput) SecurityGroups() ScalewayInstanceV1SecurityGroupArrayOutput {
+	return o.ApplyT(func(v ListSecurityGroupsResult) []ScalewayInstanceV1SecurityGroup { return v.SecurityGroups }).(ScalewayInstanceV1SecurityGroupArrayOutput)
+}
+
+func (o ListSecurityGroupsResultOutput) TotalCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ListSecurityGroupsResult) *float64 { return v.TotalCount }).(pulumi.Float64PtrOutput)
 }
 
 func init() {

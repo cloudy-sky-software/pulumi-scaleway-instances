@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetSecurityGroupArgs, GetSecurityGroupResult, GetSecurityGroupOutputArgs } from "./getSecurityGroup";
+export { GetSecurityGroupArgs, GetSecurityGroupOutputArgs } from "./getSecurityGroup";
 export const getSecurityGroup: typeof import("./getSecurityGroup").getSecurityGroup = null as any;
 export const getSecurityGroupOutput: typeof import("./getSecurityGroup").getSecurityGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroup","getSecurityGroupOutput"], () => require("./getSecurityGroup"));
 
-export { ListSecurityGroupsArgs, ListSecurityGroupsResult, ListSecurityGroupsOutputArgs } from "./listSecurityGroups";
+export { ListSecurityGroupsArgs, ListSecurityGroupsOutputArgs } from "./listSecurityGroups";
 export const listSecurityGroups: typeof import("./listSecurityGroups").listSecurityGroups = null as any;
 export const listSecurityGroupsOutput: typeof import("./listSecurityGroups").listSecurityGroupsOutput = null as any;
 utilities.lazyLoad(exports, ["listSecurityGroups","listSecurityGroupsOutput"], () => require("./listSecurityGroups"));

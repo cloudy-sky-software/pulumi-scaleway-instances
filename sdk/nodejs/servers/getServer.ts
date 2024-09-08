@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
+export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<outputs.servers.ScalewayInstanceV1GetServerResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:servers:getServer", {
@@ -26,11 +26,7 @@ export interface GetServerArgs {
      */
     zone: string;
 }
-
-export interface GetServerResult {
-    readonly items: outputs.servers.ScalewayInstanceV1GetServerResponse;
-}
-export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
+export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.servers.ScalewayInstanceV1GetServerResponse> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }
 

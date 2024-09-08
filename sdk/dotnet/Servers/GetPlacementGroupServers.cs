@@ -11,11 +11,11 @@ namespace Pulumi.ScalewayInstances.Servers
 {
     public static class GetPlacementGroupServers
     {
-        public static Task<GetPlacementGroupServersResult> InvokeAsync(GetPlacementGroupServersArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupServersResult>("scaleway-instances:servers:getPlacementGroupServers", args ?? new GetPlacementGroupServersArgs(), options.WithDefaults());
+        public static Task<Outputs.ScalewayInstanceV1GetPlacementGroupServersResponse> InvokeAsync(GetPlacementGroupServersArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<Outputs.ScalewayInstanceV1GetPlacementGroupServersResponse>("scaleway-instances:servers:getPlacementGroupServers", args ?? new GetPlacementGroupServersArgs(), options.WithDefaults());
 
-        public static Output<GetPlacementGroupServersResult> Invoke(GetPlacementGroupServersInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupServersResult>("scaleway-instances:servers:getPlacementGroupServers", args ?? new GetPlacementGroupServersInvokeArgs(), options.WithDefaults());
+        public static Output<Outputs.ScalewayInstanceV1GetPlacementGroupServersResponse> Invoke(GetPlacementGroupServersInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetPlacementGroupServersResponse>("scaleway-instances:servers:getPlacementGroupServers", args ?? new GetPlacementGroupServersInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -57,18 +57,5 @@ namespace Pulumi.ScalewayInstances.Servers
         {
         }
         public static new GetPlacementGroupServersInvokeArgs Empty => new GetPlacementGroupServersInvokeArgs();
-    }
-
-
-    [OutputType]
-    public sealed class GetPlacementGroupServersResult
-    {
-        public readonly Outputs.ScalewayInstanceV1GetPlacementGroupServersResponse Items;
-
-        [OutputConstructor]
-        private GetPlacementGroupServersResult(Outputs.ScalewayInstanceV1GetPlacementGroupServersResponse items)
-        {
-            Items = items;
-        }
     }
 }

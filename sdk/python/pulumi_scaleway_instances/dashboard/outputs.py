@@ -8,11 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'ScalewayInstanceV1Dashboard',
-    'ScalewayInstanceV1GetDashboardResponse',
 ]
 
 @pulumi.output_type
@@ -138,18 +136,5 @@ class ScalewayInstanceV1Dashboard(dict):
     @pulumi.getter(name="volumesLSsdTotalSize")
     def volumes_lssd_total_size(self) -> Optional[float]:
         return pulumi.get(self, "volumes_lssd_total_size")
-
-
-@pulumi.output_type
-class ScalewayInstanceV1GetDashboardResponse(dict):
-    def __init__(__self__, *,
-                 dashboard: Optional['outputs.ScalewayInstanceV1Dashboard'] = None):
-        if dashboard is not None:
-            pulumi.set(__self__, "dashboard", dashboard)
-
-    @property
-    @pulumi.getter
-    def dashboard(self) -> Optional['outputs.ScalewayInstanceV1Dashboard']:
-        return pulumi.get(self, "dashboard")
 
 

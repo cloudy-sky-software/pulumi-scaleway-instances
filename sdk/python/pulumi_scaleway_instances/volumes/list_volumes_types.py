@@ -6,41 +6,44 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
 from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'ListVolumesTypesResult',
-    'AwaitableListVolumesTypesResult',
+    'ScalewayInstanceV1ListVolumesTypesResponse',
+    'AwaitableScalewayInstanceV1ListVolumesTypesResponse',
     'list_volumes_types',
     'list_volumes_types_output',
 ]
 
 @pulumi.output_type
-class ListVolumesTypesResult:
-    def __init__(__self__, items=None):
-        if items and not isinstance(items, dict):
-            raise TypeError("Expected argument 'items' to be a dict")
-        pulumi.set(__self__, "items", items)
+class ScalewayInstanceV1ListVolumesTypesResponse:
+    def __init__(__self__, volumes=None):
+        if volumes and not isinstance(volumes, dict):
+            raise TypeError("Expected argument 'volumes' to be a dict")
+        pulumi.set(__self__, "volumes", volumes)
 
     @property
     @pulumi.getter
-    def items(self) -> 'outputs.ScalewayInstanceV1ListVolumesTypesResponse':
-        return pulumi.get(self, "items")
+    def volumes(self) -> Optional[Mapping[str, 'outputs.ScalewayInstanceV1VolumeType']]:
+        """
+        Map of volume types
+        """
+        return pulumi.get(self, "volumes")
 
 
-class AwaitableListVolumesTypesResult(ListVolumesTypesResult):
+class AwaitableScalewayInstanceV1ListVolumesTypesResponse(ScalewayInstanceV1ListVolumesTypesResponse):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListVolumesTypesResult(
-            items=self.items)
+        return ScalewayInstanceV1ListVolumesTypesResponse(
+            volumes=self.volumes)
 
 
 def list_volumes_types(zone: Optional[str] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVolumesTypesResult:
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableScalewayInstanceV1ListVolumesTypesResponse:
     """
     Use this data source to access information about an existing resource.
 
@@ -49,15 +52,15 @@ def list_volumes_types(zone: Optional[str] = None,
     __args__ = dict()
     __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('scaleway-instances:volumes:listVolumesTypes', __args__, opts=opts, typ=ListVolumesTypesResult).value
+    __ret__ = pulumi.runtime.invoke('scaleway-instances:volumes:listVolumesTypes', __args__, opts=opts, typ=ScalewayInstanceV1ListVolumesTypesResponse).value
 
-    return AwaitableListVolumesTypesResult(
-        items=pulumi.get(__ret__, 'items'))
+    return AwaitableScalewayInstanceV1ListVolumesTypesResponse(
+        volumes=pulumi.get(__ret__, 'volumes'))
 
 
 @_utilities.lift_output_func(list_volumes_types)
 def list_volumes_types_output(zone: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumesTypesResult]:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListVolumesTypesResponse]:
     """
     Use this data source to access information about an existing resource.
 

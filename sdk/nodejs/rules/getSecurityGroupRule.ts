@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getSecurityGroupRule(args: GetSecurityGroupRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupRuleResult> {
+export function getSecurityGroupRule(args: GetSecurityGroupRuleArgs, opts?: pulumi.InvokeOptions): Promise<outputs.rules.ScalewayInstanceV1GetSecurityGroupRuleResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:rules:getSecurityGroupRule", {
@@ -25,11 +25,7 @@ export interface GetSecurityGroupRuleArgs {
      */
     zone: string;
 }
-
-export interface GetSecurityGroupRuleResult {
-    readonly items: outputs.rules.ScalewayInstanceV1GetSecurityGroupRuleResponse;
-}
-export function getSecurityGroupRuleOutput(args: GetSecurityGroupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupRuleResult> {
+export function getSecurityGroupRuleOutput(args: GetSecurityGroupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.rules.ScalewayInstanceV1GetSecurityGroupRuleResponse> {
     return pulumi.output(args).apply((a: any) => getSecurityGroupRule(a, opts))
 }
 

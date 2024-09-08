@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
+export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<outputs.volumes.ScalewayInstanceV1GetVolumeResponse> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:volumes:getVolume", {
@@ -26,11 +26,7 @@ export interface GetVolumeArgs {
      */
     zone: string;
 }
-
-export interface GetVolumeResult {
-    readonly items: outputs.volumes.ScalewayInstanceV1GetVolumeResponse;
-}
-export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.ScalewayInstanceV1GetVolumeResponse> {
     return pulumi.output(args).apply((a: any) => getVolume(a, opts))
 }
 
