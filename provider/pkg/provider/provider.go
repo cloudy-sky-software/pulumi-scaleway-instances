@@ -65,10 +65,7 @@ func (p *scalewayInstancesProvider) OnPreInvoke(_ context.Context, _ *pulumirpc.
 }
 
 func (p *scalewayInstancesProvider) OnPostInvoke(_ context.Context, _ *pulumirpc.InvokeRequest, outputs interface{}) (map[string]interface{}, error) {
-	outputsMap := make(map[string]interface{})
-	outputsMap["items"] = outputs
-
-	return outputsMap, nil
+	return outputs.(map[string]interface{}), nil
 }
 
 // OnConfigure is called by the provider framework when Pulumi calls Configure on
