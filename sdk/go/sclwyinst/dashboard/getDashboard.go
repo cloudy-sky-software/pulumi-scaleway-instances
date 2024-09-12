@@ -32,14 +32,20 @@ type GetDashboardResult struct {
 
 func GetDashboardOutput(ctx *pulumi.Context, args GetDashboardOutputArgs, opts ...pulumi.InvokeOption) GetDashboardResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetDashboardResult, error) {
+		ApplyT(func(v interface{}) (GetDashboardResultOutput, error) {
 			args := v.(GetDashboardArgs)
-			r, err := GetDashboard(ctx, &args, opts...)
-			var s GetDashboardResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetDashboardResult
+			secret, err := ctx.InvokePackageRaw("scaleway-instances:dashboard:getDashboard", args, &rv, "", opts...)
+			if err != nil {
+				return GetDashboardResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetDashboardResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetDashboardResultOutput), nil
+			}
+			return output, nil
 		}).(GetDashboardResultOutput)
 }
 

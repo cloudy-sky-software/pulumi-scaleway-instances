@@ -33,14 +33,20 @@ type ListDefaultSecurityGroupRulesResult struct {
 
 func ListDefaultSecurityGroupRulesOutput(ctx *pulumi.Context, args ListDefaultSecurityGroupRulesOutputArgs, opts ...pulumi.InvokeOption) ListDefaultSecurityGroupRulesResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListDefaultSecurityGroupRulesResult, error) {
+		ApplyT(func(v interface{}) (ListDefaultSecurityGroupRulesResultOutput, error) {
 			args := v.(ListDefaultSecurityGroupRulesArgs)
-			r, err := ListDefaultSecurityGroupRules(ctx, &args, opts...)
-			var s ListDefaultSecurityGroupRulesResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListDefaultSecurityGroupRulesResult
+			secret, err := ctx.InvokePackageRaw("scaleway-instances:rules:listDefaultSecurityGroupRules", args, &rv, "", opts...)
+			if err != nil {
+				return ListDefaultSecurityGroupRulesResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListDefaultSecurityGroupRulesResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListDefaultSecurityGroupRulesResultOutput), nil
+			}
+			return output, nil
 		}).(ListDefaultSecurityGroupRulesResultOutput)
 }
 

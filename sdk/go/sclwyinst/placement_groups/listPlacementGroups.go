@@ -33,14 +33,20 @@ type ListPlacementGroupsResult struct {
 
 func ListPlacementGroupsOutput(ctx *pulumi.Context, args ListPlacementGroupsOutputArgs, opts ...pulumi.InvokeOption) ListPlacementGroupsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListPlacementGroupsResult, error) {
+		ApplyT(func(v interface{}) (ListPlacementGroupsResultOutput, error) {
 			args := v.(ListPlacementGroupsArgs)
-			r, err := ListPlacementGroups(ctx, &args, opts...)
-			var s ListPlacementGroupsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListPlacementGroupsResult
+			secret, err := ctx.InvokePackageRaw("scaleway-instances:placement_groups:listPlacementGroups", args, &rv, "", opts...)
+			if err != nil {
+				return ListPlacementGroupsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListPlacementGroupsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListPlacementGroupsResultOutput), nil
+			}
+			return output, nil
 		}).(ListPlacementGroupsResultOutput)
 }
 
