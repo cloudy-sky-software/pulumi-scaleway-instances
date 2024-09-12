@@ -34,14 +34,20 @@ type ListServerUserDataResult struct {
 
 func ListServerUserDataOutput(ctx *pulumi.Context, args ListServerUserDataOutputArgs, opts ...pulumi.InvokeOption) ListServerUserDataResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListServerUserDataResult, error) {
+		ApplyT(func(v interface{}) (ListServerUserDataResultOutput, error) {
 			args := v.(ListServerUserDataArgs)
-			r, err := ListServerUserData(ctx, &args, opts...)
-			var s ListServerUserDataResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListServerUserDataResult
+			secret, err := ctx.InvokePackageRaw("scaleway-instances:user_data:listServerUserData", args, &rv, "", opts...)
+			if err != nil {
+				return ListServerUserDataResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListServerUserDataResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListServerUserDataResultOutput), nil
+			}
+			return output, nil
 		}).(ListServerUserDataResultOutput)
 }
 

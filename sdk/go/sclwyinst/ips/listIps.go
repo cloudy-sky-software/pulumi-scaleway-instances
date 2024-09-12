@@ -33,14 +33,20 @@ type ListIpsResult struct {
 
 func ListIpsOutput(ctx *pulumi.Context, args ListIpsOutputArgs, opts ...pulumi.InvokeOption) ListIpsResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (ListIpsResult, error) {
+		ApplyT(func(v interface{}) (ListIpsResultOutput, error) {
 			args := v.(ListIpsArgs)
-			r, err := ListIps(ctx, &args, opts...)
-			var s ListIpsResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv ListIpsResult
+			secret, err := ctx.InvokePackageRaw("scaleway-instances:ips:listIps", args, &rv, "", opts...)
+			if err != nil {
+				return ListIpsResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(ListIpsResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(ListIpsResultOutput), nil
+			}
+			return output, nil
 		}).(ListIpsResultOutput)
 }
 

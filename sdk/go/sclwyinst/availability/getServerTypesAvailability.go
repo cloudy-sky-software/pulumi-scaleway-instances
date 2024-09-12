@@ -32,14 +32,20 @@ type GetServerTypesAvailabilityResult struct {
 
 func GetServerTypesAvailabilityOutput(ctx *pulumi.Context, args GetServerTypesAvailabilityOutputArgs, opts ...pulumi.InvokeOption) GetServerTypesAvailabilityResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (GetServerTypesAvailabilityResult, error) {
+		ApplyT(func(v interface{}) (GetServerTypesAvailabilityResultOutput, error) {
 			args := v.(GetServerTypesAvailabilityArgs)
-			r, err := GetServerTypesAvailability(ctx, &args, opts...)
-			var s GetServerTypesAvailabilityResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv GetServerTypesAvailabilityResult
+			secret, err := ctx.InvokePackageRaw("scaleway-instances:availability:getServerTypesAvailability", args, &rv, "", opts...)
+			if err != nil {
+				return GetServerTypesAvailabilityResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(GetServerTypesAvailabilityResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(GetServerTypesAvailabilityResultOutput), nil
+			}
+			return output, nil
 		}).(GetServerTypesAvailabilityResultOutput)
 }
 

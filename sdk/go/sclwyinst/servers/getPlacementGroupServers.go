@@ -34,14 +34,20 @@ type LookupPlacementGroupServersResult struct {
 
 func LookupPlacementGroupServersOutput(ctx *pulumi.Context, args LookupPlacementGroupServersOutputArgs, opts ...pulumi.InvokeOption) LookupPlacementGroupServersResultOutput {
 	return pulumi.ToOutputWithContext(context.Background(), args).
-		ApplyT(func(v interface{}) (LookupPlacementGroupServersResult, error) {
+		ApplyT(func(v interface{}) (LookupPlacementGroupServersResultOutput, error) {
 			args := v.(LookupPlacementGroupServersArgs)
-			r, err := LookupPlacementGroupServers(ctx, &args, opts...)
-			var s LookupPlacementGroupServersResult
-			if r != nil {
-				s = *r
+			opts = internal.PkgInvokeDefaultOpts(opts)
+			var rv LookupPlacementGroupServersResult
+			secret, err := ctx.InvokePackageRaw("scaleway-instances:servers:getPlacementGroupServers", args, &rv, "", opts...)
+			if err != nil {
+				return LookupPlacementGroupServersResultOutput{}, err
 			}
-			return s, err
+
+			output := pulumi.ToOutput(rv).(LookupPlacementGroupServersResultOutput)
+			if secret {
+				return pulumi.ToSecret(output).(LookupPlacementGroupServersResultOutput), nil
+			}
+			return output, nil
 		}).(LookupPlacementGroupServersResultOutput)
 }
 
