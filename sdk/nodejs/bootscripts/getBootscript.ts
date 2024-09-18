@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getBootscript(args: GetBootscriptArgs, opts?: pulumi.InvokeOptions): Promise<outputs.bootscripts.ScalewayInstanceV1GetBootscriptResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:bootscripts:getBootscript", {
         "id": args.id,
@@ -24,7 +23,11 @@ export interface GetBootscriptArgs {
     zone: string;
 }
 export function getBootscriptOutput(args: GetBootscriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.bootscripts.ScalewayInstanceV1GetBootscriptResponse> {
-    return pulumi.output(args).apply((a: any) => getBootscript(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("scaleway-instances:bootscripts:getBootscript", {
+        "id": args.id,
+        "zone": args.zone,
+    }, opts);
 }
 
 export interface GetBootscriptOutputArgs {

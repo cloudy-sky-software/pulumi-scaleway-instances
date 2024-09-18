@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<outputs.snapshots.ScalewayInstanceV1GetSnapshotResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:snapshots:getSnapshot", {
         "id": args.id,
@@ -27,7 +26,11 @@ export interface GetSnapshotArgs {
     zone: string;
 }
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.snapshots.ScalewayInstanceV1GetSnapshotResponse> {
-    return pulumi.output(args).apply((a: any) => getSnapshot(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("scaleway-instances:snapshots:getSnapshot", {
+        "id": args.id,
+        "zone": args.zone,
+    }, opts);
 }
 
 export interface GetSnapshotOutputArgs {

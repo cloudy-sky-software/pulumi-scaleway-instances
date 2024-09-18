@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getPlacementGroup(args: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<outputs.placement_groups.ScalewayInstanceV1GetPlacementGroupResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:placement_groups:getPlacementGroup", {
         "id": args.id,
@@ -27,7 +26,11 @@ export interface GetPlacementGroupArgs {
     zone: string;
 }
 export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.placement_groups.ScalewayInstanceV1GetPlacementGroupResponse> {
-    return pulumi.output(args).apply((a: any) => getPlacementGroup(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("scaleway-instances:placement_groups:getPlacementGroup", {
+        "id": args.id,
+        "zone": args.zone,
+    }, opts);
 }
 
 export interface GetPlacementGroupOutputArgs {

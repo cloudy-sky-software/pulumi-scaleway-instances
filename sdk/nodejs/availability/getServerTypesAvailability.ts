@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getServerTypesAvailability(args: GetServerTypesAvailabilityArgs, opts?: pulumi.InvokeOptions): Promise<outputs.availability.ScalewayInstanceV1GetServerTypesAvailabilityResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:availability:getServerTypesAvailability", {
         "zone": args.zone,
@@ -22,7 +21,10 @@ export interface GetServerTypesAvailabilityArgs {
     zone: string;
 }
 export function getServerTypesAvailabilityOutput(args: GetServerTypesAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.availability.ScalewayInstanceV1GetServerTypesAvailabilityResponse> {
-    return pulumi.output(args).apply((a: any) => getServerTypesAvailability(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("scaleway-instances:availability:getServerTypesAvailability", {
+        "zone": args.zone,
+    }, opts);
 }
 
 export interface GetServerTypesAvailabilityOutputArgs {

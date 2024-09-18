@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<outputs.dashboard.ScalewayInstanceV1GetDashboardResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:dashboard:getDashboard", {
         "zone": args.zone,
@@ -22,7 +21,10 @@ export interface GetDashboardArgs {
     zone: string;
 }
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.dashboard.ScalewayInstanceV1GetDashboardResponse> {
-    return pulumi.output(args).apply((a: any) => getDashboard(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("scaleway-instances:dashboard:getDashboard", {
+        "zone": args.zone,
+    }, opts);
 }
 
 export interface GetDashboardOutputArgs {
