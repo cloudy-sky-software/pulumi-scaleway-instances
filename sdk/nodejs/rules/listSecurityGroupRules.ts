@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function listSecurityGroupRules(args: ListSecurityGroupRulesArgs, opts?: pulumi.InvokeOptions): Promise<outputs.rules.ScalewayInstanceV1ListSecurityGroupRulesResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:rules:listSecurityGroupRules", {
         "securityGroupId": args.securityGroupId,
@@ -27,7 +26,11 @@ export interface ListSecurityGroupRulesArgs {
     zone: string;
 }
 export function listSecurityGroupRulesOutput(args: ListSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.rules.ScalewayInstanceV1ListSecurityGroupRulesResponse> {
-    return pulumi.output(args).apply((a: any) => listSecurityGroupRules(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("scaleway-instances:rules:listSecurityGroupRules", {
+        "securityGroupId": args.securityGroupId,
+        "zone": args.zone,
+    }, opts);
 }
 
 export interface ListSecurityGroupRulesOutputArgs {

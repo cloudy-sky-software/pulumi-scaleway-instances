@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<outputs.images.ScalewayInstanceV1GetImageResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:images:getImage", {
         "id": args.id,
@@ -27,7 +26,11 @@ export interface GetImageArgs {
     zone: string;
 }
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.ScalewayInstanceV1GetImageResponse> {
-    return pulumi.output(args).apply((a: any) => getImage(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("scaleway-instances:images:getImage", {
+        "id": args.id,
+        "zone": args.zone,
+    }, opts);
 }
 
 export interface GetImageOutputArgs {

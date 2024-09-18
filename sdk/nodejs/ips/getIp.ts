@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function getIp(args: GetIpArgs, opts?: pulumi.InvokeOptions): Promise<outputs.ips.ScalewayInstanceV1GetIpResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:ips:getIp", {
         "id": args.id,
@@ -27,7 +26,11 @@ export interface GetIpArgs {
     zone: string;
 }
 export function getIpOutput(args: GetIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.ips.ScalewayInstanceV1GetIpResponse> {
-    return pulumi.output(args).apply((a: any) => getIp(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("scaleway-instances:ips:getIp", {
+        "id": args.id,
+        "zone": args.zone,
+    }, opts);
 }
 
 export interface GetIpOutputArgs {

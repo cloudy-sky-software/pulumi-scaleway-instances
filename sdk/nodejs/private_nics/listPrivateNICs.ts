@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export function listPrivateNICs(args: ListPrivateNICsArgs, opts?: pulumi.InvokeOptions): Promise<outputs.private_nics.ScalewayInstanceV1ListPrivateNICsResponse> {
-
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("scaleway-instances:private_nics:listPrivateNICs", {
         "serverId": args.serverId,
@@ -24,7 +23,11 @@ export interface ListPrivateNICsArgs {
     zone: string;
 }
 export function listPrivateNICsOutput(args: ListPrivateNICsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.private_nics.ScalewayInstanceV1ListPrivateNICsResponse> {
-    return pulumi.output(args).apply((a: any) => listPrivateNICs(a, opts))
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
+    return pulumi.runtime.invokeOutput("scaleway-instances:private_nics:listPrivateNICs", {
+        "serverId": args.serverId,
+        "zone": args.zone,
+    }, opts);
 }
 
 export interface ListPrivateNICsOutputArgs {
