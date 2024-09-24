@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -57,9 +62,6 @@ def get_security_group(security_group_id: Optional[str] = None,
 
     return AwaitableScalewayInstanceV1GetSecurityGroupResponse(
         security_group=pulumi.get(__ret__, 'security_group'))
-
-
-@_utilities.lift_output_func(get_security_group)
 def get_security_group_output(security_group_id: Optional[pulumi.Input[str]] = None,
                               zone: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetSecurityGroupResponse]:
@@ -69,4 +71,10 @@ def get_security_group_output(security_group_id: Optional[pulumi.Input[str]] = N
     :param str security_group_id: UUID of the security group you want to get
     :param str zone: The zone you want to target
     """
-    ...
+    __args__ = dict()
+    __args__['securityGroupId'] = security_group_id
+    __args__['zone'] = zone
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('scaleway-instances:security_groups:getSecurityGroup', __args__, opts=opts, typ=ScalewayInstanceV1GetSecurityGroupResponse)
+    return __ret__.apply(lambda __response__: ScalewayInstanceV1GetSecurityGroupResponse(
+        security_group=pulumi.get(__response__, 'security_group')))

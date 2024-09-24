@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
@@ -55,9 +60,6 @@ def list_server_actions(server_id: Optional[str] = None,
 
     return AwaitableScalewayInstanceV1ListServerActionsResponse(
         actions=pulumi.get(__ret__, 'actions'))
-
-
-@_utilities.lift_output_func(list_server_actions)
 def list_server_actions_output(server_id: Optional[pulumi.Input[str]] = None,
                                zone: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListServerActionsResponse]:
@@ -66,4 +68,10 @@ def list_server_actions_output(server_id: Optional[pulumi.Input[str]] = None,
 
     :param str zone: The zone you want to target
     """
-    ...
+    __args__ = dict()
+    __args__['serverId'] = server_id
+    __args__['zone'] = zone
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('scaleway-instances:action:listServerActions', __args__, opts=opts, typ=ScalewayInstanceV1ListServerActionsResponse)
+    return __ret__.apply(lambda __response__: ScalewayInstanceV1ListServerActionsResponse(
+        actions=pulumi.get(__response__, 'actions')))

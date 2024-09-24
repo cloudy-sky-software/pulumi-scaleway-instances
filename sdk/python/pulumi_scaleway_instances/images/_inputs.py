@@ -4,18 +4,82 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ScalewayInstanceV1BootscriptArgs',
+    'ScalewayInstanceV1BootscriptArgsDict',
     'ScalewayInstanceV1VolumeServerPropertiesArgs',
+    'ScalewayInstanceV1VolumeServerPropertiesArgsDict',
     'ScalewayInstanceV1VolumeSummaryArgs',
+    'ScalewayInstanceV1VolumeSummaryArgsDict',
     'ScalewayInstanceV1VolumeArgs',
+    'ScalewayInstanceV1VolumeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ScalewayInstanceV1BootscriptArgsDict(TypedDict):
+        arch: NotRequired[pulumi.Input['ScalewayInstanceV1BootscriptArch']]
+        """
+        The bootscript arch
+        """
+        bootcmdargs: NotRequired[pulumi.Input[str]]
+        """
+        The bootscript arguments
+        """
+        default: NotRequired[pulumi.Input[bool]]
+        """
+        Dispmay if the bootscript is the default bootscript if no other boot option is configured
+        """
+        dtb: NotRequired[pulumi.Input[str]]
+        """
+        Provide information regarding a Device Tree Binary (dtb) for use with C1 servers
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The bootscript ID
+        """
+        initrd: NotRequired[pulumi.Input[str]]
+        """
+        The initrd (initial ramdisk) configuration
+        """
+        kernel: NotRequired[pulumi.Input[str]]
+        """
+        The server kernel version
+        """
+        organization: NotRequired[pulumi.Input[str]]
+        """
+        The bootscript organization ID
+        """
+        project: NotRequired[pulumi.Input[str]]
+        """
+        The bootscript project ID
+        """
+        public: NotRequired[pulumi.Input[bool]]
+        """
+        Provide information if the bootscript is public
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        The bootscript title
+        """
+        zone: NotRequired[pulumi.Input[str]]
+        """
+        The zone in which is the bootscript
+        """
+elif False:
+    ScalewayInstanceV1BootscriptArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScalewayInstanceV1BootscriptArgs:
@@ -218,6 +282,16 @@ class ScalewayInstanceV1BootscriptArgs:
         pulumi.set(self, "zone", value)
 
 
+if not MYPY:
+    class ScalewayInstanceV1VolumeServerPropertiesArgsDict(TypedDict):
+        """
+        The server attached to the volume
+        """
+        id: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    ScalewayInstanceV1VolumeServerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScalewayInstanceV1VolumeServerPropertiesArgs:
     def __init__(__self__, *,
@@ -249,6 +323,18 @@ class ScalewayInstanceV1VolumeServerPropertiesArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ScalewayInstanceV1VolumeSummaryArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        size: NotRequired[pulumi.Input[float]]
+        """
+        (in bytes)
+        """
+        volume_type: NotRequired[pulumi.Input['ScalewayInstanceV1VolumeSummaryVolumeType']]
+elif False:
+    ScalewayInstanceV1VolumeSummaryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScalewayInstanceV1VolumeSummaryArgs:
@@ -310,6 +396,54 @@ class ScalewayInstanceV1VolumeSummaryArgs:
     def volume_type(self, value: Optional[pulumi.Input['ScalewayInstanceV1VolumeSummaryVolumeType']]):
         pulumi.set(self, "volume_type", value)
 
+
+if not MYPY:
+    class ScalewayInstanceV1VolumeArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The volume name
+        """
+        project: pulumi.Input[str]
+        """
+        The volume project ID
+        """
+        creation_date: NotRequired[pulumi.Input[str]]
+        """
+        The volume creation date (RFC 3339 format)
+        """
+        export_uri: NotRequired[pulumi.Input[str]]
+        """
+        Show the volume NBD export URI
+        """
+        id: NotRequired[pulumi.Input[str]]
+        modification_date: NotRequired[pulumi.Input[str]]
+        """
+        The volume modification date (RFC 3339 format)
+        """
+        organization: NotRequired[pulumi.Input[str]]
+        """
+        The volume organization ID
+        """
+        server: NotRequired[pulumi.Input['ScalewayInstanceV1VolumeServerPropertiesArgsDict']]
+        """
+        The server attached to the volume
+        """
+        size: NotRequired[pulumi.Input[float]]
+        """
+        The volume disk size (in bytes)
+        """
+        state: NotRequired[pulumi.Input['ScalewayInstanceV1VolumeState']]
+        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The volume tags
+        """
+        volume_type: NotRequired[pulumi.Input['ScalewayInstanceV1VolumeVolumeType']]
+        zone: NotRequired[pulumi.Input[str]]
+        """
+        The zone in which is the volume
+        """
+elif False:
+    ScalewayInstanceV1VolumeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScalewayInstanceV1VolumeArgs:
