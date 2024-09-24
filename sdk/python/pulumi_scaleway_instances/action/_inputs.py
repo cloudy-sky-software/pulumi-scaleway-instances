@@ -4,15 +4,29 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs',
+    'ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgsDict(TypedDict):
+        volume_type: NotRequired[pulumi.Input['ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateVolumeType']]
+elif False:
+    ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScalewayInstanceV1ServerActionRequestVolumeBackupTemplateArgs:

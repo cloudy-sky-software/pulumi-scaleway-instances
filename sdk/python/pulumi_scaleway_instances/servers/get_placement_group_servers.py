@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -56,9 +61,6 @@ def get_placement_group_servers(placement_group_id: Optional[str] = None,
 
     return AwaitableScalewayInstanceV1GetPlacementGroupServersResponse(
         servers=pulumi.get(__ret__, 'servers'))
-
-
-@_utilities.lift_output_func(get_placement_group_servers)
 def get_placement_group_servers_output(placement_group_id: Optional[pulumi.Input[str]] = None,
                                        zone: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetPlacementGroupServersResponse]:
@@ -68,4 +70,10 @@ def get_placement_group_servers_output(placement_group_id: Optional[pulumi.Input
     :param str placement_group_id: UUID of the placement group
     :param str zone: The zone you want to target
     """
-    ...
+    __args__ = dict()
+    __args__['placementGroupId'] = placement_group_id
+    __args__['zone'] = zone
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('scaleway-instances:servers:getPlacementGroupServers', __args__, opts=opts, typ=ScalewayInstanceV1GetPlacementGroupServersResponse)
+    return __ret__.apply(lambda __response__: ScalewayInstanceV1GetPlacementGroupServersResponse(
+        servers=pulumi.get(__response__, 'servers')))

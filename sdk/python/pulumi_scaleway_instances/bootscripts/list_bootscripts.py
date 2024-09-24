@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload, Awaitable
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -57,9 +62,6 @@ def list_bootscripts(zone: Optional[str] = None,
 
     return AwaitableScalewayInstanceV1ListBootscriptsResponse(
         bootscripts=pulumi.get(__ret__, 'bootscripts'))
-
-
-@_utilities.lift_output_func(list_bootscripts)
 def list_bootscripts_output(zone: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListBootscriptsResponse]:
     """
@@ -67,4 +69,9 @@ def list_bootscripts_output(zone: Optional[pulumi.Input[str]] = None,
 
     :param str zone: The zone you want to target
     """
-    ...
+    __args__ = dict()
+    __args__['zone'] = zone
+    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    __ret__ = pulumi.runtime.invoke_output('scaleway-instances:bootscripts:listBootscripts', __args__, opts=opts, typ=ScalewayInstanceV1ListBootscriptsResponse)
+    return __ret__.apply(lambda __response__: ScalewayInstanceV1ListBootscriptsResponse(
+        bootscripts=pulumi.get(__response__, 'bootscripts')))

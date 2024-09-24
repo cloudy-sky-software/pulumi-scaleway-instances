@@ -4,15 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'ScalewayInstanceV1VolumeServerTemplateArgs',
+    'ScalewayInstanceV1VolumeServerTemplateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ScalewayInstanceV1VolumeServerTemplateArgsDict(TypedDict):
+        base_snapshot: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the snapshot on which this volume will be based
+        """
+        boot: NotRequired[pulumi.Input[bool]]
+        """
+        Force the server to boot on this volume
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        UUID of the volume
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the volume
+        """
+        organization: NotRequired[pulumi.Input[str]]
+        """
+        Organization ID of the volume
+        """
+        project: NotRequired[pulumi.Input[str]]
+        """
+        Project ID of the volume
+        """
+        size: NotRequired[pulumi.Input[float]]
+        """
+        Disk size of the volume, must be a multiple of 512 (in bytes)
+        """
+        volume_type: NotRequired[pulumi.Input['ScalewayInstanceV1VolumeServerTemplateVolumeType']]
+elif False:
+    ScalewayInstanceV1VolumeServerTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScalewayInstanceV1VolumeServerTemplateArgs:
