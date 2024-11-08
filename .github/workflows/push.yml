@@ -12,7 +12,7 @@ on:
       - "CHANGELOG.md"
 
 env:
-  GOLANG_CI_LINT_VERSION: v1.54.2
+  GOLANG_CI_LINT_VERSION: v1.61.0
   GOPRIVATE: "github.com/cloudy-sky-software/*"
   PROVIDER: "scaleway-instances"
 
