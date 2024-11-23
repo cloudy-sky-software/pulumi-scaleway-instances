@@ -25,7 +25,7 @@ export interface GetVolumeArgs {
      */
     zone: string;
 }
-export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.ScalewayInstanceV1GetVolumeResponse> {
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.volumes.ScalewayInstanceV1GetVolumeResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:volumes:getVolume", {
         "id": args.id,

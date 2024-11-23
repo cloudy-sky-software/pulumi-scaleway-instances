@@ -70,7 +70,7 @@ def list_security_groups(zone: Optional[str] = None,
         security_groups=pulumi.get(__ret__, 'security_groups'),
         total_count=pulumi.get(__ret__, 'total_count'))
 def list_security_groups_output(zone: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListSecurityGroupsResponse]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1ListSecurityGroupsResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -78,7 +78,7 @@ def list_security_groups_output(zone: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:security_groups:listSecurityGroups', __args__, opts=opts, typ=ScalewayInstanceV1ListSecurityGroupsResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1ListSecurityGroupsResponse(
         security_groups=pulumi.get(__response__, 'security_groups'),

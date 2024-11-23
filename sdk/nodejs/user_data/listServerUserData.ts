@@ -25,7 +25,7 @@ export interface ListServerUserDataArgs {
      */
     zone: string;
 }
-export function listServerUserDataOutput(args: ListServerUserDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.user_data.ScalewayInstanceV1ListServerUserDataResponse> {
+export function listServerUserDataOutput(args: ListServerUserDataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.user_data.ScalewayInstanceV1ListServerUserDataResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:user_data:listServerUserData", {
         "serverId": args.serverId,

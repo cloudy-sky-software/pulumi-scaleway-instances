@@ -20,7 +20,7 @@ export interface ListSnapshotsArgs {
      */
     zone: string;
 }
-export function listSnapshotsOutput(args: ListSnapshotsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.snapshots.ScalewayInstanceV1ListSnapshotsResponse> {
+export function listSnapshotsOutput(args: ListSnapshotsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.snapshots.ScalewayInstanceV1ListSnapshotsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:snapshots:listSnapshots", {
         "zone": args.zone,

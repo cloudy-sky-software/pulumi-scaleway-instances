@@ -25,7 +25,7 @@ export interface ListSecurityGroupRulesArgs {
      */
     zone: string;
 }
-export function listSecurityGroupRulesOutput(args: ListSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.rules.ScalewayInstanceV1ListSecurityGroupRulesResponse> {
+export function listSecurityGroupRulesOutput(args: ListSecurityGroupRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.rules.ScalewayInstanceV1ListSecurityGroupRulesResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:rules:listSecurityGroupRules", {
         "securityGroupId": args.securityGroupId,

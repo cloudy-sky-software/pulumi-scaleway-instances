@@ -20,7 +20,7 @@ export interface ListVolumesArgs {
      */
     zone: string;
 }
-export function listVolumesOutput(args: ListVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.volumes.ScalewayInstanceV1ListVolumesResponse> {
+export function listVolumesOutput(args: ListVolumesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.volumes.ScalewayInstanceV1ListVolumesResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:volumes:listVolumes", {
         "zone": args.zone,

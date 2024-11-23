@@ -22,7 +22,7 @@ export interface ListServerActionsArgs {
      */
     zone: string;
 }
-export function listServerActionsOutput(args: ListServerActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.action.ScalewayInstanceV1ListServerActionsResponse> {
+export function listServerActionsOutput(args: ListServerActionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.action.ScalewayInstanceV1ListServerActionsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:action:listServerActions", {
         "serverId": args.serverId,

@@ -25,7 +25,7 @@ export interface GetIpArgs {
      */
     zone: string;
 }
-export function getIpOutput(args: GetIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.ips.ScalewayInstanceV1GetIpResponse> {
+export function getIpOutput(args: GetIpOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.ips.ScalewayInstanceV1GetIpResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:ips:getIp", {
         "id": args.id,

@@ -20,7 +20,7 @@ export interface GetDashboardArgs {
      */
     zone: string;
 }
-export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.dashboard.ScalewayInstanceV1GetDashboardResponse> {
+export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.dashboard.ScalewayInstanceV1GetDashboardResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:dashboard:getDashboard", {
         "zone": args.zone,

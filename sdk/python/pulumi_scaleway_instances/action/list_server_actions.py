@@ -62,7 +62,7 @@ def list_server_actions(server_id: Optional[str] = None,
         actions=pulumi.get(__ret__, 'actions'))
 def list_server_actions_output(server_id: Optional[pulumi.Input[str]] = None,
                                zone: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListServerActionsResponse]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1ListServerActionsResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -71,7 +71,7 @@ def list_server_actions_output(server_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['serverId'] = server_id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:action:listServerActions', __args__, opts=opts, typ=ScalewayInstanceV1ListServerActionsResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1ListServerActionsResponse(
         actions=pulumi.get(__response__, 'actions')))

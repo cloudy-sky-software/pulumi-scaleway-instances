@@ -22,7 +22,7 @@ export interface ListPrivateNICsArgs {
      */
     zone: string;
 }
-export function listPrivateNICsOutput(args: ListPrivateNICsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.private_nics.ScalewayInstanceV1ListPrivateNICsResponse> {
+export function listPrivateNICsOutput(args: ListPrivateNICsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.private_nics.ScalewayInstanceV1ListPrivateNICsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:private_nics:listPrivateNICs", {
         "serverId": args.serverId,

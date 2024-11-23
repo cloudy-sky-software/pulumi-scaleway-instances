@@ -63,7 +63,7 @@ def list_servers_types(zone: Optional[str] = None,
     return AwaitableScalewayInstanceV1ListServersTypesResponse(
         servers=pulumi.get(__ret__, 'servers'))
 def list_servers_types_output(zone: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListServersTypesResponse]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1ListServersTypesResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -71,7 +71,7 @@ def list_servers_types_output(zone: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:servers:listServersTypes', __args__, opts=opts, typ=ScalewayInstanceV1ListServersTypesResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1ListServersTypesResponse(
         servers=pulumi.get(__response__, 'servers')))

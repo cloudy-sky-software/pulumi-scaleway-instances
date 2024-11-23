@@ -22,7 +22,7 @@ export interface GetBootscriptArgs {
      */
     zone: string;
 }
-export function getBootscriptOutput(args: GetBootscriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.bootscripts.ScalewayInstanceV1GetBootscriptResponse> {
+export function getBootscriptOutput(args: GetBootscriptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.bootscripts.ScalewayInstanceV1GetBootscriptResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:bootscripts:getBootscript", {
         "id": args.id,

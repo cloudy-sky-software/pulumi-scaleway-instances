@@ -20,7 +20,7 @@ export interface GetServerTypesAvailabilityArgs {
      */
     zone: string;
 }
-export function getServerTypesAvailabilityOutput(args: GetServerTypesAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.availability.ScalewayInstanceV1GetServerTypesAvailabilityResponse> {
+export function getServerTypesAvailabilityOutput(args: GetServerTypesAvailabilityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.availability.ScalewayInstanceV1GetServerTypesAvailabilityResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:availability:getServerTypesAvailability", {
         "zone": args.zone,

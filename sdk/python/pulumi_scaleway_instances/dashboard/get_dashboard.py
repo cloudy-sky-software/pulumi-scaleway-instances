@@ -59,7 +59,7 @@ def get_dashboard(zone: Optional[str] = None,
     return AwaitableScalewayInstanceV1GetDashboardResponse(
         dashboard=pulumi.get(__ret__, 'dashboard'))
 def get_dashboard_output(zone: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetDashboardResponse]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1GetDashboardResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -67,7 +67,7 @@ def get_dashboard_output(zone: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:dashboard:getDashboard', __args__, opts=opts, typ=ScalewayInstanceV1GetDashboardResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1GetDashboardResponse(
         dashboard=pulumi.get(__response__, 'dashboard')))

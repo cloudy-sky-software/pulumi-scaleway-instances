@@ -20,7 +20,7 @@ export interface ListBootscriptsArgs {
      */
     zone: string;
 }
-export function listBootscriptsOutput(args: ListBootscriptsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.bootscripts.ScalewayInstanceV1ListBootscriptsResponse> {
+export function listBootscriptsOutput(args: ListBootscriptsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.bootscripts.ScalewayInstanceV1ListBootscriptsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:bootscripts:listBootscripts", {
         "zone": args.zone,
