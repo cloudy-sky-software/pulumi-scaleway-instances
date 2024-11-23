@@ -63,7 +63,7 @@ def get_ip(id: Optional[str] = None,
         ip=pulumi.get(__ret__, 'ip'))
 def get_ip_output(id: Optional[pulumi.Input[str]] = None,
                   zone: Optional[pulumi.Input[str]] = None,
-                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetIpResponse]:
+                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1GetIpResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,7 +73,7 @@ def get_ip_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:ips:getIp', __args__, opts=opts, typ=ScalewayInstanceV1GetIpResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1GetIpResponse(
         ip=pulumi.get(__response__, 'ip')))

@@ -63,7 +63,7 @@ def get_placement_group_servers(placement_group_id: Optional[str] = None,
         servers=pulumi.get(__ret__, 'servers'))
 def get_placement_group_servers_output(placement_group_id: Optional[pulumi.Input[str]] = None,
                                        zone: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetPlacementGroupServersResponse]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1GetPlacementGroupServersResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -73,7 +73,7 @@ def get_placement_group_servers_output(placement_group_id: Optional[pulumi.Input
     __args__ = dict()
     __args__['placementGroupId'] = placement_group_id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:servers:getPlacementGroupServers', __args__, opts=opts, typ=ScalewayInstanceV1GetPlacementGroupServersResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1GetPlacementGroupServersResponse(
         servers=pulumi.get(__response__, 'servers')))

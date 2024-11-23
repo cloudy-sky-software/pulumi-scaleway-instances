@@ -20,7 +20,7 @@ export interface ListImagesArgs {
      */
     zone: string;
 }
-export function listImagesOutput(args: ListImagesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.ScalewayInstanceV1ListImagesResponse> {
+export function listImagesOutput(args: ListImagesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.images.ScalewayInstanceV1ListImagesResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:images:listImages", {
         "zone": args.zone,

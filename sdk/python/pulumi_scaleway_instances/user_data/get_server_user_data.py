@@ -86,7 +86,7 @@ def get_server_user_data(key: Optional[str] = None,
 def get_server_user_data_output(key: Optional[pulumi.Input[str]] = None,
                                 server_id: Optional[pulumi.Input[str]] = None,
                                 zone: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayStdFile]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayStdFile]:
     """
     Use this data source to access information about an existing resource.
 
@@ -98,7 +98,7 @@ def get_server_user_data_output(key: Optional[pulumi.Input[str]] = None,
     __args__['key'] = key
     __args__['serverId'] = server_id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:user_data:getServerUserData', __args__, opts=opts, typ=ScalewayStdFile)
     return __ret__.apply(lambda __response__: ScalewayStdFile(
         content=pulumi.get(__response__, 'content'),

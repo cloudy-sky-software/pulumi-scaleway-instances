@@ -64,7 +64,7 @@ def get_volume(id: Optional[str] = None,
         volume=pulumi.get(__ret__, 'volume'))
 def get_volume_output(id: Optional[pulumi.Input[str]] = None,
                       zone: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetVolumeResponse]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1GetVolumeResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -74,7 +74,7 @@ def get_volume_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:volumes:getVolume', __args__, opts=opts, typ=ScalewayInstanceV1GetVolumeResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1GetVolumeResponse(
         volume=pulumi.get(__response__, 'volume')))

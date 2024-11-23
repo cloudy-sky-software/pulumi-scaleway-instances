@@ -64,7 +64,7 @@ def get_server(id: Optional[str] = None,
         server=pulumi.get(__ret__, 'server'))
 def get_server_output(id: Optional[pulumi.Input[str]] = None,
                       zone: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetServerResponse]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1GetServerResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -74,7 +74,7 @@ def get_server_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:servers:getServer', __args__, opts=opts, typ=ScalewayInstanceV1GetServerResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1GetServerResponse(
         server=pulumi.get(__response__, 'server')))

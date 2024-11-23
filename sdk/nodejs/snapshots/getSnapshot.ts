@@ -25,7 +25,7 @@ export interface GetSnapshotArgs {
      */
     zone: string;
 }
-export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.snapshots.ScalewayInstanceV1GetSnapshotResponse> {
+export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.snapshots.ScalewayInstanceV1GetSnapshotResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:snapshots:getSnapshot", {
         "id": args.id,

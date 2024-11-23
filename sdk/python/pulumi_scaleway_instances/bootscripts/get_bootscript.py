@@ -63,7 +63,7 @@ def get_bootscript(id: Optional[str] = None,
         bootscript=pulumi.get(__ret__, 'bootscript'))
 def get_bootscript_output(id: Optional[pulumi.Input[str]] = None,
                           zone: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetBootscriptResponse]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1GetBootscriptResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -72,7 +72,7 @@ def get_bootscript_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:bootscripts:getBootscript', __args__, opts=opts, typ=ScalewayInstanceV1GetBootscriptResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1GetBootscriptResponse(
         bootscript=pulumi.get(__response__, 'bootscript')))

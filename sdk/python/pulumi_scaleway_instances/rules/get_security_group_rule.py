@@ -66,7 +66,7 @@ def get_security_group_rule(id: Optional[str] = None,
 def get_security_group_rule_output(id: Optional[pulumi.Input[str]] = None,
                                    security_group_id: Optional[pulumi.Input[str]] = None,
                                    zone: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetSecurityGroupRuleResponse]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1GetSecurityGroupRuleResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -76,7 +76,7 @@ def get_security_group_rule_output(id: Optional[pulumi.Input[str]] = None,
     __args__['id'] = id
     __args__['securityGroupId'] = security_group_id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:rules:getSecurityGroupRule', __args__, opts=opts, typ=ScalewayInstanceV1GetSecurityGroupRuleResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1GetSecurityGroupRuleResponse(
         rule=pulumi.get(__response__, 'rule')))

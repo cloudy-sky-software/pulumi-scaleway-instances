@@ -66,7 +66,7 @@ def get_private_nic(id: Optional[str] = None,
 def get_private_nic_output(id: Optional[pulumi.Input[str]] = None,
                            server_id: Optional[pulumi.Input[str]] = None,
                            zone: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetPrivateNICResponse]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1GetPrivateNICResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -76,7 +76,7 @@ def get_private_nic_output(id: Optional[pulumi.Input[str]] = None,
     __args__['id'] = id
     __args__['serverId'] = server_id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:private_nics:getPrivateNIC', __args__, opts=opts, typ=ScalewayInstanceV1GetPrivateNICResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1GetPrivateNICResponse(
         private_nic=pulumi.get(__response__, 'private_nic')))

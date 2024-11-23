@@ -30,7 +30,7 @@ export interface GetServerUserDataArgs {
      */
     zone: string;
 }
-export function getServerUserDataOutput(args: GetServerUserDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.user_data.ScalewayStdFile> {
+export function getServerUserDataOutput(args: GetServerUserDataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.user_data.ScalewayStdFile> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:user_data:getServerUserData", {
         "key": args.key,

@@ -20,7 +20,7 @@ export interface ListSecurityGroupsArgs {
      */
     zone: string;
 }
-export function listSecurityGroupsOutput(args: ListSecurityGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.security_groups.ScalewayInstanceV1ListSecurityGroupsResponse> {
+export function listSecurityGroupsOutput(args: ListSecurityGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.security_groups.ScalewayInstanceV1ListSecurityGroupsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:security_groups:listSecurityGroups", {
         "zone": args.zone,

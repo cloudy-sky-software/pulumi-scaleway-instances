@@ -64,7 +64,7 @@ def get_snapshot(id: Optional[str] = None,
         snapshot=pulumi.get(__ret__, 'snapshot'))
 def get_snapshot_output(id: Optional[pulumi.Input[str]] = None,
                         zone: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1GetSnapshotResponse]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1GetSnapshotResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -74,7 +74,7 @@ def get_snapshot_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:snapshots:getSnapshot', __args__, opts=opts, typ=ScalewayInstanceV1GetSnapshotResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1GetSnapshotResponse(
         snapshot=pulumi.get(__response__, 'snapshot')))

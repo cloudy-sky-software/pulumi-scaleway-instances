@@ -20,7 +20,7 @@ export interface ListPlacementGroupsArgs {
      */
     zone: string;
 }
-export function listPlacementGroupsOutput(args: ListPlacementGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.placement_groups.ScalewayInstanceV1ListPlacementGroupsResponse> {
+export function listPlacementGroupsOutput(args: ListPlacementGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.placement_groups.ScalewayInstanceV1ListPlacementGroupsResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:placement_groups:listPlacementGroups", {
         "zone": args.zone,

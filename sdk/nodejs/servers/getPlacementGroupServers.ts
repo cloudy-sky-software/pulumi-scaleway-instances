@@ -25,7 +25,7 @@ export interface GetPlacementGroupServersArgs {
      */
     zone: string;
 }
-export function getPlacementGroupServersOutput(args: GetPlacementGroupServersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.servers.ScalewayInstanceV1GetPlacementGroupServersResponse> {
+export function getPlacementGroupServersOutput(args: GetPlacementGroupServersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.servers.ScalewayInstanceV1GetPlacementGroupServersResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:servers:getPlacementGroupServers", {
         "placementGroupId": args.placementGroupId,

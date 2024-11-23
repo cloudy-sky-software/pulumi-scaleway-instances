@@ -25,7 +25,7 @@ export interface GetServerArgs {
      */
     zone: string;
 }
-export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.servers.ScalewayInstanceV1GetServerResponse> {
+export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.servers.ScalewayInstanceV1GetServerResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:servers:getServer", {
         "id": args.id,

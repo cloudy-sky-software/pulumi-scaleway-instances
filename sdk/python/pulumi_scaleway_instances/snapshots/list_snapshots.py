@@ -63,7 +63,7 @@ def list_snapshots(zone: Optional[str] = None,
     return AwaitableScalewayInstanceV1ListSnapshotsResponse(
         snapshots=pulumi.get(__ret__, 'snapshots'))
 def list_snapshots_output(zone: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ScalewayInstanceV1ListSnapshotsResponse]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ScalewayInstanceV1ListSnapshotsResponse]:
     """
     Use this data source to access information about an existing resource.
 
@@ -71,7 +71,7 @@ def list_snapshots_output(zone: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['zone'] = zone
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('scaleway-instances:snapshots:listSnapshots', __args__, opts=opts, typ=ScalewayInstanceV1ListSnapshotsResponse)
     return __ret__.apply(lambda __response__: ScalewayInstanceV1ListSnapshotsResponse(
         snapshots=pulumi.get(__response__, 'snapshots')))

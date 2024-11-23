@@ -25,7 +25,7 @@ export interface GetImageArgs {
      */
     zone: string;
 }
-export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<outputs.images.ScalewayInstanceV1GetImageResponse> {
+export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<outputs.images.ScalewayInstanceV1GetImageResponse> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("scaleway-instances:images:getImage", {
         "id": args.id,
