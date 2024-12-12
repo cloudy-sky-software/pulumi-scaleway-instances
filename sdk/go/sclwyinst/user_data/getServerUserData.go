@@ -37,21 +37,11 @@ type GetServerUserDataResult struct {
 }
 
 func GetServerUserDataOutput(ctx *pulumi.Context, args GetServerUserDataOutputArgs, opts ...pulumi.InvokeOption) GetServerUserDataResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetServerUserDataResultOutput, error) {
 			args := v.(GetServerUserDataArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetServerUserDataResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:user_data:getServerUserData", args, &rv, "", opts...)
-			if err != nil {
-				return GetServerUserDataResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetServerUserDataResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetServerUserDataResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:user_data:getServerUserData", args, GetServerUserDataResultOutput{}, options).(GetServerUserDataResultOutput), nil
 		}).(GetServerUserDataResultOutput)
 }
 

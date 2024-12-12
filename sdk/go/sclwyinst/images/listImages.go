@@ -32,21 +32,11 @@ type ListImagesResult struct {
 }
 
 func ListImagesOutput(ctx *pulumi.Context, args ListImagesOutputArgs, opts ...pulumi.InvokeOption) ListImagesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListImagesResultOutput, error) {
 			args := v.(ListImagesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListImagesResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:images:listImages", args, &rv, "", opts...)
-			if err != nil {
-				return ListImagesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListImagesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListImagesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:images:listImages", args, ListImagesResultOutput{}, options).(ListImagesResultOutput), nil
 		}).(ListImagesResultOutput)
 }
 

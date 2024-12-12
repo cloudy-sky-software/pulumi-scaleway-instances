@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.UserData
 
         public static Output<Outputs.ScalewayStdFile> Invoke(GetServerUserDataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayStdFile>("scaleway-instances:user_data:getServerUserData", args ?? new GetServerUserDataInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayStdFile> Invoke(GetServerUserDataInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayStdFile>("scaleway-instances:user_data:getServerUserData", args ?? new GetServerUserDataInvokeArgs(), options.WithDefaults());
     }
 
 

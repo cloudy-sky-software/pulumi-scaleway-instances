@@ -32,21 +32,11 @@ type ListPrivateNICsResult struct {
 }
 
 func ListPrivateNICsOutput(ctx *pulumi.Context, args ListPrivateNICsOutputArgs, opts ...pulumi.InvokeOption) ListPrivateNICsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListPrivateNICsResultOutput, error) {
 			args := v.(ListPrivateNICsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListPrivateNICsResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:private_nics:listPrivateNICs", args, &rv, "", opts...)
-			if err != nil {
-				return ListPrivateNICsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListPrivateNICsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListPrivateNICsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:private_nics:listPrivateNICs", args, ListPrivateNICsResultOutput{}, options).(ListPrivateNICsResultOutput), nil
 		}).(ListPrivateNICsResultOutput)
 }
 

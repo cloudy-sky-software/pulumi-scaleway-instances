@@ -41,23 +41,12 @@ func (val *GetBootscriptResult) Defaults() *GetBootscriptResult {
 
 	return &tmp
 }
-
 func GetBootscriptOutput(ctx *pulumi.Context, args GetBootscriptOutputArgs, opts ...pulumi.InvokeOption) GetBootscriptResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetBootscriptResultOutput, error) {
 			args := v.(GetBootscriptArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetBootscriptResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:bootscripts:getBootscript", args, &rv, "", opts...)
-			if err != nil {
-				return GetBootscriptResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetBootscriptResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetBootscriptResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:bootscripts:getBootscript", args, GetBootscriptResultOutput{}, options).(GetBootscriptResultOutput), nil
 		}).(GetBootscriptResultOutput)
 }
 

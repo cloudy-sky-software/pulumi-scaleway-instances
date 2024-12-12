@@ -34,21 +34,11 @@ type ListSecurityGroupRulesResult struct {
 }
 
 func ListSecurityGroupRulesOutput(ctx *pulumi.Context, args ListSecurityGroupRulesOutputArgs, opts ...pulumi.InvokeOption) ListSecurityGroupRulesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListSecurityGroupRulesResultOutput, error) {
 			args := v.(ListSecurityGroupRulesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListSecurityGroupRulesResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:rules:listSecurityGroupRules", args, &rv, "", opts...)
-			if err != nil {
-				return ListSecurityGroupRulesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListSecurityGroupRulesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListSecurityGroupRulesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:rules:listSecurityGroupRules", args, ListSecurityGroupRulesResultOutput{}, options).(ListSecurityGroupRulesResultOutput), nil
 		}).(ListSecurityGroupRulesResultOutput)
 }
 

@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Availability
 
         public static Output<Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse> Invoke(GetServerTypesAvailabilityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse>("scaleway-instances:availability:getServerTypesAvailability", args ?? new GetServerTypesAvailabilityInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse> Invoke(GetServerTypesAvailabilityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetServerTypesAvailabilityResponse>("scaleway-instances:availability:getServerTypesAvailability", args ?? new GetServerTypesAvailabilityInvokeArgs(), options.WithDefaults());
     }
 
 

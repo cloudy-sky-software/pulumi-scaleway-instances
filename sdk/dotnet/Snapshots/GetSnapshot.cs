@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Snapshots
 
         public static Output<Outputs.ScalewayInstanceV1GetSnapshotResponse> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetSnapshotResponse>("scaleway-instances:snapshots:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1GetSnapshotResponse> Invoke(GetSnapshotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetSnapshotResponse>("scaleway-instances:snapshots:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

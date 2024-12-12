@@ -42,23 +42,12 @@ func (val *LookupPlacementGroupResult) Defaults() *LookupPlacementGroupResult {
 
 	return &tmp
 }
-
 func LookupPlacementGroupOutput(ctx *pulumi.Context, args LookupPlacementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupPlacementGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPlacementGroupResultOutput, error) {
 			args := v.(LookupPlacementGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPlacementGroupResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:placement_groups:getPlacementGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPlacementGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPlacementGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPlacementGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:placement_groups:getPlacementGroup", args, LookupPlacementGroupResultOutput{}, options).(LookupPlacementGroupResultOutput), nil
 		}).(LookupPlacementGroupResultOutput)
 }
 

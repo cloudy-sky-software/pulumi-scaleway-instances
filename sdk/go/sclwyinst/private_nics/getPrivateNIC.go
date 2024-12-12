@@ -42,23 +42,12 @@ func (val *LookupPrivateNICResult) Defaults() *LookupPrivateNICResult {
 
 	return &tmp
 }
-
 func LookupPrivateNICOutput(ctx *pulumi.Context, args LookupPrivateNICOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateNICResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPrivateNICResultOutput, error) {
 			args := v.(LookupPrivateNICArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPrivateNICResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:private_nics:getPrivateNIC", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPrivateNICResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPrivateNICResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPrivateNICResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:private_nics:getPrivateNIC", args, LookupPrivateNICResultOutput{}, options).(LookupPrivateNICResultOutput), nil
 		}).(LookupPrivateNICResultOutput)
 }
 

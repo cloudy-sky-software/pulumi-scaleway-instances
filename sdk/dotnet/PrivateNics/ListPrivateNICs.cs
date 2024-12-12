@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.PrivateNics
 
         public static Output<Outputs.ScalewayInstanceV1ListPrivateNICsResponse> Invoke(ListPrivateNICsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListPrivateNICsResponse>("scaleway-instances:private_nics:listPrivateNICs", args ?? new ListPrivateNICsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1ListPrivateNICsResponse> Invoke(ListPrivateNICsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListPrivateNICsResponse>("scaleway-instances:private_nics:listPrivateNICs", args ?? new ListPrivateNICsInvokeArgs(), options.WithDefaults());
     }
 
 

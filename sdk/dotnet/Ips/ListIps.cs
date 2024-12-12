@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Ips
 
         public static Output<Outputs.ScalewayInstanceV1ListIpsResponse> Invoke(ListIpsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListIpsResponse>("scaleway-instances:ips:listIps", args ?? new ListIpsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1ListIpsResponse> Invoke(ListIpsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListIpsResponse>("scaleway-instances:ips:listIps", args ?? new ListIpsInvokeArgs(), options.WithDefaults());
     }
 
 

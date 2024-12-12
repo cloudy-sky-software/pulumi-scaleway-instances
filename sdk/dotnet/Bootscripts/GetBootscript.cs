@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Bootscripts
 
         public static Output<Outputs.ScalewayInstanceV1GetBootscriptResponse> Invoke(GetBootscriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetBootscriptResponse>("scaleway-instances:bootscripts:getBootscript", args ?? new GetBootscriptInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1GetBootscriptResponse> Invoke(GetBootscriptInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetBootscriptResponse>("scaleway-instances:bootscripts:getBootscript", args ?? new GetBootscriptInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Dashboard
 
         public static Output<Outputs.ScalewayInstanceV1GetDashboardResponse> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetDashboardResponse>("scaleway-instances:dashboard:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1GetDashboardResponse> Invoke(GetDashboardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetDashboardResponse>("scaleway-instances:dashboard:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 

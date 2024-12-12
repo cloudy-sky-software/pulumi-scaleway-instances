@@ -42,23 +42,12 @@ func (val *LookupSecurityGroupRuleResult) Defaults() *LookupSecurityGroupRuleRes
 
 	return &tmp
 }
-
 func LookupSecurityGroupRuleOutput(ctx *pulumi.Context, args LookupSecurityGroupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSecurityGroupRuleResultOutput, error) {
 			args := v.(LookupSecurityGroupRuleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSecurityGroupRuleResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:rules:getSecurityGroupRule", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSecurityGroupRuleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSecurityGroupRuleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSecurityGroupRuleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:rules:getSecurityGroupRule", args, LookupSecurityGroupRuleResultOutput{}, options).(LookupSecurityGroupRuleResultOutput), nil
 		}).(LookupSecurityGroupRuleResultOutput)
 }
 

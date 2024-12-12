@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Images
 
         public static Output<Outputs.ScalewayInstanceV1GetImageResponse> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetImageResponse>("scaleway-instances:images:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1GetImageResponse> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1GetImageResponse>("scaleway-instances:images:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
 
 
