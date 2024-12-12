@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Rules
 
         public static Output<Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse> Invoke(ListDefaultSecurityGroupRulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse>("scaleway-instances:rules:listDefaultSecurityGroupRules", args ?? new ListDefaultSecurityGroupRulesInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse> Invoke(ListDefaultSecurityGroupRulesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListSecurityGroupRulesResponse>("scaleway-instances:rules:listDefaultSecurityGroupRules", args ?? new ListDefaultSecurityGroupRulesInvokeArgs(), options.WithDefaults());
     }
 
 

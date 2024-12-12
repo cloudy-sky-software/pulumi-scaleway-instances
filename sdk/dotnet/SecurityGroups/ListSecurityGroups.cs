@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.SecurityGroups
 
         public static Output<Outputs.ScalewayInstanceV1ListSecurityGroupsResponse> Invoke(ListSecurityGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListSecurityGroupsResponse>("scaleway-instances:security_groups:listSecurityGroups", args ?? new ListSecurityGroupsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1ListSecurityGroupsResponse> Invoke(ListSecurityGroupsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListSecurityGroupsResponse>("scaleway-instances:security_groups:listSecurityGroups", args ?? new ListSecurityGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

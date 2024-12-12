@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.PlacementGroups
 
         public static Output<Outputs.ScalewayInstanceV1ListPlacementGroupsResponse> Invoke(ListPlacementGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListPlacementGroupsResponse>("scaleway-instances:placement_groups:listPlacementGroups", args ?? new ListPlacementGroupsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1ListPlacementGroupsResponse> Invoke(ListPlacementGroupsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListPlacementGroupsResponse>("scaleway-instances:placement_groups:listPlacementGroups", args ?? new ListPlacementGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Volumes
 
         public static Output<Outputs.ScalewayInstanceV1ListVolumesTypesResponse> Invoke(ListVolumesTypesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListVolumesTypesResponse>("scaleway-instances:volumes:listVolumesTypes", args ?? new ListVolumesTypesInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1ListVolumesTypesResponse> Invoke(ListVolumesTypesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListVolumesTypesResponse>("scaleway-instances:volumes:listVolumesTypes", args ?? new ListVolumesTypesInvokeArgs(), options.WithDefaults());
     }
 
 

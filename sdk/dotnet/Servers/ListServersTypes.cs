@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Servers
 
         public static Output<Outputs.ScalewayInstanceV1ListServersTypesResponse> Invoke(ListServersTypesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListServersTypesResponse>("scaleway-instances:servers:listServersTypes", args ?? new ListServersTypesInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1ListServersTypesResponse> Invoke(ListServersTypesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListServersTypesResponse>("scaleway-instances:servers:listServersTypes", args ?? new ListServersTypesInvokeArgs(), options.WithDefaults());
     }
 
 

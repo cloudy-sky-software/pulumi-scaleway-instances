@@ -42,23 +42,12 @@ func (val *LookupVolumeResult) Defaults() *LookupVolumeResult {
 
 	return &tmp
 }
-
 func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVolumeResultOutput, error) {
 			args := v.(LookupVolumeArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVolumeResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:volumes:getVolume", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVolumeResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVolumeResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVolumeResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:volumes:getVolume", args, LookupVolumeResultOutput{}, options).(LookupVolumeResultOutput), nil
 		}).(LookupVolumeResultOutput)
 }
 

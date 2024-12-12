@@ -32,21 +32,11 @@ type ListServersTypesResult struct {
 }
 
 func ListServersTypesOutput(ctx *pulumi.Context, args ListServersTypesOutputArgs, opts ...pulumi.InvokeOption) ListServersTypesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListServersTypesResultOutput, error) {
 			args := v.(ListServersTypesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListServersTypesResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:servers:listServersTypes", args, &rv, "", opts...)
-			if err != nil {
-				return ListServersTypesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListServersTypesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListServersTypesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:servers:listServersTypes", args, ListServersTypesResultOutput{}, options).(ListServersTypesResultOutput), nil
 		}).(ListServersTypesResultOutput)
 }
 

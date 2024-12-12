@@ -16,6 +16,9 @@ namespace Pulumi.ScalewayInstances.Action
 
         public static Output<Outputs.ScalewayInstanceV1ListServerActionsResponse> Invoke(ListServerActionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListServerActionsResponse>("scaleway-instances:action:listServerActions", args ?? new ListServerActionsInvokeArgs(), options.WithDefaults());
+
+        public static Output<Outputs.ScalewayInstanceV1ListServerActionsResponse> Invoke(ListServerActionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<Outputs.ScalewayInstanceV1ListServerActionsResponse>("scaleway-instances:action:listServerActions", args ?? new ListServerActionsInvokeArgs(), options.WithDefaults());
     }
 
 

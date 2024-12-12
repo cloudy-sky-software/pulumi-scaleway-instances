@@ -32,21 +32,11 @@ type ListVolumesTypesResult struct {
 }
 
 func ListVolumesTypesOutput(ctx *pulumi.Context, args ListVolumesTypesOutputArgs, opts ...pulumi.InvokeOption) ListVolumesTypesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListVolumesTypesResultOutput, error) {
 			args := v.(ListVolumesTypesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListVolumesTypesResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:volumes:listVolumesTypes", args, &rv, "", opts...)
-			if err != nil {
-				return ListVolumesTypesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListVolumesTypesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListVolumesTypesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:volumes:listVolumesTypes", args, ListVolumesTypesResultOutput{}, options).(ListVolumesTypesResultOutput), nil
 		}).(ListVolumesTypesResultOutput)
 }
 

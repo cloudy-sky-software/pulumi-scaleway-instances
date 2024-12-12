@@ -32,21 +32,11 @@ type ListBootscriptsResult struct {
 }
 
 func ListBootscriptsOutput(ctx *pulumi.Context, args ListBootscriptsOutputArgs, opts ...pulumi.InvokeOption) ListBootscriptsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ListBootscriptsResultOutput, error) {
 			args := v.(ListBootscriptsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ListBootscriptsResult
-			secret, err := ctx.InvokePackageRaw("scaleway-instances:bootscripts:listBootscripts", args, &rv, "", opts...)
-			if err != nil {
-				return ListBootscriptsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ListBootscriptsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ListBootscriptsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("scaleway-instances:bootscripts:listBootscripts", args, ListBootscriptsResultOutput{}, options).(ListBootscriptsResultOutput), nil
 		}).(ListBootscriptsResultOutput)
 }
 
