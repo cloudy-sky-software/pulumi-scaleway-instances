@@ -6,7 +6,7 @@ toolchain go1.23.4
 
 require (
 	github.com/cloudy-sky-software/pulschema v0.0.0-20241129051016-28ed2ced4255
-	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20241204204111-8bf026b6280b
+	github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20241212174309-823946f42e37
 	github.com/getkin/kin-openapi v0.128.0
 	github.com/pulumi/pulumi/pkg/v3 v3.143.0
 	github.com/pulumi/pulumi/sdk/v3 v3.143.0
