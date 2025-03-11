@@ -2,7 +2,7 @@ module github.com/cloudy-sky-software/pulumi-scaleway-instances/provider
 
 go 1.22.7
 
-toolchain go1.23.4
+toolchain go1.24.1
 
 require (
 	github.com/cloudy-sky-software/pulschema v0.0.0-20241221004512-6c1fd903e067
