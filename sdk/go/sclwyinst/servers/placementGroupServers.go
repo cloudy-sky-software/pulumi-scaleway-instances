@@ -14,7 +14,7 @@ import (
 type PlacementGroupServers struct {
 	pulumi.CustomResourceState
 
-	Servers pulumi.StringArrayOutput `pulumi:"servers"`
+	Servers ScalewayInstanceV1PlacementGroupServerArrayOutput `pulumi:"servers"`
 }
 
 // NewPlacementGroupServers registers a new resource with the given unique name, arguments, and options.
@@ -110,8 +110,8 @@ func (o PlacementGroupServersOutput) ToPlacementGroupServersOutputWithContext(ct
 	return o
 }
 
-func (o PlacementGroupServersOutput) Servers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PlacementGroupServers) pulumi.StringArrayOutput { return v.Servers }).(pulumi.StringArrayOutput)
+func (o PlacementGroupServersOutput) Servers() ScalewayInstanceV1PlacementGroupServerArrayOutput {
+	return o.ApplyT(func(v *PlacementGroupServers) ScalewayInstanceV1PlacementGroupServerArrayOutput { return v.Servers }).(ScalewayInstanceV1PlacementGroupServerArrayOutput)
 }
 
 func init() {

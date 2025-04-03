@@ -5,8 +5,7 @@ on:
       - v*.*.*
       - "!v*.*.*-**"
 env:
-  GOLANG_CI_LINT_VERSION: v1.61.0
-  GOPRIVATE: "github.com/cloudy-sky-software/*"
+  GOLANG_CI_LINT_VERSION: v1.64.8
   PROVIDER: "scaleway-instances"
   NPM_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
   PUBLISH_NPM: true
@@ -30,12 +29,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v5
         with:
-          go-version: 1.21.x
-
-      - run: |
-          git config --global url."https://praneetloke:${GH_REPO_PAT}@github.com/".insteadOf "https://github.com/"
-        env:
-          GH_REPO_PAT: ${{ secrets.GH_REPO_PAT }}
+          go-version: 1.24.x
 
       - name: Lint
         run: |
@@ -64,7 +58,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v5
         with:
-          go-version: 1.21.x
+          go-version: 1.24.x
 
       - name: Install pulumictl
         uses: jaxxstorm/action-install-gh-release@v2.0.0
@@ -187,15 +181,15 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion:
-          - 3.1.301
+          - 6.0.x
         goversion:
-          - 1.21.x
+          - 1.24.x
         language:
           - nodejs
           - python
           - dotnet
           - go
         nodeversion:
-          - 18.x
+          - 22.x
         pythonversion:
-          - "3.9"
+          - "3.12"

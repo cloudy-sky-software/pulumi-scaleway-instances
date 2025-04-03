@@ -1,4 +1,4 @@
-# Pulumi Native Provider for Scaleway Instances (Preview)
+# Pulumi Native Provider for Scaleway Instances
 
 [Scaleway Instances](https://www.scaleway.com/en/virtual-instances/). Build, deploy and scale applications on Europe's most complete cloud ecosystem.
 
