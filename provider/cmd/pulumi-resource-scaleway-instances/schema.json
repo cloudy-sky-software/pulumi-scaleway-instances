@@ -3829,7 +3829,7 @@
                 "servers": {
                     "type": "array",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/types/scaleway-instances:servers:ScalewayInstanceV1PlacementGroupServer"
                     }
                 }
             },
