@@ -13,7 +13,7 @@ namespace Pulumi.ScalewayInstances.Servers
     public partial class PlacementGroupServers : global::Pulumi.CustomResource
     {
         [Output("servers")]
-        public Output<ImmutableArray<string>> Servers { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ScalewayInstanceV1PlacementGroupServer>> Servers { get; private set; } = null!;
 
 
         /// <summary>
