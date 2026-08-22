@@ -98,8 +98,8 @@ github.com/charmbracelet/x/term v0.2.1 h1:AQeHeLZ1OqSXhrAWpYUtZyX1T3zVxfpZuEQMIQ
 github.com/charmbracelet/x/term v0.2.1/go.mod h1:oQ4enTYFV7QN4m0i9mzHrViD7TQKvNEEkHUMCmsxdUg=
 github.com/cheggaaa/pb v1.0.29 h1:FckUN5ngEk2LpvuG0fw1GEFx6LtyY2pWI/Z2QgCnEYo=
 github.com/cheggaaa/pb v1.0.29/go.mod h1:W40334L7FMC5JKWldsTWbdGjLo0RxUKK73K+TuPxX30=
-github.com/cloudflare/circl v1.6.0 h1:cr5JKic4HI+LkINy2lg3W2jF8sHCVTBncJr5gIIq7qk=
-github.com/cloudflare/circl v1.6.0/go.mod h1:uddAzsPgqdMAYatqJ0lsjX1oECcQLIlRpzZh3pJrofs=
+github.com/cloudflare/circl v1.6.1 h1:zqIqSPIndyBh1bjLVVDHMPpVKqp8Su/V+6MeDzzQBQ0=
+github.com/cloudflare/circl v1.6.1/go.mod h1:uddAzsPgqdMAYatqJ0lsjX1oECcQLIlRpzZh3pJrofs=
 github.com/cloudy-sky-software/pulschema v0.0.0-20250403050721-b17b77aafab2 h1:4tG5R2rV2A7lg1unX9zNHLu4gaxnnYiSlZY2ktjPTgA=
 github.com/cloudy-sky-software/pulschema v0.0.0-20250403050721-b17b77aafab2/go.mod h1:4KCtXOLPxa1LVzg3rHFQRfJM7vTaOY8pUCy59uh5Yno=
 github.com/cloudy-sky-software/pulumi-provider-framework v0.0.0-20250406052306-10a860736c63 h1:qftj0HTImjJL0Y+Cyow1Xw2v129VzzH31XFt6MwwRuU=
